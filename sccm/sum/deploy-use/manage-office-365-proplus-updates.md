@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 627e476ee5824eafeb9d034b64010c8677f22a85
-ms.sourcegitcommit: 1f8731ed8f0308cb2cb576722adb0821a366e9ce
+ms.openlocfilehash: c99985eb72b1948589bb54819aa1a4d8e03007a9
+ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51223760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53303946"
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -139,10 +139,7 @@ Ao implementar uma atualização para um cliente do Office 365, as notificaçõe
 
 |Versão do Configuration Manager |Experiência do utilizador final|  
 |----------------|---------------------|
-|Anteriores à versão 1610|É definir um sinalizador de reinício e a atualização for instalada após o reinício do computador.|
-|1610|Aplicações do Office 365 são encerradas sem aviso antes de instalar a atualização|
-|versão 1610 com a atualização <br/>1702|É definir um sinalizador de reinício e a atualização for instalada após o reinício do computador.|
-|1706|O cliente recebe notificações de pop-up e na aplicação, bem como uma caixa de diálogo de contagem regressiva, antes de instalar a atualização.|
+|1706, 1710|O cliente recebe notificações de pop-up e na aplicação, bem como uma caixa de diálogo de contagem regressiva, antes de instalar a atualização.|
 |1802| O cliente recebe notificações de pop-up e na aplicação, bem como uma caixa de diálogo de contagem regressiva, antes de instalar a atualização. </br>Se estiver a executar todas as aplicações do Office 365 durante uma imposição de atualização de cliente do Office 365, os aplicativos do Office não serão forçados a fechar. Em vez disso, a instalação da atualização devolverá exigir um reinício do sistema <!--510006-->|
 
 

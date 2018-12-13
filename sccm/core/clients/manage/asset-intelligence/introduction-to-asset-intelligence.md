@@ -1,8 +1,8 @@
 ---
-title: Introdução do Asset Intelligence
+title: Introdução do Asset intelligence
 titleSuffix: Configuration Manager
-description: Obtenha uma introdução ao Asset Intelligence no System Center Configuration Manager.
-ms.date: 2/22/2017
+description: Utilize o asset intelligence no Configuration Manager para inventariar e gerir a utilização de licenças de software em toda a empresa.
+ms.date: 12/10/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,194 +10,261 @@ ms.assetid: 0bdfdef5-390f-4099-8bde-de51d9a89175
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0c09160e88d8a713caadfdd9a6973fd436b4cad1
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: cf0d222c005da2b7d5b577ebdec64cd64eba536c
+ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32340799"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53303929"
 ---
-# <a name="introduction-to-asset-intelligence-in-system-center-configuration-manager"></a>Introdução ao Asset Intelligence no System Center Configuration Manager
+# <a name="introduction-to-asset-intelligence-in-configuration-manager"></a>Introdução ao asset intelligence no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Asset Intelligence no System Center Configuration Manager permite-lhe inventariar e gerir a utilização de licenças de software em toda a empresa utilizando o catálogo do Asset Intelligence. Muitas classes do Windows Management Instrumentation (WMI) de inventário de hardware melhoram o volume de informações que são recolhidas sobre títulos de hardware e software que estão a ser utilizados. Mais de 60 relatórios apresentam estas informações num formato de fácil utilização. Muitos destes relatórios incluem uma ligação para relatórios mais específicos, nos quais pode consultar informações gerais e desagregar para obter informações mais detalhadas. No entanto, pode adicionar informações personalizadas ao catálogo do Asset Intelligence, tais como categorias de software personalizadas, famílias de software, etiquetas de software e requisitos de hardware. Também pode ligar ao System Center Online para atualizar dinamicamente o catálogo do Asset Intelligence com as informações mais recentes disponíveis. Os clientes da Microsoft podem reconciliar a utilização de licenças de software empresarial com licenças de software adquiridas que estão a ser utilizada por importar informações de licença de software para a base de dados do site do Configuration Manager.  
+Inventariar e gerir a utilização de licenças de software em toda a empresa ao utilizar o catálogo do asset intelligence. Do Asset intelligence adiciona as classes de inventário de hardware para melhorar a variedade das informações que recolhe do Configuration Manager. Estas informações incluem os títulos de hardware e software utilizados no seu ambiente. Mais de 60 relatórios apresentam estas informações num formato de fácil de usar. Muitos destes relatórios incluem uma ligação para relatórios mais específicos. Consultar informações gerais e desagregar para obter informações mais detalhadas. 
 
-##  <a name="BKMK_AssetIntelligenceCatalog"></a> Catálogo do Asset Intelligence  
+Adicione informações personalizadas ao catálogo do asset intelligence. Por exemplo, categorias de software personalizadas, famílias de software, etiquetas de software e requisitos de hardware. Para atualizar dinamicamente o catálogo do asset intelligence com as informações mais recentes disponíveis, ligue-o para a Cloud da Microsoft. 
 
- O catálogo do Asset Intelligence do Configuration Manager é um conjunto de tabelas de base de dados armazenados na base de dados do site que contêm informações de categorização e identificação de mais de 300.000 versões e títulos de software. Estas tabelas de base de dados também são utilizadas para gerir os requisitos de hardware para títulos de software específicos.  
+Utilize o asset intelligence para o ajudar a reconciliar a utilização de licenças de software empresarial. Importar informações de licença de software para a base de dados do site do Configuration Manager para vê-lo contra a qual software está a ser utilizado.  
 
- O catálogo do Asset Intelligence fornece informações de licenças de software para títulos de software que estão a ser utilizados, da Microsoft e de software que não seja da Microsoft. Um conjunto predefinido de requisitos de hardware para títulos de software está disponível no catálogo do Asset Intelligence e poderá criar novas informações de requisitos de hardware definidos pelo utilizador para satisfazer requisitos personalizados. Além disso, pode personalizar informações no catálogo do Asset Intelligence e pode carregar informações sobre títulos de software para o System Center Online para categorização.  
 
- Atualizações ao catálogo do Asset Intelligence, que contêm software recentemente publicado, estão disponíveis para transferência periodicamente para efetuar atualizações do catálogo em massa. Em alternativa, o catálogo pode ser atualizado dinamicamente utilizando a função de sistema de sites do ponto de sincronização do Asset Intelligence.  
 
-###  <a name="BKMK_SoftwareCategories"></a> Categorias de software  
- As categorias de software do Asset Intelligence são utilizadas para categorizar amplamente títulos de software inventariado e são também utilizadas como agrupamentos de alto nível de famílias de software mais específicas. Por exemplo, uma categoria de software poderá ser empresas de energia e uma família de software dentro dessa categoria de software poderá ser petróleo e gás ou hidroelétrica. Muitas categorias de software estão predefinidas no catálogo do Asset Intelligence e é possível criar categorias definidas pelo utilizador para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as categorias predefinidas de software é sempre **Validado**, ao passo que o estado das informações de categorias personalizadas de software adicionadas ao catálogo do Asset Intelligence é **Definido pelo Utilizador**. Para obter mais informações sobre como gerir categorias de software, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+## <a name="BKMK_AssetIntelligenceCatalog"></a> Catálogo do Asset intelligence  
 
-> [!NOTE]  
->  As informações de categorias predefinidas de software que estão armazenadas no catálogo do Asset Intelligence são só de leitura e não podem ser alteradas nem eliminadas. Os utilizadores administrativos podem adicionar, modificar ou eliminar categorias de software definidas pelo utilizador.  
+O catálogo do asset intelligence é um conjunto de tabelas de base de dados armazenados na base de dados do site. Estas tabelas incluem informações de categorização e identificação de mais de 300.000 versões e títulos de software. Também ajudam a gerir requisitos de hardware para títulos de software específico.  
 
-###  <a name="BKMK_SoftwareFamilies"></a> Famílias de software  
- As famílias de software do Asset Intelligence são utilizadas para definir títulos de software inventariado dentro de categorias de software. Muitas famílias de software estão predefinidas no catálogo do Asset Intelligence e é possível criar categorias definidas pelo utilizador para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as famílias predefinidas de software é sempre **Validado**, enquanto que o estado das informações de famílias personalizadas de software adicionadas ao catálogo do Asset Intelligence é **Definido pelo Utilizador**. Para obter mais informações sobre como gerir famílias de software, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+O Asset intelligence inclui software informações de licença para títulos de software que estão sendo usados, da Microsoft e de software não Microsoft. Um conjunto predefinido de requisitos de hardware para títulos de software está disponível no catálogo do asset intelligence e pode criar novas informações de requisitos de hardware definidos pelo utilizador para satisfazer requisitos personalizados. Também pode personalizar informações no catálogo do asset intelligence e pode carregar informações de títulos de software para a cloud da Microsoft para categorização.  
 
-> [!NOTE]  
->  As informações de famílias de software predefinidas são só de leitura e não podem ser alteradas. Os utilizadores administrativos podem adicionar, modificar ou eliminar famílias de software definidas pelo utilizador.  
+Atualizações ao catálogo do Asset intelligence que incluem software recentemente publicadas estão disponíveis para transferência periodicamente para efetuar atualizações de catálogo em massa. Ele pode também ser atualizado dinamicamente utilizando o ponto de sincronização do asset intelligence.  
 
-###  <a name="BKMK_CustomLabels"></a> Etiquetas de software  
- As etiquetas personalizadas de software do Asset Intelligence permitem criar filtros que poderá utilizar para agrupar títulos de software e visualizá-los através de relatórios do Asset Intelligence. Pode utilizar etiquetas de software para criar grupos definidos pelo utilizador de títulos de software que partilham um atributo comum. Por exemplo, poderia criar uma etiqueta de software denominada Shareware, associar essa etiqueta de software a títulos de shareware inventariados e executar um relatório para apresentar todos os títulos de software com a etiqueta de software Shareware associada. As etiquetas de software não estão predefinidas. O estado de validação para as etiquetas de software é sempre **Definido pelo Utilizador**. Para obter mais informações sobre como gerir etiquetas de software, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
-###  <a name="BKMK_HardwareRequirements"></a> Requisitos de hardware  
- Pode utilizar as informações de requisitos de hardware para verificar se os computadores cumprem os requisitos de hardware para títulos de software antes de terem como destino implementações de software. Pode gerir requisitos de hardware para títulos de software na área de trabalho **Ativos e Compatibilidade** , no nó **Requisitos de Hardware** sob o nó **Asset Intelligence** . Muitos requisitos de hardware estão predefinidos no catálogo do Asset Intelligence e poderá criar novas informações de requisitos de hardware definidos pelo utilizador para satisfazer requisitos personalizados. O estado de validação para todos os requisitos de hardware predefinidos é sempre **Validado**, enquanto que o estado das informações de requisitos de hardware definidos pelo utilizador adicionados ao catálogo do Asset Intelligence é **Definido pelo Utilizador**. Para obter mais informações sobre como gerir requisitos de hardware, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+### <a name="BKMK_SoftwareCategories"></a> Categorias de software  
+
+As categorias de software do Asset intelligence são utilizadas para categorizar amplamente títulos de software inventariado e, como agrupamentos de alto nível de famílias de software mais específicas. Por exemplo, uma categoria de software poderá ser empresas de energia e uma família de software dentro dessa categoria de software poderá ser petróleo e gás ou hidroelétrica. Muitas categorias de software estão predefinidas no catálogo do asset intelligence. Pode criar categorias definidas pelo utilizador para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as categorias predefinidas de software é sempre **validado**. Informações de categorias personalizadas de software adicionadas ao catálogo do asset intelligence são **definido pelo utilizador**. 
+
+Para obter mais informações sobre como gerir categorias de software, consulte [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
 
 > [!NOTE]  
->  Os requisitos de hardware apresentados na consola do Configuration Manager são obtidos a partir do catálogo do Asset Intelligence e não se baseiam em informações de títulos de software inventariado de clientes do System Center 2012 Configuration Manager. As informações de requisitos de hardware não são atualizadas como parte do processo de sincronização com o System Center Online. Pode criar requisitos de hardware definidos pelo utilizador para software inventariado, que não tenham requisitos de hardware associados.  
+> Informações de categorias predefinidas de software armazenadas no catálogo do asset intelligence são só de leitura. Não é possível alterar ou eliminá-lo. Os utilizadores administrativos podem adicionar, modificar ou eliminar categorias de software definidas pelo utilizador.  
 
- Por predefinição, as seguintes informações são apresentadas para cada requisito de hardware listado:  
 
--   **Título de software**: Especifica o título de software associado com o requisito de hardware.  
+### <a name="BKMK_SoftwareFamilies"></a> Famílias de software  
 
--   **Mínima da CPU (MHz)**: Especifica a velocidade mínima do processador, em megahertz (MHz), necessária para o título de software.  
+As famílias de software do Asset intelligence são utilizadas para definir títulos de software inventariado dentro de categorias de software. Muitas famílias de software estão predefinidas no catálogo do asset intelligence. Pode criar categorias definidas pelo utilizador para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as famílias predefinidas de software é sempre **validado**. Informações de famílias personalizadas de software adicionadas ao catálogo do asset intelligence é **definido pelo utilizador**. 
 
--   **RAM mínima (KB)**: Especifica a RAM mínima, em quilobytes (KB), necessárias para o título de software.  
-
--   **Espaço mínimo em disco (KB)**: Especifica o mínimo livre no disco rígido, em KB, necessário ao título de software.  
-
--   **Tamanho mínimo do disco (KB)**: Especifica o tamanho de mínima de disco rígido, em KB, necessário ao título de software.  
-
--   **Estado de validação**: Especifica o estado de validação para o requisito de hardware.  
-
- Os requisitos de hardware predefinidos armazenados no catálogo do Asset Intelligence são só de leitura e não podem ser eliminados.  Os utilizadores administrativos podem adicionar, modificar ou eliminar requisitos de hardware definidos pelo utilizador para títulos de software que não estão armazenados no catálogo do Asset Intelligence.  
-
-##  <a name="BKMK_InventoriedSoftwareTitles"></a> Títulos de software inventariado  
- Pode ver informações de títulos de software inventariado na área de trabalho **Ativos e Compatibilidade** , no nó **Software inventariado** , sob o nó **Asset Intelligence** . O agente de cliente de inventário de Hardware recolhe as informações de software inventariado de clientes do Configuration Manager com base nos títulos de software que estão armazenados no catálogo do Asset Intelligence.  
-
-> [!WARNING]  
->  O Agente do Cliente de Inventário de Hardware recolhe inventário com base nas classes de relatório de inventário de hardware do Asset Intelligence que ativar. Para obter mais informações sobre como ativar o relatório de classes, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
-
- Por predefinição, as seguintes informações são apresentadas para cada título de software inventariado:  
-
--   **Nome**: Especifica o nome do título de software inventariado.  
-
--   **Fornecedor**: Especifica o nome do fornecedor que desenvolveu o título de software inventariado.  
-
--   **Versão**: Especifica a versão de produto do título de software inventariado.  
-
--   **Categoria**: Especifica a categoria de software que está atualmente atribuída ao título de software inventariado.  
-
--   **Família**: Especifica a família de software que está atualmente atribuída ao título de software inventariado.  
-
--   **Etiqueta** [**1**, **2**, e **3**]: Especifica as etiquetas personalizadas associadas ao título de software. Os títulos de software inventariado podem ter até três etiquetas personalizadas associadas aos mesmos.  
-
--   **Contagem**: Especifica o número de clientes do Configuration Manager que inventariaram o título de software.  
-
--   **Estado**: Especifica o estado de validação para o título de software inventariado.  
+Para obter mais informações sobre como gerir famílias de software, consulte [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
 
 > [!NOTE]  
->  Pode alterar as informações de categorização (nome de produto, fornecedor, categoria de software e família de software) para software inventariado apenas no site de nível superior na sua hierarquia. Depois de modificar as informações de categorização para software predefinido, o estado de validação do software é alterado de **Validado** para **Definido pelo Utilizador**.  
+> Informações de famílias predefinidas de software é só de leitura e não podem ser alteradas. Os utilizadores administrativos podem adicionar, modificar ou eliminar famílias de software definidas pelo utilizador.  
 
-##  <a name="AssetIntelligenceSycnronizationPoint"></a> Ponto de Sincronização do Asset Intelligence  
- O ponto de sincronização do Asset Intelligence é uma função de sistema de sites do Configuration Manager utilizada para ligar ao System Center Online (utilizando a porta TCP 443) para gerir as informações do catálogo do Asset Intelligence dinâmicas atualizações. Esta função de site só pode ser instalada no site de nível superior da hierarquia. Tem de configurar todos os a personalização do catálogo do Asset Intelligence, utilizando uma consola do Configuration Manager ligada ao site de nível superior. Apesar de todas as atualizações terem de ser configuradas no site de nível superior, as informações do catálogo do Asset Intelligence são replicadas para outros sites na hierarquia. A função de site do ponto de sincronização do Asset Intelligence permite-lhe pedir a sincronização do catálogo a pedido com o System Center Online ou agendar a sincronização automática do catálogo. Para além de transferir novas informações do catálogo do Asset Intelligence, o ponto de sincronização do Asset Intelligence pode carregar informações personalizadas de títulos de software para o System Center Online para categorização. A Microsoft trata todos os títulos de software carregados para o System Center Online para categorização como informações públicas. Por conseguinte, deverá certificar-se de que os títulos de software personalizados não contêm informações confidenciais ou de propriedade.  
+
+### <a name="BKMK_CustomLabels"></a> Etiquetas de software  
+
+As etiquetas personalizadas de software do Asset intelligence permitem criar filtros para agrupar títulos de software e visualizá-los em relatórios do asset intelligence. Utilize etiquetas de software para criar grupos definidos pelo utilizador de títulos de software que partilham um atributo comum. Por exemplo, poderia criar uma etiqueta de software denominada Shareware, associá-lo a títulos de shareware inventariados e executar um relatório para apresentar todos os títulos de software com essa etiqueta. Não existem não existem etiquetas predefinidas. O estado de validação para as etiquetas de software é sempre **Definido pelo Utilizador**. 
+
+Para obter mais informações sobre como gerir etiquetas de software, consulte [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
+
+
+### <a name="BKMK_HardwareRequirements"></a> Requisitos de hardware  
+
+Utilize as informações de requisitos de hardware para verificar se os computadores cumprem os requisitos de hardware para títulos de software antes de eles estão como destino para implementações de software. Gerir requisitos de hardware para títulos de software no **ativos e compatibilidade** área de trabalho a **os requisitos de Hardware** no nó os **do Asset Intelligence** nó. 
+
+Muitos requisitos de hardware estão predefinidos no catálogo do asset intelligence. Crie novas informações de requisitos de hardware definidos pelo utilizador para satisfazer requisitos personalizados. O estado de validação para todos os requisitos de hardware predefinidos é sempre **validado**. Informações de requisitos de hardware definidos pelo utilizador adicionados ao catálogo do asset intelligence são **definido pelo utilizador**. 
+
+Para obter mais informações sobre como gerir requisitos de hardware, consulte [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
 
 > [!NOTE]  
->  Depois de um título de software não categorizado ser submetido, e caso existam, pelo menos, 4 pedidos de categorização de clientes para o mesmo título de software, os investigadores do System Center Online identificam, categorizam e disponibilizam as informações de categorização do título de software para todos os clientes que estejam a utilizar o serviço online. Os títulos de software que representem o maior número de pedidos de categorização recebem prioridade máxima de categorização. É improvável que as aplicações personalizadas de linha de negócio e de software recebam uma categoria e, como melhor prática, o utilizador não deve enviar estes títulos de software à Microsoft para categorização.  
+> Os requisitos de hardware apresentados na consola do Configuration Manager são obtidos a partir do catálogo do asset intelligence. Eles não são baseiam-se a informações de títulos de software inventariado de clientes. 
+> 
+> Informações de requisitos de hardware não são atualizadas como parte do processo de sincronização com a Microsoft. 
+> 
+> Pode criar requisitos de hardware definidos pelo utilizador para software inventariado que não tem requisitos de hardware associados.  
+
+Por predefinição, as seguintes informações são apresentadas para cada requisito de hardware listado:  
+
+- **Título de software**: O título de software associado ao requisito de hardware  
+
+- **Velocidade mínima da CPU (MHz)**: A velocidade mínima do processador em megahertz (MHz), necessária para o título de software  
+
+- **Quantidade mínima de RAM (KB)**: A quantidade mínima de RAM em quilobytes (KB), necessária para o título de software  
+
+- **Espaço mínimo em disco (KB)**: O espaço livre mínimo do disco rígido em KB, necessário ao título de software  
+
+- **Tamanho mínimo do disco (KB)**: O tamanho mínimo do disco rígido em KB, necessário ao título de software  
+
+- **Estado de validação**: O estado de validação para o requisito de hardware  
+
+Predefinidos hardware requisitos armazenados no catálogo do asset intelligence são só de leitura e não podem ser eliminados. Os utilizadores administrativos podem adicionar, modificar ou eliminar requisitos de hardware definidos pelo utilizador para títulos de software que não são armazenados no catálogo do asset intelligence.  
+
+
+
+## <a name="BKMK_InventoriedSoftwareTitles"></a> Títulos de software inventariado  
+
+Para ver informações de títulos de software inventariado na consola do Configuration Manager, vá para o **ativos e compatibilidade** área de trabalho, expanda o **Asset Intelligence** nó e selecione o  **Inventariados Software** nó. O agente de inventário de hardware recolhe as informações de software inventariado de clientes do Configuration Manager com base nos títulos de software armazenados no catálogo do asset intelligence.  
+
+> [!Note]  
+> O agente de inventário de hardware recolhe inventário de acordo com o inventário de hardware do asset intelligence classes que permitem a de relatório. Para obter mais informações sobre como ativar o relatório de classes, consulte [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
+
+Por predefinição, as seguintes informações são apresentadas para cada título de software inventariado:  
+
+- **Nome**: O nome do título de software inventariado  
+
+- **Fornecedor**: O nome do fornecedor que desenvolveu o título de software inventariado  
+
+- **Versão**: A versão de produto do título de software inventariado  
+
+- **Categoria**: A categoria de software que está atualmente atribuída ao título de software inventariado  
+
+- **Família**: A família de software que está atualmente atribuída ao título de software inventariado  
+
+- **Etiqueta** [**1**, **2**, e **3**]: As etiquetas personalizadas associadas com o título de software. Os títulos de software inventariado podem ter até três etiquetas personalizadas associadas aos mesmos.  
+
+- **Contagem de**: O número de clientes do Configuration Manager que inventariaram o título de software  
+
+- **estado**: O estado de validação para o título de software inventariado  
 
 > [!NOTE]  
->  Uma função de sistema de sites do ponto de sincronização do Asset Intelligence é necessário para ligar ao System Center Online. Para obter informações sobre como instalar um ponto de sincronização do Asset Intelligence, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+> Pode alterar as informações de categorização para software inventariado apenas no site de nível superior na sua hierarquia. Estas informações incluem o nome do produto, fornecedor, categoria de software e família de software. Depois de modificar as informações de categorização para software predefinido, o estado de validação do software é alterado de **Validado** para **Definido pelo Utilizador**.  
 
-##  <a name="BKMK_AssetIntelligenceHomePage"></a> Home page do Asset Intelligence  
- O **do Asset Intelligence** no nó de **ativos e compatibilidade** área de trabalho é a home page do Asset Intelligence no Configuration Manager. A home page do **Asset Intelligence** apresenta uma vista de dashboard de resumo de informações do catálogo do Asset Intelligence.  
+
+
+## <a name="AssetIntelligenceSycnronizationPoint"></a> Ponto de sincronização do Asset intelligence  
+
+O ponto de sincronização do asset intelligence é uma função de sistema de sites do Configuration Manager. É utilizado para ligar à nuvem da Microsoft na porta TCP 443 para gerir atualizações de informações do catálogo dinâmico. Instale esta função de site apenas no site de nível superior da hierarquia. Configure todos os personalização do catálogo asset intelligence, utilizando uma consola do Configuration Manager ligada ao site de nível superior. 
+
+Embora configurar todas as atualizações no site de nível superior, informações do catálogo são replicadas para outros sites na hierarquia. A função de site permite-lhe pedir a sincronização do catálogo de demanda com a Microsoft, ou agendar sincronização automática do catálogo. Para além de transferir novas informações de catálogo, o ponto de sincronização do asset intelligence pode carregar informações de títulos de software personalizadas para a Microsoft para categorização. A Microsoft trata todos os títulos de software carregados como informações públicas. Certifique-se de que os títulos de software personalizados não incluem informações confidenciais ou proprietárias.  
+
+Depois de submeter um título de software não categorizados, Microsoft não revisá-lo até que haja pelo menos, quatro pedidos de categorização de clientes para o mesmo título de software. Em seguida, os investigadores da Microsoft identificar, categorizarem e disponibilizam informações de categorização de títulos de software para todos os clientes que estão a utilizar o serviço online. Os títulos de software que representem o maior número de pedidos de categorização recebem prioridade máxima de categorização. Personalizadas de software e aplicações de linha de negócio são pouco provável que recebam uma categoria. Não envie estes títulos de software à Microsoft para categorização.  
+
+Um ponto de sincronização do asset intelligence é necessário para ligar à nuvem da Microsoft. Para obter informações sobre como instalar a função, veja [configurar o asset intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).  
+
+
+
+## <a name="BKMK_AssetIntelligenceHomePage"></a> Home page do Asset intelligence  
+
+O **Asset Intelligence** nó a **ativos e compatibilidade** área de trabalho é a home page do asset intelligence no Configuration Manager. Esta home page apresenta uma vista de dashboard de resumo para obter informações de catálogo do asset intelligence.  
 
 > [!NOTE]  
->  A home page do **Asset Intelligence** não é atualizada automaticamente enquanto está a ser visualizada.  
+> O **Asset Intelligence** home page do não ser atualizada automaticamente enquanto estiver a ver.  
 
- A home page do **Asset Intelligence** contém as secções seguintes:  
+O **Asset Intelligence** página inicial inclui as secções seguintes:  
 
--   **Sincronização do catálogo**: Fornece informações sobre se o Asset Intelligence está ativado e o estado atual do ponto de sincronização do Asset Intelligence. A secção também fornece o agendamento da sincronização, se a declaração de licença de cliente é importada, quando o estado foi atualizado pela última vez e a hora da próxima atualização agendada, bem como o número de alterações que ocorreram após a instalação do sistema de sites do ponto de sincronização do Asset Intelligence.  
+- **Sincronização do catálogo**: Informações sobre se o asset intelligence está ativado e o estado atual do ponto de sincronização do asset intelligence.  
 
     > [!NOTE]  
-    >  A secção de sincronização do catálogo do Asset Intelligence da home page do **Asset Intelligence** só é apresentada se tiver sido instalada uma função de sistema de sites do ponto de sincronização do Asset Intelligence.  
+    > A home page apresenta apenas esta secção quando instala um ponto de sincronização do asset intelligence.  
 
--   **Estado de Software inventariado**: Fornece a contagem e a percentagem de software inventariado, categorias de software e famílias de software que são identificadas pela Microsoft, identificada por um administrador, com identificação online pendente ou não identificadas e não pendentes. As informações apresentadas em formato de tabela mostram a contagem de cada uma e as informações apresentadas no gráfico mostram a percentagem de cada uma.  
+    A secção também fornece as seguintes informações:  
 
-##  <a name="BKMK_AssetIntelligenceReports"></a> Relatórios do Asset Intelligence  
- Os relatórios do Asset Intelligence estão localizados na consola do Configuration Manager, no **monitorização** área de trabalho, a pasta de Asset Intelligence sob o **relatórios** nó. Os relatórios fornecem informações sobre hardware, gestão de licenças e software. Para obter mais informações sobre os relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+    - Agenda de sincronização  
+
+    - Se importar uma declaração de licença de cliente   
+
+    - Última atualização de estado  
+
+    - O tempo para a próxima atualização agendada  
+
+    - Aponte o número de alterações após a instalação da sincronização do asset intelligence   
+
+- **Estado de Software inventariado**: A contagem e a percentagem de software inventariado, categorias de software e famílias de software que são identificadas pela Microsoft, identificada por um administrador, com identificação online pendente ou não identificadas e não pendentes. As informações apresentadas em formato de tabela mostram a contagem de cada uma e as informações apresentadas no gráfico mostram a percentagem de cada uma.  
+
+
+
+## <a name="BKMK_AssetIntelligenceReports"></a> Relatórios do Asset intelligence  
+
+Os relatórios do asset intelligence estão localizados na consola do Configuration Manager, na **monitorização** área de trabalho, na **do Asset intelligence** pasta sob o **relatórios**nó. Os relatórios fornecem informações sobre hardware, gestão de licenças e software. Para obter mais informações sobre os relatórios no Configuration Manager, consulte [relatórios](/sccm/core/servers/manage/reporting).  
 
 > [!NOTE]  
->  A precisão da quantidade de títulos de software instalados e as informações de licenças apresentadas nos relatórios do Asset Intelligence podem variar em relação ao número real de títulos de software instalados ou de licenças utilizadas no ambiente. Esta variação deve-se às complexas dependências e limitações envolvidas no inventário de informações de licenças de software para títulos de software que estão instalados em ambientes empresariais. Não utilize os relatórios do Asset Intelligence como única fonte para determinar o cumprimento das licenças de software adquiridas.  
+> A precisão da quantidade de títulos de software instalado e informações de licença apresentadas do asset intelligence relatórios podem variar em relação ao número real de títulos de software instalados ou de licenças que são utilizadas no ambiente. Esta variação deve-se às complexas dependências e limitações envolvidas no inventário de informações de licenças de software para títulos de software que estão instalados em ambientes empresariais. Não utilize relatórios do asset intelligence como única fonte para determinar o cumprimento da licença de software adquiridas.  
 
-###  <a name="BKMK_HardwareReports"></a> Relatórios de hardware do Asset Intelligence  
- Os relatórios de hardware do Asset Intelligence fornecem informações sobre recursos de hardware na organização. Através da utilização de informações de inventário de hardware, tais como velocidade, memória, dispositivos periféricos, entre outras, os relatórios de hardware do Asset Intelligence podem apresentar informações sobre dispositivos USB, sobre o hardware que tem de ser atualizado e até sobre computadores que não estão prontos para uma atualização específica de software.  
+
+### <a name="BKMK_HardwareReports"></a> Relatórios de hardware  
+
+Relatórios de hardware do Asset intelligence fornecem informações sobre os recursos de hardware na organização. Ao utilizar as informações de inventário de hardware, tais como velocidade, memória e dispositivos periféricos, relatórios de hardware do asset intelligence podem apresentar informações sobre dispositivos USB, sobre o hardware que tem de ser atualizado e até sobre computadores que não estão preparadas para um específico atualização de software.  
 
 > [!NOTE]  
->  Alguns dados de utilizador nos relatórios de hardware do Asset Intelligence são recolhidos a partir do Registo de Eventos de Segurança do Sistema. Para uma melhor exatidão do relatório, recomendamos que desmarque este registo ao reatribuir um computador a um novo utilizador.  
+> Alguns dados de utilizador nos relatórios de hardware do asset intelligence são recolhidos a partir do registo de eventos de segurança do Windows. Para uma melhor exatidão do relatório, desmarque este registo ao reatribuir um computador a um novo utilizador.  
 
-###  <a name="BKMK_LicenseManagementReports"></a> Relatórios de gestão de licenças do Asset Intelligence  
- Os relatórios de gestão de licenças do Asset Intelligence fornecem dados sobre as licenças que estão a ser utilizadas. O relatório de Razão de Licenciamento apresenta uma lista de aplicações Microsoft instaladas num formato congruente com uma Declaração de Licença Microsoft (MLS). Isto proporciona um método prático de correspondência de licenças adquiridas com licenças utilizadas. Outros relatórios de Gestão de Licenças fornecem informações sobre computadores que funcionam como servidores que executam o Key Management Service (KMS) para estatísticas de ativação do sistema operativo.  
+
+### <a name="BKMK_LicenseManagementReports"></a> Relatórios de gestão de licenças  
+
+Relatórios de gestão de licenças do Asset intelligence fornecem dados sobre as licenças que estão a ser utilizados. O **Ledger de licenciamento** reportar listas instaladas aplicações da Microsoft num formato Congruente com uma declaração de licença da Microsoft (MLS). Este formato fornece um método prático de correspondência de licenças adquirida com licenças utilizadas. Outros relatórios de gestão de licenças fornecem informações sobre computadores que funcionam como servidores que executam o serviço de gestão de chaves (KMS) para estatísticas de ativação do Windows.  
 
 > [!IMPORTANT]  
->  Muitos dos relatórios de Gestão de Licenças do Asset Intelligence apresentam informações sobre a função de KMS, um método de administração de licenciamento em volume. Se não tiver sido implementado um servidor KMS, alguns relatórios podem não devolver dados. Para obter mais informações sobre KMS, procure KMS no [Microsoft TechNet](http://go.microsoft.com/fwlink/?linkid=3225).  
+> Vários dos relatórios de gestão de licenças do asset intelligence apresentam informações sobre a função de KMS, um método de administração do licenciamento por volume. Se ainda não tiver implementado um servidor KMS, alguns relatórios podem não devolver quaisquer dados.  
 
-###  <a name="BKMK_SoftwareReports"></a> Relatórios de software do Asset Intelligence  
- Os relatórios de software do Asset Intelligence fornecem informações sobre famílias de software, categorias e títulos de software específicos que são instalados em computadores na organização. Os relatórios de software apresentam informações sobre objetos de programa auxiliar de browser, software que inicia automaticamente e muito mais. Estes relatórios podem ser utilizados para identificar adware, spyware e outro software maligno, e identificam redundância de software para ajudar a otimizar a compra de software e o suporte.  
 
-###  <a name="BKMK_SoftwareIdTagReports"></a> Relatórios de etiquetas de identificação de software do Asset Intelligence  
- Os relatórios de etiquetas de identificação de software do Asset Intelligence fornecem informações sobre software que contém uma etiqueta de identificação de software compatível com a norma ISO/IEC 19770-2. As etiquetas de identificação de software fornecem informações autoritativas que são utilizadas para identificar o software instalado. Quando ativar o inventário de hardware SMS_SoftwareTag classe de relatório, o Configuration Manager recolhe informações sobre o software com etiquetas de identificação de software. Os relatórios seguintes fornecem informações sobre o software:  
+### <a name="BKMK_SoftwareReports"></a> Relatórios de software  
 
--   **Software 14A - procurar etiqueta de identificação de software ativado de software**: Este relatório fornece a contagem do software instalado com uma etiqueta de identificação de software ativada.  
+Relatórios de software do Asset intelligence fornecem informações sobre famílias de software, categorias e títulos de software específicos que estão instalados nos computadores da organização. Os relatórios de software apresentam informações como objetos auxiliares de navegador e de software que inicia automaticamente. Estes relatórios podem ser utilizados para identificar adware, spyware e outro software maligno. Também pode usá-los para identificar a redundância de software para ajudar a simplificar a aquisição de software e suporte.  
 
--   **Software 14B - computadores com etiqueta de identificação de software específica ativada software instalado**: Este relatório lista todos os computadores que têm instalado software com uma etiqueta de identificação de software específica ativada.  
 
--   **Software 14C - software identificação tag ativada software instalado num computador específico**: Este relatório lista todo o software com uma etiqueta de identificação de software específico ativada num computador específico.  
+### <a name="BKMK_SoftwareIdTagReports"></a> Relatórios de etiquetas de identificação de software  
 
-###  <a name="BKMK_ReportingLImitations"></a> Limitações de relatórios do Asset Intelligence  
- Os relatórios do Asset Intelligence podem fornecer grandes quantidades de informação sobre títulos de software instalado e licenças de software compradas que estão a ser utilizadas. No entanto, deve não utilizar estas informações como a única origem para determinar o cumprimento das licenças de software compradas.  
+Relatórios de etiquetas de identificação de software do Asset intelligence fornecem informações sobre software que inclua uma etiqueta de identificação de software em conformidade com ISO/IEC 19770-2. As etiquetas de identificação de software fornecem informações autoritativas utilizadas para identificar o software instalado. Quando ativa a **SMS_SoftwareTag** classe de relatório de inventário de hardware, o Configuration Manager recolhe informações sobre o software com etiquetas de identificação de software. 
 
-####  <a name="BKMK_ExampleDependencies"></a> Exemplos de dependências  
- A exatidão da quantidade apresentada nos relatórios do Asset Intelligence de títulos de software instalado e informações de licenças pode variar em relação às quantidades reais que estão a ser utilizadas. Esta variação é causada pelas complexas dependências envolvidas no inventário de informações de licenças de software para títulos de software em utilização em ambientes empresariais. Os exemplos seguintes mostram as dependências envolvidas no inventário de software instalado na empresa, utilizando o Asset Intelligence, que podem afetar a precisão dos relatórios do Asset Intelligence:  
+Os relatórios seguintes fornecem informações sobre o software:  
 
- **Dependências de inventário de hardware do cliente**  
- Os relatórios de software do Asset Intelligence instalado baseados nos dados que são recolhidos a partir de clientes do Configuration Manager ao alargar o inventário de hardware para ativar os relatórios do Asset Intelligence. Devido a esta dependência no relatório de inventário de hardware, os relatórios do Asset Intelligence refletem dados apenas clientes do Configuration Manager que concluem com êxito os processos de inventário de hardware com as classes de relatório WMI do Asset Intelligence necessárias ativadas. Além disso, porque os clientes do Configuration Manager executam os processos de inventário de hardware com base num agendamento definido pelo utilizador administrativo, pode ocorrer um atraso na comunicação que afeta a precisão dos relatórios do Asset Intelligence de dados. Por exemplo, um título de software licenciado inventariado poderá ser desinstalado após o cliente concluir um ciclo de inventário de hardware com êxito. No entanto, o título de software é apresentado como instalado nos relatórios do Asset Intelligence até que seguinte inventário de hardware agendado ciclo de comunicação o cliente.  
+- **Software 14A - procurar etiqueta de identificação de software de software ativado**: A contagem do software instalado com uma etiqueta de identificação de software ativada  
 
- **Dependências de empacotamento de software**  
- Porque os relatórios do Asset Intelligence baseiam-se em dados de títulos de software instalado que são recolhidos através de processos do inventário de hardware de cliente do padrão do Configuration Manager, alguns dados de títulos de software podem não ser recolhidos corretamente. Por exemplo, as instalações de software que não estão em conformidade com os processos de instalação padrão ou as instalações de software que foram alteradas antes da instalação podem causar relatórios do Asset Intelligence incorretos.  
+- **Software 14B - computadores com etiqueta de identificação de software específico ativada software instalado**: Todos os computadores que têm software instalado com uma etiqueta de identificação de software específico ativada  
 
-####  <a name="BKMK_LegalLimitations"></a> Limitações legais  
- As informações apresentadas nos relatórios do Asset Intelligence estão sujeitas a muitas limitações e as informações apresentadas nos mesmos não representam aconselhamento jurídico, contabilístico ou outro aconselhamento profissional. As informações fornecidas pelos relatórios do Asset Intelligence destinam-se apenas a fins informativos e não devem ser utilizadas como a única fonte de informação para determinar o cumprimento da utilização de licenças de software.  
+- **Software 14C - instalado identificação etiqueta ativada de software num computador específico**: Todo o software instalado com uma etiqueta de identificação de software específico ativada num computador específico  
 
- Os exemplos seguintes são exemplos de limitações envolvidas no inventário de software instalado e utilização de licenças na empresa, utilizando o Asset Intelligence, que podem afetar a precisão dos relatórios do Asset Intelligence:  
 
- **Limitações de quantidade de utilização de licenças Microsoft**  
- -   A quantidade de licenças de software Microsoft adquiridas baseia-se nas informações fornecidas pelos administradores e devem ser revistas com muita atenção para garantir que é fornecido o número correto de licenças de software.  
+### <a name="BKMK_ReportingLImitations"></a> Limitações de relatórios  
 
--   A quantidade comunicada de licenças de software Microsoft contém apenas informações sobre licenças de software Microsoft adquiridas através de programas de licenciamento em volume e não reflete as informações relativas a licenças de software adquiridas através de revenda, OEM ou outros canais de venda de licenças de software.  
+Relatórios do Asset intelligence podem fornecer grandes quantidades de informações sobre títulos de software instalado e tiver adquirido licenças de software que estão sendo usadas. Não utilize estas informações como a única origem para determinar o cumprimento da licença de software adquirida.  
 
--   As licenças de software adquiridas nos últimos 45 dias podem não ser incluídas na quantidade de licenças de software Microsoft comunicada devido a prazos e requisitos de comunicação de revendedores de software.  
+#### <a name="BKMK_ExampleDependencies"></a> Exemplos de dependências  
+A precisão da quantidade apresentada nos relatórios do asset intelligence para instalado títulos de software e informações de licença podem variar de às quantidades reais que atualmente a ser utilizadas. Esta variação é causada pelas complexas dependências envolvidas no inventário de informações de licenças de software para títulos de software em utilização em ambientes empresariais. Os exemplos seguintes mostram as dependências envolvidas no inventário de software instalado na empresa utilizando o asset intelligence, que pode afetar a precisão dos relatórios do asset intelligence:  
 
--   As transferências de licenças de software resultantes de fusões ou aquisições da empresa podem não ser refletidas nas quantidades de licenças de software Microsoft.  
+- **Dependências de inventário de hardware do cliente**: Relatórios de software do Asset intelligence instalado baseiam-se nos dados recolhidos a partir de clientes do Configuration Manager ao expandir o inventário de hardware para ativar os relatórios do asset intelligence. Devido a esta dependência nos relatórios de inventário de hardware, os relatórios do asset intelligence refletem dados apenas a partir de clientes que concluir com êxito os processos de inventário de hardware com as necessário WMI reporting classes do asset intelligence ativadas. Uma vez que os clientes do Configuration Manager executam processos de inventário de hardware, com base numa agenda definida pelo utilizador administrativo, pode ocorrer um atraso na comunicação que afeta a precisão dos relatórios do asset intelligence de dados. 
 
--   Os termos e condições não padrão num contrato de Licenciamento em Volume da Microsoft (MVLS) podem afetar o número de licenças de software comunicadas e, por conseguinte, poderão exigir revisão adicional por um representante da Microsoft.  
+    Por exemplo, um título de software licenciado inventariado poderá ser desinstalado após o cliente concluir um ciclo de inventário de hardware com êxito. Relatórios do Asset intelligence apresentam o título de software, como instalado até seguinte inventário de hardware agendado ciclo de comunicação o cliente.  
 
- **Limitações de quantidade de títulos de software instalado**  
- Clientes do Configuration Manager tem de concluir com êxito o inventário de hardware ciclos de relatórios do Asset Intelligence comuniquem com precisão a quantidade de títulos de software instalado. Além disso, poderá haver um atraso entre a instalação ou a desinstalação de um título de software licenciado após um ciclo de comunicação de inventário de hardware com êxito, que não se refletirá nos relatórios do Asset Intelligence executados antes de o cliente comunicar o seu próximo inventário de hardware agendado.  
+- **Dependências de empacotamento de software**: Relatórios do Asset intelligence baseiam-se a dados de títulos de software instalado recolhidos através de processos do inventário de hardware de cliente do padrão do Configuration Manager. Alguns dados de títulos de software podem não ser recolhidos corretamente. Exemplos que podem causar relatórios do incorreta asset intelligence:  
 
- **Limitações de reconciliação de licenças**  
- A reconciliação da quantidade de títulos de software instalado para a quantidade de licenças de software adquiridas é calculada através da utilização de uma comparação da quantidade de licenças especificada pelo administrador e a quantidade de títulos de software recolhidos a partir de inventários de hardware do cliente do Configuration Manager com base num agendamento definido pelo administrador de instalado. Esta comparação não representa uma conclusão final da Microsoft dos estados de licenciamento. O estado de licenciamento real depende dos direitos de utilização e das licenças de títulos de software específicos concedidos pelos termos de licenciamento.  
+    - Instalações de software que não estejam em conformidade com processos de instalação padrão  
 
-##  <a name="BKMK_ValidationStates"></a> Estados de validação do Asset Intelligence  
- Os estados de validação do Asset Intelligence representam a origem e o estado de validação atual das informações do catálogo do Asset Intelligence. A tabela seguinte mostra os estados de validação possíveis do Asset Intelligence e as ações de administrador que podem causá-los.  
+    - Instalações de software que foram alteradas antes da instalação   
 
-|**Estado**|**Definição**|**Ação do administrador**|**Comentário**|  
+#### <a name="BKMK_LegalLimitations"></a> Limitações legais  
+As informações apresentadas nos relatórios do asset intelligence estão sujeitas a muitas limitações. As informações apresentadas nos mesmos não representam jurídico, contabilístico ou outro aconselhamento profissional. As informações fornecidas pelo relatórios do asset intelligence são apenas para informação. Não utilize como a única fonte de informações para determinar o cumprimento de utilização de licença de software.  
+
+As seguintes limitações são exemplos de como utilizar o asset intelligence, que pode afetar a precisão dos relatórios:  
+
+- **Limitações de quantidade de utilização de licenças Microsoft**:  
+
+    - A quantidade de licenças de software Microsoft adquiridas baseia-se nas informações fornecidas pelos administradores. Reveja atentamente-lo para se certificar de que o número correto de licenças de software é fornecido.  
+
+    - A quantidade comunicada de licenças de software da Microsoft inclui informações apenas sobre licenças de software Microsoft adquiridas por meio de programas de licenciamento em volume. Ele não reflete as informações de licenças de software adquiridas através de revenda, OEM ou outros canais de vendas de licença de software.  
+
+    - As licenças de software adquiridas nos últimos 45 dias podem não ser incluídas na quantidade de licenças de software Microsoft comunicada devido a prazos e requisitos de comunicação de revendedores de software.  
+
+    - As transferências de licenças de software resultantes de fusões ou aquisições da empresa podem não ser refletidas nas quantidades de licenças de software Microsoft.  
+
+    - Nestandardní termos e condições num contrato de licenciamento de Volume da Microsoft (MVLS) podem afetar o número de licenças de software comunicados. Eles podem exigir revisão adicional por um representante da Microsoft.  
+
+- **Limitações de quantidade de títulos de software instalado**: Clientes do Configuration Manager tem de concluir com êxito o inventário de hardware ciclos para os relatórios do asset intelligence comuniquem com precisão a quantidade de títulos de software instalado. Pode haver um atraso entre a instalação ou desinstalação de um título de software licenciado após um ciclo de relatório de inventário de hardware com êxito. Esta ação não pode ser refletida no relatórios do asset intelligence executados antes do cliente comunicar o seu próximo inventário de hardware agendado.  
+
+- **Limitações de reconciliação de licenças**: A reconciliação da quantidade de títulos de software instalado para a quantidade de licenças de software adquirida é calculada mediante a utilização de uma comparação de quantidade de licenças especificada pelo administrador e a quantidade de títulos de software instalado recolhidos a partir de Inventários de hardware do cliente de Configuration Manager com base num agendamento definido pelo administrador. Esta comparação não representa uma conclusão final da Microsoft, Estados de licenciamento. O estado de licenciamento real depende dos direitos de utilização e das licenças de títulos de software específicos concedidos pelos termos de licenciamento.  
+
+
+
+## <a name="BKMK_ValidationStates"></a> Estados de validação do Asset intelligence  
+
+Estados de validação do Asset intelligence representam a origem e o estado de validação atual das informações de catálogo do asset intelligence. A tabela seguinte mostra os Estados de validação possíveis do asset intelligence e as ações de administrador que podem causá-los.  
+
+| Estado | Definição | Ação do administrador | Comentário |  
 |---------------|--------------------|------------------------------|-----------------|  
-|**Validado**|O item do catálogo foi definido pelos investigadores do System Center Online.|Nenhuma.|O melhor estado.|  
-|**Definido pelo Utilizador**|O item do catálogo não foi definido pelos investigadores do System Center Online.|Personalizou as informações do catálogo local.|Este estado é apresentado nos relatórios do Asset Intelligence.|  
-|**Pendente**|O item do catálogo não foi definido pelos investigadores do System Center Online, mas o item foi submetido para o System Center Online para categorização.|Pediu a categorização a partir do System Center Online.|O item do catálogo permanece neste estado até os investigadores do System Center Online categorizarem o item e o catálogo do Asset Intelligence ser sincronizado.|  
-|**Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente.|Personalizou o catálogo do Asset Intelligence local para categorizar um item como definido pelo utilizador.|Pode utilizar a ação Resolver Conflito para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para mais informações sobre como resolver conflitos, consulte [operações do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).|  
-|**Não categorizado**|O item do catálogo não foi definido pelos investigadores do System Center Online, o item não foi submetido para o System Center Online para categorização e o administrador não atribuiu um valor de categorização definido pelo utilizador.|Nenhuma.|Peça a categorização ou personalize as informações do catálogo local.<br /><br /> Para mais informações sobre o pedido de categorização, consulte [operações do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).<br /><br /> Para obter mais informações sobre como alterar a categoria do título de software, consulte [operações do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).|  
+|**Validado**|Os investigadores da Microsoft definido o item de catálogo|Nenhum|Melhor estado|  
+|**Definido pelo Utilizador**|Os investigadores da Microsoft ainda não tiverem definido o item de catálogo|Personalizar as informações do catálogo local|Este estado é apresentado em relatórios do asset intelligence|  
+|**Pendente**|Os investigadores da Microsoft ainda não tiverem definido o item de catálogo, mas tiver submetido o item à Microsoft para categorização|Nenhuma ação adicional depois de pedir a categorização|O item de catálogo permanece neste estado até os investigadores da Microsoft categorizarem o item e sincronizar o catálogo do asset intelligence|  
+|**Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo Microsoft durante a sincronização do catálogo.|Utilizar o **resolver conflito** ação para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [operações do asset intelligence](/sccm/core/clients/manage/asset-intelligence/operations-for-asset-intelligence).|Depois de resolver um conflito de categorização, o item não é validado como estando em conflito novamente, a menos que atualizações posteriores de categorização introduzam novas informações sobre o item.|  
+|**Não categorizado**|O item de catálogo ainda não foi definido pelos investigadores da Microsoft, o item não foi enviado para a Microsoft para categorização e o administrador não tenha atribuído um valor de categorização definidas pelo utilizador.|Peça a categorização ou personalize suas informações do catálogo local. Para obter mais informações, consulte [operações do asset intelligence](/sccm/core/clients/manage/asset-intelligence/operations-for-asset-intelligence).|Nenhum|  
 
 > [!NOTE]  
->  Os itens do catálogo submetidos para o System Center Online para categorização têm o estado de validação **Pendente** num site de administração central, mas continuam a ser apresentados com o estado de validação **Não Categorizado** nos sites primários subordinados.  
+> Itens de catálogo que enviar à Microsoft para categorização têm o estado de validação **pendente** num site de administração central, mas continuam a ser apresentados com o estado de validação **não categorizado**em sites primários subordinados.  
 
-> [!NOTE]  
->  Após a resolução de um conflito de categorização, o item não é validado como estando em conflito novamente, a menos que as atualizações posteriores de categorização introduzam novas informações sobre o item.  
-
- Para obter exemplos de quando um Estado de validação poderá transitar de um Estado para outro, consulte [transições de Estados de validação de exemplo para o Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/example-validation-state-transitions-for-asset-intelligence.md).  
+Para obter exemplos de quando um Estado de validação poderá transitar de um Estado para outro, consulte [transições de estado de validação de exemplo para o asset intelligence](/sccm/core/clients/manage/asset-intelligence/example-validation-state-transitions-for-asset-intelligence).  

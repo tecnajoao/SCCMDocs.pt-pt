@@ -10,12 +10,12 @@ ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e5099be5ff6b34bcbc232e78056f1937a9508c4f
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: 0650e1aa16f0c1005748c85423c3367a727b1b9b
+ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411430"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53303895"
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -64,7 +64,7 @@ A partir da versão 1806, grupos de limites incluem configurações adicionais p
 > [!NOTE]  
 > Se o cliente reverterá para um grupo de limite vizinho para o conteúdo, o ponto de gestão não adiciona as origens de cache ponto a ponto do grupo de limite vizinho à lista de potenciais localizações de origem de conteúdo.  
 
-Escolha apenas os clientes mais indicados como origens de cache ponto a ponto. Avalie a adequação de cliente com base em atributos como tipo de chassi, espaço em disco e conectividade de rede. Para obter mais informações que podem ajudar a selecionar os melhores clientes a utilizar para a cache ponto a ponto, consulte [este blog por um consultor da Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
+Escolha apenas os clientes mais indicados como origens de cache ponto a ponto. Avalie a adequação de cliente com base em atributos como tipo de chassi, espaço em disco e conectividade de rede. Para obter mais informações que podem ajudar a selecionar os melhores clientes a utilizar para a cache ponto a ponto, consulte [este blog por um consultor da Microsoft](https://blogs.technet.microsoft.com/askpfeplat/2018/11/21/configuration-manager-peer-cache-custom-reporting-examples/).
 
 
 ### <a name="limited-access-to-a-peer-cache-source"></a>Acesso limitado a uma origem de cache ponto a ponto  

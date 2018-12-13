@@ -1,8 +1,8 @@
 ---
-title: Implementar os clientes Mac
+title: Implementar clientes de Mac
 titleSuffix: Configuration Manager
-description: Saiba como implementar clientes em computadores Mac no System Center Configuration Manager.
-ms.date: 05/04/2017
+description: Saiba como implementar clientes em computadores Mac no Configuration Manager.
+ms.date: 12/10/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -10,316 +10,271 @@ ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 01e53b80b47b3c1452cd73e408af48bc0283d60b
-ms.sourcegitcommit: 526ded222b69b5e75e8068ba09c5dda227c155c4
+ms.openlocfilehash: 94a86f47fe378c4a9e66005e8c51a31a99cf4339
+ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "33078462"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53303912"
 ---
-# <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Mac
+# <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Macs
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico descreve como implementar e manter o cliente do Configuration Manager em computadores Mac. Para saber mais sobre o que tem de configurar antes de implementar clientes em computadores Mac, consulte [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients).
+Este artigo descreve como implementar e manter o cliente do Configuration Manager em computadores Mac. Para saber mais sobre o que tem de configurar antes de implementar clientes em computadores Mac, consulte [preparar a implementação de software de cliente para os Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients).
 
-Quando instala um novo cliente para computadores Mac, poderá ter também instala atualizações do Configuration Manager para refletir as novas informações de cliente na consola do Configuration Manager.
+Quando instala um novo cliente para computadores Mac, terá de instalar também a atualizações do Configuration Manager para refletir as novas informações de cliente na consola do Configuration Manager.
 
-Estes procedimentos, tem duas opções para instalar os certificados de cliente. Saiba mais sobre certificados de cliente para Macs no [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#certificate-requirements).  
+Nestes procedimentos, tem duas opções para a instalação de certificados de cliente. Saiba mais sobre certificados de cliente para os Macs na [preparar a implementação de software de cliente para os Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#certificate-requirements).  
 
--   Utilize o Gestor de configuração de inscrição utilizando o [ferramenta CMEnroll](#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). O processo de inscrição não suporta a renovação automática de certificados, pelo que terá de reinscrever os computadores Mac antes que o certificado instalado expire.    
+- Utilize o Gestor de configuração a inscrição através do [ferramenta CMEnroll](#bkmk_enroll). O processo de inscrição não suporta a renovação automática. Voltar a inscrever o computador Mac antes do certificado instalado expire.    
 
--   [Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager](#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager). 
+- [Utilizar um método de pedido e instalação de certificado independente do Configuration Manager](#bkmk_external).  
 
->[!IMPORTANT]
->  Para implementar o cliente para dispositivos que executem macOS Sierra, o nome do requerente do certificado de ponto de gestão tem de ser configurado corretamente, por exemplo, utilizando o FQDN do servidor de ponto de gestão.
+> [!IMPORTANT]  
+> Para implementar o cliente em dispositivos com macOS Sierra, configurar corretamente o **nome do requerente** do certificado de ponto de gestão. Por exemplo, utilize o FQDN do servidor de ponto de gestão.
 
 
-## <a name="configure-client-settings-for-enrollment"></a>Configurar as definições de cliente para inscrição  
- Tem de utilizar o [predefinições de cliente](../../../core/clients/deploy/about-client-settings.md) para configurar a inscrição para computadores Mac; não é possível utilizar definições de cliente personalizadas.  
 
- Isto é necessário para o Configuration Manager para pedir e instalar o certificado no Mac.  
+## <a name="configure-client-settings"></a>Configurar definições de cliente  
 
-### <a name="to-configure-the-default-client-settings-for-configuration-manager-to-enroll-certificates-for-macs"></a>Para configurar as predefinições de cliente do Configuration Manager para inscrever certificados para Macs  
+Utilize o [predefinições de cliente](/sccm/core/clients/deploy/about-client-settings) para configurar a inscrição para computadores Mac. Não é possível utilizar definições personalizadas de cliente. Para pedir e instalar o certificado, o cliente do Configuration Manager para Mac requer as predefinições de cliente.  
 
-1.  Na consola do Configuration Manager, escolha **administração** >  **as definições de cliente** > **predefinições de cliente**.  
+1. Na consola do Configuration Manager, vá para o **administração** área de trabalho. Selecione o **definições de cliente** nó e, em seguida, selecione **predefinições de cliente**.  
 
-4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+2. Na **home page** separador do Friso, no **propriedades** de grupo, escolha **propriedades**.  
 
-5.  Selecione o **inscrição** secção e, em seguida, configure estas definições:  
+3. Selecione o **inscrição** secção e, em seguida, configure as seguintes definições:  
 
-    1.  **Permitir que os utilizadores a inscrição de dispositivos móveis e computadores de Mac: Sim**  
+    1. **Permitir que os utilizadores a inscrição de dispositivos móveis e computadores Mac**: **Sim**  
 
-    2.  **Perfil de inscrição:** Escolha **definir perfil**.  
+    2. **Perfil de inscrição:** Escolher **definir perfil**.  
 
-6.  No **perfil de inscrição de dispositivo móvel** diálogo caixa, escolha **criar**.  
+4. Na **perfil de inscrição de dispositivo móvel** caixa de diálogo caixa, escolha **criar**.  
 
-7.  Na caixa de diálogo **Criar Perfil de Inscrição** , introduza um nome para este perfil de inscrição e, em seguida, configure o **Código do site de gestão**. Selecione o site primário do Configuration Manager que contém os pontos de gestão que irão gerir estes computadores Mac.  
+5. Na **criar perfil de inscrição** caixa de diálogo, introduza um nome para este perfil de inscrição. Em seguida, configure as **código do site de gestão**. Selecione o site primário do Configuration Manager que contém os pontos de gestão para estes computadores Mac.  
 
     > [!NOTE]  
-    >  Se não conseguir selecionar o site, certifique-se de que pelo menos um ponto de gestão do site está configurado para suportar dispositivos móveis.  
+    >  Se não é possível selecionar o site, certifique-se de que configurar, pelo menos, um ponto de gestão no site para suportar dispositivos móveis.  
 
-8.  Escolha **adicionar**.  
+6. Escolher **adicionar**.  
 
-9. No **adicionar autoridade de certificação para dispositivos móveis** diálogo caixa, selecione o servidor de autoridade (AC) de certificação que irão emitir certificados para computadores Mac.  
+7. Na **adicionar autoridade de certificação para dispositivos móveis** janela, selecione o servidor de autoridade de certificação que emite certificados para computadores Mac.  
 
-10. No **criar perfil de inscrição** caixa de diálogo, selecione o modelo que criou no passo 3 de certificados do computador Mac.  
+8. Na **criar perfil de inscrição** caixa de diálogo, selecione o modelo que criou anteriormente de certificados do computador Mac.  
 
-11. Clique em **OK** para fechar o **perfil de inscrição** caixa de diálogo e, em seguida, o **predefinições de cliente** caixa de diálogo.  
+9. Selecione **OK** para fechar a **perfil de inscrição** caixa de diálogo e, em seguida, o **predefinições de cliente** caixa de diálogo.  
 
     > [!TIP]  
-    >  Se pretender alterar o intervalo de política de cliente, utilize **intervalo de consulta da política de cliente** no **política de cliente** grupo de definições de cliente.  
+    > Se quiser alterar o intervalo de política de cliente, utilize **intervalo de consulta da política de cliente** no **política de cliente** grupo de definições de cliente.  
 
- Todos os utilizadores serão configurados com estas definições da próxima vez que transferiram a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval).  
+Da próxima vez que os dispositivos transferem políticas de cliente, o Gestor de configuração aplica-se estas definições para todos os utilizadores. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção de política para um cliente do Configuration Manager](/sccm/core/clients/manage/manage-clients#BKMK_PolicyRetrieval).  
 
- Além das definições de cliente de inscrição, certifique-se de que configurou as seguintes definições do dispositivo cliente:  
+Além das definições de cliente de inscrição, certifique-se de que configurou as seguintes definições de dispositivo do cliente:  
 
--   **Inventário de hardware**: Ativar e configurar esta opção se pretender recolher o inventário de hardware de computadores cliente Mac e Windows. Para obter mais informações, consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+- **Inventário de hardware**: Ativar e configurar esse recurso se pretender recolher o inventário de hardware de computadores cliente Mac e Windows. Para obter mais informações, consulte [como expandir o inventário de hardware](/sccm/core/clients/manage/inventory/extend-hardware-inventory).  
 
--   **As definições de compatibilidade**: Ativar e configurar esta opção se pretender avaliar e remediar definições em computadores cliente Mac e Windows. Para obter mais informações, consulte [planear e configurar as definições de compatibilidade](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+- **Definições de compatibilidade**: Ativar e configurar esse recurso se pretender avaliar e remediar definições em computadores cliente Mac e Windows. Para obter mais informações, consulte [planear e configurar as definições de compatibilidade](/sccm/compliance/plan-design/plan-for-and-configure-compliance-settings).  
 
-> [!NOTE]  
->  Para obter mais informações sobre definições de cliente do Configuration Manager, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
-
-## <a name="download-the-client-source-files-for-macs"></a>Transfira os ficheiros de origem do cliente para Macs  
-
-1.  Transfira o pacote de ficheiros de cliente do Mac OS X, **ConfigmgrMacClient.msi**, e guarde-o num computador com o Windows.  
-
-     Este ficheiro não é fornecido no suporte de instalação do Configuration Manager. Pode transferir este ficheiro a partir do [Centro de Transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
-
-2.  No computador Windows, execute **ConfigmgrMacClient.msi** para extrair o pacote de cliente Mac, Macclient.dmg para uma pasta no disco local (por predefinição **C:\Program Files (x86) \Microsoft\System Center 2012 Configuration Manager Mac Client\\**).  
-
-3.  Copie o ficheiro Macclient.dmg para uma pasta no computador Mac.  
-
-4.  No computador Mac, execute o ficheiro de Macclient.dmg para extrair os ficheiros para uma pasta no disco local.  
-
-5.  Na pasta, certifique-se de que os ficheiros Ccmsetup e CMClient.pkg foram extraídos e de que foi criada uma pasta Ferramentas que contém as ferramentas CMDiagnostics, CMUninstall, CMAppUtil e CMEnroll.
-
-    -  **Ccmsetup**: Instala o cliente do Configuration Manager nos seus computadores Mac.  
-
-    -   **CMDiagnostics**: Recolhe informações de diagnóstico relacionadas com o cliente do Configuration Manager nos seus computadores Mac.  
-
-    -   **CMUninstall**: Desinstalar o cliente de computadores Mac.  
-
-    -   **CMAppUtil**: Converte pacotes da aplicações Apple num formato que pode ser implementado como uma aplicação do Configuration Manager.  
-
-    -   **CMEnroll**: Pede e instala o certificado de cliente para um computador Mac, para que, em seguida, pode instalar o cliente de Configuration Manager.   
-
-## <a name="install-the-client-and-then-enroll-the-client-certificate-on-the-mac"></a>Instalar o cliente e, em seguida, inscrever o certificado de cliente no Mac  
-
-Pode inscrever clientes individuais com o [Assistente de inscrição de computador Mac](#enroll-the-client-with-the-mac-computer-enrollment-wizard).
-
-Para automatização que ativa o registo de muitos clientes, utilize o [ferramenta CMEnroll](#client-and-certificate-automation-with-cmenroll).   
+Para obter mais informações, consulte [como configurar as definições de cliente](/sccm/core/clients/deploy/configure-client-settings).  
 
 
-###  <a name="enroll-the-client-with-the-mac-computer-enrollment-wizard"></a>Inscrever o cliente com o Assistente de inscrição de computador Mac  
 
-1.  Depois de concluída a instalação do cliente, é aberto o Assistente de inscrição de computador. Se o assistente não for aberto, ou se fechar inadvertidamente, clique em **inscrever** do **do Configuration Manager** página de preferências para abri-lo.  
+## <a name="bkmk_download"></a> Transferir o cliente de Mac  
 
-2.  Na segunda página do assistente, fornece:  
+1. Transferir o pacote de ficheiros de cliente de Mac OS X do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47719). Guarde **configmgrmacclient. msi** para um computador que executa o Windows. Este ficheiro não está no suporte de instalação do Configuration Manager.  
 
-    -   **Nome de utilizador** - O nome de utilizador pode ser especificado nos seguintes formatos:  
+2. Execute o instalador no computador Windows. Extrair o pacote de cliente de Mac **macclient**, para uma pasta no disco local. O caminho predefinido é `C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client`.  
 
-        -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
+3. Copiar o **macclient** ficheiro para uma pasta no computador Mac.  
 
-        -   'user@domain'.   Por exemplo: 'mnorth@contoso.com'  
+4. No computador Mac, execute **macclient** para extrair os ficheiros para uma pasta no disco local.  
+
+5. Na pasta, certifique-se de que ele contém os seguintes ficheiros: 
+
+    - **Ccmsetup**: Instala o cliente de Configuration Manager nos seus computadores de Mac utilizando **Cmclient**  
+
+    - **CMDiagnostics**: Recolhe informações de diagnóstico relacionadas com o cliente do Configuration Manager nos computadores Mac  
+
+    - **CMUninstall**: Desinstalar o cliente de seus computadores Mac  
+
+    - **CMAppUtil**: Converte pacotes de aplicações Apple num formato que pode implementar como uma aplicação do Configuration Manager  
+
+    - **CMEnroll**: Pede e instala o certificado de cliente para um computador Mac, para que, em seguida, pode instalar o cliente do Configuration Manager  
+
+
+
+## <a name="bkmk_enroll"></a> Inscrever o cliente de Mac  
+
+Inscrição de clientes individuais com o [Assistente de inscrição de computador Mac](#enroll-the-client-with-the-mac-computer-enrollment-wizard).
+
+Para automatizar a inscrição para o número de clientes, utilize o [ferramenta CMEnroll](#client-and-certificate-automation-with-cmenroll).   
+
+
+### <a name="enroll-the-client-with-the-mac-computer-enrollment-wizard"></a>Inscrever o cliente com o Assistente de inscrição de computador Mac  
+
+1. Depois de instalar o cliente, é aberto o Assistente de inscrição de computador. Para iniciar manualmente o assistente, selecione **inscrever** partir do **Configuration Manager** página de preferências.  
+
+2. Na segunda página do assistente, forneça as seguintes informações:  
+
+    - **Nome de utilizador**: O nome de utilizador pode ser especificado nos seguintes formatos:  
+
+        - `domain\name`. Por exemplo: `contoso\mnorth`  
+
+        - `user@domain`. Por exemplo: `mnorth@contoso.com`  
 
             > [!IMPORTANT]  
-            >  Quando utilizar um endereço de correio eletrónico para preencher o **nome de utilizador** campo, o Configuration Manager utiliza automaticamente o nome de domínio do endereço de correio eletrónico e o nome predefinido do servidor de ponto de proxy de inscrição para preencher o **nome do servidor** campo. Se este nome de domínio e o nome do servidor não corresponder ao nome do servidor de ponto de proxy de inscrição, dizer aos utilizadores o nome correto a utilizar quando inscrever os respetivos computadores Mac.  
+            >  Quando utiliza um endereço de correio eletrónico para preencher os **nome de utilizador** campo, o Configuration Manager povoa automaticamente a **nome do servidor** campo. Utiliza o nome predefinido do servidor de ponto de proxy de inscrição e o nome de domínio do endereço de e-mail. Se esses nomes não corresponder ao nome do servidor de ponto de proxy de inscrição, corrigir os **nome do servidor** durante a inscrição.  
 
-         O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
+         O nome de utilizador e palavra-passe correspondente tem de corresponder a uma conta de utilizador do Active Directory que tenha **leitura** e **inscrever** permissões no modelo de certificado de cliente Mac.  
 
-    -   **Palavra-passe** -introduza uma palavra-passe correspondente ao nome de utilizador especificado.  
-
-    -   **Nome do servidor** -introduza o nome do servidor de ponto de proxy de inscrição.  
+    - **Nome do servidor**: O nome do servidor de ponto de proxy de registo.  
 
 
 ### <a name="client-and-certificate-automation-with-cmenroll"></a>Cliente e o certificado de automatização com CMEnroll  
 
-Utilize este procedimento para inscrição de certificados de cliente com a ferramenta CMEnroll e automatização de instalação do cliente e a pedir. Para executar a ferramenta tem de ter uma conta de utilizador do Active Directory.
+Utilize este procedimento para automação de instalação do cliente e a pedir e inscrição de certificados de cliente com a ferramenta CMEnroll. Para executar a ferramenta, tem de ter uma conta de utilizador do Active Directory.
 
-1.  No computador Mac, navegue para a pasta onde extraiu o conteúdo do ficheiro Macclient.dmg.  
+1. No computador Mac, navegue para a pasta onde extraiu o conteúdo do **macclient** ficheiro.  
 
-2.  Introduza a seguinte linha de comandos: **sudo ./ccmsetup**  
+2. Introduza o seguinte comando: `sudo ./ccmsetup`  
 
-3.  Aguarde até ver a mensagem **Instalação concluída** . Embora o instalador apresenta uma mensagem que tem de reiniciar agora, não reiniciar e continuar para o passo seguinte.  
+3. Aguarde até ver a mensagem **Instalação concluída** . Embora o instalador exiba uma mensagem a indicar que tem de reiniciar agora, não reinicie e continuar para o passo seguinte.  
 
-4.  A partir da pasta Ferramentas no computador Mac, escreva o seguinte: **sudo. / CMEnroll -s &lt;nome_servidor_proxy_inscrição > - ignorecertchainvalidation -u &lt;nome de utilizador ' >**  
+4. Partir do **ferramentas** pasta no computador Mac, escreva o seguinte comando: `sudo ./CMEnroll -s <enrollment_proxy_server_name> -ignorecertchainvalidation -u '<user_name>'`  
 
-    Após a instalação do cliente, o Assistente para Inscrever um Computador Mac abre para ajudá-lo a inscrever o computador Mac. Para inscrever o cliente através deste método, consulte [para inscrever o cliente utilizando o Assistente de inscrição de computador Mac](#BKMK_EnrollR2) neste tópico.  
+    Após a instalação do cliente, o Assistente para Inscrever um Computador Mac abre para ajudá-lo a inscrever o computador Mac. Para obter mais informações, consulte [inscrever o cliente utilizando o Assistente de inscrição de computador Mac](#bkmk_enroll).  
 
-5. Escreva a palavra-passe da conta de utilizador do Active Directory.  Ao introduzir este comando, são-lhe pedidas duas palavras-passe: O primeiro pedido é para a conta de utilizador super executar o comando. O segundo pedido refere-se à conta de utilizador do Active Directory. Os pedidos parecem idênticos, por isso certifique-se de que os especifica pela sequência correta.  
-
-    O nome de utilizador pode ser especificado nos seguintes formatos:  
-
-    -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
-
-    -   'user@domain'.   Por exemplo: 'mnorth@contoso.com'  
-
-     O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
-
-     Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte:  **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
+     Exemplo: Se o servidor de ponto de proxy de registo com o nome **server02.contoso.com**, e concede **contoso\mnorth** permissões para o modelo de certificado de cliente Mac, escreva o seguinte comando: `sudo ./CMEnroll -s server02.contoso.com -ignorecertchainvalidation -u 'contoso\mnorth'`  
 
     > [!NOTE]  
-    >  Se o nome de utilizador contiver qualquer um dos carateres  **&lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
+    > Se o nome de utilizador inclui qualquer um dos seguintes carateres, a inscrição falha: `<>"+=,`. Utilize um certificado de fora de banda com um nome de utilizador que não inclua estes carateres.  
     >  
-    >  Para assegurar uma experiência de utilizador mais estável, pode criar scripts dos passos e comandos de instalação para que os utilizadores apenas precisem de indicar o respetivo nome de utilizador e palavra-passe.  
+    > Para uma experiência de utilizador mais estável, o script os passos de instalação. Em seguida, os utilizadores só têm de fornecer o nome de utilizador e palavra-passe.  
 
-5.  Aguarde até ver a mensagem **Inscrito com êxito** .  
+5. Escreva a palavra-passe da conta de utilizador do Active Directory. Ao introduzir este comando, pede-lhe duas palavras-passe. É a primeira palavra-passe para a conta de utilizador super executar o comando. O segundo pedido refere-se à conta de utilizador do Active Directory. Os pedidos parecem idênticos, por isso certifique-se de que os especifica pela sequência correta.  
 
-6.  Para limitar o certificado inscrito para o Configuration Manager, no computador Mac, abra uma janela de terminal e efetue as seguintes alterações:  
+6. Aguarde até ver a mensagem **Inscrito com êxito** .  
 
-    a.  Introduza o comando **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+7. Para limitar o certificado inscrito para o Configuration Manager, no computador Mac, abra uma janela de terminal e efetue as seguintes alterações:  
 
-    b.  No **acesso Keychain** caixa de diálogo a **Keychains** secção, escolha **sistema**e, em seguida, no **categoria** secção, escolha **chaves**.  
+    1. Introduza o comando `sudo /Applications/Utilities/Keychain Access.app/Contents/MacOS/Keychain Access`  
 
-    c.  Expanda as chaves para ver os certificados do cliente. Depois de identificar o certificado com uma chave privada acabada de instalar, faça duplo clique na chave.  
+    2. Na **acesso Keychain** janela, na **Keychains** secção, escolha **sistema**. Em seguida, no **categoria** secção, escolha **chaves**.  
 
-    d.  No **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
+    3. Expanda as chaves para ver os certificados do cliente. Localizar o certificado com uma chave privada que instalar e abrir a chave.  
 
-    e.  Navegue até à **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **adicionar**.  
+    4. Sobre o **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
 
-    f.  Escolha **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
+    5. Navegue até **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **Add**.  
 
-7.  Reinicie o computador Mac.  
+    6. Escolher **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
 
- Verifique se a instalação do cliente foi bem-sucedida abrindo o item **Configuration Manager** nas **Preferências do Sistema** do computador Mac. Pode também atualizar e ver a coleção **Todos os Sistemas** para confirmar se o computador Mac aparece nesta coleção como um cliente gerido.  
+8. Reinicie o computador Mac.  
+
+Para verificar que a instalação do cliente é efetuada com êxito, abra a **Configuration Manager** item no **preferências do sistema** no computador Mac. Também atualizar e ver os **todos os sistemas** coleção na consola do Configuration Manager. Confirme que o computador Mac aparece nesta coleção como um cliente gerenciado.  
 
 > [!TIP]  
->  Para ajudar a resolver problemas do cliente Mac, pode utilizar o programa CMDiagnostics incluído com o pacote de cliente de Mac OS X para recolher as informações de diagnóstico seguintes:  
+> Para ajudar a resolver problemas relacionados com o cliente Mac, utilize o **CMDiagnostics** ferramenta incluída com o pacote de cliente Mac. Utilize-o para recolher as informações de diagnóstico seguintes:  
 >   
->  -   Uma lista dos processos em execução  
-> -   A versão do sistema operativo Mac OS X  
-> -   Falhas do Mac OS X relatórios relacionados com o cliente do Configuration Manager, incluindo **CCM\*.crash** e **System preference**.  
-> -   O ficheiro de materiais (LM) e a propriedade lista (. plist) criados pela instalação de cliente do Configuration Manager.  
-> -   O conteúdo da pasta /Library/Application Support/Microsoft/CCM/Logs.  
+> - Uma lista dos processos em execução  
+> - A versão do sistema operativo Mac OS X  
+> - Relatórios relacionados ao cliente do Configuration Manager, incluindo de falhas do Mac OS X **CCM\*.crash** e **System preference**.  
+> - O ficheiro de fatura de materiais (LM) e a propriedade listam o ficheiro (. plist) criado pela instalação de cliente do Configuration Manager.  
+> - O conteúdo da pasta **/Library/Application Support/Microsoft/CCM/Logs**.  
 >   
->  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador e o nome `cmdiag-<hostname>-<datetime>.zip`
+> As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado na área de trabalho do computador e o nome `cmdiag-<hostname>-<datetime>.zip`
 
 
-##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager  
 
-Em primeiro lugar, efetuar estas tarefas específicas de [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients):
+## <a name="bkmk_external"></a> Gerir certificados externos ao Configuration Manager
 
-1. [Implementar um certificado de servidor web nos servidores de sistema de sites](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-web-server-certificate-to-site-system-servers)
+Pode usar um pedido e instalação do método de certificado independente do Configuration Manager. Utilizar o mesmo processo geral, mas incluem os seguintes passos adicionais: 
 
-2. [Implementar um certificado de autenticação de cliente nos servidores de sistema de sites](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-client-authentication-certificate-to-site-system-servers)
+- Quando instala o cliente do Configuration Manager, utilize o **MP** e **SubjectName** opções da linha de comandos. Introduza o seguinte comando: `sudo ./ccmsetup -MP <management point internet FQDN> -SubjectName <certificate subject name>`. O nome de requerente do certificado diferencia maiúsculas de minúsculas, devendo pois escrevê-lo tal como é apresentado nos detalhes do certificado.  
 
-3. [Configurar o ponto de gestão e o ponto de distribuição](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#configure-the-management-point-and-distribution-point)
+     Exemplo: FQDN de internet do ponto de gestão for **server03.contoso.com**. O certificado de cliente Mac tiver o FQDN **mac12.contoso.com** como nome comum no requerente do certificado. Utilize o seguinte comando: `sudo ./ccmsetup -MP server03.contoso.com -SubjectName mac12.contoso.com`  
 
-4. [Opcional: Instalar o ponto do reporting services](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#install-the-reporting-services-point)
+- Se tiver mais de um certificado que contém o mesmo valor do requerente, especifique o número de série do certificado a utilizar para o cliente do Configuration Manager. Utilize o seguinte comando: `sudo defaults write com.microsoft.ccmclient SerialNumber -data "<serial number>"`.  
 
-Em seguida, efetue estas tarefas:
+     Por exemplo: `sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"`  
 
-5. [Transfira os ficheiros de origem do cliente para Macs](#download-the-client-source-files-for-macs) .  
-6. Utilize as instruções que acompanham o método de implementação do certificado escolhido para solicitar e instalar o certificado de cliente no computador Mac.  
-7.  Navegue para a pasta onde extraiu o conteúdo do ficheiro macclient.dmg transferido do Centro de Transferências da Microsoft.  
 
-3.  Introduza a seguinte linha de comandos: **sudo. / ccmsetup -MP < FQDN de Internet do ponto de gestão\> - SubjectName < valor do requerente do certificado\>**.  O valor do requerente do certificado é sensível às maiúsculas e minúsculas, devendo pois escrevê-lo tal como é apresentado nos detalhes do certificado.  
 
-     Exemplo: Se o FQDN de Internet nas propriedades do sistema de sites for **server03.contoso.com** e o certificado de cliente Mac tiver o FQDN **mac12.contoso.com** como nome comum no requerente do certificado, escreva:  **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
+## <a name="renew-the-mac-client-certificate"></a>Renovar o certificado de cliente de Mac  
 
-4.  Aguarde até ver a mensagem **Instalação concluída** e reinicie o computador Mac.  
-
-5.  Para se certificar de que este certificado é acessível ao Gestor de configuração, no computador Mac, abra uma janela de terminal e efetue estas alterações:  
-
-    a.  Introduza o comando **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
-
-    b.  No **acesso Keychain** caixa de diálogo a **Keychains** secção, escolha **sistema**e, em seguida, no **categoria** secção, escolha **chaves**.  
-
-    c.  Expanda as chaves para ver os certificados do cliente. Depois de identificar o certificado com uma chave privada acabada de instalar, faça duplo clique na chave.  
-
-    d.  No **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
-
-    e.  Navegue até à **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **adicionar**.  
-
-    f.  Escolha **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
-
-6.  Se tiver mais de um certificado que contém o mesmo valor do requerente, tem de especificar o número de série do certificado para identificar o certificado que pretende utilizar para o cliente do Configuration Manager. Para tal, utilize o seguinte comando: **sudo defaults write com.microsoft.ccmclient SerialNumber-data "< número de série\>"**.  
-
-     Por exemplo: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**  
-
- Certifique-se de que a instalação de cliente foi bem-sucedida abrindo o **do Configuration Manager** item em **preferências do sistema** no Mac. Pode também atualizar e ver o **todos os sistemas** coleção para confirmar que o Mac aparece nesta coleção como um cliente gerido.  
-
-## <a name="renewing-the-mac-client-certificate"></a>Renovar o certificado do cliente Mac  
- Utilize o procedimento seguinte antes de renovar o certificado de computador nos computadores Mac.  
-
- Este procedimento remove o SMSID, que é necessário para que o cliente possa utilizar um certificado novo ou renovado no computador Mac.  
+Este procedimento remove o SMSID. O cliente do Configuration Manager para Mac requer um ID novo utilizar um certificado novo ou renovado.  
 
 > [!IMPORTANT]  
->  Quando remove e substitui o SMSID do cliente, o histórico armazenado do cliente, tais como o inventário é eliminado após a eliminação do cliente a partir da consola do Configuration Manager.  
+> Depois de substituir o SMSID, do cliente ao eliminar o recurso antigo na consola do Configuration Manager, também eliminar histórico armazenado do cliente. Por exemplo, hardware histórico de inventário para esse cliente.  
 
-### <a name="to-renew-the-mac-client-certificate"></a>Para renovar o certificado do cliente Mac  
 
-1.  Criar e preencher uma coleção de dispositivos para os computadores Mac que têm de renovar os certificados de computador.  
+1. Criar e preencher uma coleção de dispositivos para os computadores Mac que devem renovar os certificados de computador.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , inicie o **Assistente de Criação de Item de Configuração**.  
+2. Na área de trabalho **Ativos e Compatibilidade** , inicie o **Assistente de Criação de Item de Configuração**.  
 
-3.  Na página **Geral** do assistente, especifique as seguintes informações:  
+3. Na página **Geral** do assistente, especifique as seguintes informações:  
 
-    -   **Nome:Remove SMSID for Mac**  
+    - **Nome**: **Remova o SMSID para Mac**  
 
-    -   **Tipo:Mac OS X**  
+    - **Tipo de**: **Mac OS X**  
 
-4.  Na página **Plataformas Suportadas** do assistente, certifique-se de que estão selecionadas todas as versões do Mac OS X.  
+4. Sobre o **plataformas suportadas** , selecione todas as versões de Mac OS X.  
 
-5.  Na página **Definições** do assistente, clique em **Novo** e, na caixa de diálogo **Criar Definição** , especifique as seguintes informações:  
+5. Sobre o **configurações** página, selecione **New**. Na **Criar definição** janela, especifique as seguintes informações:  
 
-    -   **Nome:Remove SMSID for Mac**  
+    - **Nome**: **Remova o SMSID para Mac**  
 
-    -   **Tipo de definição:Script**  
+    - **Tipo de definição**: **Script**  
 
-    -   **Tipo de dados:Cadeia**  
+    - **Tipo de dados**: **Cadeia de caracteres**  
 
-6.  Na caixa de diálogo **Criar Definição** , em **Script de deteção**, clique em **Adicionar script** para especificar um script que deteta os computadores Mac com um SMSID configurado.  
+6. Na **Criar definição** janela, para **script de deteção**, selecione **adicionar script**. Esta ação Especifica um script para detetar computadores de Mac configurados com um SMSID.  
 
-7.  Na caixa de diálogo **Editar Script de Deteção** , introduza o seguinte Script de Shell:  
+7. Na **Editar Script de deteção** janela, introduza o seguinte script de shell:  
 
     ```  
     defaults read com.microsoft.ccmclient SMSID  
     ```  
 
-8.  Escolha **OK** para fechar o **Editar Script de deteção** caixa de diálogo.  
+8. Escolher **OK** para fechar a **Editar Script de deteção** janela.  
 
-9. No **Criar definição** caixa de diálogo, para **script de remediação (opcional)**, escolha **adicionar script** para especificar um script que remove o SMSID quando localizado nos computadores Mac.  
+9. Na **Criar definição** janela, para **script de remediação (opcional)**, escolha **adicionar script**. Esta ação Especifica um script para remover o SMSID quando localizado nos computadores Mac.  
 
-10. Na caixa de diálogo **Criar Script de Remediação** , introduza o seguinte Script de Shell:  
+10. Na **criar Script de remediação** janela, introduza o seguinte script de shell:  
 
     ```  
     defaults delete com.microsoft.ccmclient SMSID  
     ```  
 
-11. Escolha **OK** para fechar o **criar Script de remediação** caixa de diálogo.  
+11. Escolher **OK** para fechar a **criar Script de remediação** janela.  
 
-12. No **regras de compatibilidade** página do assistente, selecione **novo**e, em seguida, no **criar regra** diálogo caixa, especifique as seguintes informações:  
+12. Sobre o **regras de conformidade** página, selecione **New**. Em seguida, no **criar regra** janela, especifique as seguintes informações:  
 
-    -   **Nome:Remove SMSID for Mac**  
+    - **Nome**: **Remova o SMSID para Mac**  
 
-    -   **Definição selecionada:** Escolha **procurar** e, em seguida, selecione o script de deteção especificado anteriormente.  
+    - **Definição selecionada**: Escolher **procurar** e, em seguida, selecione o script de deteção especificado anteriormente.  
 
-    -   No campo **os seguintes valores** , introduza **The domain/default pair of (com.microsoft.ccmclient, SMSID) does not exist**.  
+    - Na **os seguintes valores** campo: **O par domínio/predefinido de (com.microsoft.ccmclient, SMSID) não existe**.  
 
-    -   Ative a opção **Executar o script de remediação especificado quando esta definição é incompatível**.  
+    - Ativar a opção para **executar o script de remediação especificado quando esta definição é incompatível**.  
 
-13. Conclua o Assistente de Criação de Item de Configuração.  
+13. Conclua o assistente.  
 
-14. Crie uma linha de base de configuração que contenha o item de configuração criado recentemente e implemente-a na coleção de dispositivos criada no passo 1.  
+14. Crie uma linha de base de configuração que contém este item de configuração. Implemente a linha de base para a coleção de destino.  
 
-     Para obter mais informações sobre como criar e implementar linhas de base de configuração, consulte [como criar linhas de base de configuração no System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md).  
+     Para obter mais informações, consulte [como criar linhas de base de configuração](/sccm/compliance/deploy-use/create-configuration-baselines).  
 
-15. Após ter instalado um novo certificado nos computadores Mac cujo SMSID foi removido, execute o seguinte comando para configurar o cliente para utilizar o novo certificado:  
+15. Depois de instalar um novo certificado em computadores Mac cujo smsid foi removido, execute o seguinte comando para configurar o cliente para utilizar o novo certificado:  
 
     ```  
-    sudo defaults write com.microsoft.ccmclient SubjectName -string <Subject_Name_of_New_Certificate>  
+    sudo defaults write com.microsoft.ccmclient SubjectName -string <subject_name_of_new_certificate>  
     ```  
 
-16. Se tiver mais de um certificado que contém o mesmo valor do requerente, em seguida, tem de especificar o número de série do certificado para identificar o certificado que pretende utilizar para o cliente do Configuration Manager. Para tal, utilize o seguinte comando: **sudo defaults write com.microsoft.ccmclient SerialNumber-data "< número de série\>"**.  
-
-     Por exemplo: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**  
-
-17. Reinicie.  
 
 
 ## <a name="see-also"></a>Consulte também
+
+[Preparar a implementação de clientes em Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients)
 
 [Manutenção de clientes de Mac](/sccm/core/clients/manage/maintain-mac-clients)
