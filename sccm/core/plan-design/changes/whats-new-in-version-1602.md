@@ -62,7 +62,7 @@ Para o System Center Configuration Manager só está disponível como uma atuali
 
 -   Windows 10 disponíveis agora, as atualizações apenas são apresentadas no **manutenção do Windows 10** \ **todas as atualizações do Windows 10** nó da consola do Configuration Manager. Estas atualizações já não aparecem no **atualizações de Software** \ **todas as atualizações de Software** nó da consola.  
 
--   Um plano de manutenção é considerado uma implementação de alto risco e o **selecionar coleção** janela exibe apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. Para mais informações, consulte [Settings to manage high-risk deployments for System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+-   Um plano de manutenção é considerado uma implementação de alto risco e o **selecionar coleção** janela exibe apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. Para obter mais informações, veja [Definições para gerir implementações de alto risco para o System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 -   Os utilizadores que iniciar um pacote de atualização do Windows 10 agora recebem uma mensagem que eles irão atualizar o sistema operativo.  
 
