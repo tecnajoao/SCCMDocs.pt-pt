@@ -10,12 +10,12 @@ ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7ff6d885ca635e15c62eddcdfa06abdc1a09cdf8
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 2d51774688b80faf808653cde77aa3b651ea210c
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456605"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53422594"
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o Configuration Manager
 
@@ -49,13 +49,13 @@ O Configuration Manager suporta a atualização no local do servidor do sistema 
 
     - Windows Server 2008 R2 para o Windows Server 2012 R2   
 
-Para atualizar um servidor, utilize os procedimentos de atualização fornecidos pelo sistema operacional que está a atualizar. Veja os artigos seguintes:  
+Para atualizar um servidor, utilize os procedimentos de atualização fornecidos pelo sistema operacional que está a atualizar. Consulte os seguintes artigos:  
 
 - [Centro de atualização do Windows Server](http://aka.ms/upgradecenter)  
 
 - [Atualização e opções de conversão do Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths)  
 
-- [Opções de atualização do Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303416\(v=ws.11))   
+- [Opções de atualização do Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303416(v=ws.11))   
 
 
 ### <a name="bkmk_2016-2019"></a> Atualizar para o Windows Server 2016 ou de 2019
@@ -130,7 +130,7 @@ Quando atualizar do Windows Server 2008 R2 ou Windows Server 2012 para Windows S
 #### <a name="before-upgrade"></a>Antes da atualização  
 - No Windows Server 2012: Remova a função WSUS do servidor se estiver instalado. Pode manter o SUSDB e voltar a ligá-lo assim que o WSUS é reinstalado.  
 
-- No Windows Server 2008 R2: Antes de atualizar para o Windows Server 2012 R2, tem de desinstalar o WSUS 3.2 do servidor. Pode manter o SUSDB e voltar a ligá-lo assim que o WSUS é reinstalado. Para obter mais informações, consulte [descrição geral do Windows Server Update Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh852345\(v=ws.11)#new-e-alterado-funcionalidade).  
+- No Windows Server 2008 R2: Antes de atualizar para o Windows Server 2012 R2, tem de desinstalar o WSUS 3.2 do servidor. Pode manter o SUSDB e voltar a ligá-lo assim que o WSUS é reinstalado. Para obter mais informações, consulte [descrição geral do Windows Server Update Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh852345(v=ws.11)#new-and-changed-functionality).  
 
 #### <a name="after-upgrade"></a>Após a atualização  
 - O processo de atualização desativa os serviços de implantação do Windows. Certifique-se de que este serviço é iniciado e em execução para as seguintes funções de sistema de sites:  

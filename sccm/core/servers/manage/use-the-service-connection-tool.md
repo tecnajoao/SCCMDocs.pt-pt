@@ -10,12 +10,12 @@ ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e88d40317fe0c1385d78ab7b5919f0f766254598
-ms.sourcegitcommit: 303d826f45c8fd9a05d8883afc1ca645e56bd576
+ms.openlocfilehash: 96f816e20d31315e2eaf63b5bf4a14376f3c9261
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51269217"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53417902"
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
@@ -121,51 +121,51 @@ Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 
 ### <a name="to-use-the-service-connection-tool"></a>Para utilizar a ferramenta de ligação de serviço  
 
-1.  No computador que aloja o ponto de ligação de serviço:  
+1. No computador que aloja o ponto de ligação de serviço:  
 
-    -   Abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém **serviceconnectiontool.exe**.   
+   -   Abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém **serviceconnectiontool.exe**.   
 
-2.  Execute o seguinte comando para que a ferramenta prepare um ficheiro .cab que contém informações de utilização e o copie para a localização que especificar:  
+2. Execute o seguinte comando para que a ferramenta prepare um ficheiro .cab que contém informações de utilização e o copie para a localização que especificar:  
 
-    -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
+   -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
 
-    Se for carregar ficheiros .cab a partir de mais do que uma hierarquia em simultâneo, cada ficheiro .cab na pasta tem de ter um nome exclusivo. Pode mudar o nome dos ficheiros que adicionar à pasta manualmente.
+   Se for carregar ficheiros .cab a partir de mais do que uma hierarquia em simultâneo, cada ficheiro .cab na pasta tem de ter um nome exclusivo. Pode mudar o nome dos ficheiros que adicionar à pasta manualmente.
 
-    Se pretender ver as informações de utilização recolhidas para serem carregadas para o serviço em nuvem do Configuration Manager, execute o comando seguinte para exportar os mesmos dados como um ficheiro .csv que pode ver, em seguida, com uma aplicação como o Excel:  
+   Se pretender ver as informações de utilização recolhidas para serem carregadas para o serviço em nuvem do Configuration Manager, execute o comando seguinte para exportar os mesmos dados como um ficheiro .csv que pode ver, em seguida, com uma aplicação como o Excel:  
 
-    -   **serviceconnectiontool.exe -export -dest D:\USB\UsageData.csv**  
+   -   **serviceconnectiontool.exe -export -dest D:\USB\UsageData.csv**  
 
-3.  Quando o passo de preparação estiver concluído, coloque a pen USB (ou transfira os dados exportados através de outro método) num computador que tenha acesso à Internet.  
+3. Quando o passo de preparação estiver concluído, coloque a pen USB (ou transfira os dados exportados através de outro método) num computador que tenha acesso à Internet.  
 
-4.  No computador com acesso à Internet, abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém uma cópia da ferramenta  **serviceconnectiontool.exe** e os ficheiros adicionais dessa pasta.  
+4. No computador com acesso à Internet, abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém uma cópia da ferramenta  **serviceconnectiontool.exe** e os ficheiros adicionais dessa pasta.  
 
-5.  Execute o seguinte comando para iniciar o carregamento de informações de utilização e a transferência de atualizações para o Configuration Manager:  
+5. Execute o seguinte comando para iniciar o carregamento de informações de utilização e a transferência de atualizações para o Configuration Manager:  
 
-    -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+   -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
 
-    Para obter mais exemplos desta linha de comandos, veja a secção [Opções de linha de comandos](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) mais à frente neste tópico.
+   Para obter mais exemplos desta linha de comandos, veja a secção [Opções de linha de comandos](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) mais à frente neste tópico.
 
-    > [!NOTE]  
-    >  Quando executa a linha de comandos para ligar ao serviço em nuvem do Configuration Manager, poderá ocorrer um erro semelhante ao seguinte:  
-    >   
-    >  -   Exceção não processada: System. unauthorizedaccessexception:  
-    >   
-    >      O acesso ao caminho "C:\  
-    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" foi negado.  
-    >   
-    > Este erro pode ser ignorado com segurança e pode fechar a janela de erro e continuar.  
+   > [!NOTE]  
+   >  Quando executa a linha de comandos para ligar ao serviço em nuvem do Configuration Manager, poderá ocorrer um erro semelhante ao seguinte:  
+   >   
+   >  -   Exceção não processada: System. unauthorizedaccessexception:  
+   >   
+   >      O acesso ao caminho "C:\  
+   >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" foi negado.  
+   >   
+   > Este erro pode ser ignorado com segurança e pode fechar a janela de erro e continuar.  
 
-6.  Após a conclusão da transferência das atualizações para o Configuration Manager, coloque a unidade USB (ou transfira os dados exportados através de outro método) no computador que aloja o ponto de ligação de serviço.  
+6. Após a conclusão da transferência das atualizações para o Configuration Manager, coloque a unidade USB (ou transfira os dados exportados através de outro método) no computador que aloja o ponto de ligação de serviço.  
 
-7.  No computador que aloja o ponto de ligação de serviço, abra uma linha de comandos com privilégios administrativos, mude de diretório para a localização que contém **serviceconnectiontool.exe**e execute o seguinte comando:  
+7. No computador que aloja o ponto de ligação de serviço, abra uma linha de comandos com privilégios administrativos, mude de diretório para a localização que contém **serviceconnectiontool.exe**e execute o seguinte comando:  
 
-    -   **serviceconnectiontool.exe -import -updatepacksrc D:\USB\UpdatePacks**  
+   -   **serviceconnectiontool.exe -import -updatepacksrc D:\USB\UpdatePacks**  
 
-8.  Quando a importação estiver concluída, pode fechar a linha de comandos. (Apenas são importadas atualizações para a hierarquia aplicável).  
+8. Quando a importação estiver concluída, pode fechar a linha de comandos. (Apenas são importadas atualizações para a hierarquia aplicável).  
 
 9. Abra a consola do Configuration Manager e navegue para **Administration** > **atualizações e manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e manutenção foi sob **Administration** > **serviços Cloud**.)
 
- Para obter informações sobre como instalar atualizações, veja  [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+   Para obter informações sobre como instalar atualizações, veja  [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
 ## <a name="bkmk_cmd"></a> Ficheiros de registo
 

@@ -10,12 +10,12 @@ ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 962029dc6bc5584e1edf0bd26d4be3fc280d6204
-ms.sourcegitcommit: 147aae8300831c722a559087c735df0f761b2041
+ms.openlocfilehash: 43093f38a2769c46d3d96a51afbf47f33ed38b51
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645247"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423801"
 ---
 # <a name="supported-sql-server-versions-for-configuration-manager"></a>Versões suportadas do SQL Server para o Configuration Manager
 
@@ -78,10 +78,10 @@ Suporte para um pacote de serviço específico do SQL Server inclui as atualiza�
 ### <a name="sql-server-2017-standard-enterprise"></a>SQL Server 2017: Standard, Enterprise  
 Pode utilizar esta versão do SQL Server, com um mínimo de [versão de atualização cumulativa 2](https://support.microsoft.com/help/4052574), que começam com [Configuration Manager versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710) para os seguintes sites: 
 
--   Um site de administração central  
--   Um site primário  
--   Um site secundário  
-<!--SMS.498506-->
+- Um site de administração central  
+- Um site primário  
+- Um site secundário  
+  <!--SMS.498506-->
 
 ### <a name="sql-server-2016-sp2-standard-enterprise"></a>O SQL Server 2016 SP2: Standard, Enterprise  
 <!--514985--> Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
