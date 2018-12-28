@@ -10,12 +10,12 @@ ms.assetid: 32e2d6b9-148f-45e2-8083-98c656473f82
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 29b0f577ad291899467d9c6fd305af9ef6b892eb
-ms.sourcegitcommit: 5b3ff56018cfc6bda9643c9f1bebc575173f61bc
+ms.openlocfilehash: 85bd23130826c7ca23e10125efba58bf14555fb1
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50083807"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424226"
 ---
 # <a name="cmpivot-for-real-time-data-in-configuration-manager"></a>CMPivot para dados em tempo real no Configuration Manager
 
@@ -131,51 +131,51 @@ A janela de CMPivot contém os seguintes elementos:
 
 6. O painel de resultados apresenta os dados retornados por clientes ativos para a consulta.  
 
-    - As colunas disponíveis variam com base na entidade e a consulta.  
+   - As colunas disponíveis variam com base na entidade e a consulta.  
 
-    - Clique num nome de coluna para ordenar os resultados por essa propriedade.  
+   - Clique num nome de coluna para ordenar os resultados por essa propriedade.  
 
-    - Com o botão direito em qualquer nome de coluna para agrupar os resultados pelas mesmas informações nessa coluna ou ordenar os resultados.  
+   - Com o botão direito em qualquer nome de coluna para agrupar os resultados pelas mesmas informações nessa coluna ou ordenar os resultados.  
 
-    - Clique com o botão direito no nome de um dispositivo para realizar as seguintes ações adicionais no dispositivo:  
+   - Clique com o botão direito no nome de um dispositivo para realizar as seguintes ações adicionais no dispositivo:  
 
-       - **Utilize também a**: Consulta para outra entidade neste dispositivo.  
+      - **Utilize também a**: Consulta para outra entidade neste dispositivo.  
 
-       - **Executar Script**: Inicie o Assistente de executar o Script para executar um script do PowerShell existente neste dispositivo. Para obter mais informações, consulte [executar um script](/sccm/apps/deploy-use/create-deploy-scripts#run-a-script).  
+      - **Executar Script**: Inicie o Assistente de executar o Script para executar um script do PowerShell existente neste dispositivo. Para obter mais informações, consulte [executar um script](/sccm/apps/deploy-use/create-deploy-scripts#run-a-script).  
 
-       - **Controlo remoto**: Inicie uma sessão de controlo de remoto do Configuration Manager neste dispositivo. Para obter mais informações, consulte [como administrar remotamente um computador de cliente Windows](/sccm/core/clients/manage/remote-control/remotely-administer-a-windows-client-computer).  
+      - **Controlo remoto**: Inicie uma sessão de controlo de remoto do Configuration Manager neste dispositivo. Para obter mais informações, consulte [como administrar remotamente um computador de cliente Windows](/sccm/core/clients/manage/remote-control/remotely-administer-a-windows-client-computer).  
 
-       - **Explorador de recursos**: Inicie o Explorador de recursos do Configuration Manager para este dispositivo. Para obter mais informações, consulte [ver o inventário de hardware](/sccm/core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory) ou [ver o inventário de software](/sccm/core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory).  
+      - **Explorador de recursos**: Inicie o Explorador de recursos do Configuration Manager para este dispositivo. Para obter mais informações, consulte [ver o inventário de hardware](/sccm/core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory) ou [ver o inventário de software](/sccm/core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory).  
 
-    - Clique com o botão direito em qualquer célula do dispositivo não para efetuar as seguintes ações adicionais:  
+   - Clique com o botão direito em qualquer célula do dispositivo não para efetuar as seguintes ações adicionais:  
 
-       - **Cópia**: Copie o texto da célula na área de transferência.  
+     - **Cópia**: Copie o texto da célula na área de transferência.  
 
-       - **Mostrar os dispositivos com**: Consulta para dispositivos com este valor para esta propriedade. Por exemplo, a partir dos resultados da `OS` consultar, selecione esta opção numa célula na linha da versão: `OS | summarize countif( (Version == '10.0.17134') ) by Device | where (countif_ > 0)`  
+     - **Mostrar os dispositivos com**: Consulta para dispositivos com este valor para esta propriedade. Por exemplo, a partir dos resultados da `OS` consultar, selecione esta opção numa célula na linha da versão: `OS | summarize countif( (Version == '10.0.17134') ) by Device | where (countif_ > 0)`  
 
-       - **Mostrar dispositivos sem**: Consulta para dispositivos sem este valor para esta propriedade. Por exemplo, a partir dos resultados da `OS` consultar, selecione esta opção numa célula na linha da versão: `OS | summarize countif( (Version == '10.0.17134') ) by Device | where (countif_ == 0) | project Device`  
+     - **Mostrar dispositivos sem**: Consulta para dispositivos sem este valor para esta propriedade. Por exemplo, a partir dos resultados da `OS` consultar, selecione esta opção numa célula na linha da versão: `OS | summarize countif( (Version == '10.0.17134') ) by Device | where (countif_ == 0) | project Device`  
 
-       - **Bing-**: Inicie o navegador da web padrão para www.bing.com com este valor como a cadeia de consulta.  
+     - **Bing-**: Inicie o navegador da web padrão para www.bing.com com este valor como a cadeia de consulta.  
 
-    - Clique em qualquer texto associado à hiperligação para dinamizar o modo de exibição nessas informações específicas.  
+   - Clique em qualquer texto associado à hiperligação para dinamizar o modo de exibição nessas informações específicas.  
 
-    - O painel de resultados não mostra mais de 20 000 linhas. O ajuste a consulta para filtrar ainda mais os dados ou reiniciar CMPivot numa coleção de menor.  
+   - O painel de resultados não mostra mais de 20 000 linhas. O ajuste a consulta para filtrar ainda mais os dados ou reiniciar CMPivot numa coleção de menor.  
 
 7. Na barra de estado mostra as seguintes informações (da esquerda para a direita):  
 
-    - O estado da consulta atual para a coleção de destino. Este estado inclui:  
-        - O número de clientes ativos que concluir a consulta (3)  
-        - O número total de clientes (5)  
-        - O número de clientes offline (2)  
-        - Os clientes que devolveu um erro (0)  
+   - O estado da consulta atual para a coleção de destino. Este estado inclui:  
+     - O número de clientes ativos que concluir a consulta (3)  
+     - O número total de clientes (5)  
+     - O número de clientes offline (2)  
+     - Os clientes que devolveu um erro (0)  
 
-        Por exemplo: `Query completed on 3 of 5 clients (2 clients offline and 0 failure)`  
+       Por exemplo: `Query completed on 3 of 5 clients (2 clients offline and 0 failure)`  
 
-    - O ID da operação de cliente. Por exemplo: `id(16780221)`  
+   - O ID da operação de cliente. Por exemplo: `id(16780221)`  
 
-    - A coleção atual. Por exemplo: `PM_Team_Machines`  
+   - A coleção atual. Por exemplo: `PM_Team_Machines`  
 
-    - O número total de linhas no painel de resultados. Por exemplo, `1 objects`  
+   - O número total de linhas no painel de resultados. Por exemplo, `1 objects`  
 
 
 

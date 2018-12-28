@@ -10,12 +10,12 @@ ms.assetid: 828c31d1-3d70-4412-b1a8-c92e7e504d39
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d868411b9e8bce171e8626e5a6ecab6125cc056e
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 637727356724085f019ac9ab336bc37e3635ea3a
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386886"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53415148"
 ---
 # <a name="unattended-site-recovery-for-configuration-manager"></a>Recuperação de site automática para o Configuration Manager   
 
@@ -108,76 +108,76 @@ ms.locfileid: "39386886"
 
 **Opções**
 
--   **Nome da chave:** ProductID
-    -   **Necessário:** Sim
-    -   **Valores:**   
-         - xxxxx-xxxxx-xxxxx-xxxxx-xxxxx  
-         - Eval
-    -   **Detalhes:** O Configuration Manager instalação chave de produto, incluindo os traços. Introduza **Eval** pode instalar a versão de avaliação do Configuration Manager.  
+- **Nome da chave:** ProductID
+  -   **Necessário:** Sim
+  -   **Valores:**   
+       - xxxxx-xxxxx-xxxxx-xxxxx-xxxxx  
+       - Eval
+  -   **Detalhes:** O Configuration Manager instalação chave de produto, incluindo os traços. Introduza **Eval** pode instalar a versão de avaliação do Configuration Manager.  
 
 
--   **Nome da chave:** SiteCode
+- **Nome da chave:** SiteCode
 
-    -   **Necessário:** Sim
-    -   **Valores:** &lt;Código do site\>
-    -   **Detalhes:** Três carateres de alfanuméricos que identificam o site na sua hierarquia. Especifique o código do site que foi utilizado pelo site antes da falha.
-
-
--   **Nome da chave:** SiteName
-
-    -   **Necessário:** Sim
-    -   **Valores:** SiteName
-    -   **Detalhes:** Descrição para este site.
+  -   **Necessário:** Sim
+  -   **Valores:** &lt;Código do site\>
+  -   **Detalhes:** Três carateres de alfanuméricos que identificam o site na sua hierarquia. Especifique o código do site que foi utilizado pelo site antes da falha.
 
 
--   **Nome da chave:** SMSInstallDir
+- **Nome da chave:** SiteName
 
-    -   **Necessário:** Sim
-    -   **Valores:** &lt;*ConfigMgrInstallationPath*>
-    -   **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.
-        > [!NOTE]   
-        >  Pode especificar o caminho original ou um novo caminho a utilizar para a instalação do Configuration Manager.
-
--   **Nome da chave:** SDKServer
-
-    -   **Necessário:** Sim
-    -   **Valores:** &lt;*FQDN do fornecedor de SMS*>
-    -   **Detalhes:** Especifica o FQDN do servidor que aloja o fornecedor de SMS. Especifique o servidor que alojava o fornecedor de SMS antes da falha.
-
-         Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial.
-
--   **Nome da chave:** PrerequisiteComp
-
-    -   **Necessário:** Sim
-    -   **Valores:** 0 ou 1  
-         0 = transferir   
-         1 = já transferido
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se usar um valor de 0, a configuração transfere os ficheiros.  
+  -   **Necessário:** Sim
+  -   **Valores:** SiteName
+  -   **Detalhes:** Descrição para este site.
 
 
--   **Nome da chave:** PrerequisitePath
+- **Nome da chave:** SMSInstallDir
 
-    -   **Necessário:** Sim
-    -   **Valores:** &lt;*PathToSetupPrerequisiteFiles*>
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante a **PrerequisiteComp** valor, a configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente os ficheiros transferidos.
+  - **Necessário:** Sim
+  - **Valores:** &lt;*ConfigMgrInstallationPath*>
+  - **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.
+    > [!NOTE]   
+    >  Pode especificar o caminho original ou um novo caminho a utilizar para a instalação do Configuration Manager.
 
--   **Nome da chave:** AdminConsole
+- **Nome da chave:** SDKServer
 
-    -   **Necessário:** Talvez
-    -   **Valores:** 0 ou 1 0 = não instalar   
-         1 = instalar
-    -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager. Esta chave é necessária, exceto se a definição **ServerRecoveryOptions** tiver o valor **4**.
+  -   **Necessário:** Sim
+  -   **Valores:** &lt;*FQDN do fornecedor de SMS*>
+  -   **Detalhes:** Especifica o FQDN do servidor que aloja o fornecedor de SMS. Especifique o servidor que alojava o fornecedor de SMS antes da falha.
+
+       Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial.
+
+- **Nome da chave:** PrerequisiteComp
+
+  -   **Necessário:** Sim
+  -   **Valores:** 0 ou 1  
+       0 = transferir   
+       1 = já transferido
+  -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se usar um valor de 0, a configuração transfere os ficheiros.  
 
 
--   **Nome da chave:** JoinCEIP   
-    > [!Note]  
-    > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
+- **Nome da chave:** PrerequisitePath
 
-    -   **Necessário:** Sim
-    -   **Valores:** 0 ou 1  
-         0 = não aderir  
-         1 = aderir
-    -   **Detalhes:** Especifica se pretende aderir o programa de melhoramento da experiência do cliente.
+  -   **Necessário:** Sim
+  -   **Valores:** &lt;*PathToSetupPrerequisiteFiles*>
+  -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante a **PrerequisiteComp** valor, a configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente os ficheiros transferidos.
+
+- **Nome da chave:** AdminConsole
+
+  -   **Necessário:** Talvez
+  -   **Valores:** 0 ou 1 0 = não instalar   
+       1 = instalar
+  -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager. Esta chave é necessária, exceto se a definição **ServerRecoveryOptions** tiver o valor **4**.
+
+
+- **Nome da chave:** JoinCEIP   
+  > [!Note]  
+  > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
+
+  -   **Necessário:** Sim
+  -   **Valores:** 0 ou 1  
+       0 = não aderir  
+       1 = aderir
+  -   **Detalhes:** Especifica se pretende aderir o programa de melhoramento da experiência do cliente.
 
 **SQLConfigOptions**
 

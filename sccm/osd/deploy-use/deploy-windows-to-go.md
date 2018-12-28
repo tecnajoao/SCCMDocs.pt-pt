@@ -10,12 +10,12 @@ ms.assetid: 8eed50f5-80a4-422e-8aa6-a7ccb2171475
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: afc76b59d594c6b8f52062add480874ba5c5686d
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: 162fbdeb08e345ecea20a58b3f5a95a8da193898
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411498"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53415114"
 ---
 # <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementar o Windows To Go com o System Center Configuration Manager
 
@@ -76,70 +76,70 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 #### <a name="to-create-prestaged-media"></a>Para criar um suporte de dados pré-configurado  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
+3. No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
 
-4.  Na página **Selecione o Tipo de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+4. Na página **Selecione o Tipo de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
 
-    -   Selecione **Suporte de dados pré-configurado**.  
+   -   Selecione **Suporte de dados pré-configurado**.  
 
-    -   Selecione **Permitir a implementação do sistema operativo autónoma** para arrancar a implementação do Windows To Go sem interação do utilizador.  
+   -   Selecione **Permitir a implementação do sistema operativo autónoma** para arrancar a implementação do Windows To Go sem interação do utilizador.  
 
-        > [!IMPORTANT]  
-        >  Quando utiliza esta opção com a variável personalizada SMSTSPreferredAdvertID (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arrancará automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe. Se utilizar a definição **Permitir a implementação do sistema operativo autónoma** sem configurar a variável SMSTSPreferredAdvertID, ocorrerá um erro quando implementar a sequência de tarefas.  
+       > [!IMPORTANT]  
+       >  Quando utiliza esta opção com a variável personalizada SMSTSPreferredAdvertID (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arrancará automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe. Se utilizar a definição **Permitir a implementação do sistema operativo autónoma** sem configurar a variável SMSTSPreferredAdvertID, ocorrerá um erro quando implementar a sequência de tarefas.  
 
-5.  Na página **Gestão de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+5. Na página **Gestão de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
 
-    -   Selecione **Suporte de dados dinâmico** se pretender permitir que um ponto de gestão redirecione o suporte de dados para outro ponto de gestão, com base na localização do cliente nos limites do site.  
+   -   Selecione **Suporte de dados dinâmico** se pretender permitir que um ponto de gestão redirecione o suporte de dados para outro ponto de gestão, com base na localização do cliente nos limites do site.  
 
-    -   Selecione **Suporte de dados baseado no site** se pretender que o suporte de dados entre em contacto apenas com o ponto de gestão especificado.  
+   -   Selecione **Suporte de dados baseado no site** se pretender que o suporte de dados entre em contacto apenas com o ponto de gestão especificado.  
 
-6.  Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
+6. Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
 
-    -   **Criado por**: Especifique quem criou o suporte de dados.  
+   -   **Criado por**: Especifique quem criou o suporte de dados.  
 
-    -   **Versão**: Especifique o número de versão do suporte de dados.  
+   -   **Versão**: Especifique o número de versão do suporte de dados.  
 
-    -   **Comentário**: Especifique uma descrição exclusiva da que é utilizado o suporte de dados.  
+   -   **Comentário**: Especifique uma descrição exclusiva da que é utilizado o suporte de dados.  
 
-    -   **Ficheiro de multimédia**: Especifique o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.wim**  
+   -   **Ficheiro de multimédia**: Especifique o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.wim**  
 
-7.  Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
+7. Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   Selecione **ativar o suporte para computadores desconhecidos** para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não existe nenhum registo desses computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
+   -   Selecione **ativar o suporte para computadores desconhecidos** para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não existe nenhum registo desses computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
 
-        -   Um computador em que o cliente do Configuration Manager não está instalado  
+       -   Um computador em que o cliente do Configuration Manager não está instalado  
 
-        -   Um computador que não é importado para o Configuration Manager  
+       -   Um computador que não é importado para o Configuration Manager  
 
-        -   Um computador que não é detetado pelo Configuration Manager  
+       -   Um computador que não é detetado pelo Configuration Manager  
 
-    -   Selecione **Proteger suporte de dados com uma palavra-passe** e introduza uma palavra-passe segura para ajudar a proteger o suporte de dados contra acesso não autorizado. Quando especificar uma palavra-passe, o utilizador terá de fornecer essa palavra-passe para utilizar o suporte de dados pré-configurado.  
+   -   Selecione **Proteger suporte de dados com uma palavra-passe** e introduza uma palavra-passe segura para ajudar a proteger o suporte de dados contra acesso não autorizado. Quando especificar uma palavra-passe, o utilizador terá de fornecer essa palavra-passe para utilizar o suporte de dados pré-configurado.  
 
-        > [!IMPORTANT]  
-        >  Como procedimento de segurança recomendado, atribua sempre uma palavra-passe para ajudar a proteger o suporte de dados pré-configurado.  
+       > [!IMPORTANT]  
+       >  Como procedimento de segurança recomendado, atribua sempre uma palavra-passe para ajudar a proteger o suporte de dados pré-configurado.  
 
-        > [!NOTE]  
-        >  Quando protege o suporte de dados pré-configurado com uma palavra-passe, esta é solicitada ao utilizador mesmo quando o suporte de dados está configurado com a definição **Permitir a implementação do sistema operativo autónoma** .  
+       > [!NOTE]  
+       >  Quando protege o suporte de dados pré-configurado com uma palavra-passe, esta é solicitada ao utilizador mesmo quando o suporte de dados está configurado com a definição **Permitir a implementação do sistema operativo autónoma** .  
 
-    -   Para comunicações HTTP, selecione **Criar um certificado de suporte de dados autoassinado**e especifique as datas de início e de expiração do certificado.  
+   -   Para comunicações HTTP, selecione **Criar um certificado de suporte de dados autoassinado**e especifique as datas de início e de expiração do certificado.  
 
-    -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
+   -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
 
-         Para obter mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos de certificado PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+        Para obter mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos de certificado PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como a implementação do sistema operativo suporta afinidade dispositivo / utilizador, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+   -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como a implementação do sistema operativo suporta afinidade dispositivo / utilizador, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
+       -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação pendente pelo administrador** se pretender que o suporte de dados associe utilizadores ao computador de destino após concessão da aprovação. Esta funcionalidade baseia-se no âmbito da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação de um utilizador administrativo antes da implementação do sistema operativo.  
+       -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação pendente pelo administrador** se pretender que o suporte de dados associe utilizadores ao computador de destino após concessão da aprovação. Esta funcionalidade baseia-se no âmbito da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação de um utilizador administrativo antes da implementação do sistema operativo.  
 
-        -   Especifique **Não permitir afinidade dispositivo/utilizador** se não pretender que o suporte de dados associe utilizadores ao computador de destino. Neste cenário, a sequência de tarefas não associa utilizadores ao computador de destino durante a implementação do sistema operativo.  
+       -   Especifique **Não permitir afinidade dispositivo/utilizador** se não pretender que o suporte de dados associe utilizadores ao computador de destino. Neste cenário, a sequência de tarefas não associa utilizadores ao computador de destino durante a implementação do sistema operativo.  
 
-8.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas do Windows 8 que criou na secção anterior.  
+8. Na página **Sequência de Tarefas** , especifique a sequência de tarefas do Windows 8 que criou na secção anterior.  
 
 9. Na página **Imagem de arranque** , especifique as seguintes informações e clique em **Seguinte**.  
 
@@ -178,30 +178,30 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 15. Na página **Personalização** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   **Variáveis**: Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo. Para o Windows To Go, utilize a variável SMSTSPreferredAdvertID para selecionar automaticamente a implementação do Windows To Go utilizando o seguinte formato:  
+    - **Variáveis**: Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo. Para o Windows To Go, utilize a variável SMSTSPreferredAdvertID para selecionar automaticamente a implementação do Windows To Go utilizando o seguinte formato:  
 
-         SMSTSPreferredAdvertID = {*IDdaImplementação*}, em que IDdaImplementação é o ID da implementação associado à sequência de tarefas que irá utilizar para concluir o processo de aprovisionamento para a unidade do Windows To Go.  
+       SMSTSPreferredAdvertID = {*IDdaImplementação*}, em que IDdaImplementação é o ID da implementação associado à sequência de tarefas que irá utilizar para concluir o processo de aprovisionamento para a unidade do Windows To Go.  
+
+      > [!TIP]  
+      >  Quando utiliza esta variável com uma sequência de tarefas definida para execução automática (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arranca automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe.  
+
+    - **Comandos de Pré-início**: Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início podem ser um script ou um ficheiro executável que podem interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Configure as seguintes variáveis para a implementação do Windows To Go:  
+
+      - **OSDBitLockerPIN**: O BitLocker para Windows To Go necessita de uma frase de acesso. Defina a variável **OSDBitLockerPIN** como parte de um comando de pré-início para definir a frase de acesso do BitLocker para a unidade do Windows To Go.  
+
+        > [!WARNING]  
+        >  Quando o BitLocker tiver a frase de acesso ativada, o utilizador terá de introduzir a frase de acesso sempre que o computador arrancar na unidade do Windows To Go.  
+
+      - **SMSTSUDAUsers**: Especifica o utilizador primário do computador de destino. Utilize esta variável para recolher o nome do utilizador, que pode então ser utilizado para associar o utilizador e o dispositivo. Para obter mais informações, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
         > [!TIP]  
-        >  Quando utiliza esta variável com uma sequência de tarefas definida para execução automática (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arranca automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe.  
+        >  Para obter o nome de utilizador, pode criar uma caixa de introdução como parte do comando de pré-início, para o utilizador introduzir o respetivo nome de utilizador, e, em seguida, definir a variável com o valor. Por exemplo, pode adicionar as seguintes linhas ao ficheiro de script do comando de pré-início:  
+        >   
+        >  `UserID = inputbox("Enter Username" ,"Enter your username:","",400,0)`  
+        >   
+        >  `env("SMSTSUDAUsers") = UserID`  
 
-    -   **Comandos de Pré-início**: Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início podem ser um script ou um ficheiro executável que podem interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Configure as seguintes variáveis para a implementação do Windows To Go:  
-
-        -   **OSDBitLockerPIN**: O BitLocker para Windows To Go necessita de uma frase de acesso. Defina a variável **OSDBitLockerPIN** como parte de um comando de pré-início para definir a frase de acesso do BitLocker para a unidade do Windows To Go.  
-
-            > [!WARNING]  
-            >  Quando o BitLocker tiver a frase de acesso ativada, o utilizador terá de introduzir a frase de acesso sempre que o computador arrancar na unidade do Windows To Go.  
-
-        -   **SMSTSUDAUsers**: Especifica o utilizador primário do computador de destino. Utilize esta variável para recolher o nome do utilizador, que pode então ser utilizado para associar o utilizador e o dispositivo. Para obter mais informações, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
-
-            > [!TIP]  
-            >  Para obter o nome de utilizador, pode criar uma caixa de introdução como parte do comando de pré-início, para o utilizador introduzir o respetivo nome de utilizador, e, em seguida, definir a variável com o valor. Por exemplo, pode adicionar as seguintes linhas ao ficheiro de script do comando de pré-início:  
-            >   
-            >  `UserID = inputbox("Enter Username" ,"Enter your username:","",400,0)`  
-            >   
-            >  `env("SMSTSUDAUsers") = UserID`  
-
-         Para obter mais informações sobre como criar um ficheiro de script para utilizar como comando de Pré-início, consulte [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
+        Para obter mais informações sobre como criar um ficheiro de script para utilizar como comando de Pré-início, consulte [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
 
 16. Conclua o assistente.  
 
@@ -213,24 +213,24 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 #### <a name="to-create-the-windows-to-go-creator-package"></a>Para criar o pacote do Windows To Go Creator  
 
-1.  No servidor para alojar os ficheiros do pacote do Windows To Go Creator, crie uma pasta de origem para os ficheiros de origem do pacote.  
+1. No servidor para alojar os ficheiros do pacote do Windows To Go Creator, crie uma pasta de origem para os ficheiros de origem do pacote.  
 
-    > [!NOTE]  
-    >  A conta de computador do servidor do site tem de ter direitos de acesso de **Leitura** para a pasta de origem.  
+   > [!NOTE]  
+   >  A conta de computador do servidor do site tem de ter direitos de acesso de **Leitura** para a pasta de origem.  
 
-2.  Copie o ficheiro de suporte de dados pré-configurado criado na secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) para a pasta de origem do pacote.  
+2. Copie o ficheiro de suporte de dados pré-configurado criado na secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) para a pasta de origem do pacote.  
 
-3.  Copie a ferramenta Windows To Go Creator (WTGCreator.exe) para a pasta de origem do pacote. A ferramenta de criação está disponível em qualquer servidor de site primário na seguinte localização: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
+3. Copie a ferramenta Windows To Go Creator (WTGCreator.exe) para a pasta de origem do pacote. A ferramenta de criação está disponível em qualquer servidor de site primário na seguinte localização: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
 
-4.  Crie um pacote e um programa utilizando o Assistente para Criar Pacote e Programa.  
+4. Crie um pacote e um programa utilizando o Assistente para Criar Pacote e Programa.  
 
-5.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+5. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-6.  Na área de trabalho **Biblioteca de Software** , expanda **Gestão de Aplicações**e clique em **Pacotes**.  
+6. Na área de trabalho **Biblioteca de Software** , expanda **Gestão de Aplicações**e clique em **Pacotes**.  
 
-7.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Pacote**.  
+7. No separador **Home Page** , no grupo **Criar** , clique em **Criar Pacote**.  
 
-8.  Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, introduza **Windows To Go** para o pacote de nome e especifique **pacote para configurar uma unidade do Windows To Go utilizando o System Center Configuration Manager** para a descrição do pacote.  
+8. Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, introduza **Windows To Go** para o pacote de nome e especifique **pacote para configurar uma unidade do Windows To Go utilizando o System Center Configuration Manager** para a descrição do pacote.  
 
 9. Selecione **Este pacote contém ficheiros de origem**, especifique o caminho da pasta de origem do pacote que criou no passo 1 e clique em **Seguinte**.  
 
@@ -256,22 +256,22 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 12. Na página Requisitos, especifique o seguinte:  
 
-    -   **Requisitos de plataforma**: Selecione as plataformas Windows 8 aplicáveis para permitir o aprovisionamento.  
+    - **Requisitos de plataforma**: Selecione as plataformas Windows 8 aplicáveis para permitir o aprovisionamento.  
 
-    -   **Espaço em disco estimado**: Especifica o tamanho da pasta de origem do pacote para o Windows To Go Creator.  
+    - **Espaço em disco estimado**: Especifica o tamanho da pasta de origem do pacote para o Windows To Go Creator.  
 
-    -   **Máximo permitido (minutos) de tempo de execução**: Especifica o tempo máximo que o programa poderá demorar para ser executado no computador cliente. Por predefinição, este valor é definido para 120 minutos.  
+    - **Máximo permitido (minutos) de tempo de execução**: Especifica o tempo máximo que o programa poderá demorar para ser executado no computador cliente. Por predefinição, este valor é definido para 120 minutos.  
 
-        > [!IMPORTANT]  
-        >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **Tempo máximo de execução permitido** for superior à janela de manutenção agendada. Se o tempo de execução máximo for definido para **Desconhecido**, começará durante a janela de manutenção, mas continuará a ser executado até concluir ou falhar depois de a janela de manutenção fechar. Se definir o tempo de execução máximo para um período específico (não definido para Desconhecido) que excede a duração de qualquer janela de manutenção, esse programa não será executado.  
+      > [!IMPORTANT]  
+      >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **Tempo máximo de execução permitido** for superior à janela de manutenção agendada. Se o tempo de execução máximo for definido para **Desconhecido**, começará durante a janela de manutenção, mas continuará a ser executado até concluir ou falhar depois de a janela de manutenção fechar. Se definir o tempo de execução máximo para um período específico (não definido para Desconhecido) que excede a duração de qualquer janela de manutenção, esse programa não será executado.  
 
-        > [!NOTE]  
-        >  Se o valor é definido como **desconhecido**, tempo de execução do Configuration Manager define o máximo para 12 horas (720 minutos).  
+      > [!NOTE]  
+      >  Se o valor é definido como **desconhecido**, tempo de execução do Configuration Manager define o máximo para 12 horas (720 minutos).  
 
-        > [!NOTE]  
-        >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager para o programa no caso **executados com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com o programa de instalação** não esteja selecionada no **programa padrão** página.  
+      > [!NOTE]  
+      >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager para o programa no caso **executados com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com o programa de instalação** não esteja selecionada no **programa padrão** página.  
 
-     Clique em **Seguinte** e conclua o assistente.  
+      Clique em **Seguinte** e conclua o assistente.  
 
 ###  <a name="BKMK_UpdateTaskSequence"></a> Atualizar a sequência de tarefas para ativar o BitLocker para o Windows To Go  
  O Windows To Go ativa o BitLocker numa unidade de arranque externa sem a utilização do TPM. Por conseguinte, terá de utilizar uma ferramenta separada para configurar o BitLocker na unidade do Windows To Go. Para ativar o BitLocker, terá de adicionar uma ação à sequência de tarefas após o passo **Configurar Windows e ConfigMgr** .  

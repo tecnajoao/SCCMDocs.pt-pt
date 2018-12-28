@@ -10,12 +10,12 @@ ms.assetid: 76c90f64-d729-456b-8304-01852cd66fb6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3e8c6cb33032b0c4283f3e35cbfa7b68535751ea
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 160713fe480b0a47c2ad57376c4a1dccdbfb00b1
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456112"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418956"
 ---
 # <a name="endpoint-protection"></a>Endpoint Protection
 
@@ -119,4 +119,4 @@ A atualização de Janeiro de 2018 (X21 67050) inclui as seguintes versões:
 - System Center Endpoint Protection para Mac 4.5.32.0 (suporte para macOS 10.13 High Sierra)
 - O System Center Endpoint Protection para Linux 4.5.20.0 
 
- Para obter mais informações sobre como instalar e gerir os clientes de Endpoint Protection para computadores Linux e Mac, utilize a documentação que acompanha estes produtos. Esta documentação de produto é no **documentação** pasta da. Ficheiro ISO.
+  Para obter mais informações sobre como instalar e gerir os clientes de Endpoint Protection para computadores Linux e Mac, utilize a documentação que acompanha estes produtos. Esta documentação de produto é no **documentação** pasta da. Ficheiro ISO.

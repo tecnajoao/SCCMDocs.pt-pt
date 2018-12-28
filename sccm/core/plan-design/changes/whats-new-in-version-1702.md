@@ -10,12 +10,12 @@ ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6abf61488a96ec3299b606b10901b0787b82edc9
-ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
+ms.openlocfilehash: bdeed74504611589b36e31eff3c1957725345b8a
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47229352"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421846"
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1702 do System Center Configuration Manager
 
@@ -63,13 +63,13 @@ Seguem-se melhoramentos para utilizar a pesquisa na consola do Configuration Man
  Pode utilizar as opções de comentários na consola para enviar comentários diretamente para a equipe de desenvolvimento.
 
  Pode encontrar os **comentários** opção:
- -  No Friso, na extremidade esquerda do separador base de cada nó.  
-    ![Faixa de opções](./media/feedback-home.png)
+- No Friso, na extremidade esquerda do separador base de cada nó.  
+  ![Faixa de opções](./media/feedback-home.png)
 
- -  Quando com o botão direito em qualquer objeto na consola do.   
-     ![Opção de clique Righ](./media/feedback-option.png)   
+- Quando com o botão direito em qualquer objeto na consola do.   
+   ![Opção de clique Righ](./media/feedback-option.png)   
 
- Escolher **comentários** abre-se o browser para o [Web site de comentários do UserVoice do Configuration Manager](https://go.microsoft.com/fwlink/?linkid=617029).
+  Escolher **comentários** abre-se o browser para o [Web site de comentários do UserVoice do Configuration Manager](https://go.microsoft.com/fwlink/?linkid=617029).
 
 
 ###  <a name="changes-for-updates-and-servicing"></a>Alterações para atualizações e manutenção
@@ -225,7 +225,7 @@ A partir da versão 1702, a partir do dashboard de gestão de clientes do Office
 > [!IMPORTANT]
 > A aplicação do Office 365 que criar e implementar com o Assistente de aplicativo do Office 365 no Configuration Manager não é automaticamente gerenciada pelo Configuration Manager até que tenha ativado a **ativar a gestão do Office 365 Client novamente**definição de agente de cliente de atualizações de software. Para obter detalhes, consulte [sobre as definições de cliente](/sccm/core/clients/deploy/about-client-settings).
 
-### <a name="manage-express-installation-files-for-windows-10-updates"></a>Gerir ficheiros de instalação rápida para atualizações do Windows 10
+### <a name="manage-express-installation-files-for-windows-10-updates"></a>Gerir Ficheiros de instalação rápida para as atualizações do Windows 10
 Partir da versão 1702, o Configuration Manager suporta ficheiros de instalação rápida para atualizações do Windows 10. Quando utiliza uma versão suportada do Windows 10, pode utilizar as definições do Gestor de configuração para transferir apenas as alterações entre Windows 10 Cumulative Update o mês atual e atualização deste mês anterior. Sem ficheiros de instalação rápida, o Configuration Manager transfere o completo Windows 10 Cumulative Update (incluindo todas as atualizações dos meses anteriores) por mês. A utilização de ficheiros de instalação rápida fornece para transferências mais pequenas e tempos de instalação mais rápidos nos clientes. Para obter detalhes, consulte [gerir ficheiros de instalação rápida para atualizações do Windows 10](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates).
 
 
@@ -248,7 +248,7 @@ Esta alteração afeta os assistentes para criar os seguintes itens:
 
 - Itens de configuração
 - Políticas de conformidade
-- Perfis de certificado
+- Perfis de certificados
 - Perfis de e-mail
 - Perfis VPN
 - Perfis de Wi-Fi

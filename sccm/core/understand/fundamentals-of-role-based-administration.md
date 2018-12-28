@@ -10,28 +10,28 @@ ms.assetid: 0a2d6c3f-a4e4-4c19-b087-3caada480de9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3b7916b386cb22f2d1869eface009bd10ff17d18
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: 1103b9e977f3bbef3e07d545b6b3762f6cf59fdd
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862554"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414978"
 ---
 # <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Noções básicas da administração baseada em funções para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Com o System Center Configuration Manager, utilize a administração baseada em função para proteger o acesso necessário para administrar o Configuration Manager. Também protege o acesso aos objetos que gere, como coleções, implementações e sites. Depois de compreender os conceitos apresentados neste tópico, poderá [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Com o System Center Configuration Manager, utilize a administração baseada em função para proteger o acesso necessário para administrar o Configuration Manager. Também protege o acesso aos objetos que gere, como coleções, implementações e sites. Depois de compreender os conceitos apresentados neste tópico, pode [Configure role-based administration for System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
  Centralmente, o modelo de administração baseada em funções define e gere as definições de acesso de segurança ao nível da hierarquia para todos os sites e definições do site utilizando o seguinte:  
 
--   *Funções de segurança* atribuídas a utilizadores administrativos para fornecer a esses utilizadores (ou grupos de utilizadores) permissões para diferentes objetos do Configuration Manager. Por exemplo, a permissão para criar ou alterar as definições de cliente.  
+- *Funções de segurança* atribuídas a utilizadores administrativos para fornecer a esses utilizadores (ou grupos de utilizadores) permissões para diferentes objetos do Configuration Manager. Por exemplo, a permissão para criar ou alterar as definições de cliente.  
 
--   *Âmbitos de segurança* são utilizados para agrupam instâncias específicas de objetos que um utilizador administrativo é da responsabilidade de gerir, como uma aplicação que instala o Microsoft Office 2010.  
+- *Âmbitos de segurança* são utilizados para agrupam instâncias específicas de objetos que um utilizador administrativo é da responsabilidade de gerir, como uma aplicação que instala o Microsoft Office 2010.  
 
--   *Coleções* são utilizados para especificar grupos de recursos de utilizadores e dispositivos que o utilizador administrativo pode gerir.  
+- *Coleções* são utilizados para especificar grupos de recursos de utilizadores e dispositivos que o utilizador administrativo pode gerir.  
 
- Com a combinação de funções de segurança, âmbitos de segurança e coleções, segregar as atribuições administrativas que satisfazem os requisitos da sua organização. Utilizados em conjunto, elas definem o âmbito administrativo de um usuário, o que é o que esse utilizador pode ver e gerir na sua implementação do Configuration Manager.  
+  Com a combinação de funções de segurança, âmbitos de segurança e coleções, segregar as atribuições administrativas que satisfazem os requisitos da sua organização. Utilizados em conjunto, elas definem o âmbito administrativo de um usuário, o que é o que esse utilizador pode ver e gerir na sua implementação do Configuration Manager.  
 
 ## <a name="benefits-of-role-based-administration"></a>Benefícios da administração baseada em funções  
 
@@ -89,7 +89,7 @@ Quando estruturar e implementar segurança administrativa para o Configuration M
 
 4.  Se as tarefas identificadas não mapearem para as funções de segurança incorporadas, crie e teste novas funções de segurança.  
 
-Para obter informações sobre como criar e configurar funções de segurança para a administração baseada em funções, consulte [criar funções de segurança personalizadas](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) e [configurar funções de segurança](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) no [configurar administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Para obter informações sobre como criar e configurar funções de segurança para a administração baseada em funções, consulte  [Create custom security roles](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) e [Configure security roles](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) no tópico [Configure role-based administration for System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) .  
 
 ##  <a name="bkmk_planCol"></a> Coleções  
  As coleções especificam os recursos de utilizador e de computador que um utilizador administrativo pode ver ou gerir. Por exemplo, para poderem implementar aplicações ou efetuar o controlo remoto, os utilizadores administrativos devem ter atribuída uma função de segurança que conceda acesso a uma coleção que contenha esses recursos. É possível selecionar coleções de utilizadores ou dispositivos.  
@@ -106,7 +106,7 @@ Para obter informações sobre como criar e configurar funções de segurança p
 
 -   Alinhamento organizacional. Por exemplo, coleções separadas para cada unidade de negócio.  
 
-Para obter informações sobre como configurar coleções para a administração baseada em funções, consulte [configurar coleções para gerir a segurança](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) no [configurar a administração baseada em funções para a configuração do System Center Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Para obter informações sobre como configurar coleções para a administração baseada em funções, consulte  [Configure collections to manage security](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) no tópico [Configure role-based administration for System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) .  
 
 ##  <a name="bkmk_PlanScope"></a> Âmbitos de segurança  
  Utilize âmbitos de segurança para fornecer aos utilizadores administrativos acesso a objetos com capacidade de segurança. Um âmbito de segurança é um conjunto nomeado de objetos com capacidade de segurança que são atribuídos a utilizadores administrativos como um grupo. Todos os objetos com capacidade de segurança têm de ser atribuídos a um ou mais âmbitos de segurança. O Configuration Manager possui dois âmbitos de segurança incorporados:  
@@ -207,4 +207,4 @@ Crie âmbitos de segurança quando tiver de limitar o acesso a instâncias de ob
 
 -   Utilizadores administrativos diferentes necessitam de acesso diferente a algumas instâncias de um tipo de objeto. Por exemplo, um grupo de utilizadores administrativos necessita de permissão de leitura para grupos de atualização de software específicos e outro grupo de utilizadores administrativos necessita de permissões de modificar e eliminar para outros grupos de atualização de software. Crie âmbitos de segurança diferentes para estes grupos de atualizações de software.  
 
-Para obter informações sobre como configurar âmbitos de segurança para a administração baseada em funções, consulte a [configurar âmbitos de segurança para um objeto](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) no [configurar a administração baseada em funções para a configuração do System Center Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Para obter informações sobre como configurar âmbitos de segurança para a administração baseada em funções, consulte [Configure security scopes for an object](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) no tópico [Configure role-based administration for System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) .  

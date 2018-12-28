@@ -10,12 +10,12 @@ ms.assetid: 65c88e54-3574-48b0-a127-9cc914a89dca
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5f063034ed7cdc22a92df8d07d8be03ece12f663
-ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
+ms.openlocfilehash: 4587549ef2f43be3dcc5e18021f60c42770f5800
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46533750"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53415522"
 ---
 # <a name="the-content-library-in-configuration-manager"></a>A biblioteca de conteúdos no Configuration Manager
 
@@ -45,7 +45,7 @@ Gestor de configuração copia ficheiros de conteúdo para a unidade com a prior
 Para obter mais informações sobre como configurar as definições de unidade para o ponto de distribuição, consulte [gerir a infraestrutura de conteúdo e conteúda](/sccm/core/servers/deploy/configure/manage-content-and-content-infrastructure).  
 
 
->  [!IMPORTANT]  
+> [!IMPORTANT]
 >  Para mover a biblioteca de conteúdos para uma localização diferente num ponto de distribuição após a instalação, utilize o **transferência da biblioteca de conteúdos** ferramenta nas ferramentas do Configuration Manager. Para obter mais informações, consulte a [ferramenta de transferência da biblioteca de conteúdos](/sccm/core/support/content-library-transfer).  
 
 
@@ -112,13 +112,13 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 
 5. Tenha em atenção a **estado** valor da coluna de biblioteca de conteúdos no separador Resumo do painel de detalhes. Atualiza para mostrar o progresso do site em mover a biblioteca de conteúdos.  
 
-    - Embora **em curso**, o **mover progresso (%)** valor apresenta a percentagem concluída.  
+   - Embora **em curso**, o **mover progresso (%)** valor apresenta a percentagem concluída.  
 
-    - Se houver um Estado de erro, o estado é apresentado o erro. Erros comuns incluem **acesso negado** ou **disco cheio**.  
+   - Se houver um Estado de erro, o estado é apresentado o erro. Erros comuns incluem **acesso negado** ou **disco cheio**.  
 
-    - Quando terminar apresenta **Complete**.  
+   - Quando terminar apresenta **Complete**.  
     
-    Consulte a **distmgr** para obter detalhes. Para obter mais informações, consulte [registos do servidor de sistema de site e o servidor do Site](/sccm/core/plan-design/hierarchy/log-files#BKMK_SiteSiteServerLog).  
+     Consulte a **distmgr** para obter detalhes. Para obter mais informações, consulte [registos do servidor de sistema de site e o servidor do Site](/sccm/core/plan-design/hierarchy/log-files#BKMK_SiteSiteServerLog).  
 
 Para obter mais informações sobre este processo, consulte [fluxograma - gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart).
 

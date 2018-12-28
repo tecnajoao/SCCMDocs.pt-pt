@@ -10,41 +10,41 @@ ms.assetid: f86559de-092a-4ce8-9b43-5d7530e0b763
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 346ff3254f4c1833f49bf256cbf5ad0c489d77e0
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 0e3b6e1ab2962cec7891501ec6b19f081631e187
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32332584"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421132"
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Como configurar inventário de software no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).   
+Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [How to configure client settings in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md)   
 
 ## <a name="to-configure-software-inventory"></a>Para configurar o inventário de software  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente****predefinições de cliente**.  
+1. Na consola do Configuration Manager, escolha **Administration** > **definições de cliente****predefinições de cliente**.    
 
-4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+2. Sobre o **home page** separador a **propriedades** de grupo, escolha **propriedades**.  
 
-5.  No **predefinições** diálogo caixa, escolha **inventário de Software**.  
+3. Na **predefinições** caixa de diálogo caixa, escolha **inventário de Software**.  
 
-6.  Na lista **Definições do Dispositivo** , configure os seguintes valores:  
+4. Na lista **Definições do Dispositivo** , configure os seguintes valores:  
 
-    -   **Ativar inventário de software nos clientes** - na lista pendente, selecione **verdadeiro**.  
+   -   **Ativar inventário de software nos clientes** – na lista pendente, selecione **True**.  
 
-    -   **Agendar software ficheiros e inventário coleção agenda** - configura o intervalo no qual os clientes recolhem inventário de software e ficheiros.   
+   -   **Ficheiros e inventário agendar software coleção** – configura o intervalo no qual os clientes recolhem inventário de software e ficheiros.   
 
-7.  Configure as definições de cliente de que necessita. O [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção o [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) artigo tem uma lista das definições de cliente.  
+5. Configure as definições de cliente de que necessita. O [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção a [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) artigo tem uma lista das definições de cliente.  
 
- Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, veja [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+   Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
- > [!TIP]  
-        >   O código de erro 80041006 na inventoryprovider.log significa que o fornecedor WMI de memória esgotada. Ou seja, atingiu o limite de quota de memória para um fornecedor e o fornecedor de inventário não pode continuar.
-Neste caso, o agente de inventário cria um relatório com 0 entradas pelo que não existem itens de inventário são reportados. <br/>
-Uma solução possíveis para este erro seria reduzir o âmbito da coleção de inventário de software. Em circunstâncias quando ocorrer o erro depois de limitar o âmbito de inventário, aumentando a [MemoryPerHost](https://blogs.technet.microsoft.com/askperf/2008/09/16/memory-and-handle-quotas-in-the-wmi-provider-service/) propriedade definida no [_ProviderHostQuotaConfiguration](https://msdn.microsoft.com/library/aa394671) classe pode fornecer uma solução.
+   > [!TIP]
+   >   O código de erro 80041006 na inventoryprovider.log significa que o provedor WMI é a memória esgotada. Ou seja, foi atingido o limite de quota de memória de um fornecedor e o fornecedor de inventário não é possível continuar.
+   > Neste caso, o agente de inventário cria um relatório com 0 entradas para que não existem itens de inventário são comunicadas. <br/>
+   > Uma solução possível para este erro seria reduzir o âmbito da coleção de inventário de software. Em circunstâncias quando o erro ocorrer depois de limitar o escopo de inventário, aumentando a [MemoryPerHost](https://blogs.technet.microsoft.com/askperf/2008/09/16/memory-and-handle-quotas-in-the-wmi-provider-service/) propriedade definida no [_ProviderHostQuotaConfiguration](https://msdn.microsoft.com/library/aa394671) classe pode fornecer uma solução.
 
 <!--SMS.480648 include WMI Out of memory tip -->
 
@@ -53,7 +53,7 @@ Uma solução possíveis para este erro seria reduzir o âmbito da coleção de 
 
 1.  Utilizando o Notepad.exe, crie um ficheiro vazio designado **Skpswi.dat**.  
 
-2.  Clique com botão direito do **Skpswi.dat** do ficheiro e clique em **propriedades**. Nas propriedades do ficheiro do ficheiro Skpswi.dat, selecione o atributo **Oculto** .  
+2.  Com o botão direito a **skpswi** do ficheiro e clique em **propriedades**. Nas propriedades do ficheiro do ficheiro Skpswi.dat, selecione o atributo **Oculto** .  
 
 3.  Coloque o ficheiro **Skpswi.dat** na raiz de cada unidade de disco rígido cliente ou estrutura de pasta que pretenda excluir do inventário de software.  
 

@@ -1,7 +1,7 @@
 ---
-title: Ver dados de diagnóstico
+title: Zobrazit diagnostická data
 titleSuffix: Configuration Manager
-description: Ver dados de diagnóstico e utilização para confirmar que a sua hierarquia do System Center Configuration Manager contém não existem informações confidenciais.
+description: Ver dados de diagnóstico e utilização para confirmar que a hierarquia do System Center Configuration Manager contém não existem informações confidenciais.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,20 +10,20 @@ ms.assetid: 594eb284-0d93-4c5d-9ae6-f0f71203682a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 15e6f84be22d90e937c33ebd3a24520e6832a751
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: cce48cad13eaa37221e0ee9dca3b1923bb902bc4
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32333465"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416236"
 ---
 # <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Como visualizar diagnósticos e dados de utilização para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode ver os dados de diagnóstico e de utilização da sua hierarquia do System Center Configuration Manager para confirmar que não existem informações confidenciais ou identificáveis incluídas. Dados de telemetria são resumidos e armazenados no **TEL_TelemetryResults** tabela da base de dados do site e são formatados para serem programaticamente utilizáveis e eficientes. Embora as opções seguintes dão-lhe uma vista dos dados exatos enviados à Microsoft, estes não são se destina a ser utilizada para outros fins, tal como uma análise de dados.  
+Pode ver os dados de diagnóstico e utilização da sua hierarquia do System Center Configuration Manager para confirmar que não existem informações confidenciais ou identificáveis incluídas. Dados de telemetria são resumidos e armazenados no **TEL_TelemetryResults** tabela da base de dados do site e são formatados para serem programaticamente utilizáveis e eficientes. Embora as opções seguintes dão-lhe uma vista dos dados exatos enviados à Microsoft, eles não se destinam a ser utilizada para outros fins, tal como análise de dados.  
 
-Utilize o seguinte comando SQL para ver os conteúdos desta tabela e mostra exatamente os dados que são enviados. (Também pode exportar estes dados para um ficheiro de texto.):  
+Utilize o seguinte comando SQL para ver os conteúdos desta tabela e mostra exatamente os dados que são enviados. (Também pode exportar estes dados para um arquivo de texto.):  
 
 -   **SELECIONE \* de TEL_TelemetryResults**  
 
@@ -33,15 +33,15 @@ Utilize o seguinte comando SQL para ver os conteúdos desta tabela e mostra exat
 Quando o ponto de ligação de serviço está no modo offline, pode utilizar a ferramenta de ligação de serviço para exportar os dados de utilização e diagnóstico atual para um ficheiro de valores separados por vírgulas (CSV). Execute a ferramenta de ligação de serviço no ponto de ligação de serviço utilizando o **-exportar** parâmetro.  
 
 ##  <a name="bkmk_hashes"></a> Hashes unidirecionais  
-Alguns dados incluem cadeias de carateres alfanuméricos aleatórias. O Configuration Manager utiliza o algoritmo SHA-256, que utiliza hashes unidirecionais, para se certificar de que não recolhe dados potencialmente confidenciais. O algoritmo deixa dados num Estado em que ainda podem ser utilizado para correlação e fins de comparação. Por exemplo, em vez de recolher os nomes das tabelas na base de dados do site, é capturado um hash unidirecional para cada nome de tabela. Isto garante que todos os nomes de tabelas personalizados que criou ou suplementos de produtos de terceiros não estão visíveis. Em seguida, podemos fazer o mesmo hash unidirecional dos nomes de tabela do SQL Server que são enviados por predefinição no produto e comparar os resultados das duas consultas para determinar o desvio do seu esquema de base de dados à predefinição do produto. Esta informação é, então, utilizada para melhorar as atualizações que necessitem de alterações no esquema do SQL.  
+Alguns dados consiste em cadeias de caracteres de alfanuméricos aleatórias. O Configuration Manager utiliza o algoritmo SHA-256, que utiliza hashes unidirecionais, para garantir que que não recolhe dados potencialmente confidenciais. O algoritmo mantém os dados num Estado em que ainda podem ser utilizado para fins de comparação e de correlação. Por exemplo, em vez de recolher os nomes das tabelas do banco de dados do site, é capturado um hash unidirecional para cada nome de tabela. Isto garante que todos os nomes de tabela personalizado que criou ou suplementos de produtos de terceiros não estão visíveis. Em seguida, podemos fazer o mesmo hash unidirecional dos nomes de tabela SQL que são enviados por predefinição no produto e comparar os resultados das duas consultas para determinar o desvio do seu esquema de base de dados à predefinição do produto. Esta informação é, então, utilizada para melhorar as atualizações que necessitem de alterações no esquema do SQL.  
 
-Ao visualizar os dados não processados, um valor comum com hash irá aparecer em cada linha de dados. Este é o ID de hierarquia. Este valor com hash é utilizado para garantir que os dados estão correlacionados com a mesma hierarquia sem identificar o cliente ou a origem.  
+Ao visualizar os dados não processados, um valor comum com hash irá aparecer em cada linha de dados. Este é o ID de hierarquia. Este valor de hash é utilizado para garantir que os dados estão correlacionados com a mesma hierarquia sem identificar o cliente ou a origem.  
 
 #### <a name="to-see-how-the-one-way-hash-works"></a>Para ver como funciona o hash unidirecional  
 
-1.  Obter o seu ID de hierarquia executando a seguinte instrução SQL no SQL Server Management Studio na base de dados do Configuration Manager: **selecione [dbo]. [ fnGetHierarchyID]\(\)**  
+1.  Obtenha o seu ID de hierarquia executando a seguinte instrução SQL no SQL Management Studio na base de dados do Configuration Manager: **selecione [dbo]. [ fnGetHierarchyID]\(\)**  
 
-2.  Utilize o seguinte script do Windows PowerShell para efetuar o hash unidirecional do GUID que é obtido a partir da base de dados. Em seguida, pode comparar isto com o ID da hierarquia dos dados não processados para ver como podemos ocultar estes dados.  
+2.  Utilize o seguinte script do Windows PowerShell para fazer o hash unidirecional do GUID que é obtido a partir da base de dados. Em seguida, pode comparar isto com o ID da hierarquia dos dados não processados para ver como podemos ocultar estes dados.  
 
     ```  
     Param( [Parameter(Mandatory=$True)] [string]$value )  

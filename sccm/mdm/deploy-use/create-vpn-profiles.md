@@ -10,12 +10,12 @@ ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fdeb9d258c5c80fdd8d98d61943ace5469837d3d
-ms.sourcegitcommit: aca62bd3d267b1dbea46d4db6f32d797c5f6263c
+ms.openlocfilehash: 1c90525b20107cbc926e3775f10d75b7c7083cac
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43348023"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424566"
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Perfis de VPN em dispositivos móveis no System Center Configuration Manager
 
@@ -102,55 +102,55 @@ As seguintes opções estão disponíveis para todos os tipos de ligação no Wi
 
 5. Configurar a ligação VPN no **ligação** página. Para obter mais informações sobre estas opções, consulte o passo na página de ligação [criar um perfil VPN](/sccm/protect/deploy-use/create-vpn-profiles#create-a-vpn-profile).  
 
-6.  Sobre o **método de autenticação** página, especifique as seguintes definições:  
+6. Sobre o **método de autenticação** página, especifique as seguintes definições:  
 
-    -   **Método de autenticação**: Selecione o método de autenticação que utiliza a ligação VPN. Métodos disponíveis dependem do tipo de ligação, conforme mostrado nesta tabela.  
+   - **Método de autenticação**: Selecione o método de autenticação que utiliza a ligação VPN. Métodos disponíveis dependem do tipo de ligação, conforme mostrado nesta tabela.  
 
-        |Método de Autenticação|Suportado&nbsp;ligação&nbsp;tipos|  
-        |---------------------------|--------------------------------|  
-        |**Certificados**<br /><br /> **Notas:**<ul><li>Se o certificado de cliente é autenticado num servidor RADIUS, como um servidor de políticas de rede, defina o nome alternativo do requerente no certificado para o nome do Principal de utilizador.</li><li>Para implementações de Android, selecione o identificador EKU e o valor de hash de thumbprint de emissor do certificado. Caso contrário, os utilizadores devem selecionar o certificado apropriado manualmente.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Cisco Legacy AnyConnect</li><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
-        |**Nome de Utilizador e Palavra-passe**|<ul><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
-        |**Microsoft EAP-TTLS**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>IKEv2</li><li>L2TP</li></ul>|  
-        |**Microsoft EAP protegido (PEAP)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Microsoft palavra-passe segura (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Smart Card ou outro certificado**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**MSCHAP v2**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**RSA SecurID** (apenas para iOS)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Utilizar certificados de computador**|<ul><li>IKEv2</li></ul>|  
+     |Método de Autenticação|Suportado&nbsp;ligação&nbsp;tipos|  
+     |---------------------------|--------------------------------|  
+     |**Certificados**<br /><br /> **Notas:**<ul><li>Se o certificado de cliente é autenticado num servidor RADIUS, como um servidor de políticas de rede, defina o nome alternativo do requerente no certificado para o nome do Principal de utilizador.</li><li>Para implementações de Android, selecione o identificador EKU e o valor de hash de thumbprint de emissor do certificado. Caso contrário, os utilizadores devem selecionar o certificado apropriado manualmente.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Cisco Legacy AnyConnect</li><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
+     |**Nome de Utilizador e Palavra-passe**|<ul><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
+     |**Microsoft EAP-TTLS**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>IKEv2</li><li>L2TP</li></ul>|  
+     |**Microsoft EAP protegido (PEAP)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+     |**Microsoft palavra-passe segura (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+     |**Smart Card ou outro certificado**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+     |**MSCHAP v2**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+     |**RSA SecurID** (apenas para iOS)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
+     |**Utilizar certificados de computador**|<ul><li>IKEv2</li></ul>|  
 
-         Dependendo das opções selecionadas, poderá ser-lhe pedido para especificar a obter mais informações, como:  
+      Dependendo das opções selecionadas, poderá ser-lhe pedido para especificar a obter mais informações, como:  
 
-        -   **Lembrar as credenciais de utilizador em cada início de sessão**: As credenciais de utilizador são memorizadas, para que os utilizadores não têm de introduzi-las sempre que se ligam.  
+     - **Lembrar as credenciais de utilizador em cada início de sessão**: As credenciais de utilizador são memorizadas, para que os utilizadores não têm de introduzi-las sempre que se ligam.  
 
-        -   **Selecione um certificado de cliente para autenticação de cliente**: Selecione o cliente criado anteriormente [certificado SCEP](create-pfx-certificate-profiles.md) que é utilizado para autenticar a ligação VPN.   
+     - **Selecione um certificado de cliente para autenticação de cliente**: Selecione o cliente criado anteriormente [certificado SCEP](create-pfx-certificate-profiles.md) que é utilizado para autenticar a ligação VPN.   
 
-            > [!NOTE]  
-            >  Para dispositivos iOS, o perfil SCEP que selecionar é incorporado no perfil da VPN. Para outras plataformas, uma regra de aplicabilidade é adicionada para se certificar de que o perfil VPN não está instalado, se o certificado não estiver presente ou não estiver em conformidade.  
-            >   
-            >  Se o certificado SCEP que especificar não estiver em conformidade ou não tenha sido implantado, em seguida, o perfil VPN não está instalado no dispositivo.
-            >  
-            >  Os dispositivos que executam o iOS suportam apenas SecurID de RSA e MSCHAP v2 para o método de autenticação quando o tipo de ligação é PPTP. Para evitar erros de relatório, implemente um perfil VPN PPTP separado para dispositivos com iOS.   
+       > [!NOTE]  
+       >  Para dispositivos iOS, o perfil SCEP que selecionar é incorporado no perfil da VPN. Para outras plataformas, uma regra de aplicabilidade é adicionada para se certificar de que o perfil VPN não está instalado, se o certificado não estiver presente ou não estiver em conformidade.  
+       >   
+       >  Se o certificado SCEP que especificar não estiver em conformidade ou não tenha sido implantado, em seguida, o perfil VPN não está instalado no dispositivo.
+       >  
+       >  Os dispositivos que executam o iOS suportam apenas SecurID de RSA e MSCHAP v2 para o método de autenticação quando o tipo de ligação é PPTP. Para evitar erros de relatório, implemente um perfil VPN PPTP separado para dispositivos com iOS.   
 
-        - **Acesso condicional**  
-            - Escolher **ativar o acesso condicional para esta ligação VPN** para garantir que os dispositivos que estabelecem ligação à VPN são testados para compatibilidade de acesso condicional antes de ligar. Para obter mais informações, consulte [políticas de conformidade do dispositivo](/sccm/protect/deploy-use/device-compliance-policies).  
+     - **Acesso condicional**  
+         - Escolher **ativar o acesso condicional para esta ligação VPN** para garantir que os dispositivos que estabelecem ligação à VPN são testados para compatibilidade de acesso condicional antes de ligar. Para obter mais informações, consulte [políticas de conformidade do dispositivo](/sccm/protect/deploy-use/device-compliance-policies).  
 
-            - Escolher **ativar o início de sessão único (SSO) com certificado alternativo** escolher um certificado que não seja o certificado de autenticação VPN para a conformidade do dispositivo. Se escolher esta opção, forneça o **EKU** (lista separada por vírgulas) e **Hash de emissor**, para o correto de certificado que o cliente VPN deve localizar.  
+         - Escolher **ativar o início de sessão único (SSO) com certificado alternativo** escolher um certificado que não seja o certificado de autenticação VPN para a conformidade do dispositivo. Se escolher esta opção, forneça o **EKU** (lista separada por vírgulas) e **Hash de emissor**, para o correto de certificado que o cliente VPN deve localizar.  
 
-         - Para **Windows Information Protection**, forneça a geridas por empresas identidade empresarial, que é normalmente domínio primário da sua organização, por exemplo, *contoso.com*. É possível especificar vários domínios que sua organização é proprietária, separando-as com o "|" caráter. Por exemplo, *contoso.com|newcontoso.com*. Para obter mais informações, consulte [criar e implementar uma política de proteção de aplicações do Windows Information Protection com o Intune](/intune/windows-information-protection-policy-create).   
+       - Para **Windows Information Protection**, forneça a geridas por empresas identidade empresarial, que é normalmente domínio primário da sua organização, por exemplo, *contoso.com*. É possível especificar vários domínios que sua organização é proprietária, separando-as com o "|" caráter. Por exemplo, *contoso.com|newcontoso.com*. Para obter mais informações, consulte [criar e implementar uma política de proteção de aplicações do Windows Information Protection com o Intune](/intune/windows-information-protection-policy-create).   
 
-         ![Criar Assistente de perfil de VPN, página de método de autenticação](media/vpn-conditional-access.png)
+       ![Criar Assistente de perfil de VPN, página de método de autenticação](media/vpn-conditional-access.png)
 
-         Quando a versão de cliente do Windows oferece suporte a ele, a opção para **configurar** o método de autenticação está disponível. Esta opção abre a caixa de diálogo de propriedades do Windows para configurar o método de autenticação. Se **configurar** é desativada, a utilizar um modo diferente para configurar as propriedades do método de autenticação.  
+       Quando a versão de cliente do Windows oferece suporte a ele, a opção para **configurar** o método de autenticação está disponível. Esta opção abre a caixa de diálogo de propriedades do Windows para configurar o método de autenticação. Se **configurar** é desativada, a utilizar um modo diferente para configurar as propriedades do método de autenticação.  
 
-3.  Na **definições de Proxy** página do **criar Assistente de perfil de VPN**, verifique o **configurar definições de proxy para este perfil VPN** caixa se a ligação VPN utilizar um servidor proxy. Em seguida, forneça o proxy de informações do servidor. Para obter mais informações, consulte a documentação do Windows Server.  
+7. Na **definições de Proxy** página do **criar Assistente de perfil de VPN**, verifique o **configurar definições de proxy para este perfil VPN** caixa se a ligação VPN utilizar um servidor proxy. Em seguida, forneça o proxy de informações do servidor. Para obter mais informações, consulte a documentação do Windows Server.  
 
-    > [!NOTE]  
-    >  Em computadores Windows 8.1, o perfil VPN não irá mostrar as informações de proxy até que se liga à VPN utilizando esse computador.  
+   > [!NOTE]  
+   >  Em computadores Windows 8.1, o perfil VPN não irá mostrar as informações de proxy até que se liga à VPN utilizando esse computador.  
 
 
-4. Configure definições DNS adicionais, se necessário.  
+8. Configure definições DNS adicionais, se necessário.  
 
-5. Conclua o assistente. O **perfis de VPN** nó a **ativos e compatibilidade** área de trabalho mostra o novo perfil VPN.  
+9. Conclua o assistente. O **perfis de VPN** nó a **ativos e compatibilidade** área de trabalho mostra o novo perfil VPN.  
 
 
 

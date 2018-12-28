@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 1791217e22e2bcc6d5fd2603abee3aaced816afe
-ms.sourcegitcommit: 1f8731ed8f0308cb2cb576722adb0821a366e9ce
+ms.openlocfilehash: 6434ba443cb884c7fbb5d727c5db3c80d2d88aad
+ms.sourcegitcommit: 12b71da551350c99c5916df3629e33e31040db15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51223743"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53530936"
 ---
 # <a name="co-management-for-windows-10-devices"></a>Cogestão para os dispositivos com Windows 10    
 
@@ -68,25 +68,25 @@ Uso de imediato as seguintes funcionalidades do Intune:
  -  Atualize para o Configuration Manager versão 1710 ou posterior.
 
 
-### <a name="azure-active-directory"></a>O Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
  - Dispositivos Windows 10 têm de ser associados ao Azure AD. Eles podem ser qualquer um dos seguintes tipos:  
 
-     - [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup), em que o dispositivo é associado ao Active Directory no local e registado com o Azure Active Directory.
+     - [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan), em que o dispositivo é associado ao Active Directory no local e registado com o Azure Active Directory.
 
-     - Azure AD associado apenas. (Este tipo é por vezes referido como "cloud associados a um domínio")<!--SCCMDocs issue 605-->
+     - [Azure AD associado](https://docs.microsoft.com/azure/active-directory/devices/azureadjoin-plan) apenas. (Este tipo é por vezes referido como "cloud associados a um domínio")<!--SCCMDocs issue 605-->
 
  - [Ativar a inscrição automática do Windows 10](https://docs.microsoft.com/intune/windows-enroll).  
 
 
 ### <a name="intune"></a>Intune
 
- - [Como configurar a subscrição do Intune](/sccm/mdm/deploy-use/configure-intune-subscription) ou [configurar o Intune](/intune/setup-steps)  
+- [Como configurar a subscrição do Intune](/sccm/mdm/deploy-use/configure-intune-subscription) ou [configurar o Intune](/intune/setup-steps)  
 
- - [Iniciar a migração do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa)  
+- [Iniciar a migração do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa)  
 
- > [!Note]  
- > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a cogestão. No entanto, pode começar a migrar utilizadores para o Intune autónomo e, em seguida, ativar os dispositivos Windows 10 associados para a cogestão. Para obter mais informações sobre a migração para o Intune autónomo, consulte [iniciar a migração da MDM híbrida para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).  
+  > [!Note]  
+  > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a cogestão. No entanto, pode começar a migrar utilizadores para o Intune autónomo e, em seguida, ativar os dispositivos Windows 10 associados para a cogestão. Para obter mais informações sobre a migração para o Intune autónomo, consulte [iniciar a migração da MDM híbrida para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).  
 
 
 ### <a name="enable-co-management"></a>Ativar a cogestão 

@@ -10,12 +10,12 @@ ms.assetid: 3cd9c725-6b42-427d-9191-86e67f84e48c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4673da59da7fede2f425948472c31a620d13a258
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 00c04190b954a7b19d4bea0e43b2dc6ecf9d8388
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456299"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414995"
 ---
 # <a name="use-a-cloud-distribution-point-in-configuration-manager"></a>Utilizar um ponto de distribuição de nuvem no Configuration Manager
 
@@ -84,7 +84,7 @@ Implantação e operação do ponto de distribuição em nuvem inclui os seguint
 - O ponto de distribuição de nuvem utiliza uma **baseada em certificado HTTPS** serviço para o ajudar a proteger a comunicação de rede com os clientes web. Os clientes têm de confiar este certificado.  
 
 
-### <a name="azure-resource-manager"></a>O Azure Resource Manager
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 <!--1322209--> A partir da versão 1806, criar um através de ponto de distribuição do cloud uma **do Azure Resource Manager deployment**. [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) é uma plataforma moderna para o gerenciamento de todos os recursos de solução como uma única entidade, chamada um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Ao implementar um ponto de distribuição de nuvem com o Azure Resource Manager, o site utiliza o Azure Active Directory (Azure AD) para autenticar e criar os recursos da cloud necessários. Esta implementação reestruturação não exige o certificado de gestão clássico do Azure.  
 
 > [!Note]  
@@ -161,10 +161,10 @@ Quando utiliza um ponto de distribuição em nuvem na sua hierarquia, utilize as
 - O ponto de distribuição de nuvem suporta todas as versões do Windows listadas na [sistemas operativos suportados por clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).  
 
 - Um administrador distribui os seguintes tipos de conteúdo de software suportado:  
-    - Aplicações
-    - Pacotes
-    - Pacotes de atualização do SO
-    - Atualizações de software de terceiros  
+  - Aplicações
+  - Pacotes
+  - Pacotes de atualização do SO
+  - Atualizações de software de terceiros  
 
     > [!Important]  
     > Embora a consola do Configuration Manager não bloqueia a distribuição de atualizações de software da Microsoft para um ponto de distribuição de nuvem, está pagando os custos do Azure para armazenar o conteúdo que os clientes não utilizam. Clientes baseados na Internet sempre obtém conteúdos de atualização de software Microsoft do serviço de nuvem do Microsoft Update. Não distribua atualizações de software da Microsoft para um ponto de distribuição de nuvem.    
@@ -203,11 +203,11 @@ O Configuration Manager inclui as seguintes opções para ajudar a controlar os 
 - Configure o Configuration Manager para o alertar quando os limiares para transferências do cliente atingirem ou ultrapassarem o limites mensais. Para obter mais informações, consulte [alertas de limiar de transferência de dados](/sccm/core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure#bkmk_alerts).   
 
 - Para ajudar a reduzir o número de transferências de dados a partir de pontos de distribuição de nuvem pelos clientes, utilize um do elemento de rede seguinte tecnologias de colocação em cache:  
-    - Cache de elemento de rede do Configuration Manager
-    - BranchCache do Windows
-    - Otimização da entrega do Windows 10  
+  - Cache de elemento de rede do Configuration Manager
+  - BranchCache do Windows
+  - Otimização da entrega do Windows 10  
 
-   Para obter mais informações, consulte [conceitos fundamentais da gestão de conteúdos](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management).   
+    Para obter mais informações, consulte [conceitos fundamentais da gestão de conteúdos](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management).   
 
 
 ### <a name="components"></a>Componentes

@@ -1,5 +1,5 @@
 ---
-title: Perfis de certificado do monitor
+title: Monitorizar perfis de certificado
 titleSuffix: Configuration Manager
 description: Saiba como monitorizar o estado de compatibilidade dos perfis de certificado do System Center Configuration Manager.
 ms.date: 10/06/2016
@@ -10,12 +10,12 @@ ms.assetid: 98feaa06-64b1-4e86-a122-93017c97cd4f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a3a9c27eed58bce1b6d2371c545621b48f4b4f54
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: d061649744d7a2da37e67d55f3c8b655d18c0aa4
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32349801"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416797"
 ---
 # <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Como monitorizar perfis de certificado no System Center Configuration Manager
 
@@ -26,47 +26,48 @@ ms.locfileid: "32349801"
 
 Para monitorizar a conformidade de certificado SCEP não utilize a consola, em vez disso, utilize [relatórios](#view-compliance-results-by-using-reports). 
 
-1.  Na consola do Configuration Manager, escolha **monitorização**>  **implementações**.  
+1. Na consola do Configuration Manager, escolha **monitorização**>  **implementações**.  
 
-3.  Selecione a implementação de perfil de certificado de interesse.  
+2. Selecione a implementação de perfil de certificado de interesse.  
 
-4.  Rever as informações de conformidade de certificado de resumo na página principal. Para informações mais detalhadas, selecione o perfil de certificado e, em seguida, no **home page** separador o **implementação** grupo, escolha **Ver estado** para abrir o **estado da implementação** página.  
+3. Rever as informações de conformidade de certificado resumo na página principal. Para obter informações mais detalhadas, selecione o perfil de certificado e, em seguida, no **home page** separador a **implantação** de grupo, escolha **ver o estado** para abrir o  **Estado da implementação** página.  
 
-     A página **Estado da Implementação** contém os seguintes separadores:  
+    A página **Estado da Implementação** contém os seguintes separadores:  
 
-    -   **Em conformidade**: Apresenta a compatibilidade do perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que são compatíveis com o perfil de certificado. O painel **Detalhes de Ativos** também apresenta os utilizadores que estão em conformidade com este perfil. Faça duplo clique num utilizador da lista para obter mais informações.  
+   -   **Em conformidade**: Apresenta a compatibilidade do perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que são compatíveis com o perfil de certificado. O painel **Detalhes de Ativos** também apresenta os utilizadores que estão em conformidade com este perfil. Faça duplo clique num utilizador da lista para obter mais informações.  
 
-        > [!IMPORTANT]  
-        >  Um perfil de certificado não é avaliado se não for aplicável num dispositivo cliente. No entanto, é devolvido como compatível.  
+       > [!IMPORTANT]  
+       >  Um perfil de certificado não é avaliado se não for aplicável num dispositivo cliente. No entanto, é devolvido como compatível.  
 
-    -   **Erro**: Mostra uma lista de todos os erros para a implementação de perfil de certificado selecionado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que geraram erros com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador na lista para visualizar para obter mais informações.  
+   -   **Erro**: Apresenta uma lista de todos os erros para a implementação de perfil de certificado selecionado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que geraram erros com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador na lista para visualizar para obter mais informações.  
 
-    -   **Não conformes**: Mostra uma lista de todas as regras não compatíveis no perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que não são compatíveis com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador da lista para visualizar mais informações sobre o problema.  
+   -   **Não compatível**: Mostra uma lista de todas as regras não compatíveis no perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que não são compatíveis com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador da lista para visualizar mais informações sobre o problema.  
 
-    -   **Desconhecido**: Mostra uma lista de todos os utilizadores que não comunicaram compatibilidade para a implementação de perfil de certificado selecionado, juntamente com o estado atual do cliente dos dispositivos.  
+   -   **Desconhecido**: Apresenta uma lista de todos os utilizadores que não comunicaram compatibilidade para a implementação de perfil de certificado selecionado, juntamente com o estado atual do cliente dos dispositivos.  
 
-5.  No **estado da implementação** , reveja as informações detalhadas sobre a compatibilidade do perfil de certificado implementado. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
+4. Sobre o **estado de implementação** , reveja as informações detalhadas sobre a compatibilidade do perfil de certificado implementado. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
 
-     O estado de inscrição do certificado é apresentado como um número. Utilize a tabela a seguir para compreender o que cada número significa:  
+    O estado de inscrição do certificado é apresentado como um número. Utilize a tabela a seguir para compreender o que cada número significa:  
 
-    |Estado de inscrição|Descrição|  
-    |-----------------------|-----------------|  
-    |0x00000001|A inscrição foi efetuada com êxito e o certificado foi emitido.|  
-    |0x00000002|O pedido foi apresentado e o registo está pendente ou o pedido foi emitido fora da banda.|  
-    |0x00000004|A inscrição tem de ser adiada.|  
-    |0x00000010|Ocorreu um erro.|  
-    |0x00000020|O estado de inscrição é desconhecido.|  
-    |0x00000040|As informações de estado foram ignoradas. Isto pode ocorrer se um HYPERLINK "http://msdn.microsoft.com/windows/ms721572" \l autoridade de certificação de "security_certification_authority_gly" não é válida ou não tiver sido selecionada para a monitorização.|  
-    |0x00000100|A inscrição foi negada.|  
+
+   | Estado de inscrição |                                                                                                                   Descrição                                                                                                                   |
+   |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |    0x00000001     |                                                                                         A inscrição foi efetuada com êxito e o certificado foi emitido.                                                                                          |
+   |    0x00000002     |                                                                    O pedido foi apresentado e o registo está pendente ou o pedido foi emitido fora da banda.                                                                    |
+   |    0x00000004     |                                                                                                          A inscrição tem de ser adiada.                                                                                                           |
+   |    0x00000010     |                                                                                                               Ocorreu um erro.                                                                                                                |
+   |    0x00000020     |                                                                                                        O estado de inscrição é desconhecido.                                                                                                        |
+   |    0x00000040     | As informações de estado foram ignoradas. Isto pode ocorrer se um HIPERLINK "<http://msdn.microsoft.com/windows/ms721572>" autoridade de certificação \l security_certification_authority_gly"não é válida ou não tiver sido selecionada para a monitorização. |
+   |    0x00000100     |                                                                                                           A inscrição foi negada.                                                                                                           |
 
 ##  <a name="view-compliance-results-by-using-reports"></a>Ver resultados de compatibilidade através de relatórios
 
- As definições de compatibilidade no System Center Configuration Manager incluem relatórios incorporados que pode utilizar para monitorizar informações sobre perfis de certificado. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
+ Definições de compatibilidade no System Center Configuration Manager incluem relatórios incorporados que pode utilizar para monitorizar informações sobre perfis de certificado. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
 
 > [!IMPORTANT]  
 >  Deverá utilizar um caráter universal (%) ao utilizar os parâmetros **Filtro do dispositivo** e **Filtro do utilizador** nos relatórios de definições de compatibilidade.  
 
-Para monitorizar a conformidade de certificado SCEP utilizar estes relatórios de certificado no nó de relatório **acesso a recursos da empresa**:  
+Para monitorizar a conformidade de certificado SCEP Utilize estes relatórios de certificado no nó de relatório **acesso a recursos da empresa**:  
 
  -   Histórico de emissão de certificados  
  -   Lista de recursos com certificados prestes a expirar  
@@ -74,4 +75,4 @@ Para monitorizar a conformidade de certificado SCEP utilizar estes relatórios d
 
 
 
- Para obter mais informações sobre como configurar relatórios no System Center Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Para obter mais informações sobre como configurar os relatórios no System Center Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).  

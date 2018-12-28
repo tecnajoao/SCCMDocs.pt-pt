@@ -10,12 +10,12 @@ ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f8450308f0719903bc4b3f74d6c2ab1ca5e17c59
-ms.sourcegitcommit: e0209e4549e9828eb74089313dbee323ece1fc2f
+ms.openlocfilehash: 009a1f224532470c871eb763f0b4a94bb89a429e
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51598619"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419500"
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Referência das tarefas de manutenção para o System Center Configuration Manager
 
@@ -269,7 +269,7 @@ Para melhorar o desempenho, os índices de base de dados do Configuration Manage
 -   **Site primário**: Não ativado    
 -   **Site secundário**: Não ativado  
 
-**Resumir dados de Software instalado**: Utilize esta tarefa para resumir os dados do software instalado a partir de vários registos num único registo geral. Resumo de dados pode comprimir a quantidade de dados que são armazenados na base de dados do Configuration Manager. Para obter mais informações, consulte [introdução ao inventário de software no System Center Configuration Manager](../../clients/manage/inventory\introduction-to-software-inventory.md).  
+**Resumir dados de Software instalado**: Utilize esta tarefa para resumir os dados do software instalado a partir de vários registos num único registo geral. Resumo de dados pode comprimir a quantidade de dados que são armazenados na base de dados do Configuration Manager. Para obter mais informações, consulte [introdução ao inventário de software no System Center Configuration Manager](../../clients/manage/inventory/introduction-to-software-inventory.md).  
 
 -   Site de administração central: Não disponível    
 -   **Site primário**: Ativado    

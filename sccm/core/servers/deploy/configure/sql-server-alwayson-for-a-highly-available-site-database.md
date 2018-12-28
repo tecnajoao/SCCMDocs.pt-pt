@@ -10,12 +10,12 @@ ms.assetid: 58d52fdc-bd18-494d-9f3b-ccfc13ea3d35
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0cb94f8d14ff525687909290085e16ecd47fa39f
-ms.sourcegitcommit: 22257e35a7d7263939a6802602050190897412a8
+ms.openlocfilehash: cf5b55dddae34ac855f21e7d70967d3b9ab1c2dc
+ms.sourcegitcommit: 81e3666c41eb976cc7651854042dafe219e2e467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51562053"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53747165"
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar a utilização de grupos de disponibilidade Always On do SQL Server com o Configuration Manager
 
@@ -24,12 +24,12 @@ ms.locfileid: "51562053"
 Utilize este artigo para preparar o Configuration Manager para utilizar grupos de disponibilidade Always On do SQL Server. Esta funcionalidade fornece uma solução de recuperação após desastre e de disponibilidade elevada para a base de dados do site.  
 
 O Configuration Manager suporta a utilização de grupos de disponibilidade:
--     Em sites primários e o site de administração central.
--     No local, ou no Microsoft Azure.
+- Em sites primários e o site de administração central.
+- No local, ou no Microsoft Azure.
 
 Quando utiliza grupos de disponibilidade no Microsoft Azure, pode aumentar ainda mais a disponibilidade da sua base de dados do site utilizando *conjuntos de disponibilidade do Azure*. Para obter mais informações sobre Conjuntos de Disponibilidade do Azure, veja [Gerir a disponibilidade das máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
 
->  [!Important]   
+> [!Important]
 >  Antes de continuar, ser confortável com a configuração do SQL Server e os grupos de disponibilidade do SQL Server. As informações que se segue faz referência a biblioteca de documentação do SQL Server e os procedimentos.
 
 
@@ -38,12 +38,12 @@ Quando utiliza grupos de disponibilidade no Microsoft Azure, pode aumentar ainda
 
 São suportados os seguintes cenários para utilizar grupos de disponibilidade com o Configuration Manager. Para obter mais informações e procedimentos para cada cenário, consulte [configurar grupos de disponibilidade para o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
 
--      [Criar um grupo de disponibilidade para utilização com o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group)  
--     [Configurar um site para utilizar um grupo de disponibilidade](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group)  
--     [Adicionar ou remover membros de réplicas síncrono de um grupo de disponibilidade que aloja uma base de dados do site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members)  
--     [Configurar réplicas de consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca)  
--     [Recuperar um site a partir de uma réplica de consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site)  
--     [Mover uma base de dados fora de um grupo de disponibilidade para um padrão ou com o nome instância do SQL Server autónomo](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group)  
+- [Criar um grupo de disponibilidade para utilização com o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group)  
+- [Configurar um site para utilizar um grupo de disponibilidade](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group)  
+- [Adicionar ou remover membros de réplicas síncrono de um grupo de disponibilidade que aloja uma base de dados do site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members)  
+- [Configurar réplicas de consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca)  
+- [Recuperar um site a partir de uma réplica de consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site)  
+- [Mover uma base de dados fora de um grupo de disponibilidade para um padrão ou com o nome instância do SQL Server autónomo](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group)  
 
 
 
@@ -95,16 +95,16 @@ Cada membro de réplica tem de ter a seguinte configuração:
 
 - Utilize o *instância predefinida* ou um *instância nomeada*  
 
-- O **ligações na função primária** definição é **Sim**  
+- O **ligações na função primária** definição é **permitir todas as ligações**  
 
 - O **secundário legível** definição é **Sim**  
 
 - Ativado para **ativação pós-falha Manual**     
 
-    >  [!TIP]  
-    >  Suporta a do Configuration Manager com a disponibilidade do grupo réplicas quando definidas como **a ativação pós-falha automática**. Definir **ativação pós-falha Manual** quando:
-    >  -  Executar a configuração do Configuration Manager para especificar a utilização da base de dados do site no grupo de disponibilidade.  
-    >  -  Instalar qualquer atualização para o Configuration Manager. (Não apenas as atualizações aplicáveis à base de dados do site).  
+  > [!TIP]
+  >  Suporta a do Configuration Manager com a disponibilidade do grupo réplicas quando definidas como **a ativação pós-falha automática**. Definir **ativação pós-falha Manual** quando:
+  >  -  Executar a configuração do Configuration Manager para especificar a utilização da base de dados do site no grupo de disponibilidade.  
+  >  -  Instalar qualquer atualização para o Configuration Manager. (Não apenas as atualizações aplicáveis à base de dados do site).  
 
 #### <a name="replica-member-location"></a>Localização de membro de réplica
 Quer alojar todas as réplicas de disponibilidade no local do grupo, ou hospedá-los todos no Microsoft Azure. Não é suportado um grupo que inclua um membro no local e um membro no Azure.     
@@ -145,7 +145,7 @@ Por exemplo, considere os seguintes cenários:
 
 - Atualizado ambos os servidores de réplica secundária para o SQL Server 2014 de versões anteriores. Com a atualização, estes servidores mantêm o caminho do ficheiro original para armazenar os ficheiros de base de dados: `C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA`.  
 
-- Antes de mover a base de dados a este grupo de disponibilidade, em cada servidor de réplica secundária, crie o seguinte caminho de ficheiro: `C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA`. Este caminho é um duplicado do caminho utilizado na réplica primária, mesmo que as réplicas secundárias não irá utilizar esta localização do ficheiro.  
+- Antes de mover a base de dados para este grupo de disponibilidade, em cada servidor de réplica secundária, crie o seguinte caminho de ficheiro: `C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA`. Este caminho é um duplicado do caminho utilizado na réplica primária, mesmo que as réplicas secundárias não irá utilizar esta localização do ficheiro.  
 
 - Em seguida, conceder a conta de serviço do SQL Server em cada acesso de controlo total de réplica secundária para a localização do ficheiro recentemente criado nesse servidor.  
 

@@ -10,12 +10,12 @@ ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 23cfa8f3bb69d980c43ec37355c24c29c96056fd
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.openlocfilehash: a69f849d4843ff7a0cf7df4a0b6de044a9506301
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586285"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421812"
 ---
 # <a name="set-up-hybrid-mdm-with-configuration-manager-and-microsoft-intune"></a>Configurar a MDM híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -58,6 +58,6 @@ Após a conclusão da configuração híbrida, é possível inscrever dispositiv
 
 Está à procura do Intune sem o Configuration Manager?
 > [!div class="button"]
-[Ver documentos do Intune >](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
+> [Ver documentos do Intune >](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
 
 

@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: b399be1a0e0eeea76ac87b8724f3c9f04902d533
-ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
+ms.openlocfilehash: cac4e555ece110ede0ccddb59d947a6068ef38ff
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52259034"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423325"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Níveis de recolha de dados de utilização de diagnóstico da versão 1602 do System Center Configuration Manager
 
@@ -41,14 +41,14 @@ Alterações das versões anteriores são indicadas com ***[novo]*** ou ***[atua
  Começando com o System Center Configuration Manager versão 1602, este nível inclui o seguinte:
 
 
- -   Informações de configuração:
-    - Crie, instalar o tipo, pacotes de idiomas, funcionalidades ativadas por si  
+- Informações de configuração:
+  - Crie, instalar o tipo, pacotes de idiomas, funcionalidades ativadas por si  
 
-    - ***[Atualizado]***  Atualizar o estado de implementação de pacote e erros, o progresso do download e erros de pré-requisitos     
+  - ***[Atualizado]***  Atualizar o estado de implementação de pacote e erros, o progresso do download e erros de pré-requisitos     
 
-    - ***[Novo]***  Versão do script pós-atualização
+  - ***[Novo]***  Versão do script pós-atualização
 
-    - ***[Novo]***  Uso de cadência rápida de atualização
+  - ***[Novo]***  Uso de cadência rápida de atualização
 
 -   Métricas de desempenho da base de dados (de processamento de informações, principais procedimentos de armazenados do SQL Server por processador e utilização do disco de replicação)
 
@@ -94,7 +94,7 @@ Este nível é recomendado porque disponibiliza à Microsoft com os dados mínim
 
 Começando com o System Center Configuration Manager versão 1602, este nível inclui o seguinte:
 
--   **Gestão de aplicações:**
+- **Gestão de aplicações:**
 
   -   ***[Atualizado]***  Informações básicas de utilização/segmentação para tipos de implementação que são utilizados dentro da organização (utilizador em comparação com o dispositivo segmentado, necessário em comparação com as aplicações disponíveis e universais)  
 
@@ -118,145 +118,145 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
   -  ***[Novo]***  Estatísticas de tamanho e a complexidade de política de aplicação
 
--   **Cliente:**
+- **Cliente:**
 
-    -   Lista/contagem de agentes de cliente ativados
+  -   Lista/contagem de agentes de cliente ativados
 
-    -   Contagem de instalações de cliente a partir de cada tipo de localização de origem
+  -   Contagem de instalações de cliente a partir de cada tipo de localização de origem
 
-    -   Contagem de falhas de instalação de cliente
+  -   Contagem de falhas de instalação de cliente
 
--   **Definições de compatibilidade:**
+- **Definições de compatibilidade:**
 
-    -   Contagem de itens de configuração por tipo
+  -   Contagem de itens de configuração por tipo
 
-    -   Informações básicas de linha de base de configuração (contagem, número de implementações e número de referências)
+  -   Informações básicas de linha de base de configuração (contagem, número de implementações e número de referências)
 
-    -   Contagem de implementações que referenciam definições incorporadas (o valor de configuração não é capturado)
+  -   Contagem de implementações que referenciam definições incorporadas (o valor de configuração não é capturado)
 
-    -   Contagem de regras e implementações criadas para as definições personalizadas
+  -   Contagem de regras e implementações criadas para as definições personalizadas
 
-    -   ***[Atualizado]***  Contagem de modelos de Simple Certificate Enrollment Protocol, VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas   
+  -   ***[Atualizado]***  Contagem de modelos de Simple Certificate Enrollment Protocol, VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas   
 
-    -  ***[Novo]***  Certificado de contagem de SCEP Simple Certificate Enrollment Protocol (), VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
+  -  ***[Novo]***  Certificado de contagem de SCEP Simple Certificate Enrollment Protocol (), VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
 
--   **Conteúdo:**
+- **Conteúdo:**
 
-    -   Contagem de limites por tipo
+  -   Contagem de limites por tipo
 
-    -   Informações do grupo de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)
+  -   Informações do grupo de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)
 
-    -   Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que são atribuídos a cada grupo de pontos de distribuição)
+  -   Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que são atribuídos a cada grupo de pontos de distribuição)
 
-    -   Informações de configuração de ponto de distribuição (utilização da cache de ramificação e a monitorização do ponto de distribuição)
+  -   Informações de configuração de ponto de distribuição (utilização da cache de ramificação e a monitorização do ponto de distribuição)
 
-    -   Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de repetições e as definições do ponto de distribuição de extração)
+  -   Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de repetições e as definições do ponto de distribuição de extração)
 
--   **Endpoint Protection:**
+- **Endpoint Protection:**
 
-    -   Antimalware do Endpoint Protection e utilização da política de Firewall do Windows (número de políticas únicas atribuídas ao grupo)<br /><br />Não inclui quaisquer informações sobre as definições que estão incluídas na política.
+  -   Antimalware do Endpoint Protection e utilização da política de Firewall do Windows (número de políticas únicas atribuídas ao grupo)<br /><br />Não inclui quaisquer informações sobre as definições que estão incluídas na política.
 
-    -   Erros de implementação do Endpoint Protection (contagem de códigos de erro de implementação de política de proteção de ponto final)
+  -   Erros de implementação do Endpoint Protection (contagem de códigos de erro de implementação de política de proteção de ponto final)
 
-    -   Contagem de coleções que estão selecionadas para aparecerem no dashboard do endpoint protection
+  -   Contagem de coleções que estão selecionadas para aparecerem no dashboard do endpoint protection
 
-    -   Contagem de alertas que estão configurados para a funcionalidade Endpoint Protection
+  -   Contagem de alertas que estão configurados para a funcionalidade Endpoint Protection
 
--   **Gestão de aplicações móveis (MAM):**
+- **Gestão de aplicações móveis (MAM):**
 
-    -   Contagem de aplicações do Office com MAM ativada, aplicativos de linha de negócio e políticas pelo sistema operativo
+  -   Contagem de aplicações do Office com MAM ativada, aplicativos de linha de negócio e políticas pelo sistema operativo
 
-    -   Contagem de implementações de aplicações/política de MAM
+  -   Contagem de implementações de aplicações/política de MAM
 
-    -   Contagem de regras que são criadas por definição de MAM
+  -   Contagem de regras que são criadas por definição de MAM
 
--   **Gestão de dispositivos móveis (MDM):**
+- **Gestão de dispositivos móveis (MDM):**
 
-    -   Contagem de emitido ações do dispositivo móvel: bloquear, afixar rest, apagar e extinguir comandos
+  -   Contagem de emitido ações do dispositivo móvel: bloquear, afixar rest, apagar e extinguir comandos
 
-    -   Contagem de dispositivos móveis que são geridos pelo Configuration Manager e o Microsoft Intune e como foram inscritos (em massa ou baseada no usuário)
+  -   Contagem de dispositivos móveis que são geridos pelo Configuration Manager e o Microsoft Intune e como foram inscritos (em massa ou baseada no usuário)
 
-    -   Consulta de agenda e as estatísticas de duração de entrada de dispositivo móvel de dispositivos móveis
+  -   Consulta de agenda e as estatísticas de duração de entrada de dispositivo móvel de dispositivos móveis
 
-    -   Contagem de políticas de dispositivos móveis
+  -   Contagem de políticas de dispositivos móveis
 
-    -   Contagem de utilizadores que têm vários dispositivos móveis inscritos
+  -   Contagem de utilizadores que têm vários dispositivos móveis inscritos
 
--   **Resolução de problemas do Microsoft Intune:**
+- **Resolução de problemas do Microsoft Intune:**
 
-    -   Contagem e tamanho de estado, estado, inventário, RDR, DDR, UDX, inquilino mensagens de estado, POL, LOG, certificado, CRP, ressincronização, CFD, RDO, BEX, ISM e conformidade que são transferidas a partir do Microsoft Intune
+  -   Contagem e tamanho de estado, estado, inventário, RDR, DDR, UDX, inquilino mensagens de estado, POL, LOG, certificado, CRP, ressincronização, CFD, RDO, BEX, ISM e conformidade que são transferidas a partir do Microsoft Intune
 
-    -   Contagem e tamanho das ações do dispositivo (apagar, extinguir, bloquear) telemetria e mensagens de dados que são replicadas para o Microsoft Intune
+  -   Contagem e tamanho das ações do dispositivo (apagar, extinguir, bloquear) telemetria e mensagens de dados que são replicadas para o Microsoft Intune
 
-    -   Diferenciais e completas estatísticas de sincronizações de utilizador para o Microsoft Intune
+  -   Diferenciais e completas estatísticas de sincronizações de utilizador para o Microsoft Intune
 
--   **Gestão de dispositivos móveis (MDM) no local:**
+- **Gestão de dispositivos móveis (MDM) no local:**
 
-    -   Estatísticas de êxito/falha de implementação para implementações de aplicações MDM no local
+  -   Estatísticas de êxito/falha de implementação para implementações de aplicações MDM no local
 
-    -   Contagem de pacotes e perfis de inscrição em massa do Windows 10
+  -   Contagem de pacotes e perfis de inscrição em massa do Windows 10
 
--   **Implementação do sistema operativo:**
+- **Implementação do sistema operativo:**
 
-    -   Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas
+  -   Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas
 
--   **Atualizações de software:**
+- **Atualizações de software:**
 
-    -   Número total/médio de coleções com implementações de atualizações de software e o número máximo/médio de implementar atualizações
+  -   Número total/médio de coleções com implementações de atualizações de software e o número máximo/médio de implementar atualizações
 
-    -   Número de regras de implementação automática que estão associadas a sincronização
+  -   Número de regras de implementação automática que estão associadas a sincronização
 
-    -   Número de regras de implementação automática que criam atualizações novas ou acrescentam atualizações a um grupo existente
+  -   Número de regras de implementação automática que criam atualizações novas ou acrescentam atualizações a um grupo existente
 
-    -   Deltas disponíveis e de prazo que são utilizados nas regras de implementação automática
+  -   Deltas disponíveis e de prazo que são utilizados nas regras de implementação automática
 
-    -   Número médio e máximo de atribuições por atualização
+  -   Número médio e máximo de atribuições por atualização
 
-    -   Contagem de atualizações que são criados e implementados com o System Center Update Publisher
+  -   Contagem de atualizações que são criados e implementados com o System Center Update Publisher
 
-    -   Contagem de grupos de atualização e atribuições
+  -   Contagem de grupos de atualização e atribuições
 
-    -   Contagem de pacotes de atualização e o número máximo/mínimo/médio de pontos de distribuição que são segmentados com pacotes
+  -   Contagem de pacotes de atualização e o número máximo/mínimo/médio de pontos de distribuição que são segmentados com pacotes
 
-    -   Número de grupos de atualização e número máximo/mínimo/médio de atualizações por grupo
+  -   Número de grupos de atualização e número máximo/mínimo/médio de atualizações por grupo
 
-    -   Número de atualizações e percentagem de atualizações que são implementadas, expiradas, substituídas, transferidas e contêm EULAs
+  -   Número de atualizações e percentagem de atualizações que são implementadas, expiradas, substituídas, transferidas e contêm EULAs
 
-    -   Atualizar códigos de erro de análise e contagem de máquinas
+  -   Atualizar códigos de erro de análise e contagem de máquinas
 
-    -   Avaliação de atualização de cliente e agendas de análise
+  -   Avaliação de atualização de cliente e agendas de análise
 
-    -   Agenda de sincronização de ponto de atualização de software
+  -   Agenda de sincronização de ponto de atualização de software
 
-    -   Número de regras de implementação automática que têm várias implementações
+  -   Número de regras de implementação automática que têm várias implementações
 
-    -   Configurações que são utilizadas para o Active Directory Windows 10, planos de manutenção
+  -   Configurações que são utilizadas para o Active Directory Windows 10, planos de manutenção
 
-    -   Versões de conteúdo de dashboard do Windows 10
+  -   Versões de conteúdo de dashboard do Windows 10
 
-    -   Clientes de contagem do Windows 10 que utilizam o Windows Update para empresas
+  -   Clientes de contagem do Windows 10 que utilizam o Windows Update para empresas
 
-    -   Estatísticas de aplicação de patches de cluster
+  -   Estatísticas de aplicação de patches de cluster
 
-    -   Contagem de atualizações do Office 365 implementadas
+  -   Contagem de atualizações do Office 365 implementadas
 
-    -   ***[Novo]***  Classificações são sincronizadas pelo ponto de atualização de Software
+  -   ***[Novo]***  Classificações são sincronizadas pelo ponto de atualização de Software
 
--   **Dados de desempenho/SQL:**
+- **Dados de desempenho/SQL:**
 
-    -   Contagem das maiores tabelas de bases de dados
+  -   Contagem das maiores tabelas de bases de dados
 
-    -   Informações de réplica do SQL Always-On
+  -   Informações de réplica do SQL Always-On
 
-    -   Contagem de coleções por tipo
+  -   Contagem de coleções por tipo
 
-    -   ***[Atualizado]***  Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, o rollover de ID e o uso de regra de consulta)
+  -   ***[Atualizado]***  Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, o rollover de ID e o uso de regra de consulta)
 
-    - ***[Novo]***  Período de retenção de registo de alterações SQL
+  - ***[Novo]***  Período de retenção de registo de alterações SQL
 
--   ***[Novo] Atualizações do site:***
+- ***[Novo] Atualizações do site:***
 
-    - ***[Novo]***  Versões das correções instaladas do Configuration Manager
+  - ***[Novo]***  Versões das correções instaladas do Configuration Manager
 
 ##  <a name="bkmk_level3"></a> Nível 3 - Completo
 O nível completo inclui todos os dados nos níveis de básico e avançado. Também inclui informações adicionais sobre o Endpoint Protection, percentagens de compatibilidade de atualização e informações de atualização de software. Este nível também pode incluir informações de diagnóstico avançadas, como ficheiros de sistema e instantâneos de memória, que podem incluir informações pessoais que existiam na memória ou ficheiros de registo no momento da captura.

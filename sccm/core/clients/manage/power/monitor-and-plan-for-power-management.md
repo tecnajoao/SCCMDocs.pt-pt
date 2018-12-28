@@ -10,32 +10,32 @@ ms.assetid: 507bf676-2679-4e4d-8831-3ffc9cf8557e
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 70e6f4ddfa335a08bdf7039274b388b5a468311e
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: c0cff0787549624ab0b987fbacdb6f5b4f9c3ec1
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32341768"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416219"
 ---
 # <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Como monitorizar e planear a gestão de energia no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilize as seguintes informações para o ajudar a monitorizar e planear a gestão de energia no System Center Configuration Manager.  
+Utilize as seguintes informações para ajudá-lo a monitorizar e planear a gestão de energia no System Center Configuration Manager.  
 
 ##  <a name="BKMK_How_to_use_reports"></a> Como utilizar relatórios para a gestão de energia  
- Gestão de energia no Configuration Manager inclui vários relatórios para o ajudar a analisar as definições de energia de computador e o consumo de energia na sua organização. Os relatórios também podem ser utilizados para ajudar a resolver problemas.  
+ Gestão de energia no Configuration Manager inclui vários relatórios para ajudar a analisar as definições de energia de consumo e o computador de energia na sua organização. Os relatórios também podem ser utilizados para ajudar a resolver problemas.  
 
  Antes de poder utilizar os relatórios de gestão de energia, é necessário configurá-los na sua hierarquia. Para obter mais informações sobre os relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager 31 dias.  
->           Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager durante 13 meses.  
+>  Informações de gestão de energia utilizadas pelos relatórios diários são retidas na base de dados do site do Configuration Manager para 31 dias.  
+>           Informações de gestão de energia utilizadas pelos relatórios diários são retidas na base de dados do site do Configuration Manager por 13 meses.  
 >   
->  Quando executa relatórios durante as fases de monitorização, planeamento e compatibilidade de gestão de energia, guarde ou exporte os resultados de quaisquer relatórios para o qual pretende manter os dados para comparação posterior caso sejam posteriores removido pelo Configuration Manager.  
+>  Quando executa relatórios durante as fases de monitorização e planeamento e compatibilidade de gestão de energia, guarde ou exporte os resultados de todos os relatórios para os quais pretende manter os dados para comparação posterior caso sejam posteriores removidos pelo Configuration Manager.  
 
 ## <a name="list-of-power-management-reports"></a>Lista de relatórios de gestão de energia  
- A lista seguinte fornece detalhes sobre os relatórios de gestão de energia que estão disponíveis no Configuration Manager.  
+ As listas a seguir detalha os relatórios de gestão de energia que estão disponíveis no Configuration Manager.  
 
 > [!NOTE]  
 >  Os relatórios de gestão de energia apresentam o número de computadores físicos e o número de computadores virtuais numa coleção selecionada. No entanto, são apresentadas apenas as informações de gestão de energia de computadores físicos nos relatórios de gestão de energia.  
@@ -43,17 +43,17 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Activity"></a> Relatório Atividade do Computador  
  O relatório **Atividade do Computador** mostra um gráfico que apresenta a seguinte atividade numa coleção especificada e num período de tempo especificado:  
 
--   **Computador Ativado** – O computador foi ativado.  
+- **Computador Ativado** – O computador foi ativado.  
 
--   **Monitorização Ativada** – A monitorização foi ativada.  
+- **Monitorização Ativada** – A monitorização foi ativada.  
 
--   **Utilizador Ativo** – Foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador  
+- **Utilizador Ativo** – Foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador  
 
- Este relatório é utilizado durante as fases de monitorização, planeamento e imposição para o ajudar a compreender o alinhamento entre a atividade do computador, a atividade de monitorização e a atividade do utilizador durante um período de 24 horas. Se executar o relatório sobre um determinado número de dias, os dados são agregados durante este período. Este relatório pode ajudá-lo a determinar as horas comerciais comuns (pico) e não comerciais (fora de pico) de uma coleção selecionada para o ajudar a decidir quando deve aplicar esquemas de gestão de energia configurados.  
+  Este relatório é utilizado durante as fases de monitorização, planeamento e imposição para o ajudar a compreender o alinhamento entre a atividade do computador, a atividade de monitorização e a atividade do utilizador durante um período de 24 horas. Se executar o relatório sobre um determinado número de dias, os dados são agregados durante este período. Este relatório pode ajudá-lo a determinar as horas comerciais comuns (pico) e não comerciais (fora de pico) de uma coleção selecionada para o ajudar a decidir quando deve aplicar esquemas de gestão de energia configurados.  
 
- O gráfico mostra períodos de tempo em que um computador pode ser ativado, mas não existe nenhuma atividade do utilizador. Considere aplicar as definições de energia mais restritivas durante estas horas para poupar nos custos de energia dos computadores que estão ativados, mas não estão a ser utilizados. Um computador é contabilizado como estando ativo se tiver ocorrido atividade de monitorização, do computador ou do utilizador por um minuto ou mais de uma hora apresentada no gráfico. Se um computador não estiver a comunicar dados de gestão de energia, este não será incluído no relatório **Atividade do Computador** .  
+  O gráfico mostra períodos de tempo em que um computador pode ser ativado, mas não existe nenhuma atividade do utilizador. Considere aplicar as definições de energia mais restritivas durante estas horas para poupar nos custos de energia dos computadores que estão ativados, mas não estão a ser utilizados. Um computador é contabilizado como estando ativo se tiver ocorrido atividade de monitorização, do computador ou do utilizador por um minuto ou mais de uma hora apresentada no gráfico. Se um computador não estiver a comunicar dados de gestão de energia, este não será incluído no relatório **Atividade do Computador** .  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+  Utilize os parâmetros seguintes para configurar este relatório.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -63,7 +63,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Data de início**|Na lista pendente, selecione a data de início para este relatório.|  
 |**Data de fim (Opcional)**|Na lista pendente, selecione uma data de fim opcional para este relatório.|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis).|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis).|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Este relatório não tem parâmetros ocultados que pode definir.  
@@ -78,13 +78,13 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Comp_Activity_by_computer"></a> Relatório Atividade do Computador por Computador  
  O relatório **Atividade do Computador por Computador** mostra um gráfico que apresenta a seguinte atividade num computador especificado e numa data especificada:  
 
--   **Computador Ativado** – O computador foi ativado.  
+- **Computador Ativado** – O computador foi ativado.  
 
--   **Monitorização Ativada** – A monitorização foi ativada.  
+- **Monitorização Ativada** – A monitorização foi ativada.  
 
--   **Utilizador Ativo** –  foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador.  
+- **Utilizador Ativo** –  foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador.  
 
- Este relatório pode ser executado de forma independente ou denominado pelo relatório **Detalhes de Atividade do Computador** .  
+  Este relatório pode ser executado de forma independente ou denominado pelo relatório **Detalhes de Atividade do Computador** .  
 
 > [!NOTE]  
 >  As informações sobre a atividade do computador são recolhidas de computadores cliente durante o inventário de hardware. Consoante o tempo em que o inventário de hardware é executado, a atividade pode ser recolhida durante um esquema de energia sem pico ou de pico aplicado.  
@@ -122,11 +122,11 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
 |**Data de relatório**|Na lista pendente, selecione a data a utilizar para este relatório.|  
 |**Hora do relatório**|Na lista pendente, selecione a hora a contar da data especificada na qual pretende executar este relatório. Os valores válidos são entre as **12:00** e as **23:00**.|  
-|**Estado do computador**|Na lista pendente, selecione o estado do computador no qual pretende executar este relatório. Os valores válidos são **todos os** (computadores que foram ativados ou desativado), **no** (computadores que foram ativados), e **desativar** (computadores que foram ativados desativado, no modo de suspensão, ou em hibernação). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-|**Capacidade de suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de suspensão no relatório. Os valores válidos são **todos os** (ambos os computadores compatíveis com e sem capacidade de suspensão), **não** (computadores sem capacidade de suspensão), e **Sim** (computadores que têm capacidade de suspensão).|  
-|**Capacidade de reativação a partir da suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de reativação a partir da suspensão no relatório. Os valores válidos são **todos os** (ambos os computadores compatíveis com e sem capacidade de reativação da suspensão), **não** (computadores sem capacidade de reativação da suspensão), e **Sim** (computadores que são capazes de reativação da suspensão).|  
-|**Esquema de energia**|Na lista pendente, selecione os tipos de esquema de energia que pretende apresentar no relatório. Os valores válidos são **todos os** (computadores que não tem nenhum energia esquemas de gestão aplicados, computadores que têm um esquema de gestão de energia aplicado; computadores excluídos da gestão de energia), **não especificado** (computadores que não têm um esquema de gestão de energia aplicado), **definidas** (computadores que têm um esquema de gestão de energia aplicado), e **excluídas** (computadores que foram excluídos da gestão de energia).|  
+|**Estado do computador**|Na lista pendente, selecione o estado do computador no qual pretende executar este relatório. Os valores válidos são **todos os** (computadores que foram ativadas ou desativada), **no** (computadores que foram ativados), e **desativar** (computadores que foram ativados desativado, no modo de suspensão, ou em hibernação). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
+|**Capacidade de suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de suspensão no relatório. Os valores válidos são **todos os** (os dois computadores compatíveis com e sem capacidade de suspensão), **não** (computadores que são incapazes de suspensão), e **Sim** (computadores que têm capacidade de suspensão).|  
+|**Capacidade de reativação a partir da suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de reativação a partir da suspensão no relatório. Os valores válidos são **todos os** (os dois computadores compatíveis com e sem capacidade de reativação a partir da suspensão), **não** (computadores que são incapazes de reativação a partir da suspensão), e **Sim** (computadores que são capacidade de reativação da suspensão).|  
+|**Esquema de energia**|Na lista pendente, selecione os tipos de esquema de energia que pretende apresentar no relatório. Os valores válidos são **todos os** (computadores que não tenha nenhum power esquemas de gestão aplicados, computadores que têm um esquema de gestão de energia aplicado; computadores excluídos da gestão de energia), **não especificado** ( computadores que não têm um esquema de gestão de energia aplicado), **definidas** (computadores que têm um esquema de gestão de energia aplicado), e **excluído** (computadores que foram excluídos da energia gestão).|  
 |**Sistema operativo**|Na lista pendente, selecione os sistemas operativos dos computadores que pretende apresentar no relatório ou selecione **Todos** para apresentar todos os sistemas operativos.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
@@ -137,7 +137,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 
 |Nome do Relatório|Detalhes|  
 |-----------------|-------------|  
-|**Atividade do Computador por Computador**|Clique num nome de computador para ver a atividade específica para esse computador através de uma período de relatório de escolhida. Estas atividades incluem **computador em** (o computador foi ativado?), **monitorizar no** (o monitor foi ativado?), e **utilizador ativa** (foi detetada atividade do rato do computador, teclado ou uma ligação de ambiente de trabalho remoto).<br /><br /> Para obter mais informações, consulte [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) neste tópico.|  
+|**Atividade do Computador por Computador**|Clique num nome de computador para ver a atividade específica para esse computador ao longo de uma período de relatório de escolhida. Estas atividades incluem **computador na** (o computador foi ativado?), **monitorizar nos** (o monitor foi ativado?), e **utilizador ativa** (foi detetada atividade do rato do computador, teclado ou uma ligação de ambiente de trabalho remota).<br /><br /> Para obter mais informações, consulte [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) neste tópico.|  
 
 ###  <a name="BKMK_Computer_Details"></a> Relatório Detalhes do Computador  
  O relatório **Detalhes do Computador** mostra informações detalhadas sobre as funcionalidades de energia, definições de energia e esquemas de energia aplicados a um computador especificado. Este relatório é denominado pelos relatórios **Atividade do Computador por Computador** , **Computadores com Vários Esquemas de Energia** , **Capacidades de Energia** e **Detalhes das Definições de Energia** . Não foi concebido para ser executado diretamente pelo administrador do site.  
@@ -172,7 +172,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
 |**Data de relatório**|Na lista pendente, selecione a data para este relatório.|  
 |**Hora do relatório**|Na lista pendente, selecione a hora a contar da data especificada na qual pretende executar este relatório. Os valores válidos são entre as **12:00** e as **23:00**.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Este relatório não tem parâmetros ocultados que pode definir.  
@@ -191,7 +191,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Motivo**|Na lista pendente, selecione por que motivo os computadores foram excluídos da gestão de energia. Pode visualizar **todos os** (todos os excluídos computadores), **excluídos pelo administrador** (apenas computadores que foram excluídos por um utilizador administrativo), e **excluídos pelo utilizador** (apenas computadores que foram excluídos por um utilizador do Centro de Software).|  
+|**Motivo**|Na lista pendente, selecione por que motivo os computadores foram excluídos da gestão de energia. Pode exibir **todos os** (todos excluído computadores), **excluído pelo administrador** (apenas computadores que foram excluídos por um utilizador administrativo), e **excluído pelo utilizador** (apenas computadores que foram excluídos por um utilizador do Centro de Software).|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Este relatório não tem parâmetros ocultados que pode definir.  
@@ -209,7 +209,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 > [!IMPORTANT]  
 >  Se um computador for um membro de várias coleções, em que cada coleção tem diferentes esquemas de energia, em seguida, o esquema de energia menos restritivo será aplicado.  
 >   
->  Se um computador for um membro de várias coleções, em que cada coleção tem horas de reativação diferente, será utilizada a hora mais próxima da meia-noite.  
+>  Se um computador for membro de várias coleções, em que cada coleção tem horas de reativação diferentes, em seguida, a hora mais próxima da meia-noite será utilizada.  
 
  Utilize os parâmetros seguintes para configurar este relatório.  
 
@@ -233,13 +233,13 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Consumption"></a> Relatório Consumo de Energia  
  O relatório **Consumo de Energia** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) na coleção especificada para o período de tempo especificado.  
 
--   Um gráfico que mostra o consumo médio de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o consumo médio de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada para o período de tempo especificado.  
 
--   Uma tabela que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) e o consumo médio de energia de computadores na coleção especificada para o período de tempo especificado.  
+- Uma tabela que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) e o consumo médio de energia de computadores na coleção especificada para o período de tempo especificado.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
+  Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
 
 > [!NOTE]  
 >  Se adicionar ou remover membros na coleção depois de ter aplicado um esquema de energia, isto irá afetar os resultados apresentados pelo relatório **Consumo de Energia** e poderá dificultar a comparação dos resultados da fase de monitorização e de planeamento e a fase de imposição.  
@@ -254,7 +254,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Data de início**|Na lista pendente, selecione uma data de início para este relatório.|  
 |**Data de fim**|Na lista pendente, selecione uma data de fim para este relatório.|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
@@ -276,13 +276,13 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Consumption_by_Day"></a> Relatório Consumo de Energia por Dia  
  O relatório **Consumo de Energia por Dia** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) na coleção especificada dos últimos 31 dias.  
 
--   Um gráfico que mostra o consumo médio diário de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o consumo médio diário de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada dos últimos 31 dias.  
 
--   Uma tabela que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) e o consumo médio diário de energia de computadores na coleção especificada dos últimos 31 dias.  
+- Uma tabela que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) e o consumo médio diário de energia de computadores na coleção especificada dos últimos 31 dias.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
+  Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
 
 > [!NOTE]  
 >  Se adicionar ou remover membros na coleção depois de ter aplicado um esquema de energia, isto irá afetar os resultados apresentados pelo relatório **Consumo de Energia** e poderá dificultar a comparação dos resultados da fase de monitorização e de planeamento e a fase de imposição.  
@@ -295,7 +295,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Device Type**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Device Type**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
@@ -317,15 +317,15 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Cost"></a> Relatório Custo da Energia  
  O relatório **Custo da Energia** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o custo da energia mensal total de computadores na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o custo da energia mensal total de computadores na coleção especificada para o período de tempo especificado.  
 
--   Um gráfico que mostra o custo da energia mensal médio de cada computador na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o custo da energia mensal médio de cada computador na coleção especificada para o período de tempo especificado.  
 
--   Uma tabela que mostra o custo da energia mensal total e o custo da energia médio mensal para computadores da coleção especificada nos últimos 31 dias.  
+- Uma tabela que mostra o custo da energia mensal total e o custo da energia médio mensal para computadores da coleção especificada nos últimos 31 dias.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
+  Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+  Utilize os parâmetros seguintes para configurar este relatório.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -336,7 +336,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Data de fim**|Na lista pendente, selecione uma data de fim para este relatório.|  
 |**Custo de KwH**|Especifique o custo por kWh de eletricidade. O valor predefinido é **0,09**.<br /><br /> Pode modificar a unidade de moeda utilizada por este relatório na secção de parâmetros ocultos.|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
@@ -359,15 +359,15 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Cost_by_Day"></a> Relatório Custo da Energia por Dia  
  O relatório **Custo da Energia por Dia** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o custo da energia diário total de computadores na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o custo da energia diário total de computadores na coleção especificada dos últimos 31 dias.  
 
--   Um gráfico que mostra o custo da energia médio diário de cada computador na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o custo da energia médio diário de cada computador na coleção especificada dos últimos 31 dias.  
 
--   Uma tabela que mostra o custo de energia diário total e o custo de energia médio diário para computadores da coleção especificada nos últimos 31 dias.  
+- Uma tabela que mostra o custo de energia diário total e o custo de energia médio diário para computadores da coleção especificada nos últimos 31 dias.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
+  Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+  Utilize os parâmetros seguintes para configurar este relatório.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -375,7 +375,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 |**Custo de KwH**|Especifique o custo por kWh de eletricidade. O valor predefinido é **0,09**.<br /><br /> Pode modificar a unidade de moeda utilizada por este relatório na secção de parâmetros ocultos.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
@@ -399,15 +399,15 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Environmental_Impact"></a> Relatório Impacto Ambiental  
  O relatório **Impacto Ambiental** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o CO2 mensal total gerado (em toneladas) para computadores na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o CO2 mensal total gerado (em toneladas) para computadores na coleção especificada para o período de tempo especificado.  
 
--   Um gráfico que mostra o CO2 médio mensal gerado (em toneladas) de cada computador na coleção especificada para o período de tempo especificado.  
+- Um gráfico que mostra o CO2 médio mensal gerado (em toneladas) de cada computador na coleção especificada para o período de tempo especificado.  
 
--   Uma tabela que mostra o CO2 mensal total gerado e o CO2 médio mensal gerado de computadores na coleção especificada para o período de tempo especificado.  
+- Uma tabela que mostra o CO2 mensal total gerado e o CO2 médio mensal gerado de computadores na coleção especificada para o período de tempo especificado.  
 
- O **impacto ambiental** relatório calcula a quantidade de CO2 gerado (em toneladas) utilizando a hora em que um computador ou monitor foi ligado num período de 24 horas.  
+  O **impacto ambiental** relatório calcula a quantidade de CO2 gerado (em toneladas) utilizando a hora em que um computador ou monitor foi ligado num período de 24 horas.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+  Utilize os parâmetros seguintes para configurar este relatório.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -417,7 +417,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |**Data de início do relatório**|Na lista pendente, selecione uma data de início para este relatório.|  
 |**Data de fim do relatório**|Na lista pendente, selecione uma data de fim para este relatório.|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
@@ -440,13 +440,13 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Environmental_Impact_by_Day"></a> Relatório Impacto Ambiental por Dia  
  O relatório **Impacto Ambiental por Dia** apresenta as seguintes informações:  
 
--   Um gráfico que mostra o CO2 diário total gerado (em toneladas) de computadores na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o CO2 diário total gerado (em toneladas) de computadores numa coleção especificada dos últimos 31 dias.  
 
--   Um gráfico que mostra o CO2 médio diário gerado (em toneladas) de cada computador na coleção especificada dos últimos 31 dias.  
+- Um gráfico que mostra o CO2 médio diário gerado (em toneladas) de cada computador na coleção especificada dos últimos 31 dias.  
 
--   Uma tabela que mostra o CO2 diário total gerado e o média diário CO2 gerado de computadores na coleção especificada dos últimos 31 dias.  
+- Uma tabela que mostra o CO2 diário total gerado e o média diário CO2 gerado de computadores na coleção especificada dos últimos 31 dias.  
 
- O **impacto ambiental por dia** relatório calcula a quantidade de CO2 gerado (em toneladas) utilizando a hora em que um computador ou monitor foi ligado num período de 24 horas.  
+  O **impacto ambiental por dia** relatório calcula a quantidade de CO2 gerado (em toneladas) utilizando a hora em que um computador ou monitor foi ligado num período de 24 horas.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -454,7 +454,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **portátil** (apenas de computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (computadores de secretária apenas), e **Laptop** (apenas de computadores portáteis). Estes valores são obtidos apenas para o período de relatório de escolhido.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
@@ -534,17 +534,17 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 ###  <a name="BKMK_Capabilites"></a> Relatório Capacidades de Energia  
  O relatório **Capacidades de Energia** mostra as funcionalidades de hardware de gestão de energia dos computadores na coleção especificada. Este relatório é geralmente utilizado na fase de monitorização de gestão de energia para determinar as capacidades de gestão de energia dos computadores na sua organização. As informações apresentadas no relatório podem então ser utilizadas para criar coleções de computadores para aplicar os esquemas de energia ou para excluir da gestão de energia. As capacidades de gestão de energia apresentadas neste relatório são:  
 
--   **Com Capacidade de Suspensão** - Indica se o computador tem a capacidade de entrar em suspensão se estiver configurado para tal.  
+- **Com Capacidade de Suspensão** - Indica se o computador tem a capacidade de entrar em suspensão se estiver configurado para tal.  
 
--   **Com Capacidade de Hibernação** – Indica se o computador pode entrar em hibernação se estiver configurado para tal.  
+- **Com Capacidade de Hibernação** – Indica se o computador pode entrar em hibernação se estiver configurado para tal.  
 
--   **Reativação da Suspensão** – Indica se o computador pode ser reativado da suspensão se estiver configurado para tal.  
+- **Reativação da Suspensão** – Indica se o computador pode ser reativado da suspensão se estiver configurado para tal.  
 
--   **Reativação da Hibernação** – Indica se o computador pode ser reativado da hibernação se estiver configurado para tal.  
+- **Reativação da Hibernação** – Indica se o computador pode ser reativado da hibernação se estiver configurado para tal.  
 
- Os valores indicados pelo relatório **Capacidades de Energia** indicam as capacidades de suspensão e hibernação de computadores, conforme comunicado pelo Windows. No entanto, os valores comunicados não refletem casos em que as definições do Windows ou o BIOS impedem estas funções de funcionarem.  
+  Os valores indicados pelo relatório **Capacidades de Energia** indicam as capacidades de suspensão e hibernação de computadores, conforme comunicado pelo Windows. No entanto, os valores comunicados não refletem casos em que as definições do Windows ou o BIOS impedem estas funções de funcionarem.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+  Utilize os parâmetros seguintes para configurar este relatório.  
 
 #### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
  Tem de especificar os parâmetros seguintes para executar este relatório.  
@@ -552,7 +552,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Filtro de Apresentação**|Na lista pendente, selecione **não suportado** para apresentar apenas os computadores na coleção especificada que estão sem capacidade de suspensão, hibernação, reativação da suspensão ou reativação da hibernação. Selecione **Mostrar tudo** para apresentar todos os computadores na coleção especificada.|  
+|**Filtro de Apresentação**|Na lista pendente, selecione **Nepodporuje** para apresentar apenas os computadores na coleção especificada que não conseguem de suspensão, hibernação, reativação da suspensão ou reativação da hibernação. Selecione **Mostrar tudo** para apresentar todos os computadores na coleção especificada.|  
 
 #### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
  Este relatório não tem parâmetros ocultados que pode definir.  
@@ -602,7 +602,7 @@ Utilize as seguintes informações para o ajudar a monitorizar e planear a gest�
 |Nome do Parâmetro|Descrição|  
 |--------------------|-----------------|  
 |**Recolha**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Definição de Energia GUID**|Na lista pendente, selecione a definição de energia GUID em que pretende um relatório. Para obter uma lista de todas as definições de energia e respetivas utilizações, consulte [definições do plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
+|**Definição de Energia GUID**|Na lista pendente, selecione a definição de energia GUID em que pretende um relatório. Para obter uma lista de todas as definições de energia e respetivas utilizações, consulte [definições de plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
 |**Power Mode**|Na lista pendente, selecione o tipo de definições de energia que pretende apresentar nos resultados do relatório. Selecione **Ligado** para ver as definições de energia configuradas quando o computador está ligado e **Com Bateria** para ver as definições de energia configuradas quando o computador está em execução com energia da bateria.|  
 |**Índice de Definição**|Na lista pendente, selecione o valor do nome da definição de energia selecionado no qual pretende um relatório. Por exemplo, se pretender apresentar todos os computadores com a definição **desligar o disco rígido após** configurada para **10** minutos, selecione **desligar o disco rígido após** no **Nome da Definição de Energia** e **10** no **Índice de Definição**.|  
 

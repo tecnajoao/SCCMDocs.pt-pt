@@ -10,12 +10,12 @@ ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3981d454d0b007f5b057ccca4c8888da609dba97
-ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
+ms.openlocfilehash: d1a10f2381d6820d685ec8ff871c83c2a4c39bb1
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52259085"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53415063"
 ---
 # <a name="accounts-used-in-configuration-manager"></a>Contas utilizadas no Configuration Manager
 
@@ -223,14 +223,14 @@ Por predefinição, este grupo tem **controlo total** para a seguinte pasta: `C:
 ### <a name="active-directory-group-discovery-account"></a>Conta de deteção de grupo do Active Directory  
 
  O site utiliza a **conta de deteção de grupos do Active Directory** para detetar os seguintes objetos a partir de localizações nos serviços de domínio do Active Directory que especificar:
- - Grupos de segurança locais, globais e universais
- - A associação no âmbito desses grupos
- - A associação em grupos de distribuição
-    - Grupos de distribuição não são detetados como do grupo de recursos
+- Grupos de segurança locais, globais e universais
+- A associação no âmbito desses grupos
+- A associação em grupos de distribuição
+   - Grupos de distribuição não são detetados como do grupo de recursos
 
- Esta conta pode ser uma conta de computador do servidor do site que executa a deteção ou uma conta de utilizador do Windows. Tem de ter **leitura** permissão para localizações do Active Directory que especificou para a deteção de acesso.  
+  Esta conta pode ser uma conta de computador do servidor do site que executa a deteção ou uma conta de utilizador do Windows. Tem de ter **leitura** permissão para localizações do Active Directory que especificou para a deteção de acesso.  
 
- Para obter mais informações, consulte [deteção de grupos do Active Directory](/sccm/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutGroup).
+  Para obter mais informações, consulte [deteção de grupos do Active Directory](/sccm/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutGroup).
 
 
 ### <a name="active-directory-system-discovery-account"></a>Conta de deteção de sistema do Active Directory  

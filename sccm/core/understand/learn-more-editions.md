@@ -10,12 +10,12 @@ ms.assetid: 495b87ae-41a4-49ba-abe2-d4f7d22ac0d4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 33cd99fd51bd7fabc1ae7f8379bcf2a69a5c4898
-ms.sourcegitcommit: f195190347a98b6c5be957564d33b6c4dfb610d7
+ms.openlocfilehash: 42a19d690e694ad3ca930dbf89fd0420bb5a45b5
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309379"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416814"
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenciamento e ramificações do System Center Configuration Manager
 
@@ -80,7 +80,7 @@ LTSB se baseia em ramo atual versão 1606 e tem as seguintes limitações:
 ### <a name="software-assurance-expiration-date"></a>Data de expiração do Software Assurance
 A partir da versão de Outubro de 2016 do suporte de dados de linha de base do versão 1606 do System Center Configuration Manager, pode especificar a data de expiração do seu contrato de Software Assurance. O **data de expiração do Software Assurance** é um valor opcional, pode especificar como um lembrete conveniente quando executar a configuração do Configuration Manager ou posterior no Configuration Manager consola.
 
->  [!NOTE]   
+> [!NOTE]
 >  Microsoft não valida a data de expiração que especifica e não utiliza esta data de validação da licença.  Em vez disso, pode usá-lo como um lembrete da data de validade. Isto é útil porque o Configuration Manager periodicamente verifica a existência de novas atualizações de software disponibilizado online e o estado de licença do Software Assurance deve ser atual para ser elegível para utilizar estas atualizações adicionais.    
 
 **Para especificar a data:**

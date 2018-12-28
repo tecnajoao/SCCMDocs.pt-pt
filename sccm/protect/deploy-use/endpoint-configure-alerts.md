@@ -10,12 +10,12 @@ ms.assetid: f504de3e-4caf-455c-80d7-a63f13f4c5d9
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 626c52b827e38a53ed3b8982963496f29f11acb5
-ms.sourcegitcommit: 5b3ff56018cfc6bda9643c9f1bebc575173f61bc
+ms.openlocfilehash: dbebdde88a5031eec91a2383e105d06cbc7541e5
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50083773"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420452"
 ---
 #  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurar alertas para o Endpoint Protection no Configuration Manager
 
@@ -92,7 +92,7 @@ A partir do Configuration Manager versão 1702, pode configurar um alerta para g
 Para configurar a percentagem em que o alerta é gerado, expanda **monitorização** > **alertas** > **todos os alertas**, faça duplo clique em  **Os clientes de antimalware desatualizados** e modificar o **emitir um alerta se a percentagem de clientes geridos com uma versão desatualizada do cliente de antimalware for superior** opção.
 
 > [!div class="button"]
-[Passo seguinte >](endpoint-definition-updates.md)
-
+> [Passo seguinte >](endpoint-definition-updates.md)
+> 
 > [!div class="button"]
-[Volta >](endpoint-protection-site-role.md)
+> [Volta >](endpoint-protection-site-role.md)

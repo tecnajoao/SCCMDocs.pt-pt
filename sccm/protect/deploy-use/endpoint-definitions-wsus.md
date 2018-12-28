@@ -10,12 +10,12 @@ author: aczechowski
 description: Saiba como configurar os serviços de atualizações do Windows Server para aprovar automaticamente atualizações de definições.
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 5aa857141b047fc0f9929ca72041980a8bc8b6a7
-ms.sourcegitcommit: 19fc4f27667d51502fc9d7d02d164f2837d65dae
+ms.openlocfilehash: b66c55da65f65c219b5c961949244f105885ba8f
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49461261"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424291"
 ---
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir do Windows Server Update Services (WSUS) para o Configuration Manager
 
@@ -25,23 +25,23 @@ ms.locfileid: "49461261"
 
 ## <a name="to-synchronize-endpoint-protection-definition-updates-in-configuration-manager-software-updates"></a>Para sincronizar atualizações de definições do Endpoint Protection em atualizações de software do Configuration Manager
 
-1.  Na consola do Configuration Manager, clique em **Administração**.
+1. Na consola do Configuration Manager, clique em **Administração**.
 
-2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
+2. Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
 
-3.  Selecione o site que contém o ponto de atualização de software. No grupo **Definições** , clique em **Configurar Componentes do Site**e, em seguida, clique em **Ponto de Atualização de Software**.
+3. Selecione o site que contém o ponto de atualização de software. No grupo **Definições** , clique em **Configurar Componentes do Site**e, em seguida, clique em **Ponto de Atualização de Software**.
 
-4.  No separador **Classificações** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Atualizações de Definição** .
+4. No separador **Classificações** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Atualizações de Definição** .
 
-5.  Especifique os **Produtos** atualizados com o WSUS:
+5. Especifique os **Produtos** atualizados com o WSUS:
 
-    -   Para o Windows 8.1 e anteriores, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Forefront Endpoint Protection 2010** .
+   -   Para o Windows 8.1 e anteriores, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Forefront Endpoint Protection 2010** .
 
-    -   Para o Windows 10 e posterior, no **produtos** separador da **propriedades do componente de ponto de atualização de Software** caixa de diálogo, selecione o **Windows Defender** caixas de verificação.
+   -   Para o Windows 10 e posterior, no **produtos** separador da **propriedades do componente de ponto de atualização de Software** caixa de diálogo, selecione o **Windows Defender** caixas de verificação.
 
-6.  Clique em **OK** para fechar a caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** .
+6. Clique em **OK** para fechar a caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** .
 
- Utilize o procedimento seguinte para configurar atualizações de Endpoint Protection ao seu servidor do WSUS não está integrado no ambiente do Configuration Manager.
+   Utilize o procedimento seguinte para configurar atualizações de Endpoint Protection ao seu servidor do WSUS não está integrado no ambiente do Configuration Manager.
 
 ## <a name="to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus"></a>Para sincronizar atualizações de definições do Endpoint Protection no WSUS autónomo
 
@@ -60,13 +60,13 @@ ms.locfileid: "49461261"
 
 ### <a name="to-approve-definitions-and-updates-in-wsus"></a>Para aprovar definições e atualizações no WSUS
 
-1.  Na consola de administração do WSUS, clique em **Atualizações**e, em seguida, clique em **Todas as Atualizações** ou na classificação das atualizações que pretende aprovar.
+1. Na consola de administração do WSUS, clique em **Atualizações**e, em seguida, clique em **Todas as Atualizações** ou na classificação das atualizações que pretende aprovar.
 
-2.  Na lista de atualizações, clique com o botão direito do rato na atualização ou atualizações que pretende aprovar para instalação e, em seguida, clique em **Aprovar**.
+2. Na lista de atualizações, clique com o botão direito do rato na atualização ou atualizações que pretende aprovar para instalação e, em seguida, clique em **Aprovar**.
 
-3.  Na caixa de diálogo **Aprovar Atualizações** , selecione o grupo de computadores para o qual pretende aprovar as atualizações e, em seguida, clique em **Aprovado para Instalação**.
+3. Na caixa de diálogo **Aprovar Atualizações** , selecione o grupo de computadores para o qual pretende aprovar as atualizações e, em seguida, clique em **Aprovado para Instalação**.
 
- Para além da aprovação manual, também pode definir uma regra de aprovação automática para atualizações de definições e atualizações do Endpoint Protection. Isto irá configurar o WSUS para aprovar automaticamente atualizações de definições de Endpoint Protection transferidas pelo WSUS.
+   Para além da aprovação manual, também pode definir uma regra de aprovação automática para atualizações de definições e atualizações do Endpoint Protection. Isto irá configurar o WSUS para aprovar automaticamente atualizações de definições de Endpoint Protection transferidas pelo WSUS.
 
 ### <a name="to-configure-an-automatic-approval-rule"></a>Para configurar uma regra de aprovação automática
 
@@ -92,9 +92,9 @@ ms.locfileid: "49461261"
 
 > [!NOTE]
 >  Para maximizar o desempenho no seu servidor WSUS e computadores cliente, recuse atualizações de definições antigas. Para realizar esta tarefa, pode configurar a aprovação automática de revisões e a recusa automática de atualizações expiradas. Para obter mais informações, veja o [artigo 938947 da Base de Dados de Conhecimento Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=204078).
-
+> 
 > [!div class="button"]
-[Passo seguinte >](endpoint-antimalware-policies.md)
-
+> [Passo seguinte >](endpoint-antimalware-policies.md)
+> 
 > [!div class="button"]
-[Volta >](endpoint-configure-alerts.md)
+> [Volta >](endpoint-configure-alerts.md)

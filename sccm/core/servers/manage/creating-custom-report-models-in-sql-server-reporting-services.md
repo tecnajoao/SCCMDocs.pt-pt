@@ -1,7 +1,7 @@
 ---
 title: Criar relatórios personalizados
 titleSuffix: Configuration Manager
-description: Definir modelos de relatórios para satisfazer os seus requisitos empresariais e, em seguida, implementar modelos de relatórios no Configuration Manager.
+description: Definir modelos de relatórios para cumprir os requisitos comerciais e, em seguida, implementar os modelos de relatório para o Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,18 +10,18 @@ ms.assetid: f2df88b4-c348-4dcf-854a-54fd6eedf485
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: fd606ff7068b7c14047e445d16ea78d20a5c12ea
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: d011272c42f3347f555e4fb5322464e9c5e754da
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32342652"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424702"
 ---
-# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services
+# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Criar modelos de relatórios personalizados para o System Center Configuration Manager, no SQL Server Reporting Services
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Modelos de relatórios de exemplo estão incluídos no System Center Configuration Manager, mas pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio e, em seguida, implementar o modelo de relatório para o Configuration Manager para utilizar quando criar novos relatórios baseados em modelos. A tabela seguinte fornece os passos para criar e implementar um modelo de relatório básico.  
+Modelos de relatórios de exemplo estão incluídos no System Center Configuration Manager, mas pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócios e, em seguida, implementar o modelo de relatório para o Configuration Manager para utilizar quando criar novos relatórios baseados em modelos. A tabela seguinte fornece os passos para criar e implementar um modelo de relatório básico.  
 
 > [!NOTE]  
 >  Consulte os passos de criação de um modelo de relatório mais avançado na secção [passos para criar um modelo de relatório avançado no SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
@@ -34,10 +34,10 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 |Definir uma vista de origem de dados para um modelo de relatório|Após definir as origens de dados que utiliza no seu projeto de modelo de relatório, o passo seguinte será definir uma vista de origem de dados para o projeto. Uma vista de origem de dados é um modelo de dados lógico baseado numa ou mais origens de dados. As vistas de origem de dados encapsulam o acesso aos objetos físicos, tais como tabelas e vistas, contidos nas origens de dados subjacentes. O SQL Server Reporting Services gera o modelo de relatório a partir da vista de origem de dados.<br /><br /> As vistas de origem de dados facilitam o processo de criação do modelo, fornecendo uma representação útil dos dados que especificou. Sem alterar a origem de dados subjacente, poderá mudar o nome de tabelas e campos e adicionar campos agregados e tabelas derivadas numa vista de origem de dados. Para um modelo eficiente, adicione apenas à vista de origem de dados as tabelas que pretender utilizar.|Para obter mais informações, consulte a secção [Para definir a vista de origem de dados para o modelo de relatório](#BKMK_DefineReportModelDataSourceView) neste tópico.|  
 |Criar um modelo de relatório|Um modelo de relatório é uma camada sobreposta a uma base de dados que identifica as entidades de negócio, campos e funções. Quando publicado utilizando estes modelos, os utilizadores do Report Builder poderão desenvolver relatórios sem terem de se familiarizar com as estruturas de bases de dados nem compreender e escrever consultas. Os modelos são compostos por conjuntos de itens de relatório relacionados, agrupados sob um nome amigável, com relações predefinidas entre estes itens de negócio e com cálculos predefinidos. Os modelos são definidos utilizando uma linguagem XML denominada SMDL (Semantic Model Definition Language). A extensão do nome de ficheiro dos modelos de relatório é .smdl.|Para obter mais informações, consulte a secção [To create the report model](#BKMK_CreateReportModel) neste tópico.|  
 |Publicar um modelo de relatório|Para criar um relatório utilizando o modelo que acabou de criar, terá de o publicar num servidor de relatórios. A origem de dados e a vista de origem de dados serão incluídas no modelo, quando este for publicado.|Para obter mais informações, consulte a secção [Para publicar o modelo de relatório para utilização no SQL Server Reporting Services](#BKMK_PublishReportModel) neste tópico.|  
-|Implementar o modelo de relatório do Configuration Manager|Antes de poder utilizar um modelo de relatório personalizado no **Assistente para criar relatório** para criar um relatório baseado num modelo, terá de implementar o modelo de relatório do Configuration Manager.|Para obter mais informações, consulte a secção [Para implementar o modelo de relatório personalizado no Configuration Manager](#BKMK_DeployReportModel) neste tópico.|  
+|Implementar o modelo de relatório para o Configuration Manager|Antes de poder utilizar um modelo de relatório personalizado no **Assistente para criar relatório** para criar um relatório baseado num modelo, terá de implementar o modelo de relatório para o Configuration Manager.|Para obter mais informações, consulte a secção [Para implementar o modelo de relatório personalizado no Configuration Manager](#BKMK_DeployReportModel) neste tópico.|  
 
 ## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Passos para criar um modelo de relatório básico no SQL Server Reporting Services  
- Pode utilizar os procedimentos seguintes para criar um modelo de relatório básico que os utilizadores do seu site poderão usar para criar relatórios baseados em modelos específicos com base nos dados de uma única vista da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente do site ao autor do relatório. Estas informações são obtidas a partir de **v_R_System** vista na base de dados do Configuration Manager.  
+ Pode utilizar os procedimentos seguintes para criar um modelo de relatório básico que os utilizadores do seu site podem utilizar para criar relatórios baseados em modelos específicos com base nos dados numa única vista da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente do site ao autor do relatório. Estas informações serão obtidas a partir da **v_R_System** vista na base de dados do Configuration Manager.  
 
  No computador em que executar estes procedimentos, certifique-se de que instalou o SQL Server Business Intelligence Development Studio e de que o computador possui conectividade de rede para o servidor do ponto do Reporting Services. Para obter informações detalhadas sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server 2008.  
 
@@ -68,11 +68,11 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 4.  Na caixa de diálogo **Gestor de Ligações** , especifique as seguintes propriedades de ligação para a origem de dados:  
 
-    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
+    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager, ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
 
     -   Selecione **Utilizar Autenticação do Windows**.  
 
-    -   No **selecione ou introduza um nome de base de dados** lista, selecione o nome da sua base de dados do site do Configuration Manager.  
+    -   Na **selecione ou introduza um nome de base de dados** , selecione o nome da sua base de dados do site do Configuration Manager.  
 
 5.  Para verificar a ligação à base de dados, clique em **Testar Ligação**.  
 
@@ -136,55 +136,55 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 ###  <a name="BKMK_DeployReportModel"></a> Para implementar o modelo de relatório personalizado no Configuration Manager  
 
-1.  Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
+1. Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
 
-2.  Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
+2. Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-    -   *&lt;Nome de modelo\>*  **. DSV**  
+   -   *&lt;Nome de modelo\>*  **. DSV**  
 
-    -   *&lt;Nome de modelo\>*  **. smdl**  
+   -   *&lt;Nome de modelo\>*  **. smdl**  
 
-3.  Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
+3. Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4.  No ficheiro *&lt;nome do modelo\>***. DSV**, localize a primeira linha do ficheiro, que lê da seguinte forma:  
+4. No arquivo *&lt;nome do modelo\>***. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+    **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Edite esta linha para:  
+    Edite esta linha para:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
+    **&lt;DataSourceView xmlns = "<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
+5. Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6.  Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
+6. Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
 
-7.  No ficheiro *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do ficheiro, que são apresentados da seguinte forma:  
+7. No arquivo *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
 
-     `</Entity>`  
+    `</Entity>`  
 
-     `</Entities>`  
+    `</Entities>`  
 
-     `</SemanticModel>`  
+    `</SemanticModel>`  
 
-8.  Colar o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
+8. Cole o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
 
 9. Guarde e feche o ficheiro *&lt;nome do modelo\>***. smdl**.  
 
-10. Copie o ficheiro  *&lt;nome do modelo\>* * *.smdl** para a pasta *% programfiles %* \Microsoft do Configuration Manager \AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
+10. Copie o ficheiro  *&lt;nome do modelo\>* * *. smdl** para a pasta *% programfiles %* \Microsoft do Configuration Manager \AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
 
     > [!IMPORTANT]  
-    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, tem de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório a **Assistente para criar relatório**.  
+    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, terá de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório na **Assistente para criar relatório**.  
 
 ##  <a name="AdvancedReportModel"></a>Passos para criar um modelo de relatório avançado no SQL Server Reporting Services  
- Pode utilizar os procedimentos seguintes para criar um modelo de relatório avançado que os utilizadores do seu site poderão usar para criar relatórios baseados em modelos específicos com base nos dados de várias vistas da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente e sobre o sistema operativo instalado nesses computadores ao autor do relatório. Estas informações são obtidas a partir das seguintes vistas na base de dados do Configuration Manager:  
+ Pode utilizar os procedimentos seguintes para criar um modelo de relatório avançado que os utilizadores do seu site podem utilizar para criar relatórios baseados em modelos específicos com base nos dados de várias vistas da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente e sobre o sistema operativo instalado nesses computadores ao autor do relatório. Estas informações serão obtidas a partir as seguintes vistas na base de dados do Configuration Manager:  
 
--   **V_R_System**: Contém informações sobre computadores detetados e o cliente do Configuration Manager.  
+- **V_R_System**: Contém informações sobre computadores detetados e o cliente do Configuration Manager.  
 
--   **V_GS_OPERATING_SYSTEM**: Contém informações sobre o sistema operativo instalado no computador cliente.  
+- **V_GS_OPERATING_SYSTEM**: Contém informações sobre o sistema operativo instalado no computador cliente.  
 
- Os itens selecionados nas vistas anteriores são consolidados numa lista, recebem nomes amigáveis e são apresentados ao autor do relatório no Report Builder para inclusão em determinados relatórios.  
+  Os itens selecionados nas vistas anteriores são consolidados numa lista, recebem nomes amigáveis e são apresentados ao autor do relatório no Report Builder para inclusão em determinados relatórios.  
 
- No computador em que executar estes procedimentos, certifique-se de que instalou o SQL Server Business Intelligence Development Studio e de que o computador possui conectividade de rede para o servidor do ponto do Reporting Services. Para obter informações detalhadas sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server.  
+  No computador em que executar estes procedimentos, certifique-se de que instalou o SQL Server Business Intelligence Development Studio e de que o computador possui conectividade de rede para o servidor do ponto do Reporting Services. Para obter informações detalhadas sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server.  
 
 #### <a name="to-create-the-report-model-project"></a>To create the report model project  
 
@@ -213,11 +213,11 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 4.  Na caixa de diálogo **Gestor de Ligações** , especifique as seguintes propriedades de ligação para a origem de dados:  
 
-    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
+    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager, ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
 
     -   Selecione **Utilizar Autenticação do Windows**.  
 
-    -   No **selecione ou introduza um nome de base de dados** lista, selecione o nome da sua base de dados do site do Configuration Manager.  
+    -   Na **selecione ou introduza um nome de base de dados** , selecione o nome da sua base de dados do site do Configuration Manager.  
 
 5.  Para verificar a ligação à base de dados, clique em **Testar Ligação**.  
 
@@ -234,28 +234,28 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 #### <a name="to-define-the-data-source-view-for-the-report-model"></a>Para definir a vista de origem de dados para o modelo de relatório  
 
-1.  No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
+1. No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
 
-2.  Na página **Bem-vindo ao Assistente de Vista de Origem de Dados** , clique em **Seguinte**. É apresentada a página **Selecionar uma Origem de Dados** .  
+2. Na página **Bem-vindo ao Assistente de Vista de Origem de Dados** , clique em **Seguinte**. É apresentada a página **Selecionar uma Origem de Dados** .  
 
-3.  Na janela **Origens de dados relacionais** , certifique-se de que a origem de dados **Advanced_Model** se encontra selecionada e clique em **Seguinte**.  
+3. Na janela **Origens de dados relacionais** , certifique-se de que a origem de dados **Advanced_Model** se encontra selecionada e clique em **Seguinte**.  
 
-4.  Na página **Selecionar Tabelas e Vistas** , na lista **Objetos disponíveis** , selecione as vistas seguintes a utilizar no modelo de relatório:  
+4. Na página **Selecionar Tabelas e Vistas** , na lista **Objetos disponíveis** , selecione as vistas seguintes a utilizar no modelo de relatório:  
 
-    -   **v_R_System (dbo)**  
+   - **v_R_System (dbo)**  
 
-    -   **v_GS_OPERATING_SYSTEM (dbo)**  
+   - **v_GS_OPERATING_SYSTEM (dbo)**  
 
      Após selecionar cada vista, clique em **>** para transferir o objeto para a lista **Objetos incluídos** .  
 
-    > [!TIP]  
-    >  Para ajudar a localizar as vistas na lista **Objetos disponíveis** , clique no cabeçalho **Nome** na parte superior da lista para ordenar os objetos por ordem alfabética.  
+   > [!TIP]  
+   >  Para ajudar a localizar as vistas na lista **Objetos disponíveis** , clique no cabeçalho **Nome** na parte superior da lista para ordenar os objetos por ordem alfabética.  
 
-5.  Se a caixa de diálogo **Correspondência de Nomes** for apresentada, aceite as seleções predefinidas e clique em **Seguinte**.  
+5. Se a caixa de diálogo **Correspondência de Nomes** for apresentada, aceite as seleções predefinidas e clique em **Seguinte**.  
 
-6.  Quando tiver selecionado os objetos de que necessita, clique em **Seguinte**e especifique um nome para a vista de origem de dados. Para este exemplo, digite **Advanced_Model**.  
+6. Quando tiver selecionado os objetos de que necessita, clique em **Seguinte**e especifique um nome para a vista de origem de dados. Para este exemplo, digite **Advanced_Model**.  
 
-7.  Clique em **Concluir**. A vista de origem de dados **Advanced_Model.dsv** é apresentada na pasta **Vistas de Origem de Dados** do **Solution Explorer**.  
+7. Clique em **Concluir**. A vista de origem de dados **Advanced_Model.dsv** é apresentada na pasta **Vistas de Origem de Dados** do **Solution Explorer**.  
 
 #### <a name="to-define-relationships-in-the-data-source-view"></a>Para definir relações na vista de origem de dados  
 
@@ -271,7 +271,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 6.  Na caixa de diálogo **Criar Consulta Nomeada** , especifique as seguintes informações:  
 
-    -   **Nome:** Especifique o nome para a consulta. Para este exemplo, digite **Advanced_Model**.  
+    -   **Nome:** Especifique o nome da consulta. Para este exemplo, digite **Advanced_Model**.  
 
     -   **Descrição:** Especifique uma descrição para a consulta. Para este exemplo, escreva **Exemplo de modelo de relatório do Reporting Services**.  
 
@@ -379,41 +379,41 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 #### <a name="to-deploy-the-custom-report-model-to-configuration-manager"></a>Para implementar o modelo de relatório personalizado no Configuration Manager  
 
-1.  Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
+1. Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
 
-2.  Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
+2. Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-    -   *&lt;Nome de modelo\>*  **. DSV**  
+   -   *&lt;Nome de modelo\>*  **. DSV**  
 
-    -   *&lt;Nome de modelo\>*  **. smdl**  
+   -   *&lt;Nome de modelo\>*  **. smdl**  
 
-3.  Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
+3. Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4.  No ficheiro *&lt;nome do modelo\>***. DSV**, localize a primeira linha do ficheiro, que lê da seguinte forma:  
+4. No arquivo *&lt;nome do modelo\>***. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+    **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Edite esta linha para:  
+    Edite esta linha para:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
+    **&lt;DataSourceView xmlns = "<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
+5. Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6.  Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
+6. Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
 
-7.  No ficheiro *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do ficheiro, que são apresentados da seguinte forma:  
+7. No arquivo *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
 
-     `</Entity>`  
+    `</Entity>`  
 
-     `</Entities>`  
+    `</Entities>`  
 
-     `</SemanticModel>`  
+    `</SemanticModel>`  
 
-8.  Colar o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
+8. Cole o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
 
 9. Guarde e feche o ficheiro *&lt;nome do modelo\>***. smdl**.  
 
-10. Copie o ficheiro  *&lt;nome do modelo\>* * *.smdl** para a pasta *% programfiles %* \Microsoft Configuration Manager\AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
+10. Copie o ficheiro  *&lt;nome do modelo\>* * *. smdl** para a pasta *% programfiles %* \Microsoft Configuration Manager\AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
 
     > [!IMPORTANT]  
-    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, tem de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório a **Assistente para criar relatório**.  
+    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, terá de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório na **Assistente para criar relatório**.  

@@ -10,12 +10,12 @@ ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5b70c651186a35e0f1c5a5da8b9c7dffe0abc7da
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 32c1aea44fb69ba667752807e9d3f73487db7c34
+ms.sourcegitcommit: c60e057075a83f07d1ca2577c3de1c7d7c8e9cec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456588"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53626451"
 ---
 # <a name="deploy-applications-with-configuration-manager"></a>Implementar aplicações com o Configuration Manager
 
@@ -91,9 +91,9 @@ Sobre o **definições de implementação** , especifique as seguintes informaç
 
 - **Objetivo**: Na lista pendente, escolha uma das seguintes opções:  
 
-    - **Disponível**: O utilizador verá a aplicação no Centro de Software. Eles podem instalá-lo a pedido.  
+  - **Disponível**: O utilizador verá a aplicação no Centro de Software. Eles podem instalá-lo a pedido.  
 
-    - **Necessário**: O cliente instala automaticamente a aplicação, de acordo com a agenda que definir. Se o aplicativo não estiver oculto, um utilizador pode controlar o respetivo estado de implementação. Eles também podem utilizar o Centro de Software para instalar a aplicação antes do prazo.  
+  - **Necessário**: O cliente instala automaticamente a aplicação, de acordo com a agenda que definir. Se o aplicativo não estiver oculto, um utilizador pode controlar o respetivo estado de implementação. Eles também podem utilizar o Centro de Software para instalar a aplicação antes do prazo.  
 
     > [!NOTE]   
     >  Quando define a ação de implementação para **desinstalação**, o objetivo da implementação é automaticamente definido como **necessário**. Não é possível alterar esse comportamento.  
@@ -120,7 +120,10 @@ Uma das seguintes definições de aprovação é apresentada, consoante a sua ve
 
 - **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**: Para versões 1710 e anteriores, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou ao implementar a aplicação para uma coleção de dispositivos.  
 
-- **Um administrador tem de aprovar um pedido para esta aplicação no dispositivo**: A partir da versão 1802, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo no dispositivo pedido. Se o administrador aprova o pedido, o utilizador só é possível instalar o aplicativo nesse dispositivo. O utilizador tem de submeter outro pedido para instalar a aplicação noutro dispositivo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou ao implementar a aplicação para uma coleção de dispositivos. <!--1357015-->  
+- **Um administrador tem de aprovar um pedido para esta aplicação no dispositivo**: A partir da versão 1802, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo no dispositivo pedido. Se o administrador aprova o pedido, o utilizador só é possível instalar o aplicativo nesse dispositivo. O utilizador tem de submeter outro pedido para instalar a aplicação noutro dispositivo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou ao implementar a aplicação para uma coleção de dispositivos.
+
+ A partir da versão 1810, também pode definir uma lista de endereços de e-mail para notificar o pedido de aprovação. 
+<!--1357015-->  
 
 Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy-use/app-approval).
 
@@ -182,7 +185,7 @@ Ao implementar um tipo de implementação iOS, também verá os **políticas de 
 ## <a name="bkmk_phased"></a> Criar uma implementação faseada
 <!--1358147--> A partir da versão 1806, crie uma implementação faseada para uma aplicação. As implementações faseadas permitem-lhe organizar uma implementação coordenada e sequenciada de software com base em critérios personalizáveis e grupos. Por exemplo, implementar a aplicação para uma coleção piloto e, em seguida, continuar automaticamente a implementação com base nos critérios de sucesso. 
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
 - [Criar uma implementação faseada](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)  
 

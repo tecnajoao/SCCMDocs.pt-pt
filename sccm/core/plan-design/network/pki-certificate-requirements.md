@@ -1,5 +1,5 @@
 ---
-title: Requisitos de certificado PKI
+title: Requisitos do certificado PKI
 titleSuffix: Configuration Manager
 description: Encontre os requisitos para certificados PKI que poderá ser necessário para o System Center Configuration Manager.
 ms.date: 11/20/2017
@@ -10,12 +10,12 @@ ms.assetid: d6a73e68-57d8-4786-842b-36669541d8ff
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f8b0cc7b298c197214553a019f32fa4c05066bc4
-ms.sourcegitcommit: f9b11bb0942cd3d03d90005b1681e9a14dc052a1
+ms.openlocfilehash: f2334148a94aa5355c2188013a537b4abb04ec42
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39229393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420561"
 ---
 # <a name="pki-certificate-requirements-for-system-center-configuration-manager"></a>Requisitos de certificado PKI para o System Center Configuration Manager
 
@@ -43,11 +43,11 @@ Para obter informações sobre como utilizar a API de criptografia: Certificados
 
  Com exceção dos certificados de cliente que o System Center Configuration Manager inscreve em dispositivos móveis e computadores Mac, certificados que o Microsoft Intune automaticamente cria para gerir dispositivos móveis e certificados de que o Centro de sistema O Configuration Manager instala em computadores baseados em AMT, poderá utilizar qualquer PKI para criar, implementar e gerir os seguintes certificados. No entanto, quando utilizar os serviços de certificados do Active Directory e modelos de certificado, esta solução PKI da Microsoft pode facilitar a gestão de certificados. Utilize a coluna **Modelo de certificado Microsoft a utilizar** nas tabelas seguintes para identificar o modelo de certificado que melhor corresponde aos requisitos de certificado. Apenas uma autoridade de certificação empresarial que executa no Enterprise Edition ou Datacenter Edition do sistema operativo de servidor, como o Windows Server 2008 Enterprise e Windows Server 2008 Datacenter, pode utilizar certificados com base no modelo.  
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 >  Quando utiliza uma empresa certificação autoridade e modelos de certificado, não utilize os modelos da versão 3. Estes modelos de certificado criam certificados que são incompatíveis com o System Center Configuration Manager. Em alternativa, utilize modelos da versão 2, utilizando as instruções seguintes:  
->   
->  -   Para uma AC no Windows Server 2012: Sobre o **compatibilidade** separador das propriedades do modelo de certificado, especifique **Windows Server 2003** para o **autoridade de certificação** opção, e  **Windows XP / Server 2003** para o **destinatário do certificado** opção.  
-> -   Para uma AC no Windows Server 2008: Ao duplicar um modelo de certificado, mantenha a seleção predefinida, **Windows Server 2003 Enterprise**, quando lhe for pedido o **modelo duplicado** caixa de diálogo. Não selecione **Windows Server 2008, Enterprise Edition**.  
+> 
+> - Para uma AC no Windows Server 2012: Sobre o **compatibilidade** separador das propriedades do modelo de certificado, especifique **Windows Server 2003** para o **autoridade de certificação** opção, e  **Windows XP / Server 2003** para o **destinatário do certificado** opção.  
+>   -   Para uma AC no Windows Server 2008: Ao duplicar um modelo de certificado, mantenha a seleção predefinida, **Windows Server 2003 Enterprise**, quando lhe for pedido o **modelo duplicado** caixa de diálogo. Não selecione **Windows Server 2008, Enterprise Edition**.  
 
  Utilize as secções seguintes para ver os requisitos de certificado.  
 

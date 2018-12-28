@@ -10,12 +10,12 @@ ms.assetid: aebafaf9-b3d5-4a0f-9ee5-685758c037a1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bca3e0857ed40d2e2b3f9d739b4c0411e0213d09
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 0ab848051d5eaa85d2b515145ff64471aee81a31
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385376"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53415046"
 ---
 # <a name="install-and-configure-distribution-points-in-configuration-manager"></a>Instalar e configurar pontos de distribuição no Configuration Manager
 
@@ -346,13 +346,13 @@ Selecione a opção para **ativar suporte PXE para clientes**e, em seguida, conf
 
 - **Afinidade dispositivo / utilizador**: Especifique como pretende que o ponto de distribuição associe os utilizadores ao computador de destino para implementações de PXE. Escolha uma das seguintes opções:  
 
-    - **Permitir afinidade de dispositivo / utilizador com aprovação automática**: Escolha esta definição para associar automaticamente os utilizadores ao computador de destino sem aguardar aprovação.  
+  - **Permitir afinidade de dispositivo / utilizador com aprovação automática**: Escolha esta definição para associar automaticamente os utilizadores ao computador de destino sem aguardar aprovação.  
 
-    - **Permitir afinidade de dispositivo / utilizador com aprovação de administrador pendente**: Escolha esta definição para aguardar a aprovação de um utilizador administrativo antes dos utilizadores estão associados ao computador de destino.  
+  - **Permitir afinidade de dispositivo / utilizador com aprovação de administrador pendente**: Escolha esta definição para aguardar a aprovação de um utilizador administrativo antes dos utilizadores estão associados ao computador de destino.  
 
-    - **Não permitir afinidade dispositivo / utilizador**: Escolha esta definição para especificar que os utilizadores não são associados ao computador de destino. Esta é a predefinição.  
+  - **Não permitir afinidade dispositivo / utilizador**: Escolha esta definição para especificar que os utilizadores não são associados ao computador de destino. Esta é a predefinição.  
 
-     Para obter mais informações sobre a afinidade de dispositivo do utilizador, consulte [associar utilizadores e dispositivos à afinidade dispositivo / utilizador](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).  
+    Para obter mais informações sobre a afinidade de dispositivo do utilizador, consulte [associar utilizadores e dispositivos à afinidade dispositivo / utilizador](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).  
 
 - **Interfaces de rede**: Especifique que o ponto de distribuição responde a pedidos PXE de todas as interfaces de rede ou de interfaces de rede específicas. Se o ponto de distribuição responde a interfaces de rede específicas, em seguida, forneça o endereço MAC para cada interface de rede.  
 
@@ -435,7 +435,7 @@ Para ver os resultados do processo de validação de conteúdo, na **monitoriza�
 Para obter mais informações, consulte [validar os conteúdos](/sccm/core/servers/deploy/configure/deploy-and-manage-content#validate-content).
 
 
-### <a name="bkmk_config-boundary"></a> Grupos de limites  
+### <a name="bkmk_config-boundary"></a> Boundary groups  
 
 Gerir os grupos de limites aos quais atribuir este ponto de distribuição. Adicione o ponto de distribuição para, pelo menos, um grupo de limites. Durante a implementação de conteúdos, os clientes devem ser num grupo de limites associado a um ponto de distribuição a utilizar esse ponto de distribuição como localização de origem para o conteúdo.
 

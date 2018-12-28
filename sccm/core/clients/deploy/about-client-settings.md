@@ -10,12 +10,12 @@ ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ff4cdcc52e9be329fcfa0fd2127c43255c73ad65
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: c4cd6c45d21c58459fcd23ee02db4b5900996939
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893877"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421999"
 ---
 # <a name="about-client-settings-in-configuration-manager"></a>Acerca das definições de cliente no Configuration Manager
 
@@ -100,13 +100,13 @@ Esta definição aplica-se aos utilizadores cujos computadores estão na intrane
 
 Defina esta opção como **Sim** para os utilizadores receberem a política de utilizador em computadores baseados na internet. Também se aplicam os seguintes requisitos:  
 
--   O cliente e o site estão configurados para [gestão de clientes baseados na internet](/sccm/core/clients/manage/plan-internet-based-client-management) ou uma [gateway de gestão da nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway).  
+- O cliente e o site estão configurados para [gestão de clientes baseados na internet](/sccm/core/clients/manage/plan-internet-based-client-management) ou uma [gateway de gestão da nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway).  
 
--   O **ativar política de utilizador nos clientes** definição é **Sim**.  
+- O **ativar política de utilizador nos clientes** definição é **Sim**.  
 
--   O ponto de gestão baseado na internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM). Para obter mais informações, consulte [considerações sobre comunicações do cliente a partir da internet](/sccm/core/plan-design/hierarchy/communications-between-endpoints#BKMK_clientspan).  
+- O ponto de gestão baseado na internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM). Para obter mais informações, consulte [considerações sobre comunicações do cliente a partir da internet](/sccm/core/plan-design/hierarchy/communications-between-endpoints#BKMK_clientspan).  
 
--   A partir da versão 1710, o gateway de gestão na cloud com êxito autentica o utilizador com o Azure Active Directory. Para obter mais informações, consulte [implementar aplicações disponíveis para o utilizador em dispositivos associados ao AD Azure](\sccm\apps\deploy-use\deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices).  
+- A partir da versão 1710, o gateway de gestão na cloud com êxito autentica o utilizador com o Azure Active Directory. Para obter mais informações, consulte [implementar aplicações disponíveis para o utilizador em dispositivos associados ao AD Azure](/sccm/apps/deploy-use/deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices).  
 
 Se definir esta opção como **não**, ou qualquer um dos requisitos anteriores não forem cumpridas, em seguida, um computador com a internet apenas recebe políticas de computador. Neste cenário, os utilizadores ainda podem ver, pedir e instalar aplicações a partir de um catálogo de aplicações baseado na internet. Se esta definição estiver **não**, mas **ativar política de utilizador nos clientes** é **Sim**, os utilizadores não recebem políticas de utilizador, até que o computador estiver ligado à intranet.  
 
@@ -115,7 +115,7 @@ Se definir esta opção como **não**, ou qualquer um dos requisitos anteriores 
 
 
 
-## <a name="cloud-services"></a>Serviços cloud
+## <a name="cloud-services"></a>Serviços em nuvem
 
 ### <a name="allow-access-to-cloud-distribution-point"></a>Permitir o acesso ao ponto de distribuição da nuvem
 Defina esta opção como **Sim** para os clientes obtenham conteúdo de um ponto de distribuição de nuvem. Esta definição não exige o dispositivo esteja baseado na internet.
@@ -287,7 +287,7 @@ As seguintes definições tem de ser mais curtas duração que a janela de manut
 -   **Apresentar uma notificação temporária ao utilizador que indica o intervalo antes do utilizador é terminada ou o computador reinicia (minutos)**
 -   **Exibir uma caixa de diálogo que o utilizador não é possível fechar, que apresenta o intervalo de contagem regressiva antes do utilizador é terminado ou o computador reinicia (minutos)**
 
-Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](/sccm/core/clients/manage/collections/use-maintenance-windows).
+Para obter mais informações sobre como utilizar janelas de manutenção, veja [How to use maintenance windows in System Center Configuration Manager (Como Utilizar Janelas de Manutenção no Configuration Manager)](/sccm/core/clients/manage/collections/use-maintenance-windows).
 
 
 
@@ -304,7 +304,7 @@ Para obter mais informações sobre janelas de manutenção, veja [Como utilizar
 
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
->  [!Tip]   
+> [!Tip]
 > Além das informações seguintes, pode encontrar detalhes sobre como utilizar as definições de cliente do Endpoint Protection no [cenário de exemplo: Utilizar o Endpoint Protection para proteger os computadores contra software maligno](/sccm/protect/deploy-use/scenarios-endpoint-protection).
 
 ### <a name="manage-endpoint-protection-client-on-client-computers"></a>Gerir o cliente do Endpoint Protection nos computadores cliente
@@ -732,7 +732,7 @@ Utilize esta definição para ativar atualizações de software nos clientes do 
 
 ### <a name="software-update-scan-schedule"></a>Agendamento de análise de atualização de software
 
-Selecione **agenda** para especificar a frequência com que o cliente inicia uma análise de avaliação de compatibilidade. Esta análise determina o estado das atualizações de software no cliente (por exemplo, necessário ou instalado). Para obter mais informações sobre a avaliação de conformidade, consulte [avaliação de compatibilidade de atualizações de Software](/sccm/sum/understand/software-updates-introduction#BKMK_SUMCompliance).  
+Selecione **agenda** para especificar a frequência com que o cliente inicia uma análise de avaliação de compatibilidade. Esta análise determina o estado das atualizações de software no cliente (por exemplo, necessário ou instalado). Para mais informações sobre a avaliação de compatibilidade, consulte [Software updates compliance assessment](/sccm/sum/understand/software-updates-introduction#BKMK_SUMCompliance).  
 
 Por predefinição, esta análise utiliza uma agenda simples para iniciar a cada sete dias. Pode criar uma agenda personalizada. Pode especificar um dia de início exatas e a hora, utilizar tempo Universal Coordenado (UTC) ou a hora local e configurar o intervalo periódico para um dia determinado da semana.  
 

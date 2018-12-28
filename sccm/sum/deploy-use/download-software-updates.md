@@ -1,7 +1,7 @@
 ---
 title: 'Transferir atualizações de software '
 titleSuffix: Configuration Manager
-description: Utilize o Assistente para transferir atualizações de Software para transferir atualizações de software e distribuí-los aos pontos de distribuição para que estas estão prontas para implementar em clientes.
+description: Utilize o Assistente para transferir atualizações de Software para transferir atualizações de software e distribuí-los para pontos de distribuição para que eles estão prontos para implementação em clientes.
 author: aczechowski
 ms.date: 01/23/2017
 ms.topic: conceptual
@@ -10,18 +10,18 @@ ms.technology: configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 6c4aa062c79a1ed03d32b894ac6764d63c657ddb
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 84d3afdd7f0416e733777cd52165c98128c013a6
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32348407"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53417800"
 ---
 # <a name="download-software-updates"></a>Transferir atualizações de software  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Existem vários métodos disponíveis para que possa transferir as atualizações de software no Configuration Manager. Quando criar uma regra de implementação automática (ADR) ou ao implementar manualmente atualizações de software, as atualizações de software são transferidas para a biblioteca de conteúdos no servidor do site. Em seguida, as atualizações de software são copiadas para a biblioteca de conteúdos nos pontos de distribuição que estão associados ao pacote de implementação configurado. Caso pretenda transferir as atualizações de software antes de as implementar, poderá utilizar o Assistente para Transferir Atualizações. Este procedimento permite-lhe verificar se as atualizações de software estão disponíveis nos pontos de distribuição antes de implementar as atualizações de software nos computadores cliente.  
+Existem vários métodos disponíveis para que possa transferir as atualizações de software no Configuration Manager. Ao criar uma regra de implementação automática (ADR) ou ao implementar manualmente atualizações de software, as atualizações de software são transferidas para a biblioteca de conteúdos no servidor do site. Em seguida, as atualizações de software são copiadas para a biblioteca de conteúdos nos pontos de distribuição que estão associados ao pacote de implementação configurado. Caso pretenda transferir as atualizações de software antes de as implementar, poderá utilizar o Assistente para Transferir Atualizações. Este procedimento permite-lhe verificar se as atualizações de software estão disponíveis nos pontos de distribuição antes de implementar as atualizações de software nos computadores cliente.  
 
 > [!NOTE]  
 >  Para obter informações sobre a monitorização do estado do conteúdo, veja [Monitorização do estado do conteúdo](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
@@ -29,7 +29,8 @@ Existem vários métodos disponíveis para que possa transferir as atualizaçõe
 Utilize o seguinte procedimento para transferir as atualizações de software através do Assistente Transferir Atualizações de Software.  
 
 #### <a name="to-download-software-updates"></a>Para transferir atualizações de software  
-[!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
+[!INCLUDE [downloadupdates](../includes/downloadupdates.md)]
+
 <!---
 1.  In the Configuration Manager console, navigate to **Software Library** > **Software Updates**.  
 

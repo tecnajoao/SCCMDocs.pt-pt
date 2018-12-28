@@ -10,12 +10,12 @@ ms.assetid: 4d26deed-3b16-4116-b640-f618f2c20f5a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 65e4d68f05087d24bc83e8e4a3dd67489fdbaed3
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: be4f60bbc6114abc1c4537cc83ee8c2dd0aeef42
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893588"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421931"
 ---
 # <a name="security-and-privacy-for-application-management-in-configuration-manager"></a>Segurança e privacidade para gestão de aplicações no Configuration Manager
 
@@ -213,14 +213,14 @@ Se configurar um tipo de implementação de aplicações web, utilize HTTPS para
     > [!Note]  
     > A partir do Configuration Manager 1802, a funcionalidade primária do catálogo de aplicações agora está incluída no Centro de Software. Para obter mais informações, consulte [configurar o Centro de Software](/sccm/apps/plan-design/plan-for-and-configure-application-management#bkmk_userex).  
 
--  **Centro de software** é instalado automaticamente num dispositivo ao instalar o cliente do Configuration Manager. Os utilizadores alteram as definições, procurarem as aplicações e instalam aplicações a partir do Centro de Software.  
+- **Centro de software** é instalado automaticamente num dispositivo ao instalar o cliente do Configuration Manager. Os utilizadores alteram as definições, procurarem as aplicações e instalam aplicações a partir do Centro de Software.  
 
- Veja as secções seguintes para obter informações de privacidade sobre [afinidade dispositivo / utilizador](#bkmk_privacy-uda) e [Centro de Software e o catálogo de aplicações](#bkmk_privacy-userex).  
+  Veja as secções seguintes para obter informações de privacidade sobre [afinidade dispositivo / utilizador](#bkmk_privacy-uda) e [Centro de Software e o catálogo de aplicações](#bkmk_privacy-userex).  
 
- Antes de configurar a gestão de aplicações, considere os requisitos de privacidade.  
+  Antes de configurar a gestão de aplicações, considere os requisitos de privacidade.  
 
 
-### <a name="bkmk_privacy-uda"></a> Afinidade dispositivo / utilizador  
+### <a name="bkmk_privacy-uda"></a> Afinidade dispositivo/utilizador  
 
 -  O Configuration Manager pode transmitir informações entre clientes e sistemas de sites de ponto de gestão. As informações podem identificar a conta de computador e início de sessão e a utilização resumida para contas de início de sessão.  
 

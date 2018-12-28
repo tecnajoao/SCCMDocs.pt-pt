@@ -10,12 +10,12 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ae97c9017f084e69a0e3660339bbd2b326afd296
-ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
+ms.openlocfilehash: 9bf3a58c58a525ac3d9fdb30eafaeb68e74002db
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53247548"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423784"
 ---
 # <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
@@ -334,6 +334,7 @@ O Configuration Manager verifica os resultados do script. Ele lê os valores esc
 Utilize as tabelas seguintes para verificar se uma aplicação é instalada a partir da saída de um script:  
 
 **Sem código de saída:**  
+
 |STDOUT|STDERR|Resultado do script|Estado de deteção de aplicação|
 |---------|---------|---------|---------|
 |vazio|vazio|Êxito|Não instalado|
@@ -343,6 +344,7 @@ Utilize as tabelas seguintes para verificar se uma aplicação é instalada a pa
 
 
 **Código de saída de diferentes de zero:**  
+
 |STDOUT|STDERR|Resultado do script|Estado de deteção de aplicação|
 |---------|---------|---------|---------|
 |vazio|vazio|Falha|Desconhecido|
@@ -401,11 +403,11 @@ Na página **Experiência de Utilizador** , especifique as seguintes informaçõ
 
 - **Requisito de início de sessão**: Selecione uma das seguintes opções:  
 
-    - **Apenas quando um utilizador tem sessão iniciada**  
+  - **Apenas quando um utilizador tem sessão iniciada**  
 
-    - **Se pretende ou não um utilizador tem sessão iniciada**  
+  - **Se pretende ou não um utilizador tem sessão iniciada**  
 
-    - **Só quando nenhum utilizador tem sessão iniciada**  
+  - **Só quando nenhum utilizador tem sessão iniciada**  
 
     > [!NOTE]  
     >  Esta opção assume a predefinição **apenas quando um usuário está conectado no**. Se selecionou **instalar para utilizador** no **comportamento de instalação** na lista pendente, não é possível alterar esta opção.  
@@ -434,9 +436,9 @@ Na página **Experiência de Utilizador** , especifique as seguintes informaçõ
 
     Utilize este valor para as seguintes ações:  
 
-    - Para monitorizar os resultados do tipo de implementação.  
+  - Para monitorizar os resultados do tipo de implementação.  
 
-    - Para verificar se um tipo de implementação está instalado ao definir janelas de manutenção nos dispositivos cliente. Quando uma janela de manutenção estiver em vigor, um tipo de implementação é iniciada apenas se houver tempo suficiente na janela de manutenção para acomodar os **máximo tempo de execução permitido** definição.  
+  - Para verificar se um tipo de implementação está instalado ao definir janelas de manutenção nos dispositivos cliente. Quando uma janela de manutenção estiver em vigor, um tipo de implementação é iniciada apenas se houver tempo suficiente na janela de manutenção para acomodar os **máximo tempo de execução permitido** definição.  
 
     > [!IMPORTANT]  
     >  Pode ocorrer um conflito se o **máximo de tempo de execução permitido** é superior à janela de manutenção agendada. Se o utilizador definir o tempo de execução máximo para um período superior ao comprimento de qualquer janela de manutenção disponível, esse tipo de implementação não é executado.  
@@ -549,6 +551,7 @@ Estiver implantando um aplicativo que retorna um código de saída `1` quando el
 Quando criar alguns tipos de implementação, o Configuration Manager adiciona automaticamente que os seguintes códigos que são comuns a que a tecnologia de retorno:  
 
 **Windows Installer (\*arquivo. msi)**  
+
 |Valor    |Tipo de código|
 |---------|---------|
 |0        |Êxito (não reiniciado)|
@@ -558,6 +561,7 @@ Quando criar alguns tipos de implementação, o Configuration Manager adiciona a
 |1618     |Repetição rápida|
 
 **Instalador de script**  
+
 |Valor    |Tipo de código|
 |---------|---------|
 |0        |Êxito (não reiniciado)|
@@ -566,6 +570,7 @@ Quando criar alguns tipos de implementação, o Configuration Manager adiciona a
 |1618     |Repetição rápida|
 
 **Pacote de aplicação do Windows (\*. AppX, \*. appxbundle, \*.msix, \*.msixbundle)**  
+
 |Valor    |Tipo de código|
 |---------|---------|
 |15605    |Repetição rápida|

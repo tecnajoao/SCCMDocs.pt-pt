@@ -1,5 +1,5 @@
 ---
-title: Procedimentos para grupos de limites
+title: Procedimentos para os grupos de limites
 titleSuffix: Configuration Manager
 description: Configure grupos de limites para organizar logicamente as localizações de rede relacionados chamadas limites.
 ms.date: 11/27/2018
@@ -10,12 +10,12 @@ ms.assetid: a1fe22d0-4695-4de0-8bf0-e3475b03cf0e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d4aa1c044c8ea68b934a6dad4f1f85cbe43ec19b
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 56b1c0cff398f0009169ab1b02801e536e1a3343
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458311"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418125"
 ---
 # <a name="how-to-configure-boundary-groups-for-configuration-manager"></a>Como configurar grupos de limites para o Configuration Manager
 
@@ -81,17 +81,17 @@ Para configurar o comportamento de contingência, mude para o **relações** sep
 
 - Para criar uma relação com outro grupo de limites:  
 
-    - Selecione **adicionar**. Na janela de grupos de limites de contingência, selecione o grupo de limites para configurar.  
+  - Selecione **Adicionar**. Na janela de grupos de limites de contingência, selecione o grupo de limites para configurar.  
 
-    - Defina um tempo de contingência para o site seguinte funções do sistema:  
-        - Ponto de distribuição  
-        - Ponto de atualização de software  
-        - Ponto de gestão  
+  - Defina um tempo de contingência para o site seguinte funções do sistema:  
+    - Ponto de distribuição  
+    - Ponto de atualização de software  
+    - Ponto de gestão  
 
-        > [!Note]  
-        > Por exemplo, abrir a janela de propriedades para o grupo de limites de sucursal. Na janela de grupos de limites de contingência, selecione o grupo de limites do Office principal. Definir o tempo de contingência de ponto de distribuição `20`. Quando guardar esta configuração, os clientes no grupo de limites de sucursal serão para começar a procurar conteúdo a partir de pontos de distribuição no grupo de limites de Main Office após 20 minutos.  
+      > [!Note]  
+      > Por exemplo, abrir a janela de propriedades para o grupo de limites de sucursal. Na janela de grupos de limites de contingência, selecione o grupo de limites do Office principal. Definir o tempo de contingência de ponto de distribuição `20`. Quando guardar esta configuração, os clientes no grupo de limites de sucursal serão para começar a procurar conteúdo a partir de pontos de distribuição no grupo de limites de Main Office após 20 minutos.  
 
-    - Para evitar a contingência para um grupo de limites específicos, selecione o grupo de limites e, em seguida, selecione **Never contingência** para o tipo de função do sistema de sites. Esta ação pode incluir a *grupo de limite de site predefinido*.  
+  - Para evitar a contingência para um grupo de limites específicos, selecione o grupo de limites e, em seguida, selecione **Never contingência** para o tipo de função do sistema de sites. Esta ação pode incluir a *grupo de limite de site predefinido*.  
 
 - Para modificar a configuração de uma relação existente, selecione o grupo de limites na lista e selecione **alteração**. Esta ação abre a janela de grupos de limites de contingência para apenas esse grupo de limites.  
  

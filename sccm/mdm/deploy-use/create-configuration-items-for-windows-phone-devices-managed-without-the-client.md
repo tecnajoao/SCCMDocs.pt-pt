@@ -9,36 +9,36 @@ ms.assetid: df10dc4d-c9ff-4574-bb33-8d30eb14cfe3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4590077b303d5676aa72a816d785a0864fe2205f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 6cfeae4ddc582d1d641d1065f2542319d5519b5e
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32351977"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416427"
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows Phone geridos sem o cliente do System Center Configuration Manager
-Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
+Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que estão inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  
   
 ### <a name="to-create-a-windows-phone-configuration-item"></a>Para criar um item de configuração do Windows Phone  
   
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
+1. Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
   
-2.  Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
+2. Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
   
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
+3. No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
   
-4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
+4. Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
   
-5.  Em **especificar o tipo de item de configuração que pretende criar**, selecione **Windows Phone**.  
+5. Sob **especifique o tipo de item de configuração que pretende criar**, selecione **Windows Phone**.  
   
-6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
+6. Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
   
-7.  No **plataformas suportadas** página do assistente, selecione as plataformas específicas do Windows Phone que irão avaliar o item de configuração.  
+7. Sobre o **plataformas suportadas** página do assistente, selecione as plataformas específicas do Windows Phone que irão avaliar o item de configuração.  
   
-8.  Na página **Definições do Dispositivo** do assistente, selecione o grupo de definições que pretende configurar. Veja [Referência das definições do item de configuração do Windows Phone](#BKMK_Setref) neste tópico para obter detalhes e clique em **Seguinte**.  
+8. Na página **Definições do Dispositivo** do assistente, selecione o grupo de definições que pretende configurar. Veja [Referência das definições do item de configuração do Windows Phone](#BKMK_Setref) neste tópico para obter detalhes e clique em **Seguinte**.  
   
-    > [!TIP]  
-    >  Se a definição pretendida não estiver listada, selecione a caixa de verificação **Configurar definições adicionais que não estejam incluídas nos grupos de predefinições**.  
+   > [!TIP]  
+   >  Se a definição pretendida não estiver listada, selecione a caixa de verificação **Configurar definições adicionais que não estejam incluídas nos grupos de predefinições**.  
   
 9. Em cada página de definições, configure as definições de que necessita e se pretende resolvê-las quando não forem compatíveis com dispositivos (quando esta opção é suportada).  
   
@@ -46,13 +46,13 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
     -   **Nenhum** -dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-    -   **Informações** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
+    -   **Informações** -os dispositivos que não obedeçam a esta regra de compatibilidade comunicam uma gravidade de falha **informações** para relatórios do Configuration Manager.  
   
-    -   **Aviso** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+    -   **Aviso** -os dispositivos que não obedeçam a esta regra de compatibilidade comunicam uma gravidade de falha **aviso** para relatórios do Configuration Manager.  
   
-    -   **Crítico** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
+    -   **Crítico** -os dispositivos que não obedeçam a esta regra de compatibilidade comunicam uma gravidade de falha **críticos** para relatórios do Configuration Manager.  
   
-    -   **Crítico com evento** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
+    -   **Crítico com evento** -os dispositivos que não obedeçam a esta regra de compatibilidade comunicam uma gravidade de falha **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
   
 11. Na página **Aplicabilidade da Plataforma** do assistente, reveja as definições que não são compatíveis com as plataformas suportadas que selecionou anteriormente. Pode voltar atrás e remover estas definições ou pode continuar.  
   
@@ -61,12 +61,12 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
 12. Conclua o assistente.  
   
- Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
+    Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
   
 ##  <a name="windows-phone-configuration-item-settings-reference"></a>Referência das definições do item de configuração do Windows Phone  
   
 ### <a name="password"></a>Palavra-passe  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -82,14 +82,14 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
 |Definição|Detalhes|  
 |-------------|-------------|  
-|**Captura de ecrã**|Permitir que o utilizador tirar uma captura de ecrã do ecrã do dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Captura de ecrã**|Permitir que o usuário tirar uma captura de ecrã do ecrã do dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
 |**Submissão de dados de diagnóstico**|Permitir a submissão de ficheiros de registo de aplicações.|  
 |**Geolocalização**|Permitir que o dispositivo utilize informações dos serviços de localização.<br /><br /> (Apenas Windows Phone 8.1)|  
 |**Copiar e Colar**|Utilizar a ação copiar e colar para transferir dados entre aplicações.<br /><br /> (Apenas Windows Phone 8.1)|  
 |**Bluetooth**|Permite a utilização da funcionalidade Bluetooth do dispositivo.|  
   
 ### <a name="email-management"></a>Gestão de e-mail  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -101,7 +101,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Tamanho máximo de um anexo (transferido automaticamente)**|Configura o tamanho máximo de e-mail que será transferido automaticamente.|  
 |**Sincronização de calendário**||  
 |**Conta de e-mail personalizada**|Permitir a utilização de uma conta não Microsoft no dispositivo.|  
-|**Tornar a Conta Microsoft opcional na aplicação Windows Mail**|Não necessitam de utilização de uma conta Microsoft para iniciar sessão no Windows Mail.|  
+|**Tornar a Conta Microsoft opcional na aplicação Windows Mail**|Não requerem a utilização de uma conta Microsoft para iniciar sessão no Windows Mail.|  
   
 ### <a name="store"></a>Arquivo  
  Estas definições aplicam-se apenas a dispositivos Windows Phone 8.1.  
@@ -111,7 +111,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Loja de aplicações**|Permite o acesso à loja de aplicações no dispositivo.|  
   
 ### <a name="browser"></a>Browser  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -123,7 +123,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Aviso de fraude**|Ativar ou desativar avisos de sites potencialmente fraudulentos.|  
   
 ### <a name="internet-explorer"></a>Internet Explorer  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -158,29 +158,29 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Armazenamento amovível**|Permitir a utilização de armazenamento amovível, como um cartão SD, no dispositivo.|  
 |**Câmara**|Permitir a utilização da câmara do dispositivo.|  
 |**Comunicação de proximidade (NFC)**|Permitir a comunicação através de NFC no dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
-|**Permitir ligação USB**|Permita periféricos ligar a este dispositivo através de USB.|
+|**Permitir ligação USB**|Permitir que os periféricos ligar a este dispositivo através de USB.|
   
 ### <a name="peak-synchronization"></a>Sincronização de pico  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
-|**Especificar a hora de ponta**|Especifique uma janela de tempo que será utilizado por duas definições seguintes.|  
-|**Frequência de sincronização dentro do período de ponta**|Escolha com que frequência o dispositivo irá sincronizar durante o período de pico que especificou.|  
-|**Frequência de sincronização fora do período de ponta**|Escolha com que frequência o dispositivo irá sincronizar fora da hora de pico que especificou.|  
+|**Especificar a hora de ponta**|Especifique uma janela de tempo que será utilizado pelas duas definições seguintes.|  
+|**Frequência de sincronização dentro do período de ponta**|Escolha a frequência com que o dispositivo será sincronizado durante a hora de ponta que especificou.|  
+|**Frequência de sincronização fora do período de ponta**|Escolha a frequência com que o dispositivo será sincronizado de fora da hora de pico que especificou.|  
   
 ### <a name="roaming"></a>Roaming  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
-|**Gestão de dispositivos no modo de roaming**|Permite que o dispositivo seja gerido pelo Configuration Manager quando estiver em roaming.|  
+|**Gestão de dispositivos no modo de roaming**|Permite que o dispositivo seja gerido pelo Configuration Manager quando está em roaming.|  
 |**Transferência de software em roaming**|Permite a transferência de aplicações e de software quando está em roaming.|  
 |**Transferência de e-mail em roaming**|Permite as transferências de e-mail quando está em roaming.|  
 |**Roaming de dados**|Permitir roaming entre redes ao aceder a dados.|  
   
 ### <a name="encryption"></a>Encriptação  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -192,7 +192,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Algoritmo de encriptação**|Selecione o algoritmo utilizado para encriptar e-mails.|  
   
 ###  <a name="wireless-communications"></a>Comunicações sem fios  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Nome da definição|Detalhes|  
 |------------------|-------------|  
@@ -211,8 +211,8 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |-------------|----------------------|  
 |**Nome da rede (SSID)**||  
 |**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
-|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **Abrir**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2 PSK**|  
-|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
+|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **abrir**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
+|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **Desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
 |**Índice de chaves**|Selecione um índice de chaves de **1** a **4** , que será utilizado com uma definição de **Encriptação de dados** de **WEP**.|  
 |**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
 |**Definições do servidor proxy**|Especificar conforme necessário as definições **Servidor** e **Porta** para **HTTP**, **WAP** e **Sockets**.|  
@@ -225,7 +225,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
  Clique em **Importar** e, em seguida, especifique os seguintes valores:  
   
--   **Ficheiro de certificado** – clique em **procurar** e, em seguida, selecione o ficheiro de certificado com a extensão **. cer** que pretende importar.  
+-   **Ficheiro de certificado** – clique em **procure** e, em seguida, selecione o ficheiro de certificado com a extensão **. cer** que pretende importar.  
   
 -   **Arquivo de destino** – selecione um ou mais arquivos de destino onde o certificado importado será adicionado no dispositivo móvel de entre:  
   
@@ -239,13 +239,13 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
     -   **SPC**  
   
-    -   **ponto a ponto**  
+    -   **Ponto a ponto**  
   
 -   **Função** – se **SPC** (Software Publisher Certificate) estiver selecionado como arquivo de destino, escolha a função que será associada ao certificado de entre:  
   
-    -   **Operadora de rede móvel**  
+    -   **Operadora do celular**  
   
-    -   **Gestor**  
+    -   **Manager**  
   
     -   **Utilizador autenticado**  
   
@@ -256,7 +256,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
     -   **Servidor de aprovisionamento fidedigno**  
   
 ### <a name="system-security"></a>Segurança do sistema  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -267,10 +267,10 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**SmartScreen**|Ativar ou desativar o Windows Smart Screen.|  
 |**Proteção contra vírus**|Certifique-se de que o dispositivo está protegido por software antivírus|  
 |**As assinaturas da proteção contra vírus estão atualizadas**|Certifique-se de que as assinaturas de software antivírus estão atualizadas.|
-|**Permitir anular inscrições**|Vamos o utilizador de remover o dispositivo de MDM.|  
+|**Permitir anular inscrições manualmente**|Vamos o utilizador remover o dispositivo do MDM.|  
   
 ### <a name="windows-server-work-folders"></a>Pastas de Trabalho do Windows Server  
- Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+ Estas definições aplicam-se para Windows Phone 8 e Windows Phone 8.1.  
   
 |Definição|Detalhes|  
 |-------------|-------------|  
@@ -279,21 +279,21 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 ### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Lista de aplicações permitidas e bloqueadas (apenas Windows Phone 8.1)  
  Permite-lhe especificar uma lista de aplicações Windows Phone que estão em conformidade ou não conformes com a sua empresa. As aplicações que especifica como bloqueadas não podem ser instaladas pelos utilizadores. Se especificar uma lista de aplicações permitidas, os utilizadores só podem instalar as aplicações na lista.  
   
- Não é possível especificar ambas aplicações permitidas e bloqueadas no mesmo item de configuração.  
+ Não é possível especificar ambos aplicações permitidas e bloqueadas no mesmo item de configuração.  
   
 > [!IMPORTANT]  
->  Se especificar uma lista de aplicações permitidas, tem de garantir que a aplicação do portal da empresa e quaisquer aplicações implementadas em dispositivos Windows Phone 8.1 estão no **permitidos** lista de aplicações.  
+>  Se especificar uma lista de aplicações permitidas, tem de garantir que a aplicação do portal da empresa e quaisquer aplicações implementadas em dispositivos Windows Phone 8.1 estão na **permitidos** lista de aplicações.  
   
 ##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Para especificar uma lista de aplicações permitidas ou bloqueadas  
   
-1.  No **lista de aplicações permitidas e bloqueadas (Windows Phone 8.1)** página, especifique as seguintes informações:  
+1.  Sobre o **lista de aplicações permitidas e bloqueadas (Windows Phone 8.1)** , especifique as seguintes informações:  
   
 |||  
 |-|-|  
 |Definição|Mais informações|  
 |**Lista de aplicações bloqueadas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores não poderão instalar.|  
 |**Lista de aplicações permitidas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores podem instalar.|  
-|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, na página da Loja do Windows Phone, procure a aplicação que pretende utilizar.<br /><br /> **Exemplo:** Procure na loja a **Skype** aplicação. O URL a utilizar será http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Para a aplicação portal da empresa ou linha de negócio, não é necessário especificar um URL completo, apenas o GUID da aplicação.|  
+|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, na página da Loja do Windows Phone, procure a aplicação que pretende utilizar.<br /><br /> **Example:** Procure na loja a **Skype** aplicação. O URL que irá utilizar será http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Para a aplicação portal da empresa ou aplicações linha de negócio, não é necessário especificar um URL completo, apenas o GUID da aplicação.|  
 |**Editarar**|Permite-lhe editar o nome, o fabricante e o URL da aplicação selecionada.|  
 |**Remove**|Elimina a aplicação selecionada da lista.|  
 |**Importarar**|Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato, o nome da aplicação, o fabricante e o URL da aplicação no ficheiro.|  

@@ -10,12 +10,12 @@ ms.assetid: e83a7b0d-b381-4b4a-8eca-850385abbebb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ad76140285df1c0125fcd2efab0f4794ed4881bf
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 5e20985ac8fc39f2384cee5d202e19fc69e2b348
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52455954"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414689"
 ---
 # <a name="co-management-dashboard-in-configuration-manager"></a>Dashboard de cogestão no Configuration Manager
 
@@ -39,7 +39,7 @@ O dashboard de cogestão apresenta mosaicos diferentes consoante a versão do si
 *Aplica-se a versões 1802 e 1806*
 
 Mostra a percentagem de dispositivos cogeridos em todo o seu ambiente.
- ![Mosaico de dispositivos cogeridos](media\co-management-dashboard\Percent-Co-managed-graph.PNG)
+ ![Mosaico de dispositivos cogeridos](media/co-management-dashboard/Percent-Co-managed-graph.PNG)
 
 
 ### <a name="client-os-distribution"></a>Distribuição de SO de cliente
@@ -55,7 +55,7 @@ Mostra o número de cliente dispositivos por sistema operacional por versão. El
     > Windows 10, versão 1709 ou posterior, é um pré-requisito para a cogestão.  
 
 Coloque o cursor sobre uma seção de gráfico para mostrar a percentagem de dispositivos nesse grupo de sistema operacional.
- ![Mosaico de distribuição de SO de cliente](media\co-management-dashboard\Co-management-OS-distribution-graph.PNG)
+ ![Mosaico de distribuição de SO de cliente](media/co-management-dashboard/Co-management-OS-distribution-graph.PNG)
 
 
 ### <a name="co-management-status-donut"></a>Estado de cogestão (anel)
@@ -68,10 +68,10 @@ Mostra a divisão de dispositivo êxito ou falha nas seguintes categorias:
 - Falha de: Inscrição automática falhou  
 
 Coloque o cursor sobre uma seção de gráfico para mostrar a percentagem de dispositivos dessa categoria. 
- ![Mosaico de estado (anel) de cogestão](media\co-management-dashboard\Co-management-status-graph.PNG)
+ ![Mosaico de estado (anel) de cogestão](media/co-management-dashboard/Co-management-status-graph.PNG)
 
 Selecione uma seção de gráfico para ver a lista de dispositivos dessa categoria.
- ![Lista de dispositivos de falha de inscrição](media\co-management-dashboard\Enrollment-Failure_Device-List.PNG)
+ ![Lista de dispositivos de falha de inscrição](media/co-management-dashboard/Enrollment-Failure_Device-List.PNG)
 
 
 ### <a name="co-management-status-funnel"></a>Estado de cogestão (funil)
@@ -84,7 +84,7 @@ Um gráfico de funil que mostra o número de dispositivos com os seguintes Estad
 - Inscrição iniciada  
 - Inscritos  
 
-![Mosaico de estado (funil) de cogestão](media\co-management-dashboard\1358980-status-funnel.png)
+![Mosaico de estado (funil) de cogestão](media/co-management-dashboard/1358980-status-funnel.png)
 
 
 ### <a name="co-management-enrollment-status"></a>Estado de inscrição de cogestão
@@ -101,7 +101,7 @@ Mostra a divisão de estado do dispositivo nas seguintes categorias:
 
 Selecione um Estado no mosaico para explorar para obter uma lista de dispositivos com esse Estado.  
 
-![Mosaico de estado de inscrição de cogestão](media\co-management-dashboard\1358980-enrollment-status.png)
+![Mosaico de estado de inscrição de cogestão](media/co-management-dashboard/1358980-enrollment-status.png)
 
 
 ### <a name="enrollment-errors"></a>Erros de inscrição
@@ -118,7 +118,7 @@ Uma tabela que mostra a contagem de erros de inscrição de dispositivos.
 Apresenta um gráfico de barras com o número de dispositivos que tenha transferido para o Microsoft Intune para as cargas de trabalho disponíveis. (A lista de cargas de trabalho varia conforme a versão do Configuration Manager. Para obter mais informações, consulte [cargas de trabalho capazes de ser transferido para o Intune](/sccm/core/clients/manage/co-management-switch-workloads#workloads-able-to-be-transitioned-to-intune).)
 
 Coloque o cursor sobre uma seção de gráfico para ver o número de dispositivos a transição para a carga de trabalho. 
- ![Gráfico de barras de transição de carga de trabalho](media\co-management-dashboard\Workload-Transition.PNG)
+ ![Gráfico de barras de transição de carga de trabalho](media/co-management-dashboard/Workload-Transition.PNG)
 
 
 ## <a name="next-steps"></a>Passos seguintes

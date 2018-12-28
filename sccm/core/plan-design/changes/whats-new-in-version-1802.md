@@ -10,12 +10,12 @@ ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0757e7f3fac12c2945a3eab860851b0debf28fd5
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: a0e16c137604480ab23e15b52723692491d1816d
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893894"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414859"
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>O que há de novo na versão 1802 do System Center Configuration Manager
 
@@ -115,7 +115,7 @@ Na versão 1802 do Gestor de configuração, as informações seguintes estão d
 
 - A partir desta versão, o **gateway de gestão da nuvem** já não é uma funcionalidade de pré-lançamento.  
 
-- A documentação de funcionalidade é revista e avançada. Para obter mais informações, consulte os artigos seguintes:
+- A documentação de funcionalidade é revista e avançada. Para obter mais informações, veja os artigos seguintes:
     - [Plano para o gateway de gestão da cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway)
     - [Tamanho do gateway de gestão da cloud e dimensione números](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
     - [Segurança e privacidade para o gateway de gestão na cloud ](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
@@ -147,7 +147,7 @@ Para obter detalhes, consulte a [painel do Surface](/sccm/core/clients/manage/su
 <!-- 1357365 --> A carga de trabalho do Endpoint Protection pode ser transferida para o Intune depois de ativar a cogestão. Para fazer a transição da carga de trabalho do Endpoint Protection, vá para a página de propriedades de cogestão e mova a barra de controlo de deslize do Configuration Manager para **piloto** ou **todos os**. Para obter detalhes sobre as cargas de trabalho, consulte [cargas de trabalho capazes de ser transferido para o Intune](/sccm/core/clients/manage/co-management-switch-workloads#Workloads-able-to-be-transitioned-to-Intune). Para obter mais informações sobre a cogestão, consulte [cogestão para dispositivos Windows 10](/sccm/core/clients/manage/co-management-overview).
  
 ### <a name="co-management-dashboard-in-system-center-configuration-manager"></a>Dashboard de cogestão no System Center Configuration Manager
-<!--1356648--> A partir desta versão, pode ver um dashboard com informações sobre a cogestão. O dashboard ajuda-o a rever as máquinas que fazem cogeridas no seu ambiente. Os gráficos podem ajudar a identificar os dispositivos que possam necessitar de atenção. Para obter detalhes, consulte a [dashboard de cogestão](\sccm\core\clients\manage\client-management-dashboard) artigo. 
+<!--1356648--> A partir desta versão, pode ver um dashboard com informações sobre a cogestão. O dashboard ajuda-o a rever as máquinas que fazem cogeridas no seu ambiente. Os gráficos podem ajudar a identificar os dispositivos que possam necessitar de atenção. Para obter detalhes, consulte a [dashboard de cogestão](/sccm/core/clients/manage/client-management-dashboard) artigo. 
 
 
 ## <a name="compliance-settings"></a>Definições de compatibilidade
@@ -169,7 +169,7 @@ Para obter detalhes, consulte a [painel do Surface](/sccm/core/clients/manage/su
 <!-- 1357015 --> A partir desta versão, quando um utilizador solicita um aplicativo que necessite de aprovação, o nome de dispositivo específico é agora uma parte do pedido. Se o administrador aprova o pedido, o utilizador só é possível instalar o aplicativo nesse dispositivo. O utilizador tem de submeter outro pedido para instalar a aplicação noutro dispositivo. Para obter mais informações, consulte [especificar definições de implementação](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings).
 
  > [!Note]  
- > Esta é uma funcionalidade opcional. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).  
+ > Esta é uma funcionalidade opcional. Para mais informações, consulte [Enable optional features from updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).  
 
 
 ### <a name="run-scripts-improvements"></a>Execute as melhorias de scripts 
@@ -179,7 +179,7 @@ Para obter detalhes, consulte a [painel do Surface](/sccm/core/clients/manage/su
 ## <a name="operating-system-deployment"></a>Implementação do sistema operativo
 
 ### <a name="windows-10-in-place-upgrade-task-sequence-via-cloud-management-gateway"></a>Sequência de tarefas de atualização in-loco do Windows 10 através do gateway de gestão da cloud
-<!-- 1357149 --> O Windows 10 [sequência de tarefas atualização in-loco](/sccm/osd/deploy-use/upgrade-windows-to-the-latest-version) agora oferece suporte à implantação para os clientes baseados na internet geridos através do [gateway de gestão da nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway). Esta capacidade permite aos usuários remotos mais facilmente atualizar para o Windows 10, sem terem de se ligar à rede empresarial. Para obter mais informações, veja [Implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#deploy-windows-10-in-place-upgrade-via-cmg).
+<!-- 1357149 --> O Windows 10 [sequência de tarefas atualização in-loco](/sccm/osd/deploy-use/upgrade-windows-to-the-latest-version) agora oferece suporte à implantação para os clientes baseados na internet geridos através do [gateway de gestão da nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway). Esta capacidade permite aos usuários remotos mais facilmente atualizar para o Windows 10, sem terem de se ligar à rede empresarial. Para obter mais informações, veja [Deploy a task sequence (Implementar uma sequência de tarefas)](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#deploy-windows-10-in-place-upgrade-via-cmg).
 
 ### <a name="improvements-to-windows-10-in-place-upgrade-task-sequence"></a>Melhoramentos à sequência de tarefas de atualização in-loco do Windows 10
 <!-- 1357425 --> O modelo de sequência de tarefas padrão para a atualização in-loco do Windows 10 inclui agora grupos adicionais com as ações recomendadas para adicionar antes e depois do processo de atualização. Estas ações são comuns entre muitos clientes que estão com êxito a atualizar dispositivos Windows 10. Para obter mais informações, consulte [criar uma sequência de tarefas para atualizar um sistema operacional](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#recommended-task-sequence-steps-to-prepare-for-upgrade).

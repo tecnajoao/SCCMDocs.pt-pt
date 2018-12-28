@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
-ms.openlocfilehash: 041ea28e91b77545b8984742b4199782d1edb6b7
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 8f743514af8b89212b10073c07b24990ffedcb1a
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456537"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420401"
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurar o gateway de gestão na cloud para o Configuration Manager
 
@@ -80,39 +80,39 @@ Efetue este procedimento no site de nível superior. Esse site é um site primá
 
 4. Especifique a **ambiente do Azure** para este CMG. As opções na lista pendente podem variar consoante o método de implementação.  
 
-5. Selecione **seguinte**. Aguarde enquanto o site testa a ligação para o Azure.  
+5. Selecione **Seguinte**. Aguarde enquanto o site testa a ligação para o Azure.  
 
-4. Na página Definições do assistente, selecione **procurar** e escolha o. Ficheiro PFX para o certificado de autenticação de servidor do CMG. O nome a partir deste certificado preenche necessários **FQDN de serviço** e **nome do serviço** campos.  
+6. Na página Definições do assistente, selecione **procurar** e escolha o. Ficheiro PFX para o certificado de autenticação de servidor do CMG. O nome a partir deste certificado preenche necessários **FQDN de serviço** e **nome do serviço** campos.  
 
    > [!NOTE]  
    > A partir da versão 1802, o certificado de autenticação de servidor CMG suporta carateres universais. Se utilizar um certificado de caráter universal, substitua o asterisco (\*) no **FQDN de serviço** campo com o nome de anfitrião desejado para CMG.  
    <!--491233-->  
 
-5. Selecione o **região** na lista pendente para escolher a região do Azure para este CMG.  
+7. Selecione o **região** na lista pendente para escolher a região do Azure para este CMG.  
 
-6. Na versão 1802 e está usando uma implementação do Azure Resource Manager, selecione um **grupo de recursos** opção. 
+8. Na versão 1802 e está usando uma implementação do Azure Resource Manager, selecione um **grupo de recursos** opção. 
    1. Se escolher **utilizar existente**, em seguida, selecione um grupo de recursos existente na lista pendente.
    2. Se escolher **criar novo**, em seguida, introduza o nome do grupo de recursos novo.
 
-6. Na **instância de VM** , insira o número de VMs para este serviço. A predefinição é um, mas pode dimensionar até 16 VMs por CMG.  
+9. Na **instância de VM** , insira o número de VMs para este serviço. A predefinição é um, mas pode dimensionar até 16 VMs por CMG.  
 
-7. Selecione **certificados** adicionar certificados de raiz fidedigno do cliente. Adicione até dois de raiz fidedigna CAs e quatro CAs (subordinada) intermediárias.  
+10. Selecione **certificados** adicionar certificados de raiz fidedigno do cliente. Adicione até dois de raiz fidedigna CAs e quatro CAs (subordinada) intermediárias.  
+
+     > [!Note]  
+     > A partir da versão 1806, quando cria um CMG, já não tem de fornecer um certificado de raiz fidedigna na página Definições. Este certificado não necessárias ao utilizar o Azure Active Directory (Azure AD) para autenticação de cliente, mas utilizado para ser necessário no assistente. Se estiver a utilizar certificados de autenticação de cliente PKI, em seguida, ainda tem de adicionar um certificado de raiz fidedigna para CMG.<!--SCCMDocs-pr issue #2872-->  
+
+11. Por predefinição, o assistente ativa a opção para **verificar revogação de certificados de cliente**. Uma lista de revogação de certificados (CRL) tem de ser publicada publicamente para esta verificação funcionar. Se não o publicar uma CRL, desmarque esta opção.  
+
+12. A partir da versão 1806, por predefinição, o assistente permite que a seguinte opção: **Permitir CMG funcionar como um ponto de distribuição de nuvem e servir conteúdo a partir de armazenamento do Azure**. Agora um CMG também pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure.  
+
+13. Selecione **Seguinte**.  
+
+14. Para monitorizar o tráfego CMG com um limiar de 14 dias, selecione a caixa de verificação para ativar o alerta de limiar. Em seguida, especifique o limiar e a percentagem em que elevar os níveis de alerta diferentes. Escolher **seguinte** quando terminar.  
+
+15. Reveja as definições e escolha **seguinte**. Gestor de configuração é iniciado como configurar o serviço. Depois de fechar o assistente, irá demorar entre 5 a 15 minutos para aprovisionar o serviço completamente no Azure. Verifique os **estado** coluna para o novo CMG determinar quando o serviço está pronto.  
 
     > [!Note]  
-    > A partir da versão 1806, quando cria um CMG, já não tem de fornecer um certificado de raiz fidedigna na página Definições. Este certificado não necessárias ao utilizar o Azure Active Directory (Azure AD) para autenticação de cliente, mas utilizado para ser necessário no assistente. Se estiver a utilizar certificados de autenticação de cliente PKI, em seguida, ainda tem de adicionar um certificado de raiz fidedigna para CMG.<!--SCCMDocs-pr issue #2872-->  
-
-8. Por predefinição, o assistente ativa a opção para **verificar revogação de certificados de cliente**. Uma lista de revogação de certificados (CRL) tem de ser publicada publicamente para esta verificação funcionar. Se não o publicar uma CRL, desmarque esta opção.  
-
-9. A partir da versão 1806, por predefinição, o assistente permite que a seguinte opção: **Permitir CMG funcionar como um ponto de distribuição de nuvem e servir conteúdo a partir de armazenamento do Azure**. Agora um CMG também pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure.  
-
-10. Selecione **seguinte**.  
-
-11. Para monitorizar o tráfego CMG com um limiar de 14 dias, selecione a caixa de verificação para ativar o alerta de limiar. Em seguida, especifique o limiar e a percentagem em que elevar os níveis de alerta diferentes. Escolher **seguinte** quando terminar.  
-
-12. Reveja as definições e escolha **seguinte**. Gestor de configuração é iniciado como configurar o serviço. Depois de fechar o assistente, irá demorar entre 5 a 15 minutos para aprovisionar o serviço completamente no Azure. Verifique os **estado** coluna para o novo CMG determinar quando o serviço está pronto.  
-
- > [!Note]  
- > Para resolver problemas de implementações do CMG, utilize **Cloudmgr** e **CMGSetup.log**. Para obter mais informações, consulte [ficheiros de registo](/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway).
+    > Para resolver problemas de implementações do CMG, utilize **Cloudmgr** e **CMGSetup.log**. Para obter mais informações, consulte [ficheiros de registo](/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway).
 
 
 

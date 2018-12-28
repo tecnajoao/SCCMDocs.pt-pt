@@ -1,5 +1,5 @@
 ---
-title: Dados de diagnóstico para 1610
+title: Dados de diagnóstico para a versão 1610
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os níveis de diagnósticos e dados de utilização que o System Center Configuration Manager versão 1610 recolhe.
 ms.date: 12/29/2016
@@ -10,52 +10,52 @@ ms.assetid: eb20eb90-bcc0-41de-bfea-638ea470c0dd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 658d005234469d8729b515e9deeb02e20e94c748
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: b29044858bb9a9d57db1c2229c826630d0905860
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32340901"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416525"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Níveis de diagnóstico de utilização de recolha de dados para a versão 1610 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager versão 1610 recolhe três níveis de diagnósticos e dados de utilização: **Básico**, **avançada**, e **completa**. Por predefinição, esta funcionalidade está definida no nível Avançado. As secções seguintes fornecem detalhes adicionais sobre os dados que recolhe de cada nível.
+System Center Configuration Manager versão 1610 recolhe três níveis de diagnósticos e dados de utilização: **Básica**, **avançada**, e **completa**. Por predefinição, esta funcionalidade está definida no nível Avançado. As secções seguintes fornecem detalhes adicionais sobre os dados que recolhe de cada nível.
 
-As alterações de versões anteriores são assinaladas com ***[New]***, ***[atualizado]***, ***[removida]***, ou ***[movido]***.
+Alterações das versões anteriores são indicadas com ***[novo]***, ***[atualizado]***, ***[removido]***, ou ***[movido]***.
 
 
 > [!IMPORTANT]
->  O Configuration Manager não recolhe códigos de site, os nomes de sites, endereços IP, nomes de utilizador, nomes de computador, endereços físicos ou endereços de correio eletrónico nos níveis básico ou avançado. Qualquer recolha destas informações no nível completo não é tem um fim específico, ou seja, potencialmente incluídas nas informações de diagnóstico avançadas, como ficheiros de registo ou instantâneos de memória. Microsoft não utilizará estas informações para identificar, contactar ou desenvolver publicidade.
+>  O Configuration Manager não recolhe códigos de site, nomes de sites, endereços IP, nomes de utilizador, nomes de computador, endereços físicos ou endereços de e-mail nos níveis básico ou avançado. Qualquer recolha destas informações no nível completo não é intencional, ou seja, potencialmente incluídas nas informações de diagnóstico avançadas, como ficheiros de registo ou instantâneos de memória. Microsoft não utilizará estas informações para identificar, contactar ou desenvolver advertising.
 
 ##  <a name="bkmk_change"></a> Como alterar o nível
- Os administradores que tenham um âmbito de administração baseada em funções que inclua **modificar** permissões a **Site** classe de objeto pode alterar o nível dos dados recolhidos nas definições de diagnóstico e dados de utilização na consola do Configuration Manager.
+ Os administradores que tenham um âmbito de administração baseada em funções que inclua **modificar** permissões sobre o **Site** classe de objeto pode alterar o nível dos dados recolhidos nas definições de diagnóstico e dados de utilização na consola do Configuration Manager.
 
-A partir da versão 1610, alterar o nível de recolha de dados de dentro da consola, navegando até **administração** > **descrição geral** > **configuração do Site** > **Sites**. Abra **definições de hierarquia**e, em seguida, selecione o nível de dados que pretende utilizar.  
+A partir da versão 1610, alterar o nível de recolha de dados de dentro da consola ao navegar até **Administration** > **descrição geral** > **Site Configuração** > **Sites**. Open **definições de hierarquia**e, em seguida, selecione o nível de dados que pretende utilizar.  
 
 ##  <a name="bkmk_level1"></a> Nível 1 - Básico
- O nível básico inclui dados sobre a sua hierarquia, dados necessárias para ajudar a melhorar a sua instalação ou atualização experiência e os dados que ajuda a determinar as atualizações do Configuration Manager que são aplicáveis para a sua hierarquia.
+ O nível básico inclui dados sobre a hierarquia, os dados necessários para o ajudar a melhorar a sua instalação ou atualização de experiência e os dados que ajuda a determinar as atualizações do Configuration Manager que são aplicáveis para a sua hierarquia.
 
  Para o System Center Configuration Manager versão 1610, este nível inclui o seguinte:
 
 
--   Informações de configuração:
-      - Criar, instalar o tipo, pacotes de idiomas, funcionalidades que tiver ativado  
+- Informações de configuração:
+    - Crie, instalar o tipo, pacotes de idiomas, funcionalidades ativadas por si  
 
-      - Atualizar o estado de implementação de pacote e erros, transfira o progresso e erros de pré-requisitos    
+    - Atualizar estado de implementação de pacote e erros, transfira o progresso e os erros de pré-requisitos    
 
-      - Versão do script pós-atualização
+    - Versão do script pós-atualização
 
-      - Utilização do anel rápida de atualização
+    - Utilização de cadência rápida de atualização
 
-    - ***[Novo]***  Pré-lançamento utilização, o tipo de suporte de dados de configuração, o tipo de sucursais
+  - ***[Novo]***  De pré-lançamento utilização, o tipo de suporte de dados de configuração, o tipo de filial
 
-    - ***[Novo]***  Data de expiração do software Assurance
+  - ***[Novo]***  Data de expiração do software Assurance
 
 - Métricas de desempenho de bases de dados (informações de processamento de replicação, principais procedimentos armazenados do SQL Server por processador e utilização de disco)
 
-- Configuração de base de dados básica (processadores, configuração de cluster e a configuração das vistas distribuídas)
+- Configuração de base de dados básica (processadores, configuração de cluster e configuração de vistas distribuídas)
 
 - Esquema de base de dados do Configuration Manager (hash de todas as definições de objetos)
 
@@ -63,48 +63,48 @@ A partir da versão 1610, alterar o nível de recolha de dados de dentro da cons
 
 - Contagem de sistemas operativos para dispositivos geridos e políticas definidas pelo conector do Exchange
 
-- Contagem de idiomas de cliente e regiões
+- Contagem de localidades e idiomas de cliente
 
 - Contagem de dispositivos Windows 10 por ramo e compilação
 
-- Básico do Configuration Manager hierarquia dados do site (lista de sites, tipo, versão, estado, contagem de clientes e fuso horário)
+- Configuration Manager site hierarquia dados básicos (lista de sites, tipo, versão, estado, contagem de clientes e fuso horário)
 
-- Informações de servidor de sistema básico do site (funções de sistema de site utilizadas, estado e SSL da Internet, sistema operativo, processadores e máquina física ou virtual)
+- Informações de servidor para sistema de site básico (funções de sistema de sites utilizadas, estado de Internet e o SSL, sistema operativo, processadores e máquina física ou virtual)
 
-- Estatísticas de deteção de utilizador básico (utilizador deteção contagem e máximo/mínimo/médio tamanhos de grupos)
+- Estatísticas de deteção de utilizador básico (utilizador deteção contagem máximo/mínimo/médio grupo tamanhos e)
 
-- Informações básicas do Endpoint Protection (versões de cliente antimalware)
+- Informações básicas do Endpoint Protection (versões de cliente de antimalware)
 
-- Contagens de tipo de implementação e de aplicação básico (total de aplicações, total de aplicações com vários tipos de implementação, as aplicações de total de aplicações com dependências, totais substituídas e contagem de tecnologias de implementação em utilização)
+- Tipo de aplicação e a implantação básico contagens (total de aplicações, total de aplicações com vários tipos de implementação, aplicações de aplicativos no total com as dependências, total substituídas e contagem de tecnologias de implantação em utilização)
 
-- Implementação básica do sistema operativo (OSD) conta (imagens)
+- Implementação de básica do sistema operativo (OSD) conta (imagens)
 
-- Ponto de distribuição e ponto de gestão tipos e informações básicas de configuração (protegida, pré-configurado, PXE, multicast, estado SSL, pontos de distribuição de extração/ponto a ponto, MDM ativado, com SSL ativado, etc.)
+- Ponto de distribuição e gestão de pontos de tipos e informações básicas de configuração (protegida, pré-configurado, PXE, multicast, estado SSL, pontos de distribuição de extração/ponto a ponto, compatível com MDM, habilitados para SSL, etc.)
 
 - Estatísticas de telemetria (momento da execução, tempo de execução, erros)
 
-- Nível de telemetria configurado, modo (online ou offline) e a configuração de atualização rápida
+- Nível de telemetria configurado, o modo (online ou offline) e configuração de atualização rápida
 
 - Utilização da deteção de rede (ativada ou desativada)
 - Consola de administração:
 
-     - Estatísticas sobre as ligações da consola (versão do sistema operativo, idioma, SKU e arquitetura, memória do sistema, contagem de processadores lógicos, ligar o ID do site, versões de .NET instaladas e pacotes de idiomas da consola)    
+     - Estatísticas sobre ligações de consolas (versão do sistema operativo, linguagem, SKU e arquitetura, memória do sistema, contagem de processadores lógicos, ligue o ID do site, versões de .NET instaladas e pacotes de idiomas da consola)    
 
-- Versão do SQL, nível de service pack, edição, ID de agrupamento e conjunto de carateres
+- Versão do SQL, nível de service pack, edição, ID de agrupamento e o conjunto de carateres
 
 
 ##  <a name="bkmk_level2"></a> Nível 2 - Avançado
-O nível avançado é a predefinição após a conclusão da configuração. Este nível inclui dados recolhidos no nível básico e dados específicos da funcionalidade (frequência e duração de utilização), definições de cliente do Configuration Manager (nome do componente, estado e determinadas definições como intervalos de consulta) e informações básicas sobre atualizações de software.
+O nível avançado é a predefinição após a conclusão da configuração. Este nível inclui dados recolhidos no nível básico e dados específicos de funcionalidades (frequência e duração de utilização), as definições de cliente do Configuration Manager (nome do componente, estado e determinadas definições como intervalos de consulta) e informações básicas sobre atualizações de software.
 
-Este nível é recomendado porque disponibiliza à Microsoft os dados mínimos necessárias para fazer melhorias úteis em futuras versões dos produtos e serviços. Este nível nomes de objeto não recolher (sites, os utilizadores, computador ou objetos), detalhes de objetos relacionados com segurança nem vulnerabilidades como contagens dos sistemas que necessitam de atualizações de software.
+Este nível é recomendado porque disponibiliza à Microsoft com os dados mínimos necessários para fazer melhorias úteis em versões futuras dos produtos e serviços. Nesse nível nomes de objetos não recolher (sites, utilizadores, computadores ou objetos), os detalhes dos objetos relacionados com segurança nem vulnerabilidades como contagens dos sistemas que necessitam de atualizações de software.
 
 Para o System Center Configuration Manager versão 1610, este nível inclui o seguinte:
 
 -   **Gestão de aplicações:**  
 
-    -    Informações básicas de utilização/segmentação para tipos de implementação que são utilizados na sua organização (utilizador versus dispositivo segmentado, necessário versus aplicações disponíveis e universais)  
+    -    Informações básicas de utilização/segmentação para tipos de implementação que são utilizados dentro da organização (utilizador em comparação com o dispositivo segmentado, necessário em comparação com as aplicações disponíveis e universais)  
 
-    -   Informações de implementação de aplicação (instalar/desinstalar, necessita de aprovação, interação do utilizador ativada/desativada, dependências e substituições)  
+    -   Informações de implementação de aplicações (instalar/desinstalar, necessita de aprovação, interação do utilizador ativado/desativado, dependência e substituição)  
 
     -   Estatísticas de pedidos de aplicação disponíveis  
 
@@ -118,23 +118,23 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagem de licenças de aplicação licenciadas para Windows 10  
 
-    -   Número máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
+    -   Número de máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
 
     -   Tipo e duração da janela de manutenção  
 
-    -  Política tamanho e complexidade das estatísticas da aplicação
+    -  Estatísticas de tamanho e a complexidade de política de aplicação
 
-    - ***[Atualizado]***  Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
+    - ***[Atualizado]***  Contagem da Windows Store para aplicações de negócio e as estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado o estado de aplicações e aplicações licenciadas do número de online e offline)  
 
-    - Estatísticas de grupo de limites (quantos rápido, quantos lenta e count por grupo de)
+    - Estatísticas de grupo de limites (quantos mais rápidas e quantos lento e contagem por grupo)
 
     - Contagens e opções de configuração de MSI
 
-    - Requisitos de aplicações (contagem de condições incorporadas é referenciada por tecnologia de implementação)
+    - Requisitos da aplicação (a contagem de condições incorporadas é referenciada por tecnologia de implantação)
 
-    - Substituição de aplicações, profundidade máxima de cadeia
+    - Substituição de aplicações, profundidade máxima da cadeia
 
-    - Utilização de acesso de dados (UDA) universal, como criado
+    - Utilização universal de acesso de dados (UDA), como criado
 
     - ***[Novo]***  Frequência de utilização e estatísticas de aprovação de aplicações
 
@@ -148,13 +148,13 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagem de falhas de instalação de cliente  
 
-    -  ***[Atualizado]***  Atualização automática de cliente: configuração de implementação, incluindo pilotagem e exclusão de utilização de cliente (cliente de interoperabilidade expandido)
+    -  ***[Atualizado]***  Atualização automática do cliente: configuração de implementação, incluindo a criação de piloto e de exclusão uso cliente (cliente de interoperabilidade expandido)
 
     -  Estatísticas de estado de funcionamento do cliente e o resumo do problema superior
 
-    - Idade do BIOS no anos
+    - Idade de BIOS em anos
 
-    - Idade do sistema operativo nos meses
+    - Idade de sistema operativo em meses
 
     - Ações de contagem de centro de Software
 
@@ -162,37 +162,37 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     - Erros de transferência de implementação do cliente
 
-    - Notificação operação ação estado do cliente (o quantas vezes é o número de execução, máximo de clientes alvo e a taxa de êxito médio)
+    - Cliente notificação ação estado da operação (é de quantas vezes cada execução, Máx. número de clientes de destinados e a taxa média de êxito)
 
-    - Métodos de implementação de cliente e a contagem de clientes por método de implementação
+    - Métodos de implantação usados para cliente e a contagem de clientes por método de implementação
 
     - Configuração de tamanho de cache do cliente
 
-    - ***[Novo]***  Número de classes de inventário de hardware, as regras de inventário de software e regras de recolha de ficheiros
+    - ***[Novo]***  Número de classes de inventário de hardware, as regras de inventário de software e as regras de recolha de ficheiros
 
 
 
 
-- **Serviços de cloud:**
+- **Serviços cloud:**
 
-  - Contagem das coleções sincronizados para o Operations Management Suite
+  - Contagem de coleções sincronizado com o Operations Management Suite
 
-  -  Indica se o conector em nuvem do Operations Management Suite está ativado
+  -  Se o conector de nuvem do Operations Management Suite está ativado
 
-  - ***[Novo]***  Estatísticas de configuração e utilização do Gateway de gestão de nuvem
+  - ***[Novo]***  Estatísticas de configuração e utilização do Gateway de gestão da Cloud
 
-  - ***[Novo]***  Contagem dos conectores de análise de atualização
+  - ***[Novo]***  Contagem de conectores de análise de atualização
 
 
 
 
 - **Coleções:**
 
-    -  Estatísticas de avaliação de coleção (hora de consulta, atribuída versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra)
+    -  Estatísticas de avaliação de coleção (hora de consulta, atribuída versus contagens não atribuídas, contagens por tipo, o rollover de ID e o uso de regra)
 
     - Coleções sem uma implementação
 
-    - Utilização de ID de coleção (não a ficar sem IDs)
+    - Utilização de ID de coleção (não ficar sem IDs)
 
 
 
@@ -205,11 +205,11 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
     -   Contagem de implementações que definições incorporadas de referência (agora capturar remediar definição)  
 
     -   Contagem de regras e implementações criadas para as definições personalizadas (agora capturar remediar definição)  
-    -   Contagem de modelos de certificado de inscrição de SCEP (Simple Protocol), VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas
+    -   Contagem de modelos de certificado de protocolo SCEP (Simple Enrollment), VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas
 
     -  Contagem do certificado de SCEP, VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
 
-    - Passport para a política de trabalho (criado, implementado)
+    - Passport para a política de trabalho (criado, implantado)
 
 
 
@@ -217,59 +217,59 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagem de limites por tipo  
 
-    -   Informações sobre grupos de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)  
+    -   Informações do grupo de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)  
 
-    - ***[Novo]***  Relações de grupo de limites e a configuração de contingência
+    - ***[Novo]***  As relações de grupo de limites e configuração de contingência
 
-    -   Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que estão atribuídos a cada grupo de pontos de distribuição)  
+    -   Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que são atribuídos a cada grupo de pontos de distribuição)  
 
-    -   Informações de configuração de ponto de distribuição (utilização da cache de ramo e monitorização do ponto de distribuição)  
+    -   Informações de configuração de ponto de distribuição (utilização da cache de ramificação e a monitorização do ponto de distribuição)  
 
-    -   Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de tentativas e as definições do ponto de distribuição de extração)  
+    -   Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de repetições e as definições do ponto de distribuição de extração)  
 
     - ***[Novo]***  Contagem de clientes de cache ponto a ponto e estatísticas de utilização
 
-    - ***[Novo]***  Estatísticas de transferência do conteúdo de cliente
+    - ***[Novo]***  Estatísticas de transferência de conteúdo de cliente
 
 
 -   **Endpoint Protection:**  
 
-    -   Antimalware do Endpoint Protection e a utilização da política de Firewall do Windows (número de políticas únicas atribuídas ao grupo)<br /><br /> Isto inclui qualquer informação sobre as definições incluídas na política.  
+    -   Antimalware do Endpoint Protection e utilização da política de Firewall do Windows (número de políticas únicas atribuídas ao grupo)<br /><br /> Não inclui quaisquer informações sobre as definições incluídas na política.  
 
-    -   Erros de implementação do Endpoint Protection (contagem de códigos de erro de implementação de política do Endpoint Protection)  
+    -   Erros de implementação do Endpoint Protection (contagem de códigos de erro de implementação de política de proteção de ponto final)  
 
     -   Contagem de coleções que estão selecionadas para aparecerem no dashboard do Endpoint Protection  
 
     -   Contagem de alertas que estão configurados para a funcionalidade Endpoint Protection  
 
-    -   Políticas de proteção de ameaça (ATP) avançadas (contagem de políticas e se as políticas são implementadas)
+    -   Políticas de proteção contra ameaças (ATP) avançadas (contagem de políticas e se as políticas são implementadas)
 
 
 - **Migração:**
 
-  -   Contagem de objetos migrados (utilize do Assistente de migração)
+  -   Contagem de objetos migrados (utilização do Assistente de migração)
 
 
 
 -   **Gestão de dispositivos móveis (MDM):**  
 
-    -   ***[Atualizado]***  Número emitido ações do dispositivo móvel: bloquear, afixar rest, apagar, extinguir e sincronizar agora comandos  
+    -   ***[Atualizado]***  Contagem de emitido ações do dispositivo móvel: bloquear, afixar rest, apagar, extinguir e, agora os comandos de sincronização  
 
-    -   Contagem de dispositivos móveis que são geridos pelo Configuration Manager e Microsoft Intune e como foram inscritos (em massa, baseado no utilizador)  
+    -   Contagem de dispositivos móveis que são geridos pelo Configuration Manager e o Microsoft Intune e como foram inscritos (em massa, baseado no usuário)  
 
-    -   Consulta de agenda e as estatísticas de duração de verificação de dispositivos móveis de dispositivos móveis  
+    -   Consulta de agenda e as estatísticas de duração de entrada de dispositivo móvel de dispositivos móveis  
 
     -   Contagem de políticas de dispositivos móveis  
 
     -   Contagem de utilizadores que têm vários dispositivos móveis inscritos  
 
--   **Resolução de problemas de Microsoft Intune:**
+-   **Resolução de problemas do Microsoft Intune:**
 
-    -   Contagem e tamanho de estado, o estado, inventário, RDR, DDR, UDX, inquilino mensagens de estado, POL, registo, certificado, CRP, ressincronização, CFD, RDO, BEX, ISM e conformidade que são transferidas a partir do Microsoft Intune
+    -   Contagem e tamanho de estado, estado, inventário, RDR, DDR, UDX, inquilino mensagens de estado, POL, LOG, certificado, CRP, ressincronização, CFD, RDO, BEX, ISM e conformidade que são transferidas a partir do Microsoft Intune
 
     -   Contagem e tamanho das ações do dispositivo (apagar, extinguir, bloquear) telemetria e mensagens de dados que são replicadas para o Microsoft Intune
 
-    -   Diferenciais e completas estatísticas de sincronização de utilizador para o Microsoft Intune
+    -   Diferenciais e completas estatísticas de sincronizações de utilizador para o Microsoft Intune
 
 
 -   **Gestão de dispositivos móveis (MDM) no local:**  
@@ -290,7 +290,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 
 
--   **Atualizações de sites:**
+-   **Atualizações do site:**
 
     - Versões das correções instaladas do Configuration Manager
 
@@ -299,25 +299,25 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 -   **Atualizações de Software:**  
 
-    -   Número total/médio de coleções com implementações de atualização de software e o número máximo/médio de implementação de atualizações  
+    -   Número total/médio de coleções com implementações de atualizações de software e o número máximo/médio de implementar atualizações  
 
     -   Número de regras de implementação automática que estão associadas a sincronização  
 
     -   Número de regras de implementação automática que criam atualizações novas ou acrescentam atualizações a um grupo existente  
 
-    -   Disponível e o prazo deltas que são utilizados em regras de implementação automática  
+    -   Deltas disponíveis e de prazo que são utilizados nas regras de implementação automática  
 
     -   Número médio e máximo de atribuições por atualização  
 
-    -   Contagem das atualizações que são criados e implementados com o System Center Update Publisher  
+    -   Contagem de atualizações que são criados e implementados com o System Center Update Publisher  
 
     -   Contagem de grupos de atualização e atribuições  
 
-    -   Contagem de pacotes de atualização e o número máximo/mínimo/médio de pontos de distribuição são segmentados com pacotes  
+    -   Contagem de pacotes de atualização e o número máximo/mínimo/médio de pontos de distribuição que são segmentados com pacotes  
 
     -   Número de grupos de atualização e número máximo/mínimo/médio de atualizações por grupo  
 
-    -   Número de atualizações e percentagem de atualizações que são implementadas, expiradas, substituídas, transferidas e contenham contêm EULAs  
+    -   Número de atualizações e percentagem de atualizações que são implementadas, expiradas, substituídas, transferidas e contêm EULAs  
 
     -   Atualizar códigos de erro de análise e contagem de máquinas  
 
@@ -325,7 +325,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Agenda de sincronização de ponto de atualização de software  
 
-    -   Número de regras de implementação automática com várias implementações  
+    -   Número de regras de implementação automática que têm várias implementações  
 
     -   Configurações que são utilizadas para o Active Directory Windows 10, planos de manutenção  
 
@@ -341,7 +341,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Estatísticas de balanceamento de carga de ponto de atualização de software
 
-    -  ***[Novo]***  Configuração do Windows 10 express atualizações
+    -  ***[Novo]***  Atualizações de express de configuração do Windows 10
 
 
 
@@ -354,24 +354,24 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -  Período de retenção de registo de alterações SQL
 
-    - Tipos de deteção, ativados e o agendamento (completo, incremental)
+    - Tipos de deteção, ativados e a agenda (completos e incrementais)
 
-    - Estatísticas de deteção operacionais (contagem de objetos encontrado)
+    - Estatísticas operacionais de deteção (contagem de foram encontrados objetos)
 
-    - Problemas de desempenho, o período de retenção e o estado de automático limpeza o registo de alterações do SQL Server
+    - Controlo de problemas de desempenho, o período de retenção e o estado de limpeza automática de alterações do SQL
 
 
 
-- **Diversas**
+- **Diversos**
 
-    - Contagem de sites com reativação numa Lan (WOL)
+    - Contagem de sites com reativação em Lan (WOL)
 
-    - ***[Novo]***  Estatísticas de utilização e desempenho de relatórios  
+    - ***[Novo]***  Estatísticas de utilização e o desempenho de relatórios  
 
 
 
 ##  <a name="bkmk_level3"></a> Nível 3 - Completo
-O nível completo inclui todos os dados os níveis básico e avançado. Também inclui informações adicionais sobre o Endpoint Protection, percentagens de compatibilidade de atualização e informações de atualização de software.  Este nível também pode incluir informações de diagnóstico avançadas como instantâneos de memória que podem incluir informações pessoais que existiam na memória ou ficheiros de registo no momento da captura e de ficheiros de sistema.
+O nível completo inclui todos os dados nos níveis de básico e avançado. Também inclui informações adicionais sobre o Endpoint Protection, percentagens de compatibilidade de atualização e informações de atualização de software.  Este nível também pode incluir informações de diagnóstico avançadas, como ficheiros de sistema e instantâneos de memória que podem incluir informações pessoais que existiam na memória ou ficheiros de registo no momento da captura.
 
 Para o System Center Configuration Manager versão 1610, este nível inclui o seguinte:
 
@@ -381,7 +381,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 -   Configuração da política do Endpoint Protection
 
--   Informações de implementação de atualização de software (percentagem das implementações direcionadas com o cliente em comparação com a hora UTC, necessário opcional versus silencioso e supressão de reinício)
+-   Informações de implementação de atualizações de software (percentagem das implementações que são visados com o cliente em relação a hora UTC, necessário opcional versus silencioso e supressão de reinício)
 
 -   Compatibilidade geral das implementações de atualizações de software
 
@@ -399,19 +399,19 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 -   Número máximo/mínimo/médio de horas desde a última análise de atualização de software
 
--    Produtos de atualização de software sincronizados com êxito pelo ponto de atualização de Software
--    Definições de compatibilidade: Detalhes de configuração de modelo do SCEP, VPN, Wi-Fi e política de conformidade
+-    Produtos de atualização de software sincronizados pelo ponto de atualização de Software
+-    Definições de compatibilidade: Detalhes de configuração de modelo SCEP, VPN, Wi-Fi e política de conformidade
 
--    Tipo de políticas de acesso condicional do EAS (bloquear ou colocar em quarentena) para dispositivos que gere o Intune
+-    Tipo de políticas de acesso condicional do EAS (bloqueio ou quarentena) para dispositivos que gere o Intune
 
--   Principais 50 CPUs no ambiente
+-   CPUs de 50 principais no ambiente
 
--   Pacote de configuração de DCM para utilização do System Center Configuration Manager
+-   Pacote de configuração do DCM para utilização do System Center Configuration Manager
 
 -   Código de produto MSI (aplicações comuns que os clientes implementar)
 
--   Resumo do Estado de funcionamento ATP
+-   Resumo do Estado de funcionamento do ATP
 
--   Erros de instalação de implementação do cliente de detalhado
+-   Erros de instalação de implementação detalhadas do cliente
 
-- ***[Novo]***  Da loja Windows para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)
+- ***[Novo]***  Windows Store para detalhes de aplicativo de negócios (não é de agregação lista de aplicativos sincronizados, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)

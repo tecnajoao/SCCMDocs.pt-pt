@@ -1,7 +1,7 @@
 ---
 title: Aprovisionar antecipadamente o BitLocker no Windows PE
 titleSuffix: Configuration Manager
-description: A tarefa de Preprovision BitLocker no Configuration Manager permite que o BitLocker a partir do ambiente de pré-instalação do Windows antes da implementação do sistema operativo.
+description: A tarefa de Preprovision BitLocker no Configuration Manager permite que o BitLocker a partir do ambiente de pré-instalação do Windows antes da implantação de sistema operativo.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,12 +10,12 @@ ms.assetid: c7c94ba0-d709-4129-8077-075a8abaea1c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ad4bfe99e841af5ccc4f6792fda664b8259a5369
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 10c072c89064472398c068a62079d1af120b1a11
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32350532"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416559"
 ---
 # <a name="preprovision-bitlocker-in-windows-pe-with-system-center-configuration-manager"></a>Aprovisionar antecipadamente o BitLocker no Windows PE com o System Center Configuration Manager
 
@@ -25,33 +25,33 @@ O **provisão prévia do BitLocker** passo de sequência de tarefas no System Ce
 
  Geralmente, é necessário efetuar o seguinte para pré-aprovisionar com êxito o BitLocker num computador que vai instalar o Windows 7:  
 
--   Reiniciar o computador no Windows PE  
+- Reiniciar o computador no Windows PE  
 
-    > [!IMPORTANT]  
-    >  É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para obter mais informações sobre as versões do Windows PE suportadas no Configuration Manager, consulte [dependências externas ao Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
+  > [!IMPORTANT]  
+  >  É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para obter mais informações sobre versões suportadas do Windows PE no Configuration Manager, consulte [dependências externas ao Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
 
--   Particionar e formatar o disco rígido  
+- Particionar e formatar o disco rígido  
 
--   Provisão prévia do BitLocker  
+- Provisão prévia do BitLocker  
 
--   Instalar o Windows 7 com o sistema operativo e as definições de rede específicos  
+- Instalar o Windows 7 com o sistema operativo e as definições de rede específicos  
 
--   Adicionar um protetor de chave ao BitLocker  
+- Adicionar um protetor de chave ao BitLocker  
 
- No Configuration Manager, a forma recomendada de pré-aprovisionar o BitLocker num disco rígido e instalar o Windows 7 consiste em criar uma nova sequência de tarefas e selecionar **instalar um pacote de imagem existente** do **criar nova sequência de tarefas** página do **criar Assistente da sequência de tarefas**. O assistente cria os passos de sequência de tarefas listados na tabela a seguir.  
+  No Configuration Manager, a forma recomendada de pré-aprovisionar o BitLocker num disco rígido e instalar o Windows 7 é criar uma nova sequência de tarefas e selecionar **instalar um pacote de imagem existente** partir o **criar nova tarefa Sequência** página do **criar Assistente de sequência de tarefas**. O assistente cria os passos de sequência de tarefas listados na tabela a seguir.  
 
 > [!NOTE]  
 >  A sequência de tarefas pode ter passos adicionais, dependendo do modo como foram configuradas as definições no assistente. Por exemplo, pode ter o passo **Capturar Definições do Windows** se tiver selecionado **Definições do Microsoft Windows capturadas** na página **Migração de Estado** do assistente.  
 
 |Passo da sequência de tarefas|Detalhes|  
 |------------------------|-------------|  
-|Desativar BitLocker|Este passo desativa a encriptação BitLocker, se estiver atualmente ativada. Para obter mais informações, consulte [desativar BitLocker](../understand/task-sequence-steps.md#BKMK_DisableBitLocker).|  
-|Reiniciar o computador no Windows PE|Este passo reinicia o computador no Windows PE através da execução da imagem de arranque atribuída à sequência de tarefas. É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para obter mais informações, consulte [reiniciar o computador](../understand/task-sequence-steps.md#BKMK_RestartComputer).|  
-|Particionar Disco 0 - BIOS<br /><br /> Particionar Disco 0 - UEFI|Estes passos formatam e particionam a unidade especificada no computador de destino, utilizando BIOS ou UEFI. A sequência de tarefas utiliza UEFI quando deteta que o computador de destino está no modo UEFI. Para obter mais informações, consulte [formatar e particionar disco](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk).|  
-|Provisão prévia do BitLocker|Este passo ativa o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado. Uma vez que o disco rígido foi particionado e formatado no passo anterior, não existem dados e a encriptação é concluída rapidamente. Para obter mais informações, consulte [provisão prévia do BitLocker](../understand/task-sequence-steps.md#BKMK_PreProvisionBitLocker).|  
-|Aplicar Sistema Operativo|Este passo prepara o ficheiro de resposta que é utilizado para instalar o sistema operativo no computador de destino e define a variável da sequência de tarefas OSDTargetSystemDrive para a letra de unidade da partição que contém os ficheiros do sistema operativo. O ficheiro de resposta e a variável são utilizados pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, veja [Aplicar Imagem do Sistema Operativo](../understand/task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).|  
-|Aplicar Definições do Windows|Este passo adiciona definições do Windows ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, consulte [aplicar definições do Windows](../understand/task-sequence-steps.md#BKMK_ApplyWindowsSettings).|  
-|Aplicar Definições de Rede|Este passo adiciona definições de Rede ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, consulte [passo de definições de rede aplicam-se](../understand/task-sequence-steps.md#BKMK_ApplyNetworkSettings).|  
-|Aplicar Controladores de Dispositivo|Este passo corresponde e instala controladores como parte da implementação do sistema operativo. Para obter mais informações, consulte [aplicar controladores automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).|  
-|Configurar Windows e ConfigMgr|Este passo efetua a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Instala o cliente do Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operativo. Para obter mais informações, consulte [configurar Windows e ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).|  
-|Ativar BitLocker|Este passo ativa a encriptação do BitLocker no disco rígido e define protetores de chave. Uma vez que o disco rígido foi pré-aprovisionado com o BitLocker, este passo é concluído rapidamente. O Windows 7 requer a adição de um protetor de chave. Se não utilizar este passo, pode executar a ferramenta da linha de comandos manage-bde.exe para definir um protetor de chave. Para obter mais informações, consulte [ativar BitLocker](../understand/task-sequence-steps.md#BKMK_EnableBitLocker).|  
+|Desativar BitLocker|Este passo desativa a encriptação BitLocker, se estiver atualmente ativada. Para mais informações, consulte [Disable BitLocker](../understand/task-sequence-steps.md#BKMK_DisableBitLocker).|  
+|Reiniciar o computador no Windows PE|Este passo reinicia o computador no Windows PE através da execução da imagem de arranque atribuída à sequência de tarefas. É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para mais informações, consulte [Restart Computer](../understand/task-sequence-steps.md#BKMK_RestartComputer).|  
+|Particionar Disco 0 - BIOS<br /><br /> Particionar Disco 0 - UEFI|Estes passos formatam e particionam a unidade especificada no computador de destino, utilizando BIOS ou UEFI. A sequência de tarefas utiliza UEFI quando deteta que o computador de destino está no modo UEFI. Para mais informações, consulte [Format and Partition Disk](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk).|  
+|Provisão prévia do BitLocker|Este passo ativa o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado. Uma vez que o disco rígido foi particionado e formatado no passo anterior, não existem dados e a encriptação é concluída rapidamente. Para mais informações, consulte [Pre-provision BitLocker](../understand/task-sequence-steps.md#BKMK_PreProvisionBitLocker).|  
+|Aplicar Sistema Operativo|Este passo prepara o ficheiro de resposta que é utilizado para instalar o sistema operativo no computador de destino e define a variável da sequência de tarefas OSDTargetSystemDrive para a letra de unidade da partição que contém os ficheiros do sistema operativo. O ficheiro de resposta e a variável são utilizados pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para mais informações, consulte [Apply Operating System Image](../understand/task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).|  
+|Aplicar Definições do Windows|Este passo adiciona definições do Windows ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para mais informações, consulte [Apply Windows Settings](../understand/task-sequence-steps.md#BKMK_ApplyWindowsSettings).|  
+|Aplicar Definições de Rede|Este passo adiciona definições de Rede ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para mais informações, consulte [Apply Network Settings Step](../understand/task-sequence-steps.md#BKMK_ApplyNetworkSettings).|  
+|Aplicar Controladores de Dispositivo|Este passo corresponde e instala controladores como parte da implementação do sistema operativo. Para mais informações, consulte [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).|  
+|Configurar Windows e ConfigMgr|Este passo efetua a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Ele instala o cliente de Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operacional. Para mais informações, consulte [Setup Windows and ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).|  
+|Ativar BitLocker|Este passo ativa a encriptação do BitLocker no disco rígido e define protetores de chave. Uma vez que o disco rígido foi pré-aprovisionado com o BitLocker, este passo é concluído rapidamente. O Windows 7 requer a adição de um protetor de chave. Se não utilizar este passo, pode executar a ferramenta da linha de comandos manage-bde.exe para definir um protetor de chave. Para mais informações, consulte [Enable BitLocker](../understand/task-sequence-steps.md#BKMK_EnableBitLocker).|  

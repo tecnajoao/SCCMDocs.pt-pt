@@ -1,5 +1,5 @@
 ---
-title: Manutenção de atualizações de software
+title: Manutenção das atualizações de software
 titleSuffix: Configuration Manager
 description: Para a manutenção de atualizações no Configuration Manager, pode agendar a tarefa de limpeza do WSUS ou pode executá-lo manualmente.
 author: aczechowski
@@ -10,14 +10,14 @@ ms.technology: configmgr-sum
 ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 3a44643870234a08169db1d55cc834e4ca5fcbb5
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: d2196890070aa842ac58bc127af8aaa876640ec4
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385495"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53417035"
 ---
-# <a name="software-updates-maintenance"></a>Manutenção de atualizações de software
+# <a name="software-updates-maintenance"></a>Manutenção das atualizações de software
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -68,7 +68,7 @@ Toda a manutenção de WSUS tem de ser executada manualmente nas bases de dados 
 - Computadores não entrar em contato com o servidor
 - Ficheiros de atualização desnecessários
 
- Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://blogs.technet.microsoft.com/configurationmgr/2016/01/26/the-complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maintenance/) postagem de blog. 
+  Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://blogs.technet.microsoft.com/configurationmgr/2016/01/26/the-complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maintenance/) postagem de blog. 
 
 ## <a name="updates-cleanup-log-entries"></a>Entradas de registo de limpeza de atualizações
  

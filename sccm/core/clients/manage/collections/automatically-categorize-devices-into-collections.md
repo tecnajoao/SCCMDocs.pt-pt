@@ -10,12 +10,12 @@ ms.assetid: 98b038b4-1a13-4228-bdb8-a12194e32b0e
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 2730464afe21705d020943d3e1566b3130c9c780
-ms.sourcegitcommit: ee434c53b3695a039b56298082b6f61f1006d9dd
+ms.openlocfilehash: b3605bc694000a86c407fcc456bb8e4115159490
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49943262"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421098"
 ---
 # <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Categorizar automaticamente os dispositivos em coleções com o System Center Configuration Manager
 
@@ -23,8 +23,8 @@ ms.locfileid: "49943262"
 
 Pode criar categorias de dispositivos, que podem ser utilizadas para colocar automaticamente os dispositivos em coleções de dispositivos quando estiver a utilizar o Configuration Manager com o Microsoft Intune. Os usuários precisam, em seguida, escolha uma categoria de dispositivo quando estes inscrevem um dispositivo no Intune. É possível alterar uma categoria de dispositivo a partir da consola do Configuration Manager.
 
-> [!IMPORTANT]  
-    >  Esse recurso funciona com o **Junho de 2016** de versão do Microsoft Intune e mais tarde. Certifique-se de que tiver sido atualizado para esta versão antes de experimentar estes procedimentos.
+> [!IMPORTANT]
+>  Esse recurso funciona com o **Junho de 2016** de versão do Microsoft Intune e mais tarde. Certifique-se de que tiver sido atualizado para esta versão antes de experimentar estes procedimentos.
 
 ## <a name="create-device-categories"></a>Criar categorias de dispositivos
 

@@ -10,12 +10,12 @@ ms.assetid: d566d85c-bf7a-40e7-8239-57640a1db5f4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bffbb3373fbcd1a9a34f526a7c73faff68ccae49
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: c9888bbcc0468356b55216491d8599ebb5f42818
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756114"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420435"
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-configuration-manager"></a>Criar uma sequência de tarefas para capturar e restaurar estado do utilizador no Configuration Manager
 
@@ -61,7 +61,7 @@ ms.locfileid: "42756114"
     >  A ação de sequência de tarefas executada antes do **Store de estado da versão** passo deve ser bem-sucedida a **Store de estado da versão** passo é iniciado.  
 
 
- Implemente esta sequência de tarefas para capturar o estado do utilizador num computador de destino. Para obter informações sobre como implementar sequências de tarefas, consulte [implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
+ Implemente esta sequência de tarefas para capturar o estado do utilizador num computador de destino. Para obter informações sobre como implementar sequências de tarefas, consulte [Deploy a task sequence](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
 
 
 
@@ -69,26 +69,26 @@ ms.locfileid: "42756114"
 
  Para adicionar passos de sequência de tarefas para restaurar o estado do utilizador, utilize os seguintes passos:
 
- 1.  Na lista **Sequência de Tarefas** , selecione uma sequência de tarefas e clique em **Editar**.  
+1. Na lista **Sequência de Tarefas** , selecione uma sequência de tarefas e clique em **Editar**.  
 
- 2.  Adicionar a **restaurar estado do utilizador** passo à sequência de tarefas. Na **Editor de sequência de tarefas**, clique em **Add**. Aponte para **estado do utilizador**e, em seguida, clique em **restaurar estado do utilizador**. Este passo estabelece uma ligação ao ponto de migração de estado, se necessário. Configurar as propriedades e opções para este passo e, em seguida, clique em **aplicar**. Para obter mais informações sobre as definições disponíveis, consulte [restaurar estado do utilizador](/sccm/osd/understand/task-sequence-steps#BKMK_RestoreUserState).  
+2. Adicione o passo **Restore User State** à sequência de tarefas. Na **Editor de sequência de tarefas**, clique em **Add**. Aponte para **estado do utilizador**e, em seguida, clique em **restaurar estado do utilizador**. Este passo estabelece uma ligação ao ponto de migração de estado, se necessário. Configurar as propriedades e opções para este passo e, em seguida, clique em **aplicar**. Para obter mais informações sobre as definições disponíveis, consulte [restaurar estado do utilizador](/sccm/osd/understand/task-sequence-steps#BKMK_RestoreUserState).  
 
-    > [!Important]  
-    >  Quando utiliza a [capturar estado do utilizador](/sccm/osd/understand/task-sequence-steps#BKMK_CaptureUserState) passo com a opção de **capturar todos os perfis de utilizador com opções padrão**, tem de selecionar o **restaurar perfis de utilizador do computador local** definição do **restaurar estado do utilizador** passo. Caso contrário, a sequência de tarefas falhará.  
+   > [!Important]  
+   >  Quando utiliza a [capturar estado do utilizador](/sccm/osd/understand/task-sequence-steps#BKMK_CaptureUserState) passo com a opção de **capturar todos os perfis de utilizador com opções padrão**, tem de selecionar o **restaurar perfis de utilizador do computador local** definição do **restaurar estado do utilizador** passo. Caso contrário, a sequência de tarefas falhará.  
 
-    > [!Note]  
-    > Se armazenar o estado do utilizador através da utilização de links locais e o restauro não for bem-sucedida, pode eliminar manualmente os links que foram criadas para armazenar os dados. A sequência de tarefas pode executar a ferramenta USMTUtils para automatizar esta ação com um [executar linha de comandos](/sccm/osd/understand/task-sequence-steps#BKMK_RunCommandLine) passo. Se utilizar o USMTUtils para eliminar o link físico, adicione uma [reiniciar o computador](/sccm/osd/understand/task-sequence-steps#BKMK_RestartComputer) passo após a execução do USMTUtils.  
+   > [!Note]  
+   > Se armazenar o estado do utilizador através da utilização de links locais e o restauro não for bem-sucedida, pode eliminar manualmente os links que foram criadas para armazenar os dados. A sequência de tarefas pode executar a ferramenta USMTUtils para automatizar esta ação com um [executar linha de comandos](/sccm/osd/understand/task-sequence-steps#BKMK_RunCommandLine) passo. Se utilizar o USMTUtils para eliminar o link físico, adicione uma [reiniciar o computador](/sccm/osd/understand/task-sequence-steps#BKMK_RestartComputer) passo após a execução do USMTUtils.  
 
- 3.  Se estiver a utilizar um ponto de migração de estado para armazenar o estado do utilizador, adicione a **Store de estado da versão** passo à sequência de tarefas. Na **Editor de sequência de tarefas**, clique em **Add**. Aponte para **estado do utilizador**e, em seguida, clique em **Store de estado da versão**. Configurar as propriedades e opções para este passo e, em seguida, clique em **aplicar**. Para obter mais informações sobre as definições disponíveis, consulte [Store de estado da versão](/sccm/osd/understand/task-sequence-steps#BKMK_ReleaseStateStore).  
+3. Se estiver a utilizar um ponto de migração de estado para armazenar o estado do utilizador, adicione a **Store de estado da versão** passo à sequência de tarefas. Na **Editor de sequência de tarefas**, clique em **Add**. Aponte para **estado do utilizador**e, em seguida, clique em **Store de estado da versão**. Configurar as propriedades e opções para este passo e, em seguida, clique em **aplicar**. Para obter mais informações sobre as definições disponíveis, consulte [Store de estado da versão](/sccm/osd/understand/task-sequence-steps#BKMK_ReleaseStateStore).  
 
-    > [!IMPORTANT]  
-    >  A ação de sequência de tarefas executada antes do **Store de estado da versão** passo deve ser bem-sucedida a **Store de estado da versão** passo é iniciado.  
+   > [!IMPORTANT]  
+   >  A ação de sequência de tarefas executada antes do **Store de estado da versão** passo deve ser bem-sucedida a **Store de estado da versão** passo é iniciado.  
 
 
- Implemente esta sequência de tarefas para restaurar o estado do utilizador num computador de destino. Para obter informações sobre como implementar sequências de tarefas, consulte [implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
+ Implemente esta sequência de tarefas para restaurar o estado do utilizador num computador de destino. Para mais informações sobre a implementação de sequências de tarefas, consulte [Deploy a task sequence](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Monitorizar a implementação de sequência de tarefas](/sccm/osd/deploy-use/monitor-operating-system-deployments#BKMK_TSDeployStatus)
+[Monitorizar a implementação da sequência de tarefas](/sccm/osd/deploy-use/monitor-operating-system-deployments#BKMK_TSDeployStatus)

@@ -10,12 +10,12 @@ ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7635dce325a2612c144c6eaa9c733b7dffc7c251
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 1c1d83f6dc0de701176bbf6eeec8936afa081829
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456214"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420690"
 ---
 # <a name="install-in-console-updates-for-configuration-manager"></a>Instalar atualizações na consola do Configuration Manager
 
@@ -165,18 +165,18 @@ Instale a atualização fora do horário comercial normal para cada site minimiz
 #### <a name="1-when-the-update-installation-starts"></a>1. Quando a instalação da atualização é iniciada  
 É apresentada com o Assistente de atualizações que apresenta uma lista das áreas de produto que a atualização se aplica a.  
 
--   Sobre o **gerais** página do assistente, configure **avisos de pré-requisitos** conforme necessário:  
+- Sobre o **gerais** página do assistente, configure **avisos de pré-requisitos** conforme necessário:  
 
-    -   Os erros de pré-requisitos interrompem sempre a instalação da atualização. Corrigi erros antes de pode tentar novamente a instalação da atualização com êxito. Para obter mais informações, consulte [repetir a instalação de uma atualização falhada](#bkmk_retry).  
+  - Os erros de pré-requisitos interrompem sempre a instalação da atualização. Corrigi erros antes de pode tentar novamente a instalação da atualização com êxito. Para obter mais informações, consulte [repetir a instalação de uma atualização falhada](#bkmk_retry).  
 
-    -   Os avisos de pré-requisitos também podem interromper a instalação da atualização. Corrigi avisos antes de repetir a instalação da atualização. Para obter mais informações, consulte [repetir a instalação de uma atualização falhada](#bkmk_retry).  
+  - Os avisos de pré-requisitos também podem interromper a instalação da atualização. Corrigi avisos antes de repetir a instalação da atualização. Para obter mais informações, consulte [repetir a instalação de uma atualização falhada](#bkmk_retry).  
 
-    -   **Ignorar quaisquer avisos de verificação de pré-requisitos e instalar esta atualização independentemente de requisitos em falta**: Defina uma condição para a instalação da atualização ignorar avisos de pré-requisitos. Esta opção permite a instalação da atualização continuar. Se não selecionar esta opção, a instalação de atualização para quando o processo encontra um aviso. A menos que executou anteriormente a verificação de pré-requisitos e os avisos de pré-requisitos fixos para um site, não utilize esta opção.  
+  - **Ignorar quaisquer avisos de verificação de pré-requisitos e instalar esta atualização independentemente de requisitos em falta**: Defina uma condição para a instalação da atualização ignorar avisos de pré-requisitos. Esta opção permite a instalação da atualização continuar. Se não selecionar esta opção, a instalação de atualização para quando o processo encontra um aviso. A menos que executou anteriormente a verificação de pré-requisitos e os avisos de pré-requisitos fixos para um site, não utilize esta opção.  
 
-      Em ambos os **Administration** e **monitorização** áreas de trabalho, as atualizações e manutenção de nó inclui um botão da faixa de opções com o nome **ignorar avisos de pré-requisitos**. Este botão fica disponível quando um pacote de atualização não consegue concluir a instalação devido a avisos de verificação de pré-requisitos. Por exemplo, instalar uma atualização sem utilizar a opção para ignorar avisos de pré-requisitos (do Assistente de atualizações). A instalação de atualização para com o estado de aviso de pré-requisitos, mas sem erros. Mais tarde, clique em **ignorar avisos de pré-requisitos** na faixa de opções. Esta ação aciona uma continuação automática da instalação, atualização que ignora os avisos de pré-requisitos. Quando utiliza esta opção, a instalação da atualização continua automaticamente após alguns minutos.  
+    Em ambos os **Administration** e **monitorização** áreas de trabalho, as atualizações e manutenção de nó inclui um botão da faixa de opções com o nome **ignorar avisos de pré-requisitos**. Este botão fica disponível quando um pacote de atualização não consegue concluir a instalação devido a avisos de verificação de pré-requisitos. Por exemplo, instalar uma atualização sem utilizar a opção para ignorar avisos de pré-requisitos (do Assistente de atualizações). A instalação de atualização para com o estado de aviso de pré-requisitos, mas sem erros. Mais tarde, clique em **ignorar avisos de pré-requisitos** na faixa de opções. Esta ação aciona uma continuação automática da instalação, atualização que ignora os avisos de pré-requisitos. Quando utiliza esta opção, a instalação da atualização continua automaticamente após alguns minutos.  
 
 
--   Quando uma atualização aplica-se para o cliente do Configuration Manager, optar por testar a atualização do cliente com um conjunto limitado de clientes. Para obter mais informações, consulte [como testar as atualizações de cliente numa coleção de pré-produção](/sccm/core/clients/manage/upgrade/test-client-upgrades).  
+- Quando uma atualização aplica-se para o cliente do Configuration Manager, optar por testar a atualização do cliente com um conjunto limitado de clientes. Para obter mais informações, consulte [como testar as atualizações de cliente numa coleção de pré-produção](/sccm/core/clients/manage/upgrade/test-client-upgrades).  
 
 
 #### <a name="2-during-the-update-installation"></a>2. Durante a instalação da atualização  
@@ -266,54 +266,54 @@ Nem todas as tarefas são concluídas imediatamente. Algumas tarefas não são i
 
 As tarefas de pós-instalação incluem:
 
--   **Instalar o serviço SMS_EXECUTIVE**
+- **Instalar o serviço SMS_EXECUTIVE**
   -   Críticos de serviço que é executado no servidor do site.
   -   Reinstalação deste serviço deverá ser concluída rapidamente.
 
 
--   **Instalar o componente SMS_DATABASE_NOTIFICATION_MONITOR**
+- **Instalar o componente SMS_DATABASE_NOTIFICATION_MONITOR**
   -   Thread do componente de críticos do site do serviço SMS_EXECUTIVE.
   -   Reinstalação deste serviço deverá ser concluída rapidamente.
 
 
--   **Instalar o componente SMS_HIERARCHY_MANAGER**
+- **Instalar o componente SMS_HIERARCHY_MANAGER**
   -   Componente de site essencial que é executado no servidor do site.
   -   Responsável de reinstalação de funções nos servidores de sistema de sites. Não apresenta o estado para reinstalação de função do sistema de sites individuais.
   -   Reinstalação deste serviço deverá ser concluída rapidamente.
 
 
--   **Instalar o componente SMS_REPLICATION_CONFIGURATION_MONITOR**
+- **Instalar o componente SMS_REPLICATION_CONFIGURATION_MONITOR**
   -   Componente de site essencial que é executado no servidor do site.
   -   Reinstalação deste serviço deverá ser concluída rapidamente.
 
 
--   **Instalar o componente SMS_POLICY_PROVIDER**
+- **Instalar o componente SMS_POLICY_PROVIDER**
   -   Componente de site essencial que é executado apenas em sites primários.
   -   Reinstalação deste serviço deverá ser concluída rapidamente.
 
 
--   **Monitorização de inicialização da replicação**   
+- **Monitorização de inicialização da replicação**   
   -   Esta tarefa apresenta apenas no site de administração central e sites primários subordinados.
   -   Dependendo do SMS_REPLICATION_CONFIGURATION_MONITOR.
   -   Deve concluir rapidamente.
 
 
--   **A atualizar o pacote de pré-produção do cliente do Configuration Manager**    
+- **A atualizar o pacote de pré-produção do cliente do Configuration Manager**    
   -   Esta tarefa apresenta até mesmo quando o cliente de pré-produção (também chamado de criação de pilotos de cliente) não está ativada para utilização.
   -   Não começa até que todos os sites na hierarquia de concluir a instalação da atualização.
 
 
--   **A atualizar a pasta Client no servidor do Site**
+- **A atualizar a pasta Client no servidor do Site**
   -   Esta tarefa não exibe se utilizar o cliente em pré-produção.  
   -   Deve concluir rapidamente.
 
 
--   **A atualizar o pacote de cliente do Configuration Manager**
+- **A atualizar o pacote de cliente do Configuration Manager**
   -   Esta tarefa não exibe se utilizar o cliente em pré-produção.  
   -   Conclusão da apenas depois de todos os sites de instalar a atualização.  
 
 
--   **A ativar funcionalidades**
+- **A ativar funcionalidades**
   -   Esta tarefa apresenta apenas no site de nível superior da hierarquia.
   -   Não começa até que todos os sites na hierarquia de concluir a instalação da atualização.
   -   Funcionalidades individuais não são apresentadas.

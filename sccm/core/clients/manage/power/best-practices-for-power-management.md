@@ -1,7 +1,7 @@
 ---
 title: Melhores práticas para gestão de energia
 titleSuffix: Configuration Manager
-description: Obter as melhores práticas para gestão de energia no System Center Configuration Manager.
+description: Obtenha melhores práticas para gestão de energia no System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,12 +10,12 @@ ms.assetid: 9f7142e1-c972-4384-853b-2da1568cb3e3
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 480f7a890e82b46e2b2d69180763f39504a47e0c
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: a08162f36c247136dd346140480e2d29be0c4017
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32344488"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424804"
 ---
 # <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Melhores práticas para gestão de energia no System Center Configuration Manager
 
@@ -40,17 +40,17 @@ Utilize as seguintes melhores práticas para gestão de energia no System Center
 
  Seguem-se alguns exemplos de computadores que pode querer excluir da gestão de energia:  
 
--   Computadores que têm de permanecer ligados.  
+- Computadores que têm de permanecer ligados.  
 
--   Computadores que os utilizadores necessitam para ligar utilizando a Ligação ao Ambiente de Trabalho Remoto .  
+- Computadores que os utilizadores necessitam para ligar utilizando a Ligação ao Ambiente de Trabalho Remoto .  
 
--   Computadores que não podem utilizar a gestão de energia.  
+- Computadores que não podem utilizar a gestão de energia.  
 
--   Computadores que tenham a função de sistema de sites de ponto de distribuição.  
+- Computadores que tenham a função de sistema de sites de ponto de distribuição.  
 
--   Computadores públicos, como computadores de quiosque, ecrãs de informações ou consolas de monitorização onde o computador e o monitor devem estar sempre ativados.  
+- Computadores públicos, como computadores de quiosque, ecrãs de informações ou consolas de monitorização onde o computador e o monitor devem estar sempre ativados.  
 
- Para obter mais informações, consulte [configurar gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).  
+  Para obter mais informações, consulte [configurar a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).  
 
 ## <a name="first-apply-power-plans-to-a-test-collection-of-computers"></a>Em primeiro lugar, aplique os esquemas de energia a uma coleção de teste de computadores  
  Teste sempre o efeito de aplicar um esquema de gestão de energia a uma coleção de teste de computadores antes de aplicar o esquema de energia a uma coleção maior de computadores.  
@@ -58,22 +58,22 @@ Utilize as seguintes melhores práticas para gestão de energia no System Center
  As definições de energia aplicadas a computadores que executam o Windows XP ou o Windows Server 2003 não são revertidas para os valores originais, mesmo que exclua o computador da gestão de energia. Em versões posteriores do Windows, excluir um computador da gestão de energia faz com que todas as definições de energia sejam revertidas para os valores originais. Não é possível reverter as definições de energia individuais para os valores originais.  
 
 ## <a name="apply-power-plan-settings-individually"></a>Aplicar as definições do plano de energia individualmente  
- Monitorize o efeito de aplicação de cada definição de energia antes de aplicar o seguinte para garantir que cada definição tem o efeito necessário. Para mais informações sobre as definições do plano de energia, consulte [definições do plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+ Monitorize o efeito de aplicação de cada definição de energia antes de aplicar o seguinte para garantir que cada definição tem o efeito necessário. Para obter mais informações sobre as definições de plano de energia, consulte [definições de plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
 ## <a name="regularly-monitor-computers-to-see-if-they-have-multiple-power-plans-applied"></a>Monitorize regularmente os computadores para verificar se têm vários esquemas de energia aplicados  
  A gestão de energia inclui um relatório que apresenta os computadores que têm mais do que um esquema de energia aplicado.  
 
  Se um computador for membro de várias coleções, em que cada aplica esquemas de energia diferentes, serão executadas as seguintes ações:  
 
--   Esquema de energia: Se forem aplicados vários valores para definições de energia para um computador, é utilizado o valor menos restritivo.  
+-   Esquema de energia: Se vários valores para as definições de energia são aplicados a um computador, é utilizado o valor menos restritivo.  
 
--   Hora de reativação: Se forem aplicadas várias horas de reativação a um computador de secretária, será utilizada a hora mais próxima da meia-noite.  
+-   Hora de reativação: Se várias horas de reativação são aplicadas a um computador de secretária, será utilizada a hora mais próxima da meia-noite.  
 
-     Para obter mais informações, consulte [computadores com vários esquemas de energia](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) no tópico [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Para obter mais informações sobre como a gestão de energia resolve conflitos, consulte [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+     Para obter mais informações, consulte [computadores com vários esquemas de energia](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) no tópico [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Para obter mais informações sobre como o gerenciamento de energia resolve conflitos, consulte [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
 ## <a name="save-or-export-power-management-information-during-the-monitoring-and-planning-phase-of-power-management"></a>Guardar ou exportar informações de gestão de energia durante a fase de monitorização e planeamento da gestão de energia  
- Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager 31 dias.  
+ Informações de gestão de energia utilizadas pelos relatórios diários são retidas na base de dados do site do Configuration Manager para 31 dias.  
 
- Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager durante 13 meses.  
+ Informações de gestão de energia utilizadas pelos relatórios diários são retidas na base de dados do site do Configuration Manager por 13 meses.  
 
- Quando executa relatórios durante as fases de monitorização, planeamento e compatibilidade de gestão de energia, guarde ou exporte os resultados de quaisquer relatórios para o qual pretende manter os dados para comparação posterior caso sejam posteriores removido pelo Configuration Manager.  
+ Quando executa relatórios durante as fases de monitorização e planeamento e compatibilidade de gestão de energia, guarde ou exporte os resultados de todos os relatórios para os quais pretende manter os dados para comparação posterior caso sejam posteriores removidos pelo Configuration Manager.  

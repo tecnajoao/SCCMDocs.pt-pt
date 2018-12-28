@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: 8187ea2a52cdb9f8139b9b644c224373e882a34e
-ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
+ms.openlocfilehash: ac7f67a02602473a7635d8c70e4b1b1dc04363bc
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53247429"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53417052"
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos com Windows 10 para a cogestão
 Pode ativar a cogestão em dispositivos Windows 10 que estão associados ao AD e o Azure AD e inscritos no Microsoft Intune e um cliente no Configuration Manager. Para novos dispositivos Windows 10 e para dispositivos já inscritos no Intune, instale o cliente de Configuration Manager antes de poderem ser cogeridos. Para dispositivos Windows 10 que já são clientes do Configuration Manager, pode inscrever os dispositivos com o Intune e ativar a cogestão na consola do Configuration Manager.
@@ -55,6 +55,7 @@ Seguem-se pré-requisitos gerais para a ativar a cogestão:
 
 ### <a name="prerequisite-azure-resource-manager-roles"></a>Funções de pré-requisitos do Azure Resource Manager
 <!--SCCMDocs issue #667--> Para obter mais informações sobre as funções do Azure, consulte [compreender as diferentes funções](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
+
 |Action|Função necessária|
 |----|----|
 |Configurar um gateway de gestão da cloud|Gestor de subscrições do Azure|
@@ -68,7 +69,7 @@ Seguem-se pré-requisitos gerais para a ativar a cogestão:
 
 - Windows 10, versão 1709 ou posterior  
 
-- [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) (associados ao AD e o Azure AD) ou do Azure AD associado a um só (este tipo é por vezes referido como "cloud associados a um domínio").
+- [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) (associados ao AD e o Azure AD) ou do Azure AD associado a um só (este tipo é por vezes referido como "cloud associados a um domínio").
 
 
 ### <a name="additional-prerequisites-for-devices-without-the-configuration-manager-client"></a>Pré-requisitos adicionais para dispositivos sem o cliente do Configuration Manager

@@ -10,12 +10,12 @@ ms.assetid: 41cdebfe-b595-40aa-a385-32e0746255ed
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c7fbba9bc6c56a7d4b7a4fc908bfd7fdc9ffa762
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: df7d443a9f611278296c729949d5dfb764a43e9e
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458335"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420793"
 ---
 # <a name="support-center-user-interface-reference"></a>Referência de interface de usuário do Centro de suporte
 
@@ -62,7 +62,7 @@ Na **opções** caixa de diálogo, pode:
 - Repor os avisos. Todas as mensagens de aviso que anteriormente suprimidos novamente apresentadas quando acionadas.  
 - Repor o caminho de ficheiro temporário na sua predefinição, `%UserProfile%\AppData\Local\Microsoft\ConfigMgrSupportCenter`
 
-#### <a name="exit"></a>Saída
+#### <a name="exit"></a>Sair
 Fechar o Centro de suporte.
 
 
@@ -81,7 +81,7 @@ Selecione o menu pendente na parte inferior a **recolher dados selecionados** bo
 
 Embora o Support Center está a recolher dados, selecione **Cancelar coleção** interrompê-lo.
 
-#### <a name="data-types"></a>tipos de dados
+#### <a name="data-types"></a>Tipos de dados
 Quando seleciona a caixa de verificação para uma opção, o Support Center recolhe esse tipo de dados da próxima vez que selecione **recolher dados selecionados**. Estão disponíveis os seguintes tipos:  
 
 - **Ficheiros de registo**: Ficheiros de registo de cliente incluindo registos de configuração  
@@ -228,13 +228,13 @@ Os seguintes itens neste menu uma ação de cliente relacionadas com conteúdo d
 
     - **Pedidos de conteúdo de tempo limite**: Se quaisquer pedidos de localização de conteúdo tem de estar em execução há demasiado tempo, esta ação deixa o pedido.  
 
- - **Avaliação de implementação de aplicação**: Inicia uma tarefa que avalia aplicações implementadas.  
+  - **Avaliação de implementação de aplicação**: Inicia uma tarefa que avalia aplicações implementadas.  
 
- - **Avaliação da implementação de atualizações de software**: Inicia uma tarefa que avalia atualizações de software implementadas.  
+  - **Avaliação da implementação de atualizações de software**: Inicia uma tarefa que avalia atualizações de software implementadas.  
 
- - **Análise da origem de atualizações de software**: Inicia uma tarefa que analisa as localizações de origem das atualizações.  
+  - **Análise da origem de atualizações de software**: Inicia uma tarefa que analisa as localizações de origem das atualizações.  
 
- - **Atualização da lista de origem Windows Installer**: Inicia uma tarefa que atualiza a localização de origem para instalações do Windows Installer (MSI).  
+  - **Atualização da lista de origem Windows Installer**: Inicia uma tarefa que atualiza a localização de origem para instalações do Windows Installer (MSI).  
 
 #### <a name="content-view"></a>Vista de conteúdo
 Ver aplicações, pacotes e atualizações carregados no cliente. Quando seleciona uma aplicação, pacote ou atualização, pode ver detalhes sobre esse conteúdo. Para alguns aplicativos, também pode efetuar as seguintes ações:  
@@ -561,7 +561,7 @@ Na **opções** caixa de diálogo, pode:
 - Repor o caminho de ficheiro temporário na sua predefinição, `%UserProfile%\AppData\Local\Microsoft\ConfigMgrSupportCenterViewer`  
 
 
-#### <a name="exit"></a>Saída
+#### <a name="exit"></a>Sair
 Sai do Support Center Viewer
 
 

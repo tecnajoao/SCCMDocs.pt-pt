@@ -10,12 +10,12 @@ ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bec95b13ecba5ae5238d758ae06566042a95d939
-ms.sourcegitcommit: 303d826f45c8fd9a05d8883afc1ca645e56bd576
+ms.openlocfilehash: 5e62983f76b0f2a4277edfab08d4321da5d4a258
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51269251"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416491"
 ---
 # <a name="task-sequence-steps-in-configuration-manager"></a>Passos de sequência de tarefas no Configuration Manager
 
@@ -201,30 +201,30 @@ ms.locfileid: "51269251"
 #### <a name="os-image-actions"></a>Ações de imagem do SO
  O **Apply Operating System Image** passo executa as ações seguintes quando utilizar uma imagem de SO:  
 
- 1.  Elimine todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelos  **\_SMSTSUserStatePath** variável.  
+1. Elimine todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelos  **\_SMSTSUserStatePath** variável.  
 
- 2.  Extraia os conteúdos do ficheiro. wim especificado para a partição de destino especificado.  
+2. Extraia os conteúdos do ficheiro. wim especificado para a partição de destino especificado.  
 
- 3.  Prepare o arquivo de resposta:  
+3. Prepare o arquivo de resposta:  
 
-    1.  Crie um novo programa de configuração do Windows resposta ficheiro predefinido (Sysprep. inf ou Unattend. xml) para o sistema operativo implementado.  
+   1.  Crie um novo programa de configuração do Windows resposta ficheiro predefinido (Sysprep. inf ou Unattend. xml) para o sistema operativo implementado.  
 
-    2.  Intercale quaisquer valores do arquivo de resposta fornecido pelo usuário.  
+   2.  Intercale quaisquer valores do arquivo de resposta fornecido pelo usuário.  
 
- 4.  Copie carregadores de inicialização do Windows para a partição ativa.  
+4. Copie carregadores de inicialização do Windows para a partição ativa.  
 
- 5.  Defina o Boot. ini ou a base de dados de configuração de arranque (BCD) para referenciar o sistema operativo recentemente instalado.  
+5. Defina o Boot. ini ou a base de dados de configuração de arranque (BCD) para referenciar o sistema operativo recentemente instalado.  
 
 #### <a name="os-upgrade-package-actions"></a>Ações de pacote de atualização de SO
  O **Apply Operating System Image** passo executa as ações seguintes quando utilizar um pacote de atualização de SO:  
 
- 1.  Elimine todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelos  **\_SMSTSUserStatePath** variável.  
+1. Elimine todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelos  **\_SMSTSUserStatePath** variável.  
 
- 2.  Prepare o arquivo de resposta:  
+2. Prepare o arquivo de resposta:  
 
-    1.  Crie um ficheiro de resposta novo com valores padrão criados pelo Configuration Manager.  
+   1.  Crie um ficheiro de resposta novo com valores padrão criados pelo Configuration Manager.  
 
-    2.  Intercale quaisquer valores do arquivo de resposta fornecido pelo usuário.  
+   2.  Intercale quaisquer valores do arquivo de resposta fornecido pelo usuário.  
 
 
 ### <a name="properties"></a>Propriedades  

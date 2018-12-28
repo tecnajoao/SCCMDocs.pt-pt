@@ -1,7 +1,7 @@
 ---
 title: Terms and Conditions
 titleSuffix: Configuration Manager
-description: Implemente termos e condições para grupos de utilizadores no System Center Configuration Manager.
+description: Implemente termos e condições a grupos de utilizadores no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
@@ -10,47 +10,47 @@ ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cda5f01842f08ccc3e8dfbd17078fe157954d985
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: e7f5eefe532c3a0a48bc0703365bf07028bfae71
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32353475"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419636"
 ---
-# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar os termos e condições com o System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar termos e condições com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode implementar o System Center Configuration Manager termos e condições para grupos de utilizadores para explicar como a inscrição, o acesso a recursos de trabalho e a utilização do Portal da empresa afetam os dispositivos e utilizadores. Os utilizadores têm de aceitar os termos e condições antes de poderem utilizar o Portal da Empresa para inscrever e aceder ao seu trabalho.  
+Pode implementar o System Center Configuration Manager termos e condições a grupos de utilizadores para explicar como inscrição de dispositivos, acesso a recursos de trabalho e a utilização do Portal da empresa afetam os dispositivos e utilizadores. Os utilizadores têm de aceitar os termos e condições antes de poderem utilizar o Portal da Empresa para inscrever e aceder ao seu trabalho.  
 
  ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Trabalhar com políticas de termos e condições no System Center Configuration Manager  
  Pode criar e implementar vários conjuntos de termos e condições. Pode também produzir versões dos mesmos termos e condições em idiomas diferentes e, em seguida, implementá-los nos grupos adequados.  
 
 ## <a name="to-create-a-terms-and-conditions"></a>Para criar termos e condições  
 
-1.  Na consola do Configuration Manager, aceda a **Recursos e Compatibilidade** > **Descrição Geral** > **Definições de Compatibilidade** > **Termos e Condições**.  
+1. Na consola do Configuration Manager, aceda a **Recursos e Compatibilidade** > **Descrição Geral** > **Definições de Compatibilidade** > **Termos e Condições**.  
 
-2.  Clique em **Criar Termos e Condições** para criar novos termos e condições.  
+2. Clique em **Criar Termos e Condições** para criar novos termos e condições.  
 
-3.  Na página **Geral** , especifique as seguintes informações:  
+3. Na página **Geral** , especifique as seguintes informações:  
 
-    -   **Nome** -um nome exclusivo apresentado na consola do Configuration Manager  
+   - **Nome** -um nome exclusivo apresentado na consola do Configuration Manager  
 
-    -   **Descrição** - detalhes que o ajudam a identificar os termos e condições na consola do Configuration Manager  
-
-     Em seguida, clique em **Seguinte**.  
-
-4.  Na página **Termos** , especifique as seguintes informações:  
-
-    -   **Título** - O título apresentado aos utilizadores no Portal da Empresa  
-
-    -   **Texto para os termos** - os termos e condições apresentados aos utilizadores no Portal da Empresa  
-
-    -   **Texto a explicar o que significa se o utilizador aceita** - marca os utilizadores que veem a aceitação. **Exemplo**: "Concordo com os termos e condições."  
+   - **Descrição** - detalhes que o ajudam a identificar os termos e condições na consola do Configuration Manager  
 
      Em seguida, clique em **Seguinte**.  
 
-5.  Conclua o assistente para criar os novos termos e condições. Os novos termos e condições são apresentados no nó Termos e Condições da área de trabalho Recursos e Compatibilidade.  
+4. Na página **Termos** , especifique as seguintes informações:  
+
+   - **Título** - O título apresentado aos utilizadores no Portal da Empresa  
+
+   - **Texto para os termos** - os termos e condições apresentados aos utilizadores no Portal da Empresa  
+
+   - **Texto a explicar o que significa se o utilizador aceita** - marca os utilizadores que veem a aceitação. **Exemplo**: "Concordo com os termos e condições."  
+
+     Em seguida, clique em **Seguinte**.  
+
+5. Conclua o assistente para criar os novos termos e condições. Os novos termos e condições são apresentados no nó Termos e Condições da área de trabalho Recursos e Compatibilidade.  
 
 ## <a name="to-deploy-a-terms-and-conditions"></a>Para implementar termos e condições  
 
@@ -117,4 +117,4 @@ Pode implementar o System Center Configuration Manager termos e condições para
      Recomendamos que aumente o número da versão e solicite a aceitação sempre que efetuar alterações significativas aos termos e condições. Mantenha o número da versão atual se, por exemplo, estiver a corrigir erros de digitação ou a alterar a formatação.
 
 > [!div class="button"]
-[< Anterior passo](configure-intune-subscription.md)[passo seguinte >](create-service-connection-point.md)
+> [< Anterior passo](configure-intune-subscription.md)[passo seguinte >  ](create-service-connection-point.md)

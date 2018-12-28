@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: a76582e853c2bcacdbd93723dc15b12d3b25f37c
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: aae0951ddf32ce1d58a29b034acef96b55ab85a0
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384445"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414808"
 ---
 # <a name="manually-deploy-software-updates"></a>Implementar manualmente atualizações de software  
 
@@ -74,8 +74,7 @@ Antes de implementar as atualizações de software, transferir o conteúdo para 
 
 
 ### <a name="process-to-download-content-for-the-software-update-group"></a>Processo para transferir conteúdo para o grupo de atualizações de software
-[!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
-
+[!INCLUDE [downloadupdates](../includes/downloadupdates.md)]
 
 ### <a name="process-to-monitor-content-status"></a>Processo para monitorizar o estado do conteúdo
 1. Para monitorizar o estado do conteúdo das atualizações de software, vá para o **monitorização** área de trabalho na consola do Configuration Manager. Expanda **estado de distribuição**e, em seguida, selecione a **estado do conteúdo** nó.  
@@ -92,88 +91,88 @@ Depois de determinar as atualizações que pretende implementar e adicioná-los 
 
 ### <a name="process-to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Processo para implementar manualmente as atualizações de software de um grupo de atualização de software  
 
-1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **atualizações de Software**e selecione o **grupos de atualização de Software** nó.  
+1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **atualizações de Software**e selecione o **grupos de atualização de Software** nó.  
 
-2.  Selecione o grupo de atualização de software que pretende implementar. Clique em **Deploy** na faixa de opções.   
+2. Selecione o grupo de atualização de software que pretende implementar. Clique em **Deploy** na faixa de opções.   
 
-3.  Sobre o **gerais** página do Assistente de atualizações de Software implementar, configurar as seguintes definições:  
+3. Sobre o **gerais** página do Assistente de atualizações de Software implementar, configurar as seguintes definições:  
 
-    -   **Nome**: Especifique o nome para a implementação. A implementação tem de ter um nome exclusivo que descreve a sua finalidade e distinga de outras implementações do site. Este campo de nome tem um limite de 256 carateres. Por predefinição, o Configuration Manager disponibiliza automaticamente um nome para a implementação no seguinte formato: `Microsoft Software Updates - YYYY-MM-DD <time>`  
+   -   **Nome**: Especifique o nome para a implementação. A implementação tem de ter um nome exclusivo que descreve a sua finalidade e distinga de outras implementações do site. Este campo de nome tem um limite de 256 carateres. Por predefinição, o Configuration Manager disponibiliza automaticamente um nome para a implementação no seguinte formato: `Microsoft Software Updates - YYYY-MM-DD <time>`  
 
-    -   **Descrição**: Especifique uma descrição para a implementação. A descrição é opcional, mas fornece uma descrição geral da implantação. Inclua outras informações relevantes que ajudem a identificar e diferenciá-lo entre outras, no site. O campo de descrição tem um limite de 256 carateres e tem um valor em branco por predefinição.  
+   -   **Descrição**: Especifique uma descrição para a implementação. A descrição é opcional, mas fornece uma descrição geral da implantação. Inclua outras informações relevantes que ajudem a identificar e diferenciá-lo entre outras, no site. O campo de descrição tem um limite de 256 carateres e tem um valor em branco por predefinição.  
 
-    -   **Grupo de atualizações de Software/atualização de software**: Certifique-se de que o grupo de atualização de software apresentados ou atualização de software está correta.  
+   -   **Grupo de atualizações de Software/atualização de software**: Certifique-se de que o grupo de atualização de software apresentados ou atualização de software está correta.  
 
-    -   **Selecione o modelo de implementação**: Especifique se pretende aplicar um modelo de implementação anteriormente guardado. Configure um modelo de implementação para guardar as propriedades de implementação de atualização de software comuns. Em seguida, aplica o modelo ao implementar atualizações de software no futuro. Estes modelos economizar tempo e ajudam a garantir a consistência entre implementações semelhantes.  
+   -   **Selecione o modelo de implementação**: Especifique se pretende aplicar um modelo de implementação anteriormente guardado. Configure um modelo de implementação para guardar as propriedades de implementação de atualização de software comuns. Em seguida, aplica o modelo ao implementar atualizações de software no futuro. Estes modelos economizar tempo e ajudam a garantir a consistência entre implementações semelhantes.  
 
-    -   **Coleção**: Especifique a coleção para a implementação. Dispositivos da coleção recebem as atualizações de software nesta implementação.  
+   -   **Coleção**: Especifique a coleção para a implementação. Dispositivos da coleção recebem as atualizações de software nesta implementação.  
 
-4.  Sobre o **definições de implementação** página, configure as seguintes definições:  
+4. Sobre o **definições de implementação** página, configure as seguintes definições:  
 
-    -   **Tipo de implementação**: Especifique o tipo de implementação para a implementação de atualização de software.  
+   -   **Tipo de implementação**: Especifique o tipo de implementação para a implementação de atualização de software.  
 
-        > [!IMPORTANT]  
-        >  Depois de criar a implementação de atualização de software, não é possível alterar o tipo de implementação.  
+       > [!IMPORTANT]  
+       >  Depois de criar a implementação de atualização de software, não é possível alterar o tipo de implementação.  
 
-         - Selecione **necessário** para criar uma implementação de atualização de software obrigatórias. As atualizações de software são automaticamente instaladas nos clientes antes do prazo de instalação que configurar.  
+        - Selecione **necessário** para criar uma implementação de atualização de software obrigatórias. As atualizações de software são automaticamente instaladas nos clientes antes do prazo de instalação que configurar.  
 
-         - Selecione **disponível** para criar uma implementação de atualização de software opcional. Esta implementação está disponível para os usuários instalem a partir do Centro de Software.  
+        - Selecione **disponível** para criar uma implementação de atualização de software opcional. Esta implementação está disponível para os usuários instalem a partir do Centro de Software.  
 
-        > [!NOTE]  
-        >  Ao implementar um grupo de atualização de software como **necessário**, os clientes transferir o conteúdo em segundo plano e irá cumprir as definições de BITS, se configurado.  
-        > 
-        > Para atualização de software implementados como de grupos **disponível**, os clientes transfiram conteúdos em primeiro plano e ignorar as definições de BITS.  
+       > [!NOTE]  
+       >  Ao implementar um grupo de atualização de software como **necessário**, os clientes transferir o conteúdo em segundo plano e irá cumprir as definições de BITS, se configurado.  
+       > 
+       > Para atualização de software implementados como de grupos **disponível**, os clientes transfiram conteúdos em primeiro plano e ignorar as definições de BITS.  
 
-    -   **Usar o Wake-on-LAN para reativar os clientes para as implementações necessárias**: Especifica se pretende ativar a reativação por LAN na data limite. Reativação por LAN envia pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. O site é reativado por todos os computadores que estejam no modo de suspensão quando for atingido o prazo de instalação, pelo que pode iniciar a instalação. Os clientes que estejam no modo de suspensão e que não necessitam de quaisquer atualizações de software na implementação não são iniciados. Por predefinição, esta definição não está ativada. Só está disponível para **necessário** implementações. Antes de utilizar esta opção, configure computadores e redes para reativação por LAN. Para obter mais informações, consulte [como configurar a reativação por LAN](/sccm/core/clients/deploy/configure-wake-on-lan).  
+   -   **Usar o Wake-on-LAN para reativar os clientes para as implementações necessárias**: Especifica se pretende ativar a reativação por LAN na data limite. Reativação por LAN envia pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. O site é reativado por todos os computadores que estejam no modo de suspensão quando for atingido o prazo de instalação, pelo que pode iniciar a instalação. Os clientes que estejam no modo de suspensão e que não necessitam de quaisquer atualizações de software na implementação não são iniciados. Por predefinição, esta definição não está ativada. Só está disponível para **necessário** implementações. Antes de utilizar esta opção, configure computadores e redes para reativação por LAN. Para obter mais informações, consulte [como configurar a reativação por LAN](/sccm/core/clients/deploy/configure-wake-on-lan).  
 
-    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que os clientes reportam ao site.  
+   -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que os clientes reportam ao site.  
 
-5.  Sobre o **agendamento** página, configure as seguintes definições:  
+5. Sobre o **agendamento** página, configure as seguintes definições:  
 
-    -   **Avaliação da agenda**: Especifique o tempo que o Configuration Manager avalia o tempo disponível e o prazo de instalação. Opte por utilizar Hora Universal Coordenada (UTC) ou na hora local do computador que executa a consola do Configuration Manager.  
+   -   **Avaliação da agenda**: Especifique o tempo que o Configuration Manager avalia o tempo disponível e o prazo de instalação. Opte por utilizar Hora Universal Coordenada (UTC) ou na hora local do computador que executa a consola do Configuration Manager.  
 
-        - Quando seleciona **hora local do cliente** aqui e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software**, a hora atual no computador com o Consola do Configuration Manager é utilizada para avaliar se as atualizações estiverem disponíveis. Este comportamento é o mesmo com o **prazo de instalação** e a hora quando as atualizações são instaladas num cliente. Se o cliente estiver num fuso horário diferente, estas ações ocorrem quando a hora do cliente atinge o tempo de avaliação.  
+       - Quando seleciona **hora local do cliente** aqui e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software**, a hora atual no computador com o Consola do Configuration Manager é utilizada para avaliar se as atualizações estiverem disponíveis. Este comportamento é o mesmo com o **prazo de instalação** e a hora quando as atualizações são instaladas num cliente. Se o cliente estiver num fuso horário diferente, estas ações ocorrem quando a hora do cliente atinge o tempo de avaliação.  
 
-    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
+   -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
 
-        -   **Assim que possível**: Disponibiliza as atualizações de software na implementação aos clientes logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação e as atualizações de software estão disponíveis para instalação.  
+       -   **Assim que possível**: Disponibiliza as atualizações de software na implementação aos clientes logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação e as atualizações de software estão disponíveis para instalação.  
 
-        -   **Hora específica**: Torna as atualizações de software incluídas na implementação aos clientes numa data e hora específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação. No entanto, as atualizações de software na implementação não estão disponíveis para instalação após a data e hora configuradas.  
+       -   **Hora específica**: Torna as atualizações de software incluídas na implementação aos clientes numa data e hora específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação. No entanto, as atualizações de software na implementação não estão disponíveis para instalação após a data e hora configuradas.  
 
-    -   **Prazo de instalação**: Estas opções só estão disponíveis para **necessário** implementações. Selecione uma das seguintes definições para especificar o prazo de instalação das atualizações de software da implementação  
+   -   **Prazo de instalação**: Estas opções só estão disponíveis para **necessário** implementações. Selecione uma das seguintes definições para especificar o prazo de instalação das atualizações de software da implementação  
 
-        -   **Assim que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
+       -   **Assim que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
 
-        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software da implementação numa hora e data específicas.  
+       -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software da implementação numa hora e data específicas.  
 
-            - O prazo da instalação real é apresentada acrescida além de um período de tempo aleatório de até duas horas. O recurso aleatório reduz o impacto potencial de clientes na coleção de instalação de atualizações na implementação ao mesmo tempo.   
+           - O prazo da instalação real é apresentada acrescida além de um período de tempo aleatório de até duas horas. O recurso aleatório reduz o impacto potencial de clientes na coleção de instalação de atualizações na implementação ao mesmo tempo.   
 
-            - Para desativar o atraso de aleatoriedade da instalação de atualizações de software necessárias, configure o definição de cliente **desativar a aleatoriedade de prazos** no **agente do computador** grupo. Para obter mais informações, consulte [definições do agente do computador cliente](/sccm/core/clients/deploy/about-client-settings#computer-agent).  
+           - Para desativar o atraso de aleatoriedade da instalação de atualizações de software necessárias, configure o definição de cliente **desativar a aleatoriedade de prazos** no **agente do computador** grupo. Para obter mais informações, consulte [definições do agente do computador cliente](/sccm/core/clients/deploy/about-client-settings#computer-agent).  
 
-    -  **Trasar imposição para esta implementação, de acordo com as preferências do usuário, até o período de tolerância definido nas definições de cliente**: Ative esta definição dar aos utilizadores mais tempo para instalar atualizações de software necessárias para além do prazo.  
+   -  **Trasar imposição para esta implementação, de acordo com as preferências do usuário, até o período de tolerância definido nas definições de cliente**: Ative esta definição dar aos utilizadores mais tempo para instalar atualizações de software necessárias para além do prazo.  
 
-        - Este comportamento é normalmente exigido quando um computador estiver desativado para muito tempo e tem de instalar várias atualizações de software ou aplicativos. Por exemplo, quando um usuário retorna de férias, têm de aguardar por muito tempo, pois o cliente instala implementações em atraso.  
+       - Este comportamento é normalmente exigido quando um computador estiver desativado para muito tempo e tem de instalar várias atualizações de software ou aplicativos. Por exemplo, quando um usuário retorna de férias, têm de aguardar por muito tempo, pois o cliente instala implementações em atraso.  
 
-        - Configure este período de tolerância com a propriedade **período de tolerância para a imposição de após a implementação do prazo (horas)** nas definições do cliente. Para obter mais informações, consulte a [agente do computador](/sccm/core/clients/deploy/about-client-settings#computer-agent) secção. O período de tolerância de imposição aplica-se a todas as implementações com esta opção ativada e direcionadas para dispositivos em que implementou também a definição de cliente.  
+       - Configure este período de tolerância com a propriedade **período de tolerância para a imposição de após a implementação do prazo (horas)** nas definições do cliente. Para obter mais informações, consulte a [agente do computador](/sccm/core/clients/deploy/about-client-settings#computer-agent) secção. O período de tolerância de imposição aplica-se a todas as implementações com esta opção ativada e direcionadas para dispositivos em que implementou também a definição de cliente.  
 
-        - Após o prazo, o cliente instala as atualizações de software na primeira janela não comerciais, que o utilizador configurado, até esse período de tolerância. No entanto, o utilizador ainda pode abrir o Centro de Software e instalar as atualizações de software em qualquer altura. Assim que o período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.  
+       - Após o prazo, o cliente instala as atualizações de software na primeira janela não comerciais, que o utilizador configurado, até esse período de tolerância. No entanto, o utilizador ainda pode abrir o Centro de Software e instalar as atualizações de software em qualquer altura. Assim que o período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.  
 
-6.  Sobre o **experiência de utilizador** página, configure as seguintes definições:  
+6. Sobre o **experiência de utilizador** página, configure as seguintes definições:  
 
-    -   **Notificações do utilizador**: Especifique se pretende apresentar a notificação no Centro de Software em configurada **hora de disponibilização do Software**. Esta definição controla se é necessário notificar os utilizadores nos computadores cliente. Para **disponível** implementações, não é possível selecionar a opção de **ocultar no Centro de Software e em todas as notificações**.  
+   -   **Notificações do utilizador**: Especifique se pretende apresentar a notificação no Centro de Software em configurada **hora de disponibilização do Software**. Esta definição controla se é necessário notificar os utilizadores nos computadores cliente. Para **disponível** implementações, não é possível selecionar a opção de **ocultar no Centro de Software e em todas as notificações**.  
 
-    -   **Comportamento do prazo**: Esta definição só é configurável para **necessário** implementações. Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+   -   **Comportamento do prazo**: Esta definição só é configurável para **necessário** implementações. Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-    -   **Comportamento do reinício do dispositivo**: Esta definição só é configurável para **necessário** implementações. Especifique se pretende suprimir um reinício de sistema nos servidores e estações de trabalho se uma reinicialização é necessária para concluir a instalação da atualização.  
+   -   **Comportamento do reinício do dispositivo**: Esta definição só é configurável para **necessário** implementações. Especifique se pretende suprimir um reinício de sistema nos servidores e estações de trabalho se uma reinicialização é necessária para concluir a instalação da atualização.  
 
-        > [!WARNING]  
-        >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor, ou quando não quiser que os computadores de destino sejam reiniciados por predefinição. No entanto, este método pode deixar computadores num Estado não seguro. Permitir que um ajuda de reinício forçado garantir conclusão imediata da instalação de atualização de software.  
+       > [!WARNING]  
+       >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor, ou quando não quiser que os computadores de destino sejam reiniciados por predefinição. No entanto, este método pode deixar computadores num Estado não seguro. Permitir que um ajuda de reinício forçado garantir conclusão imediata da instalação de atualização de software.  
 
-    -   **Processamento para dispositivos Windows Embedded do filtro de escrita**: Esta definição controla o comportamento de instalação em dispositivos Windows Embedded que estão ativados com um filtro de escrita. Escolha a opção para consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Quando seleciona esta opção, é necessário um reinício e as alterações sejam mantidas no dispositivo. Caso contrário, a atualização é instalada, aplicada na sobreposição temporária e confirmada posteriormente.  
+   -   **Processamento para dispositivos Windows Embedded do filtro de escrita**: Esta definição controla o comportamento de instalação em dispositivos Windows Embedded que estão ativados com um filtro de escrita. Escolha a opção para consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Quando seleciona esta opção, é necessário um reinício e as alterações sejam mantidas no dispositivo. Caso contrário, a atualização é instalada, aplicada na sobreposição temporária e confirmada posteriormente.  
 
-        -  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
+       -  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
 
-    - **Comportamento de reavaliação de implementação após o reinício de atualizações de software**: Selecione esta definição para configurar as implementações de atualizações de software para que os clientes executem uma análise de compatibilidade de atualizações de software imediatamente após um cliente, instala as atualizações de software e reinicializações. Esta definição permite que o cliente Verifique a existência de atualizações adicionais que se tornam aplicáveis após o cliente é reiniciado, em seguida, instala-os durante a mesma janela de manutenção.  
+   - **Comportamento de reavaliação de implementação após o reinício de atualizações de software**: Selecione esta definição para configurar as implementações de atualizações de software para que os clientes executem uma análise de compatibilidade de atualizações de software imediatamente após um cliente, instala as atualizações de software e reinicializações. Esta definição permite que o cliente Verifique a existência de atualizações adicionais que se tornam aplicáveis após o cliente é reiniciado, em seguida, instala-os durante a mesma janela de manutenção.  
 
 7. Sobre o **alertas** página, configure a forma como o Configuration Manager gera alertas para esta implementação. Alertas do Configuration Manager de atualizações de software recente de revisão da **atualizações de Software** nó da **biblioteca de Software** área de trabalho. Se também estiver a utilizar o System Center Operations Manager, configure os seus alertas também. Apenas configurar alertas para **necessário** implementações.  
 
@@ -221,7 +220,7 @@ Depois de determinar as atualizações que pretende implementar e adicioná-los 
 
     - **Nenhum pacote de implementação**: A partir da versão 1806, implemente atualizações de software em dispositivos sem primeiro baixar e distribuir conteúdo para pontos de distribuição. Esta definição é benéfica ao lidar com conteúdo da atualização extremamente grandes. Também usá-lo quando pretender que sempre clientes a obter o conteúdo do serviço de nuvem do Microsoft Update. Os clientes neste cenário também podem transferir o conteúdo de elementos que já tenham o conteúdo necessário. O cliente continua a gerir a transferência do conteúdo, o Configuration Manager, portanto, pode utilizar a funcionalidade de cache ponto a ponto do Configuration Manager ou outras tecnologias, como a Otimização da entrega. Esta funcionalidade suporta qualquer tipo de atualização suportado pela gestão de atualizações de software do Configuration Manager, incluindo o Windows e atualizações do Office.<!--1357933-->  
 
-10. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).  
+10. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).  
 
     > [!Note]  
     > Se já realizou [passo 3: Transferir o conteúdo para o grupo de atualizações de software](#BKMK_3DownloadContent), em seguida, o assistente não apresenta o **pacote de implementação**, **pontos de distribuição**, e **deseleçãodeidioma** páginas. Avance para o [resumo](#bkmk_summary) página do assistente.  
@@ -241,9 +240,9 @@ Depois de determinar as atualizações que pretende implementar e adicioná-los 
 
     -  O nome do modelo pode consistir em carateres ASCII alfanuméricos, bem como `\` (barra invertida) ou `'` (plica).  
 
-17. Clique em **Seguinte** para implementar a atualização de software.  
+14. Clique em **Seguinte** para implementar a atualização de software.  
 
- Depois de concluir o assistente, o Configuration Manager transfere as atualizações de software para a biblioteca de conteúdos no servidor do site. Em seguida, distribui o conteúdo para pontos de distribuição configurados e implementa o grupo de atualizações de software a clientes da coleção de destino. Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](/sum/understand/software-updates-introduction#BKMK_DeploymentProcess).  
+    Depois de concluir o assistente, o Configuration Manager transfere as atualizações de software para a biblioteca de conteúdos no servidor do site. Em seguida, distribui o conteúdo para pontos de distribuição configurados e implementa o grupo de atualizações de software a clientes da coleção de destino. Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](/sum/understand/software-updates-introduction#BKMK_DeploymentProcess).  
 
 
 

@@ -10,18 +10,18 @@ ms.assetid: 2a7d7170-1933-40e9-96d6-74a6eb7278e2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c538c3b7668cc93069f0805b98f29586c3d7c86c
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 391ecbd4ff9f863f41454786e8f8232b31a112a5
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32351698"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418327"
 ---
 # <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar certificados para comunicações fidedignas para a Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager no\-local gestão de dispositivos móveis requer o ponto de registo, ponto proxy de registo, ponto de distribuição e gestão de dispositivos do ponto de funções de sistema de sites para ser definido para comunicações fidedignas com os dispositivos geridos. Os servidores do sistema de sites que alojem uma ou mais dessas funções têm de ter um certificado PKI exclusivo vinculado ao servidor Web nesse sistema. Um certificado com a mesmo raiz do certificado nos servidores também tem de ser armazenado nos dispositivos geridos para estabelecer comunicação fidedigna com eles.  
+System Center Configuration Manager no\-confiável de locais de gestão de dispositivos móveis requer o ponto de registo, ponto proxy de registo, ponto de distribuição e gestão de dispositivos do ponto de funções de sistema de sites para ser configuradas para comunicações com dispositivos geridos. Os servidores do sistema de sites que alojem uma ou mais dessas funções têm de ter um certificado PKI exclusivo vinculado ao servidor Web nesse sistema. Um certificado com a mesmo raiz do certificado nos servidores também tem de ser armazenado nos dispositivos geridos para estabelecer comunicação fidedigna com eles.  
 
  Para dispositivos associados a um domínio, os Serviços de Certificados do Active Directory instalam automaticamente o certificado necessário com a raiz fidedigna em todos os dispositivos. Para dispositivos não associados a um domínio, tem de obter um certificado válido com uma raiz fidedigna através de outros meios. Se utilizar a AC do site como a raiz fidedigna (que é a utilizada pelo Active Directory para dispositivos associados a um domínio), os servidores do sistema de sites para o ponto de registo e o ponto proxy de registo têm de ter um certificado emitido por essa AC vinculado aos mesmos.  
 
@@ -32,17 +32,17 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 > [!IMPORTANT]  
 >  Existem várias formas de configurar os certificados para comunicações fidedignas entre dispositivos e os servidores de sistema de sites para no\-no local a gestão de dispositivos móveis. As informações fornecidas neste artigo são um exemplo de uma forma de fazê-lo. Este método requer a execução de um servidor no site com a instalação da função Serviços de Certificados do Active Directory e a função dos serviços Autoridade de Certificação e Inscrição de Autoridade de Certificação via Web. Consulte [Serviços de Certificados do Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=115018) para mais informações e orientação sobre esta função do Windows Server.  
 
- Para configurar o site do Configuration Manager para as comunicações SSL necessárias para nos\-local gestão de dispositivos móveis, siga estes passos de alto nível:  
+ Para configurar o site do Configuration Manager para as comunicações SSL necessárias para nos\-locais gestão de dispositivos móveis, siga estes passos de alto nível:  
 
 -   [Configurar a autoridade de certificação (AC) para publicação de CRL](#bkmk_configCa)  
 
 -   [Criar o modelo de certificado de servidor web na AC](#bkmk_certTempl)  
 
--   [Pedir o certificado de servidor web para cada função do sistema de sites](#bkmk_requestCert)  
+-   [Pedir o certificado de servidor web para cada função de sistema de sites](#bkmk_requestCert)  
 
 -   [Vincular o certificado para o servidor web](#bkmk_bindCert)  
 
--   [Exportar o certificado com a mesma raiz como o certificado de servidor web](#bkmk_exportCert)  
+-   [Exporte o certificado com a mesma raiz como o certificado de servidor web](#bkmk_exportCert)  
 
 ##  <a name="bkmk_configCa"></a> Configurar a autoridade de certificação (AC) para publicação de CRL  
  Por predefinição, a autoridade de certificação (AC) utiliza listas de revogação de certificados (CRL) com base no LDAP que permite ligações para dispositivos associados a um domínio. Tem de adicionar CRLs baseados em HTTP à AC para que dispositivos não associados a um domínio sejam considerados fidedignos com emissões de certificados da AC. Estes certificados são necessários para as comunicações SSL entre os servidores que alojam as funções de sistema de sites do Configuration Manager e os dispositivos inscritos no\-no local a gestão de dispositivos móveis.  
@@ -57,13 +57,13 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 
 4.  Selecione **http://<ServerDNSName\>/CertEnroll/<CAName\><CRLNameSuffix\><DeltaCRLAllowed\>.crl**. e as três opções abaixo:  
 
-    -   **Inclua em CRLs. Os clientes utilizam isto para encontrar localizações Delta CRL.**  
+    -   **Inclua em CRLs. Os clientes utilizam esta para encontrar localizações Delta CRL.**  
 
     -   **Inclua na extensão CDP dos certificados emitidos.**  
 
     -   **Incluir na extensão IDP das CRLs emitidas**  
 
-5.  Clique em de **módulo de saída** separador, clique em **propriedades...** , em seguida, selecione **permitir que os certificados sejam publicados para o sistema de ficheiros**.  
+5.  Clique nas **módulo de saída** separador, clique em **propriedades...** , em seguida, selecione **permitir que os certificados sejam publicados no sistema de arquivos**.  
 
 6.  Clique em **OK** quando for notificado de que os Serviços de Certificados do Active Directory têm de ser reiniciados.  
 
@@ -90,7 +90,7 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
     >   
     >  **Autoridade de certificação**: **Windows Server 2003**  
     >   
-    >  **Destinatário do certificado**: **Windows XP / Server 2003**  
+    >  **Destinatário do certificado**: **O Windows XP / Server 2003**  
 
 5.  Na caixa de diálogo **Propriedades de Novo Modelo**, no separador **Geral**, introduza um nome de modelo para gerar os certificados Web que serão utilizados nos sistemas de sites do Configuration Manager, como **Servidor Web MDM do ConfigMgr**.  
 
@@ -108,27 +108,27 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 
 12. Na caixa de diálogo **Ativar Modelos de Certificado**, selecione o novo modelo que acabou de criar, **Servidor Web MDM do ConfigMgr** e, em seguida, clique em **OK**.  
 
-##  <a name="bkmk_requestCert"></a> Pedir o certificado de servidor web para cada função do sistema de sites  
- Os dispositivos inscritos no\-local gestão de dispositivos móveis têm de confiar pontos finais SSL que aloja o ponto de registo, ponto proxy de registo, ponto de distribuição e ponto de gestão de dispositivos.  Os passos abaixo descrevem como pedir o certificado de servidor Web do IIS. Tem de efetuar esta ação para cada servidor (ponto final SSL) que aloja uma das funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis.  
+##  <a name="bkmk_requestCert"></a> Pedir o certificado de servidor web para cada função de sistema de sites  
+ Dispositivos inscritos para no\-locais a gestão de dispositivos móveis tem de confiar pontos finais SSL que aloja o ponto de registo, ponto proxy de registo, ponto de distribuição e ponto de gestão de dispositivos.  Os passos abaixo descrevem como pedir o certificado de servidor Web do IIS. Tem de o fazer para cada servidor (ponto final SSL) que aloja uma das funções do sistema de sites necessárias para no\-no local a gestão de dispositivos móveis.  
 
-1.  No servidor do site primário, abra a linha de comandos com a permissão de administrador, escreva **MMC** e prima **Enter**.  
+1. No servidor do site primário, abra a linha de comandos com a permissão de administrador, escreva **MMC** e prima **Enter**.  
 
-2.  Na MMC, clique em **Ficheiro** > **Adicionar/Remover Snap-in**.  
+2. Na MMC, clique em **Ficheiro** > **Adicionar/Remover Snap-in**.  
 
-3.  No snap-in Certificados, selecione **Certificados**, clique em **Adicionar**, selecione **Conta de computador**, clique em **Seguinte**, clique em **Concluir** e, em seguida, clique em **OK** para sair da janela Adicionar ou Remover Snap-in.  
+3. No snap-in Certificados, selecione **Certificados**, clique em **Adicionar**, selecione **Conta de computador**, clique em **Seguinte**, clique em **Concluir** e, em seguida, clique em **OK** para sair da janela Adicionar ou Remover Snap-in.  
 
-4.  Clique com o botão direito do rato em **Pessoal** e, em seguida, clique em **Todas as Tarefas** > **Requisitar um Novo Certificado**.  
+4. Clique com o botão direito do rato em **Pessoal** e, em seguida, clique em **Todas as Tarefas** > **Requisitar um Novo Certificado**.  
 
-5.  No assistente de Inscrição de Certificado, clique em **Seguinte**, selecione **Política de Inscrição do Active Directory** e clique em **Seguinte**.  
+5. No assistente de Inscrição de Certificado, clique em **Seguinte**, selecione **Política de Inscrição do Active Directory** e clique em **Seguinte**.  
 
-6.  Selecione a caixa de verificação junto ao certificado do servidor Web (**Servidor Web MDM do ConfigMgr**) e, em seguida, clique em **Inscrever**.  
+6. Selecione a caixa de verificação junto ao certificado do servidor Web (**Servidor Web MDM do ConfigMgr**) e, em seguida, clique em **Inscrever**.  
 
-7.  Uma vez inscrito o certificado, clique em **Concluir**.  
+7. Uma vez inscrito o certificado, clique em **Concluir**.  
 
- Porque cada servidor precisará de um certificado de servidor web exclusivo, terá de repetir este processo para cada servidor que aloja uma das funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis.  Se um servidor alojar todas as funções do sistema de sites, apenas terá de pedir um certificado de servidor Web.  
+   Uma vez que cada servidor precisará de um certificado de servidor web exclusivo, terá de repetir este processo para cada servidor que aloja uma das funções do sistema de sites necessárias para no\-no local a gestão de dispositivos móveis.  Se um servidor alojar todas as funções do sistema de sites, apenas terá de pedir um certificado de servidor Web.  
 
 ##  <a name="bkmk_bindCert"></a> Vincular o certificado para o servidor web  
- O novo certificado agora tem de ser vinculado ao servidor web de cada servidor do sistema de sites que alojam as funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis. Siga os passos abaixo para cada servidor que aloja as funções do sistema de sites ponto de registo e ponto proxy de registo. Se um servidor alojar todas as funções do sistema de sites, basta seguir estes passos uma vez. Não é necessário executar esta tarefa para as funções do sistema de sites ponto de distribuição e ponto de gestão de dispositivos, uma vez que estas recebem automaticamente o certificado necessário durante a inscrição.  
+ O novo certificado agora tem de ser vinculado ao servidor web de cada servidor de sistema de sites que aloja as funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis. Siga os passos abaixo para cada servidor que aloja as funções do sistema de sites ponto de registo e ponto proxy de registo. Se um servidor alojar todas as funções do sistema de sites, basta seguir estes passos uma vez. Não é necessário executar esta tarefa para as funções do sistema de sites ponto de distribuição e ponto de gestão de dispositivos, uma vez que estas recebem automaticamente o certificado necessário durante a inscrição.  
 
 1.  No servidor que aloja o ponto de registo, o ponto proxy de registo, o ponto de distribuição ou o ponto de gestão de dispositivos, clique em **Iniciar** > **Ferramentas Administrativas** > **Gestor de IIS**.  
 
@@ -140,7 +140,7 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 
 5.  Na consola do Gestor de IIS, em Ligações, selecione o servidor Web e, em seguida, no painel Ações à direita, clique em **Reiniciar**.  
 
-##  <a name="bkmk_exportCert"></a> Exportar o certificado com a mesma raiz como o certificado de servidor web  
+##  <a name="bkmk_exportCert"></a> Exporte o certificado com a mesma raiz como o certificado de servidor web  
  Normalmente, os Serviços de Certificados do Active Directory instalam o certificado necessário a partir da AC em todos os dispositivos associados a um domínio. No entanto, os dispositivos não associados a um domínio não conseguirão comunicar com as funções do sistema de sites sem o certificado da AC de raiz. Para obter o certificado necessário para que os dispositivos comuniquem com as funções do sistema de sites, pode exportá-lo a partir do certificado vinculado ao servidor Web.  
 
  Siga estes passos para exportar o certificado de raiz do certificado do servidor Web.  
@@ -149,7 +149,7 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 
 2.  Na caixa de diálogo enlaces de Site, clique em **https**e, em seguida, clique em **editar...**  
 
-3.  Certifique-se o certificado de servidor web está selecionado e clique em **vista...**  
+3.  Verifique se o certificado de servidor web está selecionado e clique em **vista...**  
 
 4.  Nas propriedades do certificado do servidor Web, clique em **Caminho da Certificação**, clique na raiz na parte superior do caminho da certificação e clique em **Ver Certificado**.  
 
@@ -159,7 +159,7 @@ System Center Configuration Manager no\-local gestão de dispositivos móveis re
 
 7.  Certifique-se de que **Binário codificado DER X.509 (.CER)** está selecionado como formato e clique em **Seguinte**.  
 
-8.  Para o nome de ficheiro, clique em **procurar...** , escolha uma localização para guardar o ficheiro de certificado, nome de ficheiro e, em **guardar**.  
+8.  Para o nome de ficheiro, clique em **procurar...** , escolha uma localização para guardar o ficheiro de certificado, nomeie o arquivo e clique em **guardar**.  
 
      Os dispositivos a inscrever precisarão de acesso a este ficheiro para importar o certificado de raiz. Por isso, escolha uma localização comum, acessível pela maioria dos computadores e dispositivos, ou pode guardá-lo agora numa localização prática (como a unidade C) e movê-lo mais tarde para a localização comum.  
 

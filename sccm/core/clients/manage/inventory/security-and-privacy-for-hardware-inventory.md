@@ -1,7 +1,7 @@
 ---
 title: Privacidade de segurança de inventário de hardware
 titleSuffix: Configuration Manager
-description: Obter informações de segurança e privacidade para inventário de hardware no System Center Configuration Manager.
+description: Obtenha informações de segurança e privacidade para inventário de hardware no System Center Configuration Manager.
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,12 +10,12 @@ ms.assetid: 62e20d86-db6d-4a1f-b14a-905a9de31698
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 948aa0b261f9214dc08b76b25a70133141a1113f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 2f2cdddc27fd07b806bef8ad729c0a8be4bb29e5
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32336039"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423070"
 ---
 # <a name="security-and-privacy-for-hardware-inventory-in-system-center-configuration-manager"></a>Segurança e privacidade para o inventário de hardware no System Center Configuration Manager
 
@@ -29,23 +29,23 @@ Este tópico contém informações de segurança e privacidade para inventário 
 |Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
 |Assinar e encriptar dados de inventário|Quando os clientes comunicam com pontos de gestão através de HTTPS, todos os dados enviados são encriptados com SSL. No entanto, quando os computadores cliente utilizam HTTP para comunicar com pontos de gestão na intranet, os dados de inventário de cliente e os ficheiros recolhidos podem ser enviados não estando assinados nem encriptados. Certifique-se de que o site está configurado para exigir assinatura e utilizar encriptação. Além disso, se os clientes suportarem o algoritmo SHA-256, selecione a opção para exigir SHA-256.|  
-|Não recolher ficheiros IDMIF e NOIDMIF em ambientes de alta segurança|Pode utilizar a recolha de ficheiros IDMIF e NOIDMIF para expandir a recolha de inventário de hardware. Quando for necessário, o Configuration Manager cria novas tabelas ou modifica as tabelas existentes na base de dados do Configuration Manager para acomodar as propriedades em ficheiros IDMIF e NOIDMIF. No entanto, o Configuration Manager não valida ficheiros IDMIF e NOIDMIF, pelo que estes ficheiros podem ser utilizados para alterar as tabelas que pretende alteradas. Os dados válidos podem ser substituídos por dados inválidos. Além disso, foi possível adicionar grandes quantidades de dados e o processamento de dados pode provocar atrasos em todas as funções do Configuration Manager. Para mitigar estes riscos, configure a definição do cliente de inventário de hardware **Recolher ficheiros MIF** como **Nenhum**.|  
+|Não recolher ficheiros IDMIF e NOIDMIF em ambientes de alta segurança|Pode utilizar a recolha de ficheiros IDMIF e NOIDMIF para expandir a recolha de inventário de hardware. Quando for necessário, o Configuration Manager cria novas tabelas ou modifica as tabelas existentes na base de dados do Configuration Manager para acomodar as propriedades nos ficheiros IDMIF e NOIDMIF. No entanto, o Configuration Manager não valida ficheiros IDMIF e NOIDMIF, para que estes ficheiros podem ser utilizados para alterar as tabelas que não pretende alteradas. Os dados válidos podem ser substituídos por dados inválidos. Além disso, foi possível adicionar grandes quantidades de dados e o processamento desses dados pode provocar atrasos em todas as funções do Configuration Manager. Para mitigar estes riscos, configure a definição do cliente de inventário de hardware **Recolher ficheiros MIF** como **Nenhum**.|  
 
 ### <a name="security-issues-for-hardware-inventory"></a>Problemas de segurança para inventário de hardware  
  Recolher o inventário expõe potenciais vulnerabilidades. Os atacantes podem efetuar as seguintes tarefas:  
 
--   Enviar dados inválidos, que serão aceites pelo ponto de gestão mesmo quando a definição de cliente de inventário de software está desativada e a recolha de ficheiros não está ativada.  
+- Enviar dados inválidos, que serão aceites pelo ponto de gestão mesmo quando a definição de cliente de inventário de software está desativada e a recolha de ficheiros não está ativada.  
 
--   Enviar excessivamente grandes quantidades de dados num único ficheiro e em muitos ficheiros, o que poderá provocar denial of service.  
+- Enviar excessivamente grandes quantidades de dados num único ficheiro e em muitos ficheiros, o que poderá provocar denial of service.  
 
--   Aceder às informações de inventário que é transferido para o Configuration Manager.  
+- Aceder às informações de inventário quando são transferida para o Configuration Manager.  
 
- Uma vez que um utilizador com privilégios administrativos locais pode enviar quaisquer informações como dados de inventário, considere os dados de inventário recolhidos pelo Configuration Manager como autoritativos.  
+  Uma vez que um utilizador com privilégios administrativos locais pode enviar quaisquer informações como dados de inventário, não considere os dados de inventário recolhidos pelo Configuration Manager autoritativas.  
 
- O inventário de hardware está ativado por predefinição como uma definição de cliente.  
+  O inventário de hardware está ativado por predefinição como uma definição de cliente.  
 
 ##  <a name="BKMK_Privacy_HardwareInventory"></a> Informações de privacidade para inventário de hardware  
- Inventário de hardware permite-lhe obter as informações que são armazenadas no registo e no WMI em clientes do Configuration Manager. O inventário de software permite-lhe detetar todos os ficheiros de um tipo especificado ou recolher todos os ficheiros especificados a partir dos clientes. O Asset Intelligence melhora as capacidades de inventário ao expandir o inventário de hardware e software e ao adicionar novas funcionalidades de gestão de licenças.  
+ Inventário de hardware permite-lhe obter as informações que são armazenadas no Registro e no WMI em clientes do Configuration Manager. O inventário de software permite-lhe detetar todos os ficheiros de um tipo especificado ou recolher todos os ficheiros especificados a partir dos clientes. O Asset Intelligence melhora as capacidades de inventário ao expandir o inventário de hardware e software e ao adicionar novas funcionalidades de gestão de licenças.  
 
  O inventário de hardware está ativado por predefinição como uma definição de cliente e as informações da WMI recolhidas são determinadas pelas opções que selecionar. O inventário de software está ativado por predefinição, mas os ficheiros não são recolhidos por predefinição. A recolha de dados do Asset Intelligence é ativada automaticamente, embora possa selecionar as classes de relatório de inventário de hardware a ativar.  
 

@@ -10,12 +10,12 @@ ms.assetid: 35b5baec-d313-46aa-9d14-c443aa0d6c09
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dd8116bc74f855fff956d0bb201691c741a6d351
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: c5d3635ee6d1ed4e9c3819e2cffc3ee5028953f5
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52455993"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53422203"
 ---
 # <a name="support-for-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do Configuration Manager
 
@@ -23,12 +23,12 @@ ms.locfileid: "52455993"
 
 A Microsoft planeja lançar atualizações para o ramo atual do Configuration Manager algumas vezes por ano. Para versões do Configuration Manager lançado antes do 1710, o suporte é de 12 meses. Cada versão de atualização a partir da versão 1710, permanece no suporte de 18 meses a partir da data de lançamento de disponibilidade geral. A Microsoft fornece suporte técnico para o período de inteiro de suporte. Existem duas fases de manutenção distintas que dependem da disponibilidade da versão do ramo atual mais recente.  
 
--   **Atualizações críticas e de segurança** fase - de manutenção ao executar a versão de ramo atual mais recente do Configuration Manager, receberá atualizações críticas e de segurança.  
+- **Atualizações críticas e de segurança** fase - de manutenção ao executar a versão de ramo atual mais recente do Configuration Manager, receberá atualizações críticas e de segurança.  
 
--   **Atualizações de segurança (apenas)** fase - após o lançamento de uma nova versão de ramo atual, de manutenção Microsoft apenas oferece suporte a atualizações de segurança para as versões mais antigas para o restante do ciclo de vida do suporte a essa versão (mostrado na figura 1).  
+- **Atualizações de segurança (apenas)** fase - após o lançamento de uma nova versão de ramo atual, de manutenção Microsoft apenas oferece suporte a atualizações de segurança para as versões mais antigas para o restante do ciclo de vida do suporte a essa versão (mostrado na figura 1).  
 
- ![Gráfico de linha cronológica de suporte e manutenção do Configuration Manager](media/CM_Servicing_support_timeline1.png)  
-Figura 1. Exemplo de sobreposição de ciclo de lançamento para o ramo atual, suporte de manutenção. Neste exemplo é para fins de ilustração do ciclo de e não representa as datas de lançamento real ou esperado.
+  ![Gráfico de linha cronológica de suporte e manutenção do Configuration Manager](media/CM_Servicing_support_timeline1.png)  
+  Figura 1. Exemplo de sobreposição de ciclo de lançamento para o ramo atual, suporte de manutenção. Neste exemplo é para fins de ilustração do ciclo de e não representa as datas de lançamento real ou esperado.
 
 > [!NOTE]  
 >  A versão do ramo atual mais recente é sempre no **atualizações críticas e de segurança** fase de manutenção. Esta declaração de suporte, significa que se encontrar um defeito de código que requeira uma atualização crítica, que tem de ter a versão ramo atual mais recente instalada para receber uma correção. Todas as outras atual ramo versões suportadas são elegíveis para receber apenas as atualizações de segurança.

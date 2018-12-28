@@ -2,7 +2,7 @@
 title: Notas de versão
 titleSuffix: Configuration Manager
 description: Saiba mais sobre problemas urgentes que ainda não estão corrigidos no produto ou abordados num artigo da base de dados de conhecimento Support da Microsoft.
-ms.date: 11/27/2018
+ms.date: 12/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 030947fd-f5e0-4185-8513-2397fb2ec96f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 41039ec31c11573424f044df009e9c364491b5f7
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 41b068da0524333ae25ea2228a71bf27344f4f58
+ms.sourcegitcommit: f5fa9e657350ceb963a7928497d2adca9caef3d4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456350"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53748498"
 ---
 # <a name="release-notes-for-configuration-manager"></a>Notas de versão para o Configuration Manager
 
@@ -35,7 +35,7 @@ Para obter informações sobre os novos recursos introduzidos com versões difer
 
 
 
-## <a name="setup-and-upgrade"></a>Configuração e atualização  
+## <a name="set-up-and-upgrade"></a>Configurar e atualizar  
 
 
 ### <a name="when-using-redistributable-files-from-the-cdlatest-folder-setup-fails-with-a-manifest-verification-error"></a>Ao utilizar os ficheiros redistribuíveis do CD. Pasta mais recente, a configuração falha com um erro de verificação de manifesto
@@ -59,7 +59,7 @@ Utilize uma das seguintes opções:
 A funcionalidade do programa de melhoramento da experiência de cliente (PMEC) a partir do Configuration Manager versão 1802, é removida do produto. Quando [automatização da instalação](/sccm/core/servers/deploy/install/command-line-options-for-setup) de um novo site de um script de linha de comando ou automático, a configuração devolve um erro que um parâmetro necessário está em falta. 
 
 #### <a name="workaround"></a>Solução
-Embora não terá qualquer efeito sobre o resultado do processo de configuração, inclui os **JoinCEIP** parâmetro na sua linha de comandos de configuração.
+Embora não tem efeito sobre o resultado do processo de configuração, inclui os **JoinCEIP** parâmetro na sua linha de comandos de configuração.
 
  > [!Note]  
  > O parâmetro Defaultsiteservername [configuração da consola](/sccm/core/servers/deploy/install/install-consoles) não é necessária.
@@ -69,7 +69,7 @@ Embora não terá qualquer efeito sobre o resultado do processo de configuraçã
 <!--VSO 2858826, SCCMDocs issue 772-->
 *Aplica-se a: 1806 de versão do Configuration Manager*
 
-Se o [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) estiver localizada conjuntamente com um [servidor do site em modo passivo](/sccm/core/servers/deploy/configure/site-server-high-availability), em seguida, implementação e monitorização de um [gateway de gestão da nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) não começa. O componente do Gestor de serviço cloud (SMS_CLOUD_SERVICES_MANAGER) está no estado parado.
+Se o [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) é foi colocalizado com a um [servidor do site em modo passivo](/sccm/core/servers/deploy/configure/site-server-high-availability), em seguida, implementação e monitorização de um [gateway de gestão na cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) não começa. O componente do Gestor de serviço cloud (SMS_CLOUD_SERVICES_MANAGER) está no estado parado.
 
 #### <a name="workaround"></a>Solução
 Mova a função de ponto de ligação de serviço para outro servidor.
@@ -88,6 +88,30 @@ Mova a função de ponto de ligação de serviço para outro servidor.
 
 
 ## <a name="software-updates"></a>Atualizações de software
+
+### <a name="security-roles-are-missing-for-phased-deployments"></a>Funções de segurança estão em falta para as implementações faseadas
+<!--3479337, SCCMDocs-pr issue 3095-->
+*Aplica-se a: 1810 de versão do Configuration Manager*
+
+O **Gestor de implementação do SO** função de segurança incorporada tem permissões para [faseada implementações](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence). As seguintes funções estão em falta estas permissões:  
+
+- **Administrador da aplicação**  
+- **Gestor de implementação de aplicações**  
+- **Gestor de atualizações de software**  
+
+O **autor da aplicação** função poderá apresentar um tem algumas permissões para as implementações faseadas, mas não deve ser capaz de criar implementações. 
+
+As implementações para uma aplicação ou atualização de software por fases de um utilizador com uma dessas funções podem iniciar o assistente criar implementação faseada e podem ver. Não é possível concluir o assistente ou fazer alterações a uma implementação existente.
+
+#### <a name="workaround"></a>Solução
+Crie uma função de segurança personalizada. Copiar uma função de segurança existente e adicione as seguintes permissões no **implementação faseada** classe do objeto:
+- Criar  
+- Eliminar  
+- Modificar  
+- Leitura  
+
+Para obter mais informações, consulte [criar funções de segurança personalizadas](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_CreateSecRole)
+
 
 ### <a name="changing-office-365-client-setting-doesnt-apply"></a>A alteração do Office 365 definição de cliente não se aplica 
 <!--511551-->

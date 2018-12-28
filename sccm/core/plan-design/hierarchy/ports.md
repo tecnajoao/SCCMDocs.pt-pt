@@ -10,12 +10,12 @@ ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5a5ec4f699f2c122dc435bbca5c77789ea972de7
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: b074ee02ec5e50fb5e495923538535cf8765dcdb
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601233"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420945"
 ---
 # <a name="ports-used-in-configuration-manager"></a>Portas utilizadas no Configuration Manager
 
@@ -179,7 +179,7 @@ Para obter mais informações, consulte [fluxo de dados e de portas de CMG](/scc
 
 > [!Important]  
 > Se habilitar uma firewall baseada no anfitrião, certifique-se de que as regras de permitir que o servidor enviar e receber nessas portas. Quando ativa um ponto de distribuição para PXE, o Configuration Manager pode ativar a entrada (recepção) regras na Firewall do Windows. Ele não configure as regras de saída (enviar).<!--SCCMDocs issue #744-->  
-  
+
 
 ###  <a name="BKMK_PortsClient-FSP"></a> Cliente--> Ponto de estado de contingência  
 
@@ -237,12 +237,14 @@ O Configuration Manager utiliza estas ligações para criar o canal CMG. Para ob
 
 #### <a name="version-1706-or-1710"></a>Versão 1706 ou 1710
 A porta específica depende da configuração de ponto de gestão. 
+
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |HTTPS|--|443|
 |HTTP|--|80|  
 
 #### <a name="version-1802"></a>Versão 1802
+
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |HTTPS|--|443|
@@ -253,6 +255,7 @@ Para obter mais informações, consulte [fluxo de dados e de portas de CMG](/scc
 ###  <a name="bkmk_cmgcp-sup"></a> Ponto de ligação do CMG-- > ponto de atualização de Software  
 
 A porta específica depende da configuração de ponto de atualização de software. 
+
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |HTTPS|--|443|
@@ -716,7 +719,7 @@ TFTP foi concebido para suportar ambientes de arranque sem disco. Os Daemons TFT
 Por predefinição, a comunicação entre o servidor do site e sistemas de sites é bidirecional. O servidor do site inicia a comunicação para configurar o sistema de sites e, em seguida, a maioria dos sistemas de sites restabelece ligação ao servidor do site para enviar informações de estado. Pontos do Reporting Services e pontos de distribuição não enviam informações de estado. Se selecionou **exigir que o servidor do site inicie ligações a este sistema de sites** nas propriedades do sistema de sites após instalação do sistema de sites, o sistema de sites não iniciar a comunicação com o servidor do site. Em vez disso, o servidor do site inicia a comunicação e utiliza a conta de instalação do sistema de sites para autenticação para o servidor de sistema de sites.  
 
 #### <a name="bkmk_note6"></a> Tenha em atenção 6: Portas dinâmicas
-As portas dinâmicas utilizam um intervalo de números de porta que são definidos pela versão do SO. Estas portas são também conhecidas como portas efêmeras. Para obter mais informações sobre os intervalos de porta predefinidos, consulte [descrição geral dos serviços e requisitos de portas para o Windows de rede](https://support.microsoft.com/help/832017/service-overview-and-network-port-requirements-for-windows).  
+As portas dinâmicas utilizam um intervalo de números de porta que são definidos pela versão do SO. Estas portas são também conhecidas como portas efêmeras. Para mais informações sobre os intervalos de portas predefinidos, consulte [Descrição geral do serviço e requisitos de portas de rede para o Windows](https://support.microsoft.com/help/832017/service-overview-and-network-port-requirements-for-windows).  
 
 
 
@@ -848,7 +851,7 @@ As instalações de aplicações e pacotes em pontos de distribuição exigem as
 
 -   Servidor do site--> ponto de distribuição: Portas TCP dinâmicas de RPC  
 
-Utilize o IPsec para ajudar a proteger o tráfego entre o servidor do site e os sistemas de sites. Se for preciso restringir as portas dinâmicas utilizadas com RPC, pode utilizar a ferramenta de configuração Microsoft RPC (rpccfg.exe) para configurar um intervalo limitado de portas para estes pacotes RPC. Para obter mais informações sobre a ferramenta de configuração RPC, consulte [como configurar o RPC para utilizar determinadas portas e como ajudar a proteger essas portas utilizando o IPsec](https://support.microsoft.com/help/908472/how-to-configure-rpc-to-use-certain-ports-and-how-to-help-secure-those).  
+Utilize o IPsec para ajudar a proteger o tráfego entre o servidor do site e os sistemas de sites. Se for preciso restringir as portas dinâmicas utilizadas com RPC, pode utilizar a ferramenta de configuração Microsoft RPC (rpccfg.exe) para configurar um intervalo limitado de portas para estes pacotes RPC. Para obter mais informações sobre a ferramenta de configuração RPC, consulte [Como configurar o RPC para utilizar determinadas portas e como ajudar a proteger essas portas utilizando o IPsec](https://support.microsoft.com/help/908472/how-to-configure-rpc-to-use-certain-ports-and-how-to-help-secure-those).  
 
 > [!IMPORTANT]  
 >  Antes de instalar estes sistemas de sites, certifique-se de que o serviço registo remoto está em execução no servidor do sistema de site e especificou uma conta de instalação do sistema de sites se o sistema de sites estiver numa floresta do Active Directory diferente sem uma relação de confiança .  
@@ -881,7 +884,7 @@ O servidor do site que executa a migração utiliza várias portas para ligar a 
 |Serviço de Sessão NetBIOS|--|139|  
 |Autenticação Kerberos|--|88|
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 - [Descrição geral dos serviços e requisitos de portas para o sistema Windows Server de rede](https://support.microsoft.com/help/832017/service-overview-and-network-port-requirements-for-windows).  
 
 - [Como configurar uma firewall de domínios e confianças](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts)

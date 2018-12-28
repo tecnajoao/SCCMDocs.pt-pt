@@ -10,12 +10,12 @@ ms.assetid: 678c9622-c61b-47d1-ba25-690616e431c7
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 665f5720486164cc4c728d579f1a700c4fb16245
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 10b7d0c026ab7af0f5b1964539a70f74f13c079e
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384676"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421540"
 ---
 # <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Criar linhas de base de configuração no System Center Configuration Manager
 
@@ -34,35 +34,35 @@ Linhas de base de configuração no System Center Configuration Manager contêm 
 
 Para criar uma linha de base de configuração com o **criar linha de base de configuração** diálogo caixa, utilize o seguinte procedimento:  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **linhas de base de configuração**.  
+1. Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **linhas de base de configuração**.  
 
-2.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Linha de Base de Configuração**.  
+2. No separador **Home Page** , no grupo **Criar** , clique em **Criar Linha de Base de Configuração**.  
 
-3.  Na caixa de diálogo **Criar Linha de Base de Configuração** , introduza um nome único e uma descrição para a linha de base de configuração. Pode utilizar um máximo de 255 carateres para o nome e 512 carateres para a descrição.  
+3. Na caixa de diálogo **Criar Linha de Base de Configuração** , introduza um nome único e uma descrição para a linha de base de configuração. Pode utilizar um máximo de 255 carateres para o nome e 512 carateres para a descrição.  
 
-4.  A lista **Dados de configuração** apresenta todos os itens de configuração ou linhas de base de configuração que estão incluídos nesta linha de base de configuração. Clique em **Adicionar** para adicionar um novo item de configuração ou linha base de configuração à lista. Pode escolher entre os seguintes itens:  
+4. A lista **Dados de configuração** apresenta todos os itens de configuração ou linhas de base de configuração que estão incluídos nesta linha de base de configuração. Clique em **Adicionar** para adicionar um novo item de configuração ou linha base de configuração à lista. Pode escolher entre os seguintes itens:  
 
-    -   **Itens de Configuração**  
+   - **Itens de Configuração**  
 
-    -   **Atualizações de Software**  
+   - **Atualizações de Software**  
 
-    -   **Linhas de Base de Configuração**  
-      > [!IMPORTANT]
-      > Deve limitar cada linha de base de configuração para não mais de 1000 atualizações de software.
-5.  Utilize o **alterar objetivo** lista para especificar o comportamento de um item de configuração que selecionou na **dados de configuração** lista. Pode selecionar os seguintes itens:  
+   - **Linhas de Base de Configuração**  
+     > [!IMPORTANT]
+     > Deve limitar cada linha de base de configuração para não mais de 1000 atualizações de software.
+5. Utilize o **alterar objetivo** lista para especificar o comportamento de um item de configuração que selecionou na **dados de configuração** lista. Pode selecionar os seguintes itens:  
 
-    -   **Necessário**: A linha de base de configuração é avaliada como não conforme se o item de configuração não é detetado num dispositivo cliente. Se for detetado, é avaliado relativamente à conformidade  
+   -   **Necessário**: A linha de base de configuração é avaliada como não conforme se o item de configuração não é detetado num dispositivo cliente. Se for detetado, é avaliado relativamente à conformidade  
 
-    -   **Opcional**: O item de configuração é avaliado apenas de conformidade se a aplicação faz referência for encontrada nos computadores cliente. Se o aplicativo não for encontrado, a linha de base de configuração não está marcada como não conformes (apenas aplicável a itens de configuração de aplicação).  
+   -   **Opcional**: O item de configuração é avaliado apenas de conformidade se a aplicação faz referência for encontrada nos computadores cliente. Se o aplicativo não for encontrado, a linha de base de configuração não está marcada como não conformes (apenas aplicável a itens de configuração de aplicação).  
 
-    -   **Proibido**: A linha de base de configuração é avaliada como não conforme se o item de configuração for detetado nos computadores de cliente (apenas aplicáveis a itens de configuração de aplicação).  
+   -   **Proibido**: A linha de base de configuração é avaliada como não conforme se o item de configuração for detetado nos computadores de cliente (apenas aplicáveis a itens de configuração de aplicação).  
 
-    > [!NOTE]
-    >  A lista **Alterar Objetivo** só está disponível se tiver clicado na opção **Este item de configuração contém as definições da aplicação** na página **Geral** do **Assistente de Criação de Item de Configuração**.  
+   > [!NOTE]
+   >  A lista **Alterar Objetivo** só está disponível se tiver clicado na opção **Este item de configuração contém as definições da aplicação** na página **Geral** do **Assistente de Criação de Item de Configuração**.  
 
-6.  Utilize a lista **Alterar Revisão** para selecionar uma revisão específica ou a revisão mais recente do item de configuração para avaliar a compatibilidade nos dispositivos cliente ou selecione **Utilizar Sempre Mais Recente** para utilizar sempre a revisão mais recente. Para obter mais informações sobre revisões de item de configuração, consulte [tarefas de gestão para dados de configuração](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+6. Utilize a lista **Alterar Revisão** para selecionar uma revisão específica ou a revisão mais recente do item de configuração para avaliar a compatibilidade nos dispositivos cliente ou selecione **Utilizar Sempre Mais Recente** para utilizar sempre a revisão mais recente. Para obter mais informações sobre revisões de item de configuração, consulte [tarefas de gestão para dados de configuração](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
-7.  Para remover um item de configuração de linha de base de configuração, selecione um item de configuração e, em seguida, clique em **remover**.  
+7. Para remover um item de configuração de linha de base de configuração, selecione um item de configuração e, em seguida, clique em **remover**.  
 
 8. A partir da versão 1806, selecione se pretende **aplique sempre esta linha de base para clientes cogeridos**. Quando selecionado, esta linha de base será aplicada, mesmo em clientes que são geridos pelo Intune.  Essa exceção pode ser utilizada para configurar as definições que são necessárias pela sua organização, mas ainda não está disponível no Intune. 
 

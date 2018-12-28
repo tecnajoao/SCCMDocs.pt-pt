@@ -1,7 +1,7 @@
 ---
 title: Utilizar limites e grupos de limites
 titleSuffix: Configuration Manager
-description: Utilizar limites e grupos de limites para definir as localizações de rede e sistemas de sites acessível para dispositivos que gere.
+description: Utilizar limites e grupos de limites para definir localizações de rede e de sistemas de sites acessível para dispositivos que gere.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,12 +10,12 @@ ms.assetid: 54aa20d5-791e-4416-9db4-5aaea472c0b7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d1f8a8a270bcefb67885d6c0ca88e61a3d6ecd72
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 85d7dbb494f1d6288ad7a45fad98e24a6ad2b393
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32334849"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421149"
 ---
 # <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Definir limites de site e grupos de limites para o System Center Configuration Manager
 
@@ -34,28 +34,28 @@ Os clientes na intranet avaliam a respetiva localização de rede atual e, em se
 
  Os clientes utilizam grupos de limites para:  
 -   **Localize um site atribuído:** Grupos de limites permitem aos clientes localizar um site primário para atribuição de cliente (atribuição automática de site).  
--   **Localize determinadas funções de sistema de sites podem utilizar:** Quando associa um grupo de limites a determinadas funções de sistema de sites, o grupo de limites fornece aos clientes essa lista dos sistemas de sites para utilização durante a localização de conteúdo e como pontos de gestão preferenciais.  
+-   **Localize determinadas funções de sistema de sites que podem utilizar:** Quando associa um grupo de limites a determinadas funções de sistema de sites, o grupo de limites fornece aos clientes essa lista de sistemas de sites para utilização durante a localização de conteúdo e como pontos de gestão preferenciais.  
 
 Os clientes que estão na Internet ou configurados como clientes apenas da Internet não utilizam informações de limites. Estes clientes não podem utilizar a atribuição automática de sites e podem sempre transferir conteúdo de qualquer ponto de distribuição do seu site atribuído, quando o ponto de distribuição está configurado para permitir ligações de cliente a partir da Internet.  
 
 **Para começar a utilizar:**
-- Primeiro, [definem localizações de rede como limites](/sccm/core/servers/deploy/configure/boundaries).
-- Em seguida, continue a [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups) para associar clientes nesses limites para os servidores do sistema de sites podem utilizar.
+- Primeiro, [definem as localizações de rede como limites](/sccm/core/servers/deploy/configure/boundaries).
+- Em seguida, continue ao [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups) para associar os clientes nesses limites para os servidores do sistema de sites que podem utilizar.
 
 
 
-##  <a name="BKMK_BoundaryBestPractices"></a> Melhores práticas de limites e grupos de limites  
+##  <a name="BKMK_BoundaryBestPractices"></a> Melhores práticas para limites e grupos de limites  
 
--   **Utilize uma combinação de limites a menos que as suas necessidades:**  
-   No passado, recomendamos a utilização de alguns tipos de limites através de outros utilizadores. Com as alterações para melhorar o desempenho, iremos agora Recomendamos que utilize qualquer tipo de limite ou tipos escolher que funcionam para o seu ambiente e que lhe permitem utilizam o menor número de limites, pode para simplificar as tarefas de gestão.      
+- **Utilize uma combinação dos limites de menor que satisfaça as suas necessidades:**  
+  No passado, recomendamos a utilização de alguns tipos de limites sobre os outros. Com as alterações para melhorar o desempenho, agora, recomendamos que usar qualquer tipo de limite ou tipos que escolher, que funcionam para seu ambiente e que permitem utilizam o menor número de limites, pode para simplificar as tarefas de gestão.      
 
--   **Evite limites de sobreposição na atribuição automática de sites:**  
-     Embora cada grupo de limites suporte configurações de atribuição de site e de localização de conteúdo, é uma melhor prática criar um conjunto de grupos de limites separado a utilizar apenas na atribuição de sites. Significado: certifique-se de que cada limite num grupo de limites não é um membro de outro grupo de limites com uma atribuição de site diferente. Isto acontece porque:  
+- **Evite limites de sobreposição na atribuição automática de sites:**  
+   Embora cada grupo de limites suporte configurações de atribuição de site e de localização de conteúdo, é uma melhor prática criar um conjunto de grupos de limites separado a utilizar apenas na atribuição de sites. Significado: certifique-se de que cada limite num grupo de limites não é um membro de outro grupo de limites com uma atribuição de site diferente. Isto acontece porque:  
 
-    -   Um único limite pode ser incluído em vários grupos de limites  
+  - Um único limite pode ser incluído em vários grupos de limites  
 
-    -   Cada grupo de limites pode ser associado a outro site primário para atribuição de sites  
+  - Cada grupo de limites pode ser associado a outro site primário para atribuição de sites  
 
-    -   Um cliente num limite que seja membro de dois grupos de limites diferentes com atribuições de sites diferentes selecionará aleatoriamente um site para associação, que pode não ser o site ao qual pretende que o cliente seja associado.  Esta configuração denomina-se limites de sobreposição.  
+  - Um cliente num limite que seja membro de dois grupos de limites diferentes com atribuições de sites diferentes selecionará aleatoriamente um site para associação, que pode não ser o site ao qual pretende que o cliente seja associado.  Esta configuração denomina-se limites de sobreposição.  
 
-     Os limites de sobreposição não são um problema para a localização de conteúdo. Pelo contrário, trata-se frequentemente de uma configuração desejada que fornece aos clientes recursos adicionais ou localizações de conteúdo que podem utilizar.  
+    Os limites de sobreposição não são um problema para a localização de conteúdo. Pelo contrário, trata-se frequentemente de uma configuração desejada que fornece aos clientes recursos adicionais ou localizações de conteúdo que podem utilizar.  

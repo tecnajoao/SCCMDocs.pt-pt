@@ -10,16 +10,16 @@ ms.assetid: a44006eb-8650-49f6-94e1-18fa0ca959ee
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 490e5a614a98633629df98abcd554b02cec1261a
-ms.sourcegitcommit: ae03ad403b1732a5a61dec981e3a3010a0f09188
+ms.openlocfilehash: b722187a895a71b4195200354180cdbc8b2813e6
+ms.sourcegitcommit: 12b71da551350c99c5916df3629e33e31040db15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51860251"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53530919"
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação
 
-Para instalar o cliente do Configuration Manager em dispositivos Windows 10 com a autenticação do Azure AD, integre o Configuration Manager com o Azure Active Directory (Azure AD). Os clientes podem estar na intranet comunique diretamente com um ponto de gestão ativado para HTTPS. Eles também podem ser baseados na internet comunicam através de CMG ou com um ponto de gestão baseado na internet. Este processo utiliza o Azure AD para autenticar clientes para o site do Configuration Manager. O Azure AD substitui a necessidade de configurar e utilizar certificados de autenticação de cliente.
+Para instalar o cliente do Configuration Manager em dispositivos Windows 10 com a autenticação do Azure AD, integre o Configuration Manager com o Azure Active Directory (Azure AD). Os clientes podem estar na intranet comunique diretamente com um ponto de gestão que suporte HTTPS ou qualquer ponto de gestão num site ativada para HTTP avançada. Eles também podem ser baseados na internet comunicam através de CMG ou com um ponto de gestão baseado na Internet. Este processo utiliza o Azure AD para autenticar clientes para o site do Configuration Manager. O Azure AD substitui a necessidade de configurar e utilizar certificados de autenticação de cliente.
 
 
 

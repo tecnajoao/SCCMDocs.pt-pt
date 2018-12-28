@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cb9b19c95caaf914fa1cbf040258c30ede2dc54a
-ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
+ms.openlocfilehash: f53dbbf341d3c6474c1c5dd5066b8d1f2a0fdc63
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47229318"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424243"
 ---
 # <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1610 do System Center Configuration Manager
 
@@ -131,8 +131,8 @@ Imagem corporativa personalizada para o Centro de Software é aplicada, de acord
 Em alguns casos, pode querer dar aos utilizadores mais tempo para implementações de aplicações é necessária instalação ou atualização de software para além de quaisquer prazos que configurou. Por exemplo, isso poderá ser necessário quando um computador foi desativado por um longo período de tempo e de que necessita instalar um grande número de implementações de aplicação ou atualização. Por exemplo, se um utilizador final acabou de voltar de férias, poderá ter de aguardar por um longo enquanto como aplicação em atraso implementações estão instaladas. Para ajudar a resolver este problema, agora pode definir um período de tolerância de imposição ao implementar as definições de cliente do Configuration Manager para uma coleção. 
 
 Para configurar o período de tolerância, efetue as seguintes ações:
-1.      Sobre o **agente do computador** página de definições de cliente, configurar a nova propriedade **período de tolerância para a imposição de após a implementação do prazo (horas)** com um valor entre **1** e **120** horas.
-2.      Numa nova implementação de aplicação necessária, ou nas propriedades de uma implementação existente, sobre o **agendamento** , selecione a caixa de verificação **Trasar imposição para esta implementação, de acordo com as preferências do usuário, até o período de tolerância definido nas definições de cliente**. Todas as implementações que tenham esta caixa de verificação selecionada e são direcionadas para os dispositivos em que implementou também o definição de cliente utilizará o período de tolerância de imposição.
+1. Sobre o **agente do computador** página de definições de cliente, configurar a nova propriedade **período de tolerância para a imposição de após a implementação do prazo (horas)** com um valor entre **1** e **120** horas.
+2. Numa nova implementação de aplicação necessária, ou nas propriedades de uma implementação existente, sobre o **agendamento** , selecione a caixa de verificação **Trasar imposição para esta implementação, de acordo com as preferências do usuário, até o período de tolerância definido nas definições de cliente**. Todas as implementações que tenham esta caixa de verificação selecionada e são direcionadas para os dispositivos em que implementou também o definição de cliente utilizará o período de tolerância de imposição.
 
 Se configurar um período de tolerância de imposição e selecione a caixa de verificação, assim que for atingido o prazo de instalação do aplicativo, será instalado na primeira janela não comerciais que o utilizador configurado até esse período de tolerância. No entanto, o utilizador ainda pode abrir o Centro de Software e instalar a aplicação a qualquer momento que desejarem. Assim que o período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso. Foram adicionadas opções similares para o Assistente de implementação de atualizações de software, o Assistente de regras de implementação automática e páginas de propriedades.
 
@@ -188,7 +188,7 @@ O dashboard apresenta gráficos para o seguinte:
 
 Para obter detalhes, consulte [atualizações de gerir o Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
-## <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Passos de sequência de tarefas para gerir o BIOS para conversão de UEFI
+## <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Passos de sequência de tarefas para gerir a conversão de BIOS em UEFI
 Agora pode personalizar uma sequência de tarefas de implementação do sistema operativo com uma nova variável, TSUEFIDrive, para que o **reiniciar o computador** passo irá preparar uma partição FAT32 na unidade de disco rígida para a transição para UEFI. O procedimento seguinte fornece um exemplo de como pode criar passos de sequência de tarefas para preparar o disco rígido para o BIOS para conversão de UEFI. Para obter detalhes, consulte [passos para gerir o BIOS para conversão de UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion).
 
 ##  <a name="improvements-to-the-task-sequence-step-prepare-configmgr-client-for-capture"></a>Melhorias para o passo de sequência de tarefas: Prepare ConfigMgr Client for Capture  

@@ -10,12 +10,12 @@ ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7519971f05813edbf601c598b9281bcfdf19c83b
-ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
+ms.openlocfilehash: a9fe9c0b2f779558161e7995a01863e6415838ee
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47229335"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423087"
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1706 do System Center Configuration Manager
 
@@ -132,28 +132,28 @@ Para obter detalhes de todas as definições do Windows 10, veja [como criar ite
 
 * **Tipo de palavra-passe obrigatório**. Especifique se o utilizador tem de criar uma palavra-passe de alfanumérica ou de uma palavra-passe numérica. Para as palavras-passe de alfanuméricas, também especificar o número mínimo de conjuntos de carateres que a palavra-passe tem de ter. Os conjuntos de quatro caracteres são: Letras em minúsculas, letras maiúsculas, símbolos e números.
 
- **Suportado no:**
- * Windows Phone 8+
- * Windows 8.1 +
- * iOS 6+
-<br></br>
+  **Suportado no:**
+  * Windows Phone 8+
+  * Windows 8.1 +
+  * iOS 6+
+  <br></br>
 * **Depuração de USB de bloco no dispositivo**. Não é necessário configurar esta definição, como a depuração USB já se encontra desativada em dispositivos Android para dispositivos de trabalho.
 
- **Suportado no:**
- * Android 4.0+
- * Samsung KNOX Standard 4.0+
-<br></br>
+  **Suportado no:**
+  * Android 4.0+
+  * Samsung KNOX Standard 4.0+
+  <br></br>
 * **Bloquear aplicações de origens desconhecidas**. Exigir que os dispositivos impeçam a instalação de aplicações de origens desconhecidas. Não tem de configurar esta definição como dispositivos Android for Work restringem sempre a instalação de origens desconhecidas.
 
   **Suportado no:**
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
-<br></br>
+  <br></br>
 * **Exigir análise de ameaças nas aplicações**. Esta definição especifica que a funcionalidade de aplicações Verifique se está ativada no dispositivo.
 
- **Suportado no:**
- * Android 4.2 a 4.4 através de
- * Samsung KNOX Standard 4.0+
+  **Suportado no:**
+  * Android 4.2 a 4.4 através de
+  * Samsung KNOX Standard 4.0+
 
 Ver [criar e implementar uma política de conformidade do dispositivo](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) para experimentar as novas regras de conformidade do dispositivo
 

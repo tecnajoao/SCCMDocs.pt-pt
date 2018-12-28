@@ -10,12 +10,12 @@ ms.assetid: caad0507-9913-415a-b13d-d36f8f0a1b80
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 4815695ad67ac86491da9ea3274fd7db660c8190
-ms.sourcegitcommit: 7c26485b600544a64a5cf2edca6f2f8f29fecde9
+ms.openlocfilehash: 2d88f8a5e4a6f3dd6b752930934ebba9b1638e92
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39130651"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424413"
 ---
 # <a name="packages-and-programs-in-system-center-configuration-manager"></a>Pacotes e programas no System Center Configuration Manager
 
@@ -44,196 +44,198 @@ Pacotes podem utilizar algumas novas funcionalidades do Configuration Manager, i
 
 ### <a name="create-a-package-and-program-using-the-create-package-and-program-wizard"></a>Criar um pacote e um programa utilizando o Assistente para Criar Pacote e Programa  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+1. Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
 
-3.  Na **home page** separador a **Create** de grupo, escolha **criar pacote**.  
+2. Na **home page** separador a **Create** de grupo, escolha **criar pacote**.  
 
-4.  Sobre o **pacote** página do **assistente criar pacote e programa**, especifique as seguintes informações:  
+3. Sobre o **pacote** página do **assistente criar pacote e programa**, especifique as seguintes informações:  
 
-    -   **Nome**: Especifique um nome para o pacote com um máximo de 50 carateres.  
+   -   **Nome**: Especifique um nome para o pacote com um máximo de 50 carateres.  
 
-    -   **Descrição**: Especifique uma descrição para este pacote com um máximo de 128 carateres.  
+   -   **Descrição**: Especifique uma descrição para este pacote com um máximo de 128 carateres.  
 
-    -   **Fabricante** (opcional): Especifique um nome de fabricante para o ajudar a identificar o pacote na consola do Configuration Manager. Este nome pode ter um máximo de 32 carateres.
+   -   **Fabricante** (opcional): Especifique um nome de fabricante para o ajudar a identificar o pacote na consola do Configuration Manager. Este nome pode ter um máximo de 32 carateres.
 
-    -   **Idioma** (opcional): Especifique a versão de idioma do pacote com um máximo de 32 carateres.  
+   -   **Idioma** (opcional): Especifique a versão de idioma do pacote com um máximo de 32 carateres.  
 
-    -   **Versão** (opcional):  Especifique um número de versão para o pacote com um máximo de 32 carateres.
+   -   **Versão** (opcional):  Especifique um número de versão para o pacote com um máximo de 32 carateres.
 
-    -   **Este pacote contém ficheiros de origem**: Esta definição indica se o pacote requer ficheiros de origem estejam presentes nos dispositivos cliente. Por predefinição, esta caixa de verificação está desmarcada e o Configuration Manager não utiliza pontos de distribuição para o pacote. Quando esta caixa de verificação está selecionada, são utilizados pontos de distribuição.  
+   -   **Este pacote contém ficheiros de origem**: Esta definição indica se o pacote requer ficheiros de origem estejam presentes nos dispositivos cliente. Por predefinição, esta caixa de verificação está desmarcada e o Configuration Manager não utiliza pontos de distribuição para o pacote. Quando esta caixa de verificação está selecionada, são utilizados pontos de distribuição.  
 
-    -   **Pasta de origem**: Se o pacote contém ficheiros de origem, escolha **navegue** para abrir o **definir pasta de origem** diálogo caixa e, em seguida, especifique a localização dos ficheiros de origem para o pacote.  
+   -   **Pasta de origem**: Se o pacote contém ficheiros de origem, escolha **navegue** para abrir o **definir pasta de origem** diálogo caixa e, em seguida, especifique a localização dos ficheiros de origem para o pacote.  
 
-        > [!NOTE]  
-        >  A conta de computador do servidor do site deve ter permissões de acesso de leitura para a pasta de origem que especificar.  
+       > [!NOTE]  
+       >  A conta de computador do servidor do site deve ter permissões de acesso de leitura para a pasta de origem que especificar.  
 
-5.  Sobre o **tipo de programa** página do **assistente criar pacote e programa**, selecione o tipo de programa para criar e, em seguida, escolha **seguinte**. Pode criar um programa para um computador ou dispositivo, ou pode ignorar este passo e criar um programa mais tarde.  
+4. Sobre o **tipo de programa** página do **assistente criar pacote e programa**, selecione o tipo de programa para criar e, em seguida, escolha **seguinte**. Pode criar um programa para um computador ou dispositivo, ou pode ignorar este passo e criar um programa mais tarde.  
 
-    > [!TIP]  
-    >  Para criar um novo programa para um pacote existente, primeiro selecione o pacote. Em seguida, na **home page** separador a **pacote** de grupo, escolha **criar programa** para abrir o **Assistente para criar programa**.  
+   > [!TIP]  
+   >  Para criar um novo programa para um pacote existente, primeiro selecione o pacote. Em seguida, na **home page** separador a **pacote** de grupo, escolha **criar programa** para abrir o **Assistente para criar programa**.  
 
-6.  Utilize um dos seguintes procedimentos para criar um programa padrão ou um programa de dispositivo.  
+5. Utilize um dos seguintes procedimentos para criar um programa padrão ou um programa de dispositivo.  
 
-    #### <a name="create-a-standard-program"></a>Criar um programa padrão  
+   #### <a name="create-a-standard-program"></a>Criar um programa padrão  
 
-  1.  Na **tipo de programa** página do **assistente criar pacote e programa**, escolha **programa padrão**e, em seguida, selecione **seguinte**.     
+   1.  Na **tipo de programa** página do **assistente criar pacote e programa**, escolha **programa padrão**e, em seguida, selecione **seguinte**.     
 
-    2.  Sobre o **programa padrão** , especifique as seguintes informações:  
+   2.  Sobre o **programa padrão** , especifique as seguintes informações:  
 
-        -   **Nome:** Especifique um nome para o programa com um máximo de 50 carateres.  
+       -   **Nome:** Especifique um nome para o programa com um máximo de 50 carateres.  
 
-            > [!NOTE]  
-            >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
+           > [!NOTE]  
+           >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
 
-        -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa ou escolha **procurar** para navegar para a localização do ficheiro.  
+       -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa ou escolha **procurar** para navegar para a localização do ficheiro.  
 
-            Se um nome de ficheiro não tiver uma extensão especificada, o Configuration Manager tenta utilizar. com, .exe e. bat como extensões possíveis.  
+           Se um nome de ficheiro não tiver uma extensão especificada, o Configuration Manager tenta utilizar. com, .exe e. bat como extensões possíveis.  
 
-             Quando o programa é executado num cliente, o Configuration Manager procura primeiro o nome do ficheiro da linha de comandos no pacote, pesquisa numa pasta local do Windows e, em seguida, procura no local *% path %*. Se o ficheiro não for encontrado, o programa irá falhar.  
+            Quando o programa é executado num cliente, o Configuration Manager procura primeiro o nome do ficheiro da linha de comandos no pacote, pesquisa numa pasta local do Windows e, em seguida, procura no local *% path %*. Se o ficheiro não for encontrado, o programa irá falhar.  
 
-        -   **Pasta de arranque** (opcional): Especifique a pasta a partir do qual o programa é executado, até 127 carateres. Esta pasta pode ser um caminho absoluto no cliente ou um caminho relativo para a pasta de ponto de distribuição que contém o pacote.
+       -   **Pasta de arranque** (opcional): Especifique a pasta a partir do qual o programa é executado, até 127 carateres. Esta pasta pode ser um caminho absoluto no cliente ou um caminho relativo para a pasta de ponto de distribuição que contém o pacote.
 
-        -   **Executar**: Especifique o modo no qual o programa é executado em computadores cliente. Selecione um dos seguintes procedimentos:  
+       -   **Executar**: Especifique o modo no qual o programa é executado em computadores cliente. Selecione um dos seguintes procedimentos:  
 
-            -   **Normal**: O programa é executado no modo normal, com base nas predefinições do sistema e do programa. Este é o modo predefinido.  
+           -   **Normal**: O programa é executado no modo normal, com base nas predefinições do sistema e do programa. Este é o modo predefinido.  
 
-            -   **Minimizado**: O programa é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
+           -   **Minimizado**: O programa é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
 
-            -   **Maximizado**: O programa é executado maximizado nos dispositivos cliente. Os utilizadores veem todas as atividades de instalação.  
+           -   **Maximizado**: O programa é executado maximizado nos dispositivos cliente. Os utilizadores veem todas as atividades de instalação.  
 
-            -   **Oculto**: O programa é executado ocultado nos dispositivos cliente. Os utilizadores não verão qualquer atividade de instalação.  
+           -   **Oculto**: O programa é executado ocultado nos dispositivos cliente. Os utilizadores não verão qualquer atividade de instalação.  
 
-        -   **Programa pode ser executado**: Especifique se o programa é executado apenas quando um utilizador tem sessão iniciado, somente quando nenhum utilizador estará inscrito no, ou, independentemente de um utilizador com sessão iniciada computador cliente.  
+       -   **Programa pode ser executado**: Especifique se o programa é executado apenas quando um utilizador tem sessão iniciado, somente quando nenhum utilizador estará inscrito no, ou, independentemente de um utilizador com sessão iniciada computador cliente.  
 
-        -   **Modo de execução**: Especifique se o programa é executado com permissões administrativas ou com as permissões do utilizador que tem atualmente sessão iniciada.  
+       -   **Modo de execução**: Especifique se o programa é executado com permissões administrativas ou com as permissões do utilizador que tem atualmente sessão iniciada.  
 
-        -   **Permitir que os utilizadores visualizem e interajam com a instalação do programa**: Utilize esta definição, se estiver disponível, para especificar se pretende permitir que os utilizadores interajam com a instalação do programa. Esta caixa de verificação só está disponível quando **apenas quando não iniciada** ou **se deve ou não um utilizador tem sessão iniciada** está selecionado para **programa pode ser executado** e quando **executar com direitos administrativos** está selecionada para **modo de execução**.  
+       -   **Permitir que os utilizadores visualizem e interajam com a instalação do programa**: Utilize esta definição, se estiver disponível, para especificar se pretende permitir que os utilizadores interajam com a instalação do programa. Esta caixa de verificação só está disponível quando **apenas quando não iniciada** ou **se deve ou não um utilizador tem sessão iniciada** está selecionado para **programa pode ser executado** e quando **executar com direitos administrativos** está selecionada para **modo de execução**.  
 
-        -   **Modo de unidade**: Especifique as informações sobre como este programa é executado na rede. Escolha uma das seguintes opções:  
+       -   **Modo de unidade**: Especifique as informações sobre como este programa é executado na rede. Escolha uma das seguintes opções:  
 
-            -   **Executa com nome UNC**: Especifique se o programa é executado com uma convenção de Nomenclatura Universal (UNC). Esta é a predefinição.  
+           -   **Executa com nome UNC**: Especifique se o programa é executado com uma convenção de Nomenclatura Universal (UNC). Esta é a predefinição.  
 
-            -   **Necessita letra de unidade**: Especifique que o programa requer uma letra de unidade para qualificar completamente a respetiva localização. Para esta definição, o Configuration Manager pode utilizar qualquer letra de unidade disponível no cliente.  
+           -   **Necessita letra de unidade**: Especifique que o programa requer uma letra de unidade para qualificar completamente a respetiva localização. Para esta definição, o Configuration Manager pode utilizar qualquer letra de unidade disponível no cliente.  
 
-            -   **Necessita letra de unidade específica** : Especifique que o programa requer uma letra de unidade específica que especificar para qualificar completamente a respetiva localização (por exemplo, **z:**). Se a letra de unidade especificada já estiver a ser utilizada num cliente, o programa não é executado.  
+           -   **Necessita letra de unidade específica** : Especifique que o programa requer uma letra de unidade específica que especificar para qualificar completamente a respetiva localização (por exemplo, **z:**). Se a letra de unidade especificada já estiver a ser utilizada num cliente, o programa não é executado.  
 
-        -   **Restabelecer ligação ao ponto de distribuição no início de sessão no**: Utilize esta caixa de verificação para indicar se o computador cliente volta ligar ao ponto de distribuição quando o utilizador inicia sessão. Por predefinição, esta caixa de verificação está desmarcada.  
+       -   **Restabelecer ligação ao ponto de distribuição no início de sessão no**: Utilize esta caixa de verificação para indicar se o computador cliente volta ligar ao ponto de distribuição quando o utilizador inicia sessão. Por predefinição, esta caixa de verificação está desmarcada.  
 
-  3.  Na **requisitos** página do **para criar pacote e programa assistente,** especifique as seguintes informações:  
+   3.  Na **requisitos** página do **para criar pacote e programa assistente,** especifique as seguintes informações:  
 
-        -   **Executar outro programa primeiro**: Utilize esta definição para identificar um pacote e programa que é executado antes deste pacote e programa é executado.  
+       -   **Executar outro programa primeiro**: Utilize esta definição para identificar um pacote e programa que é executado antes deste pacote e programa é executado.  
 
-        -   **Requisitos de plataforma**: Selecione **este programa pode ser executado em qualquer plataforma** ou **este programa pode ser executado apenas nas plataformas especificadas**e, em seguida, selecione os sistemas operativos que os clientes devem executar para ser possível instalar o pacote e programa.  
+       -   **Requisitos de plataforma**: Selecione **este programa pode ser executado em qualquer plataforma** ou **este programa pode ser executado apenas nas plataformas especificadas**e, em seguida, selecione os sistemas operativos que os clientes devem executar para ser possível instalar o pacote e programa.  
 
-        -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco que o programa de software necessita para ser executado no computador. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro igual ou superior a zero. Se for especificado um valor, é necessário especificar também as unidades para o valor.  
+       -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco que o programa de software necessita para ser executado no computador. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro igual ou superior a zero. Se for especificado um valor, é necessário especificar também as unidades para o valor.  
 
-        -   **Máximo permitido (minutos) de tempo de execução**: Especifique o tempo máximo que o programa poderá demorar para ser executado no computador cliente. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro superior a zero.  
+       -   **Máximo permitido (minutos) de tempo de execução**: Especifique o tempo máximo que o programa poderá demorar para ser executado no computador cliente. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro superior a zero.  
 
-             Por predefinição, este valor é definido para 120 minutos.  
+            Por predefinição, este valor é definido para 120 minutos.  
 
-            > [!IMPORTANT]  
-            >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **máximo de tempo de execução permitido** é superior à janela de manutenção agendada. No entanto, se o número máximo de tempo de execução está definido como **desconhecido**, o programa começa a ser executada durante a janela de manutenção e continua a ser executado conforme necessário depois de fechar a janela de manutenção. Se o utilizador definir o tempo de execução máximo para um período que exceda a duração de qualquer janela de manutenção disponível, em seguida, o programa não é executado.  
+           > [!IMPORTANT]  
+           >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **máximo de tempo de execução permitido** é superior à janela de manutenção agendada. No entanto, se o número máximo de tempo de execução está definido como **desconhecido**, o programa começa a ser executada durante a janela de manutenção e continua a ser executado conforme necessário depois de fechar a janela de manutenção. Se o utilizador definir o tempo de execução máximo para um período que exceda a duração de qualquer janela de manutenção disponível, em seguida, o programa não é executado.  
 
-             Se o valor é definido como **desconhecido**, Configuration Manager define o máximo tempo de execução 12 horas (720 minutos).  
+            Se o valor é definido como **desconhecido**, Configuration Manager define o máximo tempo de execução 12 horas (720 minutos).  
 
-            > [!NOTE]  
-            >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager para o programa no caso **executados com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com o instalação do programa** não está selecionada.  
+           > [!NOTE]  
+           >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager para o programa no caso **executados com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com o instalação do programa** não está selecionada.  
 
-  4.  Escolher **seguinte**.  
+   4.  Selecione **Next**.  
 
-    #### <a name="create-a-device-program"></a>Criar um programa de dispositivo  
+   #### <a name="create-a-device-program"></a>Criar um programa de dispositivo  
 
-  1.  Sobre o **tipo de programa** página do **assistente criar pacote e programa**, selecione **programa para o dispositivo**e, em seguida, escolha **seguinte**.  
+   1.  Sobre o **tipo de programa** página do **assistente criar pacote e programa**, selecione **programa para o dispositivo**e, em seguida, escolha **seguinte**.  
 
-  2.  Sobre o **programa para o dispositivo** página, especifique o seguinte:  
+   2.  Sobre o **programa para o dispositivo** página, especifique o seguinte:  
 
-        -   **Nome**: Especifique um nome para o programa com um máximo de 50 carateres.  
+       -   **Nome**: Especifique um nome para o programa com um máximo de 50 carateres.  
 
-            > [!NOTE]  
-            >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
+           > [!NOTE]  
+           >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
 
-        -   **Comentário** (opcional): Especifique um comentário para este programa de dispositivo com um máximo de 127 carateres.  
+       -   **Comentário** (opcional): Especifique um comentário para este programa de dispositivo com um máximo de 127 carateres.  
 
-        -   **Pasta de transferência**: Especifique o nome da pasta no dispositivo Windows CE onde serão armazenados os ficheiros de origem do pacote. O valor predefinido é **\Temp\\**.  
+       -   **Pasta de transferência**: Especifique o nome da pasta no dispositivo Windows CE onde serão armazenados os ficheiros de origem do pacote. O valor predefinido é **\Temp\\**.  
 
-        -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa ou escolha **procurar** para navegar para a localização do ficheiro.  
+       -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa ou escolha **procurar** para navegar para a localização do ficheiro.  
 
-        -   **Executar linha de comandos na pasta de transferência**: Selecione esta opção para executar o programa a partir da pasta de transferência especificada anteriormente.  
+       -   **Executar linha de comandos na pasta de transferência**: Selecione esta opção para executar o programa a partir da pasta de transferência especificada anteriormente.  
 
-        -   **Executar linha de comandos a partir desta pasta**: Selecione esta opção para especificar uma pasta diferente a partir da qual pretende executar o programa.  
+       -   **Executar linha de comandos a partir desta pasta**: Selecione esta opção para especificar uma pasta diferente a partir da qual pretende executar o programa.  
 
-    3.  Sobre o **requisitos** página, especifique o seguinte:  
+   3.  Sobre o **requisitos** página, especifique o seguinte:  
 
-        -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco necessário para o software. Este é apresentado aos utilizadores de dispositivos móveis antes de instalarem o programa.  
+       -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco necessário para o software. Este é apresentado aos utilizadores de dispositivos móveis antes de instalarem o programa.  
 
-        -   **Transferir programa**: Especifique as informações sobre quando este programa pode ser transferido para dispositivos móveis. Pode especificar **Assim que possível**, **Apenas sobre uma rede rápida** ou **Apenas quando o dispositivo estiver ancorado**.  
+       -   **Transferir programa**: Especifique as informações sobre quando este programa pode ser transferido para dispositivos móveis. Pode especificar **Assim que possível**, **Apenas sobre uma rede rápida** ou **Apenas quando o dispositivo estiver ancorado**.  
 
-        -   **Requisitos adicionais**: Especifique quaisquer requisitos adicionais para este programa. Estas são apresentadas aos utilizadores antes de instalarem o software. Por exemplo, pode indicar os utilizadores que necessitam de fechar todas as outras aplicações antes de executar o programa.  
+       -   **Requisitos adicionais**: Especifique quaisquer requisitos adicionais para este programa. Estas são apresentadas aos utilizadores antes de instalarem o software. Por exemplo, pode indicar os utilizadores que necessitam de fechar todas as outras aplicações antes de executar o programa.  
 
-  4.  Escolher **seguinte**.  
+   4.  Selecione **Next**.  
 
-  7.  Sobre o **resumo** , reveja as ações que serão executadas e conclua o assistente.  
+   7.  Sobre o **resumo** , reveja as ações que serão executadas e conclua o assistente.  
 
- Certifique-se de que o pacote e programa novos são apresentados no **pacotes** nó da **biblioteca de Software** área de trabalho.  
+   Certifique-se de que o pacote e programa novos são apresentados no **pacotes** nó da **biblioteca de Software** área de trabalho.  
 
 ## <a name="create-a-package-and-program-from-a-package-definition-file"></a>Criar um pacote e um programa a partir de um ficheiro de definição de pacote  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+1. Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
 
-3.  Na **home page** separador a **Create** de grupo, selecione **criar pacote de definição**.  
+2. Na **home page** separador a **Create** de grupo, selecione **criar pacote de definição**.  
 
-4.  Na **definição de pacote** página do **criar pacote a partir do Assistente de definição**, escolha um ficheiro de definição de pacote existente ou escolha **procurar** para abrir um novo pacote ficheiro de definição. Depois de especificar um novo ficheiro de definição de pacote, selecione-o a partir da **definição de pacote** lista e, em seguida, escolha **próxima**.  
+3. Na **definição de pacote** página do **criar pacote a partir do Assistente de definição**, escolha um ficheiro de definição de pacote existente ou escolha **procurar** para abrir um novo pacote ficheiro de definição. Depois de especificar um novo ficheiro de definição de pacote, selecione-o a partir da **definição de pacote** lista e, em seguida, escolha **próxima**.  
 
-5.  Sobre o **ficheiros de origem** página, especifique as informações sobre quaisquer ficheiros de origem necessários para o pacote e programa e, em seguida, escolha **próxima**.  
+4. Sobre o **ficheiros de origem** página, especifique as informações sobre quaisquer ficheiros de origem necessários para o pacote e programa e, em seguida, escolha **próxima**.  
 
-6.  Se o pacote requer ficheiros de origem, sobre o **pasta de origem** , especifique a localização a partir da qual os ficheiros de origem devem ser obtidos e, em seguida, escolha **seguinte**.  
+5. Se o pacote requer ficheiros de origem, sobre o **pasta de origem** , especifique a localização a partir da qual os ficheiros de origem devem ser obtidos e, em seguida, escolha **seguinte**.  
 
-7.  Sobre o **resumo** , reveja as ações que serão executadas e conclua o assistente. O pacote e programa novos são apresentados no **pacotes** nó da **biblioteca de Software** área de trabalho.  
+6. Sobre o **resumo** , reveja as ações que serão executadas e conclua o assistente. O pacote e programa novos são apresentados no **pacotes** nó da **biblioteca de Software** área de trabalho.  
 
- Para obter mais informações sobre arquivos de definição de pacote, consulte [sobre o formato de ficheiro de definição de pacote](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) neste tópico.  
+   Para obter mais informações sobre arquivos de definição de pacote, consulte [sobre o formato de ficheiro de definição de pacote](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) neste tópico.  
 
 ##  <a name="deploy-packages-and-programs"></a>Implementar pacotes e programas  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+1. Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
 
-2.  Selecione o pacote que pretende implementar, e, em seguida, no **home page** separador a **implantação** de grupo, escolha **implementar**.  
+2. Selecione o pacote que pretende implementar, e, em seguida, no **home page** separador a **implantação** de grupo, escolha **implementar**.  
 
-3.  Na **gerais** página do **Assistente de implementação de Software**, especifique o nome do pacote e programa que pretende implementar, a coleção à qual pretende implementar o pacote e programa e opcional comentários para a implementação.  
+3. Na **gerais** página do **Assistente de implementação de Software**, especifique o nome do pacote e programa que pretende implementar, a coleção à qual pretende implementar o pacote e programa e opcional comentários para a implementação.  
 
-     Selecione **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção** se quiser armazenar o conteúdo do pacote no grupo de pontos de distribuição predefinido da coleção. Se não associar a coleção selecionada com um grupo de pontos de distribuição, esta opção não está disponível.  
+    Selecione **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção** se quiser armazenar o conteúdo do pacote no grupo de pontos de distribuição predefinido da coleção. Se não associar a coleção selecionada com um grupo de pontos de distribuição, esta opção não está disponível.  
 
-4.  Sobre o **conteúdo** página, selecione **Add**e, em seguida, selecione os pontos de distribuição ou grupos de pontos de distribuição ao qual pretende implementar o conteúdo que está associado este pacote e programa.  
+4. Sobre o **conteúdo** página, selecione **Add**e, em seguida, selecione os pontos de distribuição ou grupos de pontos de distribuição ao qual pretende implementar o conteúdo que está associado este pacote e programa.  
 
-5.  Sobre o **definições de implementação** página, escolha um objetivo para esta implementação e especifique as opções para dos pacotes de reativação e ligações com tráfego limitado:  
+5. Sobre o **definições de implementação** página, escolha um objetivo para esta implementação e especifique as opções para dos pacotes de reativação e ligações com tráfego limitado:  
 
-    -   **Objetivo**: Escolha entre:  
+   - **Objetivo**: Escolha entre:  
 
-        -   **Disponível**: Se a aplicação é implementada num utilizador, este verá o pacote publicado e o programa no catálogo de aplicações e poderá solicitá-la a pedido. Se o pacote e programa for implementada para um dispositivo, o utilizador vê-lo no Centro de Software e pode instalá-la a pedido.  
+     -   **Disponível**: Se a aplicação é implementada num utilizador, este verá o pacote publicado e o programa no catálogo de aplicações e poderá solicitá-la a pedido. Se o pacote e programa for implementada para um dispositivo, o utilizador vê-lo no Centro de Software e pode instalá-la a pedido.  
 
-        -   **Necessário**: O pacote e programa são implementados automaticamente, de acordo com a agenda configurada. No entanto, um utilizador poderá controlar o estado de implementação do pacote e programa e instalá-los antes do prazo, utilizando o Centro de Software.   
+     -   **Necessário**: O pacote e programa são implementados automaticamente, de acordo com a agenda configurada. No entanto, um utilizador poderá controlar o estado de implementação do pacote e programa e instalá-los antes do prazo, utilizando o Centro de Software.   
 
-        >  [!NOTE]  
-        >  Se vários utilizadores tem sessão iniciados no dispositivo, implementações de sequência de pacotes e tarefas não podem aparecer no Centro de Software.
-        
-    -   **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, é enviado um pacote de reativação para computadores antes da instalação da implementação para reativar o computador da suspensão quando for atingido o prazo da instalação. Para poder utilizar esta opção, os computadores devem ser configurados para Wake On LAN.  
+     > [!NOTE]
+     >  Se vários utilizadores tem sessão iniciados no dispositivo, implementações de sequência de pacotes e tarefas não podem aparecer no Centro de Software.
 
-    -  **Permitir que os clientes numa ligação de Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Selecione esta opção caso seja necessário.  
+   - **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, é enviado um pacote de reativação para computadores antes da instalação da implementação para reativar o computador da suspensão quando for atingido o prazo da instalação. Para poder utilizar esta opção, os computadores devem ser configurados para Wake On LAN.  
 
-    > [!NOTE]  
-    >  A opção **Pré-implementar software no dispositivo primário do utilizador** não está disponível ao implementar um pacote e um programa.  
+   - **Permitir que os clientes numa ligação de Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Selecione esta opção caso seja necessário.  
 
-6.  Sobre o **agendamento** página, configure quando este pacote e programa serão implementados ou disponibilizados aos dispositivos cliente.  
+   > [!NOTE]  
+   >  A opção **Pré-implementar software no dispositivo primário do utilizador** não está disponível ao implementar um pacote e um programa.  
 
-     As opções nesta página variam consoante a ação de implementação esteja definida **disponível** ou **necessário**.  
+6. Sobre o **agendamento** página, configure quando este pacote e programa serão implementados ou disponibilizados aos dispositivos cliente.  
 
-7.  Se o objetivo da implementação estiver definido como **necessários**, configurar o comportamento da nova execução para o programa a partir do **comportamento da nova execução** menu pendente. Pode escolher uma das seguintes opções:  
+    As opções nesta página variam consoante a ação de implementação esteja definida **disponível** ou **necessário**.  
 
-    |Comportamento da nova execução|Mais informações|  
-    |--------------------|----------------------|  
-    |Nunca voltar a executar o programa implementado|O programa não de ser executado novamente no cliente, mesmo que o programa tenha falhado inicialmente ou se os ficheiros de programa forem alterados.|  
-    |Executar sempre novamente o programa|O programa será sempre novamente executado no cliente quando a implementação estiver agendada, mesmo que o programa tenha sido executado com êxito. Isto pode ser útil quando utilizar implementações periódicas no qual o programa é atualizado, por exemplo, com software antivírus.|  
-    |Executar novamente se a tentativa anterior falhar|O programa é executado novamente quando a implementação estiver agendada apenas se ocorrido uma falha na tentativa de execução anterior.|  
-    |Executar novamente se a tentativa anterior tiver êxito|O programa é executado novamente apenas se tiver sido executado com êxito no cliente. Isto é útil se utilizar anúncios periódicos nos quais o programa é atualizado regularmente, e em que cada atualização necessitar que a atualização anterior tenha sido instalada com êxito.|  
+7. Se o objetivo da implementação estiver definido como **necessários**, configurar o comportamento da nova execução para o programa a partir do **comportamento da nova execução** menu pendente. Pode escolher uma das seguintes opções:  
+
+
+   |             Comportamento da nova execução             |                                                                                                                        Mais informações                                                                                                                        |
+   |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      Nunca voltar a executar o programa implementado      |                                                                      O programa não de ser executado novamente no cliente, mesmo que o programa tenha falhado inicialmente ou se os ficheiros de programa forem alterados.                                                                      |
+   |          Executar sempre novamente o programa          |   O programa será sempre novamente executado no cliente quando a implementação estiver agendada, mesmo que o programa tenha sido executado com êxito. Isto pode ser útil quando utilizar implementações periódicas no qual o programa é atualizado, por exemplo, com software antivírus.    |
+   |    Executar novamente se a tentativa anterior falhar    |                                                                              O programa é executado novamente quando a implementação estiver agendada apenas se ocorrido uma falha na tentativa de execução anterior.                                                                              |
+   | Executar novamente se a tentativa anterior tiver êxito | O programa é executado novamente apenas se tiver sido executado com êxito no cliente. Isto é útil se utilizar anúncios periódicos nos quais o programa é atualizado regularmente, e em que cada atualização necessitar que a atualização anterior tenha sido instalada com êxito. |
+
 
 8. Na página **Experiência de Utilizador** , especifique as seguintes informações:  
 

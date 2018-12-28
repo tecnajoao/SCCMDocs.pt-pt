@@ -10,12 +10,12 @@ ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7671025b0a643063f30c98922f7da0659e2e1ab9
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 0c04ee9a62b6c629060f79df2f4b104fe78ca794
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456911"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418990"
 ---
 #  <a name="the-data-warehouse-service-point-for-configuration-manager"></a>O ponto de serviço de armazém de dados para o Configuration Manager
 
@@ -32,7 +32,7 @@ O armazém de dados suporta até 2 TB de dados, carimbos de data de registo de a
 Dados que são sincronizados incluem o seguinte dos grupos de dados globais e de dados do Site:
 - Estado de funcionamento da infraestrutura
 - Segurança
-- conformidade
+- Conformidade
 - Software maligno   
 - Implementações de software
 - Detalhes de inventário (no entanto, histórico de inventário não está sincronizado)

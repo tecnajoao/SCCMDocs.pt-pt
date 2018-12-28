@@ -1,8 +1,8 @@
 ---
-title: Aprovar as aplicações
+title: Aprovar aplicações
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as configurações e comportamentos para aprovação de aplicativos no Configuration Manager.
-ms.date: 11/27/2018
+ms.date: 12/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 20493c86-6454-4b35-8f22-0d049b68b8bb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f19146da963055ffc20b274e1017802274844698
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 666df71b32ea0dc95411b8ffd58d18f7666d7b23
+ms.sourcegitcommit: d36e4c7082a5144e79035dd8847c8e741fa04667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458304"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444591"
 ---
 # <a name="approve-applications-in-configuration-manager"></a>Aprovar aplicações no Configuration Manager
 
@@ -80,6 +80,14 @@ Com estes pré-requisitos, os destinatários receber um e-mail com a notificaç�
 
 - Configurar [notificação por e-mail para alertas](/sccm/core/servers/manage/use-alerts-and-the-status-system#to-configure-email-notification-for-alerts).  
 
+- Ative o fornecedor de SMS a utilizar um certificado.<!--SCCMDocs-pr issue 3135--> Utilize uma das seguintes opções:  
+
+    - Ativar [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http) (recomendado)  
+
+        > [!Note]  
+        > Quando o site cria um certificado para o fornecedor de SMS, ele não ser considerado fidedigno pelo navegador da web no cliente. Com base nas suas definições de segurança, em resposta a um pedido de aplicação, poderá ver um aviso de segurança.  
+
+    - Manualmente vincular um certificado PKI com base para a porta 443 no IIS no servidor que aloja a função de fornecedor de SMS  
 
 
 #### <a name="to-take-action-from-internet"></a>Para tomar medidas a partir da internet
@@ -115,7 +123,7 @@ Com estes pré-requisitos opcionais adicionais, os destinatários podem aprovar 
 
             2. Altere seu valor para **true**. Por exemplo, toda a linha deve ser semelhante a seguinte linha: `"oauth2AllowImplicitFlow": true,`   
 
-            3. Selecione **guardar**.  
+            3. Selecione **Guardar**.  
 
 
 ### <a name="configure-email-approval"></a>Configurar a aprovação de e-mail

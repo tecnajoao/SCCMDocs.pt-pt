@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
-ms.openlocfilehash: f59ca099325028ccf29904a2108939d0047df745
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 80effa7ec3439925248e19dbf9d35efcf1694b8a
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52455955"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419364"
 ---
 # <a name="deploy-software-updates"></a>Implementar atualizações de software  
 
@@ -98,13 +98,13 @@ Depois de criar uma ADR, adicione implementações adicionais para a regra. Esta
 
 Cada nova implementação que adiciona:  
 
--   Utiliza o mesmo atualizar grupo e pacote, que a ADR cria quando é executada pela primeira vez  
--   Pode visar uma coleção diferente  
--   Suporta propriedades de implementação exclusivas, incluindo:  
-   -   Hora de ativação  
-   -   Prazo  
-   -   Experiência de utilizador  
-   -   Alertas separadas para cada implementação  
+- Utiliza o mesmo atualizar grupo e pacote, que a ADR cria quando é executada pela primeira vez  
+- Pode visar uma coleção diferente  
+- Suporta propriedades de implementação exclusivas, incluindo:  
+  -   Hora de ativação  
+  -   Prazo  
+  -   Experiência de utilizador  
+  -   Alertas separadas para cada implementação  
 
 
 Para obter mais informações e passos detalhados, consulte [implementar automaticamente atualizações de software](automatically-deploy-software-updates.md)

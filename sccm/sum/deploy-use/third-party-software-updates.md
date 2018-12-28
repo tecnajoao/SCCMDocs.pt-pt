@@ -10,12 +10,12 @@ ms.assetid: 946b0f74-0794-4e8f-a6af-9737d877179b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fbcf7a7d76146cc11dd4bb57b86fe4752c694e02
-ms.sourcegitcommit: 1e782268d6c0211bd854b5860de72cfd6c6985c6
+ms.openlocfilehash: 32aced9e14f98008dfd769564c553370d067896e
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44697043"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423104"
 ---
 # <a name="enable-third-party-updates"></a>Ativar as atualizações de terceiros 
 
@@ -53,7 +53,7 @@ Versão 1806, a partir da **catálogos de atualização de Software de terceiros
 4. Para ativar a instalar o certificado de assinatura autoassinado do WSUS para os editores confiáveis e de raiz fidedigna armazena no servidor SUP remoto:
    - O **conta de ligação do servidor WSUS** deve possuir permissões de administração remota do servidor SUP.
 
-    Se este item não for possível, exporte o certificado do arquivo WSUS no computador local para os arquivos de fabricante fidedigno e de raiz fidedigna. 
+     Se este item não for possível, exporte o certificado do arquivo WSUS no computador local para os arquivos de fabricante fidedigno e de raiz fidedigna. 
 
 > [!NOTE] 
 >O **conta de ligação do servidor WSUS** podem ser identificados, visualizando o **definições de conta de Proxy e** separador nas propriedades da função de sistema de sites do SUP. Se não for especificada uma conta, é utilizada a conta de computador do servidor do site.
@@ -122,17 +122,17 @@ Ao subscrever um catálogo de terceiros na consola do Configuration Manager, os 
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **atualizações de Software** e selecione o **catálogos de atualizações de Software de terceiros** nó.  
 2. Selecione o catálogo para subscrever e clique em **subscrever catálogo** na faixa de opções. 
     ![Atualizações de terceiros Adicionar catálogo personalizado](media/third-party-updates-subscribe.png)
-1. Rever e aprovar o certificado de catálogo.  
-    >[!NOTE]
-    
-    > Ao subscrever um catálogo de atualização de software de terceiros, o certificado que rever e aprovar no assistente é adicionado ao site. Este certificado é do tipo **catálogo de atualizações de Software de terceiros**. Pode gerenciá-lo a partir do **certificados** no nó **segurança** no **administração** área de trabalho.  
-2. Conclua o assistente. Depois da subscrição inicial, o catálogo deve começar a transferir dentro de alguns minutos. 
+3. Rever e aprovar o certificado de catálogo.  
+   > [!NOTE]
+   > 
+   > Ao subscrever um catálogo de atualização de software de terceiros, o certificado que rever e aprovar no assistente é adicionado ao site. Este certificado é do tipo **catálogo de atualizações de Software de terceiros**. Pode gerenciá-lo a partir do **certificados** no nó **segurança** no **administração** área de trabalho.  
+4. Conclua o assistente. Depois da subscrição inicial, o catálogo deve começar a transferir dentro de alguns minutos. 
     - O catálogo sincroniza automaticamente a cada 7 dias.
     - Clique em **sincronizar agora** na faixa de opções para forçar a sincronização.
-3. Depois do catálogo é transferido, os metadados do produto tem de ser sincronizados a partir da base de dados do WSUS no banco de dados do Configuration Manager. [Iniciar manualmente a sincronização de atualizações de software](../get-started/synchronize-software-updates.md#manually-start-software-updates-synchronization) para sincronizar as informações do produto.
-4. Assim que as informações do produto estão sincronizadas, [configurar o SUP para sincronizar o produto desejado](../get-started/configure-classifications-and-products.md#to-configure-classifications-and-products-to-synchronize) para o Configuration Manager.  
-5. [Iniciar manualmente a sincronização de atualizações de software](../get-started/synchronize-software-updates.md#manually-start-software-updates-synchronization) para sincronizar atualizações do produto novo para o Configuration Manager.  
-6. Quando a sincronização estiver concluída, pode ver as atualizações de terceiros a **todas as atualizações** nó. Estas atualizações são publicadas como **apenas de metadados** atualiza até optar por publicá-los. 
+5. Depois do catálogo é transferido, os metadados do produto tem de ser sincronizados a partir da base de dados do WSUS no banco de dados do Configuration Manager. [Iniciar manualmente a sincronização de atualizações de software](../get-started/synchronize-software-updates.md#manually-start-software-updates-synchronization) para sincronizar as informações do produto.
+6. Assim que as informações do produto estão sincronizadas, [configurar o SUP para sincronizar o produto desejado](../get-started/configure-classifications-and-products.md#to-configure-classifications-and-products-to-synchronize) para o Configuration Manager.  
+7. [Iniciar manualmente a sincronização de atualizações de software](../get-started/synchronize-software-updates.md#manually-start-software-updates-synchronization) para sincronizar atualizações do produto novo para o Configuration Manager.  
+8. Quando a sincronização estiver concluída, pode ver as atualizações de terceiros a **todas as atualizações** nó. Estas atualizações são publicadas como **apenas de metadados** atualiza até optar por publicá-los. 
      - O ícone com a seta azul representa uma atualização de software apenas de metadados. ![Ícone de atualização de software apenas de metadados](media/MetadataOnly.png)
 
 

@@ -10,12 +10,12 @@ ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 13d9e83adcdf0e125d1596ff93fbb1a0fa67c09f
-ms.sourcegitcommit: 8827ffaea108678da968a3623f072876990c830c
+ms.openlocfilehash: 0b65f5fb8790f907699a26e36c1ffe41b7e0eb03
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49411332"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418650"
 ---
 # <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modificar a infraestrutura do System Center Configuration Manager
 
@@ -29,36 +29,36 @@ Depois de instalar um ou mais sites, poderá ser necessário modificar configura
 
  Em cada site do Configuration Manager, pode voltar a executar a configuração para:  
 
--   Adicionar uma instância adicional do fornecedor de SMS (cada instância adicional do fornecedor de SMS tem de ser num computador separado)  
+- Adicionar uma instância adicional do fornecedor de SMS (cada instância adicional do fornecedor de SMS tem de ser num computador separado)  
 
--   Remover uma instância do fornecedor de SMS (para remover o último fornecedor de SMS de um site, tem de desinstalar o site)  
+- Remover uma instância do fornecedor de SMS (para remover o último fornecedor de SMS de um site, tem de desinstalar o site)  
 
- Pode monitorizar a instalação ou remoção do Fornecedor de SMS, visualizando o **ConfigMgrSetup.log** na pasta raiz do servidor de site onde executa a Configuração.  
+  Pode monitorizar a instalação ou remoção do Fornecedor de SMS, visualizando o **ConfigMgrSetup.log** na pasta raiz do servidor de site onde executa a Configuração.  
 
- Antes de modificar o Fornecedor de SMS num site, deve estar familiarizado com as informações em [Planear o Fornecedor de SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+  Antes de modificar o Fornecedor de SMS num site, deve estar familiarizado com as informações em [Planear o Fornecedor de SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
 #### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Para gerir a configuração do Fornecedor de SMS num site  
 
-1.  Execute **configuração do Configuration Manager** partir  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
+1. Execute **configuração do Configuration Manager** partir  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
 
-2.  Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
+2. Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
 
-3.  Na página **Manutenção do Site**, selecione **Modificar a configuração do Fornecedor de SMS** e clique em **Seguinte**.  
+3. Na página **Manutenção do Site**, selecione **Modificar a configuração do Fornecedor de SMS** e clique em **Seguinte**.  
 
-4.  Na página **Gerir Fornecedores de SMS**, selecione uma das seguintes opções e conclua o assistente através de uma das duas opções seguintes:  
+4. Na página **Gerir Fornecedores de SMS**, selecione uma das seguintes opções e conclua o assistente através de uma das duas opções seguintes:  
 
-    -   Para adicionar um Fornecedor de SMS adicional a este site:  
+   -   Para adicionar um Fornecedor de SMS adicional a este site:  
 
-         Selecione **Adicionar um novo Fornecedor de SMS**, especifique o FQDN de um computador que irá alojar o Fornecedor de SMS, e que não aloje nenhum atualmente, e clique em **Seguinte**.  
+        Selecione **Adicionar um novo Fornecedor de SMS**, especifique o FQDN de um computador que irá alojar o Fornecedor de SMS, e que não aloje nenhum atualmente, e clique em **Seguinte**.  
 
-    -   Para remover um Fornecedor de SMS de um servidor:  
+   -   Para remover um Fornecedor de SMS de um servidor:  
 
-         Selecione **Desinstalar o Fornecedor de SMS especificado**, selecione o nome do computador do qual pretende remover o Fornecedor de SMS, clique em **Seguinte** e confirme a ação.  
+        Selecione **Desinstalar o Fornecedor de SMS especificado**, selecione o nome do computador do qual pretende remover o Fornecedor de SMS, clique em **Seguinte** e confirme a ação.  
 
-        > [!TIP]  
-        >  Para mover o Fornecedor de SMS entre dois computadores, tem de instalar o Fornecedor de SMS no novo computador e remover o Fornecedor de SMS da localização original. Não existe uma opção dedicada para mover o Fornecedor de SMS entre computadores num único processo.  
+       > [!TIP]  
+       >  Para mover o Fornecedor de SMS entre dois computadores, tem de instalar o Fornecedor de SMS no novo computador e remover o Fornecedor de SMS da localização original. Não existe uma opção dedicada para mover o Fornecedor de SMS entre computadores num único processo.  
 
- Depois da conclusão do Assistente de Configuração, a configuração do Fornecedor de SMS está concluída. No separador **Geral**, na caixa de diálogo **Propriedades** do site, pode verificar os computadores que têm um Fornecedor de SMS instalado para um site.  
+   Depois da conclusão do Assistente de Configuração, a configuração do Fornecedor de SMS está concluída. No separador **Geral**, na caixa de diálogo **Propriedades** do site, pode verificar os computadores que têm um Fornecedor de SMS instalado para um site.  
 
 ##  <a name="bkmk_Console"></a> Gerir a consola do Configuration Manager  
  Seguem-se tarefas que pode realizar para gerir a consola do Configuration Manager:  
@@ -110,11 +110,11 @@ Por exemplo, considere um cenário em que instalar consola do Configuration Mana
 ##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurar permissões de DCOM para consolas remotas do Configuration Manager  
  A conta de utilizador que executa a consola do Configuration Manager requer permissão para aceder à base de dados do site utilizando o fornecedor de SMS. No entanto, um utilizador administrativo que utilize uma consola remota do Gestor de configuração também requer **ativação remota** permissões de DCOM em:  
 
--   O computador do servidor do site  
+- O computador do servidor do site  
 
--   Cada computador que aloja uma instância do Fornecedor de SMS  
+- Cada computador que aloja uma instância do Fornecedor de SMS  
 
- O grupo de segurança com o nome **Admins de SMS** concede acesso ao Fornecedor de SMS num computador e também pode ser utilizado para conceder as permissões de DCOM necessárias. (Este grupo é local no computador quando o fornecedor de SMS é executado num servidor membro e é um grupo local de domínio quando o fornecedor de SMS é executado num controlador de domínio.)  
+  O grupo de segurança com o nome **Admins de SMS** concede acesso ao Fornecedor de SMS num computador e também pode ser utilizado para conceder as permissões de DCOM necessárias. (Este grupo é local no computador quando o fornecedor de SMS é executado num servidor membro e é um grupo local de domínio quando o fornecedor de SMS é executado num controlador de domínio.)  
 
 > [!IMPORTANT]  
 >  Consola do Configuration Manager utiliza Windows Management Instrumentation (WMI) para ligar ao fornecedor de SMS e a WMI utiliza o DCOM internamente. Por conseguinte, o Configuration Manager requer permissões para ativar um servidor DCOM no computador do fornecedor de SMS se a consola do Configuration Manager está em execução num computador diferente do computador do fornecedor de SMS. Por predefinição, a ativação remota é concedida apenas aos membros do grupo Administradores incorporado. Se permitir que o grupo Admins de SMS tenha a permissão Ativação Remota, um membro deste grupo pode tentar ataques DCOM contra o computador do Fornecedor de SMS. Esta configuração também aumenta a superfície de ataque do computador. Para atenuar esta ameaça, monitorize cuidadosamente os membros do grupo Admins de SMS.  
@@ -123,24 +123,24 @@ Por exemplo, considere um cenário em que instalar consola do Configuration Mana
 
 #### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Para configurar permissões de DCOM para ligações de consolas remotas do Configuration Manager  
 
-1.  Abra **Serviços de Componentes**, executando **Dcomcnfg.exe**.  
+1. Abra **Serviços de Componentes**, executando **Dcomcnfg.exe**.  
 
-2.  Na **serviços de componentes**, clique em **raiz da consola** >  **serviços de componentes** > **computadores**e, em seguida, Clique em **meu computador**. No menu **Ação**, clique em **Propriedades**.  
+2. Na **serviços de componentes**, clique em **raiz da consola** >  **serviços de componentes** > **computadores**e, em seguida, Clique em **meu computador**. No menu **Ação**, clique em **Propriedades**.  
 
-3.  Na caixa de diálogo **Propriedades de O Meu Computador**, na secção **Permissões de Lançamento e Ativação** do separador **Segurança COM**, clique em **Editar Limites**.  
+3. Na caixa de diálogo **Propriedades de O Meu Computador**, na secção **Permissões de Lançamento e Ativação** do separador **Segurança COM**, clique em **Editar Limites**.  
 
-4.  Na caixa de diálogo **Permissões de Lançamento e Ativação**, clique em **Adicionar**.  
+4. Na caixa de diálogo **Permissões de Lançamento e Ativação**, clique em **Adicionar**.  
 
-5.  Na **selecionar utilizadores, computadores, contas de serviço ou grupos** caixa de diálogo a **introduzir os nomes de objeto a selecionar (exemplos)** , escreva **Admins de SMS**e, em seguida, clique em  **OK**.  
+5. Na **selecionar utilizadores, computadores, contas de serviço ou grupos** caixa de diálogo a **introduzir os nomes de objeto a selecionar (exemplos)** , escreva **Admins de SMS**e, em seguida, clique em  **OK**.  
 
-    > [!NOTE]  
-    >  Poderá ter de alterar a definição **Desta localização** para localizar o grupo Admins de SMS. Este grupo é local no computador quando o Fornecedor de SMS é executado num servidor membro e é um grupo local do domínio quando o Fornecedor de SMS é executado num controlador de domínio.  
+   > [!NOTE]  
+   >  Poderá ter de alterar a definição **Desta localização** para localizar o grupo Admins de SMS. Este grupo é local no computador quando o Fornecedor de SMS é executado num servidor membro e é um grupo local do domínio quando o Fornecedor de SMS é executado num controlador de domínio.  
 
-6.  Na secção **Permissões para Admins de SMS**, para permitir a ativação remota, selecione a caixa de verificação **Ativação Remota**.  
+6. Na secção **Permissões para Admins de SMS**, para permitir a ativação remota, selecione a caixa de verificação **Ativação Remota**.  
 
-7.  Clique em **OK** e clique novamente em **OK** e, em seguida, feche **Gestão de Computadores**. O computador está agora configurado para permitir o acesso à consola para membros do grupo Admins de SMS remoto do Configuration Manager.  
+7. Clique em **OK** e clique novamente em **OK** e, em seguida, feche **Gestão de Computadores**. O computador está agora configurado para permitir o acesso à consola para membros do grupo Admins de SMS remoto do Configuration Manager.  
 
- Repita este procedimento em cada computador fornecedor de SMS que possa suportar consolas remotas do Configuration Manager.  
+   Repita este procedimento em cada computador fornecedor de SMS que possa suportar consolas remotas do Configuration Manager.  
 
 ##  <a name="bkmk_dbconfig"></a> Modificar a configuração de base de dados do site  
  Após instalar um site, poderá modificar a configuração de base de dados do site e o servidor da base de dados do site executando o Programa de Configuração num servidor de site de administração central ou servidor de site primário. Pode mover a base de dados do site para uma nova instância do SQL Server no mesmo computador, ou para outro computador que execute uma versão suportada do SQL Server. Estas e as alterações relacionadas não são suportadas para a configuração da base de dados em sites secundários.  
@@ -182,9 +182,9 @@ Pode selecionar a conta que executa o SQL Services para a base de dados do site:
 
 A documentação do SQL Server pode ajudá-lo a [registar manualmente o SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx) e fornecer informações adicionais sobre SPNs e ligações Kerberos.  
 
-> [!IMPORTANT]  
->  -   Ao criar um SPN para um SQL Server em cluster, deverá especificar o nome virtual do Cluster do SQL Server como o nome de computador do SQL Server  
-> -   O comando para registar um SPN para uma instância nomeada do SQL Server é igual ao utilizado para registar um SPN para uma instância predefinida, com exceção do facto de o número de porta ter de corresponder à porta que é utilizada pela instância nomeada  
+> [!IMPORTANT]
+> - Ao criar um SPN para um SQL Server em cluster, deverá especificar o nome virtual do Cluster do SQL Server como o nome de computador do SQL Server  
+>   -   O comando para registar um SPN para uma instância nomeada do SQL Server é igual ao utilizado para registar um SPN para uma instância predefinida, com exceção do facto de o número de porta ter de corresponder à porta que é utilizada pela instância nomeada  
 
 Pode registar um SPN para a conta de serviço do SQL Server do servidor de base de dados do site através da ferramenta **Setspn**. Deverá executar a ferramenta Setspn num computador que resida no domínio do SQL Server, a qual deverá utilizar credenciais de Administrador de Domínio ao ser executada.  
 

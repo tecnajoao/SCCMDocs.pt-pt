@@ -10,12 +10,12 @@ manager: dougeby
 ms.date: 12/10/2018
 ms.topic: conceptual
 ms.assetid: 60e2022f-a4f9-40dd-af01-9ecb37b43878
-ms.openlocfilehash: 94e7e62d71d44abc2a069e814738d5ac6fecb174
-ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
+ms.openlocfilehash: e3bd3bfda92fb877bac3ca68dbecf8b4a4078d4d
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53303810"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416950"
 ---
 # <a name="switch-configuration-manager-workloads-to-intune"></a>Mudar as cargas de trabalho do Configuration Manager para o Intune
 
@@ -115,10 +115,10 @@ Depois de ativar a cogestão, monitorize dispositivos de cogestão através dos 
 - [O dashboard de cogestão](/sccm/core/clients/manage/co-management-dashboard)  
 
 - **SQL exibição e a classe WMI de**: Consulta a **v_ClientCoManagementState** vista SQL na base de dados do site do Configuration Manager ou o **SMS_Client_ComanagementState** classe WMI. Com as informações na classe WMI, pode criar coleções personalizadas no Configuration Manager para ajudar a determinar o estado da implementação da cogestão. Para obter detalhes, consulte [como criar coleções](/sccm/core/clients/manage/collections/create-collections). Os campos seguintes estão disponíveis na vista de SQL e classe WMI:  
-    - **MachineId**: Especifica um ID de dispositivo exclusivo para o cliente do Configuration Manager  
-    - **MDMEnrolled**: Especifica se o dispositivo é inscrito para MDM  
-    - **Autoridade**: Especifica a autoridade para o qual o dispositivo está inscrito  
-    - **ComgmtPolicyPresent**: Especifica se a política de cogestão do Configuration Manager existe no cliente. Se o **MDMEnrolled** valor é **0**, o dispositivo não está conjuntamente gerido independentemente disso, se a política de cogestão existe no cliente.  
+  - **MachineId**: Especifica um ID de dispositivo exclusivo para o cliente do Configuration Manager  
+  - **MDMEnrolled**: Especifica se o dispositivo é inscrito para MDM  
+  - **Autoridade**: Especifica a autoridade para o qual o dispositivo está inscrito  
+  - **ComgmtPolicyPresent**: Especifica se a política de cogestão do Configuration Manager existe no cliente. Se o **MDMEnrolled** valor é **0**, o dispositivo não está conjuntamente gerido independentemente disso, se a política de cogestão existe no cliente.  
 
     > [!Note]  
     > Um dispositivo é cogeridos quando o **MDMEnrolled** campo e **ComgmtPolicyPresent** ambos os campos têm um valor de **1**.  

@@ -1,7 +1,7 @@
 ---
 title: Lista de verificação para 1802
 titleSuffix: Configuration Manager
-description: Saiba mais sobre as ações a efetuar antes de atualizar o System Center Configuration Manager versão 1802.
+description: Saiba mais sobre as ações a efetuar antes de atualizar para o System Center Configuration Manager versão 1802.
 ms.date: 06/08/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,111 +10,110 @@ ms.assetid: 6af92de2-b2c7-4d5c-affd-6cce81979fb5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 74fa4e9240cf4a3d369d6b20bcb9233fb6319a8d
-ms.sourcegitcommit: 690f64bd02139f893bd0b45e2e0f00ed6bb4e1c1
+ms.openlocfilehash: 46de654a0db0c635edb7101cce2e651c87fca31b
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35259303"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53417460"
 ---
 # <a name="checklist-for-installing-update-1802-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1802 para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Quando utiliza o ramo atual do System Center Configuration Manager, pode instalar a atualização na consola para a versão 1802 ao atualizar a sua hierarquia de uma versão anterior. <!-- baseline only statement: -->(Porque também está disponível como versão 1802 [suporte de dados de linha de base](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions), pode utilizar o suporte de dados de instalação para instalar o primeiro site numa nova hierarquia.)
+Quando utiliza o ramo atual do System Center Configuration Manager, pode instalar a atualização na consola para a versão 1802 para atualizar a sua hierarquia de uma versão anterior. <!-- baseline only statement: -->(Uma vez que também está disponível como versão 1802 [suporte de dados de linha de base](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions), pode usar a mídia de instalação para instalar o primeiro site numa nova hierarquia.)
 
-Para obter a atualização para a versão 1802, tem de utilizar um ponto de ligação de serviço no site de nível superior da sua hierarquia. Esta função de sistema de sites pode estar no modo online ou offline. Após a sua hierarquia transfere o pacote de atualização da Microsoft, pode encontrá-lo na consola do sob o **administração** área de trabalho a **atualizações e manutenção** nó.
+Para obter a atualização de versão 1802, tem de utilizar um ponto de ligação de serviço no site de nível superior da sua hierarquia. Esta função de sistema de sites pode estar no modo online ou offline. Após a sua hierarquia transfere o pacote de atualização da Microsoft, pode encontrá-lo na consola do sob o **administração** área de trabalho a **atualizações e manutenção** nó.
 
--   Quando a atualização está listada como **disponível**, a atualização está pronta para instalar. Antes de instalar a versão 1802, reveja as seguintes informações [sobre a instalação de atualização 1802](#about-installing-update-1802) e [lista de verificação](#checklist) para configurações para se certificar antes de iniciar a atualização.
+-   Quando a atualização é listada como **disponível**, está pronta para instalar a atualização. Antes de instalar a versão 1802, reveja as seguintes informações [sobre a instalação da atualização 1802](#about-installing-update-1802) e o [lista de verificação](#checklist) para configurações de fazer antes de iniciar a atualização.
 
--   Se a atualização é apresentado como **transferir** e não alterar, reveja o **hman.log** e **dmpdownloader.log** erros.
+-   Se a atualização indicará **transferir** e não alterar, reveja o **hman. log** e **dmpdownloader. log** erros.
 
-    -   Se o ficheiro dmpdownloader.log indica o processo de dmpdownloader está em modo de suspensão e aguardar por um intervalo antes de procurar atualizações, pode reiniciar o **SMS_Executive** serviço no servidor do site para reiniciar a transferência de ficheiros de redistribuição a atualização.
+    -   Se o dmpdownloader. log indica o processo de dmpdownloader está em modo de suspensão e aguardar por um intervalo antes de a verificação de atualizações, pode reiniciar o **SMS_Executive** serviço no servidor do site para reiniciar o download da atualização ficheiros de redistribuição.
 
-    -   Outro problema comum verificado pela transferência ocorre quando as definições do servidor proxy impediram transferências do <http://silverlight.dlservice.microsoft.com> e <http://download.microsoft.com>.
+    -   Outro problema comum de download ocorre quando transferências a partir de impedir que as definições do servidor proxy <http://silverlight.dlservice.microsoft.com> e <http://download.microsoft.com>.
 
-Para obter mais informações sobre a instalação de atualizações, consulte [na consola atualizações e manutenção](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
+Para obter mais informações sobre como instalar atualizações, consulte [atualizações e manutenção na consola](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
 
-Para obter informações sobre as versões do ramo atual, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) no [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Para obter informações sobre as versões do ramo atual, consulte [versões de linha de base e de atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) na [atualiza para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="about-installing-update-1802"></a>Sobre a instalação de atualização 1802
+## <a name="about-installing-update-1802"></a>Sobre como instalar a atualização 1802
 
 **Sites:**  
-Instalar a atualização 1802 no site de nível superior da sua hierarquia. Isto significa que inicia a instalação do seu site de administração central, se tiver uma, ou do seu site primário autónomo. Após a atualização é instalada no site de nível superior, os sites subordinados têm o seguinte comportamento da atualização:
+Instalar a atualização 1802 no site de nível superior da sua hierarquia. Isto significa que inicia a instalação do seu site de administração central, se tiver uma, ou a partir de seu site primário autónomo. Após a atualização é instalada no site de nível superior, os sites subordinados têm o seguinte comportamento de atualização:
 
--   Os sites primários subordinados instalam a atualização automaticamente depois do site de administração central concluir a instalação da atualização. Pode utilizar janelas de serviço para controlar quando um site instala a atualização. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).
+-   Os sites primários subordinados instalam a atualização automaticamente depois do site de administração central concluir a instalação da atualização. Pode utilizar janelas de serviço para controlar quando um site instala a atualização. Para obter mais informações, consulte [manutenção do windows para servidores de site](/sccm/core/servers/manage/service-windows).
 
--   Tem de atualizar manualmente cada site secundário a partir da consola do Configuration Manager depois do site primário principal concluída a instalação da atualização. A atualização automática dos servidores de site secundários não é suportada.
+-   Tem de atualizar manualmente cada site secundário a partir da consola do Configuration Manager depois do site principal primário concluir a instalação da atualização. A atualização automática dos servidores de site secundários não é suportada.
 
 **Funções de sistema de sites:**  
-Quando um servidor do site instala a atualização, as funções de sistema de sites que estão instaladas no computador do servidor do site e os que são instaladas em computadores remotos, automaticamente atualizadas. Antes de instalar a atualização, certifique-se de que cada servidor do sistema de sites cumpre os pré-requisitos para a operação com a nova versão de atualização.
+Quando um servidor do site instala a atualização, as funções de sistema de sites que estão instaladas no computador do servidor do site e que estão instalados em computadores remotos, automaticamente atualizadas. Antes de instalar a atualização, certifique-se de que cada servidor de sistema de sites cumpre os pré-requisitos para a operação com a nova versão de atualização.
 
 **Consolas do Configuration Manager:**   
-Na primeira vez que utiliza uma consola do Configuration Manager após a atualização estiver concluída, será solicitado Atualize a consola. Para tal, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
+Na primeira vez que utiliza uma consola do Configuration Manager após a atualização foi concluída, será solicitado que Atualize a consola. Para fazer isso, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
 
 > [!IMPORTANT]  
 > Quando instala uma atualização no site de administração central, tenha em atenção as seguintes limitações e atrasos que existem até que todos os sites primários subordinados também concluir a instalação da atualização:    
-> - **As atualizações de cliente** não iniciar. Isto inclui atualizações automáticas de clientes e os clientes de pré-produção. Além disso, não é possível promover os clientes de pré-produção para produção, até que o último site seja concluída a instalação da atualização. Depois do último site concluir a instalação da atualização, as atualizações de cliente vai começar com base nas opções de configuração.   
-> - **Novas funcionalidades** ativar com a atualização não estão disponíveis. Este procedimento impede que a replicação dos dados relacionados com a funcionalidade do que está a ser enviados para um site que ainda não instalou o suporte para essa funcionalidade. Após todos os sites primários instalam a atualização, a funcionalidade estará disponível para utilização.   
-> - **Ligações de replicação** entre o site de administração central e subordinados sites primários são apresentadas como não atualizado. Esta ação apresenta no estado de instalação do pacote de atualização como o estado concluído com o aviso de inicialização da replicação de monitorização. No nó de monitorização da consola, este é apresentado conforme *ligação está a ser configurada*.
+> - **As atualizações de cliente** não iniciar. Isto inclui as atualizações automáticas de clientes e clientes de pré-produção. Além disso, não é possível promover clientes de pré-produção para produção até que o último site seja concluída a instalação da atualização. Após o site última concluir a instalação da atualização, as atualizações de cliente serão iniciada com base em suas opções de configuração.   
+> - **Novos recursos** ativa com a atualização não estão disponíveis. Este procedimento impede que a replicação de dados relacionados com essa funcionalidade sejam enviados para um site que ainda não instalou o suporte para essa funcionalidade. Afinal de contas, os sites primários instalar a atualização, a funcionalidade estará disponível para utilização.   
+> - **Ligações de replicação** entre o site de administração central e filho sites primários são apresentadas como não atualizada. Isto apresenta no estado de instalação do pacote de atualização como estado concluído com aviso para a inicialização da replicação de monitorização. No nó de monitorização da consola, isso indicará *ligação está a ser configurada*.
 
 
 ## <a name="checklist"></a>Lista de verificação
 
-**Certifique-se de que todos os sites executem uma versão do System Center Configuration Manager que suporta a atualização para 1802:**   
-Cada servidor do site na hierarquia tem de executar a mesma versão do System Center Configuration Manager antes de poder iniciar a instalação da atualização 1802. Para atualizar para 1802, tem de utilizar a versão 1702, 1706 ou 1710.
+**Certifique-se de que todos os sites executam uma versão do System Center Configuration Manager que suporta atualizações para 1802:**   
+Cada servidor do site na hierarquia tem de executar a mesma versão do System Center Configuration Manager antes de começar a instalação de atualização 1802. Para atualizar para 1802, tem de utilizar a versão 1702, 1706 ou 1710.
 
-**Rever o estado do seu Software Assurance ou direitos equivalentes de subscrição:**   
-Tem de ter um contrato de Software Assurance (SA) de Active Directory ao instalar a atualização 1802. Quando instalar esta atualização, o **licenciamento** separador apresenta a opção para confirmar a sua **data de expiração do Software Assurance**.
+**Rever o estado do seu Software Assurance ou ter direitos equivalentes de subscrição:**   
+Tem de ter um contrato de Software Assurance (SA) ativo para instalar a atualização 1802. Ao instalar esta atualização, o **Licensing** separador apresenta a opção para confirmar sua **data de expiração do Software Assurance**.
 
-Este é um valor opcional que pode especificar como um lembrete conveniente da sua data de expiração de licença. Esta data está visível quando instalar atualizações futuras. Pode ter anteriormente especificado este valor durante a configuração ou a instalação de uma atualização, ou utilizando o **licenciamento** separador do **definições de hierarquia**, da consola do Configuration Manager.
+Este é um valor opcional que pode ser especificado como um lembrete conveniente da data de validade de licença. Esta data é visível quando instalar atualizações futuras. Pode ter especificado anteriormente este valor durante a configuração ou instalação de uma atualização ou utilizando o **Licensing** separador da **definições de hierarquia**, da consola do Configuration Manager.
 
-Para obter mais informações, consulte [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Para obter mais informações, consulte [ramificações para o System Center Configuration Manager e de licenciamento](/sccm/core/understand/learn-more-editions).
 
-**Revisão instaladas as versões do Microsoft .NET em servidores do sistema de sites:** Quando um site instala esta atualização, o Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que aloja uma das seguintes funções do sistema de site quando o .NET Framework 4.5 ou posterior não está já instalada:
+**Rever instaladas as versões de Microsoft .NET nos servidores do sistema de sites:**  Quando um site instala esta atualização, o Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que aloja uma das seguintes funções do sistema de site quando o .NET Framework 4.5 ou posterior ainda não estiver instalado:
 
 -   Ponto proxy de registo
 -   Ponto de inscrição
 -   Ponto de gestão
 -   Ponto de ligação de serviço
 
-Esta instalação pode colocar o servidor de sistema de sites no reinício pendente erros de estado e relatórios para o Visualizador de estado do componente do Configuration Manager. Além disso, as aplicações de .NET no servidor podem ocorrer falhas aleatórias até que o servidor seja reiniciado.
+Esta instalação pode colocar o servidor de sistema de sites num reinício pendente estado e o relatório de erros para o Visualizador de estado do componente do Configuration Manager. Além disso, as aplicações de .NET no servidor de podem ocorrer falhas aleatórias até que o servidor seja reiniciado.
 
-Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+Para obter mais informações, consulte [Site e pré-requisitos de sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-**Consultar a versão do Windows Assessment and Deployment Kit (ADK) para Windows 10** o Windows 10 ADK devem ser versão 1703 ou posterior. (Para obter mais informações sobre as versões suportadas do Windows ADK, consulte [Windows 10 ADK](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).) Se tem de atualizar o Windows ADK, faça-o antes de começar a atualização do Configuration Manager. Isto garante que as imagens de arranque predefinidas são automaticamente atualizadas para a versão mais recente do Windows PE. (Imagens de arranque personalizadas têm de ser atualizadas manualmente.)
+**Consultar a versão do Windows Assessment and Deployment Kit (ADK) para o Windows 10** o Windows 10 ADK deve ser a versão 1703 ou posterior. (Para obter mais informações sobre as versões suportadas do Windows ADK, consulte [Windows 10 ADK](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).) Se tem de atualizar o Windows ADK, faça-o antes de iniciar a atualização do Configuration Manager. Isto garante que as imagens de arranque predefinidas são automaticamente atualizadas para a versão mais recente do Windows PE. (Imagens de arranque personalizadas têm de ser atualizadas manualmente.)
 
 Se atualizar o site antes de atualizar o Windows ADK, consulte [atualizar pontos de distribuição com a imagem de arranque](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image).
 
-**Rever o estado de site e da hierarquia e certifique-se de que existem não existem problemas por resolver:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
+**Analise o estado do site e da hierarquia e certifique-se de que não existem não existem problemas por resolver:**  Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
 
-Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
+Para obter mais informações, consulte [utilizar alertas e o estado do sistema do System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
 
-**Reveja o ficheiro e dados de replicação entre sites:**   
-Certifique-se de que o ficheiro e a replicação de base de dados entre sites está operacional e atual. Os atrasos ou os registos de segurança no podem impedir uma atualização com êxito, uniforme.
+**Reveja os replicação de ficheiros e dados entre sites:**   
+Certifique-se esse ficheiro e a replicação de base de dados entre sites está operacional e atualizada. Atrasos ou registos de segurança em qualquer um podem impedir que uma atualização uniforme e bem-sucedida.
 Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização.
 
-Para obter mais informações, consulte [sobre o analisador do Link de replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) tópico.
+Para obter mais informações, consulte [sobre o analisador de ligações de replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure)   tópico.
 
-**Instale todas as atualizações críticas aplicáveis para sistemas operativos em computadores que alojam o site, o servidor de base de dados do site e as funções do sistema de sites remoto:** Antes de instalar uma atualização para o Configuration Manager, instale quaisquer atualizações críticas para cada sistema de sites aplicáveis. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.
+**Instale todas as atualizações críticas aplicáveis para sistemas operativos em computadores que alojam o site, o servidor de base de dados do site e funções de sistema de sites remoto:**  Antes de instalar uma atualização para o Configuration Manager, instale quaisquer atualizações críticas para cada sistema de sites aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.
 
-**Desative réplicas de base de dados para pontos de gestão em sites primários:**   
+**Desative réplicas de base de dados para pontos de gestão em sites primários:**   
 O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de instalar uma atualização para o Configuration Manager.
 
 Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).
 
 **Definir grupos de Disponibilidade AlwaysOn do SQL Server para ativação pós-falha manual:**   
-Se utilizar um grupo de disponibilidade, certifique-se de que o grupo de disponibilidade está definido para ativação pós-falha manual antes de iniciar a instalação da atualização. Depois do site foi atualizado, pode restaurar a ativação pós-falha para ser automática. Para obter mais informações consulte [SQL Server AlwaysOn para uma base de dados do site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
+Se utilizar um grupo de disponibilidade, certifique-se de que o grupo de disponibilidade está definido para ativação pós-falha manual antes de iniciar a instalação da atualização. Depois do site tem de ser atualizado, pode restaurar a ativação pós-falha para ser automática. Para obter mais informações, consulte [SQL Server AlwaysOn para uma base de dados do site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
 
-**Reconfigure os pontos de atualização de software que utilizem NLB:**   
-<!-- Support for NLBs is fully removed with 1702. When 1702 is no longer in support, this statement can drop -->
-O Configuration Manager não é possível atualizar um site que utiliza uma cluster (NLB) para alojar pontos de atualização de software de balanceamento de carga na rede.
+**Reconfigure os pontos de atualização de software que utilizem NLB:**   
+<!-- Support for NLBs is fully removed with 1702. When 1702 is no longer in support, this statement can drop --> O Configuration Manager não é possível atualizar um site que utiliza uma cluster (NLB) para alojar pontos de atualização de software de balanceamento de carga de rede.
 
 Se utilizar NLB clusters para pontos de atualização de software, utilize o Windows PowerShell para remover o cluster NLB.
-Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
+Para obter mais informações, consulte [planear atualizações de software no System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
 
-**Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização desse site:**   
-Antes de instalar a atualização, desative as tarefas de manutenção do site que possam ser executadas enquanto o que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:
+**Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização nesse site:**   
+Antes de instalar a atualização, desative as tarefas de manutenção do site que possam ser executadas durante o tempo que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:
 
 -   Servidor do Site de Reserva
 -   Eliminar Operações de Cliente Desatualizadas
@@ -122,54 +121,54 @@ Antes de instalar a atualização, desative as tarefas de manutenção do site q
 
 Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desativar uma tarefa, registe o agendamento da tarefa para que possa restaurar a respetiva configuração após a atualização foi instalada.
 
-Para obter mais informações, consulte [tarefas de manutenção do System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) e [tarefas de referência para a manutenção do System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
+Para obter mais informações, consulte [tarefas de manutenção para o System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) e [tarefas de manutenção para o System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
 
-**Pare temporariamente a qualquer software antivírus em servidores do System Center Configuration Manager:** Antes de atualizar um site, certifique-se de que parou software antivírus em servidores do Configuration Manager. <!--SMS.503481--> 
+**Pare temporariamente a qualquer software antivírus em servidores do System Center Configuration Manager:** Antes de atualizar um site, certifique-se de que parou o software antivírus em servidores do Configuration Manager. <!--SMS.503481--> 
 
-**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:** Antes de atualizar um site, uma cópia de segurança da base de dados do site para se certificar de que tem uma cópia de segurança a utilizar para recuperação após desastre.
+**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:**  Antes de atualizar um site, criar cópias de segurança da base de dados do site para se certificar de que tem uma cópia de segurança para recuperação após desastre.
 
-Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-**Planear testes de implementação de cliente:**   
-Quando instala uma atualização que atualiza o cliente, pode testar essa nova atualização de cliente em pré-produção antes de implementar e atualiza todos os clientes ativos.
+**Planear a criação de pilotos de cliente:**   
+Quando instala uma atualização que atualiza o cliente, pode testar essa nova atualização de cliente em pré-produção antes de implementar e atualizar todos os clientes ativos.
 
 Para tirar partido desta opção, tem de configurar o seu site para suportar as atualizações automáticas para pré-produção antes de iniciar a instalação da atualização.
 
-Para obter mais informações, consulte [atualizar clientes no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) e [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+Para obter mais informações, consulte [atualizar os clientes no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) e [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-**Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:**   
-Utilize as janelas de serviço para definir um período de durante as atualizações a um site o servidor pode ser instalado.
+**Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:**   
+Utilize janelas de serviço para definir um período durante as atualizações a um site de servidor de pode ser instalado.
 
-Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).
+Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização. Para obter mais informações, consulte [manutenção do windows para servidores de site](/sccm/core/servers/manage/service-windows).
 
 **Reveja as extensões suportadas:**   
 <!--SCCMdocs#587-->   
-Se expandir o Configuration Manager com outros produtos da Microsoft ou Microsoft parceiros, confirme que esses produtos suportam versão 1802. Consulte o fornecedor de produto para obter estas informações. Por exemplo, consulte o Microsoft Deployment Toolkit [notas de versão](/sccm/mdt/release-notes).
+Se expandir o Configuration Manager com outros produtos da Microsoft ou Microsoft parceiros, confirme que esses produtos oferecem suporte a versão 1802. Contacte o fornecedor de produto para obter estas informações. Por exemplo, consulte o Microsoft Deployment Toolkit [notas de versão](/sccm/mdt/release-notes).
 
-**Execute o Verificador de pré-requisitos do programa de configuração:**   
-Quando a atualização está listada na consola do como **disponível,** independentemente pode executar o Verificador de pré-requisitos antes de instalar a atualização. (Quando instalar a atualização no site, o Verificador de pré-requisitos é executado novamente.)
+**Execute o Verificador de pré-requisitos de configuração:**   
+Quando a atualização é listada na consola do como **disponível,** independente pode executar o Verificador de pré-requisitos antes de instalar a atualização. (Quando instalar a atualização no site, verificador de pré-requisitos é executado novamente.)
 
-Para executar uma verificação de pré-requisitos a partir da consola, vá para o **administração** área de trabalho e selecione **atualizações e manutenção**. Selecione o **Configuration Manager 1802** pacote de atualização e clique em **executar verificação de pré-requisitos** no Friso.
+Para executar uma verificação de pré-requisitos a partir da consola, vá para o **Administration** área de trabalho e selecione **atualizações e manutenção**. Selecione o **Configuration Manager 1802** pacote de atualização e clique em **executar verificação de pré-requisitos** na faixa de opções.
 
-Para obter mais informações sobre como iniciar e, em seguida, monitorizar a verificação de pré-requisitos, consulte **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no tópico [instalar atualizações na consola do System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
+Para obter mais informações sobre como iniciar e, em seguida, monitorizar a verificação de pré-requisitos, consulte **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no tópico [instalar atualizações na consola do System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
 
 > [!IMPORTANT]  
-> Quando o Verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Por conseguinte, depois de executar o Verificador de pré-requisitos, mas antes a instalar a atualização, se tiver de executar uma tarefa de manutenção do site, execute **Setupwpf.exe** (configuração do Configuration Manager) partir do CD. Pasta mais recente no servidor do site.
+> Quando o Verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Portanto, depois de executar o Verificador de pré-requisitos, mas antes de instalar a atualização, se tiver de realizar uma tarefa de manutenção do site, execute **Setupwpf.exe** (configuração do Configuration Manager) partir do CD. Pasta mais recente no servidor do site.
 
-**Atualizar sites:**   
-Agora está pronto para iniciar a instalação da atualização para a sua hierarquia. Para obter mais informações sobre como instalar a atualização, consulte [instalar atualizações na consola.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
+**Atualizar sites:**   
+Agora está pronto para iniciar a instalação de atualização para a sua hierarquia. Para obter mais informações sobre como instalar a atualização, consulte [instalar atualizações na consola.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
 
-Recomendamos que planeia instalar a atualização fora do horário comercial normal para cada site quando o processo de instalação da atualização e as respetivas ações para reinstalar os componentes do site e funções de sistema de sites irão ter o mínimo efeito nas suas operações de negócio.
+Recomendamos que planeie instalar a atualização fora do horário comercial normal para cada site quando o processo de instalação da atualização e respetivas ações para reinstalar os componentes do site e as funções de sistema de sites irão ter o mínimo efeito nas operações comerciais.
 
-Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Para obter mais informações, consulte [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="post-update-checklist"></a>Lista de verificação de atualização de POST
-Reveja as ações seguintes a efetuar depois de concluída a instalação da atualização.
-1.  Certifique-se de que a replicação site a site está ativa. Na consola, ver **monitorização** > **hierarquia do Site**, e **monitorização** > **replicação de base de dados** indicações de problemas ou a confirmação de que as ligações de replicação estão ativas.
-2.  Certifique-se de que cada servidor do site e a função do sistema de sites foi atualizado para a versão 1802. Na consola, pode adicionar a coluna opcional **versão** para a apresentação de alguns nós incluindo **Sites** e **pontos de distribuição**.
+## <a name="post-update-checklist"></a>Lista de verificação de atualização de postagem
+Reveja as seguintes ações a efetuar depois de concluída a instalação da atualização.
+1. Certifique-se de que a replicação de site a site está ativa. Na consola, ver **monitorização** > **hierarquia do Site**, e **monitorização** > **replicação de base de dados**indicações de problemas e confirmação de que as ligações de replicação estão ativas.
+2. Certifique-se de que cada servidor do site e a função do sistema de sites foi atualizado para versão 1802. Na consola, pode adicionar a coluna opcional **versão** para a apresentação de alguns nós incluindo **Sites** e **pontos de distribuição**.
 
- Quando for necessário, uma função de sistema do site irá reinstalar automaticamente para atualizar para a nova versão. Considere reiniciar sistemas de sites remotos que não atualizar com êxito.
-3.  Reconfigure réplicas de base de dados para pontos de gestão em sites primários que desativou antes de iniciar a atualização.
-4.  Reconfigure tarefas de manutenção de base de dados que desativou antes de iniciar a atualização.
-5.  Se tiver configurado o teste de implementação no antes de instalar a atualização de cliente, atualize clientes pelo plano que criou.
-6.  Se utilizar quaisquer extensões para o Configuration Manager, atualizá-las para a versão mais recente para suportar esta atualização do Configuration Manager. 
+   Quando for necessário, uma função de sistema de sites irá reinstalar automaticamente ao atualizar para a nova versão. Considere reiniciar os sistemas de site remoto que não atualizar com êxito.
+3. Reconfigure réplicas de base de dados para pontos de gestão em sites primários que desativou antes de iniciar a atualização.
+4. Reconfigure tarefas de manutenção de base de dados que desativou antes de iniciar a atualização.
+5. Se tiver configurado um piloto antes de instalar a atualização de cliente, atualize os clientes com o plano que criou.
+6. Se utilizar quaisquer extensões para o Configuration Manager, atualizá-los para a versão mais recente para suportar esta atualização do Configuration Manager. 

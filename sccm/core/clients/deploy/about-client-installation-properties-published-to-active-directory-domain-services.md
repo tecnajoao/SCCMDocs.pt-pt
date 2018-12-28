@@ -10,12 +10,12 @@ ms.assetid: 101d7d4d-92db-419d-b2ae-3c1c1dea68e9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 46ede93e8366b4ae387f7e04b83dcb33ce854c5e
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: dccd893cc4a22fddf09598376bdcd05b091e6c2c
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862520"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53421557"
 ---
 # <a name="about-client-installation-properties-published-to-active-directory-domain-services"></a>Acerca das propriedades de instalação de cliente publicadas no Active Directory Domain Services
 
@@ -35,29 +35,29 @@ Quando expande o esquema do Active Directory para o System Center Configuration 
 ## <a name="client-installation-properties-published-to-active-directory-domain-services"></a>Propriedades de instalação de cliente publicadas para serviços de domínio do Active Directory  
 Segue-se uma lista de propriedades de instalação do cliente. Para obter mais informações sobre cada item, listado abaixo, veja [acerca das propriedades de instalação de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
--   O código do site do Configuration Manager.  
+- O código do site do Configuration Manager.  
 
--   O certificado de assinatura do servidor do site.  
+- O certificado de assinatura do servidor do site.  
 
--   A chave de raiz fidedigna.  
+- A chave de raiz fidedigna.  
 
--   As portas de comunicação de cliente para HTTP e HTTPS.  
+- As portas de comunicação de cliente para HTTP e HTTPS.  
 
--   O ponto de estado de contingência. Se o site tiver vários pontos de estado de contingência, apenas o primeiro aquele que foi instalado é publicado no Active Directory Domain Services.  
+- O ponto de estado de contingência. Se o site tiver vários pontos de estado de contingência, apenas o primeiro aquele que foi instalado é publicado no Active Directory Domain Services.  
 
--   Uma definição para indicar que o cliente terá de comunicar utilizando apenas HTTPS.  
+- Uma definição para indicar que o cliente terá de comunicar utilizando apenas HTTPS.  
 
--   Definições relacionadas com os certificados PKI:  
+- Definições relacionadas com os certificados PKI:  
 
-   -   Se deverá ser utilizado um certificado PKI de cliente.  
+  -   Se deverá ser utilizado um certificado PKI de cliente.  
 
-   -   Os critérios de seleção para a seleção de certificado. Isso pode ser necessário uma vez que o cliente tiver mais do que um certificado PKI válido que pode ser utilizado para o Configuration Manager.  
+  -   Os critérios de seleção para a seleção de certificado. Isso pode ser necessário uma vez que o cliente tiver mais do que um certificado PKI válido que pode ser utilizado para o Configuration Manager.  
 
-   -   Uma definição para determinar qual o certificado a utilizar se o cliente tiver vários certificados válidos após o processo de seleção de certificados.  
+  -   Uma definição para determinar qual o certificado a utilizar se o cliente tiver vários certificados válidos após o processo de seleção de certificados.  
 
-   -   A lista de emissores de certificados que contém uma lista de certificados de AC de raiz fidedigna.  
+  -   A lista de emissores de certificados que contém uma lista de certificados de AC de raiz fidedigna.  
 
--   As propriedades de instalação client.msi especificadas no separador **Cliente** da caixa de diálogo **Propriedades da Instalação Push do Cliente** .
+- As propriedades de instalação client.msi especificadas no separador **Cliente** da caixa de diálogo **Propriedades da Instalação Push do Cliente** .
 
 Instalação do cliente (CCMSetup) utiliza as propriedades que são publicadas em serviços de domínio do Active Directory apenas se não existem outras propriedades são especificadas com qualquer um dos seguintes procedimentos:  
 

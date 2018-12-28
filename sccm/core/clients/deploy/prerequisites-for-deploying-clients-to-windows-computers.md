@@ -10,12 +10,12 @@ ms.assetid: 1a2a9b48-a95b-4643-b00c-b3079584ae2e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 11474f54aaf7a9afe13d411b0dd469abb1eef963
-ms.sourcegitcommit: c2c44329f1f9a2e6c14095360b4fc4aafabc27f0
+ms.openlocfilehash: 2a830b36bec3d112c0b112d2df6887a84c837fa2
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51694948"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418259"
 ---
 # <a name="prerequisites-for-deploying-clients-to-windows-computers-in-configuration-manager"></a>Pré-requisitos para implementar clientes em computadores Windows no Configuration Manager
 
@@ -160,7 +160,7 @@ Para transferir os ficheiros de origem, o computador cliente tem de comunicar co
 
  - Dependendo do caso de utilização, também pode necessitar de uma ou ambas as seguintes tecnologias:  
 
-     - O Azure Active Directory  
+     - Azure Active Directory  
 
      - Gateway de gestão na cloud  
 
@@ -222,45 +222,45 @@ Quando instala o cliente do Configuration Manager em dispositivos móveis e insc
 
 Para obter mais informações, consulte [determinar as funções de sistema de sites para clientes](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients).  
 
--   Ponto de gestão que tenha configurado para ligações de cliente HTTPS e ativado para dispositivos móveis  
+- Ponto de gestão que tenha configurado para ligações de cliente HTTPS e ativado para dispositivos móveis  
 
-     Um ponto de gestão é sempre necessário para instalar o cliente de Configuration Manager em dispositivos móveis. Além dos requisitos de configuração de HTTPS e ativado para dispositivos móveis, o ponto de gestão tem de ser configurado com um FQDN de internet e aceitar ligações de cliente a partir da internet.  
+   Um ponto de gestão é sempre necessário para instalar o cliente de Configuration Manager em dispositivos móveis. Além dos requisitos de configuração de HTTPS e ativado para dispositivos móveis, o ponto de gestão tem de ser configurado com um FQDN de internet e aceitar ligações de cliente a partir da internet.  
 
--   Ponto de registo e ponto proxy de registo  
+- Ponto de registo e ponto proxy de registo  
 
-     Um ponto proxy de registo gere os pedidos de inscrição de dispositivos móveis e o ponto de registo conclui o processo de inscrição. O ponto de registo terá de estar na mesma floresta do Active Directory que o servidor de site, mas o ponto proxy de registo poderá estar noutra floresta.  
+   Um ponto proxy de registo gere os pedidos de inscrição de dispositivos móveis e o ponto de registo conclui o processo de inscrição. O ponto de registo terá de estar na mesma floresta do Active Directory que o servidor de site, mas o ponto proxy de registo poderá estar noutra floresta.  
 
--   Definições de cliente para a inscrição de dispositivos móveis  
+- Definições de cliente para a inscrição de dispositivos móveis  
 
-     Configure as definições de cliente para permitir que os utilizadores inscrevam dispositivos móveis e configurem pelo menos um perfil de inscrição.  
+   Configure as definições de cliente para permitir que os utilizadores inscrevam dispositivos móveis e configurem pelo menos um perfil de inscrição.  
 
--   Ponto do Reporting Services  
+- Ponto do Reporting Services  
 
-     O ponto do Reporting Services é uma função do sistema de sites opcional mas recomendada, que permite apresentar relatórios relacionados com a inscrição de dispositivos móveis e a gestão de clientes.  
+   O ponto do Reporting Services é uma função do sistema de sites opcional mas recomendada, que permite apresentar relatórios relacionados com a inscrição de dispositivos móveis e a gestão de clientes.  
 
-     Para obter mais informações, consulte [relatórios no Configuration Manager](/sccm/core/servers/manage/reporting).  
+   Para obter mais informações, consulte [relatórios no Configuration Manager](/sccm/core/servers/manage/reporting).  
 
--   Para configurar a inscrição de dispositivos móveis, terá de possuir as seguintes permissões de segurança:  
+- Para configurar a inscrição de dispositivos móveis, terá de possuir as seguintes permissões de segurança:  
 
-    -   Para adicionar, modificar e eliminar as funções de sistema de sites de inscrição: **Modificar** permissão para o **Site** objeto.  
+  - Para adicionar, modificar e eliminar as funções de sistema de sites de inscrição: **Modificar** permissão para o **Site** objeto.  
 
-    -   Para configurar as definições de cliente para inscrição: Predefinições de cliente necessitam **Modify** permissão para o **Site** objeto e as definições personalizadas de cliente necessitam **agente do cliente** permissões.  
+  - Para configurar as definições de cliente para inscrição: Predefinições de cliente necessitam **Modify** permissão para o **Site** objeto e as definições personalizadas de cliente necessitam **agente do cliente** permissões.  
 
-     O **administrador total** função de segurança predefinida inclui as permissões necessárias para configurar as funções de sistema de sites de inscrição.  
+    O **administrador total** função de segurança predefinida inclui as permissões necessárias para configurar as funções de sistema de sites de inscrição.  
 
-     Para gerir os dispositivos móveis inscritos, terá de possuir as seguintes permissões de segurança:  
+    Para gerir os dispositivos móveis inscritos, terá de possuir as seguintes permissões de segurança:  
 
-    -   Para apagar ou extinguir um dispositivo móvel: **Eliminar recurso** para o **coleção** objeto.  
+  - Para apagar ou extinguir um dispositivo móvel: **Eliminar recurso** para o **coleção** objeto.  
 
-    -   Para cancelar uma eliminação ou extinção de comando: **Eliminar recurso** para o **coleção** objeto.  
+  - Para cancelar uma eliminação ou extinção de comando: **Eliminar recurso** para o **coleção** objeto.  
 
-    -   Para permitir e bloquear dispositivos móveis: **Modificar recurso** para o **coleção** objeto.  
+  - Para permitir e bloquear dispositivos móveis: **Modificar recurso** para o **coleção** objeto.  
 
-    -   Bloqueio de remoto ou reposição do código de acesso num dispositivo móvel: **Modificar** recurso para o **coleção** objeto.  
+  - Bloqueio de remoto ou reposição do código de acesso num dispositivo móvel: **Modificar** recurso para o **coleção** objeto.  
 
-     O **administrador de operações** função de segurança predefinida inclui as permissões necessárias para gerir dispositivos móveis.  
+    O **administrador de operações** função de segurança predefinida inclui as permissões necessárias para gerir dispositivos móveis.  
 
-     Para obter mais informações sobre como configurar permissões de segurança, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration) e [configurar a administração baseada em funções](/sccm/core/servers/deploy/configure/configure-role-based-administration).  
+    Para obter mais informações sobre como configurar permissões de segurança, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration) e [configurar a administração baseada em funções](/sccm/core/servers/deploy/configure/configure-role-based-administration).  
 
 
 ### <a name="firewall-requirements"></a>Requisitos de firewall  

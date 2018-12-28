@@ -10,12 +10,12 @@ ms.assetid: 8d37b983-a964-402c-819d-2512ed2d463b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ab2203b948887a94577826573ccdf3376637eca2
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: a2e2817f5f3bd48e4a84e2e507597126fa10f989
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386879"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419229"
 ---
 # <a name="settings-to-manage-high-risk-deployments-for-configuration-manager"></a>Definições para gerir implementações de alto risco para o Configuration Manager
 
@@ -32,15 +32,15 @@ Por exemplo, uma sequência de tarefas com um objetivo de **necessário** que im
 
 Para reduzir o risco de uma implementação de alto risco indesejada, pode configurar limites de tamanho estas definições de verificação de implementação:  
 
--   **Limites de tamanho de coleção**: Quando cria uma implementação, oculte coleções que incluem a mais clientes que o limite.  
+- **Limites de tamanho de coleção**: Quando cria uma implementação, oculte coleções que incluem a mais clientes que o limite.  
 
-     -   **Tamanho predefinido**: Quando cria uma implementação, esta definição oculta coleções por padrão, que incluem a mais clientes que este limite. Ainda pode ver estas coleções quando criar a implementação, mas eles estão oculta por predefinição. O valor predefinido é **100**. Para ignorar esta definição, introduza um valor de **0**.  
+  - **Tamanho predefinido**: Quando cria uma implementação, esta definição oculta coleções por padrão, que incluem a mais clientes que este limite. Ainda pode ver estas coleções quando criar a implementação, mas eles estão oculta por predefinição. O valor predefinido é **100**. Para ignorar esta definição, introduza um valor de **0**.  
 
-     -   **Tamanho máximo**: Quando cria uma implementação, sempre esta definição oculta coleções com mais clientes que este limite. O valor predefinido é **0**, que ignora esta definição. O valor **Tamanho máximo** tem de ser superior ao valor **Tamanho predefinido** .  
+  - **Tamanho máximo**: Quando cria uma implementação, sempre esta definição oculta coleções com mais clientes que este limite. O valor predefinido é **0**, que ignora esta definição. O valor **Tamanho máximo** tem de ser superior ao valor **Tamanho predefinido** .  
 
-     Por exemplo, defina **tamanho predefinido** para 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, o **selecionar coleção** janela apresenta apenas as coleções que incluem menos de 100 clientes. Se desmarcar a definição para **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site**, a janela apresenta as coleções que incluem menos de 1 000 clientes.  
+    Por exemplo, defina **tamanho predefinido** para 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, o **selecionar coleção** janela apresenta apenas as coleções que incluem menos de 100 clientes. Se desmarcar a definição para **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site**, a janela apresenta as coleções que incluem menos de 1 000 clientes.  
 
--   **Coleções com servidores de sistema de sites**: Quando a coleção de destino inclui um computador com uma função de sistema de sites, permite bloquear implementações ou exigir verificação antes de criar a implementação. Quando uma implementação é bloqueada, selecione uma coleção diferente que cumpra os critérios de verificação de implementação para continuar a criação da implementação.  
+- **Coleções com servidores de sistema de sites**: Quando a coleção de destino inclui um computador com uma função de sistema de sites, permite bloquear implementações ou exigir verificação antes de criar a implementação. Quando uma implementação é bloqueada, selecione uma coleção diferente que cumpra os critérios de verificação de implementação para continuar a criação da implementação.  
 
 > [!NOTE]  
 >  As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não é possível selecionar uma coleção incorporada, como **todos os sistemas**.  

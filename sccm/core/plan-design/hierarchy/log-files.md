@@ -10,12 +10,12 @@ ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cf7ca86dd04d60f1ff914294a7430d9f4a7a2fb7
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 58ec927ee795624cb475b31c44d64334047f3422
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456707"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416508"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -216,19 +216,19 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 ###  <a name="BKMK_LogFilesforLnU"></a> Cliente para Linux e UNIX  
  O cliente do Configuration Manager para Linux e UNIX regista informações nos ficheiros de registo seguinte:  
 
-> [!TIP]  
+> [!TIP]
 >  Utilize CMTrace para ver os ficheiros de registo para o cliente para Linux e UNIX.  
-
-> [!NOTE]  
+> 
+> [!NOTE]
 >  Quando utilizar a edição inicial do cliente para Linux e UNIX e consultar a documentação desta secção, substitua as seguintes referências para cada ficheiro ou processo:  
->   
->  -   Substitua **omiserver.bin** por **nwserver.bin**  
-> -   Substitua **omi** por **nanowbem**  
+> 
+> - Substitua **omiserver.bin** por **nwserver.bin**  
+>   -   Substitua **omi** por **nanowbem**  
 
-|Nome do registo|Detalhes|  
-|--------------|-------------|  
-|Scxcm.log|O ficheiro de registo para o serviço de núcleo do cliente do Configuration Manager para Linux e UNIX (ccmexec). Este ficheiro de registo contém informações sobre a instalação e as operações do ccmexec.bin. em curso<br /><br /> Por predefinição, este ficheiro de registo está localizado em **/var/opt/microsoft/scxcm.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de quatro definições diferentes.|  
-|Scxcmprovider. log|O ficheiro de registo para o serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver. bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em **/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.|  
+|     Nome do registo      |                                                                                                                                                                                                                                                                                               Detalhes                                                                                                                                                                                                                                                                                               |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Scxcm.log     | O ficheiro de registo para o serviço de núcleo do cliente do Configuration Manager para Linux e UNIX (ccmexec). Este ficheiro de registo contém informações sobre a instalação e as operações do ccmexec.bin. em curso<br /><br /> Por predefinição, este ficheiro de registo está localizado em **/var/opt/microsoft/scxcm.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de quatro definições diferentes. |
+| Scxcmprovider. log |     O ficheiro de registo para o serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver. bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em<strong>/var/opt/microsoft/configmgr/scxcmprovider.log</strong><br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.      |
 
  Ambos os ficheiros de registo suportam vários níveis de registo:  
 

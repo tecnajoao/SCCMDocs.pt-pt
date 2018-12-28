@@ -11,48 +11,48 @@ author: aczechowski
 robots: noindex,nofollow
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: eaae10b191876915517a928a3f6ee15aafba2760
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 875ee80050b10561471f98ec73625055c5975257
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32343621"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53416678"
 ---
-# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1602 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1602 para o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (pré-visualização técnica)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1602. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
+Este artigo apresenta os recursos que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1602. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu site de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, consulte o tópico introdutório, [Technical Preview do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para a utilização de um Technical preview, como atualizar entre versões e como fornecer comentários sobre os recursos de uma technical preview.  
 
- Seguem-se novas funcionalidades que pode experimentar com esta versão.  
+ Seguem-se os novos recursos, que pode experimentar com esta versão.  
 
 ##  <a name="BKMK_MDM"></a> Melhorias na gestão de dispositivos móveis  
 
-### <a name="ios-activation-lock"></a>Bloqueio de ativação de iOS  
+### <a name="ios-activation-lock"></a>Bloqueio de ativação do iOS  
  O System Center Configuration Manager pode ajudá-lo a gerir o Bloqueio de Ativação do iOS, uma funcionalidade da aplicação Encontrar iPhone para iOS 7.1 e dispositivos posteriores. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo. Depois de estar ativado, o Apple ID e a palavra-passe do utilizador têm de ser introduzidos primeiro para que qualquer pessoa possa:  
 
--   Desativar a aplicação Encontrar o Meu iPhone  
+- Desativar a aplicação Encontrar o Meu iPhone  
 
--   Apagar o dispositivo  
+- Apagar o dispositivo  
 
--   Reativar o dispositivo  
+- Reativar o dispositivo  
 
- O Configuration Manager pode pedir o estado de bloqueio de ativação de dispositivos supervisionados e não supervisionados que executam o iOS 7.1 e posterior. Para dispositivos supervisionados, o Intune pode obter o código de desativação do Bloqueio de Ativação e enviá-lo diretamente para o dispositivo.  
+  O Configuration Manager pode pedir o estado de bloqueio de ativação de dispositivos supervisionados e não supervisionados que executam o iOS 7.1 e posterior. Para dispositivos supervisionados, o Intune pode obter o código de desativação do Bloqueio de Ativação e enviá-lo diretamente para o dispositivo.  
 
- Para obter mais informações, consulte [ajudar a proteger dispositivos iOS com o bloqueio de ativação desativando para o Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
+  Para obter detalhes, consulte [ajudar a proteger dispositivos iOS com o bloqueio de ativação desativando o para o Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
 
 ##  <a name="BKMK_SC1601"></a> Melhoramentos ao centro de Software na versão 1602  
 
 ### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Atualizar a política de computador e utilizador de PC do Centro de Software  
- Uma nova opção **sincronizar política** foi adicionado para o **opções** > **manutenção do computador** página do Centro de Software que faz com que o PC Atualize o Gestor de configuração de política de computador e utilizador.  
+ Uma nova opção **política de sincronização** foi adicionada à **opções** > **manutenção do computador** página do Centro de Software que faz com que o PC para atualizá-la do Política de computador e utilizador do Configuration Manager.  
 
 ##  <a name="BKMK_Win10Servicing"></a> Melhoramentos à manutenção do Windows 10  
- Na versão 1602 Technical Preview, foram adicionados os seguintes melhoramentos para a manutenção do Windows 10:  
+ No 1602 Technical Preview, foram adicionados os seguintes melhoramentos para a manutenção do Windows 10:  
 
--   Novas opções de filtro para planos de manutenção.  Agora, pode filtrar para **idioma**, **necessário**, e **título**. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  
+-   Novas opções de filtro para planos de manutenção.  Agora pode filtrar por **linguagem**, **necessário**, e **Title**. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  
 
--   Quando seleciona o **atualizações** sincronização de atualizações de classificação de recursos de software, é apresentada uma caixa de diálogo de aviso para informá-lo nesse WSUS [correção 3095113](https://support.microsoft.com/kb/3095113) é necessário para sincronizar as atualizações de software com êxito e para a manutenção do Windows 10 funcionar corretamente.  Na caixa de diálogo, pode ir para o artigo da base de dados de conhecimento para a correção.  
+-   Quando seleciona a **atualizações** sincronização de atualizações de classificação de software, uma caixa de diálogo de aviso é apresentada a informá-lo que WSUS [correção 3095113](https://support.microsoft.com/kb/3095113) é necessário para sincronizar com êxito atualizações de software e para a manutenção do Windows 10 funcionar corretamente.  Na caixa de diálogo, pode aceder ao artigo da base de dados de conhecimento para a correção.  
 
--   Windows 10 disponíveis agora, as atualizações apenas são apresentadas no **manutenção do Windows 10** \ **todas as atualizações do Windows 10** nós da consola do Configuration Manager. Estas atualizações já não aparecem no **atualizações de Software** \ **todas as atualizações de Software** nós.  
+-   Windows 10 disponíveis agora, as atualizações apenas são apresentadas no **manutenção do Windows 10** \ **todas as atualizações do Windows 10** nó da consola do Configuration Manager. Estas atualizações já não aparecem no **atualizações de Software** \ **todas as atualizações de Software** nó.  
 
--   Os utilizadores finais que iniciam um pacote de atualização do Windows 10 serão apresentados uma caixa de diálogo que permite-lhes saber que actualizará o sistema operativo.  
+-   Serão solicitados aos utilizadores finais que iniciam um pacote de atualização do Windows 10 com uma caixa de diálogo que permite-lhes saber que vão atualizar o sistema operativo.  

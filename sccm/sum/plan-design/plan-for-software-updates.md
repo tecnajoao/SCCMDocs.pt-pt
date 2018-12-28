@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.openlocfilehash: 16a998d35fd5b6984a80510d6d7b1f6d86bf6511
-ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
+ms.openlocfilehash: ea1225b1f7ec29d089e8991e397fbae64d5a38eb
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53247514"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424192"
 ---
 # <a name="plan-for-software-updates-in-configuration-manager"></a>Planear atualizações de software no Configuration Manager
 
@@ -342,15 +342,15 @@ Poderá ter de adicionar os endereços abaixo à firewall que está localizada e
 - Se os sites subordinados têm um ponto de atualização de software 
 - Se existir um ponto de atualização dos software remoto ativo baseado na internet num site
 
- **Ponto de atualização de software no site subordinado**  
+  **Ponto de atualização de software no site subordinado**  
 
--   `http://<FQDN for software update point on child site>`  
+- `http://<FQDN for software update point on child site>`  
 
--   `https://<FQDN for software update point on child site>`  
+- `https://<FQDN for software update point on child site>`  
 
--   `http://<FQDN for software update point on parent site>`  
+- `http://<FQDN for software update point on parent site>`  
 
--   `https://<FQDN for software update point on parent site>`  
+- `https://<FQDN for software update point on parent site>`  
 
 
 

@@ -10,12 +10,12 @@ ms.assetid: f4f9a5fd-f573-4b99-ad93-b2c76812e922
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7d6b957ebcc19dfe8c14dd781f71678db8e160af
-ms.sourcegitcommit: 1a1bac2d5ee0f20ce565d29798ee4dd99aaca044
+ms.openlocfilehash: c4ceec8c0d5482456d3257106ee067bf3d9ec1fb
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52281911"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418106"
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Instalar e atualizar com a versão 1606 suporte de dados de linha de base para o System Center Configuration Manager
 
@@ -71,7 +71,7 @@ O suporte de dados de linha de base do versão 1606 suporta uma nova chave de fi
 Quando utilizar um script automático para instalar um ramo licenciado, tem de adicionar a secção seguinte, nomes de chaves e valores para a secção de opções do seu script. Não precisa de utilizar estes valores para a instalação de uma edição de avaliação do ramo atual do script:  
 
  **SABranchOptions**
--   **Nome da chave: SAActive**
+- **Nome da chave: SAActive**
   - Valores: 0 ou 1.  
   - Detalhes:  0 instala uma edição de avaliação não licenciado do Current Branch e 1 instala uma edição licenciada.   
 

@@ -10,12 +10,12 @@ ms.assetid: ba9b623f-6e86-4006-93f2-83d563de0cd0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2eb75af410ae1511ae105aa7a3a56659c8ef0442
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: 0d2e3c7bc6cba90ebc24bdfdf244f54d1752d749
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862418"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420469"
 ---
 # <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Como atribuir clientes a um site no System Center Configuration Manager
 
@@ -94,30 +94,30 @@ Se falhar a atribuição de cliente, o software de cliente permanecerá instalad
 
 O Configuration Manager também verifica se foi atribuído o cliente do Configuration Manager (ramo atual) a um site que o suporte. Os seguintes cenários podem ocorrer durante a migração de versões anteriores do Configuration Manager.  
 
--   Cenário: Utilizou a atribuição automática de site e seus limites de sobreposição com aquelas definidas numa versão anterior do Configuration Manager.  
+- Cenário: Utilizou a atribuição automática de site e seus limites de sobreposição com aquelas definidas numa versão anterior do Configuration Manager.  
 
-     Neste caso, o cliente tenta automaticamente localizar um site do Configuration Manager (ramo atual).  
+   Neste caso, o cliente tenta automaticamente localizar um site do Configuration Manager (ramo atual).  
 
-     O cliente verifica primeiro os serviços de domínio do Active Directory e se ele encontrar um site do Configuration Manager (ramo atual) publicado, atribuição de site tem êxito. Se isto falhar (por exemplo, o Gestor de configuração do site não está publicada ou o computador é um cliente de grupo de trabalho), o cliente verifica-se, em seguida, para obter informações de site do ponto de gestão atribuído.  
+   O cliente verifica primeiro os serviços de domínio do Active Directory e se ele encontrar um site do Configuration Manager (ramo atual) publicado, atribuição de site tem êxito. Se isto falhar (por exemplo, o Gestor de configuração do site não está publicada ou o computador é um cliente de grupo de trabalho), o cliente verifica-se, em seguida, para obter informações de site do ponto de gestão atribuído.  
 
-    > [!NOTE]  
-    >  Pode atribuir um ponto de gestão ao cliente durante a instalação de cliente, utilizando a propriedade de Client. msi **SMSMP =&lt;server_name >**.  
+  > [!NOTE]  
+  >  Pode atribuir um ponto de gestão ao cliente durante a instalação de cliente, utilizando a propriedade de Client. msi **SMSMP =&lt;server_name >**.  
 
-     Se ambos estes métodos falharem, a atribuição do site não terá êxito e deverá atribuir manualmente o cliente.  
+   Se ambos estes métodos falharem, a atribuição do site não terá êxito e deverá atribuir manualmente o cliente.  
 
--   Cenário: Tiver atribuído o cliente do Configuration Manager (ramo atual) utilizando um código de site específico em vez de atribuição automática de site e especificou um código de site para uma versão do Configuration Manager anterior ao System Center 2012 R2 Configuration Gestor.  
+- Cenário: Tiver atribuído o cliente do Configuration Manager (ramo atual) utilizando um código de site específico em vez de atribuição automática de site e especificou um código de site para uma versão do Configuration Manager anterior ao System Center 2012 R2 Configuration Gestor.  
 
-     Neste caso, a atribuição de site falha e precisa de reatribuir manualmente o cliente a um site do Configuration Manager (ramo atual).  
+   Neste caso, a atribuição de site falha e precisa de reatribuir manualmente o cliente a um site do Configuration Manager (ramo atual).  
 
- A verificação de compatibilidade do site requer uma das seguintes condições:  
+  A verificação de compatibilidade do site requer uma das seguintes condições:  
 
--   O cliente consegue aceder às informações do site publicadas nos Serviços de Domínio do Active Directory.  
+- O cliente consegue aceder às informações do site publicadas nos Serviços de Domínio do Active Directory.  
 
--   O cliente consegue comunicar com um ponto de gestão do site.  
+- O cliente consegue comunicar com um ponto de gestão do site.  
 
- Se a verificação de compatibilidade do site não conseguir concluir com êxito, a atribuição de site falha e o cliente permanecerá não gerido até que a verificação de compatibilidade do site é executado novamente e for concluída com êxito.  
+  Se a verificação de compatibilidade do site não conseguir concluir com êxito, a atribuição de site falha e o cliente permanecerá não gerido até que a verificação de compatibilidade do site é executado novamente e for concluída com êxito.  
 
- A exceção à realização da verificação de compatibilidade do site ocorre quando um cliente se encontra configurado para um ponto de gestão baseado na Internet. Neste caso, não é efetuada nenhuma verificação de compatibilidade do site. Se estiver a atribuir clientes a um site que contém sistemas de sites baseados na Internet e especificar um ponto de gestão baseado na Internet, certifique-se de que está a atribuir o cliente ao site correto. Se atribuir por engano o cliente a um site do Configuration Manager 2007, um site do System Center 2012 Configuration Manager, ou a um site do Configuration Manager que não tem funções do sistema de sites baseados na Internet, o cliente permanecerá não gerido.  
+  A exceção à realização da verificação de compatibilidade do site ocorre quando um cliente se encontra configurado para um ponto de gestão baseado na Internet. Neste caso, não é efetuada nenhuma verificação de compatibilidade do site. Se estiver a atribuir clientes a um site que contém sistemas de sites baseados na Internet e especificar um ponto de gestão baseado na Internet, certifique-se de que está a atribuir o cliente ao site correto. Se atribuir por engano o cliente a um site do Configuration Manager 2007, um site do System Center 2012 Configuration Manager, ou a um site do Configuration Manager que não tem funções do sistema de sites baseados na Internet, o cliente permanecerá não gerido.  
 
 ##  <a name="locating-management-points"></a>Localizar pontos de gestão  
  Quando um cliente é atribuído com êxito a um site, localiza um ponto de gestão nesse site.  

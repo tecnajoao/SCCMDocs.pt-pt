@@ -10,12 +10,12 @@ ms.assetid: bb83ac87-9914-4a35-b633-ad070031aa6e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a9f29fcb0c1fea4bd5ff1de7327b58a05934eeeb
-ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
+ms.openlocfilehash: 3d6b4215615b6401a9163edfa33893d866e0c2ce
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53247446"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424770"
 ---
 # <a name="install-a-cloud-distribution-point-for-configuration-manager"></a>Instalar um ponto de distribuição de nuvem para o Configuration Manager
 

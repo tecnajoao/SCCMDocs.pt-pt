@@ -10,12 +10,12 @@ ms.assetid: 8e25e00c-c9a8-473f-bcb7-ea989f6ca3c5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9fe64aef541a4e6405b0fbf6308afc6269d88f56
-ms.sourcegitcommit: f03cb34693b9806e9fecd3c0162de70cc8cb4b1e
+ms.openlocfilehash: 2483a15286a2784f2fb8a4256029004374a313dc
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886489"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419789"
 ---
 # <a name="manage-internet-access-using-managed-browser-policies-with-system-center-configuration-manager"></a>Gerir o acesso à Internet através de políticas de browser gerido com o System Center Configuration Manager
 
@@ -86,52 +86,54 @@ A nova política é apresentada no nó **Políticas de Gestão de Aplicações**
 
 Utilize as informações seguinte para saber mais sobre os formatos permitidos e os carateres universais que pode utilizar ao especificar os URLs na lista de permissões e bloqueios.  
 
--   Utilizar o símbolo de caráter universal `*` (asterisco), de acordo com as regras na lista de padrões permitidos abaixo.  
+- Utilizar o símbolo de caráter universal `*` (asterisco), de acordo com as regras na lista de padrões permitidos abaixo.  
 
--   Todas as URLs com o prefixo **http** ou **https** quando os introduzir na lista.  
+- Todas as URLs com o prefixo **http** ou **https** quando os introduzir na lista.  
 
--   Especifica os números de porta no endereço. Se não especificar um número de porta, são utilizados os seguintes valores:  
+- Especifica os números de porta no endereço. Se não especificar um número de porta, são utilizados os seguintes valores:  
 
-    -   Porta 80 para http  
+  - Porta 80 para http  
 
-    -   Porta 443 para https  
+  - Porta 443 para https  
 
-     Não utilize carateres universais para o número de porta, o que não é suportado. Por exemplo, `http://www.contoso.com:*`   
+    Não utilize carateres universais para o número de porta, o que não é suportado. Por exemplo, `http://www.contoso.com:*`   
 
--   Utilize a tabela seguinte para saber mais sobre os padrões permitidos que pode utilizar ao especificar URLs:  
+- Utilize a tabela seguinte para saber mais sobre os padrões permitidos que pode utilizar ao especificar URLs:  
 
-    |URL|Correspondências|Não corresponde|  
-    |---------|-------------|--------------------|  
-    |`http://www.contoso.com`<br /><br /> Corresponde a uma única página|`www.contoso.com`|`host.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `contoso.com/`|  
-    |`http://contoso.com`<br /><br /> Corresponde a uma única página|`contoso.com`|`host.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `www.contoso.com`|  
-    |`http://www.contoso.com/*`<br /><br /> Corresponde a todos os URLs a partir do `www.contoso.com`|`www.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `www.contoso.com/videos/tvshows`|`host.contoso.com`<br /><br /> `host.contoso.com/images`|  
-    |`http://*.contoso.com/*`<br /><br /> Corresponde a todos os subdomínios em contoso.com|`developer.contoso.com/resources`<br /><br /> `news.contoso.com/images`<br /><br /> `news.contoso.com/videos`|`contoso.host.com`|  
-    |`http://www.contoso.com/images`<br /><br /> Corresponde a uma única pasta|`www.contoso.com/images`|`www.contoso.com/images/dogs`|  
-    |`http://www.contoso.com:80`<br /><br /> Corresponde a uma única página, ao utilizar um número de porta|`http://www.contoso.com:80`||  
-    |`https://www.contoso.com`<br /><br /> Corresponde a uma única página segura|`https://www.contoso.com`|`http://www.contoso.com`|  
-    |`http://www.contoso.com/images/*`<br /><br /> Corresponde a uma única pasta e a todas as subpastas|`www.contoso.com/images/dogs`<br /><br /> `www.contoso.com/images/cats`|`www.contoso.com/videos`|  
 
--   Seguem-se exemplos de algumas entradas que não pode especificar:  
+  |                                           URL                                            |                                                    Correspondências                                                    |                                    Não corresponde                                     |
+  |------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+  |                `http://www.contoso.com`<br /><br /> Corresponde a uma única página                |                                               `www.contoso.com`                                               |  `host.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `contoso.com/`   |
+  |                  `http://contoso.com`<br /><br /> Corresponde a uma única página                  |                                                 `contoso.com`                                                 | `host.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `www.contoso.com` |
+  | `http://www.contoso.com/*`<br /><br /> Corresponde a todos os URLs a partir do `www.contoso.com` |      `www.contoso.com`<br /><br /> `www.contoso.com/images`<br /><br /> `www.contoso.com/videos/tvshows`      |               `host.contoso.com`<br /><br /> `host.contoso.com/images`                |
+  |      `http://*.contoso.com/*`<br /><br /> Corresponde a todos os subdomínios em contoso.com      | `developer.contoso.com/resources`<br /><br /> `news.contoso.com/images`<br /><br /> `news.contoso.com/videos` |                                  `contoso.host.com`                                   |
+  |           `http://www.contoso.com/images`<br /><br /> Corresponde a uma única pasta            |                                           `www.contoso.com/images`                                            |                             `www.contoso.com/images/dogs`                             |
+  |    `http://www.contoso.com:80`<br /><br /> Corresponde a uma única página, ao utilizar um número de porta    |                                          `http://www.contoso.com:80`                                          |                                                                                       |
+  |           `https://www.contoso.com`<br /><br /> Corresponde a uma única página segura            |                                           `https://www.contoso.com`                                           |                               `http://www.contoso.com`                                |
+  | `http://www.contoso.com/images/*`<br /><br /> Corresponde a uma única pasta e a todas as subpastas |                    `www.contoso.com/images/dogs`<br /><br /> `www.contoso.com/images/cats`                    |                               `www.contoso.com/videos`                                |
 
-    -   `*.com`  
 
-    -   `*.contoso/*`  
+- Seguem-se exemplos de algumas entradas que não pode especificar:  
 
-    -   `www.contoso.com/*images`  
+  -   `*.com`  
 
-    -   `www.contoso.com/*images*pigs`  
+  -   `*.contoso/*`  
 
-    -   `www.contoso.com/page*`  
+  -   `www.contoso.com/*images`  
 
-    -   Endereços IP  
+  -   `www.contoso.com/*images*pigs`  
 
-    -   `https://*`  
+  -   `www.contoso.com/page*`  
 
-    -   `http://*`  
+  -   Endereços IP  
 
-    -   `http://www.contoso.com:*`  
+  -   `https://*`  
 
-    -   `http://www.contoso.com: /*`  
+  -   `http://*`  
+
+  -   `http://www.contoso.com:*`  
+
+  -   `http://www.contoso.com: /*`  
 
 > [!NOTE]  
 >  `*.microsoft.com` é sempre permitido.  

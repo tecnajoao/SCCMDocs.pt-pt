@@ -1,5 +1,5 @@
 ---
-title: Como utilizar os documentos
+title: Como utilizar a documentação
 titleSuffix: Configuration Manager
 description: Obtenha dicas sobre como utilizar a biblioteca de documentação técnica do Configuration Manager.
 ms.date: 09/07/2018
@@ -11,12 +11,12 @@ ms.assetid: b3d755bd-0870-4f1f-a56d-bfd3c7b492b9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6bd4675d3b366c5f414467b76627e25b91259ef2
-ms.sourcegitcommit: 240d3199e1c6fa47af6eda499492b2527516ab18
+ms.openlocfilehash: 27eea5c93ec66207e48390e3c7a0352a3a255ceb
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44326208"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424743"
 ---
 # <a name="how-to-use-the-configuration-manager-docs"></a>Como utilizar os documentos do Configuration Manager
 
@@ -45,7 +45,7 @@ Para obter ajuda geral com o produto, consulte [encontrar ajuda](/sccm/core/unde
 
     - Para além disso, concentre-se os resultados de pesquisa à biblioteca de conteúdos, inclua `site:docs.microsoft.com` para definir o âmbito o motor de busca.  
 
--   Utilize termos de pesquisa que correspondem a terminologia na interface do usuário e a documentação online. Evite os termos não oficiais ou as abreviaturas que poderá ver no conteúdo da Comunidade. Por exemplo, procure "ponto de gestão" em vez de "MP"; "tipo de implementação" em vez de "DT"; e "atualizações de software" em vez de "SUM".  
+-   Utilize termos de pesquisa que correspondem a terminologia na interface do usuário e a documentação online. Evite os termos não oficiais ou as abreviaturas que poderá ver no conteúdo da Comunidade. Por exemplo, procure "ponto de gestão" em vez de "MP"; "tipo de implementação" em vez de "DT"; e "atualizações de software" em vez de "SUM".  
 
 -   Para procurar um artigo que está sendo exibida, utilizar o browser **encontrar** funcionalidade. Com navegadores da web mais modernos, prima **Ctrl**+**F** e, em seguida, introduza os termos de pesquisa.  
 
@@ -122,8 +122,8 @@ Biblioteca de documentação do Configuration Manager, como a maioria dos conte�
 Se estiver interessado em contribuir, mas não sabe onde começar, consulte as seguintes sugestões:  
 
 - Pesquise a lista de problemas para as etiquetas da Comunidade como destino:  
-    - [bom-first-problema](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:good-first-issue)   
-    - [queria de ajuda](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:help-wanted)  
+  - [bom-first-problema](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:good-first-issue)   
+  - [queria de ajuda](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:help-wanted)  
 
     Estas etiquetas são atribuídas pelos autores da Microsoft para problemas que são bons candidatos para contribuições da Comunidade.  
 

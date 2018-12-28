@@ -9,12 +9,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: b9602d6641e1bb28a3af7c24c64073ba019e0f3e
-ms.sourcegitcommit: 6126dfdf5c879db7d12c3eec019a88fa44521361
+ms.openlocfilehash: a71aa0834a241332d3390e1d888d99b6e3f986f7
+ms.sourcegitcommit: d36e4c7082a5144e79035dd8847c8e741fa04667
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52830511"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444574"
 ---
 <!-- 
 - Feature 1357546
@@ -27,7 +27,7 @@ ms.locfileid: "52830511"
 # <a name="configuration-manager-documentation"></a>Documentação do Configuration Manager
 Os links nesta página representam conteúdo organizado para ajudá-lo a aprender e suporte do Configuration Manager. 
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 - [Biblioteca de documentação do Configuration Manager](https://docs.microsoft.com/sccm)  
 - [Como utilizar os documentos do Configuration Manager](https://docs.microsoft.com/sccm/core/understand/use-docs)
 
@@ -89,7 +89,7 @@ Artigos com uma atualização recente importantes e significativa.
 ## <a name="troubleshooting-articles"></a>Artigos de resolução de problemas
 Orientado orientações passo a passo para ajudá-lo em componentes do Configuration Manager e os recursos de resolução de problemas.
 
-- [Resolução de problemas de arranque PXE](https://support.microsoft.com/help/10082)
+- [Resolução de problemas de arranque PXE](https://support.microsoft.com/help/4468612)
 - [Resolução de problemas de sincronização de atualização de software](https://support.microsoft.com/help/10059)
 - [Compreender e a distribuição de conteúdo de resolução de problemas](https://support.microsoft.com/help/4000401)
 - [Compreender e a Microsoft Store para integração de negócios de resolução de problemas](https://support.microsoft.com/help/4010214)

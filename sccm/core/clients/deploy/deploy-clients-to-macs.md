@@ -10,12 +10,12 @@ ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 94a86f47fe378c4a9e66005e8c51a31a99cf4339
-ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
+ms.openlocfilehash: ba8182795759a29b4a5c8e4dfaa73f7c764dd7ff
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53303912"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53424889"
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Macs
 
@@ -117,18 +117,18 @@ Para automatizar a inscrição para o número de clientes, utilize o [ferramenta
 
 2. Na segunda página do assistente, forneça as seguintes informações:  
 
-    - **Nome de utilizador**: O nome de utilizador pode ser especificado nos seguintes formatos:  
+   - **Nome de utilizador**: O nome de utilizador pode ser especificado nos seguintes formatos:  
 
-        - `domain\name`. Por exemplo: `contoso\mnorth`  
+     - `domain\name`. Por exemplo: `contoso\mnorth`  
 
-        - `user@domain`. Por exemplo: `mnorth@contoso.com`  
+     - `user@domain`. Por exemplo: `mnorth@contoso.com`  
 
-            > [!IMPORTANT]  
-            >  Quando utiliza um endereço de correio eletrónico para preencher os **nome de utilizador** campo, o Configuration Manager povoa automaticamente a **nome do servidor** campo. Utiliza o nome predefinido do servidor de ponto de proxy de inscrição e o nome de domínio do endereço de e-mail. Se esses nomes não corresponder ao nome do servidor de ponto de proxy de inscrição, corrigir os **nome do servidor** durante a inscrição.  
+         > [!IMPORTANT]  
+         >  Quando utiliza um endereço de correio eletrónico para preencher os **nome de utilizador** campo, o Configuration Manager povoa automaticamente a **nome do servidor** campo. Utiliza o nome predefinido do servidor de ponto de proxy de inscrição e o nome de domínio do endereço de e-mail. Se esses nomes não corresponder ao nome do servidor de ponto de proxy de inscrição, corrigir os **nome do servidor** durante a inscrição.  
 
-         O nome de utilizador e palavra-passe correspondente tem de corresponder a uma conta de utilizador do Active Directory que tenha **leitura** e **inscrever** permissões no modelo de certificado de cliente Mac.  
+       O nome de utilizador e palavra-passe correspondente tem de corresponder a uma conta de utilizador do Active Directory que tenha **leitura** e **inscrever** permissões no modelo de certificado de cliente Mac.  
 
-    - **Nome do servidor**: O nome do servidor de ponto de proxy de registo.  
+   - **Nome do servidor**: O nome do servidor de ponto de proxy de registo.  
 
 
 ### <a name="client-and-certificate-automation-with-cmenroll"></a>Cliente e o certificado de automatização com CMEnroll  

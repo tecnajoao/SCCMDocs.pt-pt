@@ -10,12 +10,12 @@ ms.assetid: 19539f4d-1667-4b4c-99a1-9995f12cf5f7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4737acb34de3aebc8560f54d77b6b341c82ebf65
-ms.sourcegitcommit: 6e0e5b4b7779ce03e2b56b3b5f68f4ace1acedd8
+ms.openlocfilehash: b56dd830e2550a14d6b1e44d2aa7fdda7c56bc9b
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39467662"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53420503"
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Recuperar um site do Gestor de Configuração
 
@@ -102,9 +102,9 @@ Utilize esta opção quando já tiver recuperado a base de dados do site do Conf
 
 - Do Configuration Manager pode recuperar a base de dados a partir de qualquer um dos seguintes processos:  
 
-    - A tarefa de manutenção cópia de segurança do Configuration Manager  
-    - Uma cópia de segurança de base de dados do site com o Data Protection Manager (DPM)  
-    - Outro processo de cópia de segurança   
+  - A tarefa de manutenção cópia de segurança do Configuration Manager  
+  - Uma cópia de segurança de base de dados do site com o Data Protection Manager (DPM)  
+  - Outro processo de cópia de segurança   
 
     Depois de restaurar a base de dados do site utilizando um método fora do Configuration Manager, execute a configuração e selecione esta opção para concluir a recuperação de base de dados do site.  
 

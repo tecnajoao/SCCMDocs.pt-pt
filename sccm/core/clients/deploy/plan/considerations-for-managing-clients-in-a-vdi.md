@@ -10,12 +10,12 @@ ms.assetid: abd45393-d84e-4583-bc80-74bbb3709577
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a17bb43d91d26cf10da0e1d3da5d8f6e4a2af2a7
-ms.sourcegitcommit: 5b3ff56018cfc6bda9643c9f1bebc575173f61bc
+ms.openlocfilehash: 6733a4dc3b027efa23ddc64e06e4269260c43101
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50083790"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418633"
 ---
 # <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Considerações sobre a gestão de clientes do System Center Configuration Manager numa infraestrutura de ambiente de Trabalho Virtual (VDI)
 
@@ -23,13 +23,13 @@ ms.locfileid: "50083790"
 
 System Center Configuration Manager suporta a instalação do cliente do Configuration Manager nos seguintes cenários de infraestrutura de ambiente de trabalho virtual (VDI):  
 
--   **Máquinas virtuais pessoais** -máquinas virtuais pessoais geralmente são utilizadas quando deseja certificar-se de que esses dados de utilizador e as definições são mantidas na máquina virtual entre sessões.  
+- **Máquinas virtuais pessoais** -máquinas virtuais pessoais geralmente são utilizadas quando deseja certificar-se de que esses dados de utilizador e as definições são mantidas na máquina virtual entre sessões.  
 
--   **Sessões de serviços de ambiente de trabalho remotos** -serviços de ambiente de trabalho remoto permite que um servidor alojar várias sessões de cliente simultâneas. Os utilizadores podem ligar a uma sessão e, em seguida, executar aplicações nesse servidor.  
+- **Sessões de serviços de ambiente de trabalho remotos** -serviços de ambiente de trabalho remoto permite que um servidor alojar várias sessões de cliente simultâneas. Os utilizadores podem ligar a uma sessão e, em seguida, executar aplicações nesse servidor.  
 
--   **Máquinas virtuais agrupadas** -máquinas virtuais agrupadas não são mantidas entre sessões. Quando uma sessão é fechada, todos os dados e definições são eliminadas. Máquinas virtuais agrupadas são úteis quando os serviços de ambiente de trabalho remoto não pode ser utilizados uma vez que uma aplicação empresarial necessária não é possível executar no Windows Server que aloja as sessões de cliente.  
+- **Máquinas virtuais agrupadas** -máquinas virtuais agrupadas não são mantidas entre sessões. Quando uma sessão é fechada, todos os dados e definições são eliminadas. Máquinas virtuais agrupadas são úteis quando os serviços de ambiente de trabalho remoto não pode ser utilizados uma vez que uma aplicação empresarial necessária não é possível executar no Windows Server que aloja as sessões de cliente.  
 
- A tabela seguinte lista as considerações para gerir o cliente do Configuration Manager numa infraestrutura de ambiente de trabalho virtual.  
+  A tabela seguinte lista as considerações para gerir o cliente do Configuration Manager numa infraestrutura de ambiente de trabalho virtual.  
 
 |Tipo de máquina virtual|Considerações|  
 |--------------------------|--------------------|  

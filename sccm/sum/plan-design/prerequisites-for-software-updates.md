@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: fdf05118-162a-411e-b72e-386b9dc9a5e1
-ms.openlocfilehash: ffe1546e3d7561a0bbda787ef6b1aaeac6e8d2e0
-ms.sourcegitcommit: 2504617dc4db90e205327d06cab32f050e88dbf2
+ms.openlocfilehash: cbaaa84b0c4b3c9b05e7ffbae565a7b6da7c7426
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505130"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53423886"
 ---
 # <a name="prerequisites-for-software-updates-in-system-center-configuration-manager"></a>Pré-requisitos para atualizações de software no System Center Configuration Manager
 
@@ -75,7 +75,7 @@ Quando tiver vários pontos de atualização de software num site, certifique-se
 ### <a name="client-settings-for-software-updates"></a>Definições de cliente para atualizações de software  
  Por predefinição, as atualizações de software são ativadas para os clientes. No entanto, existem outras definições disponíveis que controlam como e quando os clientes avaliam a compatibilidade das atualizações de software e controlam a forma como as atualizações de software são instaladas.  
 
- Para obter mais informações, consulte os artigos seguintes:  
+ Para obter mais informações, veja os artigos seguintes:  
 
 -   [Definições de cliente para atualizações de software](../get-started/manage-settings-for-software-updates.md#BKMK_ClientSettings)   
 
