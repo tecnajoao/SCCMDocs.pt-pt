@@ -10,12 +10,12 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c9f3bc1b85ee9b8fbd8af47e22a826fe8d88377d
-ms.sourcegitcommit: c2c44329f1f9a2e6c14095360b4fc4aafabc27f0
+ms.openlocfilehash: 882af6e50a8619684225de53ce700fcc23923a06
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51694965"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418409"
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -172,8 +172,8 @@ As funções de três segurança utilizadas para executar scripts não são cria
 5. Conclua o assistente. O script novo é apresentado na **Script** lista com o estado **aguardar aprovação**. Antes de poder executar este script nos dispositivos cliente, terá de o aprovar. 
 
 > [!IMPORTANT]
-    >Evite scripts um reinício do dispositivo ou um reinício do agente do Configuration Manager, quando utilizar a funcionalidade de executar Scripts. Se o fizer, poderia levar a um estado contínuo de ser reiniciado. Se for necessário, há aprimoramentos para a funcionalidade de notificação de cliente que permitem dispositivos reiniciar, a partir do Configuration Manager versão 1710. O [pendente da coluna de reinício](/sccm/core/clients/manage/manage-clients#Restart-clients) pode ajudar a identificar dispositivos que necessitam de um reinício. 
-<!--SMS503978  -->
+> Evite scripts um reinício do dispositivo ou um reinício do agente do Configuration Manager, quando utilizar a funcionalidade de executar Scripts. Se o fizer, poderia levar a um estado contínuo de ser reiniciado. Se for necessário, há aprimoramentos para a funcionalidade de notificação de cliente que permitem dispositivos reiniciar, a partir do Configuration Manager versão 1710. O [pendente da coluna de reinício](/sccm/core/clients/manage/manage-clients#Restart-clients) pode ajudar a identificar dispositivos que necessitam de um reinício. 
+> <!--SMS503978  -->
 
 ## <a name="script-parameters"></a>Parâmetros do script
 *(Introduzido com a versão 1710)*  

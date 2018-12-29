@@ -10,12 +10,12 @@ ms.assetid: 0212b023-804a-4f84-b880-7a59cdb49c67
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 49de1e2f94d1016f3c0139ccf534b85a718bf7e0
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: 675d4a4c91e9401eb05c0a72bb83af00aab0336c
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862503"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53419041"
 ---
 # <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utilizar uma sequência de tarefas para gerir discos rígidos virtuais no System Center Configuration Manager
 
@@ -134,50 +134,50 @@ No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHD
 
 #### <a name="to-create-a-vhd"></a>Para criar um VHD  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Discos Rígidos Virtuais**.  
+2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Discos Rígidos Virtuais**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Disco Rígido Virtual** para iniciar o Assistente para Criar Discos Rígidos Virtuais.  
+3. No separador **Home Page** , no grupo **Criar** , clique em **Criar Disco Rígido Virtual** para iniciar o Assistente para Criar Discos Rígidos Virtuais.  
 
-    > [!NOTE]  
-    >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **criar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+   > [!NOTE]  
+   >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **criar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
-    > [!TIP]  
-    >  Para organizar os seus VHDs, crie uma nova pasta ou selecione uma pasta existente sob o nó **Discos Rígidos Virtuais** e clique em **Criar Disco Rígido Virtual** a partir da pasta.  
+   > [!TIP]  
+   >  Para organizar os seus VHDs, crie uma nova pasta ou selecione uma pasta existente sob o nó **Discos Rígidos Virtuais** e clique em **Criar Disco Rígido Virtual** a partir da pasta.  
 
-4.  Na página **Geral** , especifique as seguintes definições e clique em **Seguinte**.  
+4. Na página **Geral** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Nome**: Especifique um nome exclusivo para o VHD.  
+   -   **Nome**: Especifique um nome exclusivo para o VHD.  
 
-    -   **Versão**: Especifique um número de versão para o VHD. Esta definição é opcional.  
+   -   **Versão**: Especifique um número de versão para o VHD. Esta definição é opcional.  
 
-    -   **Comentário**: Especifique uma descrição para o VHD.  
+   -   **Comentário**: Especifique uma descrição para o VHD.  
 
-    -   **Caminho**: Especifique o nome de ficheiro e caminho para onde o assistente irá criar o ficheiro VHD.  
+   -   **Caminho**: Especifique o nome de ficheiro e caminho para onde o assistente irá criar o ficheiro VHD.  
 
-         Terá de introduzir um caminho de rede válido no formato UNC. Por exemplo:  **\\\servername\\< sharename\>\\< filename\>VHD**.  
+        Terá de introduzir um caminho de rede válido no formato UNC. Por exemplo:  **\\\servername\\< sharename\>\\< filename\>VHD**.  
 
-        > [!WARNING]  
-        >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr log no servidor do site.  
+       > [!WARNING]  
+       >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr log no servidor do site.  
 
-5.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas que especificou na secção anterior e clique em **Seguinte**.  
+5. Na página **Sequência de Tarefas** , especifique a sequência de tarefas que especificou na secção anterior e clique em **Seguinte**.  
 
-6.  Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
+6. Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
 
-7.  Na página **Personalização** , clique em **Seguinte**. O processo de criação do VHD ignorará quaisquer definições que especifique nesta página.  
+7. Na página **Personalização** , clique em **Seguinte**. O processo de criação do VHD ignorará quaisquer definições que especifique nesta página.  
 
-8.  Verifique as definições e clique em **Seguinte**. O assistente criará o VHD.  
+8. Verifique as definições e clique em **Seguinte**. O assistente criará o VHD.  
 
-    > [!TIP]  
-    >  O tempo de execução do processo de criação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
-    >   
-    >  -   **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-    > -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de criação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-    >   
-    >  Além disso, quando a instalação do sistema operativo for iniciada, poderá abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
+   > [!TIP]
+   >  O tempo de execução do processo de criação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
+   > 
+   > - **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   >   -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de criação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   > 
+   >   Além disso, quando a instalação do sistema operativo for iniciada, poderá abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
 
- Depois do Configuration Manager cria o VHD, este ficará localizado no **os discos rígidos virtuais** nó na consola do Configuration Manager nos **implementação do sistema operativo** no nó a  **Biblioteca de software** área de trabalho.  
+   Depois do Configuration Manager cria o VHD, este ficará localizado no **os discos rígidos virtuais** nó na consola do Configuration Manager nos **implementação do sistema operativo** no nó a  **Biblioteca de software** área de trabalho.  
 
 > [!NOTE]  
 >  O Configuration Manager obtém o tamanho do VHD, conectando-se na localização de origem do VHD. Se o Gestor de configuração não consegue aceder ao ficheiro VHD, **0** é apresentado na **tamanho (KB)** coluna para o VHD.  
@@ -192,25 +192,25 @@ No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHD
 
 #### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Para criar uma sequência de tarefas personalizada para modificar o VHD  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
+3. No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
-4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Criar uma nova sequência de tarefas personalizada**e clique em **Seguinte**.  
+4. Na página **Criar uma Nova Sequência de Tarefas** , selecione **Criar uma nova sequência de tarefas personalizada**e clique em **Seguinte**.  
 
-5.  Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
+5. Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
+   -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
 
-    -   **Descrição**: Especifique uma descrição da sequência de tarefas.  
+   -   **Descrição**: Especifique uma descrição da sequência de tarefas.  
 
-    -   **Imagem de arranque**: Especifique a imagem de arranque que instala o sistema operativo no computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+   -   **Imagem de arranque**: Especifique a imagem de arranque que instala o sistema operativo no computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
-6.  Conclua o assistente.  
+6. Conclua o assistente.  
 
- Utilize o procedimento seguinte para adicionar passos à sequência de tarefas personalizada.  
+   Utilize o procedimento seguinte para adicionar passos à sequência de tarefas personalizada.  
 
 #### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Para adicionar passos à sequência de tarefas personalizada  
 
@@ -231,43 +231,43 @@ No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHD
 
 #### <a name="to-modify-a-vhd"></a>Para modificar um VHD  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**, clique em **Discos Rígidos Virtuais**e selecione o VHD a modificar.  
+2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**, clique em **Discos Rígidos Virtuais**e selecione o VHD a modificar.  
 
-3.  No separador **Home Page** , no grupo **Disco Rígido Virtual** , clique em **Modificar Disco Rígido Virtual** para iniciar o Assistente para Modificar Discos Rígidos Virtuais.  
+3. No separador **Home Page** , no grupo **Disco Rígido Virtual** , clique em **Modificar Disco Rígido Virtual** para iniciar o Assistente para Modificar Discos Rígidos Virtuais.  
 
-    > [!NOTE]  
-    >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **modificar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+   > [!NOTE]  
+   >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **modificar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
-4.  Na página **Geral** , confirme as seguintes definições e clique em **Seguinte**.  
+4. Na página **Geral** , confirme as seguintes definições e clique em **Seguinte**.  
 
-    -   **Nome**: Especifica o nome exclusivo para o VHD.  
+   -   **Nome**: Especifica o nome exclusivo para o VHD.  
 
-    -   **Versão**: Especifica o número de versão para o VHD. Esta definição é opcional.  
+   -   **Versão**: Especifica o número de versão para o VHD. Esta definição é opcional.  
 
-    -   **Comentário**: Especifica a descrição para o VHD.  
+   -   **Comentário**: Especifica a descrição para o VHD.  
 
-    -   **Caminho**: Especifica o nome de ficheiro e caminho para onde está localizado o ficheiro VHD. Não é possível modificar esta definição.  
+   -   **Caminho**: Especifica o nome de ficheiro e caminho para onde está localizado o ficheiro VHD. Não é possível modificar esta definição.  
 
-        > [!WARNING]  
-        >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr log no servidor do site.  
+       > [!WARNING]  
+       >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr log no servidor do site.  
 
-5.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas personalizada que criou na secção anterior e clique em **Seguinte**.  
+5. Na página **Sequência de Tarefas** , especifique a sequência de tarefas personalizada que criou na secção anterior e clique em **Seguinte**.  
 
-6.  Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
+6. Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
 
-7.  Na página **Personalização** , clique em **Seguinte**. O processo de modificação do VHD ignorará quaisquer definições que especifique nesta página.  
+7. Na página **Personalização** , clique em **Seguinte**. O processo de modificação do VHD ignorará quaisquer definições que especifique nesta página.  
 
-8.  Verifique as definições e clique em **Seguinte**. O assistente criará o VHD modificado.  
+8. Verifique as definições e clique em **Seguinte**. O assistente criará o VHD modificado.  
 
-    > [!TIP]  
-    >  O tempo de execução do processo de modificação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
-    >   
-    >  -   **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-    > -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de modificação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-    >   
-    >  Além disso, pode abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
+   > [!TIP]
+   >  O tempo de execução do processo de modificação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
+   > 
+   > - **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   >   -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de modificação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   > 
+   >   Além disso, pode abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
 
 ##  <a name="BKMK_ApplyUpdates"></a> Aplicar atualizações de software a um VHD  
  Periodicamente, são lançadas novas atualizações de software que são aplicáveis ao sistema operativo do VHD. Pode aplicar atualizações de software aplicáveis a um VHD numa agenda especificada. Na agenda que especificar, Gestor de configuração aplica-se as atualizações de software que selecionar para o VHD.  
