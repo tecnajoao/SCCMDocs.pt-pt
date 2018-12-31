@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: c99985eb72b1948589bb54819aa1a4d8e03007a9
-ms.sourcegitcommit: 4659946369d5352234f27c7682bce65a0e86c697
+ms.openlocfilehash: 1fa5646b17646258e4863b3a53960c9c15497389
+ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53303946"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53418191"
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -170,20 +170,20 @@ Utilize o procedimento seguinte no ponto de atualização de software no site de
 1. A partir de uma linha de comandos, escreva *wbemtest* como um utilizador administrativo para abrir o Testador de instrumentação de gerenciamento do Windows.
 2. Clique em **Connect**e, em seguida, escreva *root\sms\site_&lt;siteCode&gt;*.
 3. Clique em **consulta**, e, em seguida, execute a seguinte consulta: *selecionar &#42; do SMS_SCI_Component onde componentname = "SMS_WSUS_CONFIGURATION_MANAGER"*  
-   ![Consulta de WMI](..\media\1-wmiquery.png)
+   ![Consulta de WMI](../media/1-wmiquery.png)
 4. No painel de resultados, faça duplo clique o objeto com o código do site para o site de administração central ou site primário autónomo.
 5. Selecione o **propriedades** propriedade, clique em **Editar propriedade**e, em seguida, clique em **View Embedded**.
-![Editor de propriedade](..\media\2-propeditor.png)
+   ![Editor de propriedade](../media/2-propeditor.png)
 6. Começando do primeiro resultado da consulta, abra cada objeto até encontrar aquela que acompanha **AdditionalUpdateLanguagesForO365** para o **PropertyName** propriedade.
 7. Selecione **Value2** e clique em **Editar propriedade**.  
-![Editar a propriedade Value2](..\media\3-queryresult.png)
+   ![Editar a propriedade Value2](../media/3-queryresult.png)
 8. Adicionar idiomas adicionais para o **Value2** propriedade e clique em **guardar propriedade**. <br/> Por exemplo, pt-pt (em Português - Portugal), af-za (para Afrikaans – África do Sul), não nn (por Norueguês (Nynorsk) – Noruega), etc. Teria de escrever `pt-pt,af-za,nn-no` para os idiomas de exemplo. Não utilize espaços entre os idiomas.
  
-   ![Adicionar idiomas no Editor de propriedade](..\media\4-props.png)  
+   ![Adicionar idiomas no Editor de propriedade](../media/4-props.png)  
 9. Clique em **fechar**, clique em **fechar**, clique em **guardar propriedade**e clique em **guardar objeto** (se clicar em **fechar**aqui os valores são eliminados). Clique em **fechar**e, em seguida, clique em **sair** para sair o Testador de instrumentação de gerenciamento do Windows.
 10. Na consola do Configuration Manager, aceda a **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**  >  **Atualizações do office 365**.
 11. Agora quando baixa atualizações do Office 365, serão transferidas as atualizações nos idiomas que selecione no assistente e configurou neste procedimento. Para verificar que a transferência de atualizações nos idiomas corretos, vão para a origem do pacote para a atualização e procurar ficheiros com o código de idioma no nome de ficheiro.  
-![Nomes de ficheiros com idiomas adicionais](..\media\5-verification.png)
+    ![Nomes de ficheiros com idiomas adicionais](../media/5-verification.png)
 
 ## <a name="updating-office-365-during-task-sequences-when-office-365-is-installed-in-the-base-image"></a>A atualização do Office 365 durante sequências de tarefas quando o Office 365 é instalado na imagem base
 Quando instala um sistema operativo em que o Office 365 já está instalado na imagem, é possível que o valor de chave do registo de canal de atualização tem a localização de instalação original. Neste caso, a análise de atualização não mostrará as atualizações de cliente do Office 365 conforme aplicável. Existe uma tarefa agendada de atualizações automáticas Office que é executada várias vezes por semana. Depois dessa tarefa é executada, o canal de atualização irá apontar para o URL de CDN configurado do Office e a análise, em seguida, irá mostrar estas atualizações, conforme aplicável. <!--510452-->
