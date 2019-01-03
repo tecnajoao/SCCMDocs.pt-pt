@@ -10,12 +10,12 @@ ms.assetid: a26a653e-17aa-43eb-ab36-0e36c7d29f49
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0e1cdef0acc799fc60c622f11e4c9c7426dfc19c
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 76611065dbed595904c8e0e2f5d52af0b4c68492
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456467"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817788"
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurar os serviços do Azure para utilização com o Configuration Manager
 
@@ -64,9 +64,9 @@ A tabela seguinte lista os detalhes sobre cada um dos serviços.
 |Serviço  |Inquilinos  |Clouds  |Aplicação Web  |Aplicação nativa  |Ações  |
 |---------|---------|---------|---------|---------|---------|
 |Gestão da cloud com<br>Deteção de utilizador do Azure AD | Vários | Público, privado | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | Importar, criar |
-|Conector do log Analytics | um | Público, privado | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar |
-|Atualizar a disponibilidade | um | Público | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar |
-|Microsoft Store para<br>negócios | um | Público | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar, criar |
+|Conector do log Analytics | Um | Público, privado | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar |
+|Atualizar a disponibilidade | Um | Público | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar |
+|Microsoft Store para<br>negócios | Um | Público | ![Suportado](media/green_check.png) | ![Não suportado](media/Red_X.png) | Importar, criar |
 
 
 ### <a name="about-azure-ad-apps"></a>Sobre as aplicações do Azure AD
@@ -161,7 +161,7 @@ Quando seleciona **importação** a partir da caixa de diálogo do aplicativo de
 - **ID de cliente**
 - **Chave secreta**
 - **Expiração da chave secreta**: Selecione uma data futura do calendário. 
-- **URI de ID de aplicação**: Este valor tem de ser exclusivo no seu inquilino do Azure AD. É no token de acesso utilizado pelo cliente do Configuration Manager para pedir acesso ao serviço. Por predefinição, este valor é https://ConfigMgrService.  
+- **URI de ID de aplicação**: Este valor tem de ser exclusivo no seu inquilino do Azure AD. É no token de acesso utilizado pelo cliente do Configuration Manager para pedir acesso ao serviço. Por predefinição, este valor é https\:/ / ConfigMgrService.  
 
 Após introduzir as informações, selecione **Verifique se**. Em seguida, selecione **OK** para fechar a caixa de diálogo de aplicações de importação. Esta ação devolve para o a [página da aplicação](#azure-app-properties) do Assistente de serviços do Azure, ou o [caixa de diálogo de aplicativo de servidor](#server-app-dialog).
 
@@ -169,8 +169,8 @@ Após introduzir as informações, selecione **Verifique se**. Em seguida, selec
 
 Quando seleciona **criar** caixa de diálogo da aplicação de servidor, é aberta a caixa de diálogo Criar aplicação de servidor. Esta página automatiza a criação de uma aplicação web no Azure AD. Especifique as seguintes informações:
 - **Nome da aplicação**: Um nome amigável para a aplicação.
-- **URL da home page**: Este valor não é utilizado pelo Configuration Manager, mas necessários pelo Azure AD. Por predefinição, este valor é https://ConfigMgrService.  
-- **URI de ID de aplicação**: Este valor tem de ser exclusivo no seu inquilino do Azure AD. É no token de acesso utilizado pelo cliente do Configuration Manager para pedir acesso ao serviço. Por predefinição, este valor é https://ConfigMgrService.  
+- **URL da home page**: Este valor não é utilizado pelo Configuration Manager, mas necessários pelo Azure AD. Por predefinição, este valor é https\:/ / ConfigMgrService.  
+- **URI de ID de aplicação**: Este valor tem de ser exclusivo no seu inquilino do Azure AD. É no token de acesso utilizado pelo cliente do Configuration Manager para pedir acesso ao serviço. Por predefinição, este valor é https\:/ / ConfigMgrService.  
 - **Período de validade de chave secreto**: Escolha o **1 ano** ou **2 anos** na lista pendente. Um ano é o valor predefinido.
 
 Selecione **iniciar sessão** para autenticar para o Azure como um utilizador administrativo. Estas credenciais não são guardadas pelo Configuration Manager. Essa pessoa não requer permissões no Configuration Manager e não precisa de ser a mesma conta que executa o Assistente de serviços do Azure. Após a autenticação bem-sucedida para o Azure, a página mostra os **nome de inquilino do Azure AD** para referência. 
@@ -208,11 +208,28 @@ Após introduzir as informações, selecione **Verifique se**. Em seguida, selec
 
 Quando seleciona **criar** a caixa de diálogo de aplicação de cliente, ela abre a caixa de diálogo Criar aplicação de cliente. Esta página automatiza a criação de uma aplicação nativa no Azure AD. Especifique as seguintes informações:
 - **Nome da aplicação**: Um nome amigável para a aplicação.
-- **URL de resposta**: Este valor não é utilizado pelo Configuration Manager, mas necessários pelo Azure AD. Por predefinição, este valor é https://ConfigMgrService. 
+- **URL de resposta**: Este valor não é utilizado pelo Configuration Manager, mas necessários pelo Azure AD. Por predefinição, este valor é https\:/ / ConfigMgrService. 
 
 Selecione **iniciar sessão** para autenticar para o Azure como um utilizador administrativo. Estas credenciais não são guardadas pelo Configuration Manager. Essa pessoa não requer permissões no Configuration Manager e não precisa de ser a mesma conta que executa o Assistente de serviços do Azure. Após a autenticação bem-sucedida para o Azure, a página mostra os **nome de inquilino do Azure AD** para referência. 
 
 Selecione **OK** para criar a aplicação nativa no Azure AD e fechar a caixa de diálogo Criar aplicação de cliente. Esta ação devolve para o [caixa de diálogo da aplicação de cliente](#client-app-dialog).
+
+
+### <a name="renew-secret-key-azure-ad-apps"></a>Renovar chave secreta do Azure AD aplicações
+Antes da versão 1806, para renovar a chave secreta de uma aplicação do Azure, terá de recriar a aplicação.
+
+Na versão 1806 e posterior:
+
+- Aplicação criada: Sob **nó de serviços Cloud** aceda à **inquilinos do Azure Active Directory do**. No painel de detalhes, selecione o inquilino no qual a aplicação foi criada e selecione **renovar a chave de segredo**.  
+
+    - Selecione **iniciar sessão** para autenticar para o Azure como um utilizador administrativo.  
+
+    - Selecione **OK** para criar a aplicação nativa no Azure AD e fechar a caixa de diálogo Criar aplicação de cliente. Esta ação devolve para o [caixa de diálogo da aplicação de cliente](#client-app-dialog).  
+
+- Aplicação importada: Utilize o portal do Azure para renovar e observe a nova chave secreta e a data de expiração. Adicione estas informações sobre o **renovar a chave de segredo** assistente.  
+
+> [!Note]  
+> Salvar a chave secreta antes de fechar as propriedades da aplicação do Azure **chave** página. Estas informações são removidas quando fechar a página.
 
 
 ## <a name="configuration-or-discovery"></a>Configuração ou a deteção

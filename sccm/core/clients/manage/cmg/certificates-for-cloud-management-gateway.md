@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 4ef9746b9a1eb90beeec6a477ad1d406acebbb05
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 9fdefdab53fb79157c542cb51c02419abd16b5e6
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456571"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817873"
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificados para o gateway de gestão da nuvem
 
@@ -250,7 +250,7 @@ Configure um ponto de gestão no local com o modo de ligação de cliente seguin
 - *Híbrido associou*: Associar o dispositivo a um domínio do Active Directory e um inquilino do Azure AD  
 - *HTTP*: Nas propriedades do ponto de gestão, defina o cliente ligações para **HTTP**  
 - *HTTPS*: Nas propriedades do ponto de gestão, defina o cliente ligações para **HTTPS**  
-- *E HTTP*: Nas propriedades do site, separador de comunicação do computador cliente, definir o site de definições do sistema para **HTTPS ou HTTP**, e ativar a opção para **desistemasdesitesdecertificadosgeradospeloutilizeoGestordeconfiguraçãoparaHTTP**. Configurar o ponto de gestão para HTTP ou HTTPS.  
+- *E HTTP*: Nas propriedades do site, separador de comunicação do computador cliente, definir o site de definições do sistema para **HTTPS ou HTTP**, e ativar a opção para **desistemasdesitesdecertificadosgeradospeloutilizeoGestordeconfiguraçãoparaHTTP**. Configurar o ponto de gestão para HTTP, o ponto de gestão de HTTP está preparado para comunicação HTTP e HTTPS (cenários de autenticação de token).   
 
 
 

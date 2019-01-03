@@ -10,12 +10,12 @@ ms.assetid: 4812324b-e6aa-4431-bf1d-9fcd763a8caa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f93b9c7e96c66fd2279d8d6e42f605a763c75025
-ms.sourcegitcommit: 81e3666c41eb976cc7651854042dafe219e2e467
+ms.openlocfilehash: 050cf81a99f29d24cad6eb13e691e332174627c3
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53747148"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53818026"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -81,7 +81,7 @@ Ao instalar ou atualizar para versão 1810, configuração do Configuration Mana
 
 - **Limpeza de controlo de alteração de SQL**: Uma nova verificação se a base de dados do site tem um registo de segurança de dados de controlo de alterações do SQL. Para obter mais informações, incluindo um procedimento para verificar e desmarque este registo de segurança, consulte [SQL Alterar controlo limpeza](/sccm/core/servers/deploy/install/list-of-prerequisite-checks#bkmk_changetracking). <!--SCCMDocs-pr issue 3023-->  
 
-- **Versão do SQL Native Client**: Esta verificação de pré-requisitos foi atualizada com versões do SQL Native Client que suportam o TLS 1.2. A versão mínima é [SQL 2012 SP4](https://www.microsoft.com/download/details.aspx?id=50402). Para obter mais informações, consulte [versão do SQL Native Client](/sccm/core/servers/deploy/install/list-of-prerequisite-checks#sql-native-client). <! - SCCMDocs-pr problema 3094 - >  
+- **Versão do SQL Native Client**: Esta verificação de pré-requisitos foi atualizada com versões do SQL Native Client que suportam o TLS 1.2. A versão mínima é [SQL 2012 SP4](https://www.microsoft.com/download/details.aspx?id=50402). Para obter mais informações, consulte [versão do SQL Native Client](/sccm/core/servers/deploy/install/list-of-prerequisite-checks#sql-native-client). <!--SCCMDocs-pr issue 3094-->  
 
 - **No nó de cluster do Windows do sistema de sites**: O processo de configuração do Configuration Manager já não bloqueia a instalação da função de servidor de site num computador com a função do Windows para o Clustering de ativação pós-falha. SQL Always On requer esta função, por isso, anteriormente não foi possível colocar a base de dados no servidor do site. Com esta alteração, pode criar um site de elevada disponibilidade com menos servidores com o SQL Always On e um servidor de site em modo passivo. Para obter mais informações, consulte [Cluster de ativação pós-falha do Windows](/sccm/core/servers/deploy/install/list-of-prerequisite-checks#windows-failover-cluster). <!--1359132-->  
 

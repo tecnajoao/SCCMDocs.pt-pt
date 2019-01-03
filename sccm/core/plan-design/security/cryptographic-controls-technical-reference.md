@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6d25c6a11821b73f34c8a3cd6aa95d4a78c86587
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 033f0fc3dd86c074f89804f6d9e70c173e9cf0b8
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418406"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817958"
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 
@@ -108,8 +108,6 @@ System Center Configuration Manager utiliza a assinatura e encriptação para aj
 
 - Quando utilizar pontos de distribuição baseados na nuvem.  
 
-- Quando gerir computadores baseados em Intel AMT fora de banda.  
-
   Para a maioria das outras comunicações do Configuration Manager que exigem certificados para autenticação, assinatura ou encriptação, o Configuration Manager utiliza automaticamente certificados PKI se estiverem disponíveis. Se não estiverem disponíveis, o Configuration Manager gera certificados autoassinados.  
 
   O Configuration Manager não utiliza certificados PKI quando gere dispositivos móveis utilizando o conector do Exchange Server.  
@@ -162,7 +160,7 @@ System Center Configuration Manager utiliza a assinatura e encriptação para aj
 
  Verificação da lista (CRL) de revogação de certificado está ativada por predefinição no IIS, portanto, se estiver a utilizar uma CRL com a implementação de PKI, não há nada adicional a configurar na maioria dos sistemas de site do Configuration Manager que executam o IIS. A exceção é para atualizações de software, que requerem um passo manual para ativar a verificação CRL para verificar as assinaturas nos ficheiros de atualização de software.  
 
- A verificação CRL está ativada por predefinição para computadores cliente quando utilizam ligações de cliente HTTPS. A verificação CRL não é ativada por predefinição quando é executada a consola de Gestão Fora de Banda para ligar a um computador baseado em AMT, sendo possível ativar esta opção. Não é possível desativar a verificação CRL para clientes em computadores Mac no Configuration Manager SP1 ou posterior.  
+ A verificação CRL está ativada por predefinição para computadores cliente quando utilizam ligações de cliente HTTPS. Não é possível desativar a verificação CRL para clientes em computadores Mac no Configuration Manager SP1 ou posterior.  
 
  A verificação CRL não é suportada para as seguintes ligações no Configuration Manager:  
 

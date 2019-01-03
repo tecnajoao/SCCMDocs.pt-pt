@@ -10,12 +10,12 @@ ms.assetid: b9b22655-b8c1-461f-8047-3a7e906f647a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f7b8b18cbec5a3b5972a448e8a70339533dc11fb
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 46e948a215535bf57153e5a97dbdc9cad2e35e3b
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456014"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817856"
 ---
 # <a name="manage-os-upgrade-packages-with-configuration-manager"></a>Gerir pacotes de atualização de SO com o Configuration Manager
 
@@ -23,6 +23,8 @@ ms.locfileid: "52456014"
 
 Um pacote de atualização do sistema operacional no Configuration Manager contém os arquivos de origem de instalação do Windows para atualizar um sistema operacional existente num computador. Este artigo descreve como adicionar, distribuir e um pacote de atualização do sistema operacional de serviço.
 
+>[!NOTE]
+>Pacotes de atualização de SO também pode ser utilizado para novas instalações do Windows. No entanto é dependentes nos drivers a ser compatível com este método. Quando efetuar novas instalações do pacote de atualização do Windows a partir de um sistema operacional, drivers são instalados ainda no Windows PE versus simplesmente, que é injetado no Windows PE. Alguns drivers não são compatíveis com a ser instalado no Windows PE. Se os drivers não são compatíveis com a ser instalado no Windows PE, em seguida, utilize um [imagem do SO](/sccm/osd/get-started/manage-operating-system-images), tal como **Install. wim**, em vez disso.
 
 
 ##  <a name="BKMK_AddOSUpgradePkgs"></a> Adicionar um pacote de atualização de SO  

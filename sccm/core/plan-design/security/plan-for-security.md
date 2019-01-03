@@ -10,12 +10,12 @@ ms.assetid: 2a216814-ca8c-4d2e-bcef-dc00966a3c9f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 88fa98de0f9f0a113adeef3a30536628706484ab
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 5f7cb374859d2605021a3f1ec98d6a6b6081bfc4
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424685"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817907"
 ---
 # <a name="plan-for-security-in-configuration-manager"></a>Planear a segurança no Configuration Manager
 
@@ -109,7 +109,7 @@ Quando utiliza certificados PKI com o Configuration Manager, planear a utilizaç
 
 IIS verifica sempre a CRL para certificados de cliente e não é possível alterar esta configuração no Configuration Manager. Por predefinição, os clientes do Configuration Manager sempre verificação da CRL em sistemas de sites. Desative esta definição especificando uma propriedade de site e especificando uma propriedade de CCMSetup.  
 
-Computadores que utilizam a verificação de revogação de certificado, mas não é possível localizar a CRL se comporte como se todos os certificados na cadeia de certificação são revogados. Este comportamento acontece porque eles não é possível verificar se os certificados estão na lista. Neste cenário, todas as ligações falharem que necessitam de certificados e utilizem uma CRL.  
+Computadores que utilizam a verificação de revogação de certificado, mas não é possível localizar a CRL se comporte como se todos os certificados na cadeia de certificação são revogados. Este comportamento é que eles não é possível verificar se os certificados estão na lista de revogação de certificados. Neste cenário, todas as ligações falharem que necessitam de certificados e incluir a verificação CRL. Ao validar o seu CRL está acessível ao navegar para a localização de http, é importante observar que o cliente do Configuration Manager é executado como sistema LOCAL. Por conseguinte, o teste de acessibilidade CRL com um navegador da web em execução no contexto de utilizador podem ter êxito, no entanto a conta de computador pode estar bloqueada quando a tentativa de estabelecer uma ligação http para o mesmo URL de CRL devido a web interno filtragem de solução. O URL de CRL em qualquer filtragem de soluções de web de lista de permissões pode ser necessária nessa situação.
 
 A verificação da CRL sempre que é utilizado um certificado oferece mais segurança contra a utilização de um certificado que foi revogado. Embora ele introduz um atraso de ligação e o processamento adicional no cliente. Sua organização poderá exigir esta verificação de segurança adicionais para os clientes na internet ou numa rede não fidedigna.  
 
@@ -188,7 +188,7 @@ Na maioria dos casos, o cliente do Configuration Manager identifica corretamente
   > 
   >   Utilize uma correspondência de cadeia parcial na SAN, apenas quando instalar clientes manualmente e quando eles não obter informações a partir de serviços de domínio do Active Directory. Por exemplo, estas condições aplicam-se a clientes apenas na internet.  
 
-- Uma correspondência em valores de atributo de nome de requerente de certificado de cliente ou os valores de atributo do requerente (SAN) de nome alternativo. Esse método é uma correspondência de maiúsculas e minúsculas. É adequado se estiver a utilizar um X500 único nome ou o objeto equivalente ddentifiers (OIDs) em conformidade com RFC 3280 e pretende que a seleção de certificado para ser com base nos valores do atributo. É possível especificar apenas os atributos e os respetivos valores necessários para identificar ou validar exclusivamente o certificado e distinguir o certificado de outros num arquivo de certificados.  
+- Uma correspondência em valores de atributo de nome de requerente de certificado de cliente ou os valores de atributo do requerente (SAN) de nome alternativo. Esse método é uma correspondência de maiúsculas e minúsculas. É adequado se estiver a utilizar um X500 único nome ou identificadores de objeto equivalente (OIDs) em conformidade com RFC 3280 e pretende que a seleção de certificado para ser com base nos valores do atributo. É possível especificar apenas os atributos e os respetivos valores necessários para identificar ou validar exclusivamente o certificado e distinguir o certificado de outros num arquivo de certificados.  
 
 A tabela seguinte mostra os valores de atributo que o Configuration Manager suporta para os critérios de seleção de certificado de cliente.  
 

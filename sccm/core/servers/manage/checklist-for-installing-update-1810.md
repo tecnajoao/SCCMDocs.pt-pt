@@ -10,12 +10,12 @@ ms.assetid: b87ac054-9b37-4725-a3f3-2340cfb10bff
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: efce5242c5de148d6922144af27f47a267b3c6c3
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 6ea093b71d19c2cee35caa748ae60f76a95b078c
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458332"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817771"
 ---
 # <a name="checklist-for-installing-update-1810-for-configuration-manager"></a>Lista de verificação para instalar a atualização 1810 para o Configuration Manager
 
@@ -89,6 +89,9 @@ Para obter mais informações, consulte [Site e pré-requisitos de sistema de s
 Deve ser suportada a versão do Windows 10 Assessment and Deployment Kit (ADK) para 1810 de versão do Configuration Manager. Para obter mais informações sobre as versões suportadas do Windows ADK, consulte [Windows 10 ADK](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk). Se precisar de atualizar o Windows ADK, faça-o antes de iniciar a atualização do Configuration Manager. Esta ordem torna-se de que as imagens de arranque predefinidas são automaticamente atualizadas para a versão mais recente do Windows PE. Quaisquer imagens de arranque personalizadas de atualizar manualmente depois de atualizar o site.
 
 Se atualizar o site antes de atualizar o Windows ADK, consulte [atualizar pontos de distribuição com a imagem de arranque](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image).
+
+#### <a name="review-sql-server-native-client-version"></a>Reveja a versão do SQL Server Native Client
+Tem de ser instalada uma versão mínima do SQL Server 2012 Native Client que inclui suporte para TLS 1.2. Para obter mais informações, consulte a [lista de verificações de pré-requisitos](/sccm/core/servers/deploy/install/list-of-prerequisite-checks#sql-native-client).
 
 #### <a name="review-the-site-and-hierarchy-status-for-unresolved-issues"></a>Analise o estado do site e da hierarquia para problemas por resolver 
 Uma atualização de site pode falhar devido a problemas operacionais existentes. Antes de atualizar um site, resolva todos os problemas operacionais para os seguintes sistemas:  
@@ -181,7 +184,7 @@ Na consola do Configuration Manager, aceda às localizações seguintes para ver
 
 -   **Monitorização** área de trabalho **replicação de base de dados** nó  
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 - [Monitorizar a infraestrutura de hierarquia e replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure)
 - [Acerca do Analisador de Ligações de Replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA)  
 

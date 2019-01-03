@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: 1dd696ce-3e46-4dfa-a76d-592fe0f0320e
-ms.openlocfilehash: 09ea3340d8474c69e6e346fc68120b8849159374
-ms.sourcegitcommit: 316899b08f2ef372993909e08e069f7edfed1d33
+ms.openlocfilehash: bc8a504a8490126fb9f4d7110c041f3c8916b162
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44111047"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53817924"
 ---
 # <a name="migrate-hybrid-mdm-users-and-devices-to-intune-standalone"></a>Migrar os utilizadores e dispositivos da MDM híbrida para o Intune autónomo
 
@@ -29,7 +29,7 @@ Este artigo é a migração da MDM híbrida para uma experiência de apenas na c
 
 Começar a migrar para o Intune autónomo, de forma faseada. Com esta abordagem, testar um pequeno subconjunto de utilizadores e dispositivos enquanto a maioria dos seus utilizadores e dispositivos continuam a ser gerida com hybrid MDM. Depois de verificar a funcionalidade do Intune, comece a migrar mais recursos para o Intune.    
 
-Para obter mais informações, consulte os artigos seguintes:    
+Para obter mais informações, veja os artigos seguintes:    
   
 1.  [Importar os dados do Configuration Manager para o Microsoft Intune](migrate-import-data.md)   
 
@@ -55,7 +55,7 @@ Para obter mais informações, consulte os artigos seguintes:
 
     - Instalar o NDES e conectores do Exchange  
 
-    Quando concluir os passos e iniciar a migração para o Intune autónomo, deve ser transparente aos seus utilizadores.   
+    Quando concluir os passos e iniciar a migração para o Intune autónomo, não há nenhum impacto significativo aos seus utilizadores.   
 
 3.  [Alterar a autoridade MDM para utilizadores específicos (autoridade MDM mista)](migrate-mixed-authority.md)    
 

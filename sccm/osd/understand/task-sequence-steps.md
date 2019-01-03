@@ -10,12 +10,12 @@ ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5e62983f76b0f2a4277edfab08d4321da5d4a258
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 9d3cd85d4c0bd3a996bd6ec18fc24a02423fab62
+ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416491"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53818060"
 ---
 # <a name="task-sequence-steps-in-configuration-manager"></a>Passos de sequência de tarefas no Configuration Manager
 
@@ -235,7 +235,14 @@ ms.locfileid: "53416491"
  Instala uma imagem de SO que capturou. Clique em **navegue** para abrir o **selecionar um pacote** caixa de diálogo. Em seguida, selecione o pacote de imagem existente que pretende instalar. Se várias imagens estão associadas a especificado **pacote de imagem**, selecione na lista pendente a imagem associada a utilizar para esta implementação. Pode ver informações básicas sobre cada imagem existente clicando na mesma.  
 
 #### <a name="apply-operating-system-image-from-an-original-installation-source"></a>Aplicar o sistema operativo a partir de uma origem de instalação original
- Instala um sistema operacional com um pacote de atualização de SO, que também é uma origem de instalação original. Clique em **navegue** para abrir o **Select e o pacote de instalação do sistema operativo** caixa de diálogo. Em seguida, selecione o pacote de atualização SO existente que pretende utilizar. Pode ver informações básicas sobre cada origem de imagem existente clicando na mesma. O painel de resultados na parte inferior da caixa de diálogo apresenta as propriedades da origem de imagem associado. Se existirem várias edições associadas ao pacote especificado, utilize a lista pendente para selecionar o **Edition** que pretende utilizar.  
+ Instala um sistema operacional com um pacote de atualização de SO, que também é uma origem de instalação original. Clique em **navegue** para abrir o **selecione um pacote de atualização do sistema operativo** caixa de diálogo. Em seguida, selecione o pacote de atualização SO existente que pretende utilizar. Pode ver informações básicas sobre cada origem de imagem existente clicando na mesma. O painel de resultados na parte inferior da caixa de diálogo apresenta as propriedades da origem de imagem associado. Se existirem várias edições associadas ao pacote especificado, utilize a lista pendente para selecionar o **Edition** que pretende utilizar.  
+
+>[!NOTE]
+>**Pacotes de atualização do sistema operativo** destinam principalmente para utilização com as atualizações no local e não para novas instalações do Windows. Ao implementar novas instalações do Windows, utilize o **aplicar sistema operativo a partir de uma imagem capturada** opção e **Install. wim** dos arquivos de origem de instalação.
+>
+>Implementar novas instalações do Windows via **pacotes de atualização do sistema operativo** é ainda suportado, mas é dependentes nos drivers a ser compatível com este método. Ao instalar o Windows a partir de um **pacotes de atualização do sistema operativo**, estão instalados controladores ainda no Windows PE versus simplesmente, que é injetado no Windows PE. Alguns drivers não são compatíveis com a ser instalado no Windows PE.
+>
+>Se drivers não são compatíveis com a ser instalado no Windows PE, a empacotar **Install. wim** dos arquivos de origem de instalação original como um **imagem do sistema operativo**. Em seguida, implementar através do **aplicar sistema operativo a partir de uma imagem capturada** opção em vez disso.
 
 #### <a name="use-an-unattended-or-sysprep-answer-file-for-a-custom-installation"></a>Utilize um ficheiro de resposta Sysprep ou autónomo para uma instalação personalizada
  Utilize esta opção para fornecer um ficheiro de resposta de configuração do Windows (**Unattend. XML**, **Unattend. txt**, ou **Sysprep. inf**) dependendo do método de instalação e a versão do SO. O ficheiro que especificar pode incluir qualquer uma das opções de configuração padrão suportadas pelos ficheiros de resposta do Windows. Por exemplo, pode utilizá-lo para especificar a home page predefinida do Internet Explorer. Especifique o pacote que contém o arquivo de resposta e o caminho associado para o ficheiro do pacote.  
