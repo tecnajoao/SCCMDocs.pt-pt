@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 9fdefdab53fb79157c542cb51c02419abd16b5e6
-ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
+ms.openlocfilehash: 60fa4176d44b530b2cab6c2b9b4b35c968fae3c1
+ms.sourcegitcommit: 32a257fafbb29aece8b4f435dd5614fcef305328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53817873"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54005488"
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificados para o gateway de gestão da nuvem
 
@@ -62,6 +62,9 @@ O CMG cria um serviço HTTPS para o qual se ligar a clientes baseados na interne
  > [!TIP]
  > Este certificado requer um nome globalmente exclusivo para identificar o serviço no Azure. Antes de solicitar um certificado, confirme que o nome de domínio do Azure pretendido é exclusivo. Por exemplo, *GraniteFalls.CloudApp.Net*. Inicie sessão para o [portal do Microsoft Azure](https://portal.azure.com). Selecione **criar um recurso**, escolha a **computação** categoria, em seguida, selecione **serviço em nuvem**. Na **nome DNS** campo, escreva o prefixo pretendido, por exemplo *GraniteFalls*. A interface reflete se o nome de domínio está disponível ou já em utilização por outro serviço. Não criar o serviço no portal, basta usar este processo para verificar a disponibilidade de nome. 
   
+ > [!TIP]
+ > Se CMG também será ativado como um ponto de distribuição na nuvem, confirme que o nome do serviço CMG optou por também é um nome exclusivo da conta de armazenamento do Azure. Por exemplo, *GraniteFalls*. Inicie sessão no [portal do Microsoft Azure] (https://portal.azure.com). Selecione **criar um recurso**, escolha a **armazenamento** categoria, em seguida, selecione **conta de armazenamento - blob, ficheiro, tabela, fila**. Clique em **Create**e, em **detalhes de instância** introduzir o mesmo nome escolhido para o serviço CMG, por exemplo *GraniteFalls*. A interface reflete se o nome da conta de armazenamento está disponível ou já em utilização por outro serviço. Não criar a conta de armazenamento no portal, basta usar este processo para verificar a disponibilidade de nome. Se o nome de serviço do CMG na nuvem é exclusivo, mas não é o nome da conta de armazenamento, o aprovisionamento irá falhar.
+ 
  > [!NOTE]
  > A partir da versão 1802, o certificado de autenticação de servidor CMG suporta carateres universais. Alguns autoridades de certificação emitem certificados através de um caráter universal para o nome do anfitrião. Por exemplo,  **\*. contoso.com**. Algumas organizações utilizam certificados de caráter universal para simplificar seu PKI e reduzir os custos de manutenção.<!--491233-->  
  > 
