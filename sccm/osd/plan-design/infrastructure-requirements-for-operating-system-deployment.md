@@ -10,12 +10,12 @@ ms.assetid: 1dc74219-7ff5-4e3b-b4f6-5aad663bb75b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 03ec9c046e1b32f137777f15393b5d26b49e5520
-ms.sourcegitcommit: 265d38d55ca0db043e3a7131a56f123e1d98aa5b
+ms.openlocfilehash: cfaa50b941697b19f2d4d029ed7990f2d39eecbc
+ms.sourcegitcommit: f2a1fa59fb3870a6bebca61daf15c0c157e9fdd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236162"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54030976"
 ---
 # <a name="infrastructure-requirements-for-os-deployment-in-configuration-manager"></a>Requisitos de infraestrutura para implementação do sistema operacional no Configuration Manager
 
@@ -33,9 +33,9 @@ Esta seção fornece informações sobre ferramentas externas, kits de instalaç
 
 Windows Assessment and Deployment Kit (ADK) é um conjunto de ferramentas e documentação que suporta a configuração e implantação do Windows. Configuration Manager utiliza o Windows ADK para automatizar ações como instalar o Windows, capturar imagens e migrar perfis de utilizador e dados.  
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
-- [Cenários do Windows ADK para Windows 10 para profissionais de TI](https://docs.microsoft.com/windows/deployment/windows-adk-scenarios-for-it-pros)  
+- [Cenários do Windows ADK para Windows 10 para Profissionais de TI](https://docs.microsoft.com/windows/deployment/windows-adk-scenarios-for-it-pros)  
 
 - [Transferir o Windows ADK para Windows 10](https://docs.microsoft.com/windows-hardware/get-started/adk-install)  
 
@@ -77,9 +77,9 @@ Para obter uma lista das versões do Windows 10 ADK que pode utilizar com difere
 
 O Configuration Manager utiliza um pacote USMT que inclui os ficheiros de origem USMT 10 para capturar e restaurar o estado do utilizador como parte da implementação do sistema operacional. Configuração do Configuration Manager no site de nível superior cria automaticamente o pacote USMT. O USMT 10 captura o estado de utilizador do Windows 7, Windows 8, Windows 8.1 e Windows 10.  
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
-- [Cenários comuns de migração do USMT 10](https://docs.microsoft.com/windows/deployment/usmt/usmt-common-migration-scenarios)  
+- [Cenários Comuns de Migração do USMT 10](https://docs.microsoft.com/windows/deployment/usmt/usmt-common-migration-scenarios)  
 
 - [Gerir o estado do utilizador](/sccm/osd/get-started/manage-user-state)  
 
@@ -260,6 +260,8 @@ Se planear coalojar o ponto de distribuição num servidor com o DHCP, considere
 
      `WDSUTIL /Set-Server /UseDHCPPorts:No /DHCPOption60:Yes`  
 
+> [!NOTE]
+> Ao utilizar o dispositivo de resposta PXE sem o WDS em vez de WDS, não é suportada para também executar o DHCP no mesmo servidor.
 
 
 ##  <a name="BKMK_SupportedOS"></a> Sistemas operativos suportados  

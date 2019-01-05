@@ -10,12 +10,12 @@ ms.assetid: da5f8b61-2386-4530-ad54-1a5c51911f07
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1efd4197e63ddc12c0afc9e37b633c38d0df0f14
-ms.sourcegitcommit: a52255da16c9f8b0b60a6c299a369347c7e01bef
+ms.openlocfilehash: 75e463d27475e82677e91b00bfba4c4287d463ee
+ms.sourcegitcommit: f2a1fa59fb3870a6bebca61daf15c0c157e9fdd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989149"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54030993"
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o Configuration Manager
 
@@ -43,13 +43,16 @@ Para implementar sistemas operativos em clientes do Configuration Manager que ef
 > [!NOTE]  
 >  Quando configurar um único PXE ativado o ponto de distribuição para suportar várias sub-redes não é suportado para utilizar as opções de DHCP. Configure programas auxiliares IP os routers para permitir pedidos PXE a reencaminhar para os pontos de distribuição PXE ativado.
 
+> [!NOTE]  
+>  Não é suportado para utilizar o dispositivo de resposta PXE sem o WDS em servidores que também estão a utilizar um servidor DHCP.
+
 ## <a name="prepare-a-pxe-enabled-boot-image"></a>Preparar uma imagem de arranque preparada para PXE
 
 Para utilizar o PXE para implementar um sistema operacional, tem de ter o x86 e x64 distribuídas as imagens de arranque preparada para PXE para um ou mais pontos de distribuição com PXE ativado. Utilize as informações para ativar o PXE numa imagem de arranque e distribuí-la por pontos de distribuição:
 
 -   Para ativar o PXE numa imagem de arranque, selecione **implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE** partir do **origem de dados** separador nas propriedades de imagem de arranque.
 
--   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para mais informações, consulte [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).
+-   Se alterar as propriedades da imagem de arranque, atualizar e redistribuir a imagem de arranque para pontos de distribuição. Para mais informações, consulte [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).
 
 
 
