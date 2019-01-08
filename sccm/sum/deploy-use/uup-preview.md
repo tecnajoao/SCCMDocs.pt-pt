@@ -2,7 +2,7 @@
 title: Pré-visualização do UUP
 titleSuffix: Configuration Manager
 description: Instruções para a pré-visualização de integração de UUP
-ms.date: 12/21/2018
+ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: d2aac5945d4b7678acf78d215c557a34aaef9c72
-ms.sourcegitcommit: f5fa9e657350ceb963a7928497d2adca9caef3d4
+ms.openlocfilehash: cfc83f4d076a05ea1847c0d073bd824ad10aa731
+ms.sourcegitcommit: 1bf26b83fa7da637d299a21e1d3bc61f2d7d8c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53748588"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54060387"
 ---
 # <a name="uup-private-preview-instructions"></a>Instruções de pré-visualização privada UUP
 
@@ -27,13 +27,16 @@ ms.locfileid: "53748588"
 
 ### <a name="feature-updates"></a>Atualizações de funcionalidade
 
-Atualizações de funcionalidades com UUP destinam-se a minimizar vários problemas que os clientes têm com manutenção hoje mesmo. Experimente as atualizações de funcionalidade UUP, incluindo:
+Atualizações de funcionalidades com o Windows 10 unificação de atualização de plataforma (UUP) são projetadas para minimizar vários problemas que os clientes têm com manutenção hoje mesmo. Experimente as atualizações de funcionalidade UUP, incluindo:
 
 - Atualizar diretamente para o nível de conformidade de segurança mais recente, já não tem de instalar atualizações de segurança imediatamente após a atualização para estar em conformidade. Cada mês será publicada uma nova atualização de funcionalidade para incluir a atualização cumulativa mais recente. de segurança. Não precisará transfira ou distribuir a maioria do conteúdo da funcionalidade atualização todos os meses, apenas o segurança componente de atualização, que também é partilhado com a atualização cumulativa.
 
-- Todos os pacotes de idiomas e FODs devem ser mantidas e não são perdidos durante o processo de atualização.
+- Todas as funcionalidades a pedido (FODs) e pacotes de idiomas devem ser mantidas e não são perdidas durante o processo de atualização.
 
 - Atualizações de funcionalidades com UUP suportam ficheiros de instalação rápida, permitindo que os clientes reduzir a quantidade de conteúdo de que cada cliente tem de transferir.
+
+Para obter mais informações sobre UUP, consulte a mensagem de blogue do Windows [uma atualização no nosso Unified atualizar plataforma (UUP)](https://blogs.windows.com/windowsexperience/2017/03/02/an-update-on-our-unified-update-platform-uup/).
+
 
 ### <a name="cumulative-updates"></a>Atualizações cumulativas
 
@@ -55,42 +58,33 @@ $config = $server.GetConfiguration()
 $config.ServerId
 ```
 
-### <a name="2-upgrade-configmgr-to-a-supported-version"></a>2. Atualização do ConfigMgr para uma versão suportada
+### <a name="2-update-configmgr-to-a-supported-version"></a>2. Atualização do ConfigMgr para uma versão suportada
 
-Se estiver a sincronizar ficheiros de instalação rápida no seu ambiente, é necessária para ambientes de produção ou 1812 Technical Preview para ambientes de pré-visualização técnica do ConfigMgr 1810 (TOQUE, cadência rápida ou compilações de GA tudo aceitável).
+Se estiver a sincronizar ficheiros de instalação rápida no seu ambiente, em seguida, ramo atual do ConfigMgr 1810 é necessário para ambientes de produção, ou 1812 ramo de pré-visualização técnica para ambientes de laboratório.
 
-Se não estiver a sincronizar ficheiros de instalação rápida no seu ambiente, é necessária para ambientes de produção ou 1812 Technical Preview para ambientes de pré-visualização técnica do ConfigMgr 1810 UUP correção sobre 1810 GA.
+Se não estiver a sincronizar ficheiros de instalação rápida no seu ambiente, em seguida, correção de ConfigMgr 1810 KB4482615 também é necessário para ambientes de produção ou 1812 ramo de pré-visualização técnica para ambientes de laboratório.
 
 
-#### <a name="configmgr-1810-uup-hotfix-kb4482615-from-1810-ga-slow-ring"></a>1810 GA (anel lenta) do ConfigMgr 1810 UUP correção (KB4482615)
-Se estiver atualmente a ConfigMgr 1810 GA (anel lenta), terá de atualizar do ConfigMgr para o rollup UUP.
+#### <a name="configmgr-1810-uup-hotfix-kb4482615"></a>ConfigMgr 1810 UUP hotfix (KB4482615)
 
-1. Aplicar "Correção (KB4482615) do Gestor de configuração 1810" pacote GUI 86450B7D-3574-4CF7-8B11-486A2C1F62A6) – Esta correção permitirá UUP para cenários de não-express.  
+> [!Important]  
+> O processo seguinte é para o ramo atual sites que são atualizados para a versão 1810 quando foi disponibilizado ao público depois de 19 de Dezembro de 2018.
+>
+> Se optou pela atualização de 1810 ao executar um script do PowerShell no final de Novembro ou início de Dezembro de 2018, esta correção ainda não está disponível. 
 
-    1. Transferir a correção do Microsoft Download Center (ligação será fornecida uma vez publicado)  
 
-    2. Depois de transferir esta correção, consulte a página de Web do Microsoft Docs seguinte para obter instruções de instalação: [Utilizar a ferramenta de registo de atualização para importar correções](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes)  
+1. Atualizar o site
 
-    3. Para obter informações sobre como transferir ficheiros de suporte da Microsoft, clique no seguinte número de artigo para visualizar o artigo da Base de dados de Conhecimento Microsoft: [Como obter ficheiros de suporte da Microsoft a partir de serviços online](https://support.microsoft.com/help/119591/how-to-obtain-microsoft-support-files-from-online-services)  
+    1. Transferir a correção KB4482615 do [Microsoft Download Center]<!--(https://download.microsoft.com/download/0/9/0/09081E12-A2CF-40B6-82D8-9B8914A1C2D3/KB4482615/CM1810-KB4482615.ConfigMgr.Update.exe)-->. Esta correção ativa UUP para cenários de não-express.  
 
-2. Depois de atualizar para a correção UUP, atualize os clientes do ConfigMgr para corresponder. Todos os clientes que as atualizações UUP de destino tem de ser atualizados para evitar **desnecessariamente baixar cerca de 6 GB** de conteúdo não utilizado para o cliente.
+    2. [Utilizar a ferramenta de registo de atualização para importar correções](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes)  
 
-#### <a name="configmgr-1810-uup-hotfix-kb4482615-from-1810-fast-ring"></a>Cadência rápida de 1810 ConfigMgr 1810 UUP correção (KB4482615)
-Se estiver atualmente a uma cadência rápida de 1810 do ConfigMgr, em seguida, terá de atualizar do ConfigMgr com duas atualizações de manutenção, mas adiar a implantação de atualizações de cliente até que fez ambos, para que só precisa de atualizar os clientes de uma vez.
+2. Atualize clientes.  
 
-1. Uma correção para implementar até 1810 GA estarão disponível para em breve (prevê o início de Janeiro), espere até ver a atualização são apresentados no atualizações e manutenção.  
+    - Para simplificar este processo, considere a utilização de atualização automática de cliente. Para obter mais informações, consulte [atualizar clientes](/sccm/core/clients/manage/upgrade/upgrade-clients#automatic-client-upgrade).  
 
-2. Atualização (apenas os servidores de site, não clientes) para "Correção do Gestor de configuração 1810 (KB4479288)" (pacote GUID 930FA45E-530F-4B08-B1BF-DE3F5267B03C)  
+    - Todos os clientes que as atualizações UUP de destino tem de ser atualizados para evitar **desnecessariamente baixar cerca de 6 GB** de conteúdo não utilizado para o cliente.
 
-3. Atualizar novamente para o "Correção do Gestor de configuração 1810 (KB4482615)" (pacote GUID 86450B7D-3574-4CF7-8B11-486A2C1F62A6) – Esta correção permitirá UUP Pro não express.  
-
-    1. Transferir a correção do Microsoft Download Center (ligação será fornecida uma vez publicado)  
-
-    2. Depois de transferir esta correção, consulte a página de Web do Microsoft Docs seguinte para obter instruções de instalação: [Utilizar a ferramenta de registo de atualização para importar correções](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes)  
-
-    3. Para obter informações sobre como transferir ficheiros de suporte da Microsoft, clique no seguinte número de artigo para visualizar o artigo da Base de dados de Conhecimento Microsoft: [Como obter ficheiros de suporte da Microsoft a partir de serviços online](https://support.microsoft.com/help/119591/how-to-obtain-microsoft-support-files-from-online-services)  
-
-4. Depois de atualizar para a correção UUP, atualize os clientes do ConfigMgr para corresponder. Todos os clientes que as atualizações UUP de destino tem de ser atualizados para evitar **desnecessariamente baixar cerca de 6 GB** de conteúdo não utilizado para o cliente.
 
 #### <a name="1812-technical-preview"></a>Pré-visualização técnica 1812
 Equivale a 1812 Technical Preview em cenários UUP suportados para a correção de UUP 1810 do ConfigMgr (KB4482615).
@@ -127,7 +121,7 @@ Para o conteúdo não express, um patch adicional tem de ser aplicada. Este cami
 
 ### <a name="4-enable-express-installation-on-clients-in-client-settings"></a>4. Ativar a instalação rápida nos clientes nas definições do cliente
 
-A definição para ativar a instalação rápida do cliente tem de ser definido para atualizações UUP, independentemente se conteúdo express é ou não sincronizado. Esta definição ativa do ConfigMgr permitir que o WUA determinar o conteúdo necessário para transferir a clientes, em vez de ter o ConfigMgr transferir todo o conteúdo associado com a atualização UUP. Esta definição é necessária mesmo para cenários de não-express porque não existe conteúdo FOD e pacote de idiomas opcional, resultando num não-considerável extra dados que não são necessárias para todos os clientes associados com a atualização.
+A definição para ativar a instalação rápida do cliente tem de ser definido para atualizações UUP, independentemente se conteúdo express é ou não sincronizado. Esta definição ativa do ConfigMgr permitir que o Windows Update Agent (WUA) determinar o conteúdo necessário para transferir a clientes, em vez de ter o ConfigMgr transferir todo o conteúdo associado com a atualização UUP. Esta definição é necessária mesmo para cenários de não-express porque não existe conteúdo FOD e pacote de idiomas opcional, resultando num não-considerável extra dados que não são necessárias para todos os clientes associados com a atualização.
 
 A ativação desta definição não afetará as transferências de conteúdos do servidor, comportamentos de download de único cliente. É importante que tem o ConfigMgr e versões de cliente do Windows articulada acima antes de ativar esta definição se não o tenha feito-ativar, como essas versões corrigir alguns problemas de compatibilidade com aprovação de atualizações diretamente no WSUS e ativar ConfigMgr para utilizar este canal para UUP das atualizações, mesmo que o conteúdo express não está sincronizado.
 
@@ -144,7 +138,7 @@ Para ativar a instalação rápida nos clientes:
 
 ### <a name="5-make-sure-your-adrs-are-set-as-desired"></a>5. Certifique-se de seu ADRs são definidas conforme pretendido 
 
-Antes de ativar sincronização da UUP atualizações, considere os ADRs e qualquer outra infra-estrutura de atualização que tem no local. Se não pretender que estas atualizações para implementar automaticamente como parte de seu ADRs existente e planos de manutenção, certifique-se de que atualizar seu ADRs filtrá-las, consulte [como encontrar UUP sincronizado atualizações](#how-to-find-synced-uup-updates). Existente planos de manutenção irá implementar não UUP apenas por predefinição, mas pode atualizá-las para alterar este comportamento.
+Antes de ativar sincronização da UUP atualizações, considere as regras de implementação automática (ADRs) e qualquer outra infra-estrutura de atualização que tem no local. Se não pretender que estas atualizações para implementar automaticamente como parte de seu ADRs existente e planos de manutenção, certifique-se de que atualizar seu ADRs filtrá-las, consulte [como encontrar UUP sincronizado atualizações](#how-to-find-synced-uup-updates). Existente planos de manutenção irá implementar não UUP apenas por predefinição, mas pode atualizá-las para alterar este comportamento.
 
 Considere também se estas atualizações irão afetar qualquer um dos seus relatórios de conformidade ou outra infraestrutura apenas, sincronizando-as e efetue quaisquer modificações de pretendido com antecedência. Por exemplo, se avaliar a compatibilidade em todos os produtos, agora verá o UUP e não UUP atualização cumulativa do Windows 10 como não conformes ou em conformidade, por conseguinte, a inclinação seus números.
 
@@ -160,7 +154,7 @@ Quando estiver pronto para iniciar a sincronização de atualizações UUP e ten
 
 2. Na consola do Configuration Manager, navegue até **Administration** \ **configuração do Site** \ **Sites**  
 
-3. Selecione o seu site de nível superior (CAS ou autónomo primário)  
+3. Selecione o seu site de nível superior, que é um site de administração central (CAS) ou autónomo primário  
 
 4. Open **configurar componentes do Site** \ **ponto de atualização de Software**  
 
@@ -243,7 +237,7 @@ Para a pré-visualização, de teste com o que usar em seus ambientes empresaria
 - Otimização da entrega do Windows
 - Cache de elemento de rede do Configuration Manager
 - BranchCache do Windows
-- Implementar sem baixar para servidor (nenhum pacote de implantação) para transferir diretamente do MU, que se estiver a utilizar, recomendamos que EFETUE a utilizar em conjunto
+- Implementar sem baixar para servidor (nenhum pacote de implementação) para transferir diretamente do Microsoft Update, que se estiver a utilizar, recomendamos utilizar a Otimização da entrega em conjunto
 - Fornecedores de conteúdo alternativos de terceiros
 
 Para obter mais informações, consulte [entrega de atualização do Windows 10 otimizar](/sccm/sum/deploy-use/optimize-windows-10-update-delivery).

@@ -10,12 +10,12 @@ ms.assetid: 4deac022-e397-4f1f-bc0a-cea6c6c6368d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5cb051bae74e665d5bf71c3e32babd2287bb5948
-ms.sourcegitcommit: 32a257fafbb29aece8b4f435dd5614fcef305328
+ms.openlocfilehash: 7f2fab639082e6871e5df8dcebe0d1b3a440624c
+ms.sourcegitcommit: 1bf26b83fa7da637d299a21e1d3bc61f2d7d8c10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005437"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54060370"
 ---
 # <a name="enhanced-http"></a>HTTP avançado
 
@@ -79,7 +79,7 @@ Azure AD associado ou [dispositivos do Azure AD híbrido](https://docs.microsoft
 
     - Se já tiver cumprido este pré-requisito para o seu site, tem de atualizar a aplicação do Azure AD. Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **serviços Cloud**e selecione **inquilinos do Azure Active Directory do**. Selecione o inquilino do Azure AD, selecione a aplicação web no **aplicativos** painel e, em seguida, selecione **atualização da definição de aplicação** na faixa de opções.  
 
-- *[Cenário 3](#bkmk_scenario3) apenas*: Um cliente com o Windows 10 versão 1803 ou posterior e associado ao Azure AD. 
+- *Para [cenário 3](#bkmk_scenario3) apenas*: Um cliente com o Windows 10 versão 1803 ou posterior e associado ao Azure AD. 
 
 
 
