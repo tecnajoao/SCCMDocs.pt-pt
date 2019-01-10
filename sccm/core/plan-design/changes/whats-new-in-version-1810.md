@@ -10,12 +10,12 @@ ms.assetid: 4812324b-e6aa-4431-bf1d-9fcd763a8caa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 050cf81a99f29d24cad6eb13e691e332174627c3
-ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
+ms.openlocfilehash: 916d283fca14408fdf9c1e576f6bb1baf2ee1559
+ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53818026"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54152524"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -123,7 +123,10 @@ Para obter mais informações, consulte [informações de gestão](/sccm/core/se
 ### <a name="new-client-notification-action-to-wake-up-device"></a>Nova ação de notificação de cliente para reativar o dispositivo
 <!--1317364--> Agora pode reativar os clientes a partir da consola do Configuration Manager, mesmo que o cliente não está na mesma sub-rede que o servidor do site. Se precisar de fazer a manutenção ou consulta de dispositivos, não está limitado pelos clientes remotos que estão em modo de suspensão. O servidor de site utiliza o canal de notificação de cliente para identificar a outro cliente está ativo na mesma sub-rede remota. O cliente ativo, em seguida, envia uma reativação no pedido de LAN (Pacote mágico).
 
-<!--For more information, see [Plan how to wake up clients](/sccm/core/clients/deploy/plan/plan-wake-up-clients).-->
+### <a name="new-option-to-perform-client-notification-from-devices-node"></a>Nova opção para efetuar a notificação do cliente a partir do nó dispositivos
+<!--1317364--> Até 1810, o **notificação do cliente** opção só estava disponível a partir do nó de coleção de dispositivos ou quando visualizado a associação de uma coleção de dispositivos. Agora, é possível efetuar uma **notificação do cliente** da **dispositivos** nó diretamente. Já não é um requisito para estar dentro de uma vista de associação de coleção. 
+
+Para obter mais informações, consulte [notificações do cliente](/sccm/core/clients/manage/client-notification).
 
 
 ### <a name="improvements-to-collection-evaluation"></a>Melhorias à avaliação de coleção

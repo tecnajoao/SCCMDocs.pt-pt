@@ -10,12 +10,12 @@ ms.assetid: 5d5d6273-0d8a-43c7-865a-cdb1736dcae3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 024714c564036cd61a6c1340724aa3b9cad782d2
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: d59e5e5bc1dfdf962517b4c364b74aa0df6b650a
+ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456401"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54152456"
 ---
 # <a name="plan-for-the-sms-provider"></a>Planear o Fornecedor de SMS 
 
@@ -169,7 +169,7 @@ Os seguintes níveis estão disponíveis:
 
 - **Autenticação de certificados**: Exigir a autenticação com um certificado válido emitido por uma autoridade de certificação fidedigna PKI. Não configure este certificado no Configuration Manager. O Configuration Manager requer que o administrador ser tem sessão iniciada no Windows utilizando o PKI.  
 
-- **Windows Hello para autenticação de negócios**: Exigir a autenticação com a autenticação de dois fatores forte, que está associada a um dispositivo e utiliza a biometria ou um PIN. Pode utilizar o Configuration Manager para gerir e implementar o Windows Hello para políticas empresariais. Para obter mais informações, consulte [Windows Hello para empresas](/sccm/protect/deploy-use/windows-hello-for-business-settings).  
+- **Windows Hello para autenticação de negócios**: Exigir a autenticação com a autenticação de dois fatores forte, que está associada a um dispositivo e utiliza a biometria ou um PIN. Para obter mais informações, consulte [Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).   
 
 
 ### <a name="exclusions"></a>Exclusões
