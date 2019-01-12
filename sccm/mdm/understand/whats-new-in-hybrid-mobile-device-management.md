@@ -2,7 +2,7 @@
 title: Novidades sobre a MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 12/14/2018
+ms.date: 01/10/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7cf1adf7d73e60fba0d748022ab7c241d60ffed7
-ms.sourcegitcommit: c60e057075a83f07d1ca2577c3de1c7d7c8e9cec
+ms.openlocfilehash: 610dfb7391347663fd92c0839d20eb7a4a703438
+ms.sourcegitcommit: c80abe7e4b7b2f80e957e45ff205f67d1b715688
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53626502"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54226228"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -44,6 +44,33 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Microsoft Intune** | Em geral, todos os recursos listados nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades requerem o serviço do Intune apenas e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todos os recursos listados nesta categoria só funcionam com o ramo de pré-visualização técnica especificado. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição do recurso. Para obter mais informações, consulte [pré-visualização técnica do Configuration Manager](/sccm/core/get-started/technical-preview).|
 |**Novo no Configuration Manager (ramo atual)**| Todos os recursos listados nesta categoria só funcionam com a versão especificada do Configuration Manager (ramo atual). Se estiver a utilizar uma versão mais antiga do Configuration Manager para a sua implementação híbrida, atualize para a versão do Configuration Manager (ramo atual) especificada na descrição do recurso. Para obter mais informações, consulte [atualizar para o Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).|
+
+
+
+## <a name="january-2019"></a>Janeiro de 2019
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="tenant-status-dashboard"></a>Dashboard de estado do inquilino
+<!--1124854--> A nova [página de estado do inquilino](https://docs.microsoft.com/intune/tenant-status) fornece um único local onde pode ver o estado e os detalhes relacionados para o seu inquilino. O dashboard está dividido em quatro áreas:
+
+- **Detalhes de inquilino**: Apresenta informações que inclui o nome de inquilino e a localização, a autoridade de MDM, o total nos dispositivos inscritos no seu inquilino e a conta de sua licença. Esta secção também apresenta a versão atual do serviço para o seu inquilino.  
+
+- **Estado do conector**: Mostra informações sobre conectores disponíveis que configurou e também pode listar os que ainda não tiver ativado.  
+
+    Com base no estado atual de cada conector, eles são sinalizados como bom estado de funcionamento, aviso ou mau estado de funcionamento. Selecione um conector para explorar e ver detalhes ou configurar as informações adicionais para o mesmo.  
+
+- **Estado de funcionamento do serviço Intune**: Apresenta detalhes sobre incidentes activos ou falhas para o seu inquilino. As informações nesta secção são obtidas diretamente a partir do Centro de mensagens do Office.  
+
+- **Notícias do Intune**: Exibe mensagens de Active Directory para o seu inquilino. As mensagens incluem opções como notificações quando o seu inquilino recebe as mais recentes funcionalidades do Intune.  As informações nesta secção são obtidas diretamente a partir do Centro de mensagens do Office.  
+
+#### <a name="new-help-and-support-experience-in-company-portal-for-windows-10"></a>Novo ajuda e suporte de experiência no Portal da empresa para Windows 10 
+<!--1488939--> A nova página de ajuda de Portal da empresa e suporte ajuda os utilizadores a resolver problemas e pedir ajuda para problemas de acesso e aplicação. Na página nova, podem enviar por e-mail os detalhes de registo de diagnóstico e de erro e encontrar os detalhes de suporte técnico da sua organização. Eles também encontrará uma secção de FAQ com ligações para documentação relevante do Intune. Para obter mais informações e capturas de ecrã, consulte [obter ajuda e suporte no Portal da empresa para Windows 10](https://docs.microsoft.com/intune-user-help/help-and-support-windows-cpapp).
+
+#### <a name="some-bitlocker-settings-support-windows-10-pro-edition"></a>Algumas definições de BitLocker suportam a edição Windows 10 Pro
+<!--2727036--> Pode criar um item de configuração que define as definições do endpoint protection em dispositivos Windows 10, inclusive BitLocker. Esta atualização adiciona suporte para a edição Windows 10 Professional para algumas configurações de disco BitLocker.
+
+Para obter mais informações, consulte [definições de encriptação para o Windows 10](/sccm/mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client#encryption).
 
 
 
