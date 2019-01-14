@@ -251,7 +251,7 @@ Embora o método para configurar a ligação foi alterado, pré-requisitos para 
 ### <a name="prerequisites-for-upgrade-readiness"></a>Pré-requisitos para a preparação da atualização
 As pré-requisitos para um [ligação para o Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) são iguais às detalhadas para o atual ramo do Configuration Manager. Eles são reproduzidos aqui para sua comodidade:  
 
-**Pré-requisitos
+**Pré-requisitos**
 -   Para adicionar a ligação, o ambiente do Configuration Manager tem de configurar uma [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) num [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). Ao adicionar a ligação ao seu ambiente, ele irá também instalar o Microsoft Monitoring Agent no computador com esta função de sistema de sites.
 -   Registe-se do Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web" e obter o [ID de cliente desse Registro](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
 -   Crie uma chave de cliente para a ferramenta de gestão registado no Azure Active Directory.

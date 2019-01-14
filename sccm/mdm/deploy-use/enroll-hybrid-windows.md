@@ -58,7 +58,7 @@ Dois fatores determinam como pode simplificar a inscrição de dispositivos do W
 
 A inscrição automática permite aos utilizadores inscrever pertencentes à empresa ou pessoais Windows 10 PCs e Windows 10 dispositivos móveis no Intune ao adicionar uma conta escolar ou profissional e aceitar que sejam geridos. Simples assim. Em segundo plano, o dispositivo do utilizador regista e associa o Azure Active Directory. Depois de registado, o dispositivo é gerido com o Intune.
 
-**Pré-requisitos
+**Pré-requisitos**
 - Subscrição do Azure Active Directory Premium ([subscrição de avaliação](http://go.microsoft.com/fwlink/?LinkID=816845))
 - Subscrição do Microsoft Intune
 

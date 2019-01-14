@@ -25,7 +25,7 @@ A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protect
 
 Windows Defender ATP é um serviço no [Centro de segurança do Windows Defender](https://securitycenter.windows.com). Ao adicionar e implementar um ficheiro de configuração de integração do cliente, o Configuration Manager pode monitorizar o estado da implementação e funcionamento de agente do Windows Defender ATP. Windows Defender ATP é suportado em PCs com o cliente do Configuration Manager ou gerido pelo Microsoft Intune, mas a computadores de geridos por MDM híbrida do Intune não são suportados.
 
- **Pré-requisitos  
+ **Pré-requisitos**  
 
 -   Subscrição do serviço online da proteção de ameaças avançada do Windows Defender  
 -   Computadores de clientes que executam o Windows 10, versão 1607 e posterior  

@@ -25,7 +25,7 @@ Com o Configuration Manager e o Intune, ativar a inscrição de dispositivos iOS
 
  Também pode inscrever dispositivos iOS pertencentes à empresa.  Ver [inscrever dispositivos pertencentes à empresa](enroll-company-owned-devices.md).  
 
-**Pré-requisitos<br>
+**Pré-requisitos**<br>
 Antes de poder configurar a inscrição para qualquer plataforma, conclua os pré-requisitos e procedimentos [mm híbrida do programa de configuração](setup-hybrid-mdm.md).
 
 Para suportar a inscrição de dispositivos iOS, tem de seguir estes passos:  
