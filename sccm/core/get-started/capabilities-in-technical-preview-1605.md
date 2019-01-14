@@ -346,7 +346,7 @@ Neste technical Preview, se o Portal da empresa está aberto por mais de 15 minu
 
 - Monitorizar a implementação do Windows Defender ATP para dispositivos geridos  
 
-  **Pré-requisitos  
+  **Pré-requisitos**  
 
 - Subscrição do serviço online da proteção de ameaças avançada do Windows Defender  
 

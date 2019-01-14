@@ -25,7 +25,7 @@ Este procedimento configura as predefinições de cliente para inventário de so
 
 ## <a name="to-configure-software-inventory"></a>Para configurar o inventário de software  
 
-1. Na consola do Configuration Manager, escolha **Administration** > **definições de cliente****predefinições de cliente**.    
+1. Na consola do Configuration Manager, escolha **Administration** > **definições de cliente** **predefinições de cliente**.  
 
 2. Sobre o **home page** separador a **propriedades** de grupo, escolha **propriedades**.  
 
