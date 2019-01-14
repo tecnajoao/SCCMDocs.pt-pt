@@ -10,12 +10,12 @@ ms.assetid: c8534a1e-57b8-4688-b6e6-299d82cfcec9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 329f5c2f227cbd8a51b1c9ccc21810cda9f6a2cf
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 26b6d68f634a230f56a93b6cc1691ce98fa77852
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417144"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250690"
 ---
 # <a name="configuration-manager-and-windows-as-a-service"></a>O Configuration Manager e o Windows como um Serviço
 
@@ -48,7 +48,7 @@ System Center Configuration Manager fornece controlo abrangente sobre as atualiz
 |[Optimize Windows 10 update delivery (Otimizar a entrega das atualizações do Windows 10)](/sccm/sum/deploy-use/optimize-windows-10-update-delivery)|Utilize o Configuration Manager para gerir o conteúdo da atualização para se manter atualizado com o Windows 10.|
 |[Integrar com a preparação da atualização](/sccm/core/clients/manage/upgrade/upgrade-analytics)|Preparação de atualizações permite-lhe avaliar e analisar a preparação de dispositivos no seu ambiente para uma atualização para Windows 10.| 
 |[Atualização do Windows para integração de negócios (opcional)](/sccm/sum/deploy-use/integrate-windows-update-for-business-windows-10)|Explica como definir e implantar o Windows Update para políticas de Business (WUfB) com o Configuration Manager.|
-|[Utilizar cogestão com Microsoft Intune e o Windows Update para empresas (opcional)](/sccm/core/clients/manage/co-management-overview)|Fornece uma descrição geral de cogestão| 
+|[Utilizar cogestão com Microsoft Intune e o Windows Update para empresas (opcional)](/sccm/comanage/overview)|Fornece uma descrição geral de cogestão| 
 
 
 ## <a name="related-articles"></a>Artigos relacionados

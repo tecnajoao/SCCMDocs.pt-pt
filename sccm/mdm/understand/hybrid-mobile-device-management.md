@@ -10,12 +10,12 @@ ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f3d25120701c12b547727259002fc58a8f8f0780
-ms.sourcegitcommit: 97083c51057e2c4e0fe12c3b1f1b512250874c6a
+ms.openlocfilehash: a84dfc33fe79f5eb4d5397505a12052b8e92aebf
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968140"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250617"
 ---
 # <a name="hybrid-mdm-with-configuration-manager-and-microsoft-intune"></a>MDM híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -28,7 +28,7 @@ ms.locfileid: "50968140"
 > 
 > Como resultado, a maioria dos clientes escolher o Intune no Azure através de hybrid MDM. O número de clientes que utilizam a MDM híbrida continua a diminuir quando mais clientes mover para a cloud. Por conseguinte, 1 de Setembro de 2019 Microsoft irão extinguir a oferta de serviço MDM híbrida. Tenha em conta suas [migração para o Intune no Azure](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa) para suas necessidades de MDM. 
 > 
-> Esta alteração não afeta o Gestor de configuração no local ou [cogestão para dispositivos Windows 10](/sccm/core/clients/manage/co-management-overview). Se tiver certeza se estiver a utilizar o MDM híbrida, avance para o **Administration** área de trabalho da consola do Configuration Manager, expanda **serviços Cloud**e clique em **Microsoft Intune Subscrições**. Se tiver uma subscrição do Microsoft Intune configurado, o seu inquilino estiver configurado para híbrida MDM.
+> Esta alteração não afeta o Gestor de configuração no local ou [cogestão para dispositivos Windows 10](/sccm/comanage/overview). Se tiver certeza se estiver a utilizar o MDM híbrida, avance para o **Administration** área de trabalho da consola do Configuration Manager, expanda **serviços Cloud**e clique em **Microsoft Intune Subscrições**. Se tiver uma subscrição do Microsoft Intune configurado, o seu inquilino estiver configurado para híbrida MDM.
 > 
 > **Como isto me afeta?**
 > 

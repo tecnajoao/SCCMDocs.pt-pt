@@ -10,12 +10,12 @@ ms.assetid: a79f83be-884c-48e6-94d6-ed0a68c22e2f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3721c4c35dd22a0d2a59d2300bd25dfbd3c75aeb
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: cd2cee9de9f876f591145a12443b50d08349a451
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456316"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250753"
 ---
 # <a name="management-insights-in-configuration-manager"></a>Informações de gestão no Configuration Manager
 
@@ -122,11 +122,11 @@ Informações para a gestão de aplicações.
 - **Aplicações sem implementações**: Lista as aplicações no seu ambiente que não têm implementações ativas. Esta regra ajuda-o a localizar e eliminar aplicações não utilizadas para simplificar a lista de aplicações apresentadas na consola do. Para obter mais informações, consulte [implementar aplicações](/sccm/apps/deploy-use/deploy-applications).  
 
 
-### <a name="cloud-services"></a>Serviços cloud
+### <a name="cloud-services"></a>Serviços em nuvem
 
 Ajuda-o a integrar com vários serviços cloud, que permitem a gestão moderna dos seus dispositivos. 
 
-- **Avaliar a prontidão de co-gestão**: Ajuda-o a compreender quais os passos são necessárias para ativar a cogestão. Esta regra tem pré-requisitos. Para obter mais informações, consulte [descrição geral de cogestão](/sccm/core/clients/manage/co-management-overview).  
+- **Avaliar a prontidão de co-gestão**: Ajuda-o a compreender quais os passos são necessárias para ativar a cogestão. Esta regra tem pré-requisitos. Para obter mais informações, consulte [descrição geral de cogestão](/sccm/comanage/overview).  
 
 - **Configurar os serviços do Azure para utilização com o Configuration Manager**: Esta regra ajuda a integrar o Configuration Manager para o Azure AD, que permite aos clientes autenticar com o site com o Azure AD. Para obter mais informações, consulte [dos serviços do Azure configurar](/sccm/core/servers/deploy/configure/azure-services-wizard).  
 

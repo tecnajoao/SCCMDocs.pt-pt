@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e5fd7c26c190407ba5e497068582704b03c71f00
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: fe8fb2a8138433d00686530f76916a1ee4e88dac
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411515"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250804"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -65,7 +65,7 @@ Para obter mais informações, consulte [CMPivot](/sccm/core/servers/manage/cmpi
 ### <a name="site-server-high-availability"></a>Elevada disponibilidade do servidor do site
 <!--1128774--> Elevada disponibilidade para uma função de servidor do site primário autónomo é uma solução com base no Configuration Manager para instalar um servidor de sites adicionais em modo passivo. É o servidor do site em modo passivo, além de seu servidor de site existente que está no modo ativo. Um servidor de site em modo passivo está disponível para uso imediato, quando necessário. 
 
-Para obter mais informações, consulte os artigos seguintes: 
+Para obter mais informações, veja os artigos seguintes: 
 - [Elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability) 
 - [Fluxograma - configurar um servidor de site em modo passivo](/sccm/core/servers/deploy/configure/passive-site-server-flowchart)
 - [Fluxograma – Promover o servidor do site (planeado)](/sccm/core/servers/deploy/configure/promote-site-server-flowchart)
@@ -100,7 +100,7 @@ Para obter mais informações, consulte [configurar a deteção de sistema do Ac
 ### <a name="configure-a-remote-content-library-for-the-site-server"></a>Configurar uma biblioteca de conteúdos remota para o servidor do site
 <!--1357525--> Para configurar a elevada de disponibilidade no servidor do site ou para libertar espaço no disco rígido no seu administração central ou servidores de site primário, reposicionar a biblioteca de conteúdos para outra localização de armazenamento. Mova a biblioteca de conteúdos para outra unidade no servidor do site, um servidor separado ou discos tolerante a falhas na rede de armazenamento (SAN). 
 
-Para obter mais informações, consulte os artigos seguintes: 
+Para obter mais informações, veja os artigos seguintes: 
 - [A biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/the-content-library)
 - [Fluxograma – Gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart)
 
@@ -108,7 +108,7 @@ Para obter mais informações, consulte os artigos seguintes:
 ### <a name="cloud-distribution-point-support-for-azure-resource-manager"></a>Suporte de ponto de distribuição de nuvem para o Azure Resource Manager
 <!--1322209--> Ao criar um ponto de distribuição de nuvem, o assistente fornece agora a opção para criar uma **do Azure Resource Manager deployment**. O Azure Resource Manager é uma plataforma moderna para o gerenciamento de todos os recursos de solução como uma única entidade, chamada de um grupo de recursos. Ao implementar um ponto de distribuição de nuvem com o Azure Resource Manager, o site utiliza o Azure Active Directory para autenticar e criar os recursos da cloud necessários. Esta implementação reestruturação não exige o certificado de gestão clássico do Azure. 
 
-A documentação de funcionalidades para o ponto de distribuição de nuvem também é revista e avançada. Para obter mais informações, consulte os artigos seguintes:
+A documentação de funcionalidades para o ponto de distribuição de nuvem também é revista e avançada. Para obter mais informações, veja os artigos seguintes:
 - [Utilizar um ponto de distribuição de nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point)   
 - [Instalar um ponto de distribuição de nuvem](/sccm/core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure)  
 
@@ -197,7 +197,7 @@ Versão 1806 inclui os seguintes aprimoramentos para o gateway de gestão da clo
 #### <a name="simplified-client-bootstrap-command-line"></a>Linha de comando de arranque de configuração simplificada do cliente
 <!--1358215--> Ao instalar o cliente do Configuration Manager na internet através de um CMG, da linha de comandos agora necessita de menos propriedades. Esta melhoria reduz o tamanho da linha de comandos utilizada no Microsoft Intune ao se preparar para a cogestão. 
 
-Para obter mais informações, consulte [dispositivos de preparar o Windows 10 para a cogestão](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).
+Para obter mais informações, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-win10#install-the-configuration-manager-client).
 
 #### <a name="download-content-from-a-cmg"></a>Transferir conteúdo de um CMG
 <!--1358651--> Anteriormente, era necessário implementar um ponto de distribuição de nuvem e CMG como funções separadas. Um CMG também agora pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure. 
@@ -214,7 +214,7 @@ Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/ma
 ### <a name="sync-mdm-policy-from-microsoft-intune-for-a-co-managed-device"></a>Política MDM de sincronização do Microsoft Intune para um dispositivo cogerido
 <!--1357377--> Quando alterna uma carga de trabalho de cogestão, os dispositivos cogeridos sincronizar automaticamente políticas MDM do Microsoft Intune. Esta sincronização ocorre também quando inicia o **transferir política do computador** ação de notificações do cliente na consola do Configuration Manager. 
 
-Para obter mais informações, consulte [cargas de trabalho do Gestor de configuração do comutador para o Intune](/sccm/core/clients/manage/co-management-switch-workloads).
+Para obter mais informações, consulte [como mudar cargas de trabalho do Configuration Manager para o Intune](/sccm/comanage/how-to-switch-workloads).
 
 
 ### <a name="transition-new-workloads-to-intune-using-co-management"></a>Transição novas cargas de trabalho para o Intune através de cogestão
@@ -228,13 +228,13 @@ As seguintes cargas de trabalho podem agora fazer a transição do Configuration
 
 Para fazer a transição estas cargas de trabalho, vá para a página de propriedades de cogestão e mova a barra de controlo de deslize de carga de trabalho do Configuration Manager para **piloto** ou **todos os**. 
 
-Para obter mais informações, consulte [cogestão para dispositivos Windows 10](/sccm/core/clients/manage/co-management-overview).
+Para obter mais informações, consulte [cogestão para dispositivos Windows 10](/sccm/comanage/overview).
 
 
 ### <a name="support-for-multiple-hierarchies-to-one-intune-tenant"></a>Suporte para várias hierarquias para um inquilino do Intune
 <!--1357944--> Alguns clientes têm várias hierarquias do Configuration Manager e pretendem consolidar no futuro para um único inquilino para o Azure Active Directory e o Microsoft Intune. Cogestão agora oferece suporte a ligar mais de um ambiente do Configuration Manager ao mesmo inquilino do Intune.
 
-Para obter mais informações, consulte [dispositivos de preparar o Windows 10 para a cogestão](/sccm/core/clients/manage/co-management-prepare).
+Para obter mais informações, consulte [pré-requisitos de cogestão](/sccm/comanage/overview#prerequisites).
  
 
 
@@ -261,7 +261,7 @@ Para obter mais informações, consulte [extensões sobre SCAP](/sccm/compliance
 ### <a name="phased-deployment-of-applications"></a>Implementação faseada de aplicações
 <!--1358147--> Crie uma implementação faseada para uma aplicação. As implementações faseadas permitem-lhe organizar uma implementação coordenada e sequenciada de software com base em critérios personalizáveis e grupos. Por exemplo, implementar a aplicação para uma coleção piloto e, em seguida, continuar automaticamente a implementação com base nos critérios de sucesso. 
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
 - [Criar uma implementação faseada](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)  
 

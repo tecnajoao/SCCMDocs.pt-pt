@@ -10,12 +10,12 @@ ms.assetid: 341f0d0b-f907-44cf-9e10-e1b41fc15f82
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 187f876999f39dd1d2d4aa345a7e9037f745a0ed
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 64aca2b4840027226ad6fcba2df0bd62b112f602
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418905"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250787"
 ---
 # <a name="how-to-deploy-clients-to-windows-computers-in-configuration-manager"></a>Como implementar clientes em computadores Windows no Configuration Manager
 
@@ -331,7 +331,7 @@ Para o procedimento para instalar o cliente do Configuration Manager num disposi
 > [!NOTE]  
 > Por predefinição, depois de instalar o software de cliente, o dispositivo anular a inscrição no Intune.
 > 
-> A partir da versão 1710, os clientes não anular a inscrição do Intune. Eles podem ter o cliente do Configuration Manager e a inscrição de MDM ao mesmo tempo. Para obter mais informações, consulte [descrição geral de cogestão](/sccm/core/clients/manage/co-management-overview).  
+> A partir da versão 1710, os clientes não anular a inscrição do Intune. Eles podem ter o cliente do Configuration Manager e a inscrição de MDM ao mesmo tempo. Para obter mais informações, consulte [descrição geral de cogestão](/sccm/comanage/overview).  
 
 
 ###  <a name="install-clients-with-intune"></a>Instalar clientes com o Intune  
@@ -343,7 +343,7 @@ Para o procedimento para instalar o cliente do Configuration Manager num disposi
    `CCMSETUPCMD="/MP:<FQDN of management point> SMSMP=<FQDN of management point> SMSSITECODE=<Your site code> DNSSUFFIX=<DNS Suffix of management point>"`  
 
    > [!Note]  
-   > Para uma linha de comando de exemplo utilizar com um cliente moderno do Windows 10 através da autenticação do Azure AD, consulte [dispositivos de preparar o Windows 10 para a cogestão](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).  
+   > Para uma linha de comando de exemplo utilizar com um cliente moderno do Windows 10 através da autenticação do Azure AD, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-win10#install-the-configuration-manager-client).  
 
 3. [Atribuir a aplicação](https://docs.microsoft.com/intune/deploy-use/deploy-apps-in-microsoft-intune) a um grupo de computadores Windows inscritos.  
 

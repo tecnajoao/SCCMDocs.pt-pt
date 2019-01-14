@@ -10,12 +10,12 @@ ms.assetid: 4812324b-e6aa-4431-bf1d-9fcd763a8caa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 916d283fca14408fdf9c1e576f6bb1baf2ee1559
-ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
+ms.openlocfilehash: 60d1c93acc2fcc2c04d09cd8f0ec0c083089a8ec
+ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54152524"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54250600"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -172,7 +172,7 @@ Para obter mais informações, consulte [configurar grupos de limites](/sccm/cor
 
 ![Captura de ecrã do dashboard de cogestão com os mosaicos de quatro principais](media/1358980-comgmt-dashboard.png)
 
-Para obter mais informações, consulte [dashboard de cogestão](/sccm/core/clients/manage/co-management-dashboard).
+Para obter mais informações, consulte [dashboard de cogestão](/sccm/comanage/how-to-monitor#co-management-dashboard).
 
 
 
