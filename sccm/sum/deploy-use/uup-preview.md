@@ -2,7 +2,7 @@
 title: Pré-visualização do UUP
 titleSuffix: Configuration Manager
 description: Instruções para a pré-visualização de integração de UUP
-ms.date: 01/04/2018
+ms.date: 01/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: cfc83f4d076a05ea1847c0d073bd824ad10aa731
-ms.sourcegitcommit: 1bf26b83fa7da637d299a21e1d3bc61f2d7d8c10
+ms.openlocfilehash: 17a9abf2f20f53ba69ad160db421be51471cc311
+ms.sourcegitcommit: 27b2594087e8c54062db6b2a30ab843bab17f8cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54060387"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54270465"
 ---
 # <a name="uup-private-preview-instructions"></a>Instruções de pré-visualização privada UUP
 
@@ -86,7 +86,7 @@ Se não estiver a sincronizar ficheiros de instalação rápida no seu ambiente,
     - Todos os clientes que as atualizações UUP de destino tem de ser atualizados para evitar **desnecessariamente baixar cerca de 6 GB** de conteúdo não utilizado para o cliente.
 
 
-#### <a name="1812-technical-preview"></a>Pré-visualização técnica 1812
+#### <a name="1812-technical-preview"></a>1812 Technical Preview
 Equivale a 1812 Technical Preview em cenários UUP suportados para a correção de UUP 1810 do ConfigMgr (KB4482615).
 
 A apenas tenha em atenção é que a atualização de cliente de 1812 Technical Preview é dividido de 1810.1 TP ou 1811 TP. Para contornar este problema, terá de desinstalar o 1810.1 TP e 1811 clientes TP, em seguida, instalar o cliente TP 1812 corretamente. Todos os clientes que as atualizações UUP de destino tem de ser 1812 Technical Preview (ou posterior) para impedir **desnecessariamente baixar cerca de 6 GB** de conteúdo não utilizado para o cliente.
@@ -110,10 +110,10 @@ Para o conteúdo não express, um patch adicional tem de ser aplicada. Este cami
 - Dezembro-Janeiro: Os clientes devem ter um nível de base de atualização cumulativa mais a atualização não cumulativa  
     - Atualização cumulativa  
         - 1709: [KB4338825](https://support.microsoft.com/help/4338825) (atualização cumulativa de segurança de Julho de 2017) através de 2019 Janeiro cumulativa atualização de segurança, inclusive  
-        - versão 1803: [KB4284835](https://support.microsoft.com/help/4284835) (atualização cumulativa de segurança de Junho de 2017) através de 2019 Janeiro atualização cumulativa de segurança, inclusive  
+        - 1803: [KB4284835](https://support.microsoft.com/help/4284835) (atualização cumulativa de segurança de Junho de 2017) através de 2019 Janeiro atualização cumulativa de segurança, inclusive  
     - Atualização cumulativa para o não: Esta atualização só está disponível no catálogo e não diretamente de sincronização para o WSUS. Para importar a atualização para o seu ambiente para poder implementá-la, consulte [importar atualizações a partir do catálogo Microsoft Update](/sccm/sum/get-started/synchronize-software-updates#import-updates-from-the-microsoft-update-catalog).  
         - 1709: [KB4483530](https://support.microsoft.com/help/4483530)  
-        - versão 1803: [KB4483541](https://support.microsoft.com/help/4483541)  
+        - 1803: [KB4483541](https://support.microsoft.com/help/4483541)  
 - Fevereiro e muito mais: Para apenas a atualização cumulativa de ainda ser lançada atualização que não são de segurança cumulativa de Janeiro (ou a seguinte atualização cumulativa de segurança de Fevereiro) ou posterior   
 
 **Windows 10 versão 1809** com ainda lançado a atualização de que não são de segurança cumulativa de Janeiro (ou a seguinte atualização cumulativa de segurança de Fevereiro) ou posterior
@@ -160,8 +160,8 @@ Quando estiver pronto para iniciar a sincronização de atualizações UUP e ten
 
 5. Sobre o **produtos** separador, assim que o servidor WSUS é adicionado à pré-visualização, dois novos produtos devem aparecer. Esses produtos contêm o conteúdo UUP de pré-visualização.  
 
-    - **Piloto do Windows 10 UUP**: Atualizações UUP de estação de trabalho do Windows  
-    - **Windows Server 2016 UUP**: Atualizações do Windows Server UUP  
+    - **Windows 10 UUP Preview**  
+    - **Windows Server UUP Preview**  
 
 6. Sobre o **classificações** separador, certifique-se selecionar:  
 

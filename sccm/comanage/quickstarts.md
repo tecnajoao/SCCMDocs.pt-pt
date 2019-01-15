@@ -1,5 +1,5 @@
 ---
-title: Anexar na cloud com a cogestão
+title: Ligar a cogestão de cloud
 titleSuffix: Configuration Manager
 description: Cogestão oferece valor imediato se a ativar.
 ms.date: 01/14/2019
@@ -10,14 +10,14 @@ ms.assetid: 8d878443-90e7-46e4-9cd3-99e2a19b2ad0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b6e58db8e593278258c8583c2de7d4edecec7e08
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: d59f9deab4b80c735816fe858365d3c3c6275301
+ms.sourcegitcommit: 27b2594087e8c54062db6b2a30ab843bab17f8cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251177"
+ms.locfileid: "54270474"
 ---
-# <a name="cloud-attach-with-co-management"></a>Anexar na cloud com a cogestão
+# <a name="cloud-connecting-with-co-management"></a>Ligar a cogestão de cloud
 
 ![Faixa da série blastoff](media/blastoff-banner.png)
 

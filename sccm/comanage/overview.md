@@ -10,12 +10,12 @@ ms.topic: overview
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: e844d67b8cbbb87bb26380d1a163b7d59b253b22
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: 8859e6cb09208eca0b21f97f2fa13c686b983803
+ms.sourcegitcommit: 27b2594087e8c54062db6b2a30ab843bab17f8cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251162"
+ms.locfileid: "54270450"
 ---
 # <a name="what-is-co-management"></a>O que é a cogestão?
 
@@ -29,7 +29,7 @@ Também pode criar um piloto de uma carga de trabalho com um conjunto separado d
 
 
 
-## <a name="paths-to-co-management"></a>Caminhos de cogestão
+## <a name="paths-to-co-management"></a>Caminhos para a cogestão
 
 Existem dois caminhos principais para entrar em contacto cogestão:  
 
@@ -57,7 +57,7 @@ Quando inscreve os clientes existentes do Configuration Manager na cogestão, ob
 
 - Ações remotas
 
-Para obter mais informações sobre este valor imediato da cogestão, consulte a série de guias de introdução para [anexar na Cloud com cogestão](/sccm/comanage/quickstarts).
+Para obter mais informações sobre este valor imediato da cogestão, consulte a série de guias de introdução para [Cloud connect com cogestão](/sccm/comanage/quickstarts).
 
 Cogestão também lhe permite orquestrar com o Intune para várias cargas de trabalho. Para obter mais informações, consulte a [cargas de trabalho](#workloads) secção. 
 
@@ -69,14 +69,14 @@ Cogestão tem estes pré-requisitos nas seguintes áreas:
 
 - [Licenciamento](#licensing)  
 - [Configuration Manager](#configuration-manager)  
-- [O Azure Active Directory](#azure-ad) (Azure AD)  
+- [Azure Active Directory](#azure-ad) (Azure AD)  
 - [Microsoft Intune](#intune)  
 - [Windows 10](#windows-10)  
 - [Funções e permissões](#permissions-and-roles)  
 
 ### <a name="licensing"></a>Licensing
 
-- O Azure AD Premium 
+- Azure AD Premium 
 - Licença do Intune ou do EMS para todos os utilizadores  
 
     > [!Note]  
@@ -163,7 +163,7 @@ Para obter mais informações, consulte [cargas de trabalho](/sccm/comanage/work
 
 
 
-## <a name="monitor-co-management"></a>Monitor de cogestão
+## <a name="monitor-co-management"></a>Monitorizar a cogestão
 
 O dashboard de cogestão ajuda-o a rever as máquinas que fazem cogeridas no seu ambiente. Os gráficos podem ajudar a identificar os dispositivos que possam necessitar de atenção.
 
