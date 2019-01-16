@@ -2,7 +2,7 @@
 title: Servidores de sistema de sites suportados
 titleSuffix: Configuration Manager
 description: Saiba quais versões do Windows pode utilizar para alojar um site do Configuration Manager ou a função de sistema de sites.
-ms.date: 11/27/2018
+ms.date: 01/15/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4aba91b232a187a72bbc2ea10f32a14a377a3870
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: b43c8d08fe1655aea175bbec3ceb7877be96f42e
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456860"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342827"
 ---
 # <a name="supported-operating-systems-for-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do Configuration Manager
 
@@ -32,7 +32,7 @@ Utilize as informações neste artigo com informações nos seguintes artigos:
 
 
 
-## <a name="bkmk_2019"></a> Windows Server de 2019
+## <a name="bkmk_2019"></a> Windows Server 2019
 
 *Aplica-se para o Windows Server 2019: Standard e Datacenter* 
 
@@ -102,7 +102,7 @@ Esta versão do sistema operacional é suportada para as seguintes funções:
 
 
 
-## <a name="bkmk_stor2016"></a> O Windows Storage Server 2016
+## <a name="bkmk_stor2016"></a> Windows Storage Server 2016
 
 #### <a name="site-system-server"></a>Servidor do sistema de sites
 
@@ -182,6 +182,9 @@ Esta versão do sistema operacional é suportada para as seguintes funções:
 
 Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado no [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
+> [!Important]  
+> A data de fim do suporte alargado para o Windows Server 2008 R2 é a 14 de Janeiro de 2020. Após esta data, Configuration Manager não suporta este sistema operacional como qualquer função de sistema de sites. 
+
 Esse SO não é suportado para servidores do site ou a maioria das funções de sistema de sites. Ainda é suportado para a função de sistema de sites da ponto de distribuição, incluindo pontos de distribuição de extração e para PXE e multicast.
 
 #### <a name="site-system-servers"></a>Servidores do sistema de sites
@@ -196,6 +199,9 @@ Esse SO não é suportado para servidores do site ou a maioria das funções de 
 *Aplica-se para o Windows Server 2008 com Service Pack 2 (x86, x64): Standard, Enterprise e Datacenter*
 
 Windows Server 2008 com Service Pack 2 (SP2) tem agora suporte alargado e já não está no suporte base, conforme detalhado no [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
+
+> [!Important]  
+> A data de fim do suporte alargado para o Windows Server 2008 R2 é a 14 de Janeiro de 2020. Após esta data, Configuration Manager não suporta este sistema operacional como qualquer função de sistema de sites. 
 
 Esse SO não é suportado para servidores do site ou funções de sistema de sites, exceto para o ponto de distribuição e o ponto de distribuição de extração. Continue a utilizar esse SO como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte alargado do sistema operacional expira. Para obter mais informações, consulte [CB de instalação do Configuration Manager e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
 
