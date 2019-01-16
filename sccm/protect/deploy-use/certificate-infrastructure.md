@@ -10,12 +10,12 @@ ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ff32a35ccfe3ca51183497197622408c1a28a99d
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 783512841b61d6fa10e3f2832100e9000576e65a
+ms.sourcegitcommit: 2687489aa409a050dcacd67f17b3dad3ab7f1804
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416304"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54316529"
 ---
 # <a name="configure-certificate-infrastructure"></a>Configurar a infraestrutura de certificados
 
@@ -52,7 +52,7 @@ Utilize estes passos para configurar a infraestrutura para o SCEP ou certificado
    > [!NOTE]  
    >  Estas são as permissões de segurança predefinidas que serão convenientes para a maior parte dos ambientes. No entanto, pode utilizar uma configuração de segurança alternativa. Para obter mais informações, veja [Planear permissões de modelo de certificado para perfis de certificado no System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
 
-3. Implemente neste servidor um certificado PKI que suporta a autenticação de cliente. É possível que já disponha de um certificado adequado instalado no computador que pode utilizar ou poderá ter de (ou preferir) implementar um certificado especificamente para esta finalidade. Para obter mais informações sobre os requisitos deste certificado, consulte os detalhes de servidores a executar o módulo de política do Configuration Manager com o serviço de função Serviço de inscrição de dispositivos de rede na * * certificados PKI para servidores * * secção a [ Requisitos de certificado PKI para o System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md) tópico.  
+3. Implemente neste servidor um certificado PKI que suporta a autenticação de cliente. É possível que já disponha de um certificado adequado instalado no computador que pode utilizar ou poderá ter de (ou preferir) implementar um certificado especificamente para esta finalidade. Para obter mais informações sobre os requisitos deste certificado, consulte os detalhes de servidores a executar o módulo de política do Configuration Manager com o serviço de função Serviço de inscrição de dispositivos de rede no **certificados PKI para servidores** secção do [requisitos de certificado PKI para o System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md) tópico.  
 
    > [!TIP]
    >  Se precisar de ajuda para implementar este certificado, pode utilizar as instruções para [implementar o certificado de cliente para pontos de distribuição](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), porque os requisitos de certificado são os mesmos com uma exceção:  
@@ -83,7 +83,7 @@ Utilize estes passos para configurar a infraestrutura para o SCEP ou certificado
 
 7. Se pretender poder pedir um certificado que tenha um período de validade inferior ao modelo de certificado que está a utilizar: Esta configuração está desativada por predefinição para uma AC empresarial. Para ativar esta opção numa AC empresarial, utilize a ferramenta da linha de comandos Certutil e, em seguida, pare e reinicie o serviço de certificados utilizando os seguintes comandos:  
 
-   1. **certutil - setreg Policy\EditFlags + EDITF_ATTRIBUTEENDDATE**  
+   1. **certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE**  
 
    2. **net stop certsvc**  
 

@@ -10,12 +10,12 @@ ms.assetid: f2df88b4-c348-4dcf-854a-54fd6eedf485
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: d011272c42f3347f555e4fb5322464e9c5e754da
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: b28a5be9a494d2568bbdfdee29f9e757ef97f940
+ms.sourcegitcommit: 2687489aa409a050dcacd67f17b3dad3ab7f1804
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424702"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54316563"
 ---
 # <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Criar modelos de relatórios personalizados para o System Center Configuration Manager, no SQL Server Reporting Services
 
@@ -140,25 +140,25 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 2. Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-   -   *&lt;Nome de modelo\>*  **. DSV**  
+   -   *&lt;Model Name\>* **.dsv**  
 
    -   *&lt;Nome de modelo\>*  **. smdl**  
 
 3. Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4. No arquivo *&lt;nome do modelo\>***. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
+4. No ficheiro  _&lt;nome do modelo\>_**. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
 
-    **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+    **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
     Edite esta linha para:  
 
-    **&lt;DataSourceView xmlns = "<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi = "RelationalDataSourceView"\>**  
+    **&lt;DataSourceView xmlns="<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi="RelationalDataSourceView"\>**  
 
 5. Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6. Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
+6. Feche o ficheiro  _&lt;nome do modelo\>_**. DSV**.  
 
-7. No arquivo *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
+7. No ficheiro  _&lt;nome do modelo\>_**. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
 
     `</Entity>`  
 
@@ -166,11 +166,11 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
     `</SemanticModel>`  
 
-8. Cole o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
+8. Cole o conteúdo do ficheiro  _&lt;nome do modelo\>_**. DSV** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>** ).  
 
-9. Guarde e feche o ficheiro *&lt;nome do modelo\>***. smdl**.  
+9. Guarde e feche o ficheiro  _&lt;nome do modelo\>_**. smdl**.  
 
-10. Copie o ficheiro  *&lt;nome do modelo\>* * *. smdl** para a pasta *% programfiles %* \Microsoft do Configuration Manager \AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
+10. Copie o ficheiro  _&lt;nome do modelo\>_**. smdl** para a pasta *% programfiles %* \Microsoft do Configuration Manager \AdminConsole\XmlStorage \Other no servidor do site do Configuration Manager.  
 
     > [!IMPORTANT]  
     >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, terá de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório na **Assistente para criar relatório**.  
@@ -383,25 +383,25 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 2. Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-   -   *&lt;Nome de modelo\>*  **. DSV**  
+   -   *&lt;Model Name\>* **.dsv**  
 
    -   *&lt;Nome de modelo\>*  **. smdl**  
 
 3. Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4. No arquivo *&lt;nome do modelo\>***. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
+4. No ficheiro  _&lt;nome do modelo\>_**. DSV**, localize a primeira linha do arquivo, que é a seguinte:  
 
-    **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+    **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
     Edite esta linha para:  
 
-    **&lt;DataSourceView xmlns = "<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi = "RelationalDataSourceView"\>**  
+    **&lt;DataSourceView xmlns="<http://schemas.microsoft.com/analysisservices/2003/engine>" xmlns:xsi="RelationalDataSourceView"\>**  
 
 5. Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6. Feche o ficheiro *&lt;nome do modelo\>***. DSV**.  
+6. Feche o ficheiro  _&lt;nome do modelo\>_**. DSV**.  
 
-7. No arquivo *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
+7. No ficheiro  _&lt;nome do modelo\>_**. smdl**, localize as últimas três linhas do arquivo, que aparecem da seguinte maneira:  
 
     `</Entity>`  
 
@@ -409,11 +409,11 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
     `</SemanticModel>`  
 
-8. Cole o conteúdo do ficheiro  *&lt;nome do modelo\>* * *.dsv** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
+8. Cole o conteúdo do ficheiro  _&lt;nome do modelo\>_**. DSV** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>** ).  
 
-9. Guarde e feche o ficheiro *&lt;nome do modelo\>***. smdl**.  
+9. Guarde e feche o ficheiro  _&lt;nome do modelo\>_**. smdl**.  
 
-10. Copie o ficheiro  *&lt;nome do modelo\>* * *. smdl** para a pasta *% programfiles %* \Microsoft Configuration Manager\AdminConsole\XmlStorage\Other na configuração Servidor do site Manager.  
+10. Copie o ficheiro  _&lt;nome do modelo\>_**. smdl** para a pasta *% programfiles %* \Microsoft Configuration Manager\AdminConsole\XmlStorage \Other no servidor do site do Configuration Manager.  
 
     > [!IMPORTANT]  
     >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, terá de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório na **Assistente para criar relatório**.  

@@ -10,12 +10,12 @@ ms.assetid: 613a48ac-c55d-4c4a-94ea-d3747a1b10cb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bf5f580d10c48bb44b3c202832ffff3a06c5c37f
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 708a9fc1f3a2f10a602dc5d926cd8b8df0cbc7cf
+ms.sourcegitcommit: 2687489aa409a050dcacd67f17b3dad3ab7f1804
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416185"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54316580"
 ---
 # <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune
 Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de configuração para gerir as definições para dispositivos iOS e Mac OS X que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
@@ -275,7 +275,7 @@ Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de config
      >  Para localizar o ID do pacote de uma aplicação, utilize os passos seguintes num computador Mac que tenha a aplicação instalada:  
      > 
      > 1. Abra a pasta na qual a aplicação está instalada (por exemplo, **/Applications**)  
-     >    2.  Selecione o *< nome da aplicação\>* * *.app** agrupar e escolha **Mostrar conteúdo do pacote**  
+     >    2.  Selecione o grupo _<App Name\>_**.app** e escolha **Mostrar Conteúdo do Pacote**  
      >    3.  Abra o ficheiro **Info.plist**  
      >    4.  Verifique o valor associado à chave **CFBundleIdentifier**  
      > 

@@ -10,12 +10,12 @@ ms.assetid: 2e801f8c-d331-41ee-8f27-908448fc0951
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: aed9ec403496b309b1b556355c955743d43b2dc4
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 1a74d549c668581b076ea4775fee3aedbe9a2d01
+ms.sourcegitcommit: 2687489aa409a050dcacd67f17b3dad3ab7f1804
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420214"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54316495"
 ---
 # <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1703 para o System Center Configuration Manager
 
@@ -52,7 +52,7 @@ Agora pode fornecer aos utilizadores finais com uma ligação direta a uma aplic
 
 Utilize o seguinte formato de URL para abrir o Centro de Software a uma determinada aplicação:
 
-**Softwarecenter:SoftwareId = * identificador da aplicação***
+**Softwarecenter:SoftwareId=_Application Identifier_**
 
 ### <a name="how-to-get-the-application-identifier-of-an-application"></a>Como obter o identificador da aplicação de um aplicativo.
 
@@ -107,7 +107,7 @@ No Azure Active Directory, registe o Configuration Manager como uma aplicação 
 
 5. Na **aplicação de servidor** janela, selecione a aplicação de servidor que pretende utilizar e clique em **OK**.
    As aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponíveis, utilize um dos seguintes:
-   - **criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e o inquilino. Em seguida, depois que iniciar sessão para o Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode visualizá-las no portal do Azure.
+   - **Criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e o inquilino. Em seguida, depois que iniciar sessão para o Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode visualizá-las no portal do Azure.
    - **Importar**: Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e o inquilino e, em seguida, especifique o ID de inquilino, ID de cliente e a chave secreta da aplicação web do Azure que pretende que o Configuration Manager para utilizar. Depois de **Verifique se** as informações, clique em **OK** para continuar.  </br></br>
 
 6. Reveja os **informações** página e conclua quaisquer passos adicionais e configurações, conforme indicado. Estas configurações são necessárias para utilizar o serviço com o Configuration Manager.
