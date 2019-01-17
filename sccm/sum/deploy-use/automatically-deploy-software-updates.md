@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
-ms.openlocfilehash: 01c6de94fd4cb0d05b482c1c05df2f09780db7fd
-ms.sourcegitcommit: 8827ffaea108678da968a3623f072876990c830c
+ms.openlocfilehash: 9d8c74968e808877fb903be424eff594210189e1
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49411298"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342776"
 ---
 #  <a name="automatically-deploy-software-updates"></a>Implementar automaticamente atualizações de software  
 
@@ -138,6 +138,9 @@ Aprovar e implementar atualizações de software utilizando uma ADR automaticame
     -   **Notificações do utilizador**: Especifique se pretende apresentar a notificação no Centro de Software em configurada **hora de disponibilização do Software**. Esta definição controla se é necessário notificar os utilizadores nos clientes.  
 
     -   **Comportamento do prazo**: Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+        
+        > [!Note]
+        > Isto aplica-se apenas quando a janela de manutenção é configurada para o dispositivo de cliente. Se nenhuma janela de manutenção é definida no dispositivo, a atualização da instalação e reinício será sempre acontece após o prazo.
 
     -   **Comportamento do reinício do dispositivo**: Especifique se pretende suprimir um reinício de sistema nos servidores e estações de trabalho se uma reinicialização é necessária para concluir a instalação da atualização.  
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: aae0951ddf32ce1d58a29b034acef96b55ab85a0
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 8c0752506e410f752f49795470215c30b0928e4e
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414808"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342844"
 ---
 # <a name="manually-deploy-software-updates"></a>Implementar manualmente atualizações de software  
 
@@ -161,7 +161,10 @@ Depois de determinar as atualizações que pretende implementar e adicioná-los 
 
    -   **Notificações do utilizador**: Especifique se pretende apresentar a notificação no Centro de Software em configurada **hora de disponibilização do Software**. Esta definição controla se é necessário notificar os utilizadores nos computadores cliente. Para **disponível** implementações, não é possível selecionar a opção de **ocultar no Centro de Software e em todas as notificações**.  
 
-   -   **Comportamento do prazo**: Esta definição só é configurável para **necessário** implementações. Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+   -   **Comportamento do prazo**: Esta definição só é configurável para **necessário** implementações. Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows). 
+  
+       > [!Note]
+       > Isto aplica-se apenas quando a janela de manutenção é configurada para o dispositivo de cliente. Se nenhuma janela de manutenção é definida no dispositivo, a atualização da instalação e reinício será sempre acontece após o prazo.
 
    -   **Comportamento do reinício do dispositivo**: Esta definição só é configurável para **necessário** implementações. Especifique se pretende suprimir um reinício de sistema nos servidores e estações de trabalho se uma reinicialização é necessária para concluir a instalação da atualização.  
 

@@ -10,12 +10,12 @@ ms.assetid: 20493c86-6454-4b35-8f22-0d049b68b8bb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 666df71b32ea0dc95411b8ffd58d18f7666d7b23
-ms.sourcegitcommit: d36e4c7082a5144e79035dd8847c8e741fa04667
+ms.openlocfilehash: 776d0a477d56a178927fb2d09866eacf63b4895a
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444591"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342793"
 ---
 # <a name="approve-applications-in-configuration-manager"></a>Aprovar aplicações no Configuration Manager
 
@@ -69,6 +69,10 @@ Depois que tenha aprovado uma aplicação para a instalação, poderá **negar**
 <!--1321550-->
 
 A partir da versão 1810, configure notificações por e-mail para pedidos de aprovação de aplicações. Quando um utilizador solicita uma aplicação, receberá uma mensagem de e-mail. Clique em ligações no e-mail para aprovar ou negar o pedido, sem a necessidade de consola do Configuration Manager.
+
+Pode definir os endereços de e-mail dos utilizadores que podem aprovar ou negar o pedido ao criar uma nova implementação da aplicação. Se precisar de alterar a lista de endereços de e-mail, posteriormente, vá para o **monitorização** área de trabalho, expanda **alertas**e selecione o **subscrições** nó. Selecione **propriedades** de um da **aprovar a aplicação através do e-mail** subscrições que está relacionado com a implementação da aplicação. 
+
+Se existir mais do que um alerta, pode determinar qual alerta vai com qual implementação. Abra as propriedades do alerta e ver a lista de **alertas selecionados** na guia Geral. A implementação está ativada como o alerta para esta subscrição. 
 
 
 ### <a name="prerequisites"></a>Pré-requisitos

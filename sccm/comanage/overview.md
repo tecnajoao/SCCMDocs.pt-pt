@@ -10,12 +10,12 @@ ms.topic: overview
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 8859e6cb09208eca0b21f97f2fa13c686b983803
-ms.sourcegitcommit: 27b2594087e8c54062db6b2a30ab843bab17f8cc
+ms.openlocfilehash: 8cbb3bb29cda8c99cda58954e4df3c1196d5bc1c
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54270450"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342887"
 ---
 # <a name="what-is-co-management"></a>O que é a cogestão?
 
@@ -103,12 +103,12 @@ Ativar a cogestão em si não requer que carregar seu site com o Azure AD. Para 
 
     - [Azure AD associado](https://docs.microsoft.com/azure/active-directory/devices/azureadjoin-plan) apenas. (Este tipo é por vezes referido como "cloud associados a um domínio")<!--SCCMDocs issue 605-->  
 
-- [Ativar a inscrição automática do Windows 10](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment)  
-
 
 ### <a name="intune"></a>Intune
 
-Para obter mais informações, consulte [configurar o Intune](https://docs.microsoft.com/intune/setup-steps).  
+- [Configurar o Intune](https://docs.microsoft.com/intune/setup-steps)  
+
+- [Ativar a inscrição automática do Windows 10](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment)  
 
 > [!Note]  
 > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a cogestão. No entanto, pode começar a migrar utilizadores para o Intune autónomo e, em seguida, ativar os dispositivos Windows 10 associados para a cogestão. Para obter mais informações sobre a migração para o Intune autónomo, consulte [iniciar a migração da MDM híbrida para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).  

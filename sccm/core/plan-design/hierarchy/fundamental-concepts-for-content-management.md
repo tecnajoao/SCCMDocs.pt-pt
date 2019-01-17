@@ -10,12 +10,12 @@ ms.assetid: c201be2a-692c-4d67-ac95-0a3afa5320fe
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b73ead1492b143260d327f428db5a6183f84434c
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: 4a777ec74fb4006df056b4e69d7cbdfb380bcf72
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411345"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342759"
 ---
 # <a name="fundamental-concepts-for-content-management-in-configuration-manager"></a>Conceitos fundamentais da gestão de conteúdos no Configuration Manager
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte [conta de acesso a pacote](/sccm/core/pl
 
 
 ## <a name="binary-differential-replication"></a>Replicação diferencial binária  
- Replicação diferencial binária (BDR) é um pré-requisito para pontos de distribuição. Por vezes, é conhecido como a replicação de diferenças. Quando está a distribuir atualizações de conteúdo que implementou anteriormente para outros sites ou para pontos de distribuição remoto, a BDR é automaticamente utilizada para reduzir a largura de banda.  
+ Replicação diferencial binária (BDR), às vezes, é conhecida como a replicação de diferenças. É utilizado para distribuir atualizações ao conteúdo que implementou anteriormente para outros sites ou para pontos de distribuição remotos. Para suportar a redução do BDR da utilização de largura de banda, instalar o **compressão de diferencial remota** funcionalidade em pontos de distribuição. Para obter mais informações, consulte [os pré-requisitos do ponto de distribuição](/sccm/core/plan-design/configs/site-and-site-system-prerequisites#bkmk_2012dppreq).
 
  A BDR minimiza a largura de banda de rede utilizada para enviar atualizações de conteúdo distribuído. Reenviar apenas o conteúdo novo ou alterado, em vez de enviar o conjunto completo de arquivos de origem do conteúdo sempre que alterar esses ficheiros.  
 

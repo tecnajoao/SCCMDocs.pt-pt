@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: db97ae9e-34f4-4e10-a282-cd211f612bb4
-ms.openlocfilehash: f7c0f0d9dc52c39e0ec33abb8df565d4918471f7
-ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
+ms.openlocfilehash: 3f7d880f7e220966a9baa71ac6ad9286a398ffaa
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53818043"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342861"
 ---
 # <a name="prepare-intune-for-user-migration"></a>Preparar o Intune para a migração de utilizadores 
 
@@ -50,7 +50,7 @@ Se [importados dados do Configuration Manager para o Microsoft Intune](migrate-i
 - [Atribuir políticas](https://docs.microsoft.com/intune/get-started-policies)  
 - [Atribuir perfis](https://docs.microsoft.com/intune/device-profile-assign)  
     > [!NOTE]  
-    > Quando o Intune implementa o novo perfil de e-mail, os utilizadores recebem uma linha de comandos de reintroduzir a palavra-passe.  
+    > Quando o Intune implementa o novo perfil de e-mail, os utilizadores recebem uma linha de comandos de reintroduzir a palavra-passe. Este comportamento resulta em mensagens de e-mail a ser redownloaded nos dispositivos dos utilizadores. Quaisquer modificações personalizadas realizadas pelo usuário precisará ser feito novamente. 
 - [Atribuir aplicações](https://docs.microsoft.com/intune/get-started-apps) 
 
 ## <a name="terms-and-conditions-policy"></a>Política de termos e condições

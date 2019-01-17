@@ -10,12 +10,12 @@ ms.assetid: 62f15230-d3a6-4afc-abd4-1e07e7ba6c97
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cde62242fc4db99d762d670037aad22bd25d6c00
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: e7a2801b7efa513b2b15a58a7a89eee5d4727a21
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456741"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342902"
 ---
 # <a name="task-sequence-variables-in-configuration-manager"></a>Variáveis de sequência de tarefas no Configuration Manager
 
@@ -81,7 +81,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  `ABC00001`  
 
 
-### <a name="SMSTSBootUEFI"></a> Smstsbootuefi sempre
+### <a name="SMSTSBootUEFI"></a> _SMSTSBootUEFI
 
  A sequência de tarefas define esta variável que Deteta um computador que esteja no modo UEFI.
 
@@ -94,7 +94,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  `0a1a9a4b-fc56-44f6-b7cd-c3f8ee37c04c`
 
 
-### <a name="SMSTSCurrentActionName"></a> Smstscurrentactionname
+### <a name="SMSTSCurrentActionName"></a> _SMSTSCurrentActionName
 
  Especifica o nome do passo da sequência de tarefas em execução atual. Esta variável é definida antes de o gestor da sequência de tarefas executar cada passo individual.
 
@@ -114,7 +114,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  Se a sequência de tarefas atual for executada no modo de transferência sob demanda, esta variável é `true`. Modo de transferência sob demanda significa que o Gestor da sequência de tarefas transfere o conteúdo localmente, apenas quando precisa de aceder o conteúdo.
 
 
-### <a name="SMSTSInWinPE"></a> Smstsinwinpe
+### <a name="SMSTSInWinPE"></a> _SMSTSInWinPE
 
  Quando o passo de sequência de tarefas atual for executada no Windows PE, esta variável é `true`. Teste esta variável de sequência de tarefas para determinar o ambiente de sistema operacional atual.
 
@@ -149,12 +149,12 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  - Se a sequência de tarefas ignorou a última ação, porque o passo está desativado ou a condição associada estava avaliada como **false**, esta variável não for redefinida. Que ainda retém o valor da ação anterior.  
 
  
-### <a name="SMSTSLaunchMode"></a> Smstslaunchmode
+### <a name="SMSTSLaunchMode"></a> _SMSTSLaunchMode
 
  Especifica que a sequência de tarefas é iniciada através de um dos seguintes métodos:  
 
  - **SMS**: O cliente de Configuration Manager, como quando um usuário inicia-lo a partir do Centro de Software
- - **PEN USB**: Suporte de dados USB legado
+ - **UFD**: Suporte de dados USB legado
  - **PEN USB + FORMATO**: Suporte de dados mais recentes do USB
  - **CD**: Um CD inicializável
  - **DVD**: Um DVD inicializável
@@ -162,7 +162,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  - **HD**: Suportes de dados num disco rígido
 
 
-### <a name="SMSTSLogPath"></a> Smstslogpath
+### <a name="SMSTSLogPath"></a> _SMSTSLogPath
 
  Armazena o caminho completo do diretório de registo. Utilize este valor para determinar onde os passos de sequência de tarefas iniciar suas ações. Este valor não é definido quando uma unidade de disco rígido não está disponível.
 
@@ -174,7 +174,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  Especifica os endereços MAC utilizados pelo computador.
 
 
-### <a name="SMSTSMachineName"></a> Smstsmachinename
+### <a name="SMSTSMachineName"></a> _SMSTSMachineName
 
  Armazena e especifica o nome do computador. Armazena o nome do computador que a sequência de tarefas utiliza para registar todas as mensagens de estado. Para alterar o nome do computador em que o novo sistema operacional, utilize o [OSDComputerName](#OSDComputerName) variável.
 
@@ -186,12 +186,12 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  Especifica a marca do computador.
 
 
-### <a name="SMSTSMDataPath"></a> Smstsmdatapath
+### <a name="SMSTSMDataPath"></a> _SMSTSMDataPath
 
  Especifica o caminho definido pela [SMSTSLocalDataDrive](#SMSTSLocalDataDrive) variável. Ao definir SMSTSLocalDataDrive antes da sequência de tarefas é iniciada, como, definindo uma variável de coleção do Configuration Manager, em seguida, define a variável smstsmdatapath assim que a sequência de tarefas for iniciada.
 
 
-### <a name="SMSTSMediaType"></a> Smstsmediatype
+### <a name="SMSTSMediaType"></a> _SMSTSMediaType
 
  Especifica o tipo de suporte de dados que é utilizado para iniciar a instalação. Exemplos de tipos de suportes de dados: Suporte de Dados de Arranque, Suporte de Dados Completo, PXE e Suporte de Dados Pré-configurado.
 
@@ -213,7 +213,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  Arquivos de ponto do número de porta de um gestão do Configuration Manager.
 
 
-### <a name="SMSTSOrgName"></a> Smstsorgname
+### <a name="SMSTSOrgName"></a> _SMSTSOrgName
 
  Armazena o nome do título imagem corporativa que a sequência de tarefas exibe na caixa de diálogo de progresso.
 
@@ -269,7 +269,7 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  `ABC`
 
 
-### <a name="SMSTSTimezone"></a> Smststimezone
+### <a name="SMSTSTimezone"></a> _SMSTSTimezone
 
  Esta variável armazena as informações de fuso horário no seguinte formato: 
 
@@ -321,12 +321,12 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  Especifica o UUID do computador.
 
 
-### <a name="SMSTSWTG"></a> SMSTSWTG
+### <a name="SMSTSWTG"></a> _SMSTSWTG
 
  Especifica se o computador está a ser executado como um dispositivo Windows To Go.
 
 
-### <a name="TSAppInstallStatus"></a> Tsappinstallstatus
+### <a name="TSAppInstallStatus"></a> _TSAppInstallStatus
 
  A sequência de tarefas define esta variável com o estado da instalação para o aplicativo durante a [instalar aplicação](task-sequence-steps.md#BKMK_InstallApplication) passo. Ele define um dos seguintes valores:  
 
@@ -1228,7 +1228,7 @@ Utilize os seguintes nomes de variáveis para definir as propriedades para o *pr
  Especifica a configuração de fuso horário padrão que é utilizada o novo sistema operacional.
 
 
-### <a name="OSDTimeZone-output"></a> OSDTimeZone (saída)
+### <a name="OSDTimeZone-output"></a> OSDTimeZone (output)
 
  *Aplica-se para o [capturar definições do Windows](task-sequence-steps.md#BKMK_CaptureWindowsSettings) passo.*
 
@@ -1580,6 +1580,8 @@ Utilize os seguintes nomes de variáveis para definir as propriedades para o *pr
 
  Controle o tempo limite para a análise de atualizações de software durante este passo. Por exemplo, se esperar inúmeras atualizações durante a análise, aumenta o valor. O valor predefinido é `1800` segundos (30 minutos). O valor da variável é definido em segundos.
 
+> [!NOTE] 
+> A partir da versão 1802, o valor predefinido é `3600` segundos (60 minutos).
 
 ### <a name="SMSTSUDAUsers"></a> SMSTSUDAUsers
 
@@ -1610,7 +1612,7 @@ Por exemplo, se definir SMSTSWaitForSecondReboot para `600`, a sequência de tar
  - `false`: Exibir o progresso da sequência de tarefas  
 
 
-### <a name="TSErrorOnWarning"></a> Tserroronwarning como 
+### <a name="TSErrorOnWarning"></a> TSErrorOnWarning 
 
  *Aplica-se para o [instalar aplicação](task-sequence-steps.md#BKMK_InstallApplication) passo.*
 

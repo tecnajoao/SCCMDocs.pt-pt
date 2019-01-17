@@ -10,12 +10,12 @@ ms.assetid: 32e2d6b9-148f-45e2-8083-98c656473f82
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 85bd23130826c7ca23e10125efba58bf14555fb1
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 2027bf271a39dbe577580fa547ff09a4bd3483a8
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424226"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342742"
 ---
 # <a name="cmpivot-for-real-time-data-in-configuration-manager"></a>CMPivot para dados em tempo real no Configuration Manager
 
@@ -35,7 +35,7 @@ Os seguintes componentes são necessários para utilizar CMPivot:
 
 - Atualize os dispositivos de destino para a versão mais recente do cliente do Configuration Manager.  
 
-- As necessidades de administrador do Configuration Manager a **leitura** permissão na **Scripts do SMS** objeto, o **executar Scripts** permissão no **coleção** e o escopo de predefinição. O **executor de Scripts** função tem estas permissões. Para obter mais informações, consulte [funções de segurança para os scripts](/sccm/apps/deploy-use/create-deploy-scripts#bkmk_ScriptRoles).  
+- As necessidades de administrador do Configuration Manager a **leitura** permissão na **Scripts do SMS** objeto, o **executar Scripts** permissão no **coleção** e o escopo de predefinição. O **executor de Scripts** função tem estas permissões, que não é criado por predefinição. Para obter mais informações sobre como criar esta função de segurança personalizadas, consulte [funções de segurança para os scripts](/sccm/apps/deploy-use/create-deploy-scripts#bkmk_ScriptRoles).  
 
 - Para recolher dados para as entidades a seguir, os clientes de destino requerem o PowerShell versão 5.0:  
     - Administradores
@@ -235,9 +235,9 @@ Uma consulta exceder o tempo limite após uma hora. Por exemplo, uma coleção t
 > CMPivot interations são registadas para os ficheiros de registo seguinte:
 >
 > **Lado do servidor:**
-> - Smsprov. log
-> - bgbserver. log
-> - Statesys
+> - SmsProv.log
+> - bgbServer.log
+> - StateSys.log
 >
 > **Lado do cliente:**
 > - CcmNotificationAgent.log

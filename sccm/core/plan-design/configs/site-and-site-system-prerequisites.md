@@ -10,12 +10,12 @@ ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 00789c0c469e7de5ccd0b4dcac4130fdb14bb485
-ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
+ms.openlocfilehash: e8f575fc609dea662688ed10a76733467784a5b9
+ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52820123"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54342810"
 ---
 # <a name="site-and-site-system-prerequisites-for-configuration-manager"></a>Site e pré-requisitos de sistema de sites do Configuration Manager
 
@@ -327,6 +327,8 @@ Para obter mais informações, consulte [instalar e configurar pontos de distrib
 #### <a name="windows-server-roles-and-features"></a>Funcionalidades e funções do Windows Server  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
+
+-   Funcionalidades do Windows Defender (Windows Server 2016 ou posterior)  
 
 
 
