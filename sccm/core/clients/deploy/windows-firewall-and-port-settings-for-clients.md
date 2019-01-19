@@ -10,18 +10,18 @@ ms.assetid: dce4b640-c92f-401a-9873-ce9aa9262014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 193ee803fd0a6bacf043dbabc6550ef68a4a629a
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 94af249b91735a535ea4056f8a5f19d120632770
+ms.sourcegitcommit: 818f98187d377a90263d1b1c89d4c1fdbf8c908b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32337399"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54398494"
 ---
-# <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Firewall do Windows e definições de porta para clientes no System Center Configuration Manager
+# <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Definições de Firewall do Windows e a porta para clientes no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Os computadores cliente no System Center Configuration Manager que executam a Firewall do Windows, muitas vezes, necessitam que sejam configuradas exceções para permitir a comunicação com o respetivo site. As exceções que é necessário configurar dependem das funcionalidades de gestão que utiliza com o cliente do Configuration Manager.  
+Computadores de cliente no System Center Configuration Manager que executam o Windows Firewall, muitas vezes, necessitam que configure exceções para permitir a comunicação com o respetivo site. As exceções que tem de configurar dependem as funcionalidades de gestão que utiliza com o cliente do Configuration Manager.  
 
  Utilize as secções seguintes para identificar estas funcionalidades de gestão e para mais informações sobre como configurar a Firewall do Windows para estas exceções.  
 
@@ -40,12 +40,12 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
  As seguintes funcionalidades do Configuration Manager requerem exceções na Firewall do Windows:  
 
 ### <a name="queries"></a>Consultas  
- Se executar a consola do Configuration Manager num computador que executa a Firewall do Windows, as consultas falhar na primeira vez que forem executadas e o sistema operativo apresenta uma caixa de diálogo a perguntar se pretende desbloquear statview.exe. Se desbloquear statview.exe, as consultas posteriores serão executadas sem erros. Também pode adicionar manualmente Statview.exe à lista de programas e serviços no separador **Exceções** da Firewall do Windows antes de executar uma consulta.  
+ Se executar a consola do Configuration Manager num computador que executa o Windows Firewall, consultas falhar na primeira vez que forem executadas e o sistema operacional exibe uma caixa de diálogo a perguntar se pretende desbloquear statview.exe. Se desbloquear statview.exe, as consultas posteriores serão executadas sem erros. Também pode adicionar manualmente Statview.exe à lista de programas e serviços no separador **Exceções** da Firewall do Windows antes de executar uma consulta.  
 
 ### <a name="client-push-installation"></a>Instalação Push do Cliente  
- Para utilizar a instalação push de cliente para instalar o cliente do Configuration Manager, adicione o seguinte como exceções à Firewall do Windows:  
+ Para utilizar o push de cliente para instalar o cliente do Configuration Manager, adicione o seguinte como exceções à Firewall do Windows:  
 
--   Saída e entrada: **Ficheiro de partilha e impressoras**  
+-   Saída e entrada: **Ficheiros e partilha de impressoras**  
 
 -   Entrada: **Windows Management Instrumentation (WMI)**  
 
@@ -63,11 +63,11 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 >  Estes são os números de porta predefinidos que podem ser alterados no Configuration Manager. Para obter mais informações, consulte como [como configurar portas de comunicação de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Se os valores predefinidos destas portas tiverem sido alterados, também deve configurar exceções correspondentes na Firewall do Windows.  
 
 ### <a name="client-notification"></a>Notificação de cliente  
- Para o ponto de gestão notificar os computadores cliente sobre uma ação que tem de executar quando um utilizador administrativo seleciona uma ação de cliente na consola do Configuration Manager, tal como transferirem a política de computador ou iniciar uma análise de malware, adicione o seguinte como uma exceção à Firewall do Windows:  
+ Para o ponto de gestão notificar os computadores de cliente sobre uma ação que tem de executar quando um utilizador administrativo seleciona uma ação de cliente na consola do Configuration Manager, tais como transferir política do computador ou iniciar uma verificação de malware, adicione o seguinte como uma exceção à Firewall do Windows:  
 
  Saída: A porta TCP **10123**  
 
- Se esta comunicação não funcionar, o Configuration Manager automaticamente utilizará o existente ponto de gestão de clientes comunicação porta da HTTP ou HTTPS:  
+ Se esta comunicação não tiver êxito, o Configuration Manager automaticamente utilizará o existente ponto de gestão de clientes comunicação porta da HTTP ou HTTPS:  
 
  Saída: A porta TCP **80** (para comunicação HTTP)  
 
@@ -77,28 +77,28 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 >  Estes são os números de porta predefinidos que podem ser alterados no Configuration Manager. Para obter mais informações, consulte [como configurar portas de comunicação de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Se os valores predefinidos destas portas tiverem sido alterados, também deve configurar exceções correspondentes na Firewall do Windows.  
 
 ### <a name="remote-control"></a>Controlo Remoto  
- Para utilizar o controlo remoto do Configuration Manager, permita a seguinte porta:  
+ Para utilizar o controlo de remoto do Configuration Manager, permita a seguinte porta:  
 
--   Entrada: A porta TCP**2701**  
+-   Entrada: A porta TCP **2701**  
 
 ### <a name="remote-assistance-and-remote-desktop"></a>Assistência Remota e Ambiente de Trabalho Remoto  
- Para iniciar a assistência remota da consola do Configuration Manager, adicione o programa personalizado **Helpsvc.exe** e a porta de entrada personalizada TCP **135** à lista de permitidos serviços e programas na Firewall do Windows no computador cliente. Deve também permitir **Assistência Remota** e **Ambiente de Trabalho Remoto**. Se iniciar a Assistência Remota a partir do computador cliente, a Firewall do Windows configura e permite automaticamente **Assistência Remota** e **Ambiente de Trabalho Remoto**.  
+ Para iniciar a assistência remota a partir da consola do Configuration Manager, adicione o programa personalizado **Helpsvc.exe** e a porta de entrada personalizada TCP **135** à lista de serviços no Windows e programas permitidos Firewall no computador cliente. Deve também permitir **Assistência Remota** e **Ambiente de Trabalho Remoto**. Se iniciar a Assistência Remota a partir do computador cliente, a Firewall do Windows configura e permite automaticamente **Assistência Remota** e **Ambiente de Trabalho Remoto**.  
 
 ### <a name="wake-up-proxy"></a>Proxy de Reativação  
  Se ativar a definição de cliente do proxy de reativação, um novo serviço com a designação Proxy de Reativação do ConfigMgr utiliza um protocolo ponto a ponto para verificar se outros computadores estão ativos na sub-rede e ativa-os se for necessário. Esta comunicação utiliza as seguintes portas:  
 
- Saída: Porta UDP **25536**  
+ Saída: A porta UDP **25536**  
 
- Saída: Porta UDP **9**  
+ Saída: A porta UDP **9**  
 
- Estes são os números de porta predefinidos que podem ser alterados no Configuration Manager utilizando o **gestão de energia** definições de clientes de **número de porta de proxy de reativação (UDP)** e **o número de porta de reativação por LAN (UDP)**. Se especificar o **gestão de energia**: **Exceção de Firewall do Windows para proxy de reativação** cliente definição, estas portas são configuradas automaticamente na Firewall do Windows para clientes. No entanto, se os clientes executarem uma firewall diferente, tem de configurar manualmente as exceções para estes números de porta.  
+ Estes são os números de porta predefinidos que podem ser alterados no Configuration Manager utilizando a **gestão de energia** definições de clientes do **número de porta de proxy de reativação (UDP)** e **porta de reativação por LAN número (UDP)**. Se especificar a **gestão de energia**: **Exceção de Firewall do Windows para proxy de reativação** cliente definir, estas portas são configuradas automaticamente na Firewall do Windows para clientes. No entanto, se os clientes executarem uma firewall diferente, tem de configurar manualmente as exceções para estes números de porta.  
 
  Além destas portas, o proxy de reativação também utiliza mensagens de pedido de eco de ICMP (Internet Control Message Protocol) de um computador cliente para outro computador cliente. Esta comunicação é utilizada para confirmar se o outro computador cliente está ativo na rede. Por vezes, o ICMP é também referido como comandos ping de TCP/IP.  
 
- Para obter mais informações sobre o proxy de reativação, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+ Para obter mais informações sobre o proxy de reativação, consulte [planear como reativar clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
 
 ### <a name="windows-event-viewer-windows-performance-monitor-and-windows-diagnostics"></a>Visualizador de Eventos do Windows, Monitor de Desempenho do Windows e Diagnóstico do Windows  
- Para aceder ao Visualizador de eventos do Windows, o Monitor de desempenho do Windows e diagnóstico do Windows a partir da consola do Configuration Manager, ative **impressora partilha de ficheiros e** como uma exceção na Firewall do Windows.  
+ Para aceder Visualizador de eventos do Windows, o Monitor de desempenho do Windows e o diagnóstico do Windows a partir da consola do Configuration Manager, ative **impressora partilha de ficheiros e** como uma exceção na Firewall do Windows.  
 
 ## <a name="ports-used-during-configuration-manager-client-deployment"></a>Portas Utilizadas Durante a Implementação do Cliente do Configuration Manager  
  As tabelas seguintes listam as portas que são utilizadas durante o processo de instalação do cliente.  
@@ -131,7 +131,7 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol) do computador cliente para o ponto de atualização de software.|--|80 ou 8530 (Ver nota 2, **Windows Server Update Services**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol) do computador cliente para o ponto de atualização de software.|--|443 ou 8531 (Ver nota 2, **Windows Server Update Services**)|  
-|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|445|  
+|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos do CCMSetup **/Source:&lt;caminho\>**.|--|445|  
 
 ### <a name="ports-that-are-used-with-group-policy-based-installation"></a>Portas que são utilizadas com a instalação baseada na Política de Grupo  
 
@@ -139,16 +139,16 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTP.|--|80 (Ver nota 1, **Porta Alternativa Disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTPS.|--|443 (Ver nota 1, **Porta Alternativa Disponível**)|  
-|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|445|  
+|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos do CCMSetup **/Source:&lt;caminho\>**.|--|445|  
 
 ### <a name="ports-that-are-used-with-manual-installation-and-logon-script-based-installation"></a>Portas que são utilizadas com a instalação manual e com a instalação baseada em scripts de início de sessão  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Bloco de Mensagem de Servidor (SMB) entre o computador cliente e uma partilha de rede a partir da qual o CCMSetup.exe é executado.<br /><br /> Quando instalar o Configuration Manager, os ficheiros de origem de instalação do cliente são copiados e automaticamente partilhados a partir de  *&lt;Caminhodainstalação\>* pasta \Client nos pontos de gestão. No entanto, pode copiar esses ficheiros e criar uma nova partilha em qualquer computador na rede. Em alternativa, pode eliminar este tráfego de rede executando o CCMSetup.exe localmente, por exemplo, utilizando um suporte de dados amovível.|--|445|  
-|Protocolo HTTP (Hypertext Transfer) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTP e não especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|80 (Ver nota 1, **Porta Alternativa Disponível**)|  
-|Secure Hypertext Transfer Protocol (HTTPS) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTPS e não especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|443 (Ver nota 1, **Porta Alternativa Disponível**)|  
-|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|445|  
+|Bloco de Mensagem de Servidor (SMB) entre o computador cliente e uma partilha de rede a partir da qual o CCMSetup.exe é executado.<br /><br /> Ao instalar o Configuration Manager, os ficheiros de origem de instalação de cliente são copiados e automaticamente partilhados a partir da  *&lt;Caminhodainstalação\>* pasta \Client nos pontos de gestão. No entanto, pode copiar esses ficheiros e criar uma nova partilha em qualquer computador na rede. Em alternativa, pode eliminar este tráfego de rede executando o CCMSetup.exe localmente, por exemplo, utilizando um suporte de dados amovível.|--|445|  
+|Protocolo HTTP (Hypertext Transfer) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTP e não especificar a propriedade da linha de comandos do CCMSetup **/Source:&lt;caminho\>**.|--|80 (Ver nota 1, **Porta Alternativa Disponível**)|  
+|Secure Hypertext Transfer Protocol (HTTPS) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTPS e não especificar a propriedade da linha de comandos do CCMSetup **/Source:&lt;caminho\>**.|--|443 (Ver nota 1, **Porta Alternativa Disponível**)|  
+|Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos do CCMSetup **/Source:&lt;caminho\>**.|--|445|  
 
 ### <a name="ports-that-are-used-with-software-distribution-based-installation"></a>Portas que são utilizadas com a instalação baseada em distribuição de software  
 
@@ -167,4 +167,4 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 
  Se a porta HTTP for 80, a porta HTTPS tem de ser 443.  
 
- Se a porta HTTP for qualquer outra, a porta HTTPS tem de ser 1 superior. Por exemplo, 8530 e 8531.
+ Se a porta HTTP for qualquer outra coisa, a porta HTTPS tem de ser 1 superior. Por exemplo, 8530 e 8531.
