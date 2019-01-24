@@ -10,12 +10,12 @@ ms.assetid: 4812324b-e6aa-4431-bf1d-9fcd763a8caa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 60d1c93acc2fcc2c04d09cd8f0ec0c083089a8ec
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: c79de3d0a681fbd69f987552bf0822b2a106cf36
+ms.sourcegitcommit: 2f7b963cc0545236c865b6a27f32975c7921011b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250600"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54751575"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -147,7 +147,8 @@ Para obter mais informações, consulte [configurar grupos de limites](/sccm/cor
 
 ### <a name="improvements-to-internet-based-client-setup"></a>Melhorias à configuração de clientes baseada na internet
 <!--1359181-->
-<!--move this under co-management?--> Esta versão ainda mais simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
+<!--move this under co-management?-->  
+Esta versão ainda mais simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
 
 <!--For more information, see [Prepare Windows 10 devices for co-management](https://docs.microsoft.com/en-us/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).-->
 
