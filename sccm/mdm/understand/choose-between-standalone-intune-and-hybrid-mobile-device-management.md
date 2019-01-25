@@ -1,7 +1,7 @@
 ---
-title: Escolha o Intune autónomo ou MDM híbrida
+title: Escolha o Intune autónomo
 titleSuffix: Configuration Manager
-description: Escolha se pretende implementar a gestão de dispositivos móveis híbrida com o Intune e Configuration Manager ou executar o Intune autónomo.
+description: Escolha o Intune autónomo
 ms.date: 08/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
@@ -10,75 +10,77 @@ ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex,nofollow
-ms.openlocfilehash: 153c1208cef8a940cc06412322e8112d53d17e58
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ROBOTS: NOINDEX
+ms.openlocfilehash: 32c28eef77976d83f881a17595fb5e9ec4bb08d4
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586282"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898295"
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mdm-with-configuration-manager"></a>Escolher entre o Microsoft Intune autónomo e a MDM híbrida com o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Uma das mais freqüentes perguntas sobre a gestão de dispositivos móveis (MDM) com o Microsoft Intune é "Deve posso integrar o Intune com o Configuration Manager (MDM híbrida) ou executar o Intune autónomo na configuração de apenas de nuvem?" 
 
-O Intune no Azure é a solução MDM recomendada da Microsoft.     
+A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbridos (MDM) é uma [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). O Intune no Azure é a solução MDM recomendada da Microsoft.  
+
+Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
 
 
-> [!Important]  
-> A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+<!--
+One of the most commonly asked questions regarding mobile device management (MDM) with Microsoft Intune is "Should I integrate Intune with Configuration Manager (hybrid MDM) or run Intune standalone in the cloud only configuration?" 
+
 
 
  
-## <a name="intune-standalone"></a>Intune autónomo
+## Intune standalone
 
-Intune autónomo é a topologia de implementação recomendada da Microsoft. Intune autónomo é uma solução MDM apenas na cloud que gere com uma consola web acedida em qualquer parte do mundo. Centros de dados do Intune estão alojados na América do Norte, Europa e Ásia. Como o Intune é um serviço em nuvem, pode implementar rapidamente a gestão do Intune para os seus dispositivos.
+Intune standalone is Microsoft’s recommended deployment topology. Intune standalone is a cloud-only MDM solution that you manage using a web console accessed from anywhere in the world. Intune data centers are hosted in North America, Europe, and Asia. Because Intune is a cloud service, you can quickly deploy Intune management to your devices.
 
-Os clientes geralmente encontrá-lo mais rápido e fácil de implementar a topologia de autónoma porque não existe nenhuma dependência de componentes no local. Intune autónomo é agora na plataforma de cloud do Microsoft Azure e fornece muitos recursos avançados, tais como:  
+Customers generally find it faster and easier to deploy the standalone topology because there's no dependency for on-premise components. Intune standalone is now on the Microsoft Azure cloud platform and provides many advanced features, such as:  
 
-- Plataforma de gestão de mobilidade empresarial integrado: Uma plataforma de cloud integrados e administrador de experiência no portal do Azure para o Intune, o Azure AD Premium e o Azure Information Protection  
+- Integrated enterprise mobility management platform: An integrated cloud platform and admin experience in Azure portal for Intune, Azure AD Premium, and Azure Information Protection  
 
-- Gestão de dispositivos móveis: Capacidades de proteção de informações e gestão avançada de dispositivos móveis  
+- Mobile device management: Rich mobile device management and information protection capabilities  
 
-- Dimensionamento: Implementar e gerir dispositivos móveis sem se preocupar em escala  
+- Scale: Deploy and manage mobile devices without worrying about scale  
 
-- Controlo de acesso baseado em funções: Restringir o acesso a funções administrativas com base em funções atribuídas e âmbitos  
+- Role-based access control: Restrict access to administrative functions based on assigned roles and scopes  
 
-- Acesso programático (API): Suporte do Microsoft Graph API e as opções de gestão do SDK e o PowerShell  
+- Programmatic access (API): Microsoft Graph API support, and SDK and PowerShell management options  
 
-- Consola Web: Uma consola baseada em HTML 5 normas da web com suporte para a maioria dos browsers modernos  
+- Web console: An HTML 5-based console built on web standards with support for most modern web browsers  
 
-- Relatórios avançados: Capacidade de criar relatórios personalizados  
+- Advanced reporting: Ability to create customized reports  
 
-- Agilidade: Configuração simples e entrega rápida de novos recursos  
+- Agility: Simple setup and rapid delivery of new capabilities  
 
 
 
-## <a name="hybrid-mdm-with-configuration-manager"></a>MDM híbrida com o Configuration Manager
+## Hybrid MDM with Configuration Manager
 
 > [!Important]  
-> A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).  
+> As of August 14, 2018, hybrid mobile device management is a [deprecated feature](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). For more information, see [What is hybrid MDM](/sccm/mdm/understand/hybrid-mobile-device-management).  
 
-MDM híbrido é uma solução que se integra capacidades de gestão de dispositivos móveis do Intune para o Configuration Manager. Ele utiliza o Intune como o canal de entrega de políticas, perfis e aplicações em dispositivos, mas utiliza a infraestrutura do Configuration Manager no local para administrar o conteúdo e gerir os dispositivos. Numa implementação híbrida proporciona controle "único painel de vidro". Isso significa que pode utilizar a mesma infraestrutura no local e o console de administração para gerir dispositivos móveis com o Intune, bem como PCs e servidores com o cliente do Configuration Manager tradicional. 
+Hybrid MDM is a solution that integrates Intune's mobile device management capabilities into Configuration Manager. It uses Intune as the delivery channel for policies, profiles, and applications to devices but uses Configuration Manager on-premises infrastructure to administer content and manage the devices. A hybrid implementation gives you "single pane of glass" control. This means you can use the same on-premises infrastructure and administrative console to manage mobile devices with Intune as well as PCs and servers with the traditional Configuration Manager client. 
 
-Pode escolher a MDM híbrida pelos seguintes motivos:  
+You may choose hybrid MDM for the following reasons:  
 
-- Quiser gerir ambos os dispositivos móveis inscritos no Intune e dispositivos geridos com o cliente do Configuration Manager no mesmo console administrativo  
+- You want to manage both mobile devices enrolled in Intune and devices managed with the Configuration Manager client from the same administrative console  
 
-- Sua infraestrutura exige que tenha de múltiplos servidores do NDES para disponibilização de certificado em dispositivos móveis  
+- Your infrastructure requires that you have multiple NDES servers for certificate delivery to mobile devices  
 
-- Sua infraestrutura exige que tenha vários conectores do Exchange  
+- Your infrastructure requires that you have multiple Exchange connectors  
 
-- Exigir o suporte de encriptação S/MIME
+- You require S/MIME encryption support
 
 > [!Note]  
-> Se configurar a MDM híbrida no Configuration Manager para o acesso condicional com o Exchange no local, os utilizadores ainda podem aceder a e-mail no Outlook para iOS e Android. Esta configuração mesmo com o e-mail de blocos do Intune autónomo para estes clientes.<!--Intune bug 2285890-->  
+> If you set up hybrid MDM in Configuration Manager for conditional access with on-premises Exchange, users can still access email in Outlook for iOS and Android. This same configuration with Intune standalone blocks email for these clients.<!--Intune bug 2285890-->  
 
 
 
-## <a name="change-the-mdm-authority"></a>Alterar a autoridade MDM
+#### <a name="change-the-mdm-authority"></a>Alterar a autoridade MDM
 
-Se precisar de alterar a definição de autoridade MDM, pode alterá-lo mesmo sem ter de contactar Support da Microsoft e sem ter de anular a inscrição e inscrever novamente os seus dispositivos geridos existentes. Para obter detalhes, consulte [alterar a sua autoridade MDM](/sccm/mdm/deploy-use/change-mdm-authority).
+Se precisar de alterar a definição de autoridade MDM, pode alterá-lo mesmo sem ter de contactar Support da Microsoft e sem ter de anular a inscrição e inscrever novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a sua autoridade MDM](/sccm/mdm/deploy-use/change-mdm-authority).
 
