@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1805
+title: Technical Preview 1805
 titleSuffix: Configuration Manager
 description: Saiba mais sobre novas funcionalidades disponíveis na versão do Configuration Manager Technical Preview 1805.
 ms.date: 05/21/2018
@@ -10,12 +10,13 @@ ms.assetid: 7996b3eb-5259-483b-af40-adae2943d123
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ebd51b397e37c69e8f6e8d1e154fc369347bd63a
-ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6108a6d90a18277275e50ba980a9d81099ba116a
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47229369"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898499"
 ---
 # <a name="capabilities-in-technical-preview-1805-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1805 para o System Center Configuration Manager
 
@@ -128,7 +129,7 @@ Monitorizar o progresso da implementação de serviço com **cloudmgr** no ponto
 As seguintes regras de informações de gestão têm ações nesta versão:
 - Segurança
     - Versões de cliente de antimalware não suportadas
-- Centro de software
+- Software Center
     - Utilizar a nova versão do Centro de Software
 - Aplicações
     - Aplicações sem implementações
