@@ -10,12 +10,13 @@ ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 24f1d08fedfc09a190739182d7858772745fb3fe
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: 027df6a9a4813e9086dad40ef523e06e3c00b821
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423376"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898072"
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview versão 1612 para o System Center Configuration Manager
 
@@ -36,7 +37,7 @@ Os dados de predefinição que são sincronizados incluem informações sobre:
 - Estado de funcionamento da infraestrutura
 - Segurança
 - Conformidade
-- Software maligno   
+- Malware   
 - Implementações de software
 - Detalhes de inventário (no entanto, o histórico de inventário não está sincronizado)
 
@@ -200,7 +201,7 @@ Os seguintes parâmetros de linha de comandos podem ser utilizados por qualquer 
 | **/dp &lt;FQDN do ponto de distribuição >**  | **Necessário** </br> Especifique o nome de domínio completamente qualificado (FQDN) do ponto de distribuição que pretende limpar. </br></br> Exemplo:  ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
 | **/PS &lt;site primário de FQDN >**       | **Opcional** quando limpar o conteúdo de um ponto de distribuição num site primário.</br>**Necessário** quando limpar o conteúdo de um ponto de distribuição num site secundário. </br></br> Especifique o FQDN do ponto de distribuição do site primário pertence para ou do principal primário principal, quando o ponto de distribuição estiver num site secundário. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
 | **/sc &lt;código do site primário >**  | **Opcional** quando limpar o conteúdo de um ponto de distribuição num site primário.</br>**Necessário** quando limpar o conteúdo de um ponto de distribuição num site secundário. </br></br> Especifique o código do site do site primário que pertence o ponto de distribuição ou de site primário principal, quando o ponto de distribuição estiver num site secundário.</br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
-| **/log <log file directory>**       |**Opcional** </br> Especifique um diretório para colocar os arquivos de log. Isso pode ser uma unidade local ou numa rede de partilhar.</br></br> Quando este comutador não for utilizado, ficheiros de registo são automaticamente colocados na pasta temp do utilizador.</br></br> Exemplo de unidade local: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemplo de compartilhamento de rede: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\ &lt;partilhar >\&lt; pasta >***|
+| **/log <log file directory>**       |**Opcional** </br> Especifique um diretório para colocar os arquivos de log. Isso pode ser uma unidade local ou numa rede de partilhar.</br></br> Quando este comutador não for utilizado, ficheiros de registo são automaticamente colocados na pasta temp do utilizador.</br></br> Exemplo de unidade local: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemplo de compartilhamento de rede: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\&lt;share>\&lt;folder>***|
 
 
 ## <a name="improvements-for-in-console-search"></a>Aprimoramentos de pesquisa na consola

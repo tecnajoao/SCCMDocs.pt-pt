@@ -10,12 +10,13 @@ ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a9fe9c0b2f779558161e7995a01863e6415838ee
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: de73fc7856b82a57566841fb337d8328785017d5
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897905"
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1706 do System Center Configuration Manager
 
@@ -134,7 +135,7 @@ Para obter detalhes de todas as definições do Windows 10, veja [como criar ite
 
   **Suportado no:**
   * Windows Phone 8+
-  * Windows 8.1 +
+  * Windows 8.1+
   * iOS 6+
   <br></br>
 * **Depuração de USB de bloco no dispositivo**. Não é necessário configurar esta definição, como a depuração USB já se encontra desativada em dispositivos Android para dispositivos de trabalho.

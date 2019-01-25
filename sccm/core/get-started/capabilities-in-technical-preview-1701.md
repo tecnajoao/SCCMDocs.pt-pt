@@ -10,12 +10,13 @@ ms.assetid: 18598eaa-1131-44ff-8f8b-6093e87ac7a1
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: b2a01d8ccc76315edbdf0e14085381463ec7ed7b
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: c56656cc5429518f81fd241e900dae9a314a54ec
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424522"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898176"
 ---
 # <a name="capabilities-in-technical-preview-1701-for-system-center-configuration-manager"></a>Capacidades na pré-visualização técnica 1701 para o System Center Configuration Manager
 
@@ -79,7 +80,7 @@ Que fizemos as seguintes melhorias para implementação do sistema operativo, mu
    - Predefinição de SMSTSDriverRequestResolveTimeOut: 60
    - Predefinição de SMSTSDriverRequestConnectTimeOut: 60
    - Predefinição de SMSTSDriverRequestSendTimeOut: 60
-   - Predefinição de SMSTSDriverRequestReceiveTimeOut: 480
+   - SMSTSDriverRequestReceiveTimeOut Default: 480
 - [**ID do pacote é apresentado no passos de sequência de tarefas**](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16167430-display-packageid-when-viewing-a-task-sequence-ste): Qualquer passo de sequência de tarefas que faça referência a um pacote, o pacote de controladores, a imagem do sistema operativo, a imagem de arranque ou o pacote de atualização do sistema operativo agora irá apresentar o ID do pacote do objeto referenciado. Quando um passo de sequência de tarefas faz referência um aplicativo apresentará o ID de objeto.
 - **Windows 10 ADK controlados por versão de compilação**: O Windows 10 ADK agora é controlado pela versão de compilação para garantir uma experiência mais suporte ao personalizar imagens de arranque do Windows 10. Por exemplo, se o site utiliza o Windows ADK para Windows 10, versão 1607, apenas as imagens de arranque com a versão 10.0.14393 podem ser personalizadas na consola do. Para obter detalhes sobre como personalizar as versões do WinPE, consulte [personalizar imagens de arranque](/sccm/osd/get-started/customize-boot-images).
 - **Já não pode ser alterado o caminho de origem de imagem de arranque predefinido**: Imagens de arranque predefinidas são geridas pelo Configuration Manager e o caminho de origem de imagem de arranque predefinido já não pode ser alterado na consola do Configuration Manager ou com o SDK do Configuration Manager. Pode continuar a configurar um caminho de origem de dados personalizada para imagens de arranque personalizadas.
@@ -110,12 +111,12 @@ Para fazer isso, modifique um ficheiro de configuração para apontar para a clo
 
    Altere o valor para o nome da definição *FairFaxArmResourceID* igual a "<https://management.usgovcloudapi.net/”>
 
-   - **Original:** &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "String" >   
+   - **Original:** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
      &lt;value>&lt;/value>   
      &lt;/setting>
 
    - **Editadas:**     
-     &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "String" > &lt;valor ><https://management.usgovcloudapi.net/&lt;/value>>  
+     &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value><https://management.usgovcloudapi.net/&lt;/value>>  
      &lt;/setting>
 
    Altere o valor para o nome da definição *FairFaxAuthorityResource* igual a "<https://login.microsoftonline.com/>"
@@ -124,7 +125,7 @@ Para fazer isso, modifique um ficheiro de configuração para apontar para a clo
      &lt;value>&lt;/value>
 
    - **Editado:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "String" >   
-     &lt;valor ><https://login.microsoftonline.com/&lt;/value>>
+     &lt;value><https://login.microsoftonline.com/&lt;/value>>
 
 2. Depois de guardar o ficheiro com as duas alterações, reiniciar a consola do Configuration Manager no mesmo computador e, em seguida, utilize essa consola para instalar o conector do OMS. Para instalar o conector, utilize as informações em [sincronizar dados do Configuration Manager para o Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite)e selecione o **área de trabalho do Operations Management Suite** isso estiver nos a cloud do Microsoft Azure Government.
 

@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1709
+title: Technical Preview 1709
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades disponíveis na versão 1709 do Technical Preview do System Center Configuration Manager.
 ms.date: 09/28/2017
@@ -10,12 +10,13 @@ ms.assetid: a3ef6bdc-a204-4c4c-a02f-2bd03f35183e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 79d7488e0554a36eb274bf4ef76cff92b48a71ba
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: a1c0654b191b298ca411b95ad13d5361ae4df579
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418446"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898108"
 ---
 # <a name="capabilities-in-technical-preview-1709-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1709 para o System Center Configuration Manager
 

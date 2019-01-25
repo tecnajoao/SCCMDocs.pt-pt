@@ -10,17 +10,16 @@ ms.assetid: 3cf0c2cd-397a-4622-b11c-961f334fb7d7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 280dd3da96b0c408f7c75fb7ef0a046ae0343765
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 923329091e24505832af359c4486ec8686903527
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421421"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897581"
 ---
 # <a name="manage-applicability-rules-in-updates-publisher"></a>Gerir regras de aplicabilidade em Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Aplica-se a: System Center Updates Publisher*
 
 Com o Updates Publisher, as regras de aplicabilidade definem requisitos que têm de ser cumpridos antes de um dispositivo pode instalar uma atualização. As regras também são usadas para determinar se o computador tem uma atualização instalada. Uma regra de aplicabilidade complexa com várias partes é referida para como uma regra de definir.
 

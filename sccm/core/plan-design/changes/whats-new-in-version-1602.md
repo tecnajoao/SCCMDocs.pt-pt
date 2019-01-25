@@ -10,13 +10,13 @@ ms.assetid: 4021eca1-adfb-4e5a-adee-159263c29637
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex,nofollow
-ms.openlocfilehash: c6d085fd33513a32207a3b9acfdfe6fe91657a88
-ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 86d36921939b611fa6647d4a0bf3af6d11f27ee7
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52259051"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897632"
 ---
 # <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1602 do System Center Configuration Manager
 

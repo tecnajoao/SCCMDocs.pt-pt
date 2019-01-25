@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1806.2
+title: Technical Preview 1806.2
 titleSuffix: Configuration Manager
 description: Saiba mais sobre novas funcionalidades disponíveis na versão do Configuration Manager Technical Preview 1806.2.
 ms.date: 06/27/2018
@@ -10,12 +10,13 @@ ms.assetid: 3af2a69d-30e7-4dce-832d-82b7a1c082f8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5183b30d9184f7119d1423b5773da2b692026ab7
-ms.sourcegitcommit: 64b343906afdd442189559119eea8e933642cbf8
+ROBOTS: NOINDEX
+ms.openlocfilehash: f052d4c4be1334214872ff91f16be1888850a118
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342819"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898516"
 ---
 # <a name="capabilities-in-technical-preview-18062-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1806.2 para o System Center Configuration Manager
 
@@ -204,7 +205,7 @@ Ao atualizar o site, o comportamento existente persiste. Uma vez que *abra* as p
 
 Depois de mudar esta carga de trabalho, todas as aplicações disponíveis implementadas a partir do Intune estão disponíveis no Portal da empresa. Aplicações que implementa a partir do Configuration Manager estão disponíveis no Centro de Software. 
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
 - [Cogestão para os dispositivos com Windows 10](/sccm/core/clients/manage/co-management-overview)  
 
@@ -262,7 +263,7 @@ Experimente concluir as tarefas. Em seguida, envie [comentários](capabilities-i
 
     - **URL de transferência**: Um endereço HTTPS válido do catálogo personalizado.  
 
-    - **Publicador**: O nome da organização que publica o catálogo.  
+    - **Publisher**: O nome da organização que publica o catálogo.  
 
     - **Nome**: O nome do catálogo, para apresentar na consola do Configuration Manager.  
 
@@ -299,7 +300,7 @@ A ação de eliminação no catálogos personalizados de está a cinzento, porta
 
 Esta versão inclui as seguintes melhorias:  
 
-- As seguintes funcionalidades agora suportam a utilização do Azure dos EUA Nuvem de governo:<!--511980-->  
+- As seguintes funcionalidades agora suportam a utilização do Azure dos EUA Government Cloud:<!--511980-->  
 
     - Integração do site para **gestão na Cloud** através de [dos serviços do Azure](/sccm/core/servers/deploy/configure/azure-services-wizard)  
 

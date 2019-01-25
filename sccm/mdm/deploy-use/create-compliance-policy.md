@@ -10,13 +10,12 @@ ms.assetid: 0fd76043-d7ee-423d-8c5f-aa7e9ed58ce0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex
-ms.openlocfilehash: 67cc82bdd114c9d525e5a9dacc1e5775d52150dd
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: b0179de8cc96f885236178c70b7e834672ee1d5b
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414927"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898584"
 ---
 # <a name="create-and-deploy-a-device-compliance-policy"></a>Criar e implementar uma política de conformidade do dispositivo
 
@@ -292,7 +291,7 @@ ms.locfileid: "53414927"
 
     **Suportado em**:  
     - Windows Phone 8+  
-    - Windows 8.1 +  
+    - Windows 8.1+  
     - iOS 6+  
 
 - **Depuração de USB de bloco no dispositivo**: Não tem de configurar esta definição, como a depuração USB já se encontra desativada em dispositivos Android para dispositivos de trabalho.  

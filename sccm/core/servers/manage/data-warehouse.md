@@ -10,12 +10,12 @@ ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0c04ee9a62b6c629060f79df2f4b104fe78ca794
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: a4d95495f2f200eaff39699c65cc391a2a81b009
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418990"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897564"
 ---
 #  <a name="the-data-warehouse-service-point-for-configuration-manager"></a>O ponto de serviço de armazém de dados para o Configuration Manager
 
@@ -33,7 +33,7 @@ Dados que são sincronizados incluem o seguinte dos grupos de dados globais e de
 - Estado de funcionamento da infraestrutura
 - Segurança
 - Conformidade
-- Software maligno   
+- Malware   
 - Implementações de software
 - Detalhes de inventário (no entanto, histórico de inventário não está sincronizado)
 
@@ -237,7 +237,7 @@ Utilize os seguintes passos para configurar certificados:
 
     2. Abra o **Gestor de Configuração do SQL Server**. Sob **configuração de rede do SQL Server**, botão direito do mouse para selecionar **propriedades** sob **protocolos para MSSQLSERVER**. Mude para o **certificado** separador, selecione **Data Warehouse SQL Server Identification Certificate** como o certificado e, em seguida, guarde as alterações.  
 
-    3. Na **Gestor de configuração do SQL Server**, em **dos serviços do SQL Server**, reinicie o **serviço do SQL Server** e **Reporting Service** serviços.  
+    3. Na **Gestor de configuração do SQL Server**, em **dos serviços do SQL Server**, reinicie o **serviço do SQL Server**. Se o SQL Reporting Services também está instalado no servidor que aloja a base de dados do armazém de dados, reinicie **Reporting Service** serviços também.  
 
     4. Abra a consola de gestão da Microsoft (MMC) e adicione a **certificados** snap-in. Selecione **conta de computador** da máquina local. Expanda a **pessoais** pasta e selecione **certificados**. Exportar os **Data Warehouse SQL Server Identification Certificate** como um **binário codificado DER X.509 (. CER)** ficheiro.  
 

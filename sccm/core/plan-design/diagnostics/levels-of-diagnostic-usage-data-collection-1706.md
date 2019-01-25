@@ -10,12 +10,13 @@ ms.assetid: 14ee4fb0-7790-45a6-906e-6e55627d4079
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8ed8aed38f20adb3558b61dd32a36f88fbac3b00
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ROBOTS: NOINDEX
+ms.openlocfilehash: a45f48ef16e0d204cfe347c3e024cd0b36403405
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893513"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898193"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1706-of-system-center-configuration-manager"></a>Níveis de diagnóstico de utilização de recolha de dados para a versão 1706 do System Center Configuration Manager
 

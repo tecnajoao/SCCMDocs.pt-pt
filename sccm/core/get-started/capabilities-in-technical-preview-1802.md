@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1802 | Documentos da Microsoft
+title: Technical Preview 1802 | Microsoft Docs
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades disponíveis na versão 1802 Technical Preview do System Center Configuration Manager.
 ms.date: 02/09/2018
@@ -10,12 +10,13 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a71fff51f39e6292489a28436dfd18a3755698dc
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ff02203efac1802db166fef4a1c5a65d1b72615
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417018"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898533"
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1802 para o System Center Configuration Manager
 

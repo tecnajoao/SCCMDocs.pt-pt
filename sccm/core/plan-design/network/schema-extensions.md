@@ -10,13 +10,12 @@ ms.assetid: 95c13c00-909f-4fbb-bbaa-1eba9d54d8c5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex
-ms.openlocfilehash: 3454b56e53901668c89062f0910f8ea318f22cf2
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: af7ddd4bd40fb60efa58fb78e20ee587aca9d4f5
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417664"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897649"
 ---
 # <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensões de esquema para o System Center Configuration Manager
 
@@ -96,42 +95,42 @@ Quando expande o esquema para o System Center Configuration Manager, as seguinte
 
 -   Atributos:  
 
-    -   CN = mS--atribuição--código do Site  
+    -   cn=mS-SMS-Assignment-Site-Code  
 
-    -   CN = SMS-mS-recursos  
+    -   cn=mS-SMS-Capabilities  
 
-    -   CN = MS--predefinido-MP do SMS  
+    -   cn=MS-SMS-Default-MP  
 
-    -   CN = mS-SMS---ponto de gestão dispositivos  
+    -   cn=mS-SMS-Device-Management-Point  
 
-    -   CN = mS--estado de funcionamento-estado do SMS  
+    -   cn=mS-SMS-Health-State  
 
-    -   CN = MS-SMS-MP-Address  
+    -   cn=MS-SMS-MP-Address  
 
     -   CN = MS-SMS-MP-Name  
 
-    -   CN = MS SMS-Ranged-IP-alto  
+    -   cn=MS-SMS-Ranged-IP-High  
 
     -   CN = MS-SMS-Ranged-IP-baixa  
 
-    -   CN = MS-SMS-Roaming-limites  
+    -   cn=MS-SMS-Roaming-Boundaries  
         em  
 
     -   CN = MS-SMS--limites do Site  
 
-    -   CN = MS---código do Site  
+    -   cn=MS-SMS-Site-Code  
 
-    -   CN = mS SMS-origem florestas  
+    -   cn=mS-SMS-Source-Forest  
 
-    -   CN = SMS-mS-Version  
+    -   cn=mS-SMS-Version  
 
 -   Classes:  
 
-    -   CN = MS---ponto de gestão SMS  
+    -   cn=MS-SMS-Management-Point  
 
-    -   CN = MS-SMS-Roaming-limite-Range  
+    -   cn=MS-SMS-Roaming-Boundary-Range  
 
-    -   CN = MS-SMS-Server--ponto de localização  
+    -   cn=MS-SMS-Server-Locator-Point  
 
     -   CN = MS-Site do SMS  
 

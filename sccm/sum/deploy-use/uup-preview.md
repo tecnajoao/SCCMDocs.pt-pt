@@ -10,13 +10,13 @@ ms.assetid: 0b0da585-0096-410b-8035-6b7a312f37f5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex,nofollow
-ms.openlocfilehash: 17a9abf2f20f53ba69ad160db421be51471cc311
-ms.sourcegitcommit: 27b2594087e8c54062db6b2a30ab843bab17f8cc
+ROBOTS: NOINDEX
+ms.openlocfilehash: a6f774882e28923848f118c8c3efd7684571234d
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54270465"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897819"
 ---
 # <a name="uup-private-preview-instructions"></a>Instruções de pré-visualização privada UUP
 

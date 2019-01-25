@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1706
+title: Technical Preview 1706
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades disponíveis na versão 1706 Technical Preview do System Center Configuration Manager.
 ms.date: 09/15/2017
@@ -10,12 +10,13 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 97d356ee4c9a763732b6e49ef6135a99dccf4c26
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29abb3b671e402eb29833a54bcf59eed1ff9fb2b
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416746"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898635"
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1706 para o System Center Configuration Manager
 
@@ -496,7 +497,7 @@ Para obter mais informações sobre as definições de compatibilidade, consulte
 
     **Suportado no:**
     * Windows Phone 8+
-    * Windows 8.1 +
+    * Windows 8.1+
     * iOS 6+
 <br></br>
 * **Depuração de USB de bloco no dispositivo**. Não é necessário configurar esta definição, como a depuração USB já se encontra desativada em dispositivos Android para dispositivos de trabalho.
@@ -549,7 +550,7 @@ Atualizámos as descrições de configuração para Android para trabalho itens 
 
 Nenhuma destas opções diretamente impedir comportamento copiar / colar. Adicionámos uma definição personalizada para o serviço e a aplicação Portal da empresa na versão 1704 que pode ser configurado para impedir que copiar-colar. Isto pode ser definido por meio de URI personalizada.
 
--   OMA-URI: ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
+-   OMA-URI:  ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
 -   Tipo de valor: Booleano
 
 Configuração DisallowCrossProfileCopyPaste como true impede que o comportamento de copiar / colar entre o Android for Work pessoa e perfis de trabalho.

@@ -1,7 +1,7 @@
 ---
-title: Instalar o publicador de atualizações
+title: Instalar o Updates Publisher
 titleSuffix: Configuration Manager
-description: Instalar o System Center Updates Publisher no seu ambiente
+description: Instale o System Center Updates Publisher em seu ambiente
 ms.date: 07/03/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
@@ -10,60 +10,59 @@ ms.assetid: ab5cda93-b67c-4aa5-904d-7b63ce790aa0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: f74d7925528e48c691ce7ca61b6dc0b5136f1df7
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: f97decbe40293ee45cdc75c3fb36f4c57662ac06
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32349481"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54896782"
 ---
-# <a name="install-updates-publisher"></a>Instalar o publicador de atualizações
+# <a name="install-updates-publisher"></a>Instalar o Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Aplica-se a: System Center Updates Publisher*
 
-As informações neste tópico podem ajudar a obter, instalar e configurar o Updates Publisher para utilização com o seu ambiente.
+As informações neste tópico podem ajudá-lo a obter, instalar e configurar o Updates Publisher para utilização com o seu ambiente.
 
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
-As secções seguintes requisitos para instalar e utilizar o Updates Publisher e limitações ou problemas conhecidos para a sua utilização de detalhe.
+As secções seguintes detalham os requisitos para instalar e utilizar o Updates Publisher e limitações ou problemas conhecidos para a sua utilização.
 
 ### <a name="operating-systems"></a>Sistemas operativos
-Instalar e executar o Updates Publisher um edições de 64 bits dos sistemas operativos seguintes. Existem não requisitos de pacote de serviço ou atualização cumulativa mínima.
+Instalar e executar o Updates Publisher num edições de 64 bits dos sistemas operativos seguintes. Não há nenhuma atualização cumulativa mínima ou requisitos de pacote de serviço.
 
 -   Windows Server 2016 (Standard, Datacenter)
 -   Windows Server 2012 R2 (Standard, Datacenter)
--   Windows 10 (Pro, Education, educação Pro, Enterprise)
+-   Windows 10 (Pro, Education, Pro Education, Enterprise)
 -   Windows 8.1 (Professional, Enterprise)
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Os seguintes são necessárias no computador que executa o Updates Publisher.
+A seguir é necessárias no computador que executa o Updates Publisher.
 
 -   **sistema operativo de 64 bits**: O computador onde instalou o Updates Publisher tem de executar um sistema operativo de 64 bits.
 -   **WSUS 4.0 ou posterior**:
     -   No Windows Server, instale a consola de administração para cumprir este requisito de predefinição.
-    -   Para Windows 10 e Windows 8.1, instale o [remoto servidor ferramentas de administração (FARS) para sistemas operativos Windows](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems). Esta ação instala o suporte necessário para utilizar o Updates Publisher (*cmdlets API e PowerShell*, e *consola de gestão de Interface de utilizador*).
+    -   Para Windows 10 e Windows 8.1, instalar o [remoto administração ferramentas servidor (FARS) para sistemas de operativos Windows](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems). Esta ação instala o suporte necessário para utilizar o Updates Publisher (*cmdlets do PowerShell e API*, e *Console de gerenciamento de Interface do usuário*).
 -   **Permissões**:
     -   Instalação: Administrador local
     -   A maioria das operações: utilizador local
-    -   A publicação ou operações que envolvem o WSUS: Membro do grupo de administradores do WSUS no servidor WSUS.
+    -   A publicação ou operações que envolvem o WSUS: Membro do grupo de administradores WSUS no servidor WSUS.
 
 ### <a name="supported-languages"></a>Idiomas suportados
-Publicador de atualizações está disponível apenas em inglês, mas pode gerir as atualizações para outros idiomas. O suporte de idioma depende da tarefa, tal como a publicação, criar ou editar as atualizações.
+Publicador de atualizações está disponível apenas em inglês, mas pode gerir atualizações para outros idiomas. O suporte ao idioma depende da tarefa, como publicação, criar ou editar as atualizações.
 
-Quando exportar ou publicação de atualizações, o Updates Publisher apresenta o título e a descrição da atualização de software com base na região do computador onde está instalado o Updates Publisher.
+Quando exportar ou a publicação de atualizações, o Updates Publisher exibe o título e descrição da atualização de software com base na localidade do computador onde está instalado o Updates Publisher.
 
-Por exemplo, crie uma atualização de software que tenha um título inglês e espanhol.
+Por exemplo, criar uma atualização de software que tem um título de inglês e espanhol.
 
--   Se criar a atualização num computador cujo região é o inglês, por predefinição, verá o título e a descrição em inglês.
--   Se exportar ou publicar que a atualização para um computador cujo região é espanhol, nesse computador verá o título e descrição espanhol.
+-   Se criar a atualização num computador cujas localidades é o inglês, por padrão, veria o título e a descrição em inglês.
+-   Se, em seguida, exportar ou publicar essa atualização para um computador cujas localidades é o espanhol, nesse computador veria o título e a descrição em espanhol.
 
-### <a name="publishing"></a>Publicar
-Quando publicar as atualizações de software, pode especificar o idioma do ficheiro binário de atualização de software. Também pode especificar que o binário é independente de idioma. São suportados os seguintes idiomas:
+### <a name="publishing"></a>Publicação
+Quando publica atualizações de software, pode especificar o idioma do ficheiro de binários de atualização de software. Também pode especificar que o binário é o idioma neutro. São suportados os seguintes idiomas:
 
 -   Árabe
 -   Chinês (RAE de Hong Kong)
--   Chinês (tradicional)
+-   Chinês (Tradicional)
 -   Chinês (Simplificado)
 -   Checo
 -   Dinamarquês
@@ -87,10 +86,10 @@ Quando publicar as atualizações de software, pode especificar o idioma do fich
 -   Sueco
 -   Turco
 
-### <a name="software-update-titles-and-descriptions"></a>Títulos de atualização de software e descrições
-Os seguintes idiomas são suportados para títulos de atualização de software e descrições.
+### <a name="software-update-titles-and-descriptions"></a>Títulos de atualização de software e as descrições
+Os seguintes idiomas são suportados para títulos de atualização de software e as descrições.
 
--   Chinês (tradicional)
+-   Chinês (Tradicional)
 -   Chinês (Simplificado)
 -   Inglês
 -   Francês
@@ -104,17 +103,17 @@ Os seguintes idiomas são suportados para títulos de atualização de software 
 
 
 
-## <a name="install-updates-publisher"></a>Instalar o publicador de atualizações
-Obter o **UpdatesPubliser.msi** para instalar a partir do System Center Updates Publisher o [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55543).
+## <a name="install-updates-publisher"></a>Instalar o Updates Publisher
+Obter o **UpdatesPubliser.msi** para instalar a partir do System Center Updates Publisher a [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55543).
 
-Para instalar o Updates Publisher, execute **UpdatesPublisher.msi** num computador que cumpra o *pré-requisitos*. O instalador cria a seguinte pasta que contém os ficheiros necessários para executar o Updates Publisher:  *&lt;caminho&gt;\Program Files\Microsoft\UpdatesPublisher*.
+Para instalar o Updates Publisher, execute **UpdatesPublisher.msi** num computador que cumpra os *pré-requisitos*. O instalador cria a pasta seguinte para incluir os ficheiros necessários para executar o Updates Publisher:  *&lt;caminho&gt;\Program Files\Microsoft\UpdatesPublisher*.
 
-Porque esta pasta contém todos os ficheiros necessários para utilizar o Updates Publisher, pode copiar a pasta e respetivo conteúdo para uma localização nova ou o computador e, em seguida, utilizar o Updates Publisher a partir dessa localização. No entanto, a nova localização ou o computador tem de cumprir os pré-requisitos para executar o Updates Publisher.
+Uma vez que esta pasta contém todos os ficheiros necessários para utilizar o Updates Publisher, pode copiar a pasta e o respetivo conteúdo para uma localização nova ou computador e, em seguida, utilizar o Updates Publisher a partir dessa localização. No entanto, a nova localização ou o computador tem de cumprir os pré-requisitos para executar o Updates Publisher.
 
-Depois de concluída a instalação, execute **UpdatesPublisher.exe** do *UpdatesPublisher* pasta para iniciar o Updates Publisher.
+Depois de concluída a instalação, execute **UpdatesPublisher.exe** partir do *UpdatesPublisher* pasta para iniciar o Updates Publisher.
 
 ## <a name="next-steps"></a>Passos seguintes
- Depois de instalar o Updates Publisher, recomendamos que [configurar as opções](updates-publisher-options.md) para o Updates Publisher. Tem de configurar algumas opções antes de poder utilizar algumas funcionalidades do Updates Publisher.
+ Depois de instalar o Updates Publisher, recomendamos que [configurar as opções](updates-publisher-options.md) para o Updates Publisher. Tem de configurar algumas opções antes de poder utilizar alguns recursos do Updates Publisher.
 
- No entanto, se pretender utilizar as predefinições e não planear implementar atualizações para um servidor de atualização ou para dispositivos geridos, pode avançar diretamente para [gerir catálogos de atualização de software](updates-publisher-catalogs.md), ou [criar atualizações de software](create-updates-with-updates-publisher.md) e criar catálogos de atualização do seu próprio.
+ No entanto, se deseja usar os padrões e não planear implementar as atualizações para um servidor de atualização ou para dispositivos geridos, pode avançar diretamente para [gerenciamento de catálogos de atualizações de software](updates-publisher-catalogs.md), ou [criar atualizações de software](create-updates-with-updates-publisher.md) e Crie catálogos de atualizações de seus próprios.
 

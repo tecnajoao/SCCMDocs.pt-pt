@@ -10,16 +10,18 @@ ms.topic: overview
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 8cbb3bb29cda8c99cda58954e4df3c1196d5bc1c
-ms.sourcegitcommit: d5c013a29f53b975fe3a6cb0a41f1e817bd7b235
+ms.openlocfilehash: f416b783bdec8f87a981ed16b08fb06234a25164
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54342887"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54896580"
 ---
 # <a name="what-is-co-management"></a>O que é a cogestão?
 
-<!-- 1350871 --> A cogestão permite-lhe ao mesmo tempo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune. Ele permite que anexe na cloud de seu investimento existente no Configuration Manager ao adicionar novas funcionalidades. Usando a cogestão, tem a flexibilidade para utilizar a solução de tecnologia que funciona melhor para a sua organização. 
+<!-- 1350871 --> A cogestão é uma das formas de ligar a sua implementação do Configuration Manager existente para a cloud do Microsoft 365 primárias. Ele ajuda a desbloquear funcionalidades adicionais com tecnologia de cloud, como o acesso condicional. 
+
+A cogestão permite-lhe ao mesmo tempo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune. Ele permite que anexe na cloud de seu investimento existente no Configuration Manager ao adicionar novas funcionalidades. Usando a cogestão, tem a flexibilidade para utilizar a solução de tecnologia que funciona melhor para a sua organização. 
 
 Quando um dispositivo Windows 10 tem o cliente do Configuration Manager e é inscrito no Intune, obtém os benefícios de ambos os serviços. Pode controlar quais cargas de trabalho, se houver, que mudar a autoridade do Configuration Manager para o Intune. O Configuration Manager continua a gerir todas as outras cargas de trabalho, incluindo essas cargas de trabalho que não mude para o Intune e não oferece suporte a todos os outros recursos do Configuration Manager que cogestão.
 

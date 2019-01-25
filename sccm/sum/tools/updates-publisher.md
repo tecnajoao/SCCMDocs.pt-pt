@@ -10,54 +10,53 @@ ms.assetid: 2200b02b-e76b-4aa7-a77a-6dc5e70f1333
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3a9c7758e394118041700192a393aff98f0d9087
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 2047874bb44c89e510abd52a387277e749cf65db
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32347336"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54896452"
 ---
-# <a name="system-center-updates-publisher"></a>O System Center Updates Publisher
+# <a name="system-center-updates-publisher"></a>System Center Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Aplica-se a: System Center Updates Publisher*
 
-System Center Updates Publisher (Updates Publisher) é uma ferramenta autónoma que permite que os fabricantes independentes de software ou programadores de aplicações de linha de negócio gerir as atualizações personalizadas. Isto inclui atualizações que têm dependências, como controladores e pacotes de atualização.
+System Center Updates Publisher (Editor de atualizações) é uma ferramenta autónoma que permite que fornecedores independentes de software ou desenvolvedores de aplicativos de linha de negócio gerir as atualizações personalizadas. Isto inclui atualizações que têm dependências, como drivers e pacotes de atualizações.
 
 Utilizar o Updates Publisher, pode:
 
--   Importar as atualizações de catálogos externos (catálogos de atualização de terceiros).
+-   Importar as atualizações de catálogos externos (catálogos de atualizações de terceiros).
 -   Modificar definições de atualização, incluindo a aplicabilidade e metadados de implementação.
 -   Exporte as atualizações para catálogos externos.
--   Publica atualizações para um servidor de atualização.
+-   Publicar atualizações para um servidor de atualização.
 
-Depois de publicar as atualizações para um servidor de atualização, em seguida, pode utilizar o System Center Configuration Manager para detetar e implementar essas atualizações nos seus dispositivos geridos.
+Depois de publicar as atualizações para um servidor de atualização, em seguida, pode utilizar o System Center Configuration Manager para detetar e implementá-las nos dispositivos geridos.
 
 > [!TIP]  
-> A versão anterior, [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111), permanece no suporte. Esta versão atualizada mantém a mesma funcionalidade, mas suporta sistemas operativos adicionais, novas funcionalidades para simplificar algumas tarefas e tem uma interface de utilizador atualizado.
+> A versão anterior, [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111), permanece em suporte. Essa versão atualizada mantém a mesma funcionalidade, mas oferece suporte a sistemas operativos adicionais, novos recursos para simplificar algumas tarefas e tem uma interface do usuário atualizada.
 
 ## <a name="workspaces"></a>Áreas de trabalho
-Quando abrir o Updates Publisher, assume como nó de descrição geral do *área de trabalho de atualizações.*
+Quando abre o Updates Publisher, é assumida como predefinição para o nó de descrição geral da *área de trabalho de atualizações.*
 
-![Consola do publicador de atualizações](media/console1.png)   
-
-
-Publicador de atualizações tem quatro áreas de trabalho para ajudar a organizá-lo.
+![Consola do Editor de atualizações](media/console1.png)   
 
 
-**Área de trabalho de atualizações:** Utilize esta área de trabalho para [criar](/sccm/sum/tools/create-updates-with-updates-publisher) e [gerir](/sccm/sum/tools/manage-updates-with-updates-publisher) atualizações de software e os pacotes de atualizações. Isto inclui a atribuição de atualizações e os pacotes para uma publicação, publicar e exportar para o repositório do Updates Publisher outro a pedido.
-
-**Área de trabalho publicações:** Este é onde pode [gerir publicações](/sccm/sum/tools/updates-publisher-publications). Uma publicação é o grupo de atualizações cria para simplificar a exportação e a publicação de atualizações.
-
-Gerir publicações inclui a publicação de atualizações para um servidor para que os seus clientes podem encontrar e instalá-los, exportar as atualizações e os pacotes para utilização por outras instalações do Updates Publisher ou modificar o conteúdo ou detalhes de uma publicação.
+Updates Publisher tem quatro áreas de trabalho para ajudar a organizá-lo.
 
 
+**Área de trabalho de atualizações:** Utilize esta área de trabalho para [crie](/sccm/sum/tools/create-updates-with-updates-publisher) e [gerir](/sccm/sum/tools/manage-updates-with-updates-publisher) atualizações de software e os pacotes de atualizações. Isto inclui a atribuição de atualizações e agrupa para uma publicação, publicação e exportar para o outro repositório do Updates Publisher.
 
-**Área de trabalho de regras:** Segue-se onde [gerir as regras de aplicabilidade](/sccm/sum/tools/updates-publisher-applicability-rules) que pode ser guardado e, em seguida, utilizado com as atualizações que implementar. Existem dois tipos de regras:
+**Área de trabalho de publicações:** É aqui que [gerir publicações](/sccm/sum/tools/updates-publisher-publications). Uma publicação é o grupo de atualizações que criar para simplificar a exportação e a publicação de atualizações.
 
--   As regras de instaláveis – estas regras ajudar a determinar se um cliente deve instalar uma atualização.
--   Instalado regras – estas regras, verifique se uma atualização já está instalada.
+Gerir publicações inclui a publicação de atualizações para um servidor para que os clientes podem encontrar e instalá-los, exportar as atualizações e pacotes para utilização por outras instalações do Updates Publisher ou ao modificar o conteúdo do ou detalhes de uma publicação.
 
-**Área de trabalho de catálogos:** Utilize esta área de trabalho para adicionar e [gerir catálogos de atualização de software](/sccm/sum/tools/updates-publisher-catalogs). Isto inclui a importação de atualizações de software desses catálogos para o repositório do Updates Publisher.
-## <a name="first-steps"></a>Passos primeiro
-Para começar a utilizar, primeiro [instalar](/sccm/sum/tools/install-updates-publisher)e, em seguida, [configurar opções](/sccm/sum/tools/updates-publisher-options) para o Updates Publisher.
+
+
+**Área de trabalho de regras:** É aqui que [gerir regras de aplicabilidade](/sccm/sum/tools/updates-publisher-applicability-rules) que pode ser salvo e, em seguida, utilizado com as atualizações que implementar. Existem dois tipos de regras:
+
+-   Regras de instaláveis – estas regras ajudam a determinar se um cliente deve instalar uma atualização.
+-   Instalado regras – estas regras verificar se uma atualização já está instalada.
+
+**Área de trabalho de catálogos:** Utilize esta área de trabalho para adicionar e [gerir catálogos de atualizações de software](/sccm/sum/tools/updates-publisher-catalogs). Isto inclui a importação de atualizações de software desses catálogos para o repositório do Updates Publisher.
+## <a name="first-steps"></a>Primeiras etapas
+Para começar, primeiro [instale](/sccm/sum/tools/install-updates-publisher)e, em seguida [configurar opções](/sccm/sum/tools/updates-publisher-options) para o Updates Publisher.

@@ -10,12 +10,13 @@ ms.assetid: 8b31fd3e-875a-4a31-9498-5b050aadce32
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d0d1e646795bb778e185d49f5de0796f486d2a08
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: 101761c15d879bd3e1414830af5677baf698aa4c
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419568"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898091"
 ---
 # <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview versão 1610 para o System Center Configuration Manager
 

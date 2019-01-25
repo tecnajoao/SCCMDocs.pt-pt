@@ -10,12 +10,12 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 610dfb7391347663fd92c0839d20eb7a4a703438
-ms.sourcegitcommit: c80abe7e4b7b2f80e957e45ff205f67d1b715688
+ms.openlocfilehash: 1ec1155ec578e0eab957baa991628ed18eef6c62
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54226228"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898652"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -592,24 +592,24 @@ Depois de Dezembro, os utilizadores finais com dispositivos que não aqueles lis
 Para obter mais informações, consulte [inscrever o seu dispositivo macOS no Intune com a aplicação Portal da empresa](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-macos-cp).
 
 
-### <a name="plan-for-change-new-intune-support-experience-for-premier-customers"></a>Planear a alteração: Experimente o novo suporte do Intune para Premier clientes 
+### <a name="intune-support-experience-for-premier-customers-now-in-azure-instead-of-mpo"></a>Experiência de suporte do Intune para o Premier os clientes agora no Azure em vez do MPO  
 <!--2828727-->
 
-atualização de 12/4/2018: Estamos tentando tornar esse processo melhor para. Não possível desativar a criação do pedido de suporte no MPO 3 de Dezembro. Vamos informá-sei através do Centro de mensagens e atualizar esta publicação em breve para partilhar as linhas do tempo para que esta alteração.
-
-Como um cliente Premier da Microsoft, pode utilizar o [portal do Microsoft Premier Online (MPO)](https://premier.microsoft.com) e [Intune no Azure](https://portal.azure.com) para criar pedidos de suporte do Intune. A partir de 3 de Dezembro de 2018, para continuar a melhorar o Premier experiência de suporte, será capaz de criar pedidos de suporte apenas no Intune no Azure.
+Partilhámos na MC147649 em Setembro, que deverá ser removido a capacidade de criar pedidos de suporte do Intune do portal do Microsoft Premier Online (MPO) (premier.microsoft.com) em Dezembro. Agora, após um ligeiro atraso, no final de Janeiro, será redirecionado para criar pedidos de suporte apenas no Intune no Azure.
 
 #### <a name="how-does-this-affect-me"></a>Como é que isto me afeta?
-Depois de 3 de Dezembro, não é possível criar pedidos de suporte no MPO. Se tentar, verá uma linha de comandos que não é possível dispensar a redirecioná-lo para o Intune no Azure. Quando cria um pedido de suporte no portal do Azure, é encaminhado para a Support da Microsoft dedicado do Intune. Eles diagnosticar e resolver o problema em tempo hábil. Se criar um pedido de suporte no portal do MPO, não é possível vê-lo no portal do Azure. Comece a criar apenas pedidos de suporte no Intune no Azure.  
+Após o fim de Janeiro, para continuar a melhorar o Premier dar suporte a experiência, não será possível criar pedidos de suporte no MPO. Quando tentar fazer esta ação, verá uma linha de comandos que não é possível dispensar a redirecioná-lo para o Intune no Azure. Aqui, pode criar um pedido de suporte, o que é encaminhado para o Intune dedicados Support da Microsoft. Esses suporte engenheiros irão diagnosticar e resolver o problema em tempo hábil. Não pode ver os pedidos de suporte no portal do Azure que criou no portal do MPO.
 
-Se utilizar a gestão de dispositivos móveis híbridos (MDM híbrida) ou cogestão, continue a utilizar o MPO para criar pedidos de suporte para o Configuration Manager, mas utilizar o portal do Azure para criar pedidos de suporte para o Intune. Como lembrete, MDM híbrida foi preterida e deve planear mover para o Intune no Azure logo que possível. Para obter mais informações, consulte [mover da gestão de dispositivos móveis híbrida para o Intune no Azure](https://aka.ms/hybrid_notification).
+O portal do Azure tem uma nova experiência de suporte, como, anunciámos recentemente no MC171941. Para obter mais informações, consulte [como obter suporte para o Microsoft Intune](https://aka.ms/new_support_experience).
 
-Tenha em atenção que apenas os utilizadores com funções de Administrador Global, administrador de serviço do Intune e o administrador de suporte do serviço podem criar pedidos de suporte no portal do Azure.
+Se utilizar o MDM híbrido ou cogestão, continue a utilizar o MPO para criar pedidos de suporte para o Configuration Manager. Utilize o portal do Azure para criar pedidos de suporte do Intune. Como lembrete, MDM híbrida foi preterida e deve planear mover para o Intune no Azure logo que possível. Para obter mais informações, consulte [mover da gestão de dispositivos móveis híbrida para o Intune no Azure](https://aka.ms/hybrid_notification).
+
+Apenas os utilizadores com funções de Administrador Global, administrador de serviço do Intune e o administrador de suporte do serviço podem criar pedidos de suporte no portal do Azure.
 
 #### <a name="what-can-i-do-to-prepare-for-this-change"></a>O que posso fazer para se preparar para esta alteração?
 - Pare de utilizar o MPO para pedidos de suporte relacionados com o Intune. Utilize o Intune no Azure para criar e gerir todos os pedidos de suporte do Intune.  
 - Notificar a sua documentação de suporte técnico e de atualização, se necessário.  
-- Se tiver utilizadores sem Administrador Global ou funções de administrador de serviço do Intune atualmente a criar pedidos de suporte no MPO, atribuí-las a função de administrador de suporte de serviços no Azure Active Directory. Os usuários exigem uma destas funções para criar pedidos de suporte no portal do Azure.  
+- Se tiver usuários sem as funções de Administrador Global ou administrador de serviço do Intune atualmente a criar pedidos de suporte no MPO, atribuí-las a função de administrador de suporte de serviços no Azure Active Directory. Os usuários exigem uma destas funções para criar pedidos de suporte no portal do Azure.  
 
 #### <a name="additional-information"></a>Informações Adicionais
 Para obter mais informações, consulte a [postagem do blog de equipe do Microsoft Intune suporte](https://aka.ms/IntuneSupport_MPO_to_Azure).

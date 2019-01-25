@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização técnica 1705
+title: Technical Preview 1705
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades disponíveis na versão 1705 Technical Preview do System Center Configuration Manager.
 ms.date: 06/02/2017
@@ -10,12 +10,13 @@ ms.assetid: 00684289-d21a-45f8-b1e3-c5c787d73096
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a9a5aeb35137a74152333a78e95781fb727eecdf
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ROBOTS: NOINDEX
+ms.openlocfilehash: cf42e357abf40593484867186c9f3753df6bb94a
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421608"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54897955"
 ---
 # <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1705 para o System Center Configuration Manager
 
@@ -91,9 +92,9 @@ Depois da ferramenta é executada:
 |                       **-FDELETE**                       |                      *Opcional* <br> Utilize esta opção para forçar a eliminação de um pacote de atualização transferido com êxito.                      |
 
  **Exemplos:**  
- Num cenário típico, que pretende repor uma atualização que tem problemas de transferência. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ Num cenário típico, que pretende repor uma atualização que tem problemas de transferência. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Num cenário mais extremo, pretender forçar a eliminação do pacote de atualização problemático. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe - FDELETE -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ Num cenário mais extremo, pretender forçar a eliminação do pacote de atualização problemático. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
 ### <a name="test-the-tool-with-the-technical-preview"></a>Testar a ferramenta com o Technical Preview  
 Pode utilizar esta ferramenta com versões de pré-visualização técnica 1606 ou posteriores. Isso para trás o suporte é fornecido para que a ferramenta pode ser utilizada com um grande número de cenários de atualização de pré-visualização técnica, sem ter de esperar até que a próxima versão de pré-visualização técnica está disponível.
@@ -232,7 +233,7 @@ Isso se conecta seu site do Configuration Manager para o Azure AD e é um pré-r
 4. Sobre o **gerais** página do assistente, especifique um nome e uma descrição para o seu serviço do Azure.
 5. Sobre o **App** página do assistente, selecione o seu ambiente do Azure na lista, em seguida, clique em **procurar** para selecionar as aplicações de servidor e cliente que serão utilizadas para configurar o serviço do Azure:
    - Na **aplicação de servidor** janela, selecione a aplicação de servidor que pretende utilizar e clique em **OK**. As aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponíveis, utilize um dos seguintes:
-       - **criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e o inquilino. Em seguida, depois que iniciar sessão para o Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode visualizá-las no portal do Azure.
+       - **Criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e o inquilino. Em seguida, depois que iniciar sessão para o Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode visualizá-las no portal do Azure.
        - **Importar**: Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e o inquilino e, em seguida, especifique o ID de inquilino, ID de cliente e a chave secreta da aplicação web do Azure que pretende que o Configuration Manager para utilizar. Depois de verificar as informações, clique em **OK** para continuar. Este opton não está atualmente disponível neste technical Preview.
    - Repita o mesmo processo para a aplicação de cliente.
 
@@ -251,7 +252,7 @@ Em seguida, utilize as instruções em [como implementar clientes em computadore
 
 **ccmsetup.exe /NoCrlCheck /Source:C:\CLIENT CCMHOSTNAME=SCCMPROXYCONTOSO.CLOUDAPP.NET/CCM_Proxy_ServerAuth/72457598037527932 SMSSiteCode = HEC AADTENANTID = 780433B5-E05E-4B7D-BFD1-E8013911E543 AADTENANTNAME = contoso AADCLIENTAPPID =<GUID> AADRESOURCEURI =<https://contososerver>**
 
-- **/ NoCrlCheck**: Se a gestão de ponto ou na cloud gateway de gestão utiliza um certificado de servidor não pública, em seguida, o cliente poderá não ser capaz de alcançar a localização da CRL.
+- **/NoCrlCheck**: Se a gestão de ponto ou na cloud gateway de gestão utiliza um certificado de servidor não pública, em seguida, o cliente poderá não ser capaz de alcançar a localização da CRL.
 - **/ Origem**: Pasta local:   Localização dos ficheiros de instalação de cliente.
 - **CCMHOSTNAME**: O nome do seu ponto de gestão de Internet. Pode encontrá-lo, executando **gwmi – namespace root\ccm\locationservices-classe SMS_ActiveMPCandidate** num prompt de comando num cliente gerenciado.
 - **SMSMP**: O nome do seu ponto de gestão de pesquisa – isso pode ser na sua intranet.

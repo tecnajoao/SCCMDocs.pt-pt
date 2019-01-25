@@ -10,17 +10,16 @@ ms.assetid: 887f8029-1a3a-423c-a9c1-31dc0d693386
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 03c325f2bd6aa6ea6c39d7994a78b900653e62a1
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 3bc66350205ac09a09ca5543adf022b00e2b027f
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415447"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54896681"
 ---
 # <a name="manage-software-update-catalogs-in-updates-publisher"></a>Gerir catálogos de atualizações de software Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Aplica-se a: System Center Updates Publisher*
 
 Utilize o **catálogos** **área de trabalho** para gerir catálogos de atualizações de software. Isto inclui a adição de catálogos de novo, gestão de subscrições existentes do catálogo e importar informações sobre as atualizações a partir de um catálogo para o repositório do Updates Publisher.
 

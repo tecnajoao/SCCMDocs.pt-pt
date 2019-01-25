@@ -10,17 +10,16 @@ ms.assetid: 46a1a8ac-126c-4ee6-ae09-32dfbdb83368
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 8fb06e43139538d8f5599ce3696b99fbf14cb5a3
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 4f98e06bac3f396ab9dad29c95861cd225c1d6ec
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423842"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898414"
 ---
 # <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar atualizações de software e pacotes de atualizações com o Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Aplica-se a: System Center Updates Publisher*
 
 Com o Updates Publisher pode utilizar o **criar atualizar** Assistente para criar suas próprias atualizações e o **criar pacote** Assistente para criar pacotes de atualizações.
 
@@ -77,7 +76,7 @@ Como esses dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
    - **Ferramenta**: Especifica uma ferramenta ou funcionalidade que ajuda a concluir tarefas de um ou mais.
 
-     -   **Controlador**: Uma atualização de software de driver.
+     -   **Driver**: Uma atualização de software de driver.
 
    **Fornecedor:** Especifique um fornecedor para a atualização. Pode utilizar a lista suspensa para utilizar os valores de atualizações que estão no repositório. Quando especificar um fornecedor, o assistente cria uma pasta com esse nome de fornecedor sob **todas as atualizações de Software** no **área de trabalho atualizações** se nessa pasta ainda não existir. Seguem-se os nomes do Windows Server Update Services (WSUS) reservado que não não possível inserir a existência de atualizações que cria:
    >*   Microsoft Corporation
@@ -108,7 +107,7 @@ Como esses dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
    -   **ID do artigo**: Se estiver disponível um artigo de atualização de software, o ID do artigo podem ser úteis para pessoas que procuram informações adicionais sobre a atualização.
 
-   -   **IDs CVE:** Liste um ou mais vulnerabilidades mais comuns e os identificadores de exposições CVE () que fornecem informações de segurança sobre a atualização ou atualizar o pacote. Quando lista mais do que um, utilize um ponto e vírgula para separar as relacionadas, tal como neste exemplo: *CVE1; CVE2.*
+   -   **IDs CVE:** Liste um ou mais vulnerabilidades mais comuns e os identificadores de exposições CVE () que fornecem informações de segurança sobre a atualização ou atualizar o pacote. Quando lista mais do que um, utilize um ponto e vírgula para separar as relacionadas, tal como neste exemplo: *CVE1;CVE2.*
 
    -   **URL de suporte:** Liste o URL que contém informações de suporte para esta atualização, se disponível. Tem de utilizar minúsculas para **https** ou **http** quando introduzir este URL.
 

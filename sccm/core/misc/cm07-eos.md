@@ -10,17 +10,17 @@ ms.assetid: 422aa328-7d9c-47d9-ab54-49668085881b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex,nofollow
-ms.openlocfilehash: 04679fc70ffa326066f5755646193c8d0072f989
-ms.sourcegitcommit: 1f8731ed8f0308cb2cb576722adb0821a366e9ce
+ROBOTS: NOINDEX
+ms.openlocfilehash: dd13ef6d3ab9f2085bd73f02a0208bbb97bd582d
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51223624"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54896418"
 ---
 # <a name="product-end-of-support"></a>Fim de produto do suporte
 
-*Aplica-se a: O System Center Configuration Manager 2007*
+*Aplica-se a: System Center Configuration Manager 2007*
 
 O suporte termina para **System Center Configuration Manager 2007** e **Forefront Endpoint Protection 2010** 9 de Julho de 2019. Após esta data, a Microsoft não fornecerá os seguintes serviços para estes produtos: 
 - Atualizações de segurança
@@ -37,7 +37,7 @@ A Microsoft recomenda o seguinte plano de migração:
 - Migre autónomo do Forefront Endpoint Protection 2010 para o System Center Endpoint Protection (ramo atual) autónomo.  
 
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Artigo de Support da Microsoft](https://support.microsoft.com/help/4096323)  
 - [Mensagem de blogue de suporte do Configuration Manager](https://blogs.technet.microsoft.com/configurationmgr/2018/03/30/configuration-manager-2007-approaching-end-of-support-what-you-need-to-know/)  

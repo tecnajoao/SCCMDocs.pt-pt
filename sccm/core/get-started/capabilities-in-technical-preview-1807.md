@@ -10,12 +10,13 @@ ms.assetid: bcde47a7-433e-4944-964b-539b17d15d64
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9095bdf431525a66a570267c4fff07a382a16fe4
-ms.sourcegitcommit: af4f8bd8dffe6fb05f51322ea9e94d335a2cc0c0
+ROBOTS: NOINDEX
+ms.openlocfilehash: c443f561392f95d875a681319ebb9db4ff3fb66b
+ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39360786"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54898482"
 ---
 # <a name="capabilities-in-configuration-manager-technical-preview-version-1807"></a>Recursos do Configuration Manager technical preview versão 1807 
 
