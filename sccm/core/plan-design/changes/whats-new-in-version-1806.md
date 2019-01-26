@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fe8fb2a8138433d00686530f76916a1ee4e88dac
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: cb0d5d1982bb0b109b83f30f1101ddd50316d53e
+ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250804"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073038"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -29,14 +29,6 @@ Reveja sempre a lista de verificação mais recente para instalar esta atualiza�
 > [!Important]  
 > This article currently lists all significant features in this version. However, not all sections yet link to updated content with further information on the new features. Keep checking this page regularly for updates. Changes are noted with the ***[Updated]*** tag. This note will be removed when the content is finalized.  
 -->
-
-Além das novas funcionalidades, esta versão também inclui alterações adicionais, como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do Configuration Manager, versão 1806](https://support.microsoft.com/help/4459701).
-
-Para obter mais informações sobre as alterações aos cmdlets do Windows PowerShell para o Configuration Manager, consulte [notas de versão do PowerShell 1806](https://docs.microsoft.com/powershell/sccm/1806_release_notes?view=sccm-ps).
-
-As seguintes atualizações adicionais para esta versão também estão agora disponíveis:
-- [Update rollup para o ramo atual do Configuration Manager, versão 1806](https://support.microsoft.com/help/4462978)
-
 
 As secções seguintes fornecem detalhes sobre as alterações e novos recursos na versão 1806 do Configuration Manager current branch.  
 
@@ -380,7 +372,7 @@ Para obter mais informações, consulte [sequências de tarefas e a rede aceder 
 
 
 
-## <a name="software-center"></a>Centro de software
+## <a name="software-center"></a>Software Center
 
 > [!Important]  
 > Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.
@@ -529,6 +521,27 @@ Para obter mais informações, consulte [consola melhorias na versão 1806](/scc
 Envie um sorriso! Pode agora diretamente informar a equipa do Configuration Manager sobre as suas experiências. Envio de comentários é fácil partir da consola do Configuration Manager. Queremos ouvir todos os seus comentários: elogios, os problemas e sugestões. Na consola do Configuration Manager, clique no botão de sorriso no canto superior direito acima do Friso. Estes comentários vai diretamente para a equipe de produto da Microsoft para o Configuration Manager. Embora ainda seja suportada através do Hub de comentários do Windows 10, é recomendado que utilize o mecanismo de comentários na consola.  
 
 Para obter mais informações, consulte [consola melhorias na versão 1806](/sccm/core/servers/manage/admin-console#console-improvements-in-version-1806) e [comentários sobre o produto](/sccm/core/understand/find-help#BKMK_1806Feedback).
+
+
+
+## <a name="other-updates"></a>Outras atualizações
+
+Além das novas funcionalidades, esta versão também inclui alterações adicionais, como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do Configuration Manager, versão 1806](https://support.microsoft.com/help/4459701).
+
+Para obter mais informações sobre as alterações aos cmdlets do Windows PowerShell para o Configuration Manager, consulte [notas de versão do PowerShell 1806](https://docs.microsoft.com/powershell/sccm/1806_release_notes?view=sccm-ps).
+
+O update rollup seguintes (4462978) está disponível na consola a partir de 24 de Outubro de 2018: [Update rollup para o ramo atual do Configuration Manager, versão 1806](https://support.microsoft.com/help/4462978).
+
+
+### <a name="hotfixes"></a>Correções
+
+As seguintes correções adicionais estão disponíveis para resolver problemas específicos:
+
+| ID | Título | Date | In-console |
+|---------|---------|---------|---------|
+| [4346645](https://support.microsoft.com/help/4346645) | Atualização do System Center Configuration Manager versão 1806, primeira vaga | 31 de Agosto de 2018 | Sim |
+| [4465865](https://support.microsoft.com/help/4465865) | Não transferir as atualizações de software no ambiente do Configuration Manager se o WSUS está desligado<br><br>Esta atualização também está a ser o update rollup (4462978) | 01 de Outubro de 2018 | Sim |
+| [4471892](https://support.microsoft.com/help/4471892) | Dispositivo de resposta PXE não funciona nas sub-redes 1806 do Configuration Manager | 23 de Novembro de 2018 | Não |
 
 
 

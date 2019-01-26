@@ -10,12 +10,12 @@ ms.assetid: 4a877bed-f6c4-4048-9421-507dc848af5c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e03e0a9635d8af49924f614418af47f86432dcbb
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: 81ea4687c0d05e81f493aeab389cb0175f20144f
+ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251144"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073006"
 ---
 # <a name="remote-actions-with-co-management"></a>Ações remotas com cogestão
 
@@ -72,9 +72,14 @@ Utilize estas ações remotas do Intune uma vez que [ativar a cogestão](/sccm/c
 
 - **Apagar**: Esta ação restaura as predefinições de fábrica do dispositivo. Se escolher a opção para **manter a conta de utilizador e estado de inscrição**, em seguida, os dados de utilizador são mantidos. Caso contrário, a unidade é apagada em segurança.  
 
-- **Eliminar**: Se quiser remover dispositivos do Intune no portal do Azure, eliminá-los a partir do painel de dispositivo específico. Da próxima vez que o dispositivo verifica, ele remove quaisquer dados organizacionais armazenados nele.  
+- **Delete**: Se quiser remover dispositivos do Intune no portal do Azure, eliminá-los a partir do painel de dispositivo específico. Da próxima vez que o dispositivo verifica, ele remove quaisquer dados organizacionais armazenados nele.  
 
 Para obter mais informações, consulte [remover dispositivos através de eliminação de dados, extinguir ou anular a inscrição do dispositivo manualmente](https://docs.microsoft.com/intune/devices-wipe).
+
+#### <a name="selective-wipe"></a>Eliminação seletiva
+<!--SCCMDocs issue 973--> Ao escolher uma **eliminação seletiva de aplicações**, ele remove dados da aplicação da empresa sem remover dados pessoais. Utilize esta ação quando um dispositivo é considerado como perdido ou roubado. 
+
+Para obter mais informações, consulte [como eliminar apenas dados empresariais de aplicações geridas pelo Intune](https://docs.microsoft.com/intune/apps-selective-wipe).
 
 #### <a name="sync"></a>Sincronização
 O **sincronização** ação de dispositivo força o dispositivo selecionado a dar entrada imediatamente no Intune. Quando um dispositivo dá entrada, recebe imediatamente todas as ações ou políticas pendentes que atribuiu a ele.

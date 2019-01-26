@@ -10,12 +10,12 @@ ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b074ee02ec5e50fb5e495923538535cf8765dcdb
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 8338e08ffb6d09299123e363f27e586b650452fe
+ms.sourcegitcommit: 231111a704777789629911369f4d9593d2053fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420945"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065104"
 ---
 # <a name="ports-used-in-configuration-manager"></a>Portas utilizadas no Configuration Manager
 
@@ -714,6 +714,11 @@ O serviço de sistema do Daemon Trivial FTP (TFTP) não requer um nome de utiliz
 - RFC 2349: Opções de tamanho de intervalo e a transferência de limite de tempo  
 
 TFTP foi concebido para suportar ambientes de arranque sem disco. Os Daemons TFTP escutam a porta UDP 69 mas respondem a partir de uma porta alta alocada dinamicamente. Por conseguinte, a ativação desta porta permite que o serviço TFTP receber pedidos de TFTP de entrada mas não permite que o servidor selecionado responda a esses pedidos. Não é possível ativar o servidor selecionado responda a pedidos TFTP de entrada, a menos que o servidor TFTP esteja configurado para responder na porta 69.  
+
+O ponto de distribuição com PXE ativado e o cliente no Windows PE selecione alocadas dinamicamente portas de elevada para transferências do TFTP. Estas portas são definidas pelo Microsoft entre 49152 e 65535. Para obter mais informações, consulte [descrição geral dos serviços e requisitos de portas para o Windows de rede](https://support.microsoft.com/help/832017/service-overview-and-network-port-requirements-for-windows)
+
+No entanto, durante o arranque PXE real, a placa de rede no dispositivo seleciona a porta alta alocada dinamicamente, que ele usa durante a transferência do TFTP. A placa de rede no dispositivo não está vinculada às portas de alta alocadas dinamicamente definidas pela Microsoft. Apenas está vinculado às portas definidas no RFC 350. Esta porta pode ser qualquer um de 0 a 65535. Para obter informações sobre o que atribuído dinamicamente portas de elevada as utilizações de placa de rede, contacte o fabricante de hardware do dispositivo.
+
 
 #### <a name="bkmk_note5"></a> Tenha em atenção 5: Comunicação entre o servidor do site e sistemas de sites
 Por predefinição, a comunicação entre o servidor do site e sistemas de sites é bidirecional. O servidor do site inicia a comunicação para configurar o sistema de sites e, em seguida, a maioria dos sistemas de sites restabelece ligação ao servidor do site para enviar informações de estado. Pontos do Reporting Services e pontos de distribuição não enviam informações de estado. Se selecionou **exigir que o servidor do site inicie ligações a este sistema de sites** nas propriedades do sistema de sites após instalação do sistema de sites, o sistema de sites não iniciar a comunicação com o servidor do site. Em vez disso, o servidor do site inicia a comunicação e utiliza a conta de instalação do sistema de sites para autenticação para o servidor de sistema de sites.  
