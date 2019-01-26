@@ -447,7 +447,7 @@ Para suportar a notificação de cliente com uma réplica de base de dados para 
 
     Execute a seguinte consulta para importar o certificado do servidor de base de dados do site: **EXEC sp_BgbConfigSSBForRemoteService '&lt;código do Site\>','&lt;porta do SQL Service Broker\>','&lt;caminho do ficheiro de certificado\>'**  
 
-   Alguns minutos depois de concluir a configuração da base de dados do site e da base de dados de réplica de base de dados, o Notification Manager do site primário configura a conversação do Service Broker para notificação de cliente da base de dados do site primário para a réplica de base de dados.  
+   Alguns minutos depois de concluir a configuração da base de dados do site e da base de dados de réplica de base de dados, o Notification Manager do site primário configura a conversa do Service Broker para notificação de cliente da base de dados do site primário para a réplica de base de dados.  
 
 ###  <a name="bkmk_supscript"></a> Script suplementar para réplicas de base de dados adicionais num único SQL Server  
  Quando utiliza o script do passo 4 para configurar um certificado autoassinado para o servidor de réplica de base de dados num SQL Server que já tenha uma réplica de base de dados que pretenda continuar a utilizar, tem de utilizar uma versão modificada do original script. As seguintes modificações impedem o script de eliminar um certificado existente no servidor e criam certificados subsequentes com nomes amigáveis exclusivos.  Edite o script original da seguinte forma:  
