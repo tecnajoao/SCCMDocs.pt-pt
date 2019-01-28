@@ -1,0 +1,51 @@
+items:
+- name: Análise de Computadores
+  items:
+  - name: Descrição Geral
+    href: overview.md
+  - name: Tutoriais
+    items:
+    - name: Office 365 Piloto
+      href: tutorial-office-365.md
+  - name: Conceitos
+    items:
+    - name: Planos de implementação
+      href: about-deployment-plans.md
+    - name: Inquilino
+      href: about-assets.md
+    - name: Atualizações de funcionalidades e qualidade
+      href: about-updates.md
+    - name: Risco de compatibilidade para aplicações do Windows
+      href: compat-risk.md
+    - name: Monitorização do estado de funcionamento
+      href: health-status-monitoring.md
+  - name: Manuais de instruções
+    items:
+    - name: Configurar a Análise de Computadores
+      href: set-up.md
+    - name: Ligar o Configuration Manager
+      href: connect-configmgr.md
+    - name: Inscrever dispositivos
+      href: enroll-devices.md
+    - name: Criar planos de implementação
+      href: create-deployment-plans.md
+    - name: Implementar para piloto
+      href: deploy-pilot.md
+    - name: Implementar para produção
+      href: deploy-prod.md
+    - name: Avaliação de compatibilidade com o App Health Analyzer
+      href: app-health-analyzer.md
+  - name: Referência
+    items:
+    - name: Ativar a partilha de dados
+      href: enable-data-sharing.md
+    - name: Resolução de Problemas
+      href: troubleshooting.md
+    - name: Privacidade
+      href: privacy.md
+ms.openlocfilehash: 473ddb150610af13b099bc601e05e8c50be6aac8
+ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073192"
