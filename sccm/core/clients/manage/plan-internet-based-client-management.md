@@ -10,12 +10,12 @@ ms.assetid: 83a7c934-3b11-435d-ba22-cbc274951e83
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1ce1596a6882b7756339eff3a9bf65a9420a6cec
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: f334c4ec1ef66ba85026da6bc970e34b94b51204
+ms.sourcegitcommit: a2ecd84d93f431ee77848134386fec14031aed6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424532"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55230873"
 ---
 # <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Planear a gestão de clientes baseados na Internet no System Center Configuration Manager
 
@@ -48,8 +48,8 @@ Clientes baseados na Internet (por vezes referido como IBCM) de gestão permite-
 
   Quando tiver um ponto de atualização de software configurado para aceitar ligações a partir da Internet, os clientes baseados na Internet do Configuration Manager que se encontram na Internet efetuam sempre uma análise desse ponto de atualização de software para determinar que atualizações de software são necessárias. No entanto, quando estes clientes se encontram na Internet, começam por tentar transferir as atualizações de software a partir do Microsoft Update, em vez de recorrerem a um ponto de distribuição baseado na Internet. Só em caso de insucesso é que tentarão transferir as atualizações de software necessárias a partir de um ponto de distribuição baseado na Internet. Os clientes que não estão configurados para gestão de clientes baseados na Internet nunca tentam transferir as atualizações de software do Microsoft Update, utilizando sempre pontos de distribuição do Configuration Manager.  
  
-[!Tip]  
-O cliente do Configuration Manager determina automaticamente se ele está na intranet ou na internet. Se o cliente pode contactar um controlador de domínio ou uma gestão no local ponto, ele define o tipo de ligação à intranet atualmente. Caso contrário, ele muda para a Internet atualmente e o cliente utiliza os pontos de gestão, pontos de atualização de software e pontos de distribuição atribuídos ao site para comunicação.
+> [!Tip]  
+> O cliente do Configuration Manager determina automaticamente se ele está na intranet ou na internet. Se o cliente pode contactar um controlador de domínio ou uma gestão no local ponto, ele define o tipo de ligação à intranet atualmente. Caso contrário, ele muda para a Internet atualmente e o cliente utiliza os pontos de gestão, pontos de atualização de software e pontos de distribuição atribuídos ao site para comunicação.
 
 ##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Considerações sobre comunicações do cliente a partir da Internet ou de uma floresta não fidedigna  
  As seguintes funções do sistema de sites instaladas nos sites primários suportam ligações de clientes que se encontram em localizações não fidedignas, como a Internet ou uma floresta não fidedigna (os sites secundários não suportam ligações de clientes de localizações não fidedignas):  

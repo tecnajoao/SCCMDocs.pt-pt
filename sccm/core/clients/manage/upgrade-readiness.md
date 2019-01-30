@@ -1,5 +1,5 @@
 ---
-title: Preparação para atualização
+title: Atualizar a disponibilidade
 titleSuffix: Configuration Manager
 description: Integre com o Configuration Manager para aceder a dispositivos Windows 10 compatibilidade da atualização dados e de destino para a atualização ou correção de preparação de atualizações.
 author: aczechowski
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.openlocfilehash: ad084aabca6f3b0fd920fd2c9b406efff36005a1
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: 0ba5a484fe11185b46125de0d8764bce153f577d
+ms.sourcegitcommit: a2ecd84d93f431ee77848134386fec14031aed6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55230856"
 ---
 # <a name="integrate-upgrade-readiness-with-configuration-manager"></a>Integrar a preparação da atualização com o Configuration Manager
 
@@ -50,10 +50,14 @@ Configure estas definições com as definições de cliente do Configuration Man
 
 Utilizar o [Assistente de serviços do Azure](/sccm/core/servers/deploy/configure/azure-services-wizard) para simplificar o processo de configuração de serviços do Azure que utiliza com o Configuration Manager. Para ligar o Configuration Manager com a preparação, crie um registo de aplicações do Azure Active Directory (Azure AD) do tipo *aplicação Web / API* no [portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar um registo de aplicações, consulte [registar a sua aplicação no seu inquilino do Azure AD](/azure/active-directory/active-directory-app-registration). 
 
-No portal do Azure, dar *contribuinte* permissões à sua aplicação web recentemente registado. Defina estas permissões no grupo de recursos que contém a área de trabalho do Log Analytics que aloja os seus dados de preparação de atualizações. O Assistente de serviços do Azure utiliza este registo de aplicações para permitir que o Configuration Manager para comunicar de forma segura com o Azure AD e ligar a sua infraestrutura para os seus dados de preparação de atualizações.
+No portal do Azure, concede permissões à sua aplicação web recentemente registado ao seguir:
+- *Leitor* permissões para o grupo de recursos que contém a área de trabalho do Log Analytics com os seus dados de preparação de atualizações
+- *Contribuinte* permissões para a área de trabalho do Log Analytics que aloja os seus dados de preparação de atualizações
+
+O Assistente de serviços do Azure utiliza este registo de aplicações para permitir que o Configuration Manager para comunicar de forma segura com o Azure AD e ligar a sua infraestrutura para os seus dados de preparação de atualizações.
 
 > [!IMPORTANT]  
-> Concessão *contribuinte* permissões para a aplicação em si, não para uma identidade de utilizador do Azure AD. É o aplicativo registrado, que acessa os dados em nome da sua infraestrutura do Configuration Manager. Para conceder as permissões, procure o nome do registo de aplicações no **adicionar utilizadores** área ao atribuir a permissão. 
+> Conceder permissões de aplicação em si, não para uma identidade de utilizador do Azure AD. É o aplicativo registrado, que acessa os dados em nome da sua infraestrutura do Configuration Manager. Para conceder as permissões, procure o nome do registo de aplicações no **adicionar utilizadores** área ao atribuir a permissão. 
 > 
 > Este processo é igual ao indicar o Configuration Manager com permissões para o Log Analytics. Estes passos devem ser concluídos antes do registo de aplicações é importado para o Configuration Manager com o *Assistente de serviços do Azure*.
 > 
