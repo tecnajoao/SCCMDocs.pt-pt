@@ -10,12 +10,12 @@ ms.assetid: 92b339ef-2723-4322-bec6-077b3e8846b0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a16794fbcff6f21f2240f69998c576994a57502c
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: 818065f4ea3f537dc565d06c278b710b224a4031
+ms.sourcegitcommit: f0ec334a70d0cdd3f5f185ac7787b700947f82de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893632"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55303221"
 ---
 # <a name="prerequisites-for-installing-configuration-manager-sites"></a>Pré-requisitos para instalar sites do Configuration Manager
 
@@ -115,12 +115,12 @@ Todas as outras funções do sistema de site podem permanecer instaladas no site
 #### <a name="open-the-sql-server-service-broker-port"></a>Abra a porta do SQL Server Service Broker
 A porta de rede tem de estar aberta para o SQL Server Service Broker (SSB) entre o site primário autónomo e o servidor do site de administração central.  
 
-Para replicar com êxito os dados entre um site de administração central e um site primário, o Configuration Manager requer uma porta aberta entre os dois sites para SSB a utilizar. Quando instala um site de administração central e expandir um site primário autónomo, a verificação de pré-requisitos does'ot Certifique-se de que a porta especificada para o SSB está aberta no site primário.  
+Para replicar com êxito os dados entre um site de administração central e um site primário, o Configuration Manager requer uma porta aberta entre os dois sites para SSB a utilizar. Quando instala um site de administração central e expandir um site primário autónomo, a verificação de pré-requisitos não verifica que a porta especificada para o SSB está aberta no site primário.  
 
 #### <a name="known-issues-with-azure-services"></a>Problemas conhecidos com serviços do Azure
 Quando utiliza um dos seguintes serviços do Azure com o Configuration Manager, depois de expandir o site, remover e, em seguida, recriar a ligação a esse serviço.
 
-- [O log Analytics](/sccm/core/clients/manage/sync-data-log-analytics)  
+- [Log Analytics](/sccm/core/clients/manage/sync-data-log-analytics)  
 - [Preparação para atualização](/sccm/core/clients/manage/upgrade/upgrade-readiness)  
 - [Microsoft Store para empresas](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)  
 
