@@ -2,7 +2,7 @@
 title: Centro de Suporte
 titleSuffix: Configuration Manager
 description: Resolver problemas de clientes do Configuration Manager com o Centro de suporte.
-ms.date: 11/27/2018
+ms.date: 01/30/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: c631197d-7daa-4faa-9e22-980cd6d604c2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6d9a4df006619278504d3a4967b813aa2989ebf7
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 828edc3c90b4dd93f4d86772b863816bbc8c9130
+ms.sourcegitcommit: 013ca76d5a3c07306de7b5bfd985b0289d1be599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458303"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55482423"
 ---
 # <a name="support-center-for-configuration-manager"></a>Centro de suporte para o Configuration Manager
 
@@ -69,7 +69,7 @@ Instale os seguintes componentes no servidor ou computador de cliente no qual in
 Localizar o instalador do Support Center no servidor do site no seguinte caminho: `cd.latest\SMSSETUP\Tools\SupportCenter\SupportCenterInstaller.msi`.
 
 Depois de instalá-lo, localize os seguintes itens no menu Iniciar no **Microsoft System Center** grupo:  
-- Centro de suporte (ConfigMgrSupportCenter.exe)  
+- Support Center (ConfigMgrSupportCenter.exe)  
 - Visualizador de arquivos de Log do Centro de suporte (CMLogViewer.exe)  
 - Support Center Viewer (ConfigMgrSupportCenterViewer.exe)  
 
@@ -88,6 +88,8 @@ Para evitar este problema, utilize os seguintes formatos de nome de utilizador p
 Ao ligar a clientes remotos com o [New-CMMachineConnection](https://go.microsoft.com/fwlink/p/?linkid=390542) cmdlet do PowerShell, o Support Center cria uma ligação ao servidor message block (SMB) para cada cliente remoto. Mantém as ligações depois de concluir a recolha de dados. Para evitar exceder o número máximo de ligações remotas para o Windows, utilize o `net use` comando para ver o conjunto ativo no momento de ligações remotas. Em seguida, desative todas as ligações desnecessárias utilizando o seguinte comando: `net use <connection_name> /d` 
 onde `<connection_name>` é o nome da ligação remota.
 
+#### <a name="application-deployment-evaluation-cycle-request-isnt-sent-correctly-to-remote-machines"></a>Pedido de ciclo de avaliação de implementação de aplicações não está enviado corretamente para máquinas remotas
+<!--2849356--> No Centro de suporte, se selecionar **avaliação de implementação de aplicação** partir a **Invoke acionador** ação no **conteúdo** guia, esta ação inicia uma tarefa que avalia aplicações implementadas. Se estiver ligado a um cliente local, ele avalia as implementações de aplicações do computador e utilizador. No entanto, se estiver ligado a um cliente remoto, apenas avalia as implementações de aplicações de máquina.
 
 
 ## <a name="next-steps"></a>Passos seguintes

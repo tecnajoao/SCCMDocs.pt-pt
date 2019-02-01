@@ -2,7 +2,7 @@
 title: Pré-visualização do UUP
 titleSuffix: Configuration Manager
 description: Instruções para a pré-visualização de integração de UUP
-ms.date: 01/25/2019
+ms.date: 01/30/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 27a960758d8d3939798ae270404d5dd1afbea62d
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.openlocfilehash: aaff770da02390e8b8cdd9afd1558ccea0c12716
+ms.sourcegitcommit: 013ca76d5a3c07306de7b5bfd985b0289d1be599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55072990"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55482474"
 ---
 # <a name="uup-private-preview-instructions"></a>Instruções de pré-visualização privada UUP
 
@@ -34,6 +34,8 @@ Atualizações de funcionalidades com o Windows 10 unificação de atualização
 - Todas as funcionalidades a pedido (FODs) e pacotes de idiomas devem ser mantidas e não são perdidas durante o processo de atualização.
 
 - Atualizações de funcionalidades com UUP suportam ficheiros de instalação rápida, permitindo que os clientes reduzir a quantidade de conteúdo de que cada cliente tem de transferir.
+
+- Atualizações cumulativas com pacote UUP atualizações de pilha com atualizações de segurança cumulativa mensais de manutenção. Este comportamento resolve problemas ao orquestrar essas duas atualizações. Torna-se de que as atualizações de pilha de manutenção estão em vigor para instalar as atualizações cumulativas sem a necessidade de gerir e orquestrar as relações.
 
 Para obter mais informações sobre UUP, consulte a mensagem de blogue do Windows [uma atualização no nosso Unified atualizar plataforma (UUP)](https://blogs.windows.com/windowsexperience/2017/03/02/an-update-on-our-unified-update-platform-uup/).
 

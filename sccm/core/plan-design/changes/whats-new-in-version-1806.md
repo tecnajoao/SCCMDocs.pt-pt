@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cb0d5d1982bb0b109b83f30f1101ddd50316d53e
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.openlocfilehash: 1cc8a2abaf6deff54db569416b91316e23cb4a69
+ms.sourcegitcommit: 013ca76d5a3c07306de7b5bfd985b0289d1be599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073038"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55482525"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -542,7 +542,7 @@ As seguintes correções adicionais estão disponíveis para resolver problemas 
 | [4346645](https://support.microsoft.com/help/4346645) | Atualização do System Center Configuration Manager versão 1806, primeira vaga | 31 de Agosto de 2018 | Sim |
 | [4465865](https://support.microsoft.com/help/4465865) | Não transferir as atualizações de software no ambiente do Configuration Manager se o WSUS está desligado<br><br>Esta atualização também está a ser o update rollup (4462978) | 01 de Outubro de 2018 | Sim |
 | [4471892](https://support.microsoft.com/help/4471892) | Dispositivo de resposta PXE não funciona nas sub-redes 1806 do Configuration Manager | 23 de Novembro de 2018 | Não |
-
+| [4487960](https://support.microsoft.com/help/4487960) | Certificado de conector do Microsoft Intune não renovar no Configuration Manager | 18 de Janeiro de 2019 | Sim |
 
 
 ## <a name="next-steps"></a>Passos seguintes
