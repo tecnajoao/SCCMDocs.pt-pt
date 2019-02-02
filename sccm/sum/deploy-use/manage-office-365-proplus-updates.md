@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 1fa5646b17646258e4863b3a53960c9c15497389
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 7ef9c7d734c74d578c188576b3b03d66fcb1de06
+ms.sourcegitcommit: f7b2fe522134cf102a3447505841cee315d3680c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418191"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55570239"
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -108,7 +108,6 @@ Depois de implementar aplicações do Office 365, pode criar regras de implement
 
 
 ## <a name="deploy-office-365-updates"></a>Implementar atualizações do Office 365
-Existe um agendadas [tarefas de atualizações automáticas no Office 365](https://docs.microsoft.com/deployoffice/overview-of-the-update-process-for-office-365-proplus) que é executada várias vezes por semana. Se tiver instalado recentemente o Office 365, é possível que o canal de atualização ainda não foi definido e uma análise de atualização não irá encontrar atualizações aplicáveis para ele. Para fins de teste, pode iniciar manualmente a tarefa de atualização. 
 
 Utilize os seguintes passos para implementar atualizações do Office 365 com o Configuration Manager:
 
@@ -133,6 +132,11 @@ Utilize os seguintes passos para implementar atualizações do Office 365 com o 
 > - A partir de atualizações de cliente do Configuration Manager versão 1706 do Office 365 foram movidas para o **gestão de clientes do Office 365** >**atualizações do Office 365** nó. Esta mudança não afeta a configuração atual da ADR. 
 > - Antes do Configuration Manager versão 1610 tem de transferir e implementar atualizações nos mesmos idiomas configurados em clientes do Office 365. Por exemplo, digamos que tenha um cliente do Office 365 configurado com o en-us e Alemanha-de idiomas. No servidor do site, baixe e implante o apenas en-us de conteúdo para uma atualização do Office 365 aplicável. Quando o usuário inicia a instalação do Centro de Software para esta atualização, a atualização trava ao transferir o conteúdo de-de.   
 
+> [!NOTE]  
+>
+> Se o Office 365 ProPlus foi instalado recentemente e, dependendo de como ele foi instalado, é possível que o canal de atualização não tiver sido definido ainda. Nesse caso, as atualizações implementadas serão detetadas como não aplicável. Há uma [tarefa agendada de atualizações automáticas](https://docs.microsoft.com/deployoffice/overview-of-the-update-process-for-office-365-proplus) criadas quando o Office 365 ProPlus é instalado. Nesta situação, esta tarefa tem de executar, pelo menos uma vez, para que o canal de atualização para ser o conjunto e atualizações detetadas conforme aplicável.
+>
+> Se o Office 365 ProPlus foi instalado recentemente e não são detetadas atualizações implementadas, para fins, de teste pode iniciar manualmente a tarefa de atualizações automáticas do Office e, em seguida, iniciar o [ciclo de avaliação de implementação de atualizações de Software](https://docs.microsoft.com/sccm/sum/understand/software-updates-introduction#scan-for-software-updates-compliance-process) no o cliente. Para obter instruções sobre como fazê-lo num sequnce de tarefas, consulte [atualização do Office 365 ProPlus numa sequência de tarefas](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#updating-office-365-ProPlus-in-a-task-sequence).
 
 ## <a name="restart-behavior-and-client-notifications-for-office-365-updates"></a>Reinicie as notificações de comportamento e de cliente para atualizações do Office 365
 Ao implementar uma atualização para um cliente do Office 365, as notificações de cliente e o comportamento de reinício são diferentes consoante a versão do Configuration Manager. A tabela seguinte fornece informações sobre a experiência de utilizador final quando o cliente recebe uma atualização do Office 365:
@@ -185,17 +189,28 @@ Utilize o procedimento seguinte no ponto de atualização de software no site de
 11. Agora quando baixa atualizações do Office 365, serão transferidas as atualizações nos idiomas que selecione no assistente e configurou neste procedimento. Para verificar que a transferência de atualizações nos idiomas corretos, vão para a origem do pacote para a atualização e procurar ficheiros com o código de idioma no nome de ficheiro.  
     ![Nomes de ficheiros com idiomas adicionais](../media/5-verification.png)
 
-## <a name="updating-office-365-during-task-sequences-when-office-365-is-installed-in-the-base-image"></a>A atualização do Office 365 durante sequências de tarefas quando o Office 365 é instalado na imagem base
-Quando instala um sistema operativo em que o Office 365 já está instalado na imagem, é possível que o valor de chave do registo de canal de atualização tem a localização de instalação original. Neste caso, a análise de atualização não mostrará as atualizações de cliente do Office 365 conforme aplicável. Existe uma tarefa agendada de atualizações automáticas Office que é executada várias vezes por semana. Depois dessa tarefa é executada, o canal de atualização irá apontar para o URL de CDN configurado do Office e a análise, em seguida, irá mostrar estas atualizações, conforme aplicável. <!--510452-->
+## <a name="updating-office-365-proplus-in-a-task-sequence"></a>A atualização do Office 365 ProPlus numa sequência de tarefas
+Ao usar [instalar atualizações de Software](https://docs.microsoft.com/sccm/osd/understand/task-sequence-steps#BKMK_InstallSoftwareUpdates) passo de sequência de tarefas para instalar o Office 365 atualizações, é possível que as atualizações implementadas serão detetadas como não aplicável.  Isto pode acontecer se a tarefa agendada de atualizações automáticas do Office não tiver sido executada pelo menos uma vez (consulte a observação [atualizações de implementar o Office 365](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates#deploy-office-365-updates)). Por exemplo, isto pode acontecer se o Office 365 ProPlus foi instalado imediatamente antes de executar este passo.
 
-Para garantir que o canal de atualização está definido para que as atualizações aplicáveis serão encontradas, siga os passos abaixo:
-1. Num computador com a mesma versão do Office 365, como a imagem base do sistema operacional, abra o agendador de tarefas (taskschd.msc) e identificar a tarefa de atualizações automáticas do Office 365. Normalmente, está localizado em **biblioteca do Programador de tarefas** >**Microsoft**>**Office**.
+Para garantir que o canal de atualização está definido para que as atualizações implantadas irão ser detetadas corretamente, utilize um dos seguintes métodos:
+
+**Método 1:**
+1. Num computador com a mesma versão do Office 365 ProPlus, abra o agendador de tarefas (taskschd.msc) e identificar a tarefa de atualizações automáticas do Office 365. Normalmente, está localizado em **biblioteca do Programador de tarefas** >**Microsoft**>**Office**.
 2. Botão direito do mouse sobre a automática de atualizações de tarefa e selecione **propriedades**.
 3. Vá para o **ações** separador e clique em **editar**. Copie o comando e quaisquer argumentos. 
 4. Na consola do Configuration Manager, edite a sequência de tarefas.
-5. Adicionar um novo **executar linha de comandos** passo antes do **instalar atualizações** passo na sequência de tarefas. 
+5. Adicionar um novo **executar linha de comandos** passo antes do **instalar atualizações de Software** passo na sequência de tarefas. Se o Office 365 ProPlus é instalado como parte da mesma sequência de tarefas, certifique-se de que este passo é executado após a instalação do Office.
 6. Copie o comando e os argumentos que obtidas com a tarefa agendada de atualizações automáticas do Office. 
 7. Clique em **OK**. 
+
+**Método 2:**
+1. Num computador com a mesma versão do Office 365 ProPlus, abra o agendador de tarefas (taskschd.msc) e identificar a tarefa de atualizações automáticas do Office 365. Normalmente, está localizado em **biblioteca do Programador de tarefas** >**Microsoft**>**Office**.
+2. Na consola do Configuration Manager, edite a sequência de tarefas.
+3. Adicionar um novo **executar linha de comandos** passo antes do **instalar atualizações de Software** passo na sequência de tarefas. Se o Office 365 ProPlus é instalado como parte da mesma sequência de tarefas, certifique-se de que este passo é executado após a instalação do Office.
+4. No campo de linha de comandos, introduza a linha de comando que será executada a tarefa agendada. Veja o exemplo abaixo certificar-se a cadeia de aspas corresponde ao caminho e nome da tarefa identificada no passo 1.  
+
+    Exemplo: `schtasks /run /tn "\Microsoft\Office\Office Automatic Updates"`
+5. Clique em **OK**. 
 
 ## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Alterar o canal de atualização depois de ativar clientes do Office 365 receber atualizações do Configuration Manager
 Para alterar o canal de atualização depois de ativar clientes do Office 365 receber atualizações do Configuration Manager, utilize a política de grupo para distribuir uma alteração do valor da chave de registo para clientes do Office 365. Alteração da **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** chave de registo para utilizar um dos seguintes valores:

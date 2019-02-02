@@ -1,8 +1,8 @@
 ---
-title: 'Escolher uma solução de gestão de dispositivos '
+title: Escolher uma solução de gestão de dispositivos
 titleSuffix: Configuration Manager
-description: Saiba mais sobre as soluções que o System Center Configuration Manager oferece para a gestão de PCs, servidores e dispositivos.
-ms.date: 12/08/2016
+description: Saiba mais sobre as soluções que o Configuration Manager oferece para a gestão de PCs, servidores e dispositivos.
+ms.date: 01/31/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,81 +10,109 @@ ms.assetid: 24633725-791a-4df7-8dce-2c24c1a19a03
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a520e4e43ca2d7de080272c213c5768cbd284501
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 1214a5b73b3e6b1bddab8a3918ddd32af0cacb68
+ms.sourcegitcommit: f7b2fe522134cf102a3447505841cee315d3680c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415845"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55570205"
 ---
-# <a name="choose-a-device-management-solution-for-system-center-configuration-manager"></a>Escolher uma solução de gestão de dispositivos para o System Center Configuration Manager
+# <a name="choose-a-device-management-solution-for-configuration-manager"></a>Escolher uma solução de gestão de dispositivos para o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager (também conhecido como o ConfigMgr ou o SCCM) oferece diferentes soluções para o gerenciamento de PCs, servidores e dispositivos. Pode escolher a solução certa para si, com base em plataformas de dispositivos, que tem de gerir e a funcionalidade de gestão que necessária.  
+O Configuration Manager oferece diferentes soluções para o gerenciamento de PCs, servidores e dispositivos. Escolha a solução certa para a sua organização. Basear a sua decisão nas plataformas de dispositivos, que tem de gerir e a funcionalidade de gestão necessário.  
 
 
-##  <a name="overview-of-device-management-solutions"></a>Descrição geral das soluções de gestão de dispositivos  
- Este artigo abrange quatro soluções de gestão de dispositivos: a aplicação de cliente do Configuration Manager, a infraestrutura do Configuration Manager no local, o Microsoft Intune e o Exchange. O artigo conclui com duas tabelas que comparam as soluções de gestão, um com base na [plataformas de dispositivos móveis suportadas](#compare-device-management-solutions-based-on-supported-mobile-device-platforms)e outro com base nos [funcionalidade de gestão](#compare-mobile-device-management-solutions-based-on-management-functionality).
+> [!Important]  
+> A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+<!-- SCCMDocs issue 1197 -->
 
 
-###  <a name="manage-devices-with-the-configuration-manager-client"></a>Gerir dispositivos com o cliente do Configuration Manager  
 
-Esta opção, o que requer a instalação da aplicação de cliente do Configuration Manager nos dispositivos, fornece a maior parte das funcionalidades para o gerenciamento de PCs, servidores e outros dispositivos no seu ambiente. Para obter mais informações, consulte [métodos de instalação de cliente no System Center Configuration Manager](/sccm/core/clients/deploy/plan/client-installation-methods).  
+## <a name="overview"></a>Descrição Geral
 
-###  <a name="manage-devices-with-on-premises-configuration-manager-infrastructure"></a>Gerir dispositivos com a infraestrutura do Configuration Manager no local  
+Este artigo abrange as seguintes soluções de gestão de dispositivos de quatro: 
+- [Cliente do Configuration Manager](#bkmk_sccm)
+- [Gestão de dispositivos móveis (MDM) com o Configuration Manager no local](#bkmk_opmdm)
+- [Cogestão com o Microsoft Intune](#bkmk_intune)
+- [Microsoft Exchange](#bkmk_opmdm)
 
-Esta opção utiliza as capacidades de gestão de dispositivos incorporadas nos sistemas operativos de algumas plataformas de dispositivos. Embora não tão completa em como a gestão baseada no cliente, gestão de dispositivos móveis no local fornece uma abordagem mais ligeira à gestão através da utilização de recursos do Configuration Manager no local para aceder e gerir dispositivos. Tenha em atenção que esta opção é atualmente suportada apenas para dispositivos Windows 10 PCs e Windows 10 Mobile.  
+Pode utilizar estas soluções de gestão de dispositivos individualmente ou em combinação entre si. Por exemplo, pode utilizar a abordagem de gestão baseada no cliente para gerir computadores e servidores na sua organização e também utilizar a cogestão para gerir computadores portáteis baseado na internet. Ao combinar abordagens desta forma, pode cobrir todas as suas necessidades de gestão do dispositivo.  
 
-Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+O artigo também inclui duas tabelas que comparam as soluções de gestão pelos seguintes fatores: 
+- [Compare por plataformas suportadas](#bkmk_comp1)
+- [Comparar funcionalidades de gestão](#bkmk_comp2)
 
-###  <a name="manage-devices-with-microsoft-intune-hybrid"></a>Gerir dispositivos com o Microsoft Intune (híbrido)  
 
-Esta opção utiliza o Microsoft Intune para inscrever e gerir dispositivos, em vez de usar os recursos do Configuration Manager no local. Apesar do Intune gere os dispositivos, acessar as tarefas de gestão na consola do Configuration Manager. Esta opção suporta todos os sistemas de operativos de dispositivos móveis principais, incluindo o Windows 10 Mobile, Windows Phone, iOS, Mac OS X e Android. Também fornece gestão para os computadores Windows 8.1 e Windows 10 na sua organização.  
+### <a name="bkmk_sccm"></a> Cliente do Configuration Manager  
 
-Para obter mais informações, veja [Gestão de dispositivos móveis (MDM) híbrida com o System Center Configuration Manager e o Microsoft Intune](../../mdm/understand/hybrid-mobile-device-management.md).  
+Esta opção requer a instalação do cliente do Configuration Manager em dispositivos. Fornece a maior parte das funcionalidades de gestão de PCs, servidores e outros dispositivos no seu ambiente. 
 
-###  <a name="manage-devices-with-microsoft-exchange"></a>Gerir dispositivos com o Microsoft Exchange  
+Para obter mais informações, consulte [métodos de instalação de cliente](/sccm/core/clients/deploy/plan/client-installation-methods).  
 
-Esta opção utiliza o conector do Exchange Server para ligar vários servidores do Exchange para o Configuration Manager. Isso centraliza a gestão de dispositivos que pode ligar ao Exchange ActiveSync. Pode configurar funcionalidades de gestão de dispositivos móveis do Exchange, como apagamento remoto de dispositivo e o controlo de definições para vários servidores do Exchange, da consola do Configuration Manager.  
 
-Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+### <a name="bkmk_opmdm"></a> MDM no local  
 
-Pode utilizar estas soluções de gestão de dispositivos individualmente ou em combinação entre si. Por exemplo, pode utilizar a abordagem de gestão baseada no cliente para gerir computadores e servidores na sua organização e também utilizar o Intune para gerir dispositivos móveis. Ao combinar abordagens desta forma, pode cobrir todas as suas necessidades de gestão de dispositivos da consola do Configuration Manager.  
+Esta opção utiliza as capacidades de gestão de dispositivos incorporadas ao Windows 10. Embora não tão completa em como gestão baseada no cliente, a gestão de dispositivos móveis no local fornece uma abordagem mais ligeira à gestão. Ele usa recursos do Configuration Manager no local para gerir dispositivos.  
 
-## <a name="compare-device-management-solutions-based-on-supported-mobile-device-platforms"></a>Compare as soluções de gestão de dispositivos com base nas plataformas de dispositivos móveis suportadas  
+Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local](/sccm/mdm/understand/manage-mobile-devices-with-on-premises-infrastructure).  
 
-|Plataforma|Com o cliente do Configuration Manager|Configuration Manager com o Microsoft Intune (híbrido)|No\-no local a gestão de dispositivos móveis|Configuration Manager com o Exchange|  
-|--------------|-------------------------------------------|-------------------------------------------------------------------|-------------------------------|-----------------------------------------|  
-|Android||Sim||Sim|  
-|iOS||Sim||Sim|  
-|Mac OS X|Sim|||Sim|  
-|UNIX/Linux|Sim|||Sim|  
-|Windows 10|Sim|Sim|Sim|Sim|  
-|Windows 10 Mobile||Sim|Sim|Sim|  
-|Windows (versões anteriores)|Sim|Sim||Sim|  
-|Windows CE|Sim (com cliente legacy de dispositivo móvel)|||Sim|  
-|Windows Embedded|Sim||||  
-|Windows Phone||Sim||Sim|  
-|Windows Server|Sim|||Sim|  
 
- Para obter uma lista completa das plataformas suportadas, consulte [sistemas operativos suportados por clientes e dispositivos para o System Center Configuration Manager](configs/supported-operating-systems-for-clients-and-devices.md).
+### <a name="bkmk_comanage"></a> Cogestão com o Microsoft Intune
 
-##  <a name="bkmk_comp2"></a> Comparar soluções de gestão de dispositivos com base na funcionalidade de gestão  
+A cogestão é uma das formas de ligar a sua implementação do Configuration Manager existente para a cloud do Microsoft 365 primárias. Permite-lhe ao mesmo tempo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune. A cogestão permite que anexe na cloud de seu investimento existente no Configuration Manager ao adicionar novas funcionalidades. 
 
-|Funcionalidade de gestão|Com o cliente do Configuration Manager|Configuration Manager com o Microsoft Intune (híbrido)|No\-no local a gestão de dispositivos móveis|Configuration Manager com o Exchange|  
-|------------------------------|-------------------------------------------|-------------------------------------------------------------------|-------------------------------|-----------------------------------------|  
-|Segurança da infraestrutura de chaves públicas (PKI) entre o dispositivo móvel e o Configuration Manager (utiliza a autenticação mútua e o SSL para encriptar transferências de dados)|Sim|Sim|Sim||  
-|Instalação do cliente|Sim||||  
-|Suporte através da Internet|Sim||||  
-|Deteção|Sim|||Sim|  
-|Inventário de Hardware|Sim|Sim|Sim|Sim|  
-|Inventário de software|Sim|||Sim|  
-|Definições|Sim|Sim|Sim|Sim|  
-|Implementação de software|Sim|Sim|Sim||  
-|Monitorizar com ponto de estado de contingência|Sim||||  
-|Ligações a pontos de gestão|Sim||Sim||  
-|Ligações a pontos de distribuição|Sim||Sim||  
-|O bloco do Configuration Manager|Sim|Sim|Sim||  
-|Quarentena e bloqueio a partir do Exchange Server (e o Configuration Manager)||||Sim|  
-|Eliminação remota| |Sim|Sim|Sim|  
+Para obter mais informações, consulte [o que é a cogestão?](/sccm/comanage/overview).  
+
+
+### <a name="bkmk_exchange"></a> Microsoft Exchange  
+
+Esta opção utiliza o conector do Exchange Server para ligar vários servidores do Exchange para o Configuration Manager. Isso centraliza a gestão de dispositivos que pode ligar ao Exchange ActiveSync. Pode configurar funcionalidades de gestão de dispositivos móveis do Exchange da consola do Configuration Manager. Recursos de exemplo incluem o apagamento remoto de dispositivo e o controlo de definições para vários servidores do Exchange.
+
+Para obter mais informações, consulte [gerir dispositivos móveis com o Configuration Manager e o Exchange](/sccm/mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).  
+
+
+
+## <a name="bkmk_comp1"></a> Comparar soluções de plataformas suportadas  
+
+|Plataforma|Cliente do Configuration Manager|MDM no local|Configuration Manager com o Exchange|  
+|--------|----------------------------|---------------|-----------------------------------|  
+|Android| | |Sim|  
+|iOS| | |Sim|  
+|Mac OS X|Sim| |Sim|  
+|UNIX/Linux|Sim| |Sim|  
+|Windows 10|Sim|Sim|Sim|  
+|Windows 10 Mobile| |Sim|Sim|  
+|Windows (versões anteriores)|Sim| |Sim|  
+|Windows Server|Sim| |Sim|  
+|Windows CE|Sim (com cliente legacy de dispositivo móvel)| |Sim|  
+|Windows Embedded|Sim| | |  
+|Windows Mobile| | |Sim|  
+
+Para obter uma lista completa das plataformas suportadas, consulte [sistemas operativos suportados por clientes e dispositivos para o System Center Configuration Manager](configs/supported-operating-systems-for-clients-and-devices.md).
+
+A Microsoft recomenda utilizar o Intune para gerir dispositivos móveis Android, iOS e Windows 10. Para obter mais informações, consulte [o que é o Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)
+
+
+
+##  <a name="bkmk_comp2"></a> Compare as soluções por uma funcionalidade de gestão  
+
+|Funcionalidade de gestão|Cliente do Configuration Manager|MDM no local|Configuration Manager com o Exchange|  
+|--------|----------------------------|---------------|-----------------------------------|  
+|Segurança da infraestrutura de chaves públicas (PKI) entre o dispositivo móvel e o Configuration Manager (utiliza a autenticação mútua e o SSL para encriptar transferências de dados)|Sim|Sim| |  
+|Instalação do cliente|Sim| | |  
+|Suporte através da internet|Sim| | |  
+|Deteção|Sim| |Sim|  
+|Inventário de Hardware|Sim|Sim|Sim|  
+|Inventário de software|Sim| |Sim|  
+|Definições|Sim|Sim|Sim|  
+|Implementação de software|Sim|Sim| |  
+|Monitorizar com ponto de estado de contingência|Sim| | |  
+|Ligações a pontos de gestão|Sim|Sim| |  
+|Ligações a pontos de distribuição|Sim|Sim| |  
+|O bloco do Configuration Manager|Sim|Sim| |  
+|Quarentena e bloqueio a partir do Exchange Server (e o Configuration Manager)| | |Sim|  
+|Eliminação remota| |Sim|Sim|  
+
+

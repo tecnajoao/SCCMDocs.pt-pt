@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: aaff770da02390e8b8cdd9afd1558ccea0c12716
-ms.sourcegitcommit: 013ca76d5a3c07306de7b5bfd985b0289d1be599
+ms.openlocfilehash: fde592b02d78c0a2ab29d77f7e55273c143b09ee
+ms.sourcegitcommit: f7b2fe522134cf102a3447505841cee315d3680c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55482474"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55570137"
 ---
 # <a name="uup-private-preview-instructions"></a>Instruções de pré-visualização privada UUP
 
@@ -35,14 +35,14 @@ Atualizações de funcionalidades com o Windows 10 unificação de atualização
 
 - Atualizações de funcionalidades com UUP suportam ficheiros de instalação rápida, permitindo que os clientes reduzir a quantidade de conteúdo de que cada cliente tem de transferir.
 
-- Atualizações cumulativas com pacote UUP atualizações de pilha com atualizações de segurança cumulativa mensais de manutenção. Este comportamento resolve problemas ao orquestrar essas duas atualizações. Torna-se de que as atualizações de pilha de manutenção estão em vigor para instalar as atualizações cumulativas sem a necessidade de gerir e orquestrar as relações.
-
 Para obter mais informações sobre UUP, consulte a mensagem de blogue do Windows [uma atualização no nosso Unified atualizar plataforma (UUP)](https://blogs.windows.com/windowsexperience/2017/03/02/an-update-on-our-unified-update-platform-uup/).
 
 
 ### <a name="cumulative-updates"></a>Atualizações cumulativas
 
-As atualizações cumulativas com UUP permitem conteúdo para FODs e os pacotes de idiomas a serem distribuídos offline permitir que os utilizadores finais adquiri-los sob demanda sem a necessidade de ir para a internet ou os esforços de testes tediosos pelos administradores.
+- As atualizações cumulativas com UUP permitem conteúdo para FODs e os pacotes de idiomas a serem distribuídos offline permitir que os utilizadores finais adquiri-los sob demanda sem a necessidade de ir para a internet ou os esforços de testes tediosos pelos administradores.
+
+- As atualizações cumulativas com UUP incluem atualizações de pilha com atualizações de segurança cumulativa mensais de manutenção. Este comportamento resolve problemas ao orquestrar essas duas atualizações. Torna-se de que as atualizações de pilha de manutenção estão em vigor para instalar as atualizações cumulativas sem a necessidade de gerir e orquestrar as relações.
 
 
 
@@ -68,9 +68,7 @@ O **MUUrl** propriedade deve ser `https://sws.update.microsoft.com`. Para alter�
 
 ### <a name="2-update-configmgr"></a>2. Atualização do ConfigMgr
 
-Se estiver a sincronizar ficheiros de instalação rápida no seu ambiente, em seguida, ramo atual do ConfigMgr 1810 é necessário para ambientes de produção, ou 1812 ramo de pré-visualização técnica para ambientes de laboratório.
-
-Se não estiver a sincronizar ficheiros de instalação rápida no seu ambiente, em seguida, correção de ConfigMgr 1810 KB4482615 também é necessário para ambientes de produção ou 1812 ramo de pré-visualização técnica para ambientes de laboratório.
+Efetue as seguintes alterações ao seu site do Configuration Manager para suportar esta pré-visualização UUP:
 
 
 #### <a name="diagnostics-and-usage-data-level"></a>Nível de dados de diagnóstico e utilização
