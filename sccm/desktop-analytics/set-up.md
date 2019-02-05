@@ -1,5 +1,5 @@
 ---
-title: Configurar a análise de ambiente de trabalho
+title: Configurar a Análise de Computadores
 titleSuffix: Configuration Manager
 description: Um guia de procedimentos para configurar e inclusão à análise de ambiente de trabalho.
 ms.date: 01/25/2019
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: b014499e6be5dcd8fd600cc2c1e5cf22a3eb3a46
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.openlocfilehash: a4ebc12501a62e3b825ea170bb911f050f25de40
+ms.sourcegitcommit: 30c608339dd1fc3ddb4bde01210f8eaeebee400c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073628"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55689532"
 ---
 # <a name="how-to-set-up-desktop-analytics"></a>Como configurar a análise de ambiente de trabalho 
 
@@ -35,7 +35,7 @@ Utilize este procedimento para iniciar sessão no ambiente de trabalho de análi
 
 3. Sobre o **confirmar a sua subscrição** , reveja a lista de necessárias licenças qualificadas. Mudar a definição para **Sim** junto a **tem uma das subscrições suportadas ou superiores**e, em seguida, selecione **seguinte**.  
 
-4. Sobre o **conceder aos utilizadores acesso** página, análise de ambiente de trabalho previamente configura dois grupos de segurança no Azure Active Directory:  
+4. Sobre o **conceder acesso de utilizadores e aplicações** página, análise de ambiente de trabalho previamente configura dois grupos de segurança no Azure Active Directory:  
 
     - **Os proprietários de área de trabalho**: Criar e gerir áreas de trabalho. Estas contas precisam de acesso de proprietário à subscrição do Azure.  
 

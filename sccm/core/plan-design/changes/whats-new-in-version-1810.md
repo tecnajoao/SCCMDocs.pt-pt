@@ -10,12 +10,12 @@ ms.assetid: 4812324b-e6aa-4431-bf1d-9fcd763a8caa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b8bed0207a7e80d35b341533697b1cd73d18040c
-ms.sourcegitcommit: f7b2fe522134cf102a3447505841cee315d3680c
+ms.openlocfilehash: 6870f5100ad4ed929adad3f376b6c2e1bbda15de
+ms.sourcegitcommit: 30c608339dd1fc3ddb4bde01210f8eaeebee400c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55570222"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55689564"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -376,8 +376,6 @@ As seguintes correções adicionais estão disponíveis para resolver problemas 
 | ID | Título | Date | In-console |
 |---------|---------|---------|---------|
 | [4487960](https://support.microsoft.com/help/4487960) | Certificado de conector do Microsoft Intune não renovar no Configuration Manager | 18 de Janeiro de 2019 | Sim |
-| [4486457](https://support.microsoft.com/help/4486457) | Update rollup para o ramo atual do System Center Configuration Manager, versão 1810 | 25 de Janeiro de 2019 | Sim | 
-
 
 
 ## <a name="next-steps"></a>Passos seguintes
