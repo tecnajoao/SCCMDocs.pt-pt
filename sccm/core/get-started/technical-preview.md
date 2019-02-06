@@ -10,12 +10,12 @@ ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cf432ea32e5946a98b59e158752b3e82cf63b3b3
-ms.sourcegitcommit: b8167a60fd6f2d8387b2db723976c0e2c4198d33
+ms.openlocfilehash: 0d49cd05439b03469d9548239af0043f9fdc91e0
+ms.sourcegitcommit: 7e020ce097360e8703ac8cd6bd871c33f72a441e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54832776"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55742027"
 ---
 # <a name="technical-preview-for-configuration-manager"></a>Pré-visualização técnica do Configuration Manager
 
@@ -69,10 +69,10 @@ O ramo de pré-visualização técnica do Configuration Manager suporta os segui
 
 -   Ele só suporta as seguintes versões do **SQL Server**:  
 
-    -   SQL Server 2017 (com a atualização cumulativa 2 e posterior) que começa no Configuration Manager versão 1710
-    -   SQL Server 2016 (sem Service Pack e posterior)
-    -   SQL Server 2014 (com Service Pack 1 e posterior)
-    -   SQL Server 2012 (com Service Pack 3, ou posterior)  
+    -   SQL Server 2017 (com a atualização cumulativa 2 ou posterior) 
+    -   SQL Server 2016 (sem service pack ou posterior)
+    -   SQL Server 2014 (sem service pack 1 ou posterior)
+    -   SQL Server 2012 (sem service pack 3 ou posterior)  
 
 
 -   O site suporta até 10 clientes, que tem de executar uma das seguintes versões do Windows:  
