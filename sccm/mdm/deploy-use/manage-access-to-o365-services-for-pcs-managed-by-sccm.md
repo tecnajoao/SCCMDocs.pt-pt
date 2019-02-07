@@ -10,12 +10,12 @@ ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f4e67050740b9d05dd33f2f79b7820b6dc8d9093
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 8bd926535f56e32430ae41c883623b80d142aebc
+ms.sourcegitcommit: 33e066aceaf321add1031df00e552e942c8351a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415811"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55764434"
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
 
@@ -23,11 +23,17 @@ ms.locfileid: "53415811"
 
 <!--1191496--> Configure o acesso condicional para serviços do Office 365 para PC geridos pelo Configuration Manager.  
 
-> [!Note]  
-> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> [!Important]  
+> Incluindo de MDM híbrida no local são de acesso condicional [funcionalidades preteridas](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+> 
+> Se utilizar o acesso condicional em dispositivos geridos com o cliente do Configuration Manager, para se certificar de que ainda estão protegidos, primeiro ative o acesso condicional no Intune para os dispositivos antes de migrar. Ativar a cogestão no Configuration Manager, mover a carga de trabalho de política de conformidade para o Intune e, em seguida, conclua a migração do Intune híbrido para o Intune autónomo. Para obter mais informações, consulte [acesso condicional com cogestão](https://docs.microsoft.com/sccm/comanage/quickstart-conditional-access). 
 
 
 Para obter informações sobre como configurar o acesso condicional para dispositivos inscritos e geridos pelo Microsoft Intune, consulte [gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md). Esse artigo também aborda os dispositivos que têm um domínio associado e não avaliados quanto à conformidade.
+
+> [!Note]  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 ## <a name="supported-services"></a>Serviços Suportados  
 

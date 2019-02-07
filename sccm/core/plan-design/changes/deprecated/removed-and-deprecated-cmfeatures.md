@@ -2,7 +2,7 @@
 title: Funcionalidades preteridas
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades que já não suporta o Configuration Manager.
-ms.date: 12/21/2018
+ms.date: 01/30/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 287a6324-ae65-4d38-b2ef-198d47c91231
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 441fb520fcf3e82bd284eb20db44f14cab52224f
-ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
+ms.openlocfilehash: d9e01b999fe6b6f29f7e957d1ac0996a2bebe872
+ms.sourcegitcommit: 33e066aceaf321add1031df00e552e942c8351a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54152473"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55764366"
 ---
 # <a name="removed-and-deprecated-features-for-configuration-manager"></a>Funcionalidades removidas e preteridas para o Configuration Manager
 
@@ -33,15 +33,16 @@ Estas informações estão sujeitas a alterações em versões futuras. Não pod
 |-----------|---|--------------|  
 |Implementação de serviço clássico para o Azure para o gateway de gestão da nuvem e de ponto de distribuição de nuvem. Para obter mais informações, consulte [planear CMG](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager).|Novembro de 2018|A primeira versão lançada após 1 de Julho de 2019| 
 |O System Center Endpoint Protection para Mac e Linux<br>Para obter mais informações, consulte [final de mensagem de blogue de suporte](https://go.microsoft.com/fwlink/?linkid=870182).|Outubro de 2018|31 de Dezembro de 2018|
-|Gestão de dispositivos móveis híbrida. Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->|14 de Agosto de 2018|1 de Setembro de 2019|
+|Acesso condicional no local<br>Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).|30 de Janeiro de 2019|1 de Setembro de 2019|
+|Gestão de dispositivos móveis híbridos (MDM)<br>Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->|14 de Agosto de 2018|1 de Setembro de 2019|
 |Windows Hello para empresas no Configuration Manager<br>Para obter mais informações, consulte [Windows Hello para empresas](/sccm/protect/deploy-use/windows-hello-for-business-settings).|Dezembro de 2017|A primeira versão lançada após 1 de Novembro de 2019|
 |O **experiência de usuário do Silverlight** para o site do catálogo de aplicativos ponto já não é suportado. Os utilizadores devem utilizar o novo Centro de Software. NOTA: Os catálogo site web e de ponto de serviço ponto funções da aplicação ainda são suportadas. Em alguns cenários, o novo Centro de Software se comunica com o ponto de Web site do catálogo de aplicações. Para obter mais informações, consulte [configurar o Centro de Software](/sccm/apps/plan-design/plan-for-and-configure-application-management#bkmk_userex).<!--1358309-->|11 de Agosto de 2017| Versão 1806|
 |A versão anterior do Centro de Software.<br><br>Para obter mais informações sobre o novo Centro de Software, consulte [planear e configurar a gestão de aplicações](/sccm/apps/plan-design/plan-for-and-configure-application-management##bkmk_userex).|13 de Dezembro de 2016|Versão 1802|
 |Gestão de discos rígidos virtuais (VHDs) com o Configuration Manager. <br><br>Essa depreciação inclui a remoção das opções para criar um novo VHD ou gerir um VHD com uma sequência de tarefas e a remoção do nó de discos rígidos virtuais a partir da consola do Configuration Manager. <br><br>VHDs existentes não são eliminados, mas já não são acessíveis a partir da consola do Configuration Manager.  |6 de Janeiro de 2017 |Versão 1710|
 |Sequências de tarefas: <br /> -Converter disco em dinâmico <br /> -Instalar ferramentas de implantação |18 de Novembro de 2016|Versão 1710|
-|Ferramenta de avaliação de atualização do Configuration Manager do System Center. <br><br>A ferramenta de avaliação da atualização depende do System Center Configuration Manager e o Application Compatibility Toolkit (ACT) 6.x. A versão final do ACT foi lançada no Windows 10 v1511 ADK. Como não são necessárias mais existam atualizações ao ACT, o suporte para a ferramenta de avaliação de atualização foi descontinuada. <br><br>A ferramenta de avaliação de atualização é substituída pelos [preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência do UAT](https://www.microsoft.com/download/details.aspx?id=37145) 12 de Setembro de 2016. | 12 de Setembro de 2016  | 11 de Julho de 2017 |
+|System Center Configuration Manager Upgrade Assessment Tool. <br><br>A ferramenta de avaliação da atualização depende do System Center Configuration Manager e o Application Compatibility Toolkit (ACT) 6.x. A versão final do ACT foi lançada no Windows 10 v1511 ADK. Como não são necessárias mais existam atualizações ao ACT, o suporte para a ferramenta de avaliação de atualização foi descontinuada. <br><br>A ferramenta de avaliação de atualização é substituída pelos [preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência do UAT](https://www.microsoft.com/download/details.aspx?id=37145) 12 de Setembro de 2016. | 12 de Setembro de 2016  | 11 de Julho de 2017 |
 |Pontos de atualização de software com um cluster de (NLB) de balanceamento de carga do rede | 27 de Fevereiro de 2016 | Versão 1702 | 
-|Sequências de tarefas: <br /> -OSDPreserveDriveLetter  <br /><br /> Durante a implementação do sistema operativo, por predefinição, a configuração do Windows agora determina a melhor letra de unidade a utilizar (normalmente c). Se pretender especificar uma unidade diferente para utilizar, pode alterar o local no passo de sequência de tarefas Aplicar sistema operativo. Vá para o **selecione a localização onde pretende aplicar este sistema operativo** definição. Selecione **letra de unidade lógica específica** e escolha a unidade que pretende utilizar. |20 de Junho de 2016 |Versão 1606 |
+|Sequências de tarefas: <br /> - OSDPreserveDriveLetter  <br /><br /> Durante a implementação do sistema operativo, por predefinição, a configuração do Windows agora determina a melhor letra de unidade a utilizar (normalmente c). Se pretender especificar uma unidade diferente para utilizar, pode alterar o local no passo de sequência de tarefas Aplicar sistema operativo. Vá para o **selecione a localização onde pretende aplicar este sistema operativo** definição. Selecione **letra de unidade lógica específica** e escolha a unidade que pretende utilizar. |20 de Junho de 2016 |Versão 1606 |
 |Proteção de acesso de rede (NAP) - como encontrada no System Center 2012 Configuration Manager|10 de Julho de 2015|Versão 1511|  
 |Gestão fora de banda - como encontrada no System Center 2012 Configuration Manager|16 de Outubro de 2015|Versão 1511|
 
