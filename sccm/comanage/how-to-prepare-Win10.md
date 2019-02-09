@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: b5172dd28762f12351a3daf0e8fbab543f0b6c46
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.openlocfilehash: fcb34d46cdbe197021d2dea752f77ce3bb42af5d
+ms.sourcegitcommit: 38f56f1d5803370f4262931c2dc4a532bfcf0594
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251147"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905604"
 ---
 # <a name="how-to-prepare-internet-based-devices-for-co-management"></a>Como preparar os dispositivos baseados na internet para a cogestão
 
@@ -80,6 +80,11 @@ A seguinte linha de comando é um exemplo: `CCMSETUPCMD="CCMHOSTNAME=contoso.clo
 
 - Se o cliente fizer roaming para a intranet, a propriedade seguinte é necessária:  
     - SMSMP  
+
+- Se utilizar o seu próprio certificado SSL de PKI e a CRL não é publicado na internet, o seguinte parâmetro é necessário:  
+    - /noCRLCheck  
+    
+     Para obter mais informações, consulte [planejamento de CRL](/sccm/core/plan-design/security/plan-for-security#-plan-for-the-site-server-signing-certificate-self-signed)  
 
 O exemplo seguinte inclui todas as propriedades:   
 `ccmsetup.exe CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver SMSMP=https://mp1.contoso.com`
