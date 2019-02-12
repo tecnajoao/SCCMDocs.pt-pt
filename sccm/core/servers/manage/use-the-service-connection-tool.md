@@ -10,12 +10,13 @@ ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 96f816e20d31315e2eaf63b5bf4a14376f3c9261
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4aa05484aca20e099758f603b6ed6b372e726082
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417902"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131375"
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
@@ -61,7 +62,7 @@ Seguem-se os pré-requisitos e problemas conhecidos.
 
 -   O caminho para uma pen USB onde os dados são armazenados para transferência entre servidores:  **D:\USB\\**  
 
--   O nome do ficheiro. cab que contém dados exportados do seu site: **Usagedata. cab**  
+-   O nome do ficheiro. cab que contém dados exportados do seu site: **UsageData.cab**  
 
 -   O nome da pasta vazia onde serão armazenadas atualizações transferidas para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
 
@@ -114,7 +115,7 @@ Para modificar esse comportamento, utilize um dos parâmetros seguintes para alt
 -   **-downloadsiteversion** esta opção transfere atualizações e hotfixes que possuem uma versão superior à versão do seu site.
 
 Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
-- **serviceconnectiontool.exe-ligar *- downloadsiteversion* - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+- **serviceconnectiontool.exe -connect  *-downloadsiteversion* -usagedatasrc D:\USB -updatepackdest D:\USB\UpdatePacks**
 
 
 
@@ -141,14 +142,14 @@ Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 
 5. Execute o seguinte comando para iniciar o carregamento de informações de utilização e a transferência de atualizações para o Configuration Manager:  
 
-   -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+   -   **serviceconnectiontool.exe -connect -usagedatasrc D:\USB -updatepackdest D:\USB\UpdatePacks**
 
    Para obter mais exemplos desta linha de comandos, veja a secção [Opções de linha de comandos](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) mais à frente neste tópico.
 
    > [!NOTE]  
    >  Quando executa a linha de comandos para ligar ao serviço em nuvem do Configuration Manager, poderá ocorrer um erro semelhante ao seguinte:  
    >   
-   >  -   Exceção não processada: System. unauthorizedaccessexception:  
+   >  -   Exceção não processada: System.UnauthorizedAccessException:  
    >   
    >      O acesso ao caminho "C:\  
    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" foi negado.  
@@ -173,7 +174,7 @@ Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 
 Sempre que executar a ferramenta de ligação de serviço, um ficheiro de registo irá gerar na mesma localização que a ferramenta chamada **ServiceConnectionTool.log**.  Este ficheiro de registo irá fornecer detalhes simples sobre a execução da ferramenta com base nos quais comandos são utilizados.  Um arquivo de log existente será substituído sempre que executar a ferramenta.
 
-**Configmgrsetup. log**
+**ConfigMgrSetup.log**
 
 Ao utilizar a ferramenta para ligar e transferir atualizações, um ficheiro de registo irá gerar na raiz da unidade do sistema chamada **configmgrsetup. log**.  Este ficheiro de registo fornecerá informações mais detalhadas, como o que os arquivos são baixados, extraídos e se verifica o hash são com êxito.
 

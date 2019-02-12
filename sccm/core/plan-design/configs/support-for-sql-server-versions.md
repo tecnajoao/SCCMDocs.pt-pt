@@ -10,12 +10,13 @@ ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 43093f38a2769c46d3d96a51afbf47f33ed38b51
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5f2d2b10419cec019cc3c0791c7a7aadc016c15b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423801"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133804"
 ---
 # <a name="supported-sql-server-versions-for-configuration-manager"></a>Versões suportadas do SQL Server para o Configuration Manager
 
@@ -83,7 +84,7 @@ Pode utilizar esta versão do SQL Server, com um mínimo de [versão de atualiza
 - Um site secundário  
   <!--SMS.498506-->
 
-### <a name="sql-server-2016-sp2-standard-enterprise"></a>O SQL Server 2016 SP2: Standard, Enterprise  
+### <a name="sql-server-2016-sp2-standard-enterprise"></a>SQL Server 2016 SP2: Standard, Enterprise  
 <!--514985--> Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site de administração central  
@@ -104,7 +105,7 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 -   Um site primário  
 -   Um site secundário  
 
-### <a name="sql-server-2014-sp3-standard-enterprise"></a>SP3 do SQL Server 2014: Standard, Enterprise  
+### <a name="sql-server-2014-sp3-standard-enterprise"></a>SQL Server 2014 SP3: Standard, Enterprise  
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site de administração central  
@@ -142,11 +143,11 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 ### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3: Standard, Enterprise e Datacenter     
   Não é suportada nesta versão do SQL Server. Para obter mais informações, consulte [preterido suporte para versões do SQL Server como uma base de dados do site](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-support-for-sql-server-versions-as-a-site-database).  
 
-### <a name="sql-server-2017-express"></a>Express do SQL Server 2017   
+### <a name="sql-server-2017-express"></a>SQL Server 2017 Express   
 Pode utilizar esta versão do SQL Server, com um mínimo de [versão de atualização cumulativa 2](https://support.microsoft.com/help/4052574), que começam com [Configuration Manager versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710) para os seguintes sites:
 -   Um site secundário <!--SMS.498506-->
 
-### <a name="sql-server-2016-express-sp2"></a>SP2 Express do SQL Server 2016  
+### <a name="sql-server-2016-express-sp2"></a>SQL Server 2016 Express SP2  
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:
 -   Um site secundário
 
@@ -158,7 +159,7 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:
 -   Um site secundário
 
-### <a name="sql-server-2014-express-sp3"></a>SP3 Express do SQL Server 2014   
+### <a name="sql-server-2014-express-sp3"></a>SQL Server 2014 Express SP3   
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site secundário  
