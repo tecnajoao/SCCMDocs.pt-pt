@@ -10,12 +10,12 @@ ms.assetid: 6a279624-ffc9-41aa-8132-df1809708dd5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4fdc882d63e7bf7d3189e770f230412f17ca0b63
-ms.sourcegitcommit: d36e4c7082a5144e79035dd8847c8e741fa04667
+ms.openlocfilehash: ffcb60ff355a67304b057ef2d1b632fb9e0c21dc
+ms.sourcegitcommit: 5e7c4d36f4cdb3390ad3b381d31a3e1e4bf3c6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444659"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55986540"
 ---
 # <a name="list-of-prerequisite-checks-for-configuration-manager"></a>Lista de verificações de pré-requisitos para o Configuration Manager
 
@@ -526,7 +526,7 @@ O Configuration Manager não precisa de extensões de esquema do Active Director
 
 A partir da versão 1810, certifique-se a base de dados do site tem um registo de segurança de dados de controlo de alterações do SQL.<!--SCCMDocs-pr issue 3023-->  
 
-Certifique-se manualmente essa verificação ao executar um procedimento armazenado diagnóstico da base de dados do site. Primeiro, crie uma [ligação de diagnóstico](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017) à sua base de dados do site. O método mais simples consiste em utilizar o Editor de consultas do SQL Server Management Studio e ligue-se ao `admin:<instance name>`. 
+Certifique-se manualmente essa verificação ao executar um procedimento armazenado diagnóstico da base de dados do site. Primeiro, crie uma [ligação de diagnóstico](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017) à sua base de dados do site. O método mais fácil é usar o Editor de consultas de motor da SQL Server Management Studio base de dados e ligar ao `admin:<instance name>`. 
 
 Numa janela de consulta de ligação de administrador dedicada, execute os seguintes comandos:
 

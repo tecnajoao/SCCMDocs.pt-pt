@@ -10,12 +10,12 @@ ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c4cd6c45d21c58459fcd23ee02db4b5900996939
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: b272a8988a3e8d2e09b4043c087207e62c59b274
+ms.sourcegitcommit: 5e7c4d36f4cdb3390ad3b381d31a3e1e4bf3c6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421999"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55986591"
 ---
 # <a name="about-client-settings-in-configuration-manager"></a>Acerca das definições de cliente no Configuration Manager
 
@@ -578,7 +578,7 @@ Defina esta opção como **Sim** para utilizar a autenticação de nível de red
 
 
 
-## <a name="software-center"></a>Centro de software
+## <a name="software-center"></a>Software Center
 
 ### <a name="select-these-new-settings-to-specify-company-information"></a>Selecione estas definições para especificar as informações da empresa
 Defina esta opção como **Sim**e, em seguida, especifique as seguintes definições para a marca Centro de Software para a sua organização:
@@ -624,7 +624,7 @@ Por exemplo, se sua organização não utiliza políticas de conformidade e de q
 Configure um agendamento para quando o Configuration Manager revê as regras de requisitos para todas as implementações. O valor predefinido é a cada sete dias.  
 
 > [!IMPORTANT]  
->  Não altere este valor para um valor inferior a predefinição. Um agendamento de reavaliação da mais agressivo pode afetar negativamente o desempenho da sua rede e dos computadores cliente.  
+> Esta definição é mais invasiva ao cliente local que o servidor de rede ou um site. Um agendamento de reavaliação da mais agressivo pode afetar negativamente o desempenho da sua rede e dos computadores cliente. A Microsoft não recomenda a definir um valor inferior a predefinição. Se alterar este valor, monitorar atentamente o desempenho.  
 
 Iniciar esta ação de um cliente da seguinte forma: no **do Configuration Manager** controlar o painel, a partir do **ações** separador, selecione **ciclo de avaliação de implementação de aplicação**.  
 

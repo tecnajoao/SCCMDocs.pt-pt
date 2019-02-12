@@ -10,12 +10,12 @@ ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 58ec927ee795624cb475b31c44d64334047f3422
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.openlocfilehash: 96673c0b299e45111c7d9a2bedf55282de50132e
+ms.sourcegitcommit: 5e7c4d36f4cdb3390ad3b381d31a3e1e4bf3c6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416508"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55986625"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -105,11 +105,11 @@ No Configuration Manager, os componentes de servidor do site e cliente registram
 
     -   [Atualizações de software](#BKMK_SU_NAPLog)  
 
-    -   [Reativação por LAN](#BKMK_WOLLog)  
+    -   [Wake On LAN](#BKMK_WOLLog)  
 
     -   [Manutenção do Windows 10](#BKMK_WindowsServicingLog)
 
-    -   [Agente de atualização do Windows](#BKMK_WULog)  
+    -   [Windows Update Agent](#BKMK_WULog)  
 
     -   [Servidor WSUS](#BKMK_WSUSLog)  
 
@@ -189,7 +189,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |SCClient_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade no Centro de Software para o utilizador especificado no computador cliente.|  
 |SCClient_&lt;*domínio*\>@&lt;*nome de utilizador*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
 |Scheduler.log|Regista atividades de tarefas agendadas para todas as operações de cliente.|  
-|SCNotify_&lt;*domínio*\>@&lt;*nome de utilizador*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
+|SCNotify_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
 |SCNotify_&lt;*domínio*\>@&lt;*nome de utilizador*\>1 -&lt;*date_time* >. log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
 |setuppolicyevaluator.log|Regista a configuração e a criação da política de inventário no WMI.|  
 |SleepAgent_&lt;*domain*\>@SYSTEM_0.log|O ficheiro de registo principal para um proxy de reativação.|  
@@ -228,7 +228,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |     Nome do registo      |                                                                                                                                                                                                                                                                                               Detalhes                                                                                                                                                                                                                                                                                               |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     Scxcm.log     | O ficheiro de registo para o serviço de núcleo do cliente do Configuration Manager para Linux e UNIX (ccmexec). Este ficheiro de registo contém informações sobre a instalação e as operações do ccmexec.bin. em curso<br /><br /> Por predefinição, este ficheiro de registo está localizado em **/var/opt/microsoft/scxcm.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de quatro definições diferentes. |
-| Scxcmprovider. log |     O ficheiro de registo para o serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver. bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em<strong>/var/opt/microsoft/configmgr/scxcmprovider.log</strong><br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.      |
+| Scxcmprovider.log |     O ficheiro de registo para o serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver. bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em<strong>/var/opt/microsoft/configmgr/scxcmprovider.log</strong><br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.      |
 
  Ambos os ficheiros de registo suportam vários níveis de registo:  
 
@@ -701,7 +701,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |MP_ClientIDManager.log|Ponto de gestão de registos respostas para o ID de cliente solicita essa tarefa sequências de iniciação do suporte de dados de arranque ou PXE.|Servidor do sistema de sites|  
 |MP_DriverManager.log|Regista as respostas do ponto de gestão a pedidos de ação da sequência de tarefas Aplicar Controlador Automaticamente.|Servidor do sistema de sites|  
 |OfflineServicingMgr.log|Regista os detalhes de agendas de manutenção offline e atualização de ações de aplicação nos ficheiros de formato Windows Imaging (WIM) do sistema operativo.|Servidor do sistema de sites|  
-|Setupact.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
+|Setupact.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração. Para obter mais informações, consulte [ficheiros de registo](https://docs.microsoft.com/windows/deployment/upgrade/log-files).|Cliente|  
 |Setupapi.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
 |Setuperr.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
 |smpisapi.log|Regista detalhes sobre as ações de captura e restauro do estado de cliente e informações de limiares.|Cliente|  
@@ -795,7 +795,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |wsyncmgr.log|Regista detalhes sobre o software de atualização do processo de sincronização.|Servidor do site|  
 |WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
 
-###  <a name="BKMK_WOLLog"></a> Reativação por LAN  
+###  <a name="BKMK_WOLLog"></a> Wake On LAN  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a utilização de reativação por LAN.  
 
 > [!NOTE]  
@@ -808,35 +808,23 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 
 ###  <a name="BKMK_WindowsServicingLog"></a>Manutenção do Windows 10  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a manutenção do Windows 10.  
-
+Manutenção utiliza o mesmo processo e infraestrutura como atualizações de software. Para outros registos aplicáveis para o cenário de manutenção, consulte [atualizações de Software](#BKMK_SU_NAPLog).
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
-|ccmperf.log|Regista atividades relacionadas com a manutenção e a captura de dados relacionados com os contadores de desempenho do cliente.|Cliente|  
-|CcmRepair.log|Regista as atividades de reparação do agente de cliente.|Cliente|
-|PatchDownloader.log|Regista detalhes sobre o processo de transferência de atualizações de software da origem da atualização para o destino da transferência no servidor do site.|Computador que aloja a consola do Configuration Manager a partir do qual as transferências são iniciadas|  
-|PolicyEvaluator.log|Regista detalhes sobre a avaliação das políticas em computadores cliente, incluindo políticas de atualizações de software.|Cliente|  
-|RebootCoordinator.log|Regista detalhes sobre a coordenação de reinícios do sistema em computadores cliente após instalações de atualizações de software.|Cliente|  
-|ScanAgent.log|Regista detalhes sobre pedidos de análise de atualizações de software, a localização do WSUS e ações relacionadas.|Cliente|  
-|SdmAgent.log|Regista detalhes sobre o controlo de remediação e compatibilidade. No entanto, o ficheiro de registo de atualizações de software, Updateshandler, fornece mais detalhes informativos sobre a instalação de atualizações de software que são necessárias para a conformidade.<br /><br /> Este ficheiro de registo é partilhado com definições de compatibilidade.|Cliente|  
-|ServiceWindowManager.log|Regista detalhes sobre a avaliação de janelas de manutenção.|Cliente|  
+|CBS.log|Registos relacionados com alterações de para atualizações do Windows ou funções e funcionalidades de falhas de manutenção.|Cliente|  
+|DISM.log|Regista todas as ações com o DISM. Se necessário, DISM apontará para CBS.log para obter mais detalhes.|Cliente|
 |setupact.log|Ficheiro de registo primário para a maioria dos erros que ocorrem durante o processo de instalação do Windows. O ficheiro de registo está localizado em % windir %\$Windows.~BT\sources\panther pasta.|Cliente|
-|SmsWusHandler.log|Regista detalhes sobre o processo de análise da Ferramenta de Inventário das Atualizações da Microsoft.|Cliente|  
-|StateMessage.log|Regista detalhes sobre as mensagens de estado de atualizações de software que são criadas e enviadas para o ponto de gestão.|Cliente|  
-|SUPSetup.log|Regista detalhes sobre a instalação do ponto de atualização de software. Quando a instalação de ponto de atualização de software estiver concluída, é escrito **Instalação bem-sucedida** neste ficheiro de registo.|Servidor do sistema de sites|  
-|UpdatesDeployment.log|Regista detalhes sobre implementações no cliente, incluindo a ativação, avaliação e imposição de atualizações de software. O registo verboso mostra informações adicionais sobre a interação com a interface de utilizador do cliente.|Cliente|  
-|Updateshandler|Regista detalhes sobre a análise de compatibilidade de atualizações de software e sobre a transferência e instalação de atualizações de software no cliente.|Cliente|  
-|UpdatesStore.log|Regista detalhes sobre o estado de compatibilidade das atualizações de software que foram analisadas durante o ciclo de análise de compatibilidade.|Cliente|  
-|WCM.log|Regista detalhes sobre o software atualizar pontos de distribuição e ligações para o servidor WSUS para idiomas, classificações e categorias de atualização subscritas.|Servidor do site|  
-|WSUSCtrl.log|Regista detalhes sobre a configuração, a conectividade de base de dados e o estado de funcionamento do servidor WSUS do site.|Servidor do sistema de sites|  
-|wsyncmgr.log|Regista detalhes sobre o software de atualização do processo de sincronização.|Servidor do site|  
-|WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
 
-###  <a name="BKMK_WULog"></a> Agente de atualização do Windows  
+Para obter mais informações, consulte [ficheiros de registo de Online Servicing-Related](https://docs.microsoft.com/windows-hardware/manufacture/desktop/deployment-troubleshooting-and-log-files#online-servicing-related-log-files).
+
+###  <a name="BKMK_WULog"></a> Windows Update Agent  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Windows Update Agent.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
 |WindowsUpdate.log|Regista detalhes sobre o quando o Windows Update Agent liga ao servidor WSUS e obtém as atualizações de software para avaliação de conformidade, e se existem atualizações para os componentes do agente.|Cliente|  
+
+Para obter mais informações, consulte [ficheiros de registo do Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-logs).
 
 ###  <a name="BKMK_WSUSLog"></a> Servidor WSUS  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o servidor WSUS.  
@@ -845,3 +833,5 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |--------------|-----------------|----------------------------|  
 |Change.log|Regista detalhes sobre informações de base de dados do servidor WSUS que foram alterados.|Servidor WSUS|  
 |SoftwareDistribution.log|Regista detalhes sobre as atualizações de software que são sincronizados a partir da origem de atualização configurada para a base de dados do servidor do WSUS.|Servidor WSUS|  
+
+Estes ficheiros de registo estão localizados na pasta Services\LogFiles %ProgramFiles%\Update.
