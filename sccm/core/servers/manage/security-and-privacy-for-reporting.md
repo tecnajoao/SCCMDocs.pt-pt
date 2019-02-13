@@ -1,7 +1,7 @@
 ---
 title: Segurança e privacidade para relatórios
 titleSuffix: Configuration Manager
-description: Compreenda as melhores práticas de segurança e privacidade quando estiver a utilizar a funcionalidade de relatórios no Configuration Manager.
+description: Compreenda as melhores práticas para segurança e privacidade quando estiver a utilizar a funcionalidade de relatórios no Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,12 +10,13 @@ ms.assetid: 7a555e06-e6d7-4ebb-8252-412b7c5ad1c1
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: d9c5ec56032cd014e63dff7e22c83119bf2f5f4e
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6f7f98036745a417e14611231e681b4be114bbce
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32336396"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56130848"
 ---
 # <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Segurança e privacidade para relatórios no System Center Configuration Manager
 
@@ -23,6 +24,6 @@ ms.locfileid: "32336396"
 
 Este tópico contém melhores práticas de segurança e informações de privacidade para relatórios no System Center Configuration Manager.  
 
- Relatórios do Configuration Manager apresentam informações recolhidas durante as operações de gestão padrão do Configuration Manager. Por exemplo, poderá apresentar um relatório de informações que tenham sido recolhidas pela deteção ou inventário. Os relatórios também podem conter as informações de estado atuais para operações de gestão de clientes, tais como implementação de software e verificação de compatibilidade.  
+ Relatórios do Configuration Manager apresentam informações que são recolhidas durante as operações de gestão do Configuration Manager padrão. Por exemplo, poderá apresentar um relatório de informações que tenham sido recolhidas pela deteção ou inventário. Os relatórios também podem conter as informações de estado atuais para operações de gestão de clientes, tais como implementação de software e verificação de compatibilidade.  
 
- Para obter mais informações sobre as melhores práticas de segurança e informações de privacidade para operações do Configuration Manager que possam gerar dados que podem ser apresentados nos relatórios, consulte [melhores práticas de segurança e informações de privacidade do System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  
+ Para obter mais informações sobre as melhores práticas de segurança e informações de privacidade para operações do Configuration Manager que pode gerar os dados que podem ser apresentados nos relatórios, consulte [melhores práticas de segurança e informações de privacidade para o System Center O Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  

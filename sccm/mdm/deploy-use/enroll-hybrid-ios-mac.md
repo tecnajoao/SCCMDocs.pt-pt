@@ -10,12 +10,13 @@ ms.assetid: 5eae4400-58ca-4c71-804c-6a585cd3df5d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a1357c54b0f848374ea15727bb6265f68400f88c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8e7baf5d26bb823f3b02efb8e71cf4d34330d899
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53422373"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121214"
 ---
 # <a name="set-up-ios-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos iOS híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -77,4 +78,4 @@ Pode limitar a dispositivos que pode inscrever-se ao bloquear dispositivos pesso
 3.  Escolher **bloquear dispositivos pessoais** para limite de inscrição para dispositivos pertencentes à empresa.
 
 > [!div class="button"]
-> [< Anterior passo](create-service-connection-point.md)[passo seguinte >  ](set-up-additional-management.md)
+> [< Anterior passo](create-service-connection-point.md)[passo seguinte >](set-up-additional-management.md)

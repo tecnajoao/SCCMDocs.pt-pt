@@ -10,12 +10,13 @@ ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 01112dac89ba0fe9e18dabe186353506d9476213
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cb208bdb360f726a59585d567c239074717acf66
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456775"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120015"
 ---
 # <a name="list-of-reports-in-configuration-manager"></a>Lista de relatórios no Configuration Manager
 
@@ -207,13 +208,13 @@ Os seguintes sete relatórios estão listados na **armazém de dados** categoria
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
-|**Implementação de aplicação**|Histórico: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.|
-|**Endpoint Protection e conformidade de atualização de Software**|Histórico: Ver os computadores que estão em falta atualizações de software.|
-|**Inventário de Hardware geral**|Histórico: Ver todo o inventário de hardware de uma máquina específica.|
-|**Inventário de Software geral**|Histórico: Ver todo o inventário de software para uma máquina específica.|
-|**Descrição geral do Estado de funcionamento de infraestrutura**|Histórico: Apresenta uma visão geral do Estado de funcionamento da sua infraestrutura do Configuration Manager.|
-|**Lista de software maligno detetado**|Histórico: Software maligno do modo de exibição que foi detetado na organização.|
-|**Resumo da distribuição de software**|Histórico: Um resumo da distribuição de software para um anúncio específico e a máquina.|
+|**Implementação de aplicação**|Historical: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.|
+|**Endpoint Protection e conformidade de atualização de Software**|Historical: Ver os computadores que estão em falta atualizações de software.|
+|**Inventário de Hardware geral**|Historical: Ver todo o inventário de hardware de uma máquina específica.|
+|**Inventário de Software geral**|Historical: Ver todo o inventário de software para uma máquina específica.|
+|**Descrição geral do Estado de funcionamento de infraestrutura**|Historical: Apresenta uma visão geral do Estado de funcionamento da sua infraestrutura do Configuration Manager.|
+|**Lista de software maligno detetado**|Historical: Software maligno do modo de exibição que foi detetado na organização.|
+|**Resumo da distribuição de software**|Historical: Um resumo da distribuição de software para um anúncio específico e a máquina.|
 
 
 ## <a name="device-management"></a>Gestão de dispositivos  
@@ -619,7 +620,7 @@ Os seguintes 15 relatórios estão listados na **Software - empresas e produtos*
 |**Contagem de produtos inventariados e versões de um produto específico**|Mostra uma lista das versões inventariadas de um produto especificado e o número de computadores nos quais estão instaladas.|  
 |**Contagem de todas as instâncias de software registadas em Adicionar ou remover programas**|Mostra um resumo de todas as instâncias do software instalado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades nos computadores da coleção especificada.|  
 |**Contagem de instâncias de software específico registadas em Adicionar ou remover programas**|Mostra uma contagem das instâncias dos pacotes de software especificados instalados e registados em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um navegador da web específicas como sendo o padrão do Windows. <br>Utilize a seguinte referência para BrowserProgIDs comuns:<br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge<br> -IE. HTTP: Microsoft Internet Explorer<br> -ChromeHTML: Google Chrome<br> -OperaStable: Opera Software<br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox<br> -Desconhecida: o sistema operacional de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tiver iniciado sessão|
+|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um navegador da web específicas como sendo o padrão do Windows. <br>Utilize a seguinte referência para BrowserProgIDs comuns:<br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge<br> - IE.HTTP: Microsoft Internet Explorer<br> - ChromeHTML: Google Chrome<br> -OperaStable: Opera Software<br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox<br> -Desconhecida: o sistema operacional de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tiver iniciado sessão|
 |**Instalações de aplicações do Windows especificadas**|Este relatório mostra uma lista de todos os computadores com uma aplicação especificada do Windows|  
 |**Produtos num computador específico**|Mostra um resumo dos produtos de software inventariados e os seus fabricantes num computador especificado.|  
 |**Software registado em Adicionar/remover programas num computador específico**|Mostra um resumo do software instalado num computador especificado que esteja registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  

@@ -9,12 +9,13 @@ ms.assetid: 1f703376-5f2c-4fd2-8209-7028c931ddc7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bca8d9efd4a48b4fddfed92521d9189c5b6fef30
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4705106efe82595a4a7649a81d8368cf40f6fedc
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421319"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124784"
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilize o Assistente de configuração para instalar sites do System Center Configuration Manager
 
@@ -137,7 +138,7 @@ Se estiver a instalar um site de administração central como parte de um cenár
 
     - **Nome do SQL Server (FQDN):** Por predefinição, está definida para ser o computador do servidor do site.
 
-      Se utilizar uma porta personalizada, adicione essa porta para o FQDN do SQL Server. Para tal, siga o FQDN do servidor sequel com uma vírgula e, em seguida, o número de porta.   Por exemplo, para o servidor *SQLServer1.fabrikam.com*, utilize o seguinte procedimento para especificar a porta *1551*:  **SQLServer1.fabrikam.com, 1551**
+      Se utilizar uma porta personalizada, adicione essa porta para o FQDN do SQL Server. Para tal, siga o FQDN do servidor sequel com uma vírgula e, em seguida, o número de porta.   Por exemplo, para o servidor *SQLServer1.fabrikam.com*, utilize o seguinte procedimento para especificar a porta *1551*:  **SQLServer1.fabrikam.com,1551**
 
     - **Nome da instância:** Por predefinição, isto está em branco. Ele usa a instância predefinida do SQL no computador do servidor do site.  
 

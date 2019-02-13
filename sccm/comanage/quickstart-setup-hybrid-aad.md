@@ -10,12 +10,13 @@ ms.assetid: 27dd26d1-e99c-4431-b2f8-60406394b6db
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0b7cefa97c9a54b49194281527215ae2c880b003
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec02f740485d3f8b466cde0a644aaaa8885b91f2
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251156"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120961"
 ---
 # <a name="set-up-hybrid-azure-ad-for-co-management"></a>Configurar híbrida do Azure AD para a cogestão
 

@@ -10,12 +10,13 @@ ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 85ce1c4b5201c29ffa3543357f50a379c1b11e7f
-ms.sourcegitcommit: 84afecee44200e27d1d5bb5ed2d54fd6a8c51617
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e876e34929479654240ff220c3cad91043da0f83
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053886"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56123142"
 ---
 # <a name="back-up-a-configuration-manager-site"></a>Efetuar uma Cópia de Segurança de um Site do Gestor de Configuração
 

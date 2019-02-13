@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ea5a15537dcc94f4a7f6947625e7aaa417c969f
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 599da20674c581501d69333f85ad0e91ee158da2
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073406"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124718"
 ---
 # <a name="how-to-deploy-to-production-with-desktop-analytics"></a>Como implementar em produção com a análise de ambiente de trabalho
 

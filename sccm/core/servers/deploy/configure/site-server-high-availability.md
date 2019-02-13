@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade elevada do servidor de site
+title: Elevada disponibilidade do servidor do site
 titleSuffix: Configuration Manager
 description: Como configurar a elevada disponibilidade para o servidor de site do Configuration Manager, adicionando um servidor de site de modo passivo.
 ms.date: 07/30/2018
@@ -10,12 +10,13 @@ ms.assetid: 6dcef836-c0d1-40af-ad30-cd8d864b09a9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 912bdb93db05091ff756c51ee9f951a17a76ff5d
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be12cfe29ff470f2f577bab2c685695ae5770bae
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386844"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131426"
 ---
 # <a name="site-server-high-availability-in-configuration-manager"></a>Site elevada disponibilidade do servidor no Configuration Manager
 
@@ -33,7 +34,7 @@ Um servidor do site em modo passivo:
 Para tornar o servidor do site em modo passivo fique ativo, manualmente *promover* -lo. Esta ação muda o servidor do site no modo ativo deve ser o servidor de site em modo passivo. As funções de sistema de sites que estão disponíveis no servidor de modo ativo original permanecem disponíveis, desde que esse computador está acessível. Apenas a função de servidor do site é alternava entre os modos de ativos e passivos.
 
 > [!Note]  
-> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para mais informações, consulte [Enable optional features from updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
 
 
 
@@ -41,7 +42,7 @@ Para tornar o servidor do site em modo passivo fique ativo, manualmente *promove
 
 - O servidor do site em modo passivo pode estar no local ou com base na cloud no Azure.  
     > [!Note]  
-    > Um servidor de site com base na cloud em modo passivo utiliza a infraestrutura do Azure como um serviço (IaaS). Para obter mais informações, consulte os artigos seguintes:  
+    > Um servidor de site com base na cloud em modo passivo utiliza a infraestrutura do Azure como um serviço (IaaS). Para obter mais informações, veja os artigos seguintes:  
     > - [Máquinas virtuais do Azure (para a infraestrutura baseada na nuvem)](/sccm/core/understand/use-cloud-services#azure-virtual-machines-for-cloud-based-infrastructure)
     > - [Perguntas frequentes para o Configuration Manager no Azure](/sccm/core/understand/configuration-manager-on-azure)  
 

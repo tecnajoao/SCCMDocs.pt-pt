@@ -1,7 +1,7 @@
 ---
 title: Atualizar um computador existente com uma nova versão do Windows
 titleSuffix: Configuration Manager
-description: Pode utilizar diversos métodos no Configuration Manager para particionar e formatar (apagar) um computador existente e instalar um novo sistema operativo no computador.
+description: Pode utilizar vários métodos no Configuration Manager para particionar e formatar (apagar) um computador existente e instalar um novo sistema operativo no computador.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,18 +10,19 @@ ms.assetid: b189a346-8c0d-4870-a876-0719fbb0ab04
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 622b49b9fb689db8238be8254a66b3a0264b4399
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8481b0934998a44b6142131d2cff3dbbd0821720
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32350940"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124249"
 ---
 # <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Atualizar um computador existente com uma nova versão do Windows com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico fornece os passos gerais no System Center Configuration Manager para particionar e formatar (apagar) um computador existente e instalar um novo sistema operativo no computador. Para este cenário, pode escolher de entre vários métodos de implementação diferentes, como PXE, suporte de dados de arranque ou Centro de Software. Também pode optar por instalar um ponto de migração de estado para armazenar definições e, em seguida, restaurá-lo para o novo sistema operativo após a respetiva instalação. Se não souber de que este é o cenário de implementação do sistema operativo correto para si, consulte [cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md).  
+Este tópico fornece os passos gerais no System Center Configuration Manager para particionar e formatar (apagar) um computador existente e instalar um novo sistema operativo no computador. Para este cenário, pode escolher de entre vários métodos de implementação diferentes, como PXE, suporte de dados de arranque ou Centro de Software. Também pode optar por instalar um ponto de migração de estado para armazenar definições e, em seguida, restaurá-lo para o novo sistema operativo após a respetiva instalação. Se tiver a certeza de que este é o cenário de implementação do sistema operativo correto para si, veja [cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md).  
 
  Utilize as secções seguintes para atualizar um computador existente com uma nova versão do Windows.  
 
@@ -29,11 +30,11 @@ Este tópico fornece os passos gerais no System Center Configuration Manager par
 
 -   **Planear e implementar requisitos de infraestrutura**  
 
-     Existem vários requisitos de infraestrutura que tem de ser implementados antes de poder implementar sistemas operativos, tais como o Windows ADK, a ferramenta de migração de estado de utilizador (USMT), serviços de implementação do Windows (WDS), suportadas configurações de disco rígido, etc. Para obter mais informações, consulte [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     Existem vários requisitos de infraestrutura que devem ser cumpridos antes de poder implementar sistemas operativos, como o Windows ADK, a ferramenta de migração de perfil do usuário (USMT), serviços de implementação do Windows (WDS), suporte a configurações de disco rígido, etc. Para obter mais informações, consulte [requisitos de infraestrutura para implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
 -   **Instalar um ponto de migração de estado (necessário apenas se transferir definições)**  
 
-     Quando pretender capturar definições do computador existente e, em seguida, restaurá-las para o novo sistema operativo, tem de instalar um ponto de migração de estado. Para obter mais informações, consulte [ponto de migração de estado](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+     Quando pretender capturar definições do computador existente e, em seguida, restaurá-las para o novo sistema operativo, tem de instalar um ponto de migração de estado. Para mais informações, consulte [State migration point](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
 ##  <a name="BKMK_Configure"></a> Configurar  
 
@@ -45,22 +46,22 @@ Este tópico fornece os passos gerais no System Center Configuration Manager par
 
     -   Para obter mais informações sobre como personalizar uma imagem de arranque, consulte [personalizar imagens de arranque](../get-started/customize-boot-images.md).  
 
-    -   Distribua a imagem de arranque por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+    -   Distribua a imagem de arranque por pontos de distribuição. Para mais informações, consulte [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 2.  **Preparar uma imagem do sistema operativo**  
 
      A imagem do sistema operativo contém os ficheiros necessários para instalar o sistema operativo no computador de destino. Utilize o seguinte procedimento para preparar a imagem do sistema operativo:  
 
-    -   Para obter mais informações sobre como criar uma imagem do sistema operativo, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    -   Para saber mais sobre como criar uma imagem do sistema operativo, consulte [gerir imagens de sistema operativo](../get-started/manage-operating-system-images.md).  
 
-    -   Distribua a imagem do sistema operativo por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+    -   Distribua a imagem do sistema operativo por pontos de distribuição. Para mais informações, consulte [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 3.  **Criar uma sequência de tarefas para implementar sistemas operativos na rede**  
 
      Utilize uma sequência de tarefas para automatizar a instalação do sistema operativo na rede. Utilize os passos em [criar uma sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md) para criar a sequência de tarefas para implementar o sistema operativo. Consoante o método de implementação que escolher, poderão existir outras considerações relativamente à sequência de tarefas.  
 
     > [!NOTE]  
-    >  Neste cenário, a sequência de tarefas formata e particiona os discos rígidos no computador. Para capturar as definições do utilizador, tem de utilizar o ponto de migração de estado e selecionar **Gravar ficheiros e definições do utilizador num Ponto de Migração de Estado** na página **Migração de Estado** do assistente Criar Sequência de Tarefas. Se guardar as definições de utilizador e os ficheiros localmente, estes serão perdidas quando o disco rígido está formatado e do Configuration Manager será não é possível restaurar as definições. Para obter mais informações, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
+    >  Neste cenário, a sequência de tarefas formata e particiona os discos rígidos no computador. Para capturar as definições do utilizador, tem de utilizar o ponto de migração de estado e selecionar **Gravar ficheiros e definições do utilizador num Ponto de Migração de Estado** na página **Migração de Estado** do assistente Criar Sequência de Tarefas. Se guardar as definições de utilizador e os ficheiros localmente, eles serão perdidos quando o disco rígido é formatado e do Configuration Manager que não poderá restaurar as definições. Para obter mais informações, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
 ##  <a name="BKMK_Deploy"></a> Implementar  
 

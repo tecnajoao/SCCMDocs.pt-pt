@@ -10,12 +10,13 @@ ms.assetid: 5e5d854c-9cc1-4dd8-b33f-0fcac675b395
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2ccc918bf5f15798c201ed491dd3824bb20b2ebb
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fb36d753c3ae05e1e38849709b417ac709281203
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56127920"
 ---
 # <a name="device-guard-management-with-configuration-manager"></a>Gestão de proteção de dispositivos com o Configuration Manager
 
@@ -55,7 +56,7 @@ Ao implementar uma política, normalmente, podem executar os executáveis seguin
 - O cliente do Configuration Manager 
 - Todo o software implementado através do Configuration Manager que PCs instalar depois da política de controlo de aplicações do Windows Defender é processada. 
 - Atualizações de componentes do windows de:
-    - Atualização do Windows
+    - Windows Update
     - Windows Update para empresas
     - Windows Server Update Services
     - Configuration Manager

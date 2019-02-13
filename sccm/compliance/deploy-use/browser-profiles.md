@@ -1,5 +1,5 @@
 ---
-title: Configurar as definições do Microsoft Edge
+title: Configurar definições do Microsoft Edge
 titleSuffix: Configuration Manager
 description: Configurar definições para o browser Microsoft Edge em clientes Windows 10
 author: aczechowski
@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-compliance
 ms.assetid: 76477b4d-df41-4b25-8318-7d18d46ca2c6
-ms.openlocfilehash: 2b0b553b7281015bfee89f8409fd6c5e255d753c
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d97a67dd65dd79ba8b47541d0c7a7cad239dca28
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384148"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126039"
 ---
 # <a name="configure-microsoft-edge-settings-in-system-center-configuration-manager"></a>Configurar definições do Microsoft Edge no System Center Configuration Manager
 

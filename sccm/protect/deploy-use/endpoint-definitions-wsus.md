@@ -10,12 +10,13 @@ author: aczechowski
 description: Saiba como configurar os serviços de atualizações do Windows Server para aprovar automaticamente atualizações de definições.
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: b66c55da65f65c219b5c961949244f105885ba8f
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74a1dc94a30f56e22b181446422a8b5f99790ffc
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424291"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56127631"
 ---
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir do Windows Server Update Services (WSUS) para o Configuration Manager
 

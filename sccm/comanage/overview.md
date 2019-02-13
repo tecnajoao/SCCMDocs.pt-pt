@@ -10,12 +10,13 @@ ms.topic: overview
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: f416b783bdec8f87a981ed16b08fb06234a25164
-ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c88bf98e035499c271de8acf9d8fa222e5058447
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54896580"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132629"
 ---
 # <a name="what-is-co-management"></a>O que é a cogestão?
 

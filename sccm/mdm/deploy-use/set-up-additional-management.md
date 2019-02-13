@@ -10,12 +10,13 @@ ms.assetid: 4877d674-6bbc-4e16-810c-daad70c74daa
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8c2ded7509c8097ae219aa594e56fda3f0c35ccd
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d866ce901640b6e7fafb13a6c24318f26c5d5feb
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417154"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131800"
 ---
 # <a name="set-up-additional-management-with-system-center-configuration-manager"></a>Configurar a gestão adicional com o System Center Configuration Manager
 
@@ -46,4 +47,4 @@ ms.locfileid: "53417154"
 Anteriormente, utilizariam a consola do Intune ou a consola do Configuration Manager para configurar a MFA para inscrições no Intune. Agora, faça logon para o [portal do Microsoft Azure](https://manage.windowsazure.com) com as suas credenciais do Intune e configurar as definições da MFA através do Azure AD. Para obter mais informações, consulte [multi-factor authentication do Microsoft Intune](https://aka.ms/mfa_ad).
 
 > [!div class="button"]
-> [< Anterior passo](enable-platform-enrollment.md)[passo seguinte >  ](verify-mdm-configuration.md)
+> [< Anterior passo](enable-platform-enrollment.md)[passo seguinte >](verify-mdm-configuration.md)

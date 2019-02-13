@@ -10,12 +10,13 @@ ms.assetid: 8cdb22a6-72d7-41f5-9bed-c098b1bcf675
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ae137cae29d49413ca11668ff0cc744168e91e21
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d0a32357001f37f537f13fe85e71a41f9cb658ac
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383682"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122445"
 ---
 # <a name="manage-apps-from-the-microsoft-store-for-business-with-configuration-manager"></a>Gerir aplicações a partir da Microsoft Store para empresas com o Configuration Manager
 
@@ -142,7 +143,7 @@ Após a sincronização, criar e implementar as aplicações de loja semelhantes
 
 O site cria uma aplicação do Configuration Manager que contém o Microsoft Store para a aplicação de negócio. 
 
-Em seguida, implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager. Para obter mais informações, consulte os artigos seguintes:  
+Em seguida, implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager. Para obter mais informações, veja os artigos seguintes:  
 - [Implementar aplicações](/sccm/apps/deploy-use/deploy-applications)
 - [Monitorizar aplicações a partir da consola](/sccm/apps/deploy-use/monitor-applications-from-the-console)
 

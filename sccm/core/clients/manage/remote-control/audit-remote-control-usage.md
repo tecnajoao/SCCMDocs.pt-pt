@@ -1,7 +1,7 @@
 ---
-title: Auditoria da utilização do controlo remoto
+title: Auditar a utilização do controlo remoto
 titleSuffix: Configuration Manager
-description: Utilização do controlo remoto no System Center Configuration Manager de auditoria.
+description: Auditar utilização de controlo remoto no System Center Configuration Manager.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,24 +10,25 @@ ms.assetid: 5c975e69-0cc0-4afd-b7fb-b7182162a933
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b216df726ed46c54bcb4778f0f93b2d19f0f9321
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7c24692b88571e56c877c8529fe84b7441c6696
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32332938"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56127648"
 ---
-# <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Como a auditoria da utilização do controlo remoto no System Center Configuration Manager
+# <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Como a auditoria da utilização de controlo remoto no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode utilizar os relatórios do System Center Configuration Manager para ver as informações de auditoria do controlo remoto.  
+Pode utilizar relatórios do System Center Configuration Manager para ver informações de auditoria do controlo remoto.  
 
  Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
  Os dois relatórios seguintes estão disponíveis com a categoria **Mensagens de Estado – Auditoria**:  
 
--   **Controlo remoto - todos os computadores controlados remotamente por um utilizador específico** -mostra um resumo da atividade de controlo remoto iniciado a um utilizador específico.  
+-   **Controlo remoto - todos os computadores controlados remotamente por um utilizador específico** -apresenta um resumo da atividade de controlo remoto iniciada por um utilizador específico.  
 
 -   **Controlo remoto - todas as informações de controlo remoto** -mostra um resumo das mensagens de estado sobre o controlo remoto dos computadores cliente.  
 

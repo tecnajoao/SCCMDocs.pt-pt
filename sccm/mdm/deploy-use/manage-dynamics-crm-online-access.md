@@ -10,12 +10,13 @@ ms.assetid: 2bfc4c51-b25c-4c70-b81e-8a3b6ddf02c8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5e2c8ab4f8dc0b544a79b2113c278f97444357bf
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2bf6073a15518e971d4880a7adbb0853d6387f0d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420962"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122853"
 ---
 # <a name="manage-dynamics-crm-online-access-in-system-center-configuration-manager"></a>Gerir o acesso ao Dynamics CRM Online no System Center Configuration Manager
 

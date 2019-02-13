@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 183315fe-27bd-456f-b2c5-e8d25e05229b
-ms.openlocfilehash: ce3937b630eea38af34f1abd7c7348ebf2f8dfdb
-ms.sourcegitcommit: 316899b08f2ef372993909e08e069f7edfed1d33
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 456e4537e7c397063c50422e8c408dc5d688af04
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44111098"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121579"
 ---
 # <a name="integration-with-windows-update-for-business-in-windows-10"></a>Integração com o Windows Update for Business no Windows 10
 
@@ -82,10 +83,10 @@ Windows Update for Business (WUfB) permite-lhe manter os dispositivos baseados n
 4. Sobre o **políticas de diferimento** página, configure se pretende diferir ou colocar em pausa atualizações de funcionalidades. As atualizações de funcionalidade são, geralmente, novas funcionalidades do Windows. Depois de configurar o **ramificar o nível de preparação** definir, em seguida, pode definir se, e durante quanto tempo, gostaria de diferir a receção de atualizações de funcionalidades após a sua disponibilidade da Microsoft.
     - **Nível de preparação para filiais**: Defina o ramo para o qual o dispositivo irá receber atualizações do Windows (Current Branch ou Current Branch for Business).
     - **Período de diferimento (dias)**:  Especifique o número de dias de diferimento para que as atualizações de funcionalidade. Pode diferir a receção destas atualizações de funcionalidades durante um período de 365 dias a partir do seu lançamento.
-    - **A partir de atualizações de funcionalidades em pausa**: Selecione se colocar em pausa dispositivos recebam atualizações de funcionalidades durante um período de 60 dias desde o momento em que colocar em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa irá automaticamente expirar e o dispositivo irá procurar atualizações do Windows para detetar atualizações aplicáveis. Após esta procura, pode colocar em pausa as atualizações novamente. Pode unpause atualizações de funcionalidades ao desmarcar a caixa de verificação.   
+    - **A partir de atualizações de funcionalidades em pausa**: Selecione se colocar em pausa dispositivos recebam atualizações de funcionalidades durante um período de 60 dias desde o momento em que colocar em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa irá automaticamente expirar e o dispositivo irá procurar atualizações do Windows para detetar atualizações aplicáveis. Após esta procura, pode colocar as atualizações em pausa novamente. Pode unpause atualizações de funcionalidades ao desmarcar a caixa de verificação.   
 5. Escolha se pretende diferir ou colocar em pausa as atualizações de qualidade. As atualizações de qualidade são, geralmente, correções e melhorias às funcionalidades existentes do Windows e, normalmente, são publicadas na primeira Terça-feira de cada mês, embora possam ser lançadas em qualquer altura pela Microsoft. Pode definir se, e durante quanto tempo, gostaria de diferir a receção de atualizações de qualidade, após a sua disponibilidade.
     - **Período de diferimento (dias)**: Especifique o número de dias de diferimento para que as atualizações de qualidade. Pode diferir a receção destas atualizações de qualidade durante um período de 30 dias a partir do seu lançamento.
-    - **A partir de atualizações de qualidade em pausa**: Selecione se colocar em pausa a receção de atualizações de qualidade de dispositivos durante um período máximo de 35 dias desde o momento em que colocar em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa irá automaticamente expirar e o dispositivo irá procurar atualizações do Windows para detetar atualizações aplicáveis. Após esta procura, pode colocar em pausa as atualizações novamente. Pode unpause as atualizações de qualidade ao desmarcar a caixa de verificação.
+    - **A partir de atualizações de qualidade em pausa**: Selecione se colocar em pausa a receção de atualizações de qualidade de dispositivos durante um período máximo de 35 dias desde o momento em que colocar em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa irá automaticamente expirar e o dispositivo irá procurar atualizações do Windows para detetar atualizações aplicáveis. Após esta procura, pode colocar as atualizações em pausa novamente. Pode unpause as atualizações de qualidade ao desmarcar a caixa de verificação.
 6. Selecione **instalar atualizações a partir de outros Products Microsoft** para ativar a definição de política de grupo que tornam as definições de suspensão aplicáveis ao Microsoft Update, bem como as atualizações do Windows.
 7. Selecione **incluir drivers com o Windows Update** para atualizar automaticamente os controladores de atualizações do Windows. Se desmarcar esta definição, as atualizações de controladores não são transferidas de atualizações do Windows.
 8. Conclua o Assistente para criar a nova política de diferimento.

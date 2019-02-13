@@ -1,5 +1,5 @@
 ---
-title: Guia de utilizador do Centro de software
+title: Manual do utilizador do Centro de Software
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os recursos e funcionalidades do Centro de Software
 author: aczechowski
@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.assetid: 9e68de6e-2b33-442b-b674-a382728d9529
-ms.openlocfilehash: bcdc6298a7b1c429888acf2b7257cec072e9b878
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: da01c741107d4eb4a707f7f0d8ada5d82706f292
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383425"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56119896"
 ---
-# <a name="software-center-user-guide"></a>Guia de utilizador do Centro de software
+# <a name="software-center-user-guide"></a>Manual do utilizador do Centro de Software
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 

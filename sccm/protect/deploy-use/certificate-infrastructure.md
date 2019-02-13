@@ -10,12 +10,13 @@ ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 783512841b61d6fa10e3f2832100e9000576e65a
-ms.sourcegitcommit: 2687489aa409a050dcacd67f17b3dad3ab7f1804
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 95a5166433ef35b3c2ab7108bfc83a2d403558e0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54316529"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56128175"
 ---
 # <a name="configure-certificate-infrastructure"></a>Configurar a infraestrutura de certificados
 

@@ -10,23 +10,24 @@ ms.assetid: a0eae17a-60a8-4132-91af-0b10ad338c92
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a1aa0bb03b2e27aebbbf1c080b32445bc7c58c47
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91d298dae14c879e215b85483558898382c12055
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32346683"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120747"
 ---
 # <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Inventário de software para dispositivos móveis inscritos no Microsoft Intune
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Pode recolher inventário para as aplicações instaladas em dispositivos móveis. As aplicações que são colocadas no inventários irão depender se o dispositivo é empresarial ou pessoal. Para dispositivos pessoais, as únicas aplicações que são colocadas em inventário são as aplicações que são geridas pelo Microsoft Intune.  
+ É possível recolher o inventário de aplicações instaladas em dispositivos móveis. As aplicações que são colocadas no inventários irão depender se o dispositivo é empresarial ou pessoal. Para os dispositivos pessoais, as únicas aplicações que são inventariadas são as aplicações que são geridas pelo Microsoft Intune.  
 
 > [!NOTE]  
->  Inventário nas aplicações instaladas em dispositivos móveis é recolhido como parte do [inventário de hardware](mobile-device-hardware-inventory-hybrid.md) processo.  
+>  Inventário nas aplicações instaladas em dispositivos móveis é recolhido como parte da [inventário de hardware](mobile-device-hardware-inventory-hybrid.md) processo.  
 
- Seguem-se as aplicações que são colocadas em inventário para dispositivos de propriedade pessoal ou pertencendo à empresa.  
+ Seguem-se as aplicações que são inventariadas em dispositivos pessoais ou pertencentes à empresa.  
 
 |Plataforma|Em Dispositivos Pessoais|Para Dispositivos Pertencentes à Empresa|  
 |--------------|---------------------------------|--------------------------------|  
@@ -37,4 +38,4 @@ ms.locfileid: "32346683"
 |iOS|Apenas aplicações geridas|Todas as aplicações instaladas no dispositivo|  
 |Android|Apenas aplicações geridas|Todas as aplicações instaladas no dispositivo|  
 
-Consulte [introdução ao inventário de software](../../core/clients/manage/inventory/introduction-to-software-inventory.md) e [como configurar inventário de software ](../../core/clients/manage/inventory/configure-software-inventory.md) para obter informações detalhadas sobre como utilizar o inventário de software para recolher informações de ficheiros nos dispositivos cliente.
+Ver [introdução ao inventário de software](../../core/clients/manage/inventory/introduction-to-software-inventory.md) e [como configurar inventário de software ](../../core/clients/manage/inventory/configure-software-inventory.md) para obter informações detalhadas sobre como utilizar o inventário de software para recolher informações de ficheiros nos dispositivos cliente.

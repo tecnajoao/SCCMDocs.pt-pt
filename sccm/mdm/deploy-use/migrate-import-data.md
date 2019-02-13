@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: b552391d-abc0-48a2-a429-93605a13a66a
-ms.openlocfilehash: 26d6f9b928a7acdfbeb6baac3c3ce1c29cc127d9
-ms.sourcegitcommit: d021f82e4bc35a8e9b5d291bf779ce52b4f47eb8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 46b5034cb95193a07421fe79a445dac0f5b28503
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656463"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124266"
 ---
 # <a name="import-configuration-manager-data-to-microsoft-intune"></a>Importar os dados do Configuration Manager para o Microsoft Intune 
 

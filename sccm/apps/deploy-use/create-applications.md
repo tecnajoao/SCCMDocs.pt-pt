@@ -10,12 +10,13 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9bf3a58c58a525ac3d9fdb30eafaeb68e74002db
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7f896f2ad719572c5adb4e0f24cfc1cf7d1c4d6
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423784"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126764"
 ---
 # <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
@@ -36,7 +37,7 @@ Crie aplicações com os seguintes métodos:
 -   [Importar uma aplicação](#bkmk_import) de um ficheiro  
 
 Este artigo também inclui as seguintes informações para configurar um tipo de implementação:  
-- [Conteúdo](#bkmk_dt-content)
+- [Content](#bkmk_dt-content)
 - [Método de deteção](#bkmk_dt-detect)
 - [Experiência de utilizador](#bkmk_dt-ux)
 - [Requirements](#bkmk_dt-require)
@@ -154,7 +155,7 @@ Se [detetar automaticamente informações sobre a aplicação](#bkmk_auto-app), 
 
 > [!Note]  
 > Ao visualizar as propriedades de um tipo de implementação existente, as secções seguintes correspondem às guias da janela de propriedades do tipo de implementação:  
-> - [Conteúdo](#bkmk_dt-content)
+> - [Content](#bkmk_dt-content)
 > - [Método de deteção](#bkmk_dt-detect)
 > - [Experiência de utilizador](#bkmk_dt-ux)
 > - [Requirements](#bkmk_dt-require)
@@ -555,7 +556,7 @@ Quando criar alguns tipos de implementação, o Configuration Manager adiciona a
 |Valor    |Tipo de código|
 |---------|---------|
 |0        |Êxito (não reiniciado)|
-|versão 1707     |Êxito (não reiniciado)|
+|1707     |Êxito (não reiniciado)|
 |3010     |Reinício por software|
 |1641     |Reinício por hardware|
 |1618     |Repetição rápida|

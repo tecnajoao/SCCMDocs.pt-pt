@@ -10,12 +10,13 @@ ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 61b51fcf9f624f5c2e21a99add1b55f6d6812c84
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ebfcde2be230c9c5e04031210cb6e137ed81668c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421370"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126495"
 ---
 # <a name="about-client-installation-parameters-and-properties-in-system-center-configuration-manager"></a>Sobre os parâmetros de instalação de cliente e propriedades no System Center Configuration Manager
 
@@ -90,7 +91,7 @@ Exemplo: **ccmsetup.exe /?**
 
  Example: **ccmsetup.exe /source:"\\\computer\folder"**  
 
-### <a name="mpltserver"></a>/MP:&lt;server\>
+### <a name="mpltserver"></a>/mp:&lt;Server\>
 
  Especifica um origem ponto de gestão de computadores estabelecerem ligação a. Computadores utilizem este ponto de gestão para localizar o ponto de distribuição mais próximo para os ficheiros de instalação. Se não há nenhum ponto de distribuição ou computadores não é possível transferir os ficheiros dos pontos de distribuição depois de quatro horas, transferem os ficheiros do ponto de gestão especificado.  
 
@@ -220,7 +221,7 @@ Entrada da secção [instalação do cliente] exemplo: `Install=INSTALL=ALL SMSS
 
  Especifique que CCMSetup.exe desinstala qualquer cliente existente e instala um novo cliente.  
 
-### <a name="excludefeaturesltfeature"></a>/ /Excludefeatures:&lt;funcionalidade\>
+### <a name="excludefeaturesltfeature"></a>/ExcludeFeatures:&lt;feature\>
 
 Especifica que CCMSetup.exe não instala a funcionalidade especificada quando instalar o cliente.  
 
@@ -315,7 +316,7 @@ Especifica que o computador está autorizado a reiniciar após a instalação do
 > [!IMPORTANT]  
 >  O computador é reiniciado sem aviso, mesmo que um usuário está conectado.  
 
-Exemplo: **CCMSetup.exe CCMALLOWSILENTREBOOT**  
+Exemplo: **CCMSetup.exe  CCMALLOWSILENTREBOOT**  
 
 ### <a name="ccmalwaysinf"></a>CCMALWAYSINF
 

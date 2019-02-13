@@ -10,12 +10,13 @@ ms.assetid: a0bd093d-67a5-4f74-bf79-dd604889f5ba
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b5f7ac3125b099a764604b3338a92f3f45b10afe
-ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5adc8809edc0a069269dfce71f302452a0e01b45
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52258983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124034"
 ---
 # <a name="learn-more-about-powershell-script-security"></a>Saiba mais sobre a segurança de script do PowerShell
 

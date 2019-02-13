@@ -10,12 +10,13 @@ ms.assetid: e5a8c79f-5791-49c5-8055-086d742e5559
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3e66708471b22346901e8ee16e63dd962b699a16
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2ecd5b3ad493f4916b475aea69b4db241f7ff74b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32344743"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132855"
 ---
 # <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>Serviços de componentes de clientes Linux e UNIX e comandos para o System Center Configuration Manager
 
@@ -26,7 +27,7 @@ ms.locfileid: "32344743"
 
 |Nome de ficheiro|Mais informações|  
 |---------------|----------------------|  
-|ccmexec.bin|Este serviço é equivalente ao serviço ccmexc em clientes baseados em Windows. É responsável por todas as comunicações com funções de sistema de sites do Configuration Manager e também comunica com o serviço omiserver.bin para recolher o inventário de hardware do computador local.<br /><br /> Para obter uma lista de argumentos de linha de comandos suportados, execute **ccmexec -h**|  
+|ccmexec.bin|Este serviço é equivalente ao serviço ccmexc em clientes baseados em Windows. Ele é responsável por todas as comunicações com funções de sistema de sites do Configuration Manager e também comunica com o serviço omiserver. bin para recolher o inventário de hardware do computador local.<br /><br /> Para obter uma lista de argumentos de linha de comandos suportados, execute **ccmexec -h**|  
 |omiserver.bin|Este serviço é o servidor CIM. O servidor CIM proporciona uma arquitetura para módulos de software incorporáveis, denominados fornecedores. Os fornecedores interagem com os recursos informáticos Linux e UNIX e recolhem os dados do inventário de hardware. Por exemplo, o **fornecedor de processos** para um computador Linux recolhe os dados associados aos processos do sistema operativo Linux.|  
 
  As tabelas seguintes listam os comandos que pode utilizar para iniciar, parar ou reiniciar os serviços do cliente (ccmexec.bin e omiserver.bin) em cada versão do Linux ou do UNIX. Quando iniciar ou parar o serviço ccmexec, o serviço omiserver também é iniciado ou parado.  
@@ -35,7 +36,7 @@ ms.locfileid: "32344743"
 |----------------------|--------------|  
 |Agente Universal<br /><br /> RHEL 4 e SLES 9|Iniciar: **/etc/init d/ccmexecd start**<br /><br /> Parar: **/etc/init d/ccmexecd stop**<br /><br /> Reiniciar: **/etc/init d/ccmexecd restart**|  
 |Solaris 9|Iniciar: **/etc/init d/ccmexecd start**<br /><br /> Parar: **/etc/init d/ccmexecd stop**<br /><br /> Reiniciar: **/etc/init d/ccmexecd restart**|  
-|Solaris 10|Iniciar:<br /><br /> **svcadm ativar svc -s: / gestão/aplicação/omiserver**<br /><br /> **svcadm ativar svc -s: / gestão/aplicação/ccmexecd**<br /><br /> Parar:<br /><br /> **svcadm desativar -s svc: / gestão/aplicação/ccmexecd**<br /><br /> **svcadm desativar -s svc: / gestão/aplicação/omiserver**|  
-|Solaris 11|Iniciar:<br /><br /> **svcadm ativar svc -s: / gestão/aplicação/omiserver**<br /><br /> **svcadm ativar svc -s: / gestão/aplicação/ccmexecd**<br /><br /> Parar:<br /><br /> **svcadm desativar -s svc: / gestão/aplicação/ccmexecd**<br /><br /> **svcadm desativar -s svc: / gestão/aplicação/omiserver**|  
+|Solaris 10|Iniciar:<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Parar:<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
+|Solaris 11|Iniciar:<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Parar:<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
 |AIX|Iniciar:<br /><br /> **startsrc -s omiserver**<br /><br /> **startsrc -s ccmexec**<br /><br /> Parar:<br /><br /> **stopsrc -s ccmexec**<br /><br /> **stopsrc -s omiserver**|  
 |HP-UX|Iniciar: **/sbin/init.d/ccmexecd start**<br /><br /> Parar: **/sbin/init.d/ccmexecd stop**<br /><br /> Reiniciar: **/sbin/init.d/ccmexecd restart**|  

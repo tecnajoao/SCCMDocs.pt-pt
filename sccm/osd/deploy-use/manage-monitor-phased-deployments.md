@@ -10,12 +10,13 @@ ms.assetid: dc245916-bc11-4983-9c4d-015f655007c1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5324e00f17770feca25d40c645d8e344df797f21
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5ebf89e46b33649f12ea5770d6e771e811a66094
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125736"
 ---
 # <a name="manage-and-monitor-phased-deployments"></a>Gerir e monitorizar as implementações faseadas
 

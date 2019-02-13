@@ -10,12 +10,13 @@ ms.assetid: 41cdebfe-b595-40aa-a385-32e0746255ed
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: df7d443a9f611278296c729949d5dfb764a43e9e
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 970d2fbf69a7c4c91a55cadf5d420988b2207ca2
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420793"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131103"
 ---
 # <a name="support-center-user-interface-reference"></a>Referência de interface de usuário do Centro de suporte
 
@@ -145,7 +146,7 @@ Quando carrega os detalhes do cliente, o Support Center mostra as seguintes prop
 
 - **Estado de registo**: Indica se o cliente está registado com o Configuration Manager  
 
-- **Acesso à Internet**: Indica se o cliente está na internet  
+- **Internet-facing**: Indica se o cliente está na internet  
 
 - **Versão**: O número de versão de cliente do Configuration Manager instalado  
 
@@ -260,8 +261,8 @@ Esta vista mostra as seguintes propriedades:
 
  - **Localização**: A localização de cada pasta de cache. Selecione a ligação para abrir a pasta no Explorador do Windows.   
  - **ID de conteúdo**  
- - **ID da cache**  
- - **Tamanho**  
+ - **Cache ID**  
+ - **Size**  
  - **Última referenciada**: Esta propriedade é a data quando o cliente pela última vez ler ou escreveu a este item na cache.  
 
 #### <a name="monitoring-view"></a>Vista de monitorização
@@ -348,7 +349,7 @@ Resolver alguns dos problemas mais comuns com clientes do Configuration Manager:
 #### <a name="start"></a>Iniciar,
 Inicia o cliente de resolução de problemas
 
-- **Do Active Directory**: Publicado de consulta o Active Directory para obter informações de site do Configuration Manager  
+- **Active Directory**: Publicado de consulta o Active Directory para obter informações de site do Configuration Manager  
 - **MPCERTIFICATE**: Obtém os certificados de ponto de gestão  
 - **MPLIST**: Obtém uma lista de pontos de gestão  
 - **MPKEYINFORMATION**: Obtém informações da chave criptográfica gestão ponto  

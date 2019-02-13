@@ -1,5 +1,5 @@
 ---
-title: Obtenha ajuda de FastTrack
+title: Obter ajuda do FastTrack
 titleSuffix: Configuration Manager
 description: A organização de FastTrack é um grupo grande de engenheiros da Microsoft que se especializam nos ajudar a todos os tipos de organizações implantar o Microsoft 365
 ms.date: 01/14/2019
@@ -10,12 +10,13 @@ ms.assetid: 42e80570-d637-41a4-97b7-ebf1f8975af3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 17486772dc3ffa4d5e8ac472448361b0f8528bd5
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5827f68dc7ec499e59291edc4ed4de10f5081311
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250994"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120879"
 ---
 # <a name="get-help-from-fasttrack-for-co-management"></a>Obtenha ajuda de FastTrack para a cogestão
 

@@ -10,12 +10,13 @@ ms.assetid: a95bc292-af10-4beb-ab56-2a815fc69304
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 81086b01cef3d60af6e0c93d25b2ad937252d4ba
-ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d23fee65cec798440449a00bf8a22d58cc373132
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54152405"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133787"
 ---
 # <a name="windows-hello-for-business-settings-in-configuration-manager"></a>Windows Hello para empresas no Configuration Manager
 
@@ -75,7 +76,7 @@ Primeiro tem de criar o **os administradores de chave** agrupar e adicionados a 
 
 Algumas configurações poderão não ser necessário configurar permissões ou podem requerer ainda mais configurações. Consulte a tabela seguinte para obter mais ajuda:
 
-|Versão de cliente do Windows|Configuration Manager versão 1602 ou 1606|Configuration Manager versão 1610|Gestor de configuração 1702 ou posterior|
+|Versão de cliente do Windows|Configuration Manager versão 1602 ou 1606|Configuration Manager 1610|Gestor de configuração 1702 ou posterior|
 |-|-|-|-|
 |Windows 10 Anniversary Update|Sem correções necessárias<br><br>Não existem permissões necessárias<br><br>Nenhuma atualização de esquema do Windows necessária|Sem correções necessárias (consulte **aviso**)<br><br>Não existem permissões necessárias<br><br>Nenhuma atualização de esquema do Windows necessária|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 para o Active Directory|
 |Atualização para criativos do Windows 10 ou posterior|Não suportado|Instalar [Esta correção](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v)<br><br>Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 para o Active Directory|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 para o Active Directory|

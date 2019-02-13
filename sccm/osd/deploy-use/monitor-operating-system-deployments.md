@@ -1,7 +1,7 @@
 ---
 title: Monitorizar implementações do sistema operativo
 titleSuffix: Configuration Manager
-description: Para ajudar a monitorizar objetos de implementação do sistema operativo, a consola do Configuration Manager fornece alertas, relatórios e vários indicadores de estado.
+description: Para ajudá-lo a monitorizar objetos de implementação do sistema operativo, a consola do Configuration Manager fornece diversos indicadores de estado, relatórios e alertas.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,18 +10,19 @@ ms.assetid: 08085d94-295c-432f-b5e3-9736bce0193b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a6e15f7bea1a600cc2cff2e400b2d793cabf1078
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 47bc9f00a64614e2483feb2ce3171fc8b245a0ba
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32348689"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122989"
 ---
 # <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Monitorizar implementações do sistema operativo no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Consola do Configuration Manager fornece as seguintes opções para o ajudar a monitorizar objetos de implementação do sistema operativo.  
+Consola do Configuration Manager fornece as seguintes opções para ajudar a monitorizar objetos de implementação do sistema operativo.  
 
 
 ##  <a name="BKMK_OSDAlerts"></a> Alertas para implementações de sistema operativo  
@@ -50,7 +51,7 @@ Consola do Configuration Manager fornece as seguintes opções para o ajudar a m
  Existem muitos relatórios de implementação do sistema operativo predefinidos disponíveis. Estes relatórios estão organizados em várias categorias e podem ser utilizados para reportar informações específicas sobre migração de estado e implementações de sequências de tarefas. Além de utilizar os relatórios pré-configurados, também pode criar relatórios de atualização de software personalizados, adequados às necessidades da sua empresa. Para obter mais informações, consulte [operações e manutenção de relatórios](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
 ##  <a name="BKMK_MonitorContent"></a> Monitorizar conteúdo  
- Pode monitorizar os conteúdos na consola do Configuration Manager para rever o estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados. Estas informações podem incluir o estado de validação do conteúdo do pacote, o estado dos conteúdos atribuídos a um grupo específico de pontos de distribuição, o estado dos conteúdos atribuídos a um ponto de distribuição e o estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
+ Pode monitorizar o conteúdo na consola do Configuration Manager para rever o estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados. Estas informações podem incluir o estado de validação do conteúdo do pacote, o estado dos conteúdos atribuídos a um grupo específico de pontos de distribuição, o estado dos conteúdos atribuídos a um ponto de distribuição e o estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
 
 ###  <a name="BKMK_ContentStatus"></a> Monitorização do estado do conteúdo  
  O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Pode rever as informações gerais do pacote, o estado de distribuição do pacote e informações de estado detalhadas do pacote. Utilize o seguinte procedimento para ver o estado do conteúdo.  

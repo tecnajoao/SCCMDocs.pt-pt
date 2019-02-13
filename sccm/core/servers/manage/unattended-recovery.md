@@ -10,12 +10,13 @@ ms.assetid: 828c31d1-3d70-4412-b1a8-c92e7e504d39
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 637727356724085f019ac9ab336bc37e3635ea3a
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0da207f92ea2c11266831a0c03f5b846654e83a4
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415148"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56129005"
 ---
 # <a name="unattended-site-recovery-for-configuration-manager"></a>Recuperação de site automática para o Configuration Manager   
 
@@ -383,5 +384,5 @@ ms.locfileid: "53415148"
 -   **Nome da chave:** WaitForCASTimeout
 
     -   **Necessário:** Não
-    -   **Valores:** &lt;*Tempo limite*>
+    -   **Valores:** &lt;*Timeout*>
     -   **Detalhes:** Especifica o valor de tempo limite máximo (em minutos) para um site primário ligar ao site de administração central. Por exemplo, se um site primário não conseguir ligar a um site de administração central, tenta efetuar de novo a ligação com base no CASRetryInterval, até atingir o WaitForCASTimeout. Pode especificar um valor entre 0 e 100.

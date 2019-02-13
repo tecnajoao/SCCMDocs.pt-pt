@@ -10,12 +10,13 @@ ms.assetid: caad0507-9913-415a-b13d-d36f8f0a1b80
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 2d88f8a5e4a6f3dd6b752930934ebba9b1638e92
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7c840c0a42ccf36e9c69044a6591b29d70c19093
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424413"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126472"
 ---
 # <a name="packages-and-programs-in-system-center-configuration-manager"></a>Pacotes e programas no System Center Configuration Manager
 
@@ -305,7 +306,7 @@ Pacotes podem utilizar algumas novas funcionalidades do Configuration Manager, i
 
 -   **Ícone** (opcional): O ficheiro que contém o ícone utilizado para este pacote. Se for especificado, este ícone substitui o ícone de pacote predefinido na consola do Configuration Manager.
 
--   **Publicador**: O publicador do pacote, até 32 carateres.
+-   **Publisher**: O publicador do pacote, até 32 carateres.
 
 -   **Idioma**: A versão de idioma do pacote, até 32 carateres.
 
@@ -336,7 +337,7 @@ Pacotes podem utilizar algumas novas funcionalidades do Configuration Manager, i
 
 -   **Comentário** (opcional): Um comentário sobre o programa, até 127 carateres.
 
--   **Linha de comandos**: Especifique a linha de comandos do programa, até 127 carateres. O comando é relativo à pasta de origem do pacote.
+-   **CommandLine**: Especifique a linha de comandos do programa, até 127 carateres. O comando é relativo à pasta de origem do pacote.
 
 -   **StartIn**: Especifique a pasta de trabalho para o programa, até 127 carateres. Esta entrada pode ser um caminho absoluto no computador cliente ou um caminho relativo para a pasta de origem do pacote.
 

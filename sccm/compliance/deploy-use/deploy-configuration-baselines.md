@@ -1,5 +1,5 @@
 ---
-title: Implementar linhas de base de configuração
+title: Implementar linhas de base da configuração
 titleSuffix: Configuration Manager
 description: Implemente linhas de base de configuração para definir implementações da linha de base de configuração e para adicionar ou remover linhas de base de configuração de implementações.
 ms.date: 10/06/2016
@@ -10,24 +10,25 @@ ms.assetid: 9be8aaf3-075e-4acd-abd2-7459254e16e2
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: c55382bf1fc377fd7e86f433a0cb92a5240eafa1
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cf818fdb7b1ff87b53277bf9313aa94663163e64
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32334713"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120764"
 ---
 # <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Como implementar linhas de base de configuração no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Linhas de base de configuração no System Center Configuration Manager devem ser implementadas numa ou mais coleções de utilizadores ou dispositivos antes de dispositivos cliente nessas coleções podem avaliar a respetiva conformidade com a linha de base de configuração.  
+Linhas de base de configuração no System Center Configuration Manager devem ser implementadas numa ou mais coleções de utilizadores ou dispositivos, para que dispositivos cliente nessas coleções podem avaliar a compatibilidade com a linha de base de configuração.  
 
 Utilize a caixa de diálogo **Implementar Linhas de Base de Configuração** para definir implementações da linha de base de configuração, que inclui adicionar ou remover linhas de base de configuração de implementações, além de especificar o agendamento de avaliação.  
 
 ## <a name="deploy-a-configuration-baseline"></a>Implementar uma linha de base de configuração  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **linhas de base de configuração**.  
 
 3.  Na lista **Perfis de E-mail** , selecione o perfil de e-mail que pretende implementar e, em seguida, no separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
 
@@ -38,11 +39,11 @@ Utilize a caixa de diálogo **Implementar Linhas de Base de Configuração** par
 
 5.  Especifique as seguintes informações adicionais:  
 
-    -   **Remediar regras incompatíveis quando suportado** – automaticamente retifica quaisquer regras não compatíveis para o Windows Management Instrumentation (WMI), o registo, scripts e todas as definições para dispositivos móveis que são inscritos pelo Configuration Gestor.  
+    -   **Remediar regras incompatíveis quando suportado** – automaticamente retifica quaisquer regras não compatíveis com o Windows Management Instrumentation (WMI), o registro, scripts e todas as definições para dispositivos móveis inscritos pelo Configuration Gestor.  
 
     -   **Permitir remediação fora da janela de manutenção** – Se uma janela de manutenção tiver sido configurada para a coleção onde pretende implementar a linha de base de configuração, ative esta opção para que as definições de conformidade retifiquem o valor fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-6.  **Gerar um alerta** – configura um alerta que é gerado se a compatibilidade da linha de base de configuração for inferior a uma percentagem especificada por uma data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
+6.  **Gerar um alerta** – configura um alerta que é gerado se a compatibilidade da linha de base de configuração for inferior a uma percentagem especificada até uma data especificada e a hora. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
 
 7.  **Coleção** - Clique em **Procurar** para selecionar a coleção na qual pretende implementar a linha de base de configuração.  
 
@@ -51,4 +52,4 @@ Utilize a caixa de diálogo **Implementar Linhas de Base de Configuração** par
     > [!NOTE]  
     >  Se a linha de base de configuração for implementada num computador, esta é avaliada em termos de conformidade duas horas após a hora de início agendada. Se for implementado num utilizador, é avaliada em termos de compatibilidade quando o utilizador inicia sessão.  
 
-9. Clique em **OK** para fechar a caixa de diálogo **Implementar Linhas de Base de Configuração** e criar a implementação. Para obter mais informações sobre como monitorizar a implementação, consulte [monitorizar as definições de compatibilidade](/sccm/compliance/deploy-use/monitor-compliance-settings).  
+9. Clique em **OK** para fechar a caixa de diálogo **Implementar Linhas de Base de Configuração** e criar a implementação. Para obter mais informações sobre como monitorizar a implementação, consulte [monitorizar as definições de conformidade](/sccm/compliance/deploy-use/monitor-compliance-settings).  

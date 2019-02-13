@@ -1,5 +1,5 @@
 ---
-title: Notificação do cliente
+title: Notificação de cliente
 titleSuffix: Configuration Manager
 description: Gerir clientes ao tomar medidas imediatas partir da consola central do Configuration Manager.
 ms.date: 11/27/2018
@@ -10,12 +10,13 @@ ms.assetid: deb8aac8-2bd9-4980-a25b-5f8d93051226
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8aa38217c3e9456a074a984b66feb83bdb192801
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f190522300090247cdca0affa9d993fe46201668
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458308"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122037"
 ---
 # <a name="client-notification-in-configuration-manager"></a>Notificação do cliente no Configuration Manager
 
@@ -71,7 +72,7 @@ Esta ação requer as mesmas permissões que o [executar script](#run-script) a�
 
 
 
-## <a name="client-notification"></a>Notificação do cliente
+## <a name="client-notification"></a>Notificação de cliente
 
 Essas ações estão sob o **notificação do cliente** menu, no Friso do grupo de dispositivo ou a coleção do separador base.
 
