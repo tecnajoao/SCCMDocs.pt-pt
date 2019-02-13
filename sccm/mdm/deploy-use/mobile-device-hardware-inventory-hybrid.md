@@ -10,23 +10,24 @@ ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5a616d20c71b76571e34a9147d0408a98c235e97
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d1a208b3bac5d0b12a9fd395506f02d283a0b55f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32350175"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125090"
 ---
 # <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Como configurar inventário de hardware para dispositivos móveis inscritos pelo Microsoft Intune e o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-No Configuration Manager, é possível recolher o inventário de hardware em dispositivos iOS, Android e Windows dispositivos utilizando o conector do Microsoft Intune. Para obter informações sobre como configurar inventário de hardware, consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+No Configuration Manager, é possível recolher o inventário de hardware em iOS, Android e Windows dispositivos ao utilizar o conector do Microsoft Intune. Para obter informações sobre como configurar inventário de hardware, consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
  Para obter informações sobre como inscrever dispositivos no Microsoft Intune, consulte [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx).  
 
 ## <a name="hardware-inventory-for-mobile-devices"></a>Inventário de hardware para dispositivos móveis  
- As tabelas seguintes listam as classes de inventário disponíveis para o inventário de hardware entre plataformas móveis comummente utilizadas.  
+ As tabelas seguintes listam as classes de inventário disponíveis para o inventário de hardware em plataformas móveis comumente utilizadas.  
 
  **iOS**  
 
@@ -56,7 +57,7 @@ No Configuration Manager, é possível recolher o inventário de hardware em dis
  **Android**  
 
 > [!NOTE]  
->  **NOTA:** Classes de inventário Android estão disponíveis ao utilizar a aplicação Portal da empresa Android.  
+>  **NOTA:** Classes de inventário Android estão disponíveis quando utilizar a aplicação Portal da empresa para Android.  
 
 |Classe de Inventário de Hardware|Android|  
 |------------------------------|-------------|  

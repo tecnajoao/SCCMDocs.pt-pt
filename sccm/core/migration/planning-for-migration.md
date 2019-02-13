@@ -1,7 +1,7 @@
 ---
-title: Plano para a migração
+title: Planear a migração
 titleSuffix: Configuration Manager
-description: Saiba mais sobre sites e hierarquias antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager.
+description: Saiba mais sobre os sites e hierarquias antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager.
 ms.date: 1/12/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,26 +10,27 @@ ms.assetid: b2bf493e-1e10-496f-a139-2646522703ed
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2091f3f41336413a49446a14b1190cce426c8277
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4d3a54b7fabbd36b3c622c75622002d509540581
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32333166"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56141913"
 ---
 # <a name="plan-for-migration-to-system-center-configuration-manager"></a>Planear a migração para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager, certifique-se de que está familiarizado com sites e hierarquias no Configuration Manager. Para obter mais informações sobre sites e hierarquias, consulte [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md).  
+Antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager, certifique-se de que está familiarizado com sites e hierarquias no Configuration Manager. Para mais informações sobre sites e hierarquias, consulte [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
  Tem de instalar uma hierarquia do System Center Configuration Manager para ser a hierarquia de destino antes de migrar dados de uma hierarquia de origem suportada.  
 
- Depois de instalar a hierarquia de destino, configure as funcionalidades de gestão e as funções que pretende utilizar na sua hierarquia de destino antes de começar a migrar dados.  
+ Depois de instalar a hierarquia de destino, configure as funcionalidades de gestão e as funções que pretende utilizar na sua hierarquia de destino antes de começar a migrar os dados.  
 
- Além disso, poderá ter de plano para a sobreposição entre a hierarquia de origem e a hierarquia de destino. Por exemplo, pode configurar a hierarquia de origem a utilizar as mesmas localizações de rede ou limites de como a hierarquia de destino e, em seguida, instalar novos clientes para a hierarquia de destino e utilize a atribuição automática de site. Neste cenário, porque um cliente do Configuration Manager recém-instalado pode selecionar um site para associação em qualquer das hierarquias, o cliente podem ser atribuídos incorretamente à hierarquia de origem. Por conseguinte, planeie atribuir cada novo cliente na hierarquia de destino a um site específico dessa hierarquia em vez de utilizar a atribuição automática de site.  
+ Além disso, poderá ter de plano para a sobreposição entre a hierarquia de origem e a hierarquia de destino. Por exemplo, pode configurar a hierarquia de origem para utilizar as mesmas localizações de rede ou limites de como a hierarquia de destino e, em seguida, instalar novos clientes na hierarquia de destino e utilizar a atribuição automática de site. Neste cenário, uma vez que um cliente do Configuration Manager recém-instalado pode selecionar um site para associação a partir de qualquer uma das hierarquias, o cliente podem ser atribuídos incorretamente à hierarquia de origem. Por conseguinte, planeie atribuir cada novo cliente na hierarquia de destino a um site específico dessa hierarquia em vez de utilizar a atribuição automática de site.  
 
- Para obter mais informações sobre atribuições de sites, consulte [considerações de atribuição de site do cliente](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) no [interoperabilidade entre diferentes versões do System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
+ Para obter mais informações sobre atribuições de sites, consulte [considerações de atribuição de site do cliente](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) na [interoperabilidade entre diferentes versões do System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
 ## <a name="plan-topics"></a>Tópicos de plano  
  Utilize os tópicos seguintes para o ajudar a planear a migração de uma hierarquia de origem suportada para uma hierarquia de destino do System Center Configuration Manager:

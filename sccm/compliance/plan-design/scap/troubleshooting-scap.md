@@ -10,12 +10,13 @@ ms.assetid: 27261853-1641-4826-98c6-afbb73a1209d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bb3bcd0e7301ff2ef7baeff29de038cbd8476525
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58a3c69e6206aa651e55f96286f98f64f748de70
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383284"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137141"
 ---
 # <a name="troubleshoot-the-scap-extensions-for-configuration-manager"></a>Resolver problemas relacionados com as extensões SCAP para o Configuration Manager
 

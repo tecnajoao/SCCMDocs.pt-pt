@@ -10,12 +10,13 @@ ms.assetid: 0a9dc0fe-a942-40a2-bab1-7eeee4d95380
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0ffca1ddec5b6504ccb2b6646336f56d40e44ac4
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 25360f8563820fc5463a6fefd738402038ef79d5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32350651"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136665"
 ---
 # <a name="create-an-endpoint-protection-point-site-system-role"></a>Criar uma função de sistema de sites de ponto de Endpoint Protection
 
@@ -23,14 +24,14 @@ ms.locfileid: "32350651"
 
  A função de sistema de sites de ponto do Endpoint Protection tem de ser instalada antes de poder utilizar o Endpoint Protection. Tem de ser instalada apenas num servidor do sistema de sites e tem de ser instalada na parte superior da hierarquia num site de administração central ou num site primário autónomo.
 
- Utilize um dos seguintes procedimentos consoante pretenda instalar um novo servidor de sistema de sites do Endpoint Protection ou utilizar um servidor de sistema de sites existente:
- - [Instalar um novo servidor de sistema de sites](#new-site-system-server)
- - [Instalar um servidor de sistema de sites existente](#existing-site-system-server)
+ Utilize um dos seguintes procedimentos consoante pretenda instalar um novo servidor de sistema de sites para o Endpoint Protection ou utilizar um servidor de sistema de sites existente:
+ - [Instalar num novo servidor de sistema de sites](#new-site-system-server)
+ - [Instalar num servidor de sistema de sites existente](#existing-site-system-server)
 
 > [!IMPORTANT]
->  Quando instala um ponto de Endpoint Protection, um cliente do Endpoint Protection está instalado no servidor que aloja o ponto de Endpoint Protection. Os serviços e análises estão desativados neste cliente para permitir que coexista com qualquer solução antimalware existente que esteja instalada no servidor. Se mais tarde ative este servidor para gestão pelo Endpoint Protection e selecionar a opção para remover qualquer solução antimalware de terceiros, o produto de terceiros não será removido. Tem de desinstalar este produto manualmente.
+>  Quando instala um ponto de Endpoint Protection, um cliente do Endpoint Protection está instalado no servidor que aloja o ponto de Endpoint Protection. Os serviços e análises estão desativados neste cliente para permitir que coexista com qualquer solução antimalware existente que esteja instalada no servidor. Se mais tarde ative este servidor para gestão pelo Endpoint Protection e selecione a opção para remover qualquer solução antimalware de terceiros, o produto de terceiros não será removido. Tem de desinstalar este produto manualmente.
 
-## <a name="new-site-system-server"></a>Novo servidor do sistema de sites
+## <a name="new-site-system-server"></a>Novo servidor de sistema de sites
 
 1.  Na consola do Configuration Manager, clique em **Administração**.
 
@@ -47,19 +48,19 @@ ms.locfileid: "32350651"
     > [!IMPORTANT]
     >  Não é possível utilizar o Endpoint Protection no Configuration Manager a menos que aceite os termos de licenciamento.
 
-7.  No **serviço de proteção de nuvem** página, selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **seguinte**.
+7.  Sobre o **Cloud Protection Service** , selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **próxima**.
 
     > [!NOTE]
-    >  Esta opção configura as definições do serviço de proteção de nuvem (anteriormente conhecida como Microsoft Active Protection Service ou MAPS) que são utilizadas por predefinição. Em seguida, pode configurar definições personalizadas para cada política antimalware que criar. Aderir ao serviço de proteção de nuvem, para ajudar a manter os seus computadores mais seguros ao fornecer à Microsoft exemplos de software maligno que podem ajudar a manter as definições de antimalware mais atualizadas. Além disso, quando associa o serviço de proteção de nuvem, o cliente do Endpoint Protection pode utilizar o serviço de assinaturas dinâmicas para transferir novas definições antes de serem publicadas no Windows Update. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
+    >  Esta opção configura as definições do Cloud Protection Service (anteriormente conhecido como Microsoft Active Protection Service ou mapas) que são utilizadas por predefinição. Em seguida, pode configurar definições personalizadas para cada política antimalware que criar. Aderir ao Cloud Protection Service, para ajudar a manter seus computadores mais seguros ao fornecer Microsoft com exemplos de software maligno que podem ajudar a manter as definições de antimalware mais atualizadas. Além disso, quando aderir ao Cloud Protection Service, o cliente do Endpoint Protection pode utilizar o serviço de assinaturas dinâmicas para transferir novas definições antes de serem publicados para o Windows Update. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
 
 8.  Conclua o assistente.
 
 
-## <a name="existing-site-system-server"></a>Servidor do sistema de sites existente
+## <a name="existing-site-system-server"></a>Servidor de sistema de sites existente
 
 1.  Na consola do Configuration Manager, clique em **Administração**.
 
-2.  No **administração** área de trabalho, expanda **configuração do Site**, clique em **servidores e funções de sistema de sites**e, em seguida, selecione o servidor que pretende utilizar para o Endpoint Protection.
+2.  Na **Administration** área de trabalho, expanda **configuração do Site**, clique em **servidores e funções de sistema de sites**e, em seguida, selecione o servidor que pretende utilizar para o ponto final Proteção.
 
 3.  No separador **Home Page** , no grupo **Servidor** , clique em **Adicionar Funções do Sistema de Sites**.
 
@@ -72,9 +73,9 @@ ms.locfileid: "32350651"
     > [!IMPORTANT]
     >  Não é possível utilizar o Endpoint Protection no Configuration Manager a menos que aceite os termos de licenciamento.
 
-7.  No **serviço de proteção de nuvem** página, selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **seguinte**.
+7.  Sobre o **Cloud Protection Service** , selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **próxima**.
 
     > [!NOTE]
-    >  Esta opção configura as definições do serviço de proteção de nuvem (anteriormente conhecidas como MAPS) que são utilizadas por predefinição. Pode configurar definições personalizadas para cada política antimalware que configurar. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
+    >  Esta opção configura as definições do Cloud Protection Service (anteriormente conhecidas como mapas) que são utilizadas por predefinição. Pode configurar definições personalizadas para cada política antimalware que configurar. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
 
 8.  Conclua o assistente.

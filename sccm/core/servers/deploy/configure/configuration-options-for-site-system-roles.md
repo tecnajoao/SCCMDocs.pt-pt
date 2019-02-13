@@ -10,12 +10,13 @@ ms.assetid: 0e9f0fbd-e442-4509-a021-bfdedf2d04dd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 379fa3637d1634caf4797b1f1b7029e3531158cc
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 209e09ba11de851a1275211364af3cee930737d0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893530"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131545"
 ---
 # <a name="configuration-options-for-site-system-roles-in-configuration-manager"></a>Opções de configuração para funções de sistema de sites no Configuration Manager
 
@@ -116,7 +117,7 @@ Selecione esta caixa de verificação para ativar o ponto de distribuição para
 
 ##  <a name="BKMK_Enrollment_Point"></a> Ponto de registo  
 
-Pontos de registo que são utilizados para instalar computadores macOS e inscrever dispositivos que gere com a gestão de dispositivos móveis no local. Para obter mais informações, consulte os artigos seguintes:  
+Pontos de registo que são utilizados para instalar computadores macOS e inscrever dispositivos que gere com a gestão de dispositivos móveis no local. Para obter mais informações, veja os artigos seguintes:  
 
 -   [Como implementar clientes em Macs](/sccm/core/clients/deploy/deploy-clients-to-macs)  
 

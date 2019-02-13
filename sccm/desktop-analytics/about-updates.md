@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b0ad377b260f106aa859ed9b25ff1ac3e32f49b
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b46bf167bc77716fe360940c4fb45cae2dc9dc5a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073376"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133255"
 ---
 # <a name="updates-in-desktop-analytics"></a>Atualizações no ambiente de trabalho Analytics 
 

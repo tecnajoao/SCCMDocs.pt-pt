@@ -10,12 +10,13 @@ ms.assetid: e2745bac-e1b4-4dac-8ac7-32f1c820bc9c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4550116bd4635e7320e9cbdf18997e2e17ae0466
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8a695a0b777f4adf3d2fb336df6aced8702e9dab
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32349155"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125260"
 ---
 # <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gerir o Bloqueio de Ativação do iOS com o System Center Configuration Manager
 
@@ -80,7 +81,7 @@ Só pode ignorar o Bloqueio de Ativação ou obter o código para ignorar o Bloq
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>Vista de código de ignorabilidade do bloqueio de ativação
+## <a name="view-the-activation-lock-bypass-code"></a>Vista de código de desativação do bloqueio de ativação
 
 1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
 2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Dispositivos**.

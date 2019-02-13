@@ -10,12 +10,13 @@ ms.assetid: b87ac054-9b37-4725-a3f3-2340cfb10bff
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6ea093b71d19c2cee35caa748ae60f76a95b078c
-ms.sourcegitcommit: 54e5786875c4e5f5c1b54e38ed59e96344faf9b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 59560808128e0e3bf08a4005a9d9ffcf0fbf4142
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53817771"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131936"
 ---
 # <a name="checklist-for-installing-update-1810-for-configuration-manager"></a>Lista de verificação para instalar a atualização 1810 para o Configuration Manager
 

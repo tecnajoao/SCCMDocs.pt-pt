@@ -10,12 +10,13 @@ ms.assetid: 395403dc-6997-4415-93fd-6b1eeb6ba31a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fd23bd523eb64f7d00f71c38c79a180c4e2e569a
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1479524f08f17aa59f6e7dc771253a4fb6720189
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39387243"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131137"
 ---
 # <a name="configuration-manager-tools"></a>Ferramentas do Configuration Manager
 

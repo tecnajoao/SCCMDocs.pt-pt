@@ -1,5 +1,5 @@
 ---
-title: 'Adicionar as atualizações a um grupo de atualização '
+title: 'Adicionar atualizações a um grupo de atualização '
 titleSuffix: Configuration Manager
 description: Manual ou automaticamente adicione atualizações de software a um grupo de atualização de software no seu ambiente.
 author: aczechowski
@@ -10,18 +10,19 @@ ms.technology: configmgr-sum
 ms.assetid: a0767664-fd60-46a8-9da5-86cc431ce53c
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: df213206ee673e872852958233973e4f091728b9
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c4d17d4e1e0a41e2e94cfe70d422ed3425a812d6
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32353128"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56141158"
 ---
 # <a name="add-software-updates-to-an-update-group"></a>Adicionar atualizações de software a um grupo de atualizações  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Os grupos de atualizações de software proporcionam-lhe um método eficaz para organizar as atualizações de software no seu ambiente. Pode adicionar manualmente atualizações de software a um grupo de atualizações de software ou adicionar as atualizações de software automaticamente a um grupo de atualizações de software utilizando uma ADR. Também pode implementar um grupo de atualizações de software manualmente ou implementar o grupo automaticamente, utilizando uma ADR. Depois de implementar um grupo de atualização de software, pode adicionar novas atualizações de software ao grupo e do Configuration Manager procederá automaticamente à sua implementação. Utilize os seguintes procedimentos para adicionar atualizações de software a um grupo de atualizações de software novo ou existente.  
+ Os grupos de atualizações de software proporcionam-lhe um método eficaz para organizar as atualizações de software no seu ambiente. Pode adicionar manualmente atualizações de software a um grupo de atualizações de software ou adicionar as atualizações de software automaticamente a um grupo de atualizações de software utilizando uma ADR. Também pode implementar um grupo de atualizações de software manualmente ou implementar o grupo automaticamente, utilizando uma ADR. Depois de implementar um grupo de atualização de software, pode adicionar novas atualizações de software ao grupo e do Configuration Manager irá implementá-las automaticamente. Utilize os seguintes procedimentos para adicionar atualizações de software a um grupo de atualizações de software novo ou existente.  
 
 #### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Para adicionar atualizações de software a um novo grupo de atualizações de software  
 
@@ -48,7 +49,7 @@ ms.locfileid: "32353128"
 3.  Selecione as atualizações de software que pretende adicionar ao novo grupo de atualizações de software.  
 
     > [!NOTE]  
-    >  No **todas as atualizações de Software** nós, por predefinição, o Configuration Manager apresentam apenas atualizações de software com uma **crítico** e **segurança** classificação e que foram lançadas nos 30 últimos dias.  
+    >  Sobre o **todas as atualizações de Software** nó, por predefinição, o Configuration Manager apresenta apenas atualizações de software com uma **crítico** e **segurança** classificação e que foram lançados nos últimos 30 dias.  
 
 4.  No separador **Home Page** , no grupo **Atualizar** , clique em **Editar Associação**.  
 

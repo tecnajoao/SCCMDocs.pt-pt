@@ -10,18 +10,19 @@ ms.assetid: 9083c571-f4fc-4a78-adc5-8aec84dabcbd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c8e984c6eb76716e031ed793a7753840842f0ea7
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 62db216d2047ee0272c6b3fa226493b5e8af5f84
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586186"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56128726"
 ---
 # <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Gerir o acesso a recursos da empresa com base em riscos de aplicações, redes e dispositivos
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Controlar o acesso de dispositivos móveis a recursos empresariais com base na avaliação de riscos realizada pelo Lookout. Lookout é uma solução de proteção de ameaças de dispositivos integrada no Microsoft Intune. O risco baseia-se nos dados recolhidos pelo serviço do Lookout. Ele coleta dados a partir de dispositivos para vulnerabilidades do SO, aplicações maliciosas instaladas e perfis de rede maliciosos. 
+Controlar o acesso de dispositivos móveis a recursos empresariais com base na avaliação de riscos realizada pelo Lookout. Lookout é uma solução de proteção de ameaças de dispositivos integrada no Microsoft Intune. O risco baseia-se nos dados recolhidos pelo serviço do Lookout. Ele coleta dados a partir de dispositivos para vulnerabilidades do SO, aplicações maliciosas instaladas e perfis de rede maliciosos. 
 
 Com base na avaliação de risco comunicados do Lookout ativada através de políticas de conformidade do Configuration Manager, configurar políticas de acesso condicional. Estas políticas permitem ou bloquear dispositivos que o Gestor de configuração determina como não conforme devido a ameaças detetadas nesses dispositivos.
 

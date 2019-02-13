@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
-ms.openlocfilehash: 7c775df2446dbd0da1d9317982fc752dbfe5120a
-ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aac5c9d6c683447fe7dda50e6dcfd52b7024656d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46533818"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131647"
 ---
 # <a name="service-a-server-group"></a>Fazer manutenção a um grupo de servidores
 
@@ -65,7 +66,7 @@ As definições de grupo do servidor são configuradas nas propriedades de uma c
     >   
     >  `Out-File C:\Windows\Temp\start.txt`  
     >   
-    >  **Pós-implementação**  
+    >  **Post-deployment**  
     >   
     >  `#End`  
     >   

@@ -1,5 +1,5 @@
 ---
-title: Explorador de biblioteca de conteúdos
+title: Explorador da Biblioteca de Conteúdos
 titleSuffix: Configuration Manager
 description: Utilize o Explorador de biblioteca de conteúdo para ver e resolver problemas relacionados com a biblioteca de conteúdos num ponto de distribuição do Configuration Manager.
 ms.date: 07/30/2018
@@ -10,14 +10,15 @@ ms.assetid: 691896d9-ec0f-461f-a3f2-40378ebd3121
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7950447776c5c2dd756d6632a65d74d91adfba01
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b9fb8c5c189407fdc6fc742ebcd0b7d9730d4289
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386732"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142209"
 ---
-# <a name="content-library-explorer"></a>Explorador de biblioteca de conteúdos
+# <a name="content-library-explorer"></a>Explorador da Biblioteca de Conteúdos
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 

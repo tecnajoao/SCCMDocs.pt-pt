@@ -10,12 +10,13 @@ ms.assetid: ee8d611f-aa0c-4efd-b0ad-dbd14d0a0623
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9e58e11bec9441f73bff021c8a6a24d150777cbe
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 57770c35b3a824aa285185e3031ed2fc9b9dd82d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385546"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135458"
 ---
 # <a name="frequently-asked-questions-for-configuration-manager-branches-and-licensing"></a>Perguntas mais frequentes para ramos do Configuration Manager e licenciamento
 

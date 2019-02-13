@@ -10,12 +10,13 @@ ms.assetid: 6a4a3290-5228-4871-918a-554aa1c20834
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3ad96cedf1170f8563fdafe3922f6ad2e7c67b5a
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87552016d1cd17e79abf01a9de9109195d3d2a70
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125328"
 ---
 # <a name="cmtrace"></a>CMTrace
 

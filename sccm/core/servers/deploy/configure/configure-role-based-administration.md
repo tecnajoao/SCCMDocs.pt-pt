@@ -9,12 +9,13 @@ ms.assetid: 57413dd3-b2f8-4a5f-b27f-8464d357caff
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f5a0601af46d4d5f835822d3e5c551096512ceb3
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 554e67e171fe5b800d231d257105531dcd633baf
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42590881"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131579"
 ---
 # <a name="configure-role-based-administration-for-configuration-manager"></a>Configurar a administração baseada em funções para o Configuration Manager   
 

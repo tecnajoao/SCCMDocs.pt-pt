@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f1bafe2dc6aa33484e7a85010218afbe95f981a
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 370bfc26b8a7b6ca0223803a36e765528460d89f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073387"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56143721"
 ---
 # <a name="desktop-analytics-data-privacy"></a>Ambiente de trabalho privacidade de dados de análise
 

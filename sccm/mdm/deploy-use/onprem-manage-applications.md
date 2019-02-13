@@ -1,7 +1,7 @@
 ---
-title: Gerir aplicações para gestão de dispositivos móveis no local
+title: Gerir as aplicações para gestão de dispositivos móveis no local
 titleSuffix: Configuration Manager
-description: Gerir aplicações para gestão de dispositivos móveis no local.
+description: Gerir as aplicações para gestão de dispositivos móveis no local.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
@@ -10,17 +10,18 @@ ms.assetid: 5f44b246-3467-4778-a5c2-047ce325da58
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 78cefff25b2657a137ceae6971c80fc35f5163e0
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 335c3036f4af1f5d6ea339557a70469a130dd012
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32345748"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56130433"
 ---
-# <a name="manage-applications-for-on-premises-mobile-device-management"></a>Gerir aplicações para gestão de dispositivos móveis no local
+# <a name="manage-applications-for-on-premises-mobile-device-management"></a>Gerir as aplicações para gestão de dispositivos móveis no local
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Quando gerir dispositivos através do local Mobile Device Management (MDM) no Configuration Manager, pode gerir determinados tipos de aplicação adicional. Gerir aplicações na MDM no local é igual a gestão de aplicações num ambiente híbrido MDM.
+Quando gerir dispositivos através de locais Mobile Device Management (MDM) no Configuration Manager, pode gerenciar a determinados tipos de aplicativo adicional. Gestão de aplicações no MDM no local é igual a gestão de aplicações num ambiente híbrido MDM.
 
-[Gerir aplicações móveis](management-tasks-applications.md) fornece informações detalhadas sobre como criar e gerir aplicações através de MDM híbrida ou a MDM no local
+[Gerir aplicações móveis](management-tasks-applications.md) fornece informações detalhadas sobre como criar e gerir aplicações com a MDM híbrida ou a MDM no local

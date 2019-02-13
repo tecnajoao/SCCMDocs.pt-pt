@@ -10,12 +10,13 @@ ms.assetid: 0bdcb018-bac2-4540-b786-6242bac73ff4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7b59b7414ad2095d053b1121ba936281559aa5e2
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e3280edbe900e96cf97af8e59578ceab5322ee2a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386865"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137301"
 ---
 # <a name="deploy-and-monitor-scap-compliance-in-configuration-manager"></a>Implementar e monitorizar a conformidade do SCAP no Configuration Manager
 

@@ -9,12 +9,13 @@ ms.assetid: 7e4ada34-63bf-4b9f-8246-31816aa44196
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 179aae5fdbd8d6c09a34dca6dd01437d5f61f7b8
-ms.sourcegitcommit: 0a4556820fabe004d45a82b0ee1176f6891ac9f0
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b36e98edfffcc26b7fb2670cbfdc31c165331f0f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949599"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139396"
 ---
 # <a name="enable-lookout-mtd-connection-in-the-intune-admin-console"></a>Ativar a ligação da MTD do Lookout na consola de administração do Intune
 

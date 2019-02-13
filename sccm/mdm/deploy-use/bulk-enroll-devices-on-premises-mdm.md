@@ -1,7 +1,7 @@
 ---
-title: Inscrição em massa de dispositivos para a MDM no local
+title: Inscrição em massa de dispositivos para MDM no local
 titleSuffix: Configuration Manager
-description: Inscrição em volume dispositivos de uma forma automática com gestão de dispositivos móveis no local no System Center Configuration Manager.
+description: Inscrever em massa dispositivos de uma forma automática com a gestão de dispositivos móveis no local no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
@@ -10,31 +10,32 @@ ms.assetid: b36f5e4a-2b57-4d18-83f6-197081ac2a0a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 437f6e6068fb56f1a906cbb8bea24cd3c707f0e3
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e0c007a2414a68701584967ee21e3cf046e42be3
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32350243"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56130627"
 ---
 # <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Como a inscrição em massa de dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Inscrição em massa na gestão de dispositivos móveis no local do System Center Configuration Manager é um meio mais automatizado de inscrição de dispositivos, em comparação com a inscrição do utilizador, que requer que os utilizadores introduzam as respetivas credenciais para inscrever o dispositivo.  A inscrição em massa utiliza um pacote de inscrição para autenticar o dispositivo durante a inscrição. O pacote (um ficheiro .ppkg) contém um perfil de certificado e, opcionalmente, um perfil Wi-Fi se o dispositivo precisar de conectividade de intranet para suportar a inscrição.  
+Inscrição em massa na gestão de dispositivos móveis no local do System Center Configuration Manager é um meio mais automatizado de inscrição de dispositivos, em comparação com a inscrição do utilizador, que requer que os utilizadores introduzam as credenciais para inscrever o dispositivo.  A inscrição em massa utiliza um pacote de inscrição para autenticar o dispositivo durante a inscrição. O pacote (um ficheiro .ppkg) contém um perfil de certificado e, opcionalmente, um perfil Wi-Fi se o dispositivo precisar de conectividade de intranet para suportar a inscrição.  
 
 > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  O current branch do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos com os seguintes sistemas operativos:  
 >   
 > -  Windows 10 Enterprise  
 > -   Windows 10 Pro  
 > -   Windows 10 Team  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Enterprise
-> -   Windows 10 Enterprise de IoT   
+> -   Windows 10 IoT Enterprise   
 
-As tarefas seguintes explicam como em massa inscrever computadores e dispositivos para no\-no local a gestão de dispositivos móveis:  
+As tarefas seguintes explicam como inscrever em massa computadores e dispositivos para no\-no local a gestão de dispositivos móveis:  
 
 -   [Criar um perfil de certificado](#bkmk_createCert)  
 
@@ -51,26 +52,26 @@ As tarefas seguintes explicam como em massa inscrever computadores e dispositivo
 ##  <a name="bkmk_createCert"></a> Criar um perfil de certificado  
  O componente principal do pacote de inscrição é um perfil de certificado, o qual é utilizado para aprovisionar automaticamente um certificado de raiz fidedigna para o dispositivo que está a ser inscrito.  Este certificado de raiz é necessário para a comunicação fidedigna entre os dispositivos e as funções do sistema de sites necessárias para em\-no local a gestão de dispositivos móveis. Sem o certificado de raiz, o dispositivo não seria fidedigno nas ligações HTTPS entre si e os servidores que alojam o ponto de registo, o ponto proxy de registo, o ponto de distribuição e as funções do sistema de sites do ponto de gestão de dispositivos.  
 
- Como parte da preparação do sistema no\-local gestão de dispositivos móveis, pode exporta um certificado de raiz que pode utilizar o perfil de certificado do pacote de inscrição. Para obter instruções sobre como obter o certificado de raiz fidedigna, consulte [exportar o certificado com a mesma raiz como o certificado de servidor web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
+ Como parte da preparação do sistema para no\-local gestão de dispositivos móveis, exportar um certificado de raiz que pode utilizar num perfil de certificado do pacote de inscrição. Para obter instruções sobre como obter o certificado de raiz fidedigna, consulte [exportar o certificado com a mesma raiz como o certificado de servidor web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
- Utilize o certificado de raiz exportado para criar um perfil de certificado. Para obter instruções, consulte [como criar perfis de certificado no System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+ Utilize o certificado de raiz exportado para criar um perfil de certificado. Para obter instruções, consulte [How to create certificate profiles in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
 ##  <a name="CreateWifi"></a> Criar um perfil Wi-Fi  
  O outro componente do pacote utilizado para a inscrição em massa é um perfil Wi-Fi. Alguns dispositivos podem não ter a conectividade de rede necessária para suportar a inscrição até que as definições de rede sejam aprovisionadas. Incluir um perfil Wi-Fi no pacote de inscrição fornece um meio para estabelecer a conectividade de rede para o dispositivo.  
 
- Para criar um perfil de Wi-Fi no Configuration Manager, siga as instruções no [como criar perfis de Wi-Fi no System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
+ Para criar um perfil de Wi-Fi no Configuration Manager, siga as instruções em [como criar perfis de Wi-Fi no System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
 
 > [!IMPORTANT]  
->Tenha os seguintes problemas de dois em consideração quando criar um perfil de Wi-Fi para inscrição em massa:
+>Considere os seguintes dois problemas ao criar um perfil de Wi-Fi para inscrição em massa:
 >
-> - O ramo atual do Configuration Manager só suporta as seguinte configurações de segurança Wi-Fi para\-no local a gestão de dispositivos móveis:  
+> - O current branch do Configuration Manager só suporta as seguinte configurações de segurança Wi-Fi para no\-no local a gestão de dispositivos móveis:  
 >   
->   - Tipos de segurança: **WPA2 Enterprise** ou **WPA2 pessoal**  
+>   - Tipos de segurança: **WPA2 Enterprise** ou **WPA2 Personal**  
 >   - Tipos de encriptação: **AES** ou **TKIP**  
 >   - Tipos de EAP: **Smart Card ou outro certificado** ou **PEAP**  
 >
 >
-> - Apesar do Configuration Manager possui uma definição de informações do servidor proxy no perfil de Wi-Fi, não configura o proxy quando o dispositivo está inscrito. Se precisar de configurar um servidor proxy com os dispositivos inscritos, pode implementar as definições de itens de configuração a utilizar assim que os dispositivos estão inscritos ou criar o segundo pacote utilizando o Windows Image and Configuration Designer (ICD) para implementar ao longo do lado do pacote de inscrição em massa.
+> - Embora o Configuration Manager tem uma definição para informações do servidor proxy no perfil de Wi-Fi,-não configurar o proxy quando o dispositivo está inscrito. Se precisar de configurar um servidor proxy com os dispositivos inscritos, pode implementar as definições usando os itens de configuração uma vez que os dispositivos inscritos ou criar o segundo pacote usando a imagem do Windows e Configuration Designer (ICD) para implantar, no lado, a maior parte pacote de inscrição.
 
 ##  <a name="bkmk_createEnroll"></a> Criar um perfil de inscrição  
  O perfil de inscrição permite especificar as definições necessárias para a inscrição de dispositivos, incluindo um perfil de certificado que aprovisionará dinamicamente um certificado de raiz fidedigna para o dispositivo e um perfil Wi-Fi que aprovisionará as definições de rede, se necessário.  
@@ -79,7 +80,7 @@ As tarefas seguintes explicam como em massa inscrever computadores e dispositivo
 
 #### <a name="to-create-an-enrollment-profile"></a>Para criar um perfil de inscrição:  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** >**descrição geral** >**todos os dispositivos pertencentes** >**Windows** >**perfis de inscrição**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** >**descrição geral** >**dispositivos All Corporate-owned**  > **Windows** >**perfis de inscrição**.  
 
 2.  Clique com o botão direito do rato em **Perfil de Inscrição** e, em seguida, clique em **Criar Perfil**.  
 
@@ -99,9 +100,9 @@ As tarefas seguintes explicam como em massa inscrever computadores e dispositivo
 8.  Confirme as definições para o perfil de inscrição e clique em **seguinte**. Clique em **Fechar** para sair do assistente.  
 
 ##  <a name="bkmk_createPpkg"></a> Criar um ficheiro de pacote de inscrição (ppkg)  
- O pacote de inscrição é o ficheiro utiliza a inscrição em massa de dispositivos no\-no local a gestão de dispositivos móveis.  Este ficheiro tem de ser criado com o Configuration Manager. Pode criar tipos de pacotes semelhantes com o Windows Image and Configuration Designer (ICD), mas apenas os pacotes que criar no Configuration Manager podem ser utilizados para inscrever dispositivos para no\-no local a gestão de dispositivos móveis do início ao fim. Os pacotes criados com o Windows ICD só podem fornecer o nome principal de utilizador (UPN) necessário para a inscrição, mas não podem executar o processo de inscrição efetivo.  
+ O pacote de inscrição é o ficheiro utilizado para inscrever em massa de dispositivos para no\-no local a gestão de dispositivos móveis.  Este ficheiro tem de ser criado com o Configuration Manager. Pode criar tipos de pacotes semelhantes com a imagem do Windows e Configuration Designer (ICD), mas apenas os pacotes que criar no Configuration Manager podem ser utilizados para inscrever dispositivos para no\-no local a gestão de dispositivos móveis do início ao fim. Os pacotes criados com o Windows ICD só podem fornecer o nome principal de utilizador (UPN) necessário para a inscrição, mas não podem executar o processo de inscrição efetivo.  
 
- O processo para criar o pacote de inscrição requer o Windows Assessment and Deployment Kit (ADK) para Windows 10.  No servidor que executa a consola do Configuration Manager, certifique-se de que tem a versão 1511 do Windows ADK instalada. Para mais informações, consulte a secção ADK em [Transferir kits e ferramentas para o Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
+ O processo para criar o pacote de inscrição requer o Windows Assessment and Deployment Kit (ADK) para Windows 10.  No servidor que executa a consola do Configuration Manager, certifique-se de que tem a versão 1511 do Windows ADK instalado. Para mais informações, consulte a secção ADK em [Transferir kits e ferramentas para o Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
 
 > [!TIP]  
 >  Se remover um pacote de inscrição a partir da consola do Configuration Manager, não pode ser utilizado para inscrever dispositivos. Pode utilizar a remoção do pacote como uma forma de gerir pacotes que já não pretende utilizar na inscrição em massa de dispositivos.  
@@ -115,7 +116,7 @@ As tarefas seguintes explicam como em massa inscrever computadores e dispositivo
 3.  Se pretender proteger o pacote por palavra-passe, clique na caixa de verificação junto a **Encriptar Pacote**, clique em **Exportar** e aguarde cerca de 10 segundos para concluir a exportação.  
 
     > [!NOTE]  
-    >  Se encriptou o pacote, o Configuration Manager fornece uma mensagem com a palavra-passe desencriptada no mesmo. Certifique-se de que guarda as informações de palavra-passe, uma vez quer irá precisar das mesmas para aprovisionar o pacote em dispositivos.  
+    >  Se encriptou o pacote, o Configuration Manager fornece uma mensagem com a palavra-passe desencriptada nela. Certifique-se de que guarda as informações de palavra-passe, uma vez quer irá precisar das mesmas para aprovisionar o pacote em dispositivos.  
 
 4.  Clique em **OK**.  
 
@@ -144,7 +145,7 @@ As tarefas seguintes explicam como em massa inscrever computadores e dispositivo
 
 2.  Clique em **Sim** na mensagem Controlo de Conta de Utilizador.  
 
-3.  Na caixa de diálogo a perguntar se o pacote provém de uma origem confia, clique em **Sim, adicioná-lo**.  
+3.  Na caixa de diálogo a pedir-lhe se o pacote provém de uma origem de confia, clique em **Sim, adicioná-lo**.  
 
      O processo de inscrição é iniciado e demora cerca de 5 minutos.  
 

@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19e46eb99d5b16b955f0ffe70e497d188f9fc807
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e409a1bba4642f2a9390c08896ba86cb676839f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073399"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135490"
 ---
 # <a name="how-to-enroll-devices-in-desktop-analytics"></a>Como inscrever dispositivos no ambiente de trabalho de análise 
 

@@ -10,12 +10,13 @@ ms.assetid: 3417ff88-7177-4a0d-8967-ab21fe7eba17
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8e857d42654544308c0b008776110862a202a8ba
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 060b1f71519227673dd2b8b67b5def026e96f493
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417528"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131902"
 ---
 # <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Exemplo passo a passo implementação dos certificados PKI para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008
 
@@ -29,7 +30,7 @@ Esta implementação de exemplo passo a passo, que utiliza uma autoridade de cer
 >  Pode adaptar as instruções neste tópico para sistemas operativos que não se encontram documentados na secção de requisitos de rede de teste. No entanto, se estiver a executar a AC emissora no Windows Server 2012, não lhe será solicitada a indicação da versão do modelo de certificado. Em vez disso, especifique isto no **compatibilidade** separador de propriedades do modelo:  
 > 
 > - **Autoridade de certificação**: **Windows Server 2003**  
->   -   **Destinatário do certificado**: **O Windows XP / Server 2003**  
+>   -   **Destinatário do certificado**: **Windows XP / Server 2003**  
 
 ## <a name="in-this-section"></a>Nesta secção  
  As secções seguintes incluem instruções passo a passo do exemplo para criar e implementar os seguintes certificados que podem ser utilizados com o System Center Configuration Manager:  

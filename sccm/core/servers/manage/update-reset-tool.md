@@ -10,12 +10,13 @@ ms.assetid: 25fa89d6-7e47-45a6-8f4e-70b77560fba6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: de5c98e45c6f5d6dca1569de812825cce80d6f70
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 85b6421d8582d4278f6d60a6e60bd7d4940a8afa
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417348"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140267"
 ---
 # <a name="update-reset-tool"></a>Ferramenta de reposição de atualizações
 
@@ -72,6 +73,6 @@ Depois da ferramenta é executada:
 |                       **-FDELETE**                       |                       *Opcional* <br> Forçar a eliminação de um pacote de atualização transferido com êxito.                        |
 
  **Exemplos:**  
- Num cenário típico, que pretende repor uma atualização que tem problemas de transferência. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ Num cenário típico, que pretende repor uma atualização que tem problemas de transferência. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Num cenário mais extremo, pretender forçar a eliminação do pacote de atualização problemático. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe - FDELETE -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ Num cenário mais extremo, pretender forçar a eliminação do pacote de atualização problemático. É o FQDN de servidores SQL *server1.fabrikam.com*, a base de dados do site é *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***

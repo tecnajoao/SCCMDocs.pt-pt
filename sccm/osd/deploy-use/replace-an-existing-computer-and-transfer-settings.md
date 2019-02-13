@@ -1,7 +1,7 @@
 ---
 title: Substituir um computador existente e transferir definições
 titleSuffix: Configuration Manager
-description: No Configuration Manager, escolha entre os métodos de implementação, tais como suportes de dados, multicast ou centro de Software, para substituir um computador existente com um novo computador.
+description: No Gestor de configuração, escolha de entre os métodos de implantação, como dados de arranque, multicast ou centro de Software, para substituir um computador existente com um novo computador.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,18 +10,19 @@ ms.assetid: d28f4363-9e8a-4c54-9cb7-0594fabfff26
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2693196ab21474877b5eda4ecce4a93737d1ac59
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 769794f98a14b5d8bf27b46c6fb2408d0b0ebe18
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32348798"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136114"
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Substituir um computador existente e transferir definições com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico fornece geral passos no System Center Configuration Manager, para substituir um computador existente com um novo computador. Para este cenário, pode escolher de entre vários métodos de implementação diferentes, como suporte de dados de arranque, multicast ou Centro de Software. Também pode optar por instalar um ponto de migração de estado para armazenar definições e, em seguida, restaurá-lo para o novo sistema operativo após a respetiva instalação. Se não souber de que este é o cenário de implementação do sistema operativo correto para si, consulte [cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md).  
+Este tópico fornece os passos gerais no System Center Configuration Manager, para substituir um computador existente com um novo computador. Para este cenário, pode escolher de entre vários métodos de implementação diferentes, como suporte de dados de arranque, multicast ou Centro de Software. Também pode optar por instalar um ponto de migração de estado para armazenar definições e, em seguida, restaurá-lo para o novo sistema operativo após a respetiva instalação. Se tiver a certeza de que este é o cenário de implementação do sistema operativo correto para si, veja [cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md).  
 
  Utilize as secções seguintes para atualizar um computador existente com uma nova versão do Windows.  
 
@@ -29,11 +30,11 @@ Este tópico fornece geral passos no System Center Configuration Manager, para s
 
 -   **Planear e implementar requisitos de infraestrutura**  
 
-     Existem vários requisitos de infraestrutura que tem de ser implementados antes de poder implementar sistemas operativos, tais como o Windows ADK, a ferramenta de migração de estado de utilizador (USMT), serviços de implementação do Windows (WDS), suportadas configurações de disco rígido, etc. Para obter mais informações, consulte [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md)  
+     Existem vários requisitos de infraestrutura que devem ser cumpridos antes de poder implementar sistemas operativos, como o Windows ADK, a ferramenta de migração de perfil do usuário (USMT), serviços de implementação do Windows (WDS), suporte a configurações de disco rígido, etc. Para obter mais informações, consulte [requisitos de infraestrutura para implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md)  
 
 -   **Instalar um ponto de migração de estado (necessário apenas se transferir definições)**  
 
-     Quando pretender capturar definições do computador existente e, em seguida, restaurá-las para o novo sistema operativo, tem de instalar um ponto de migração de estado. Para obter mais informações, consulte [ponto de migração de estado](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+     Quando pretender capturar definições do computador existente e, em seguida, restaurá-las para o novo sistema operativo, tem de instalar um ponto de migração de estado. Para mais informações, consulte [State migration point](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
 ##  <a name="BKMK_Configure"></a> Configurar  
 
@@ -45,15 +46,15 @@ Este tópico fornece geral passos no System Center Configuration Manager, para s
 
     -   Para obter mais informações sobre como personalizar uma imagem de arranque, consulte [personalizar imagens de arranque](../get-started/customize-boot-images.md).  
 
-    -   Distribua a imagem de arranque por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+    -   Distribua a imagem de arranque por pontos de distribuição. Para mais informações, consulte [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 2.  **Preparar uma imagem do sistema operativo**  
 
      A imagem do sistema operativo contém os ficheiros necessários para instalar o sistema operativo no computador de destino. Utilize o seguinte procedimento para preparar a imagem do sistema operativo:  
 
-    -   Para obter mais informações sobre como criar uma imagem do sistema operativo, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    -   Para saber mais sobre como criar uma imagem do sistema operativo, consulte [gerir imagens de sistema operativo](../get-started/manage-operating-system-images.md).  
 
-    -   Distribua a imagem do sistema operativo por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+    -   Distribua a imagem do sistema operativo por pontos de distribuição. Para mais informações, consulte [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 3.  **Criar uma sequência de tarefas para implementar sistemas operativos na rede**  
 

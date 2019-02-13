@@ -10,12 +10,13 @@ ms.assetid: b634ff68-b909-48d2-9e2c-0933486673c5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7d103f7f7b92003605d92d34d6294ed06009118c
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9107e3bf851ddbcec061eeeac064f31e7392ee9f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456520"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142447"
 ---
 # <a name="create-phased-deployments-with-configuration-manager"></a>Criar implementações faseadas com o Configuration Manager
 
@@ -107,14 +108,14 @@ Include a timeline diagram
 
 2. Sobre o **gerais** página, dê a implementação faseada um **nome**, **Descrição** (opcional) e selecione **criar automaticamente uma predefinição fase dois implementação**.  
 
-3. Selecione **procurar** e escolha uma coleção de destino para ambos os **primeira coleção** e **segunda coleção** campos. Para uma sequência de tarefas e atualizações de software, selecione a partir de coleções de dispositivos. Para uma aplicação, selecione as coleções de utilizadores ou dispositivos. Selecione **seguinte**.  
+3. Selecione **procurar** e escolha uma coleção de destino para ambos os **primeira coleção** e **segunda coleção** campos. Para uma sequência de tarefas e atualizações de software, selecione a partir de coleções de dispositivos. Para uma aplicação, selecione as coleções de utilizadores ou dispositivos. Selecione **Seguinte**.  
 
     > [!Important]  
     > O Assistente para criar implementação por fases não notificá-lo se uma implementação é potencialmente alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](/sccm/core/servers/manage/settings-to-manage-high-risk-deployments) e a nota quando [implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
 
 4. Sobre o **definições** página, selecione uma opção para cada uma das definições de agendamento. Para obter mais informações, consulte [fase definições](#bkmk_settings). Selecione **seguinte** quando terminar.  
 
-5. Sobre o **fases** página, consulte as duas fases que o assistente cria para coleções especificadas. Selecione **seguinte**.   
+5. Sobre o **fases** página, consulte as duas fases que o assistente cria para coleções especificadas. Selecione **Seguinte**.   
 
     > [!Note]  
     > Esta secção abrange o procedimento para criar automaticamente uma implementação de duas fases predefinida. O assistente permite-lhe adicionar, remover, reordenar, editar ou ver as fases de uma implementação faseada. Para obter mais informações sobre estas ações adicionais, consulte [criar uma implementação faseada com fases configurados manualmente](#bkmk_manual).  
@@ -168,7 +169,7 @@ A partir da versão 1806, crie uma implementação faseada com fases configurado
        > - Critérios para o êxito da fase anterior  
        > - Condições para iniciar esta fase de implementação após o êxito da fase anterior   
 
-5. Selecione **seguinte**. Reveja as definições na **resumo** página e, em seguida, conclua o Assistente para criar implementação por fases.  
+5. Selecione **Seguinte**. Reveja as definições na **resumo** página e, em seguida, conclua o Assistente para criar implementação por fases.  
 
 
 Depois de criar uma implementação faseada, abra as respetivas propriedades para efetuar alterações:  

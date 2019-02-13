@@ -10,12 +10,13 @@ ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 008da23a6fedf1666a29754dc41a47c61f8bfbda
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a5336db0bd16d4845650bae775f2eff895e617fb
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384237"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142277"
 ---
 # <a name="use-a-pull-distribution-point-with-configuration-manager"></a>Utilizar um ponto de distribuição de solicitação com o Configuration Manager
 
@@ -156,8 +157,8 @@ Quando configurar o ponto de distribuição de extração, especifica um ou mais
 -   Quando o ponto de distribuição de extração transferir conteúdo, ele usa o **serviço de transferência inteligente em segundo plano** (BITS) incorporadas no Windows. Um ponto de distribuição de extração, não precisa que instale a extensão de BITS para o servidor de IIS.<!--sms.503672 -Clarified BITS use-->
 
 -  Para obter detalhes operacionais, consulte os seguintes arquivos de log no ponto de distribuição de extração:  
-    - **Datatransferservice. log**
-    - **Pulldp**
+    - **DataTransferService.log**
+    - **PullDP.log**
 
 
 

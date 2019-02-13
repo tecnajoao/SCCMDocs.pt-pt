@@ -10,12 +10,13 @@ ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 35e1675e74b0df768d143441fa4cbb2dda47affc
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0bb478eb875e97d8e3088e50daab8538113b40c5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418232"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139590"
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>O ramo do Configuration Manager devo utilizar?
 
@@ -31,7 +32,7 @@ Existem três ramos do System Center Configuration Manager disponíveis: ramo at
 ## <a name="current-branch"></a>Ramo atual
 Este ramo é licenciado para utilização num ambiente de produção. Utilize este ramo para obter as funções e funcionalidades mais recentes. Se tiver uma das seguintes licenças, pode utilizar este ramo:  
 - Centro de dados do System Center
-- O System Center Standard
+- System Center Standard
 - O System Center Configuration Manager
 - Direitos de equivalente de subscrição  
 

@@ -4,12 +4,12 @@ ms.author: aaroncz
 ms.prod: configuration-manager
 ms.topic: include
 ms.date: 11/27/2018
-ms.openlocfilehash: c91cf0abb8cb79fe92e34b6b234a4c8264af75ab
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: f6e46f8b0bf985eae87cd5157f8a82af5fa0b849
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456945"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142583"
 ---
 ##  <a name="BKMK_OSImagesApplyUpdates"></a> Aplicar atualizações de software a uma imagem  
 
@@ -82,4 +82,5 @@ Por predefinição, esta definição é **automática**. Com este valor, o Confi
 Se selecionar uma unidade que não existe no servidor do site, o Configuration Manager tem o mesmo comportamento como se selecionou **automática**. 
 
 Durante a manutenção offline, o Configuration Manager armazena ficheiros temporários na pasta, `<drive>:\ConfigMgr_OfflineImageServicing`. Ele também monta a imagem do SO nesta pasta. 
+
 

@@ -10,12 +10,13 @@ ms.assetid: 41dcc259-f147-4420-bff2-b65bdf8cff77
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 27a615a412bca7e30ab5f5a3dc5f794961d13d2c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5872a6a8ee69e50d0abfe5840a087aaf83ab7aa5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424498"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156615"
 ---
 # <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Introdução aos perfis de certificado no System Center Configuration Manager
 

@@ -1,7 +1,7 @@
 ---
 title: Preparar a implementação do sistema operativo
 titleSuffix: Configuration Manager
-description: Ler estes artigos para saber mais sobre o que deve fazer no Configuration Manager para se preparar para implementações do sistema operativo.
+description: Leia os seguintes artigos para saber mais sobre o que é necessário efetuar no Configuration Manager para se preparar para implementações do sistema operativo.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,18 +10,19 @@ ms.assetid: 8d27e5ac-4f19-4b3d-85c7-fa34eb5d5e7e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 14a9e3929aba14f1715112b293eaedc41f3d2dc2
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c26c204b391ddd41b62a80bfff6779f59baed9bd
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32346571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125651"
 ---
 # <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Preparar a implementação do sistema operativo no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Existem várias coisas que deve fazer no Configuration Manager antes de poder implementar sistemas operativos. Utilize os seguintes tópicos para o ajudar a preparar a implementação do sistema operativo:  
+Há várias coisas que deve fazer no Configuration Manager antes de poder implementar sistemas operativos. Utilize os seguintes tópicos para o ajudar a preparar a implementação do sistema operativo:  
 
 -   [Gerir imagens de arranque](manage-boot-images.md)  
 

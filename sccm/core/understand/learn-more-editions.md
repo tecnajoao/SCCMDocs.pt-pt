@@ -10,12 +10,13 @@ ms.assetid: 495b87ae-41a4-49ba-abe2-d4f7d22ac0d4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 42a19d690e694ad3ca930dbf89fd0420bb5a45b5
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8dab180c10542b1ed119418ec7ad73f220dfb28b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416814"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126708"
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenciamento e ramificações do System Center Configuration Manager
 
@@ -59,9 +60,9 @@ O estado do Software Assurance em suas licenças do System Center Configuration 
 
 ### <a name="software-assurance-and-the-current-branch"></a>Software Assurance e o ramo atual
 Direitos para utilizar o System Center Configuration Manager Current Branch podem ser fornecidos por:
--  **O System Center:** Os clientes com SA Active Directory no System Center Standard ou Datacenter licenças podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
+-  **System Center:** Os clientes com SA Active Directory no System Center Standard ou Datacenter licenças podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
 
--  **O System Center Configuration Manager:** Os clientes com Active Directory SA licenças do System Center Configuration Manager ou com direitos de equivalente de subscrição, podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
+-  **System Center Configuration Manager:** Os clientes com Active Directory SA licenças do System Center Configuration Manager ou com direitos de equivalente de subscrição, podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
 
 Se tiver um SA ativo em licenças do System Center Configuration Manager (ou direitos de subscrição equivalente) ou após 1 de Outubro de 2016:
 - Pode instalar e utilizar o ramo atual.

@@ -10,12 +10,13 @@ ms.assetid: 4a877bed-f6c4-4048-9421-507dc848af5c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 81ea4687c0d05e81f493aeab389cb0175f20144f
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4439aa280edaffbb59f8d49ece58e067a729ec91
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073006"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137269"
 ---
 # <a name="remote-actions-with-co-management"></a>Ações remotas com cogestão
 

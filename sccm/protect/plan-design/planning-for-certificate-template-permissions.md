@@ -10,12 +10,13 @@ ms.assetid: eab0e09d-b09e-4c14-ab14-c5f87472522e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: be8d8e70267630a048d68f1415928a7245b75368
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8c885920fa1e413468d09201ddaecc728ffb7b53
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419415"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135379"
 ---
 # <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Planear permissões de modelo de certificado para perfis de certificado no System Center Configuration Manager
 

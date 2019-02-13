@@ -10,12 +10,13 @@ ms.assetid: 86810629-cf2a-43e8-86a2-847444119fc1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e6be541a1b26961684f0577f2540132b81f50b7a
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9c4b9bdbd67e26962a4de3ff66643f071339795
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385478"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139481"
 ---
 # <a name="find-help-for-using-configuration-manager"></a>Encontrar ajuda para utilizar o Configuration Manager
 

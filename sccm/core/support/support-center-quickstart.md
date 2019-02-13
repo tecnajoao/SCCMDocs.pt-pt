@@ -10,12 +10,13 @@ ms.assetid: 5cb41e2b-4c79-4da9-a432-ff869c0870f8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5a9865a591f6947447ebb088b5e5e25db1e9fa54
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 026c6e5646983f815572974d5aaa67746178c03b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458300"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156462"
 ---
 # <a name="support-center-quickstart-guide"></a>Guia de início rápido do Centro de suporte
 

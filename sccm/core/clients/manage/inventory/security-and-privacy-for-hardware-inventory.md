@@ -10,12 +10,13 @@ ms.assetid: 62e20d86-db6d-4a1f-b14a-905a9de31698
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2f2cdddc27fd07b806bef8ad729c0a8be4bb29e5
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 022c997e9159f2383881740a00ef1c84e46eabc5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423070"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135294"
 ---
 # <a name="security-and-privacy-for-hardware-inventory-in-system-center-configuration-manager"></a>Segurança e privacidade para o inventário de hardware no System Center Configuration Manager
 

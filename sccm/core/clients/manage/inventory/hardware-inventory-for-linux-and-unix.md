@@ -10,12 +10,13 @@ ms.assetid: 1026d616-2a20-4fb2-8604-d331763937f8
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 561a74730b8a4d27197f0de6f3149659430cc241
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 96bed23c96a6ccf511cd4808ad775343dc8e5d9e
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421183"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132477"
 ---
 # <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Inventário de hardware para Linux e UNIX no System Center Configuration Manager
 
@@ -105,7 +106,7 @@ O cliente do System Center Configuration Manager para Linux e UNIX suporta o inv
 ###  <a name="BKMK_AddProvidertoLinux"></a> Configure cada computador com Linux ou UNIX com o fornecedor de inventário de hardware personalizado:  
  Depois de criar um fornecedor de inventário personalizado, tem de copiar e, em seguida, registar o ficheiro da biblioteca de fornecedores em cada computador que tem o inventário que pretende recolher.  
 
-1.  Copie a biblioteca de fornecedores para cada computador Linux e UNIX a partir do qual pretende recolher o inventário. O nome da biblioteca de fornecedores é semelhante ao seguinte: **Xyz_myprovider. SO**  
+1.  Copie a biblioteca de fornecedores para cada computador Linux e UNIX a partir do qual pretende recolher o inventário. O nome da biblioteca de fornecedores é semelhante ao seguinte: **XYZ_MyProvider.so**  
 
 2.  Depois, em cada computador Linux e UNIX, registe a biblioteca de fornecedores no servidor OMI. O servidor OMI é instalado no computador quando instala o cliente do Configuration Manager para Linux e UNIX, mas tem de registar manualmente o fornecedores personalizados. Utilize a seguinte linha de comandos para registar o fornecedor: **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
 

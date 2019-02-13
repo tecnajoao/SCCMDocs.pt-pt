@@ -1,5 +1,5 @@
 ---
-title: Monitorização de estado de funcionamento
+title: Monitorização do estado de funcionamento
 titleSuffix: Configuration Manager
 description: Saiba mais sobre como a monitorização de estado de funcionamento funciona no ambiente de trabalho de análise.
 ms.date: 01/25/2019
@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: fcdeab9ff33fefb0340edda5de63bf26ec1ecd1e
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 834b7d30aa5331ae73125e1cdfc3c9c7095d58b7
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073393"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142041"
 ---
 # <a name="health-status-monitoring-in-desktop-analytics"></a>Análise de ambiente de trabalho de monitorização de estado de funcionamento
 

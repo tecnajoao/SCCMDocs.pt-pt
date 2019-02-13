@@ -1,7 +1,7 @@
 ---
-title: Definições de compatibilidade do monitor
+title: Monitorizar as definições de conformidade
 titleSuffix: Configuration Manager
-description: Utilize um ou mais dos procedimentos neste tópico para apresentar o estado de compatibilidade da linha de base de configuração.
+description: Utilize um ou mais dos procedimentos neste tópico para apresentar o estado de conformidade da linha de base de configuração.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-compliance
@@ -10,21 +10,22 @@ ms.assetid: 92c1ccca-a748-44cd-a52e-e41d34bf981d
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 9920bd48ad7b953469261602c21a6664580143a2
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 07b766db6b80f92eba8d401b3c751ca1d4766b38
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32335784"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56130865"
 ---
 # <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Monitorizar as definições de compatibilidade no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Depois de implementar linhas de base de configuração de System Center Configuration Manager para dispositivos na sua hierarquia, pode utilizar um ou mais dos procedimentos neste tópico para apresentar o estado de compatibilidade da linha de base de configuração:
+Depois de implementar linhas de base de configuração de System Center Configuration Manager para dispositivos na sua hierarquia, pode utilizar um ou mais dos procedimentos neste tópico para apresentar o estado de conformidade da linha de base de configuração:
 
 > [!NOTE]  
->  Os campos de critérios de validação nos relatórios de definições de compatibilidade (o equivalente no relatório do lado do cliente **Restrições**) apresentam o Service Modeling Language (SML). Isto pode dificultar para administradores que tenham criado o item de configuração na consola do Configuration Manager para compreender quais são os critérios de validação se não tiverem conhecimento do SML. Neste caso, utilize o **monitorização** área de trabalho na consola do Configuration Manager para ver as propriedades do item de configuração e os respetivos critérios de validação.  
+>  Os campos de critérios de validação nos relatórios de definições de compatibilidade (o equivalente no relatório do lado do cliente **Restrições**) apresentam o Service Modeling Language (SML). Isso pode tornar difícil para os administradores que tenham criado o item de configuração na consola do Configuration Manager para entender o que os critérios de validação é se não tiverem conhecimento do SML. Neste caso, utilize o **monitorização** área de trabalho na consola do Configuration Manager para ver as propriedades do item de configuração e os respetivos critérios de validação.  
 
 ##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Ver os resultados de compatibilidade na consola do Configuration Manager  
  Utilize este procedimento para ver detalhes sobre a compatibilidade das linhas de base de configuração implementadas na consola do Configuration Manager.  
@@ -42,18 +43,18 @@ Depois de implementar linhas de base de configuração de System Center Configur
     -   **Em conformidade**: Apresenta a compatibilidade da linha de base de configuração com base no número de ativos afetados. Pode clicar numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Conformidade** , que contém todos os utilizadores ou dispositivos em conformidade com esta regra. O painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos conformes com a linha de base de configuração. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar informações adicionais.  
 
         > [!IMPORTANT]  
-        >  Uma regra de item de configuração não é avaliada se não for detetada ou não é aplicável num dispositivo cliente; No entanto, a regra será devolvida como compatível.  
+        >  Uma regra de item de configuração não é avaliada se não for detetada ou não aplicável num dispositivo cliente; No entanto, a regra será devolvida como compatível.  
 
-    -   **Erro**: Mostra uma lista de todos os erros para a implementação de linha de base de configuração selecionada com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Compatibilidade** que contém todos os utilizadores ou dispositivos que geraram erros com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar informações adicionais sobre o problema.  
+    -   **Erro**: Apresenta uma lista de todos os erros para a implementação de linha de base de configuração selecionada com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Compatibilidade** que contém todos os utilizadores ou dispositivos que geraram erros com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar informações adicionais sobre o problema.  
 
-    -   **Não conformes**: Mostra uma lista de todas as regras não compatíveis na linha de base de configuração com base no número de ativos afetados. Pode clicar numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Conformidade** que contém todos os utilizadores ou dispositivos não conformes com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar mais informações sobre o problema.  
+    -   **Não compatível**: Apresenta uma lista de todas as regras não compatíveis na linha de base de configuração com base no número de ativos afetados. Pode clicar numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Conformidade** que contém todos os utilizadores ou dispositivos não conformes com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar mais informações sobre o problema.  
 
-    -   **Desconhecido**: Mostra uma lista de todos os utilizadores e dispositivos que não comunicaram compatibilidade para a implementação de linha de base de configuração selecionado, juntamente com o estado atual do cliente dos dispositivos.  
+    -   **Desconhecido**: Apresenta uma lista de todos os utilizadores e dispositivos que não comunicaram compatibilidade para a implementação de linha de base de configuração selecionada, juntamente com o estado atual do cliente dos dispositivos.  
 
 5.  Na página **Estado da Implementação** , poderá rever informações detalhadas sobre a compatibilidade da linha de base de configuração implementada. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
 
 ##  <a name="view-compliance-results-by-using-reports"></a>Ver resultados de compatibilidade através de relatórios  
- As definições de compatibilidade no Configuration Manager inclui um número de relatórios incorporados que permitem monitorizar informações sobre itens de configuração, linhas de base de configuração e implementações. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
+ Definições de compatibilidade no Configuration Manager inclui vários relatórios incorporados que permitem monitorizar informações sobre itens de configuração, linhas de base de configuração e implementações. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
 
 > [!IMPORTANT]  
 >  Deverá utilizar um caráter universal (**%**) ao utilizar os parâmetros **Filtro do dispositivo** e Filtro do utilizador nos relatórios de definições de compatibilidade.  
@@ -63,7 +64,7 @@ Depois de implementar linhas de base de configuração de System Center Configur
 ##  <a name="view-compliance-results-on-a-configuration-manager-windows-client-computer"></a>Ver resultados de compatibilidade num computador cliente Windows do Configuration Manager
 
 > [!NOTE]  
->  Não é possível ver informações no cliente Windows do Configuration Manager, se tiver iniciado sessão com uma conta de convidado de domínio.    
+>  Não é possível ver informações no cliente Windows do Configuration Manager, se estiver conectado com uma conta de convidado de domínio.    
 
 1.  Navegue para **Configuration Manager** no Painel de Controlo do computador cliente e faça duplo clique no mesmo para abrir as respetivas propriedades.  
 
@@ -76,7 +77,7 @@ Depois de implementar linhas de base de configuração de System Center Configur
 
     -   **Em conformidade**: O computador cliente está em conformidade com a linha de base de configuração avaliada.  
 
-    -   **Não conformes**: O computador cliente não está em conformidade com a linha de base de configuração avaliada.  
+    -   **Não compatível**: O computador cliente está em conformidade com a linha de base de configuração avaliada.  
 
     -   **Desconhecido**: O computador cliente ainda não avaliou a linha de base de configuração. Se pretender iniciar a avaliação fora da agenda de avaliação de compatibilidade, selecione as linhas de base de configuração a avaliar e, em seguida, clique em **Avaliar**.  
 
@@ -86,7 +87,7 @@ Depois de implementar linhas de base de configuração de System Center Configur
 4.  Clique em **OK**.  
 
 ##  <a name="create-collections-based-on-configuration-baseline-compliance"></a>Criar coleções baseadas em compatibilidade da linha de base de configuração  
- Utilize o procedimento seguinte para criar uma coleção do Configuration Manager baseada em dispositivos com uma compatibilidade especificada. Pode criar coleções baseadas nos seguintes estados de conformidade:  
+ Utilize o procedimento seguinte para criar uma coleção do Configuration Manager com base em dispositivos com uma compatibilidade especificada. Pode criar coleções baseadas nos seguintes estados de conformidade:  
 
 -   **Compatibilidade:**  
 
@@ -96,7 +97,7 @@ Depois de implementar linhas de base de configuração de System Center Configur
 
 -   **Desconhecido**  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **linhas de base de configuração**.  
 
 3.  Na lista **Linhas de Base de Configuração** , selecione a linha de base de configuração a partir da qual pretende criar uma coleção.  
 

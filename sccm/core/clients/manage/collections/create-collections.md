@@ -10,12 +10,13 @@ ms.assetid: 1401a35e-4312-4d3b-8ceb-0abbb10d4f05
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c314cba909929ee49355eab59dfc813aab7e393e
-ms.sourcegitcommit: a849dab9333ebac799812624d6155f2a96b523ca
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6235f3f58d8688d9ceee11e1b4be05a2df21a509
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42586238"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56141124"
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Como criar coleções no System Center Configuration Manager
 
@@ -33,11 +34,11 @@ As coleções são grupos de utilizadores ou dispositivos. Coleções de utiliza
 |Regra direta|Utilize para escolher os utilizadores ou computadores que pretende adicionar a uma coleção. Esta associação não é alterada, a menos que remove um recurso do Configuration Manager. O Configuration Manager tem de ter detetado os recursos ou terá de ter importado os recursos antes de poder adicioná-los a uma coleção de regra direta. As coleções de regra direta têm um overhead administrativo mais elevado que as coleções de regra de consulta de pois requerem alterações manuais.|  
 |Regra de consulta|Atualize dinamicamente a associação de uma coleção com base numa consulta com o Configuration Manager com base numa agenda. Por exemplo, pode criar uma coleção de utilizadores que são membros da unidade organizacional Recursos Humanos nos Serviços de Domínio do Active Directory. Esta coleção é atualizada automaticamente quando novos utilizadores são adicionados ou removidos da unidade organizacional recursos humanos.<br /><br /> Por exemplo consultas que pode utilizar para criar coleções, consulte [como criar consultas no System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).|  
 |Regra de inclusão de coleção|Inclua os membros de outra coleção numa coleção do Configuration Manager que a associação da coleção atual é atualizada com base num agendamento se a coleção incluída for alterada.<br /><br /> Pode adicionar várias regras de inclusão de coleção a uma coleção.<br /> |  
-|Regra de exclusão de coleção|A regra de exclusão de coleção permitem-lhe excluir os membros de outra coleção a partir de uma coleção do Configuration Manager. A associação da coleção atual é atualizada com base num agendamento se a coleção excluída for alterada.<br /><br /> Pode adicionar várias regras de exclusão de coleção a uma coleção. Se uma coleção inclui ambos incluem a coleção e excluir regras de recolha e existe um conflito, a regra de exclusão de coleção tem prioridade.<br />              **Exemplo:** Criar uma coleção que tem uma regra de recolha e uma coleção regra de exclusão de inclusão. A regra de inclusão de coleção destina-se a uma coleção de computadores de secretária Dell. A regra de exclusão de coleção destina-se a uma coleção de computadores que têm menos de 4 GB de RAM. A nova coleção irá conter os computadores de secretária Dell que tenham, pelo menos, 4 GB de RAM.|  
+|Regra de exclusão de coleção|A regra de exclusão de coleção permitem-lhe excluir os membros de outra coleção a partir de uma coleção do Configuration Manager. A associação da coleção atual é atualizada com base num agendamento se a coleção excluída for alterada.<br /><br /> Pode adicionar várias regras de exclusão de coleção a uma coleção. Se uma coleção inclui ambos incluem a coleção e excluir regras de recolha e existe um conflito, a regra de exclusão de coleção tem prioridade.<br />              **Example:** Criar uma coleção que tem uma regra de recolha e uma coleção regra de exclusão de inclusão. A regra de inclusão de coleção destina-se a uma coleção de computadores de secretária Dell. A regra de exclusão de coleção destina-se a uma coleção de computadores que têm menos de 4 GB de RAM. A nova coleção irá conter os computadores de secretária Dell que tenham, pelo menos, 4 GB de RAM.|  
 
  Utilize os procedimentos seguintes para ajudar a criar coleções no Configuration Manager. Também pode importar coleções criadas este ou para outro site do Configuration Manager. Para obter informações sobre como exportar e importar coleções, consulte [como gerir coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
 
- Para obter informações sobre como criar coleções para computadores que executam o Linux e UNIX, consulte [como gerir clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
+ Para obter informações sobre a criação de coleções para computadores com Linux e UNIX, consulte [How to manage clients for Linux and UNIX servers in System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
 
 ##  <a name="BKMK_1"></a> Para criar uma coleção de dispositivos  
 

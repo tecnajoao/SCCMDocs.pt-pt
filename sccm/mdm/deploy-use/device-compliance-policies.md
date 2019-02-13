@@ -10,12 +10,13 @@ ms.assetid: ad8fa94d-45bb-4c94-8d86-31234c5cf21c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8c27c945b384a9769d008667f124d414275a3c11
-ms.sourcegitcommit: e54e9d4a735e72b84095e0017c5bec50af480207
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2544d2b61c3d92555d0bc1abc908003f1c982bab
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039595"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136522"
 ---
 # <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Políticas de conformidade no System Center Configuration Manager
 
@@ -50,12 +51,12 @@ Políticas de conformidade no Configuration Manager definem as regras e definiç
 
 |Regra|Windows 8.1 e posterior|Windows Phone 8.1 e posterior|iOS 6.0 e posterior|Android 4.0 e posterior Samsung KNOX Standard 4.0 e posterior, o Android for Work|  
 |----------|---------------------------|---------------------------------|-----------------------|---------------------------|-----------------------------------------|  
-|**Configuração do PIN ou palavra-passe**|Corrigido|Corrigido|Corrigido|Em quarentena|  
-|**Encriptação de dispositivos**|N/D|Corrigido|Corrigido (ao definir um PIN)|Em quarentena<br>(Android for Work são sempre encriptado)|  
-|**Com Jailbreak ou rooting**|N/D|N/D|Em quarentena (não é uma definição)|Em quarentena (não é uma definição)|  
+|**Configuração do PIN ou da palavra-passe**|Corrigido|Corrigido|Corrigido|Em quarentena|  
+|**Encriptação do dispositivo**|N/D|Corrigido|Corrigido (ao definir um PIN)|Em quarentena<br>(Android for Work são sempre encriptado)|  
+|**Dispositivo desbloqueado por jailbreak ou obtenção de controlo de raiz**|N/D|N/D|Em quarentena (não é uma definição)|Em quarentena (não é uma definição)|  
 |**Perfil de e-mail**|N/D|N/D|Em quarentena|N/D|  
 |**Versão mínima do SO**|Em quarentena|Em quarentena|Em quarentena|Em quarentena|  
-|**Versão do SO máxima**|Em quarentena|Em quarentena|Em quarentena|Em quarentena|  
+|**Versão máxima do SO**|Em quarentena|Em quarentena|Em quarentena|Em quarentena|  
 |**Atestado de estado de funcionamento do dispositivo (atualização 1602)**|Definição não é aplicável ao Windows 8.1<br /><br /> O Windows 10 e o Windows 10 Mobile foram estão Em Quarentena.|N/D|N/D|N/D|  
 |**Aplicações que não não possível instalar**|N/D|N/D|Em quarentena|Em quarentena|
 

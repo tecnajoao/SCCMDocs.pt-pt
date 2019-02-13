@@ -10,12 +10,13 @@ ms.assetid: 2a216814-ca8c-4d2e-bcef-dc00966a3c9f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 237a21346665af404850276b12b0f1ca32fc5f6e
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6f0ea9d6d923aeb1c278e5f3e96806044bbae6e4
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250821"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138624"
 ---
 # <a name="plan-for-security-in-configuration-manager"></a>Planear a segurança no Configuration Manager
 
@@ -375,13 +376,13 @@ A cadeia de caracteres retornada é a chave de raiz fidedigna. Certifique-se de 
 
  O Configuration Manager integra-se com o Azure Active Directory (Azure AD) para ativar o site e os clientes utilizem autenticação moderna. Integração do seu site com o Azure AD suporta os seguintes cenários do Configuration Manager:
 
-**Cliente**  
+**Client**  
 
 - [Gerir clientes na internet através do gateway de gestão da cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#scenarios)  
 
 - [Gerir dispositivos associados a um domínio de cloud](/sccm/core/clients/deploy/deploy-clients-cmg-azure)  
 
-- [Cogestão](/sccm/comanage/overview)  
+- [Co-management](/sccm/comanage/overview)  
 
 - [Implementar aplicações disponíveis ao utilizador](/sccm/apps/deploy-use/deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices)  
 

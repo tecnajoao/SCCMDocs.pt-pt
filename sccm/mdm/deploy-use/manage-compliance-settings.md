@@ -10,12 +10,13 @@ ms.assetid: 9e83007f-e81c-4b7e-b47e-b01d7b19cfbc
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5f6ee6ae8d059905e8cda08fec3d75deff177163
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c81e7198a01e2d5dfca7abc80f6a23714184a32c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418548"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121782"
 ---
 # <a name="managing-compliance-on-devices-managed-with-intune"></a>Gerir a compatibilidade em dispositivos geridos com o Intune
 

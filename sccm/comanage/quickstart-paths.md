@@ -1,5 +1,5 @@
 ---
-title: Caminhos de cogestão
+title: Caminhos para a cogestão
 titleSuffix: Configuration Manager
 description: Compreenda os pré-requisitos para as duas principais formas para que possa configurar cogestão.
 ms.date: 01/14/2019
@@ -10,14 +10,15 @@ ms.assetid: 5beb5564-2fdf-4f0a-8801-d0cec8214c43
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 619b411dfa0d6949e84d52d5610621eb3cb10f5b
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 803f05dd14da8d280f08f2bcf3608865f384d273
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251141"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120790"
 ---
-# <a name="paths-to-co-management"></a>Caminhos de cogestão
+# <a name="paths-to-co-management"></a>Caminhos para a cogestão
 
 Existem duas formas principais para configurar cogestão. É importante compreender os pré-requisitos para cada caminho. Cada um deles requer alguma combinação dos Azure Active Directory (Azure AD), o Configuration Manager, o Microsoft Intune e o Windows 10. 
 
@@ -33,9 +34,9 @@ Existem duas formas principais para configurar cogestão. É importante compreen
 Levando esse caminho, pode obter seus dispositivos geridos pelo Configuration Manager existentes rapidamente inscritos no Intune. A gestão desses dispositivos do Configuration Manager não é diferente de antes de ativar a cogestão. Agora, obter todos os benefícios com base na cloud. Este caminho é transparente para os seus utilizadores.
 
 Eis o que precisa de configurá-lo:
-- Azure AD híbrido
+- Azure AD Híbrido
     - Active Directory Federation Services (ADFS) com a autenticação pass-through (PTA)
-    - Do Azure AD Connect
+    - Azure AD Connect
     - Licença do Azure AD Premium
     - Configurar híbrido do Azure AD join (escolher uma opção):
         - Para domínios geridos

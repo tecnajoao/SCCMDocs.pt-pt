@@ -9,12 +9,13 @@ ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 97f19a06e1edd40c9cd791b46f836f54d1cd22ca
-ms.sourcegitcommit: 94bf7d5b5beb9628cc1fdfe75451d33b5de26f8a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bd275406a95507441e6b60167c7658a7c5dfccf9
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54152490"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136369"
 ---
 # <a name="whats-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Alterações no System Center Configuration Manager em relação ao System Center 2012 Configuration Manager
 
@@ -24,7 +25,7 @@ O current branch do Configuration Manager introduz alterações importantes em r
 
 A versão de Dezembro de 2015 do System Center Configuration Manager (versão 1511) estava na versão inicial do produto do Configuration Manager atual da Microsoft. Normalmente, é referido como ramo atual do System Center Configuration Manager. *Ramo atual* indica esta versão suporta atualizações incrementais ao produto. Ele também fornece uma forma de distinguir entre esta versão e versões anteriores do Configuration Manager.  
 
-O System Center Configuration Manager:  
+System Center Configuration Manager:  
 
 - Não usa um identificador de ano ou produto no nome do produto, ao contrário das versões anteriores, como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager.  
 

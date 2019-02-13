@@ -10,12 +10,13 @@ ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6f60d7f3a8c3bd81f4de38b2ce4080f54756de14
-ms.sourcegitcommit: c60e057075a83f07d1ca2577c3de1c7d7c8e9cec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 100fdd8e9032b1d16ae79b3cd52ffba3b3609446
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53626468"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140165"
 ---
 # <a name="supported-os-versions-for-clients-and-devices-for-configuration-manager"></a>Versões de SO suportadas por clientes e dispositivos para o Configuration Manager
 
@@ -44,7 +45,7 @@ ms.locfileid: "53626468"
 
 -   **Windows 8.1** (x86, x64): Professional, Enterprise    
 
--   **O Windows 7 com SP1** (x86, x64): Professional, Enterprise e Ultimate    
+-   **Windows 7 with SP1** (x86, x64): Professional, Enterprise e Ultimate    
 
 
 ### <a name="supported-server-os-versions"></a>Versões de SO de servidor suportadas
@@ -54,7 +55,7 @@ ms.locfileid: "53626468"
 
 -  **Windows Server 2016**: Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>  
 
--   **O Windows Storage Server 2016**: Grupo de trabalho Standard  
+-   **Windows Storage Server 2016**: Workgroup, Standard  
 
 -   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
@@ -62,13 +63,13 @@ ms.locfileid: "53626468"
 
 -   **Windows Server 2012** (x64): Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
--   **O Windows Storage Server 2012** (x64)    
+-   **Windows Storage Server 2012** (x64)    
 
--   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
+-   **Windows Server 2008 R2 with SP1** (x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
--   **Windows Storage Server 2008 R2** (x86, x64): Grupo de trabalho, Standard, Enterprise    
+-   **Windows Storage Server 2008 R2** (x86, x64): Workgroup, Standard, Enterprise    
 
--   **Windows Server 2008 com SP2** (x86, x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
+-   **Windows Server 2008 with SP2** (x86, x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
 
 #### <a name="server-core"></a>Server Core
@@ -77,13 +78,13 @@ As seguintes versões especificamente referem-se para a instalação do Server C
 Versões de canal semianual do Windows Server são instalações Server Core, como o Windows Server, versão 1809. Como um cliente do Configuration Manager, eles são suportados o mesmo que a versão associada para o Windows 10 semianual canal. Para obter mais informações, consulte [suporte para Windows 10](/sccm/core/plan-design/configs/support-for-windows-10).
 
 
--   **Windows Server 2019** (x64) <sup> [observe 2](#bkmk_note2)</sup>  
+-   **Windows Server 2019** (x64) <sup>[Note 2](#bkmk_note2)</sup>  
 
--   **Windows Server 2016** (x64) <sup> [observe 2](#bkmk_note2)</sup>   
+-   **Windows Server 2016** (x64) <sup>[Note 2](#bkmk_note2)</sup>   
 
--   **Windows Server 2012 R2** (x64) <sup> [observe 2](#bkmk_note2)</sup>     
+-   **Windows Server 2012 R2** (x64) <sup>[Note 2](#bkmk_note2)</sup>     
 
--   **Windows Server 2012** (x64) <sup> [observe 2](#bkmk_note2)</sup>     
+-   **Windows Server 2012** (x64) <sup>[Note 2](#bkmk_note2)</sup>     
 
 -   **Windows Server 2008 R2** sem nenhum service pack ou com SP1 (x64)     
 
@@ -338,14 +339,14 @@ As seguintes versões são suportadas ao utilizar o ficheiro. tar indicado.
 
 - **Windows 10 Pro** (x86, x64)  
 
-- **Enterprise do Windows 10 Pro** (x86, x64)  
+- **Windows 10 Pro Enterprise** (x86, x64)  
 
 - **Windows 10 IoT Enterprise** (x86, x64)  
     Esta versão inclui o canal de serviço a longo prazo (LTSC). Para obter mais informações, consulte [descrição geral do Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise).<!--SCCMDocs issue 560-->  
 
 - **Windows 10 Mobile**  
 
-- **Do Windows 10 Mobile Enterprise**  
+- **Windows 10 Mobile Enterprise**  
 
 - **Windows 10 IoT Mobile Enterprise**  
 

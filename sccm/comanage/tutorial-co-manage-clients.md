@@ -10,12 +10,13 @@ ms.assetid: 140c522f-d09a-40b6-a4b0-e0d14742834a
 author: brenduns
 ms.author: brenduns
 manager: dougeby
-ms.openlocfilehash: add3a702576f037c150e0baa63c6225f7ea1f402
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1aecb2c33c874717f1da979f1316d1b46b785071
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251183"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56123995"
 ---
 # <a name="tutorial-enable-co-management-for-existing-configuration-manager-clients"></a>Tutorial: Ativar a cogestão para os clientes existentes do Configuration Manager
 Com a cogestão, pode manter os seus processos bem estabelecidos para utilizar o Configuration Manager para gerenciar PCs em sua organização. Ao mesmo tempo, está investindo na cloud através da utilização do Intune para segurança e provisionamento modernos.  

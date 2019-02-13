@@ -10,12 +10,13 @@ ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8bd926535f56e32430ae41c883623b80d142aebc
-ms.sourcegitcommit: 33e066aceaf321add1031df00e552e942c8351a7
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b45e9f586616a1f620864a6e6dc8d0777a118251
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55764434"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122292"
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
 
@@ -86,7 +87,7 @@ Para obter informações sobre como configurar o acesso condicional para disposi
 
 -   **Todas as atualizações necessárias instaladas com um prazo mais antigo do que um determinado número de dias:** Especifica o valor para o período de tolerância do prazo de implementação para as atualizações necessárias no dispositivo do utilizador. Adicionar esta regra também automaticamente instala quaisquer atualizações necessárias pendentes. Especificar as atualizações necessárias no **atualizações automáticas necessárias** regra.   
 
--   **Exigir encriptação de unidade de disco BitLocker:** Esta regra verifica se a unidade principal (por exemplo, c:\\) no dispositivo é encriptada por BitLocker. Se o Bitlocker encriptação não está ativada no dispositivo primário, o acesso ao e-mail e aos SharePoint services é bloqueado.  
+-   **Exigir encriptação de unidade de disco BitLocker:** Esta regra verifica se a unidade principal (por exemplo, c:\\) no dispositivo é encriptada por BitLocker. Se o BitLocker encriptação não está ativada no dispositivo primário, o acesso ao e-mail e aos SharePoint services é bloqueado.  
 
 -   **Exigir Antimalware:** Esta regra verifica se o System Center Endpoint Protection ou o Windows Defender está ativado e em execução. Se não estiver ativado, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
 

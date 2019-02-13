@@ -10,12 +10,13 @@ ms.assetid: 23e1e4dc-623a-4521-ad04-ae9482927097
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6a637b7379e4ffa507beece9d9384cb8847402f9
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a696059076c64d8341f5fbfa3dd5ab68fd2b34ff
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420776"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56129532"
 ---
 # <a name="how-to-create-configuration-items-for-windows-81-and-windows-10-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para os dispositivos Windows 8.1 e Windows 10 geridos sem o cliente System Center Configuration Manager
 
@@ -241,7 +242,7 @@ ms.locfileid: "53420776"
 |-------------|----------------------|  
 |**Nome da rede (SSID)**|Permite introduzir o nome da rede Wi-Fi.|  
 |**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
-|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br /><br /> - **abrir**<br /><br /> - **Partilhado**<br /><br /> - **WPA**<br /><br /> - **WPA-PSK**<br /><br /> - **WPA2**<br /><br /> - **WPA2-PSK**|  
+|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br /><br /> - **Open**<br /><br /> - **Partilhado**<br /><br /> - **WPA**<br /><br /> - **WPA-PSK**<br /><br /> - **WPA2**<br /><br /> - **WPA2-PSK**|  
 |**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar diferem consoante a **autenticação** método que selecionou:<br /><br /> - **Desativado**<br /><br /> - **WEP**<br /><br /> - **TKIP**<br /><br /> - **AES**|  
 |**Índice de chaves**|Selecione um índice de chaves de **1** ao **4** que é utilizado com um **encriptação de dados** definição de **WEP**.|  
 |**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
@@ -260,7 +261,7 @@ ms.locfileid: "53420776"
 
 -   **Arquivo de destino** – selecione um ou mais arquivos de destino em que o certificado importado é adicionado no dispositivo móvel de entre:  
 
-    -   **raiz**  
+    -   **Root**  
 
     -   **CA**  
 

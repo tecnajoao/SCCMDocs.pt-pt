@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: b009575f235b5aa5b2ecc2574eb672b4b17979e7
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be26d1e3355995a601adb1ae7a8e197272d7176
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073394"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140092"
 ---
 # <a name="enable-data-sharing-for-desktop-analytics"></a>Ativar a partilha para a área de trabalho de análise de dados 
 

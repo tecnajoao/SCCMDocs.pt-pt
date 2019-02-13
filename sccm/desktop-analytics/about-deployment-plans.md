@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 689749f7b41e114abdec9b5cd9bf26a529a51066
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ce726ffa0dfc8a46bd0891e50ff087ad4931d901
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073381"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140344"
 ---
 # <a name="about-deployment-plans-in-desktop-analytics"></a>Sobre os planos de implantação no ambiente de trabalho de análise 
 

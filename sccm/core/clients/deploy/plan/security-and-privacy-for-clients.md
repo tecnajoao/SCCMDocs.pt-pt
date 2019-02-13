@@ -10,12 +10,13 @@ ms.assetid: c1d71899-308f-49d5-adfa-3a3ec0163ed8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3dfb749695ffb7a8ecdeab5e4fbed764023eb6e2
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9671ccad42fc9135193cf41e058b472b52a412e1
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385597"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142311"
 ---
 # <a name="security-and-privacy-for-configuration-manager-clients"></a>Segurança e privacidade para clientes do Configuration Manager
 

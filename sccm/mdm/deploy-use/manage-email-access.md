@@ -10,12 +10,13 @@ ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f1dbe514e8beca7250b7bfa62a9af7997bf5246c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f976b63b4580b5df9c6e609ff6b361538860c41c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417246"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137648"
 ---
 # <a name="manage-email-access-in-configuration-manager"></a>Gerir o acesso ao e-mail no Configuration Manager
 

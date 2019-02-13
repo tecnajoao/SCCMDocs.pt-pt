@@ -9,12 +9,13 @@ ms.assetid: df10dc4d-c9ff-4574-bb33-8d30eb14cfe3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6cfeae4ddc582d1d641d1065f2542319d5519b5e
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 29b46cc49930d47439dc5e60b72e4bf5017829b9
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416427"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139226"
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows Phone geridos sem o cliente do System Center Configuration Manager
 Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que estão inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  
@@ -211,7 +212,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |-------------|----------------------|  
 |**Nome da rede (SSID)**||  
 |**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
-|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **abrir**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
+|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **Open**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
 |**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **Desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
 |**Índice de chaves**|Selecione um índice de chaves de **1** a **4** , que será utilizado com uma definição de **Encriptação de dados** de **WEP**.|  
 |**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
@@ -229,7 +230,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
 -   **Arquivo de destino** – selecione um ou mais arquivos de destino onde o certificado importado será adicionado no dispositivo móvel de entre:  
   
-    -   **raiz**  
+    -   **Root**  
   
     -   **CA**  
   

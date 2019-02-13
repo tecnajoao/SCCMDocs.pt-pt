@@ -10,12 +10,13 @@ ms.assetid: 0ef5f3ce-b0e4-4775-b5c2-b245e45b4194
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cbfa49dddb19d588a3fe16f042b50af590cf39e8
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6c7f54ccda217ebbae543b70aeead37f6c55cf0f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383733"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125692"
 ---
 # <a name="prepare-site-system-roles-for-os-deployments-with-configuration-manager"></a>Preparar funções do sistema de sites para implementações de sistema operacional com o Configuration Manager
 
@@ -60,7 +61,7 @@ Pode implementar um sistema operacional para um ponto de distribuição, mas a i
 
 ###  <a name="BKMK_PXEDistributionPoint"></a> Configurar pontos de distribuição para aceitar pedidos PXE  
 
-Para implementar sistemas operativos em clientes do Configuration Manager que efetuam pedidos de arranque PXE, configure um ou mais pontos de distribuição para aceitar pedidos PXE. Depois de configurar o ponto de distribuição, ele responde a pedidos de arranque PXE e determina a ação de implementação adequada a tomar. Para obter mais informações, consulte [instalar ou modificar um ponto de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
+Para implementar sistemas operativos em clientes do Configuration Manager que efetuam pedidos de arranque PXE, configure um ou mais pontos de distribuição para aceitar pedidos PXE. Depois de configurar o ponto de distribuição, ele responde a pedidos de arranque PXE e determina a ação de implementação adequada a tomar. Para mais informações, consulte [Install or modify a distribution point](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
 
 
 ###  <a name="BKMK_RamDiskTFTP"></a> Personalizar os tamanhos de bloco e janela de TFTP do disco de RAM em pontos de distribuição com PXE ativado  

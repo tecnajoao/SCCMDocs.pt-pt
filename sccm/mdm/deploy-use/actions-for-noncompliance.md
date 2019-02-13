@@ -1,5 +1,5 @@
 ---
-title: Ações de não conformidade
+title: Ações para não conformidade
 titleSuffix: Configuration Manager
 description: Saiba como configurar as ações de não conformidade com o Configuration Manager
 ms.date: 08/21/2018
@@ -10,12 +10,13 @@ ms.assetid: ad8fa94d-45bb-4c94-8d86-31234c5cf21c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b6a974d1cca4f97cbcf41a0cf644f545cec4b37d
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbd996629d3b312febd271757aff69faf5371c64
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42589506"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56127427"
 ---
 # <a name="set-up-actions-for-non-compliance"></a>Configurar as ações de não conformidade
 

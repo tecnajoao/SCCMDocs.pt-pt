@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.openlocfilehash: ea1225b1f7ec29d089e8991e397fbae64d5a38eb
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 730d99764f8ae8f8ce1b76bfd13411988c3a2e23
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424192"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138549"
 ---
 # <a name="plan-for-software-updates-in-configuration-manager"></a>Planear atualizações de software no Configuration Manager
 
@@ -238,7 +239,7 @@ A partir da versão 1806, utilize o **catálogos de atualização de Software de
 
 Para obter mais informações, consulte [atualizações de software de terceiros](/sccm/sum/deploy-use/third-party-software-updates).
 
-#### <a name="system-center-updates-publisher"></a>O System Center Updates Publisher
+#### <a name="system-center-updates-publisher"></a>System Center Updates Publisher
 System Center Updates Publisher (SCUP) é uma ferramenta autónoma que permite que fornecedores independentes de software ou desenvolvedores de aplicativos de linha de negócio gerir as atualizações personalizadas. Estas atualizações incluem os que têm dependências, como drivers e pacotes de atualizações.
 
 Para obter mais informações, consulte [System Center Updates Publisher](/sccm/sum/tools/updates-publisher).

@@ -10,22 +10,23 @@ ms.assetid: b0fcb30e-147c-4910-ba88-5e5b60996e60
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 96b797de005013175b779e66676b4ebeee7044ba
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a2a24979cfbf4be56acad910e5a8fe230b11b53e
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39387124"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56130661"
 ---
 # <a name="flowchart---set-up-a-site-server-in-passive-mode"></a>Fluxograma - configurar um servidor de site em modo passivo
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este diagrama de fluxograma mostra o processo pelo qual o site configura um servidor de site em modo passivo. Para obter mais informações, consulte os artigos seguintes:  
-- [Disponibilidade elevada do servidor de site](/sccm/core/servers/deploy/configure/site-server-high-availability)
-- [Fluxograma - promover o servidor do site (planejado)](/sccm/core/servers/deploy/configure/promote-site-server-flowchart)
+Este diagrama de fluxograma mostra o processo pelo qual o site configura um servidor de site em modo passivo. Para obter mais informações, veja os artigos seguintes:  
+- [Elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability)
+- [Fluxograma – Promover o servidor do site (planeado)](/sccm/core/servers/deploy/configure/promote-site-server-flowchart)
 - [A biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/the-content-library)
-- [Fluxograma - gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart)
+- [Fluxograma – Gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart)
 
 
 ![Diagrama de fluxograma para configurar um servidor de site em modo passivo](media/passive-site-server-setup.png)

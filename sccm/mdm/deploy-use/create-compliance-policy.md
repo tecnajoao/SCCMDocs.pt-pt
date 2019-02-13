@@ -10,12 +10,13 @@ ms.assetid: 0fd76043-d7ee-423d-8c5f-aa7e9ed58ce0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b0179de8cc96f885236178c70b7e834672ee1d5b
-ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3d7debd9a1eacca253b10b8f1db7495e86e3ce8c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54898584"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122173"
 ---
 # <a name="create-and-deploy-a-device-compliance-policy"></a>Criar e implementar uma política de conformidade do dispositivo
 

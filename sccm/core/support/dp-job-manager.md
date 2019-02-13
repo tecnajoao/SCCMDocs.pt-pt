@@ -1,5 +1,5 @@
 ---
-title: Gestor de filas de trabalho de DP
+title: Gestor de Fila de Tarefas de DP
 titleSuffix: Configuration Manager
 description: Utilize o Gestor de filas de trabalho de DP para resolver problemas e gerir tarefas de distribuição de conteúdo a pontos de distribuição do Configuration Manager.
 ms.date: 07/30/2018
@@ -10,14 +10,15 @@ ms.assetid: 4b72922a-d11e-4aef-b309-19f5f0716f32
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5218d47ae8699ee0feb0cf59405833ec4cc49569
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1365c3951a829d92cbdb2f6a4a87c8496f9ada3c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386746"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136352"
 ---
-# <a name="dp-job-queue-manager"></a>Gestor de filas de trabalho de DP
+# <a name="dp-job-queue-manager"></a>Gestor de Fila de Tarefas de DP
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 

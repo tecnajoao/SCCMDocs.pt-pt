@@ -10,12 +10,13 @@ ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5bf79fa360faecc6d103a2fd209c7f7e5eb9597c
-ms.sourcegitcommit: 81e3666c41eb976cc7651854042dafe219e2e467
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 305a30b80ccc23cd08207c98eeed82c38b3271e7
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53747097"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142515"
 ---
 # <a name="about-the-service-connection-point-in-configuration-manager"></a>Acerca do ponto de ligação de serviço no Configuration Manager
 

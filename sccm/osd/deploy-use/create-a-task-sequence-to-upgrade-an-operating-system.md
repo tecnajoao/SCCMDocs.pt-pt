@@ -10,12 +10,13 @@ ms.assetid: 7591e386-a9ab-4640-8643-332dce5aa006
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bddcd356a3ee221d5b67935a5be91bbe89d2afc2
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bc20a7e9be271bde8a5cd6464e2cebdf1ee9bad9
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756059"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138607"
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-os-in-configuration-manager"></a>Criar uma sequência de tarefas para atualizar um sistema operacional no Configuration Manager
 

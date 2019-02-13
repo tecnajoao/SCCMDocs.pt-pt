@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 76ccac3c1c996d91f65e458f6e31e13783a26695
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 063502ae7b09fcdcd7ae1b5c463da4b616829804
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073377"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56119846"
 ---
 # <a name="how-to-connect-configuration-manager-with-desktop-analytics"></a>Como ligar o Configuration Manager com a análise de ambiente de trabalho 
 

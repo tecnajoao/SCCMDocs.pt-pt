@@ -1,5 +1,5 @@
 ---
-title: Migrar da MDM híbrida
+title: Migrar do MDM híbrido
 titleSuffix: Configuration Manager
 description: Foi preterida a MDM híbrida, o Intune autónomo é necessário para a cogestão.
 ms.date: 01/14/2019
@@ -10,12 +10,13 @@ ms.assetid: 456f32d5-8590-499f-a54d-d00618bc61f0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 243d429b791726f5edc69d786f8e91500fe74e9a
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 84625c12c9cac643fe5a895c066632f44ffeacdc
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250965"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156845"
 ---
 # <a name="migrate-from-hybrid-mdm-for-co-management"></a>Migrar da MDM híbrida para a cogestão
 

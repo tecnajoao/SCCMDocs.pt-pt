@@ -10,12 +10,13 @@ ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 32c1aea44fb69ba667752807e9d3f73487db7c34
-ms.sourcegitcommit: c60e057075a83f07d1ca2577c3de1c7d7c8e9cec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e18832b7d8829d531f0e40c4d532141216d61c1
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53626451"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122309"
 ---
 # <a name="deploy-applications-with-configuration-manager"></a>Implementar aplicações com o Configuration Manager
 
@@ -43,7 +44,7 @@ Também pode simular a implementação de uma aplicação. Esta simulação test
 > [!Note]  
 > Ao visualizar as propriedades de uma implementação existente, as secções seguintes correspondem às guias da janela de propriedades de implementação:  
 > - [Geral](#bkmk_deploy-general)
-> - [Conteúdo](#bkmk_deploy-content)
+> - [Content](#bkmk_deploy-content)
 > - [Definições de implementação](#bkmk_deploy-settings)
 > - [Agendamento](#bkmk_deploy-sched)
 > - [Experiência de utilizador](#bkmk_deploy-ux)

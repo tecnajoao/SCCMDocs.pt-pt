@@ -10,18 +10,19 @@ ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 309a369358789e1948ab7b17ddb0e3619ae1b129
-ms.sourcegitcommit: 2504617dc4db90e205327d06cab32f050e88dbf2
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e7a700482dad9f1ab2e41456596423fa23c15434
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505164"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131052"
 ---
 # <a name="share-an-application-from-software-center"></a>Partilhar uma aplicação do Centro de Software
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)* <!-- 1706 -->
 
-Pode copiar uma hiperligação a uma aplicação no Centro de Software com o ![partilha](media/share15.png)**partilha** botão na vista de detalhes da aplicação.   Apenas pode partilhar as hiperligações para aplicações. Se a aplicação ficar indisponível, a hiperligação abre uma janela com uma mensagem de indisponível do aplicativo.
+Pode copiar uma hiperligação a uma aplicação no Centro de Software com o ![partilha](media/share15.png)**partilha** botão na vista de detalhes da aplicação. Apenas pode partilhar as hiperligações para aplicações. Se a aplicação ficar indisponível, a hiperligação abre uma janela com uma mensagem de indisponível do aplicativo.
 
 1. Escolher **aplicativos**e, em seguida, escolha a aplicação.
 2. Clique nas ![partilha](media/share15.png) **partilha** botão.

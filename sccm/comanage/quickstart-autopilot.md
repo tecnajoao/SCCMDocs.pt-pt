@@ -10,12 +10,13 @@ ms.assetid: e3e3c97f-5945-49ab-a622-9f6fe6b9737e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cf10213e9d014af7fc579b29a292676f48e7049b
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4c9867b7ea59b435bd1fd344dd0bf4aa67a2be21
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251192"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132687"
 ---
 # <a name="windows-autopilot-with-co-management"></a>Windows Autopilot com cogestão
 

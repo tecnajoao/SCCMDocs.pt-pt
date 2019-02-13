@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: a4ebc12501a62e3b825ea170bb911f050f25de40
-ms.sourcegitcommit: 30c608339dd1fc3ddb4bde01210f8eaeebee400c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9bd3a9efcbc76647ae39eb1a104b401b112d15fb
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55689532"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56119842"
 ---
 # <a name="how-to-set-up-desktop-analytics"></a>Como configurar a análise de ambiente de trabalho 
 

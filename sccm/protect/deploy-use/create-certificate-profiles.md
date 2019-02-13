@@ -10,12 +10,13 @@ ms.assetid: 634d612c-92d7-4c03-873a-b2e730c9a72d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 87b79c452054b3dd6d27def27a5d06a959a17f32
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: daae36016192184fbc7f6bfa087cfb17b8c56c43
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418973"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138335"
 ---
 # <a name="create-certificate-profiles"></a>Criar perfis de certificado
 

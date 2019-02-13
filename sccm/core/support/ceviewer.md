@@ -1,5 +1,5 @@
 ---
-title: Visualizador de avaliação de coleção
+title: Visualizador de Avaliação de Coleção
 titleSuffix: Configuration Manager
 description: Utilize o Visualizador de avaliação de coleção para ver e resolver problemas relacionados com o processo de avaliação de coleção no Configuration Manager.
 ms.date: 07/30/2018
@@ -10,14 +10,15 @@ ms.assetid: caad2d93-087c-4dc0-a2a7-6a2fd808b4c8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6c052979ad310273669d5a7897213bffd9f7e213
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 054676d5583dbc4468f1d2716d895100f3a5471a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39387264"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56134304"
 ---
-# <a name="collection-evaluation-viewer"></a>Visualizador de avaliação de coleção
+# <a name="collection-evaluation-viewer"></a>Visualizador de Avaliação de Coleção
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 

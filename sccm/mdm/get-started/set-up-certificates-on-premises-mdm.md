@@ -10,12 +10,13 @@ ms.assetid: 2a7d7170-1933-40e9-96d6-74a6eb7278e2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 391ecbd4ff9f863f41454786e8f8232b31a112a5
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8443430b55ee61e9ad5eeac1e70342dfa6e85851
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418327"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122377"
 ---
 # <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar certificados para comunicações fidedignas para a Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
 
@@ -90,7 +91,7 @@ System Center Configuration Manager no\-confiável de locais de gestão de dispo
     >   
     >  **Autoridade de certificação**: **Windows Server 2003**  
     >   
-    >  **Destinatário do certificado**: **O Windows XP / Server 2003**  
+    >  **Destinatário do certificado**: **Windows XP / Server 2003**  
 
 5.  Na caixa de diálogo **Propriedades de Novo Modelo**, no separador **Geral**, introduza um nome de modelo para gerar os certificados Web que serão utilizados nos sistemas de sites do Configuration Manager, como **Servidor Web MDM do ConfigMgr**.  
 

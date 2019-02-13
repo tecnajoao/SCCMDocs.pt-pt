@@ -1,5 +1,5 @@
 ---
-title: Dados de sincronização para o Log Analytics
+title: Sincronizar dados com o Log Analytics
 titleSuffix: Configuration Manager
 description: Sincronizar dados do Configuration Manager para o Azure Log Analytics.
 ms.date: 09/04/2018
@@ -10,12 +10,13 @@ ms.assetid: 33bcf8b3-a6b6-4fc9-bb59-70a9621b2b0d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b0fd4c36ed03f0e0b158fe637a045553dab31ade
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9b3ba4c5179069e5443beaf1b7f733c797cfd680
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995397"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156530"
 ---
 #  <a name="sync-data-from-configuration-manager-to-azure-log-analytics"></a>Sincronizar dados do Configuration Manager para o Azure Log Analytics
 
@@ -68,9 +69,9 @@ Depois de ligar o Configuration Manager ao Log Analytics, ver as propriedades da
 
 A página de propriedades tem os seguintes dois separadores:  
 
-#### <a name="azure-active-directory"></a>O Azure Active Directory
+#### <a name="azure-active-directory"></a>Azure Active Directory
 Este separador mostra os seguintes atributos: 
-- **inquilino**  
+- **Tenant**  
 - **ID de cliente**  
 - **Expiração da chave secreta do cliente**  
 

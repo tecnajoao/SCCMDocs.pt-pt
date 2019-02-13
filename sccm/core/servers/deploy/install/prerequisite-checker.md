@@ -10,12 +10,13 @@ ms.assetid: aaf13bb8-4ba2-4bd7-9fac-d36a9d88a1b6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c28152031a540ea3fd5f2ef7233c24fb86c8b7f7
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 198532c4c991a097488f9d5af0d0c0283b2fdda4
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53422033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138148"
 ---
 # <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Verificador de pré-requisitos para o System Center Configuration Manager
 
@@ -90,11 +91,11 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
    **Servidor do site de administração central:**  
 
-   -   **/SEMIU**  
+   -   **/NOUI**  
 
         Não é necessário. Inicia o Verificador de pré-requisitos sem apresentar a interface do usuário. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-   -   **/ CAS**  
+   -   **/CAS**  
 
         Necessário. Verifica se o computador local cumpre os requisitos para o site de administração central.  
 
@@ -106,7 +107,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
         Necessário. Verifica se o computador especificado cumpre os requisitos para o fornecedor de SMS.  
 
-   -   **/ Ssbport**  
+   -   **/Ssbport**  
 
         Não é necessário. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SQL Server Service Broker (SSB). A porta do SSB padrão é 4022.  
 
@@ -116,11 +117,11 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
    **Servidor do site primário:**  
 
-   -   **/SEMIU**  
+   -   **/NOUI**  
 
        Não é necessário. Inicia o Verificador de pré-requisitos sem apresentar a interface do usuário. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-   -   **/ PRI**  
+   -   **/PRI**  
 
         Necessário. Verifica se o computador local cumpre os requisitos para o site primário.  
 
@@ -144,7 +145,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
         Não é necessário. Verifica se o computador especificado cumpre os requisitos para a função de sistema de sites de ponto de distribuição. Esta opção só é suportada quando utiliza a **/PRI** opção.  
 
-   -   **/ Ssbport**  
+   -   **/Ssbport**  
 
         Não é necessário. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SSB. A porta do SSB padrão é 4022.  
 
@@ -154,7 +155,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
    **Servidor do site secundário:**  
 
-   -   **/SEMIU**  
+   -   **/NOUI**  
 
         Não é necessário. Inicia o Verificador de pré-requisitos sem apresentar a interface do usuário. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
@@ -162,15 +163,15 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
         Necessário. Verifica se o computador especificado cumpre os requisitos para o site secundário.  
 
-   -   **/ INSTALLSQLEXPRESS**  
+   -   **/INSTALLSQLEXPRESS**  
 
         Não é necessário. Verifica se o SQL Server Express pode ser instalado no computador especificado.  
 
-   -   **/ Ssbport**  
+   -   **/Ssbport**  
 
         Não é necessário. Verifica se uma exceção de firewall está em vigor permitir comunicações para a porta do SSB. A porta do SSB padrão é 4022.  
 
-   -   **/ Sqlport**  
+   -   **/Sqlport**  
 
         Não é necessário. Verifica se uma exceção de firewall está em vigor para permitir comunicações para o SQL Server porta do serviço e a porta não está a ser utilizada por outra instância nomeada do SQL Server. A porta predefinida é 1433.  
 
@@ -178,13 +179,13 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
         Não é necessário. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
-   -   **/ SourceDir**  
+   -   **/SourceDir**  
 
         Não é necessário. Verifica se a conta de computador do site secundário pode a aceder à pasta que aloja os ficheiros de origem da configuração.  
 
    **Consola do Configuration Manager:**  
 
-   -   **/ Adminui**  
+   -   **/Adminui**  
 
         Necessário. Verifica se o computador local cumpre os requisitos para instalar o Configuration Manager.  
 

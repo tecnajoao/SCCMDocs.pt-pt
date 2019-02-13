@@ -10,12 +10,13 @@ ms.assetid: e3bb3e13-3037-4122-93bc-504bfd080a4d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 214dcdca927e515f776e99f005f968a4b98f4112
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e694b81943dda937f1d95765f75f182e072bc7da
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418837"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156911"
 ---
 # <a name="how-to-create-pfx-certificate-profiles-by-importing-certificate-details"></a>Como criar perfis de certificado PFX através da importação de detalhes do certificado
 

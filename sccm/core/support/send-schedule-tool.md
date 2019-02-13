@@ -1,5 +1,5 @@
 ---
-title: Enviar a ferramenta de agendamento
+title: Ferramenta de Envio de Agendamento
 titleSuffix: Configuration Manager
 description: Utilize a ferramenta de agendamento enviar para acionar um agendamento num cliente do Configuration Manager.
 ms.date: 07/30/2018
@@ -10,14 +10,15 @@ ms.assetid: d5ce547d-3b3b-47d3-bcd7-6ff94692c046
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7fd90b613fa7e52b4bc83e6c0d0f593d585fdd48
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38829a249ca87ca87f9c5005ed7ae73e1500e2ab
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386753"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131205"
 ---
-# <a name="send-schedule-tool"></a>Enviar a ferramenta de agendamento
+# <a name="send-schedule-tool"></a>Ferramenta de Envio de Agendamento
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -69,7 +70,7 @@ Liste todos os GUID de mensagem ou UID de DCM disponíveis para o envio. Exiba o
 
 ## <a name="bkmk_sendschedule-guids"></a> IDs de mensagem
 
-|ID da mensagem  |Nome a apresentar  |
+|ID da mensagem  |Nome a Apresentar  |
 |---------|---------|
 |{00000000-0000-0000-0000-000000000001}|Inventário de hardware|
 |{00000000-0000-0000-0000-000000000002}|Inventário de software|

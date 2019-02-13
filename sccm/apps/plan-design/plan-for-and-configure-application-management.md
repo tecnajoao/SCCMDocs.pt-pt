@@ -10,12 +10,13 @@ ms.assetid: 2be84a1d-ebb9-47ae-8982-c66d5b92a52a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: df936f3ab5567840560497edd60a32f3bbb9c74d
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 62d750a6ff711afc06ddbcec9b9ad98ecfab758e
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893606"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124160"
 ---
 # <a name="plan-for-and-configure-application-management-in-configuration-manager"></a>Planear e configurar a gestão de aplicações no Configuration Manager
 
@@ -90,11 +91,11 @@ Para obter mais informações, consulte [relatórios no Configuration Manager](/
 Muitas definições de cliente controlam como o cliente instala aplicativos e a experiência de utilizador no dispositivo. Estas definições de cliente incluem os seguintes grupos:
 - Agente do computador  
 - Reinício do computador  
-- Centro de software  
+- Software Center  
 - Implementação de software  
 - Afinidade dispositivo / utilizador  
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 - [Acerca das definições de cliente](/sccm/core/clients/deploy/about-client-settings)  
 - [Como configurar as definições do cliente](/sccm/core/clients/deploy/configure-client-settings)  
 
@@ -209,7 +210,7 @@ Gestor de configuração aplica-se de marca personalizada para o Centro de Softw
 #### <a name="configure-software-center-branding"></a>Configurar a imagem corporativa do Centro de Software
 <!-- 1351224 --> Personalize a aparência do Centro de Software ao adicionar a sua organização de elementos de marca e especificando a visibilidade dos separadores. 
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 - [Centro de software](/sccm/core/clients/deploy/about-client-settings#software-center) grupo de definições de cliente  
 - [Como configurar as definições do cliente](/sccm/core/clients/deploy/configure-client-settings)  
 
@@ -279,11 +280,11 @@ Instale o catálogo de aplicações num servidor de sistema de sites novo ou um 
 
 Se pretender que todos os utilizadores tenham as mesmas definições, configure as predefinições de cliente. Caso contrário, configure definições do cliente personalizadas para coleções específicas.
 
-Para obter mais informações, consulte os artigos seguintes:
+Para obter mais informações, veja os artigos seguintes:
 - [Acerca das definições de cliente](/sccm/core/clients/deploy/about-client-settings)  
     - Agente do computador  
     - Reinício do computador  
-    - Centro de software  
+    - Software Center  
     - Implementação de software  
     - Afinidade dispositivo / utilizador  
 - [Como configurar as definições do cliente](/sccm/core/clients/deploy/configure-client-settings)  

@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3c203b9a9e64b429433a229f4b4009228938531
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 13fbca736cd8e48c729fcfc3ee74e664d8d70b68
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073556"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124602"
 ---
 # <a name="tutorial-deploy-office-365-to-pilot"></a>Tutorial: Implementar o Office 365 para piloto 
 
@@ -90,7 +91,7 @@ Antes de começar este tutorial, certifique-se de que tem os seguintes pré-requ
 
 
 
-## <a name="set-up-desktop-analytics"></a>Configurar a análise de ambiente de trabalho
+## <a name="set-up-desktop-analytics"></a>Configurar a Análise de Computadores
 
 Utilize este procedimento para iniciar sessão no ambiente de trabalho de análise e configurá-lo na sua subscrição. Este procedimento é um processo de uso individual para configurar a análise de ambiente de trabalho para a sua organização.  
 

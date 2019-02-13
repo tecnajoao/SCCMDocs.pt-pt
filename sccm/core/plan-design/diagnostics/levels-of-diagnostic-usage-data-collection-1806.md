@@ -10,12 +10,13 @@ ms.assetid: a0287beb-70a9-4b57-a627-e7bfba27fd3b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d964295134538cf281af214830a5bc416484be51
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4bfd2a4cef78b6674e6f288483190ca7c48542fe
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893676"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56131919"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1806"></a>Níveis de recolha de dados de diagnóstico de utilização para a versão 1806
 
@@ -379,7 +380,7 @@ Para o Configuration Manager versão 1806, este nível inclui os seguintes dados
    - Estatísticas de êxito/falha de implementação para implementações de aplicações MDM no local  
 
 
-### <a name="os-deployment"></a>Implementação do SO  
+### <a name="os-deployment"></a>Implementação de SO  
 
    - Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas  
 

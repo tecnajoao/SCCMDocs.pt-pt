@@ -10,12 +10,13 @@ ms.assetid: d2dacb2d-ab3b-42a2-8dc8-94da31f993c2
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 9cf922f99ade06459a785e54775a9aedfd8e7a23
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 32103c108fab3d9120dd0a56c585d0fbdaf4d2b5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414553"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56127580"
 ---
 # <a name="prerequisites-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Pré-requisitos para Wi-Fi e perfis VPN no System Center Configuration Manager
 

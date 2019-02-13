@@ -1,7 +1,7 @@
 ---
 title: Bloqueio de clientes
 titleSuffix: Configuration Manager
-description: Bloquear o acesso de cliente para segurança do sistema utilizando o System Center Configuration Manager.
+description: Bloquear o acesso de cliente para segurança do sistema com o System Center Configuration Manager.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,23 +10,24 @@ ms.assetid: 54ef5fbb-521d-4ca5-a1c5-61e6f538d71e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4371e9ede643d794058520cf001f30f01b47fe94
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a90e100c242514eb2526e16bb68e379a2326572f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32331935"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136920"
 ---
 # <a name="determine-whether-to-block-clients-in-system-center-configuration-manager"></a>Determinar se deve bloquear clientes no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Se um computador cliente ou dispositivo móvel cliente já não é fidedigno, pode bloquear o cliente na consola do System Center 2012 Configuration Manager. Os clientes bloqueados são rejeitados pela infraestrutura do Configuration Manager para que não conseguem comunicar com sistemas de sites para transferir políticas, carregar dados de inventário ou enviar mensagens de estado.  
+Se um computador cliente ou dispositivo móvel cliente já não é fidedigno, pode bloquear o cliente na consola do System Center 2012 Configuration Manager. Os clientes bloqueados são rejeitados pela infraestrutura do Configuration Manager para que não conseguirem comunicar com sistemas de sites para transferir a política, carregar dados de inventário ou enviar mensagens de estado.  
 
  O cliente deve ser bloqueado e desbloqueado a partir do site atribuído e não de um site secundário ou de um site de administração central.  
 
 > [!IMPORTANT]  
->  Embora o bloqueio no Configuration Manager pode ajudar a proteger o site do Configuration Manager, não depender desta funcionalidade para proteger o site contra dispositivos móveis ou computadores não fidedignos se permitir que os clientes comuniquem com sistemas de sites através de HTTP, porque um cliente bloqueado pode passem o site com um novo autoassinado certificado e hardware ID. Em vez disso, utilize a funcionalidade de bloqueio para bloquear suportes de dados de arranque perdidos ou comprometidos, que utiliza para implementar sistemas operativos, e quando os sistemas de sites aceitam ligações de cliente por HTTPS.  
+>  Embora o bloqueio no Configuration Manager pode ajudar a proteger o site do Configuration Manager, não confiar nesta funcionalidade para proteger o site a partir de dispositivos móveis ou computadores não fidedignos se permitir que os clientes comuniquem com sistemas de sites através de HTTP, porque um cliente bloqueado poderia voltar a participar do site com um novo autoassinado certificado e hardware ID. Em vez disso, utilize a funcionalidade de bloqueio para bloquear suportes de dados de arranque perdidos ou comprometidos, que utiliza para implementar sistemas operativos, e quando os sistemas de sites aceitam ligações de cliente por HTTPS.  
 
  Os clientes que acedem ao site utilizando o certificado de Proxy ISV não podem ser bloqueados. Para obter mais informações sobre o certificado de ISV Proxy, consulte o System Center Configuration Manager Software Development Kit (SDK).  
 
@@ -36,12 +37,12 @@ Se um computador cliente ou dispositivo móvel cliente já não é fidedigno, po
 
 -   Esta opção está disponível para ligações de cliente por HTTP e HTTPS, mas tem segurança limitada quando os clientes ligam aos sistemas do site por HTTP.  
 
--   Os utilizadores administrativos do Configuration Manager têm autoridade para bloquear um cliente e a ação é executada na consola do Configuration Manager.  
+-   Gestor de configuração de utilizadores administrativos têm autoridade para bloquear um cliente e a ação é executada na consola do Configuration Manager.  
 
--   Comunicação do cliente é rejeitada da hierarquia do Configuration Manager apenas.  
+-   Comunicação do cliente é rejeitada de apenas a hierarquia do Configuration Manager.  
 
     > [!NOTE]  
-    >  O mesmo cliente pode registar de outra hierarquia do Configuration Manager.  
+    >  O mesmo cliente podia registrar com uma hierarquia diferente do Configuration Manager.  
 
 -   O cliente é imediatamente bloqueado no site do Configuration Manager.  
 
@@ -53,9 +54,9 @@ Se um computador cliente ou dispositivo móvel cliente já não é fidedigno, po
 
      Os clientes Mac efetuam sempre a verificação CRL e esta funcionalidade não pode ser desativada.  
 
-     Embora os clientes de dispositivos móveis não utilizem listas de revogação de certificados para verificar os certificados para os sistemas de sites, os certificados podem ser revogados e verificados pelo Configuration Manager.  
+     Embora os clientes de dispositivos móveis não utilizar listas de revogação de certificados para verificar os certificados para sistemas de sites, seus certificados podem ser revogados e verificados pelo Configuration Manager.  
 
--   Os administradores da infraestrutura de chave pública tem autoridade para revogar um certificado e a ação é executada fora da consola do Configuration Manager.  
+-   Os administradores de infraestrutura de chaves públicas têm autoridade para revogar um certificado e a ação é executada fora da consola do Configuration Manager.  
 
 -   A comunicação do cliente a partir de qualquer computador ou dispositivo móvel que requeira este certificado de cliente pode ser rejeitada.  
 

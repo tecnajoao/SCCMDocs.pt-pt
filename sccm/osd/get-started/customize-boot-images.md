@@ -10,12 +10,13 @@ ms.assetid: 9cbfc406-d009-446d-8fee-4938de48c919
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 348d2504760cfda5859280da62539f4db378678f
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f794e24bd2626e11ce0f3c1664ad0e63eafbbe37
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419959"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56134151"
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personalizar imagens de arranque com o System Center Configuration Manager
 
@@ -71,7 +72,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
 4. Utilize o DISM para montar a imagem de arranque numa pasta local do Windows PE. Por exemplo, escreva a seguinte linha de comandos:  
 
-    **DISM.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+    **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
     Em que C:\WinPEWAIK é a pasta que contém a imagem de arranque e C:\WinPEMount é a pasta montada.  
 
@@ -85,7 +86,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     Escreva o seguinte para instalar os componentes opcionais:  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
 
     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
 
@@ -122,7 +123,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
 7. Escreva o seguinte para desmontar o ficheiro de imagem de arranque e confirmar as alterações.  
 
-    **DISM.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+    **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
     Em que C:\WinPEMount é a pasta montada.  
 
@@ -193,7 +194,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
 4. Utilize o DISM para montar a imagem de arranque numa pasta local do Windows PE. Por exemplo, escreva a seguinte linha de comandos:  
 
-    **DISM.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+    **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
     Em que C:\WinPEWAIK é a pasta que contém a imagem de arranque e C:\WinPEMount é a pasta montada.  
 
@@ -203,15 +204,15 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 5. Depois de montar a imagem de arranque, utilize o DISM para adicionar componentes opcionais à imagem de arranque. No Windows PE 3.1, por exemplo, os componentes opcionais estão localizados em <*CaminhoDaInstalação*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
    > [!NOTE]
-   >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Program c:\Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows AIK.  
+   >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows AIK.  
 
     Escreva o seguinte para instalar os componentes opcionais:  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
 
     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<locale\>* **.cab"**  
 
@@ -221,11 +222,11 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     Em que C:\WinPEMount é a pasta montada e região é a região dos componentes. Por exemplo, para a região **en-us**, teria de escrever:  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
 
-    **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Programas\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
+    **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
    > [!TIP]
    >  Para obter mais informações sobre os diferentes pacotes que pode adicionar à imagem de arranque, veja o tópico [Adicionar um Pacote a uma Imagem do Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
@@ -238,7 +239,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
 7. Escreva o seguinte para desmontar o ficheiro de imagem de arranque e confirmar as alterações.  
 
-    **DISM.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+    **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
     Em que C:\WinPEMount é a pasta montada.  
 

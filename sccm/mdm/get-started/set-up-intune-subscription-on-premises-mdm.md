@@ -10,12 +10,13 @@ ms.assetid: 1e42b1c1-3d58-481f-8647-5c7ae640c5f5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 64acd3dbdafaec3dbf49e7939718100897c0976b
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21ff4920ae8829c41dace778ac74824519c5a628
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53422628"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136012"
 ---
 # <a name="set-up-a-microsoft-intune-subscription-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar uma subscrição do Microsoft Intune para gestão de dispositivos móveis no local no System Center Configuration Manager
 

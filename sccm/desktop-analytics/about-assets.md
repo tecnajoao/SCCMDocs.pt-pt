@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: b397c4f1a58ed0683e4704d1c484b108c5357717
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 149c5f2a4469a353c6dce6fde86527ca95518484
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073382"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124578"
 ---
 # <a name="assets-in-desktop-analytics"></a>Ativos no ambiente de trabalho Analytics 
 

@@ -11,12 +11,13 @@ ms.assetid: b3d755bd-0870-4f1f-a56d-bfd3c7b492b9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 27eea5c93ec66207e48390e3c7a0352a3a255ceb
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0d2233d8d8182f9a9391464a5882d2525f8e151a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53424743"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140529"
 ---
 # <a name="how-to-use-the-configuration-manager-docs"></a>Como utilizar os documentos do Configuration Manager
 
@@ -122,8 +123,8 @@ Biblioteca de documentação do Configuration Manager, como a maioria dos conte�
 Se estiver interessado em contribuir, mas não sabe onde começar, consulte as seguintes sugestões:  
 
 - Pesquise a lista de problemas para as etiquetas da Comunidade como destino:  
-  - [bom-first-problema](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:good-first-issue)   
-  - [queria de ajuda](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:help-wanted)  
+  - [good-first-issue](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:good-first-issue)   
+  - [help-wanted](https://github.com/MicrosoftDocs/sccmdocs/issues?q=is:open+is:issue+label:help-wanted)  
 
     Estas etiquetas são atribuídas pelos autores da Microsoft para problemas que são bons candidatos para contribuições da Comunidade.  
 

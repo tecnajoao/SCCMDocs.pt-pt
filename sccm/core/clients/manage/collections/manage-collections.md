@@ -10,12 +10,13 @@ ms.assetid: e102fd1a-76df-4d8e-b1b0-10ee18318f67
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 03b34c09a5fef63316bb1d9d1a94dbbfc3ccf69f
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 93a502e9c77e05eedba1c2989cbae69e4080832f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456265"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133736"
 ---
 # <a name="how-to-manage-collections-in-configuration-manager"></a>Como gerir coleções no Configuration Manager
 
@@ -145,7 +146,7 @@ Utilize as informações de descrição geral neste artigo para ajudar a realiza
  - **Adicionar Recursos**  
  - **Exportarar**  
  - **Copiar**  
- - **Atualização**  
+ - **Refresh**  
  - **Eliminar**  
  - **Simular Implementação**  
  - **Implementar**  

@@ -10,12 +10,13 @@ ms.assetid: 8b5b144a-0e5f-4fcc-87b2-33b9bcdb5655
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bda6e266c6be8897de87a2a30fb0198a4b4c8446
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 716c5218eafaf6297292fdd852589b7327e2ecaa
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456028"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120033"
 ---
 # <a name="manage-microsoft-lifecycle-policy-with-configuration-manager"></a>Gerir política de ciclo de vida da Microsoft com o Configuration Manager
 
@@ -63,7 +64,7 @@ Para aceder ao dashboard do ciclo de vida na consola do Configuration Manager, v
 
 Alterar a vista ao selecionar uma das seguintes opções do **categoria de produto** lista:  
 - **Todos os**: Ver todos os produtos em conjunto  
-- **Cliente Windows**: Ver versões de sistema operacional cliente Windows  
+- **Windows Client**: Ver versões de sistema operacional cliente Windows  
 - **Windows Server**: Ver as versões de SO do servidor do Windows  
 - **Base de dados**: Ver versões do SQL Server  
 - **O Configuration Manager**: A partir da versão 1810, ver versões do Configuration Manager  

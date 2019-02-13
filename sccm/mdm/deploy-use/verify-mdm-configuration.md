@@ -10,12 +10,13 @@ ms.assetid: 94ecfada-97d9-4d5f-bb04-63550dda5f47
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2d57965a75d602b81da7b19d6732ac7db6e7abe0
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9107557d21927df1f648c06805f89db449de2e5d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420837"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125396"
 ---
 # <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Verificar a configuração de MDM com o System Center Configuration Manager
 

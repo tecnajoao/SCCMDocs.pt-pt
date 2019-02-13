@@ -10,12 +10,13 @@ ms.assetid: 49505eb1-d44d-4121-8712-e0f3d8b15bf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e232875aab086dea04261abc4d83df8d5d03e6c8
-ms.sourcegitcommit: aca62bd3d267b1dbea46d4db6f32d797c5f6263c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6524fb7715c9bc3040996a16b4204464e0505123
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43347975"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139192"
 ---
 # <a name="configure-discovery-methods-for-configuration-manager"></a>Configurar métodos de deteção do Configuration Manager
 

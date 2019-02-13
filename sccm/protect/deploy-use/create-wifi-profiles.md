@@ -10,12 +10,13 @@ ms.assetid: 321b19b2-a093-4b8f-995f-41f74b886eb5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f294bd3e6c8043149e7f5af8b07eb11288751601
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dba1107dd8cd8d39be555b3b77ff828152513eb8
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416270"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122241"
 ---
 # <a name="create-wi-fi-profiles"></a>Criar perfis Wi-Fi
 

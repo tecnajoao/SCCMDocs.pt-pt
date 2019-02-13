@@ -10,12 +10,13 @@ ms.assetid: 8fac7ac5-96a3-4ec1-85cb-623b26bf5b1c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: eca831b6c2b3c11432bfed7879f144a0daeae7b2
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37dce37551627394da2630fa591a3c803ae8343f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251123"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135776"
 ---
 # <a name="how-to-enable-co-management-in-configuration-manager"></a>Como ativar a cogestão no Configuration Manager
 

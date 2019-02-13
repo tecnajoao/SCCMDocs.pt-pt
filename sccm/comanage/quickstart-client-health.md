@@ -10,12 +10,13 @@ ms.assetid: 5b243aac-8a1a-4f14-ba3f-5446bb483e92
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 16c66b49ab07637ff80e9b19f5cb7fb48ee165d6
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6838371a80530d5ab66abd9d8a976af41513e15
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251129"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126182"
 ---
 # <a name="client-health-with-co-management"></a>Estado de funcionamento do cliente com cogestão
 

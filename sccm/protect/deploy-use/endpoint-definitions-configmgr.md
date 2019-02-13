@@ -10,12 +10,13 @@ ms.assetid: 3b9c4027-a98b-406b-935c-ccabcfe713df
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 86452d628d025aea2b797d0ade92a3c2e2fff933
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c16487bc59a7e067aac5554213e2be750729078f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418582"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120151"
 ---
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilizar atualizações de Software do Configuration Manager para fornecer atualizações de definições
 

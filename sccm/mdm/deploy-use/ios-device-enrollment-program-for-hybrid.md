@@ -10,12 +10,13 @@ ms.assetid: 78d44adc-9b1c-4bc6-b72d-e93873916ea6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4628dd18ed865088c68cf38810e984a18f0ba0ad
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 044ea01729b61f55dca74ac0e77b7007e05b346a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53422220"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140971"
 ---
 # <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inscrição do iOS Device Enrollment Program (DEP) para implementações híbridas com o Configuration Manager
 

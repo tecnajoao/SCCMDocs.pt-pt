@@ -10,12 +10,13 @@ ms.assetid: 552e7e3d-e584-4a7c-9155-0f796a14b678
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d1aaf6db583d9749dda3be14cfd06acbff19b093
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4d58f8566f80efa2700f5947f4144623b10eb6ad
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456095"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140597"
 ---
 # <a name="configure-security-in-configuration-manager"></a>Configurar a segurança no Configuration Manager
 

@@ -10,12 +10,13 @@ ms.assetid: d837253e-fcc2-422a-9e2c-c78b938dfd8c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b6cbee02b0f3eaa34891019e305572f854575b86
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4f7528f15c67e8ce339013db583d545cb252712d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53420823"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125668"
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Resolução de problemas do cliente do Windows Defender ou o Endpoint Protection
 
@@ -135,7 +136,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
      **Defender de Programas\Windows do programa de CD**  
 
-     **Mpcmdrun – RemoveDefinitions – todos os**  
+     **Mpcmdrun -RemoveDefinitions -all**  
 
      **Sair**  
 

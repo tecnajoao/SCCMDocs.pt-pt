@@ -10,12 +10,13 @@ ms.assetid: 692b86d5-dea7-4414-9e1f-043d2cadfd3b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ac369b7797258f847772548c49f5613566ef3d49
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37a1b1bf6ca1b14933ce03005a5b6b8681ef4db0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32353499"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139362"
 ---
 # <a name="protect-data-and-devices-in-on-premises-mobile-device-management"></a>Proteger dados e dispositivos na gestão de dispositivos móveis no local
 
@@ -23,7 +24,7 @@ ms.locfileid: "32353499"
 
 Pretende que os utilizadores possam aceder de forma segura a recursos da sua organização, para que a infraestrutura e os dados estejam protegidos de exposição ou ataque malicioso.
 
-Siga as orientações mesma para implementações de MDM híbrida (listados abaixo) para ajudar a proteger recursos da sua organização:
+Seguir as mesmas regras para implementações de MDM híbrida (listadas abaixo) para ajudar a proteger recursos da sua organização:
 
 - [Criar perfis Wi-Fi](create-wifi-profiles.md)
 - [Criar perfis de certificado PFX](create-pfx-certificate-profiles.md)

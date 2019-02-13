@@ -10,12 +10,13 @@ ms.assetid: 2af37410-d04c-4059-801c-9edb8bf72d89
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f12a18c4bf5c2dec7b0031e5052c99970e0d6ad9
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3b773c0bfe8cd0f8253a67ac96f5a0113b7206c0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251150"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135707"
 ---
 # <a name="use-azure-ad-for-co-management"></a>Utilizar o Azure AD para a cogestão
 
@@ -78,7 +79,7 @@ Para obter mais informações sobre o acesso condicional com base no dispositivo
 Todos os dispositivos Windows 10 associados ao Azure AD percorrer as verificações de licença. Estas verificações permitem-lhe automaticamente o atualizar do Pro para a empresa por meio da nuvem da Microsoft. Ao remover a subscrição relevante do usuário, o dispositivo desatualize automaticamente sua licença. Esta funcionalidade fornece um único painel de controlo para gerir licenças do Windows, sem quaisquer processos complicadas ou sistemas no local.
 
 #### <a name="self-service-functionality"></a>Funcionalidade de autoatendimento
-Funcionalidade self-service inclui a reposição de palavra-passe self-service e a chave de recuperação do Bitlocker. O Azure AD também fornece opções diretas para repor a palavra-passe ou chaves de recuperação do BitLocker de acesso. Pode utilizar o Azure AD para repor a palavra-passe diretamente a partir do ecrã de bloqueio do Windows, em vez de num browser. Estas funcionalidades reduzem o atrito para utilizadores e ajudar a reduzir os custos de suporte técnico para a sua organização.  
+Funcionalidade self-service inclui a reposição de palavra-passe self-service e a chave de recuperação do BitLocker. O Azure AD também fornece opções diretas para repor a palavra-passe ou chaves de recuperação do BitLocker de acesso. Pode utilizar o Azure AD para repor a palavra-passe diretamente a partir do ecrã de bloqueio do Windows, em vez de num browser. Estas funcionalidades reduzem o atrito para utilizadores e ajudar a reduzir os custos de suporte técnico para a sua organização.  
 
 Para obter mais informações, consulte [início rápido: Reposição de palavra-passe self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
 

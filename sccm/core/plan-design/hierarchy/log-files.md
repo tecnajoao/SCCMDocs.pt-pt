@@ -2,7 +2,7 @@
 title: Ficheiros de registo para resolução de problemas
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas com sistemas de sites e clientes do Configuration Manager.
-ms.date: 11/27/2018
+ms.date: 02/12/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,13 @@ ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 96673c0b299e45111c7d9a2bedf55282de50132e
-ms.sourcegitcommit: 5e7c4d36f4cdb3390ad3b381d31a3e1e4bf3c6e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 236be523cc81ef7e4f040773650e618b014c44de
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55986625"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140512"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -809,9 +810,10 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 ###  <a name="BKMK_WindowsServicingLog"></a>Manutenção do Windows 10  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a manutenção do Windows 10.  
 Manutenção utiliza o mesmo processo e infraestrutura como atualizações de software. Para outros registos aplicáveis para o cenário de manutenção, consulte [atualizações de Software](#BKMK_SU_NAPLog).
+
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
-|CBS.log|Registos relacionados com alterações de para atualizações do Windows ou funções e funcionalidades de falhas de manutenção.|Cliente|  
+|CBS.log|Registos relacionados com alterações de para atualizações do Windows ou funções e funcionalidades de falhas de manutenção.|Cliente|
 |DISM.log|Regista todas as ações com o DISM. Se necessário, DISM apontará para CBS.log para obter mais detalhes.|Cliente|
 |setupact.log|Ficheiro de registo primário para a maioria dos erros que ocorrem durante o processo de instalação do Windows. O ficheiro de registo está localizado em % windir %\$Windows.~BT\sources\panther pasta.|Cliente|
 

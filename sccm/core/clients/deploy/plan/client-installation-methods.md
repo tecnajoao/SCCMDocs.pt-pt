@@ -10,18 +10,19 @@ ms.assetid: 51b5964b-374d-4abc-8619-414a9fffad2d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6e437709ec1b721cf9ca597bdc944bcce6da9b0f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c206a8045429551f361f640febbcda4a39ef9698
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32334254"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139947"
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Métodos de instalação de cliente no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode utilizar diferentes métodos para instalar o software de cliente do Configuration Manager. Utilize um método ou uma combinação de métodos. Este artigo descreve cada método de, pelo que pode saber o que funciona melhor para a sua organização.  
+Pode utilizar diferentes métodos para instalar o software de cliente do Configuration Manager. Utilize um método ou uma combinação dos métodos. Este artigo descreve cada método, para que possa saber qual funciona melhor para sua organização.  
 
 ## <a name="client-push-installation"></a>Instalação push do cliente  
 
@@ -39,15 +40,15 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
 
 -   Pode causar tráfego de rede elevado quando efetuar instalações push em coleções de grandes dimensões.  
 
--   Só pode ser utilizado em computadores que tenham sido detetados pelo Configuration Manager.  
+-   Só pode ser utilizada em computadores que tenham sido detetados pelo Configuration Manager.  
 
 -   Não pode ser utilizado para instalar clientes num grupo de trabalho.  
 
 -   Deve ser especificada uma conta de instalação push de cliente com direitos administrativos no computador cliente pretendido.  
 
--   Firewall do Windows tem de ser configurada com exceções nos computadores cliente.   
+-   Firewall do Windows tem de ser configurado com exceções nos computadores cliente.   
 
--   Não é possível cancelar a instalação push do cliente. Configuration Manager tenta instalar o cliente em todos os recursos detetados. Repetir eventuais falhas de sete dias.  
+-   Não é possível cancelar a instalação push do cliente. Configuration Manager tenta instalar o cliente em todos os recursos detetados. Ele repete as tentativas falhadas durante sete dias.  
 
 Para obter mais informações, consulte [como instalar clientes com a instalação push do cliente](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientPush).  
 
@@ -61,15 +62,15 @@ Para obter mais informações, consulte [como instalar clientes com a instalaç�
 
 -   Pode utilizar a infraestrutura de atualizações de software existente para gerir o software de cliente.  
 
--   Se o Windows Server Update Services (WSUS) e definições de política de grupo no Active Directory Domain Services estão configuradas corretamente, este poderá instalar automaticamente o software de cliente em novos computadores.  
+-   Se o Windows Server Update Services (WSUS) e configurações de diretiva de grupo no Active Directory Domain Services estão configuradas corretamente, ele poderá instalar automaticamente o software de cliente em novos computadores.  
 
 -   Não necessita que os computadores sejam detetados antes do cliente pode ser instalado.  
 
 -   Os computadores podem ler as propriedades de instalação de cliente que tiverem sido publicadas nos Serviços de Domínio do Active Directory Domain Services.  
 
--   Se o cliente for removido, este método reinstala-o.  
+-   Se o cliente for removido, este método irá reinstalá-lo.  
 
--   Não requer que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
+-   Não precisa de configurar e manter uma conta de instalação para o computador cliente pretendido.  
 
 #### <a name="disadvantages"></a>Desvantagens  
 
@@ -79,7 +80,7 @@ Para obter mais informações, consulte [como instalar clientes com a instalaç�
 
 -   Para instalar novos clientes, tem de configurar um objeto de política de grupo nos serviços de domínio do Active Directory com o ponto de atualização de software ativo e a porta do cliente.  
 
--   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para aprovisionar computadores com propriedades de instalação de cliente.  
+-   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para aprovisionar computadores com propriedades de instalação do cliente.  
 
 Para obter mais informações, consulte [como instalar clientes com a instalação baseada em atualização de software](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientSUP).  
 
@@ -97,15 +98,15 @@ Para obter mais informações, consulte [como instalar clientes com a instalaç�
 
 -   Os computadores podem ler as propriedades de instalação de cliente que tiverem sido publicadas nos Serviços de Domínio do Active Directory Domain Services.  
 
--   Não requer que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
+-   Não precisa de configurar e manter uma conta de instalação para o computador cliente pretendido.  
 
 #### <a name="disadvantages"></a>Desvantagens  
 
--   Se estiver a ser instalado um elevado número de clientes, pode causar tráfego de rede elevado.  
+-   Se um grande número de clientes está a ser instalado, ele pode causar tráfego de rede elevado.  
 
--   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para adicionar propriedades de instalação de cliente aos computadores no seu site.  
+-   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para adicionar as propriedades de instalação de cliente para computadores no seu site.  
 
-Para obter mais informações, consulte [como instalar clientes com a política de grupo](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientGP).  
+Para obter mais informações, consulte [como instalar clientes com diretiva de grupo](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientGP).  
 
 
 
@@ -121,11 +122,11 @@ Para obter mais informações, consulte [como instalar clientes com a política 
 
 #### <a name="disadvantages"></a>Desvantagens  
 
--   Se um grande número de clientes está a ser instalado durante um curto período de tempo, pode causar tráfego de rede elevado.  
+-   Se um grande número de clientes está a ser instalado durante um período curto período de tempo, ele pode causar tráfego de rede elevado.  
 
 -   Se os utilizadores não iniciarem sessão na rede, pode demorar muito tempo a instalar em todos os computadores cliente.  
 
-Para obter mais informações, consulte [como instalar clientes com scripts de início de sessão](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientLogonScript).  
+Para obter mais informações, consulte [como instalar clientes com scripts de logon](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_ClientLogonScript).  
 
 
 
@@ -155,7 +156,7 @@ Para obter mais informações sobre como instalar manualmente o cliente em cada 
 
 
 
-## <a name="microsoft-intune-mdm-installation"></a>Instalação de MDM do Microsoft Intune
+## <a name="microsoft-intune-mdm-installation"></a>Instalação do Microsoft Intune MDM
 
 **Plataformas de cliente suportadas**: Windows 10
 
@@ -163,21 +164,21 @@ Para obter mais informações sobre como instalar manualmente o cliente em cada 
 
 -   Não necessita que os computadores sejam detetados antes do cliente pode ser instalado.  
 
--   Não requer que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
+-   Não precisa de configurar e manter uma conta de instalação para o computador cliente pretendido.  
 
--   Pode utilizar a autenticação moderna no Azure Active Directory.  
+-   Pode utilizar a autenticação moderna com o Azure Active Directory.  
 
--   Pode, instale e atribua os computadores na internet.  
+-   Pode instalar e atribuir a computadores na internet.  
 
--   Pode automatizar com AutoPilot do Windows e o Microsoft Intune para gestão conjunta.  
+-   Pode automatizar com o Windows AutoPilot e o Microsoft Intune para a cogestão.  
 
 #### <a name="disadvantages"></a>Desvantagens  
 
--   Necessita de tecnologias adicionais fora do Configuration Manager.  
+-   Requer tecnologias adicionais fora do Configuration Manager.  
 
--   Requer o dispositivo tem acesso à internet, mesmo se não for baseado na internet.  
+-   Requer o dispositivo tem acesso à internet, mesmo que não é baseado na internet.  
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 
 -   [Como instalar clientes em dispositivos Windows geridos por MDM do Intune](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#bkmk_mdm)  
 

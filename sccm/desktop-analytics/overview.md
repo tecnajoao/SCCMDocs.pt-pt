@@ -1,5 +1,5 @@
 ---
-title: Análise de área de trabalho
+title: Análise de Computadores
 titleSuffix: Configuration Manager
 description: Uma descrição geral do serviço de análise de ambiente de trabalho integrado com o Configuration Manager.
 ms.date: 01/25/2019
@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 64bc7e3df4554886544a64d96ecacd310208313b
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8602db7ece8d786598eb419eb855f1c77cff35ca
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073400"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126572"
 ---
 # <a name="what-is-desktop-analytics"></a>O que é a análise de ambiente de trabalho?
 

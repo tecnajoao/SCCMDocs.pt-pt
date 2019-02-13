@@ -10,12 +10,13 @@ ms.assetid: bce9e299-7b3a-4f51-8863-a322877daa2c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c6dd50d137cdc570b7e37cd96fb310c85ba60840
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 52c13109710fc35dcd2853f76188ac42269a8058
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458323"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120066"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1810"></a>Níveis de recolha de dados de diagnóstico de utilização para a versão 1810
 

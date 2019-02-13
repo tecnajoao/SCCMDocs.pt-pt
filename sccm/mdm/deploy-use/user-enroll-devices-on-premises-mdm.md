@@ -1,7 +1,7 @@
 ---
-title: 'Como os utilizadores inscrevem dispositivos com MDM no local '
+title: 'Como os utilizadores inscrevem dispositivos com o MDM no local '
 titleSuffix: Configuration Manager
-description: Compreenda a forma como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager.
+description: Compreenda como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
@@ -10,28 +10,29 @@ ms.assetid: 59004b34-b64f-4d77-898c-07bf3dc75430
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 15774704665b2b52daf1061db221ab0eb158eceb
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcf12937009a91bb8cc5a8c1c191861fec06ac13
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32347523"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137563"
 ---
 # <a name="how-users-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Gestão de dispositivos móveis no local do System Center Configuration Manager, os utilizadores podem inscrever dispositivos se que tenham sido concedidas permissão de inscrição (através de definições de cliente atualizadas) e os respetivos dispositivos tiverem o certificado de raiz necessário instalado para ter comunicações fidedignas com os servidores que alojam as funções do sistema de sites necessárias. Para obter mais informações sobre como configurar a inscrição, consulte [configurar a inscrição de dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
+Gestão de dispositivos móveis no local do System Center Configuration Manager, os utilizadores podem inscrever dispositivos se eles tem recebidos permissão de inscrição (através de definições de cliente atualizadas) e respetivos dispositivos tiverem o certificado de raiz necessário instalado para ter comunicações fidedignas com os servidores que alojam as funções do sistema de sites necessárias. Para obter mais informações sobre como configurar a inscrição, consulte [Set up device enrollment for On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
 
 > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  O current branch do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos com os seguintes sistemas operativos:  
 >   
 > -  Windows 10 Enterprise  
 > -   Windows 10 Pro  
 > -   Windows 10 Team \(a partir do Configuration Manager versão 1602\)  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Enterprise
-> -   Windows 10 Enterprise de IoT   
+> -   Windows 10 IoT Enterprise   
 
 As tarefas seguintes explicam como inscrever e verificar a inscrição de computadores e dispositivos para no\-no local a gestão de dispositivos móveis:  
 

@@ -10,12 +10,13 @@ ms.assetid: a79f83be-884c-48e6-94d6-ed0a68c22e2f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cd2cee9de9f876f591145a12443b50d08349a451
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8621f759a2e79090c6cd6dac5f2f3749147cabed
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250753"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133355"
 ---
 # <a name="management-insights-in-configuration-manager"></a>Informações de gestão no Configuration Manager
 
@@ -94,7 +95,7 @@ O dashboard inclui os seguintes mosaicos:
 - **Prioridade de informações de gestão**: Mostra a percentagem de regras por prioridade, honrar os filtros.   
 
 - **Todas as informações**: Uma tabela de informações, incluindo a prioridade e estado. Utilize o **filtro** campo na parte superior da tabela de acordo com cadeias de caracteres em qualquer uma das colunas disponíveis. O dashboard ordena a tabela pela seguinte ordem:
-    - Estado: Ação necessária, concluído, desconhecido  
+    - Status: Ação necessária, concluído, desconhecido  
     - Prioridade: Crítico, recomendado, opcional  
     - Última Changed: datas mais antigas na parte superior   
 
@@ -111,7 +112,7 @@ As regras estão organizadas nas seguintes grupos de informações de gestão:
 - [Manutenção pró-ativa](#proactive-maintenance)  
 - [Segurança](#security)  
 - [Gestão simplificada](#simplified-management)  
-- [Centro de software](#software-center)  
+- [Software Center](#software-center)  
 - [Windows 10](#windows-10)  
 
 
@@ -173,7 +174,7 @@ Informações que o ajudam a simplificam o gerenciamento diário do seu ambiente
 - **Versões de cliente não CB**: Apresenta uma lista de todos os clientes cujas versões não são uma compilação atual do branch (CB). Para obter mais informações, consulte [atualizar clientes](/sccm/core/clients/manage/upgrade/upgrade-clients).  
 
 
-### <a name="software-center"></a>Centro de software
+### <a name="software-center"></a>Software Center
 
 Informações para gerir o Centro de Software. 
 

@@ -4,12 +4,13 @@ ms.author: aaroncz
 ms.prod: configuration-manager
 ms.topic: include
 ms.date: 12/30/2018
-ms.openlocfilehash: 5769a9de754bb13f9a00025b2c78dd3d334fc5e0
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8305102657a5973c19ca161f65204587954b0232
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073369"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142728"
 ---
 Utilize as seguintes definições para diferenciar entre o piloto e de produção:  
 

@@ -10,12 +10,13 @@ ms.assetid: cf6337a2-700c-47f3-b6f8-5814f9b81e59
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 337df4d64b6edda589344b52a100e5a90381676c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6c8eef0ad8164ce6545264e0a1c229a647383661
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53421200"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138930"
 ---
 # <a name="maintain-mac-clients"></a>Manutenção de clientes de Mac
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -28,7 +29,7 @@ Seguem-se procedimentos para desinstalar os clientes Mac e de renovação de seu
 
 2.  Navegue para a pasta Ferramentas e introduza a seguinte linha de comandos:  
 
-     **. / CMUninstall - c**  
+     **./CMUninstall -c**  
 
     > [!NOTE]  
     >  O **- c** propriedade indica ao cliente desinstalar também remover registos de falha do cliente e ficheiros de registo. Recomendamos esta opção para evitar confusão, se reinstalar o cliente mais tarde.  

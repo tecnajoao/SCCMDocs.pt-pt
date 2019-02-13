@@ -10,12 +10,13 @@ ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 14251bb062423a31bcf74d2079b2e1b667f61ba9
-ms.sourcegitcommit: 06d490d526070e17d77e86bc6c200899ded911cb
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d096681c044b794b849d05c48fa17171344b8a64
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967169"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56129872"
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o laboratório do System Center Configuration Manager
 
@@ -42,7 +43,7 @@ Seguir as orientações neste tópico irá permitir-lhe configurar um laboratór
 
     -   **SQL_Latin1_General_CP1_CI_AS** como classe do **Agrupamento SQL** . A  
 
-    -   **Autenticação do Windows**, [em vez de autenticação do SQL](https://technet.microsoft.com/library/ms144284.aspx), é necessário.  
+    -   **Autenticação do Windows**, [em vez da autenticação SQL](https://technet.microsoft.com/library/ms144284.aspx), é necessária.  
 
     -   Um dedicado **instância do SQL Server** é necessária.  
 
@@ -92,7 +93,7 @@ Depois de instalar todos estes componentes, existem passos adicionais que deve e
 Os próximos passos necessários para permitir que os clientes do Configuration Manager consulta Active Directory Domain Services para localizar recursos de site são apresentados ao longo dos próximos procedimentos.  
 
 ##  <a name="BKMK_CreateSysMgmtLab"></a> Criar o contentor de Gestão do Sistema.  
- O Configuration Manager não criará automaticamente o contentor de gestão do sistema necessário nos serviços de domínio do Active Directory quando o esquema é expandido. Por conseguinte, irá criar este para o laboratório. Este passo irá solicitar-lhe [instalar ADSI Edit.](https://technet.microsoft.com/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
+ O Configuration Manager não criará automaticamente o contentor de gestão do sistema necessário nos serviços de domínio do Active Directory quando o esquema é expandido. Por conseguinte, irá criar este para o laboratório. Este passo irá solicitar-lhe que [instale o Editor de ADSI.](https://technet.microsoft.com/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
 
  Certifique-se de que iniciou sessão com uma conta que tenha a permissão **Criar Todos os Objetos Subordinados** no recipiente **Sistema** nos Serviços de Domínio do Active Directory.  
 
@@ -136,7 +137,7 @@ Os próximos passos necessários para permitir que os clientes do Configuration 
 
 #### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Para expandir o esquema do Active Directory utilizando ExtADSch.exe:  
 
-1.  Crie uma cópia de segurança do Estado do sistema do controlador de domínio de mestre de esquema. Para obter mais informações sobre cópias de segurança controlador de domínio principal, consulte [cópia de segurança do Windows Server](https://technet.microsoft.com/library/cc770757.aspx)  
+1.  Crie uma cópia de segurança do Estado do sistema do controlador de domínio de mestre de esquema. Para obter mais informações sobre como fazer uma cópia de segurança do controlador de domínio principal, consulte [Cópia de Segurança do Windows Server](https://technet.microsoft.com/library/cc770757.aspx)  
 
 2.  Navegue para **\SMSSETUP\BIN\X64** no suporte de dados de instalação.  
 
@@ -155,7 +156,7 @@ Os próximos passos necessários para permitir que os clientes do Configuration 
 
  **Instale o .NET e ative a Windows Communication Foundation**  
 
- Tem de instalar duas .NET Frameworks: primeiro, a .NET 3.5.1 e depois a .NET 4.5.2+. Terá também de ativar a WCF (Windows Communication Foundation). A WCF foi concebida para oferecer uma abordagem para cálculo distribuído, interoperabilidade abrangente e suporte direto para orientação do serviço e simplifica a programação de aplicações ligadas através de um modelo de programação orientado para o serviço. Reveja [o que é Windows Communication Foundation?](https://technet.microsoft.com/subscriptions/ms731082\(v=vs.90\).aspx) para informações adicionais sobre a WCF.  
+ Tem de instalar duas .NET Frameworks: primeiro, a .NET 3.5.1 e depois a .NET 4.5.2+. Terá também de ativar a WCF (Windows Communication Foundation). A WCF foi concebida para oferecer uma abordagem para cálculo distribuído, interoperabilidade abrangente e suporte direto para orientação do serviço e simplifica a programação de aplicações ligadas através de um modelo de programação orientado para o serviço. Reveja [O que é a Windows Communication Foundation?](https://technet.microsoft.com/subscriptions/ms731082\(v=vs.90\).aspx) para informações adicionais sobre a WCF.  
 
 #### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Para instalar o .NET e ativar a Windows Communication Foundation:  
 
@@ -197,9 +198,9 @@ Os próximos passos necessários para permitir que os clientes do Configuration 
 
 Para obter mais informações, consulte os seguintes artigos para saber porque motivo estes .NET Frameworks são necessários:  
 
--   [.NET framework versões e dependências](https://technet.microsoft.com/library/bb822049.aspx)  
+-   [Versões e dependências do .NET Framework](https://technet.microsoft.com/library/bb822049.aspx)  
 
--   [Instruções de compatibilidade de aplicações do .NET framework 4 RTM](https://technet.microsoft.com/library/dd889541.aspx)  
+-   [Instruções de Compatibilidade de Aplicações do .NET Framework 4 RTM](https://technet.microsoft.com/library/dd889541.aspx)  
 
 -   [Como: Atualizar uma aplicação ASP.NET Web para ASP.NET 4](https://technet.microsoft.com/library/dd483478\(VS.100\).aspx)  
 
@@ -209,13 +210,13 @@ Para obter mais informações, consulte os seguintes artigos para saber porque m
 
 **Ativar BITS, IIS e RDC**  
 
-O [serviço de transferência inteligente em segundo plano (BITS)](https://technet.microsoft.com/library/dn282296.aspx) é utilizado para aplicações que precisam de transferir ficheiros assíncronos entre um cliente e um servidor. Ao medir o fluxo de transferências em primeiro e segundo plano, o BITS mantém a capacidade de resposta de outras aplicações de rede. Retoma também automaticamente as transferências de ficheiros se uma sessão de transferência for interrompida.  
+O [Serviço de Transferência Inteligente em Segundo Plano (BITS)](https://technet.microsoft.com/library/dn282296.aspx) é utilizado para aplicações que têm de transferir ficheiros assíncronos entre um cliente e um servidor. Ao medir o fluxo de transferências em primeiro e segundo plano, o BITS mantém a capacidade de resposta de outras aplicações de rede. Retoma também automaticamente as transferências de ficheiros se uma sessão de transferência for interrompida.  
 
 O utilizador deve instalar o BITS para este laboratório, porque este servidor de site será também utilizado como ponto de gestão.  
 
 Serviços de Informação Internet (IIS) é um servidor Web flexível e escalável que pode ser utilizado para alojar tudo na Web. É utilizado pelo Configuration Manager para um número de funções do sistema de sites. Para obter informações adicionais sobre o IIS, consulte [sites para servidores de sistema de sites no System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-[Compressão de diferencial remota (RDC)](https://technet.microsoft.com/library/cc754372.aspx) é um conjunto de APIs que aplicações podem utilizar para determinar se foram efetuadas quaisquer alterações a um conjunto de ficheiros. A RDC permite que a aplicação replique apenas as partes alteradas de um ficheiro, mantendo o tráfego de rede para um mínimo.  
+[Compressão de Diferencial Remota (RDC)](https://technet.microsoft.com/library/cc754372.aspx) é um conjunto de API que as aplicações podem utilizar para determinar se foram efetuadas quaisquer alterações a um conjunto de ficheiros. A RDC permite que a aplicação replique apenas as partes alteradas de um ficheiro, mantendo o tráfego de rede para um mínimo.  
 
 #### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Para ativar as funções de servidor de site BITS, IIS e RDC:  
 
@@ -327,7 +328,7 @@ Serviços de Informação Internet (IIS) é um servidor Web flexível e escaláv
 
 7.  Clique em **Instalar** e certifique-se de que a instalação foi concluída corretamente no painel **Notificações** do **Gestor de Servidores**.  
 
-Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e localizações de pastas contra o acesso através de comunicação HTTP ou HTTPS. Para permitir que estes ficheiros sejam distribuídos a sistemas cliente, terá de configurar a filtragem de pedidos do IIS no ponto de distribuição. Para obter mais informações, consulte [IIS Request Filtering para pontos de distribuição](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
+Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e localizações de pastas contra o acesso através de comunicação HTTP ou HTTPS. Para permitir que estes ficheiros sejam distribuídos a sistemas cliente, terá de configurar a filtragem de pedidos do IIS no ponto de distribuição. Para mais informações, reveja [IIS Request Filtering for distribution points](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
 
 #### <a name="to-configure-iis-filtering-on-distribution-points"></a>Para configurar a filtragem de IIS nos pontos de distribuição:  
 
@@ -343,7 +344,7 @@ Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e loc
 Irá criar um [determinar quando deve utilizar um site primário](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) para gerir clientes diretamente. Isso permitirá que o seu ambiente de laboratório suportar a gestão para [escala do sistema de sites](/sccm/core/plan-design/configs/size-and-scale-numbers) de potenciais dispositivos.  
 Durante este processo, irá também instalar a consola do Configuration Manager, que será utilizada para gerir os dispositivos de avaliação no futuro.  
 
-Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) no servidor utilizando o Windows Server 2012 para confirmar que todas as definições foram ativadas corretamente.  
+Antes de iniciar a instalação, inicie o  [Prerequisite Checker](/sccm/core/servers/deploy/install/prerequisite-checker) no servidor utilizando o Windows Server 2012 para confirmar que todas as definições foram ativadas corretamente.  
 
 #### <a name="to-download-and-install-configuration-manager"></a>Para transferir e instalar o Gestor de Configuração:  
 
@@ -351,7 +352,7 @@ Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm
 
 2.  Descomprima o suporte de dados de transferência para a localização predefinida.  
 
-3.  Siga o procedimento de instalação listado em [instalar um site utilizando o Assistente de configuração do System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). De acordo com esse procedimento, deve introduzir o seguinte:  
+3.  Siga o procedimento de instalação listado em [Install a site using the System Center Configuration Manager Setup Wizard](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). De acordo com esse procedimento, deve introduzir o seguinte:  
 
     |Passo no procedimento de instalação do site|Seleção|  
     |-----------------------------------------|---------------|  

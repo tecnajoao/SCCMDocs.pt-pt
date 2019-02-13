@@ -10,12 +10,13 @@ ms.assetid: 0cf4bacb-6b6d-4d4f-8640-b13fe15873de
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 915a8ac1d20ca288b2b830791c8a3b79c65ffbce
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ae1ac3262acff35e23de4faa1e80c796f5ee4e4b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383653"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156700"
 ---
 # <a name="support-for-windows-features-and-networks-in-configuration-manager"></a>Suporte para funcionalidades do Windows e redes no Configuration Manager
 
@@ -107,7 +108,7 @@ O Configuration Manager suporta a funcionalidade do DirectAccess para a comunica
 
 O Configuration Manager não suporta a seguinte funcionalidade através do DirectAccess:  
 
--   Implementação do SO   
+-   Implementação de SO   
 
 -   Comunicação entre sites do Configuration Manager  
 
@@ -131,7 +132,7 @@ Protocolo IP versão 4 (IPv4), o Configuration Manager suporta o protocolo IP ve
 |Gateway de gestão na cloud|O IPv4 é necessário para suportar o Microsoft Azure e o gateway de gestão na cloud.|  
 |Dispositivos móveis inscritos pelo Microsoft Intune e do conector de serviços da Microsoft|O IPv4 é necessário para suportar dispositivos móveis inscritos pelo Microsoft Intune e do conector de serviços da Microsoft.|  
 |Deteção de Redes|O IPv4 é necessário quando configura o servidor DHCP para procurar na Deteção de Redes.|  
-|Implementação do SO|Na versão 1802 e anterior, o IPv4 é necessário para suportar a implementação do sistema operacional.  </br> </br> A partir da versão 1806, ative o dispositivo de resposta PXE num ponto de distribuição sem o serviço de implementação do Windows. Este novo serviço de resposta do PXE oferece suporte ao IPv6. Outros aspetos da funcionalidade de implementação do sistema operacional, como capturar ou definir endereços IP estáticos durante a sequência de tarefas, continuam a exigir o IPv4. |  
+|Implementação de SO|Na versão 1802 e anterior, o IPv4 é necessário para suportar a implementação do sistema operacional.  </br> </br> A partir da versão 1806, ative o dispositivo de resposta PXE num ponto de distribuição sem o serviço de implementação do Windows. Este novo serviço de resposta do PXE oferece suporte ao IPv6. Outros aspetos da funcionalidade de implementação do sistema operacional, como capturar ou definir endereços IP estáticos durante a sequência de tarefas, continuam a exigir o IPv4. |  
 |Comunicação do proxy de reativação|O IPv4 é necessário para suportar os pacotes do proxy de reativação do cliente.|  
 |Windows CE|O IPv4 é necessário para suportar o cliente de Configuration Manager em dispositivos Windows CE.|  
 

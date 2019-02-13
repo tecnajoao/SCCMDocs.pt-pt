@@ -10,12 +10,13 @@ ms.assetid: 3f62b763-4347-453d-b0a7-1f4a0d1d4105
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 00fa7e538f6156f0dacee00feeb4b767a3c83a5c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a4e829d92b099be3fbf77796ea604d9d33db252c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417630"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132957"
 ---
 # <a name="configure-and-deploy-lookout-for-work-apps"></a>Configurar e implementar o Lookout for Work aplicações
 
@@ -31,7 +32,7 @@ Este artigo explica como configurar e implementar o Lookout for Work de aplicaç
 2.  Na página **Geral** do Assistente de Implementação de Software, especifique as seguintes informações:  
     - Tipo: selecione **pacote de aplicação para Android no Google Play**.
     - Localização: copiar o Lookout for work ligação da aplicação da loja Google Play, cole-o aqui
-    - Publicador: Segurança móvel do lookout
+    - Publisher: Segurança móvel do lookout
     - Nome: Lookout for Work
     - Descrição: Lookout oferece a melhor proteção contra ameaças contra dispositivos móveis para manter o seu dispositivo seguro. Quando a aplicação Lookout está instalada, a aplicação protege o seu dispositivo de ameaças. Se forem detetadas ameaças, alerta-o e o administrador de TI.
     - Categoria administrativa: Gestão de computadores  

@@ -10,12 +10,13 @@ ms.assetid: e562e2a0-8df8-4952-952f-e8c38461c612
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 9d538106f2cc30a9eca5be51c4174af531bbbda9
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87b92bb857f6a39a99e3aee1e4bc862904bcc4ef
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32337790"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126920"
 ---
 # <a name="how-to-manage-queries-in-system-center-configuration-manager"></a>Como gerir consultas no System Center Configuration Manager
 
@@ -33,7 +34,7 @@ Utilize as informações neste tópico para o ajudar a gerir consultas no System
 |Tarefa de gestão|Detalhes|Mais informações|  
 |---------------------|-------------|----------------------|  
 |**Executar**|Executa a consulta selecionada e apresenta os resultados na consola do Configuration Manager.|Não existem informações adicionais.|  
-|**Instalar Cliente**|Abre o **Assistente de instalação de cliente** que lhe permite instalar o cliente do Configuration Manager nos computadores devolvidos pela consulta selecionada.<br /><br /> Esta opção não está disponível para consultas que devolvem dispositivos móveis, utilizadores ou grupos de utilizadores.|Para obter mais informações sobre como instalar clientes do Configuration Manager utilizando push de cliente, consulte [implementar clientes em computadores Windows](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).|  
+|**Instalar Cliente**|Abre o **Assistente de instalação do cliente** que permite instalar o cliente do Configuration Manager nos computadores devolvidos pela consulta selecionada.<br /><br /> Esta opção não está disponível para consultas que devolvem dispositivos móveis, utilizadores ou grupos de utilizadores.|Para obter mais informações sobre como instalar clientes do Configuration Manager utilizando push de cliente, consulte [implementar clientes em computadores Windows](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).|  
 |**Exportarar**|Abre o **Assistente Exportar Objetos** que permite exportar esta consulta para um ficheiro de formato MOF (Managed Object Format) que pode, em seguida, ser importado noutro site.|Não existem informações adicionais.|  
 |**Moverr**|Abre a caixa de diálogo **Mover Itens Selecionados** , na qual pode mover a consulta selecionada para uma pasta que criou anteriormente sob o nó **Consultas** .|Não existem informações adicionais.|  
 

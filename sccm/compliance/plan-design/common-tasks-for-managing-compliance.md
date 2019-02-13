@@ -10,18 +10,19 @@ ms.assetid: 915f866e-7559-4c9c-aee2-f9ca92e637b3
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 87d9209624441d571bf01e56717134115540b3fb
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 55960af3afb3d1b7ba6cf8960923b1d9a16359f7
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32332003"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135573"
 ---
 # <a name="common-tasks-for-managing-compliance-with-system-center-configuration-manager"></a>Tarefas comuns para gerir a compatibilidade com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Nesta secção, irá encontrar alguns cenários comuns que o ajudarão a aprenderem a utilizar as definições de compatibilidade no System Center Configuration Manager.  
+Nesta secção, irá encontrar alguns cenários comuns que o ajudará a aprender a utilizar as definições de compatibilidade no System Center Configuration Manager.  
 
 ## <a name="for-devices-that-run-the-configuration-manager-client"></a>Para dispositivos que executam o cliente do Configuration Manager  
  [Tarefas comuns para gerir a compatibilidade em dispositivos com o cliente do System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-managing-compliance-on-devices-with-the-client.md)  

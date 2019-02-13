@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0082bfe87a03da976d793fcbaf00a33f0151d4af
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4b56fac3060acc16fe46221464ddc6535b478399
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073538"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124454"
 ---
 # <a name="how-to-create-deployment-plans-in-desktop-analytics"></a>Como criar planos de implantação no ambiente de trabalho de análise 
 

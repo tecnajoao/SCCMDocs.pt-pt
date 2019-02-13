@@ -1,5 +1,5 @@
 ---
-title: Risco de compatibilidade de aplicações do Windows
+title: Risco de compatibilidade para aplicações do Windows
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os riscos de compatibilidade para aplicações do Windows no ambiente de trabalho de análise.
 ms.date: 01/25/2019
@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a2badfa88bd91dd0e43f8f1f47a9a8579f810a6
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8deaa8eef49b2d4792146cb47ecdf094eaed4eac
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073610"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56123769"
 ---
 # <a name="compatibility-risk-for-windows-apps-in-desktop-analytics"></a>Risco de compatibilidade de aplicações do Windows no ambiente de trabalho de análise 
 

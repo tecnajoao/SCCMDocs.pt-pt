@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 64bd6ee21c98b7a047f3a8330cf5995ed762501b
-ms.sourcegitcommit: ef3fdf21180e43afd7af6c8264524711435e426e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 667a734eefab0e7634d13fd971c218a0803acc13
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54897972"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136420"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Níveis de recolha de dados de utilização de diagnóstico da versão 1602 do System Center Configuration Manager
 

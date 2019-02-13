@@ -9,12 +9,13 @@ ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 00a6723dd56aa41287d34a7fcdc9f549d792d666
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74476a86f4c93ed6442d302d954391f500e064a4
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417919"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56142192"
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
@@ -126,7 +127,7 @@ O Configuration Manager não é possível atualizar com êxito um site primário
 
 Para obter mais informações, consulte o seguinte:  
 -   System Center 2012 Configuration Manager:  [Configurar réplicas de base de dados para pontos de gestão](https://technet.microsoft.com/library/hh846234.aspx)  
--   O System Center Configuration Manager: [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
+-   System Center Configuration Manager: [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
 
 **Reconfigure os pontos de atualização de software que utilizem NLB:**  
 O Configuration Manager não é possível atualizar um site que utilize um cluster de balanceamento de carga na rede (NLB) para alojar pontos de atualização de software.  
@@ -147,7 +148,7 @@ Antes de desativar uma tarefa, registe a agenda da tarefa para que possa restaur
 Para obter mais informações sobre tarefas de manutenção do site, consulte:  
 
 -   System Center 2012 Configuration Manager:  [Planear tarefas de manutenção para o Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
--   O System Center Configuration Manager:  [Referência das tarefas de manutenção para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
+-   System Center Configuration Manager:  [Referência das tarefas de manutenção para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
 
 **Execute o Verificador de Pré-requisitos da Configuração**:  
 Antes de atualizar um site, pode executar o **Verificador de Pré-requisitos** independentemente da Configuração para confirmar que o site cumpre os pré-requisitos. Mais tarde, quando atualizar o site, verificador de pré-requisitos é executado novamente.  

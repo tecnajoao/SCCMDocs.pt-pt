@@ -10,12 +10,13 @@ ms.assetid: 9126d188-7780-45a4-b21d-7fcf4fad7da2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6f83f26f746c54e3d1defe31df47b3c7c8a7e117
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d6f8c25902be857e0eec3cd4b969d1fb5bda136
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53417953"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136335"
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para Android para trabalho de aplicações com políticas de configuração de aplicações no System Center Configuration Manager
 

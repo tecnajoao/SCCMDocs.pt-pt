@@ -10,12 +10,13 @@ ms.assetid: 98feaa06-64b1-4e86-a122-93017c97cd4f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d061649744d7a2da37e67d55f3c8b655d18c0aa4
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86485a1a54acb122e1b56118de9e72d840e01809
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416797"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137665"
 ---
 # <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Como monitorizar perfis de certificado no System Center Configuration Manager
 

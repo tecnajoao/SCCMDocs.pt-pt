@@ -10,12 +10,13 @@ ms.assetid: dc1f70f5-64ab-42ab-aa91-d3858803e12f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 26529460498d10fb4ee747059ca050cd6af9db54
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7811e1ab4a323660f16b707076015d9e81bda2bb
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415964"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121299"
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbridos do Windows com o System Center Configuration Manager e o Microsoft Intune
 
@@ -37,7 +38,7 @@ Para ativar a gestão de dispositivos do Windows para PCs ou dispositivos móvei
      1. Na **gerais** separador, clique nas **Windows Phone 8.1 e Windows 10 Mobile** caixa de verificação. Windows Phone 8.0 já não é suportada.
      2. Se sua organização precisa de fazer sideload de aplicativos da empresa, pode carregar o token solicitado ou o ficheiro. Para obter mais informações sobre as aplicações de sideload, consulte [aplicações do Windows criar](https://docs.microsoft.com/sccm/apps/get-started/creating-windows-applications).
         - **Token de inscrição de aplicações**
-        - **ficheiro. pfx**
+        - **.pfx file**
         - **NONE** se utilizar um certificado da Symantec, pode especificar **mostrar um alerta antes de expirarem certificados da Symantec**.
 4. Clique em **OK** para fechar a caixa de diálogo.  Para simplificar o processo de inscrição com o Portal da empresa, deve criar um alias de DNS para inscrição de dispositivos. Pode, em seguida, informar os utilizadores como devem inscrever os dispositivos.
 
@@ -124,4 +125,4 @@ As alterações aos registos DNS podem demorar até 72 horas a serem propagadas.
  Assim que estiver configurado, terá de informar os utilizadores como inscrever os respetivos dispositivos. Ver [o que dizer aos utilizadores sobre como inscrever os respetivos dispositivos](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) para obter orientações. Pode direcionar os utilizadores [inscrever o seu dispositivo Windows no Intune](https://docs.microsoft.com/intune/enduser/enroll-your-device-in-intune-windows). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
 
 > [!div class="button"]
-> [< Anterior passo](create-service-connection-point.md)[passo seguinte >  ](set-up-additional-management.md)
+> [< Anterior passo](create-service-connection-point.md)[passo seguinte >](set-up-additional-management.md)

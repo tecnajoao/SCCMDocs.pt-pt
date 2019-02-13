@@ -10,12 +10,13 @@ ms.assetid: 08f711ba-83bf-4b5f-9520-a0778c6ae7eb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0d4e83cbcb1c95303719b1d86ffc9a8969c16998
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e71a94a4e4769d5a8fe7e2a7957eeb9e46f79be
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893911"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126206"
 ---
 # <a name="introduction-to-application-management-in-configuration-manager"></a>Introdução à gestão de aplicações no Configuration Manager
 
@@ -172,7 +173,7 @@ Se estiver familiarizado com as noções básicas e estiver à procura de para o
 
 
 
-## <a name="software-center"></a>Centro de software  
+## <a name="software-center"></a>Software Center  
 
 Centro de software é um aplicativo de Windows instalado com o cliente do Configuration Manager. Utilizá-lo para as seguintes ações:  
 - Procurar e pedir aplicações implementadas para o dispositivo ou utilizador
@@ -181,7 +182,7 @@ Centro de software é um aplicativo de Windows instalado com o cliente do Config
 - Configurar definições de controlo remoto
 - Configurar a gestão de energia
 
-Para obter mais informações, consulte os artigos seguintes:  
+Para obter mais informações, veja os artigos seguintes:  
 - [Planear e configurar a gestão de aplicações](/sccm/apps/plan-design/plan-for-and-configure-application-management)
 - [Manual do utilizador do Software Center](/sccm/core/understand/software-center)
 

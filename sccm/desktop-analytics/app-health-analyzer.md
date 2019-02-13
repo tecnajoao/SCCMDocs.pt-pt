@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 03b2019d02f6e5548794d7158ad9c1009fb2b648
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 122a27276adcaf57461157e9df03ee1092e52af5
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073405"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126630"
 ---
 # <a name="how-to-assess-compatibility-with-app-health-analyzer"></a>Como avaliar a compatibilidade com o analisador de estado de funcionamento da aplicação
 
@@ -98,7 +99,7 @@ Este separador fornece uma exibição de todas as aplicações que a ferramenta 
 
 - **ID de resolução de problemas**: Se o dispositivo tiver aplicações instaladas, mas vê que não existem informações no relatório, dar este ID para suportar  
 
-#### <a name="desktop-analytics"></a>Análise de área de trabalho
+#### <a name="desktop-analytics"></a>Análise de Computadores
 Este separador fornece uma visão geral de como pode utilizar o analisador de estado de funcionamento da aplicação para fornecer informações de preparação para aplicações na sua organização.
 
 

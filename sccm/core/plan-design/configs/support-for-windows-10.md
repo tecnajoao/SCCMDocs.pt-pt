@@ -10,12 +10,13 @@ ms.assetid: a1626a65-da22-49e0-9564-d2f752ea3f4b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a02f904614e245a61e533164d25c0280e3a4d486
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7e09453086d2ce8ff02e566188e5ae4a20228820
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456143"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135944"
 ---
 # <a name="support-for-windows-10-in-configuration-manager"></a>Suporte para Windows 10 no Configuration Manager  
 
@@ -51,7 +52,7 @@ Uma versão do Configuration Manager cai na matriz após [suporte para essa vers
 <br/>
 A tabela seguinte lista as versões do Windows 10 que pode utilizar como um cliente com versões diferentes do Configuration Manager.
 
-| Versão do Windows 10 | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager | 1810 o Configuration Manager |
+| Versão do Windows 10 | Configuration Manager 1710 | Configuration Manager 1802 | 1806 o Configuration Manager | Configuration Manager 1810 |
 |---------------------|-----|-----|-----|-----|
 | Enterprise 2015 LTSB <!--10/14/2025-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 | Enterprise 2016 LTSB <!--10/13/2026-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
@@ -59,7 +60,7 @@ A tabela seguinte lista as versões do Windows 10 que pode utilizar como um clie
 | 1607   <!--04/09/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 | 1703   <!--10/08/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 | 1709   <!--04/14/2020-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| versão 1803   <!--11/10/2020-->   | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1803   <!--11/10/2020-->   | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 | 1809   <!--04/12/2021?-->   | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 
 <!-- lifecycle reference: https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet -->
@@ -85,7 +86,7 @@ Ao implementar sistemas operativos com o Configuration Manager, o Windows ADK é
 
 A tabela seguinte lista as versões do Windows 10 ADK que pode utilizar com diferentes versões do Configuration Manager.
 
-| Versão do Windows 10 ADK  | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager | 1810 o Configuration Manager |
+| Versão do Windows 10 ADK  | Configuration Manager 1710 | Configuration Manager 1802 | 1806 o Configuration Manager | Configuration Manager 1810 |
 |--------------------|-----|-----|-----|-----|
 | 1703  | ![Compatível com versões anteriores](media/blue_compat.png) | ![Compatível com versões anteriores](media/blue_compat.png) | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) |
 | 1709  | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Compatível com versões anteriores](media/blue_compat.png) | ![Não suportado](media/Red_X.png)   |

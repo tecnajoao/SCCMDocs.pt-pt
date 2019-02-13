@@ -1,5 +1,5 @@
 ---
-title: Espião de política
+title: Espião de Política
 titleSuffix: Configuration Manager
 description: Utilize espião de política para ver e resolver problemas relacionados com o sistema de política em clientes do Configuration Manager.
 ms.date: 07/30/2018
@@ -10,14 +10,15 @@ ms.assetid: 1012ec24-27d9-4193-8236-918d283c7448
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 66a9949723e6555ddb72ebfdb845a523fb29bfe5
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 740dda5c41c28e1648eb24e75fe24a2e22784f3b
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386858"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56129109"
 ---
-# <a name="policy-spy"></a>Espião de política
+# <a name="policy-spy"></a>Espião de Política
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -68,7 +69,7 @@ As ações seguintes estão disponíveis no **ferramentas** menu:
 
 As ações seguintes estão disponíveis no **editar** menu:  
 
-- **Eliminar**: Elimina a instância selecionada no painel de resultados. Esta ação só é suportada para instâncias de política. Se tentar eliminar nada além de instâncias de política, a ferramenta exibe uma mensagem de erro. Esta funcionalidade está desativada quando visualizar uma política de exportado.  
+- **Delete**: Elimina a instância selecionada no painel de resultados. Esta ação só é suportada para instâncias de política. Se tentar eliminar nada além de instâncias de política, a ferramenta exibe uma mensagem de erro. Esta funcionalidade está desativada quando visualizar uma política de exportado.  
 
 - **Atualizar**: Atualiza todos os resultados para ver as informações mais recentes. Todos os nós da árvore que são expandidos antes de atualizar automaticamente são expandidos mais tarde. Se espião de política não foi ligado com êxito a política do computador de destino, ele tenta estabelecer ligação novamente. Esta funcionalidade está desativada quando visualizar uma política de exportado.  
 
@@ -79,7 +80,7 @@ As ações seguintes estão disponíveis no **editar** menu:
 ## <a name="results-pane"></a>Painel de resultados
 
 O painel de resultados apresenta vistas diferentes do sistema de política no computador de destino. Aceda a esses modos de exibição clicando em um dos seguintes quatro separadores: 
-- [Real](#bkmk_policyspy-actual)
+- [Actual](#bkmk_policyspy-actual)
 - [Pedido](#bkmk_policyspy-requested)
 - [Predefinição](#bkmk_policyspy-default)
 - [eventos](#bkmk_policyspy-events)
@@ -102,7 +103,7 @@ Este separador apresenta as atribuições de política que o cliente obtido a pa
 > Várias instâncias podem existir com o mesmo nome porque o cliente ainda não intercaladas estas definições de um conjunto final resultante. Política espião apresenta instâncias neste nó usando as propriedades de RealKey em vez das chaves de política verdadeiro. Correlacione essas instâncias para o conjunto resultante apresentado no separador real.  
 
 
-### <a name="bkmk_policyspy-default"></a> Padrão
+### <a name="bkmk_policyspy-default"></a> Default
 
 Este separador apresenta as mesmas informações que o **pedida** separador. Ele também inclui o conteúdo dos namespaces DefaultMachine e DefaultUser.
 

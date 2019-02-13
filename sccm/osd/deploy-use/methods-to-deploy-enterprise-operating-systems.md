@@ -10,18 +10,19 @@ ms.assetid: 3646d62d-355a-43fc-8569-c08dc2257ee5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6fc86625c27ffbfdf0873ec787b889f4c0cacf6e
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7dd3ffa5f58be387b229224f31a57965871241f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32346394"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136097"
 ---
 # <a name="methods-to-deploy-enterprise-operating-systems-using-system-center-configuration-manager"></a>Métodos para implementar sistemas operativos empresariais com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Existem vários métodos que pode utilizar para implementar um sistema operativo no seu ambiente do System Center Configuration Manager.
+Existem diferentes métodos que pode utilizar para implementar um sistema operativo no seu ambiente do System Center Configuration Manager.
 
 -   [Utilizar o PXE para implementar o Windows na rede](use-pxe-to-deploy-windows-over-the-network.md)  
 

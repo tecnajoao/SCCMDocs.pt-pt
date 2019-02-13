@@ -10,12 +10,13 @@ ms.assetid: 21a80050-6452-4b7d-8424-99bddf9fa1f4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a1b2d5c5755be9b6a23167bad062795c8f18a0d8
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6b8d171e3bb4023843c23b45b0ce8f8c45007524
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52455767"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56138675"
 ---
 # <a name="supported-os-versions-for-configuration-manager-consoles"></a>Versões de SO suportadas para consolas do Configuration Manager
 
@@ -32,13 +33,13 @@ Para suportar a consola do Configuration Manager, as seguintes versões de SO re
 
 -   **Windows Server 2012** (x64): Standard, Datacenter  
 
--   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise e Datacenter  
+-   **Windows Server 2008 R2 with SP1** (x64): Standard, Enterprise e Datacenter  
 
 -   **Windows 10** (x86, x64): Pro, Enterprise  
 
 -   **Windows 8.1** (x86, x64): Professional, Enterprise  
 
--   **O Windows 7 com SP1** (x86, x64): Professional, Enterprise, Ultimate  
+-   **Windows 7 with SP1** (x86, x64): Professional, Enterprise, Ultimate  
 
 
 Para obter mais informações sobre a consola do Configuration Manager, consulte os artigos seguintes:

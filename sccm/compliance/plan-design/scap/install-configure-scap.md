@@ -1,5 +1,5 @@
 ---
-title: Instalar e configurar as extensões SCAP
+title: Instalar e configurar as extensões do SCAP
 titleSuffix: Configuration Manager
 description: Instalar e configurar as extensões Security Content Automation Protocol (SCAP) para o Configuration Manager.
 ms.date: 07/30/2018
@@ -10,12 +10,13 @@ ms.assetid: f53b484b-5123-48f0-be2f-4e30318f3d39
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4fd440905bb736dfbfac01de804373d29c9fbb59
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b63894764e45e67ef262e345140e245297a11c87
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384619"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56133940"
 ---
 # <a name="install-and-configure-the-scap-extensions-for-configuration-manager"></a>Instalar e configurar as extensões SCAP para o Configuration Manager
 
@@ -138,7 +139,7 @@ No prompt de comando, aceda a **AdminConsole\Bin** pasta e execute **Microsoft.S
 
 
 
-#### <a name="microsoftscesscaptodcmexe-command-line-parameters"></a>Parâmetros de linha de comando Microsoft.Sces.ScapToDcm.exe
+#### <a name="microsoftscesscaptodcmexe-command-line-parameters"></a>Microsoft.Sces.ScapToDcm.exe command-line parameters
 
 | Parâmetro | Utilização | Necessário |
 | --- | --- | --- |
@@ -153,7 +154,7 @@ No prompt de comando, aceda a **AdminConsole\Bin** pasta e execute **Microsoft.S
 | `-help` ou `-?` | Imprimir a utilização da ferramenta | Não |
 
 
-#### <a name="microsoftscesscaptodcmexe-examples"></a>Exemplos de Microsoft.Sces.ScapToDcm.exe
+#### <a name="microsoftscesscaptodcmexe-examples"></a>Microsoft.Sces.ScapToDcm.exe examples
 
 **Conteúdo SCAP 1.2:**  
 

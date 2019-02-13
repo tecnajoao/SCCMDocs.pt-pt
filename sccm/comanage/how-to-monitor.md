@@ -1,5 +1,5 @@
 ---
-title: Monitor de cogestão
+title: Monitorizar a cogestão
 titleSuffix: Configuration Manager
 description: Utilize o dashboard de cogestão para rever as informações sobre dispositivos cogeridos.
 ms.date: 01/14/2019
@@ -10,12 +10,13 @@ ms.assetid: e83a7b0d-b381-4b4a-8eca-850385abbebb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 79ccb57b49f57f80e0915c8ab037d9f356166474
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7c731692bc2277cc5ce97e079387b392ca09ff3e
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250995"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56134017"
 ---
 # <a name="how-to-monitor-co-management-in-configuration-manager"></a>Como monitorizar a cogestão no Configuration Manager
 
@@ -117,13 +118,6 @@ Selecione um Estado no mosaico para explorar para obter uma lista de dispositivo
 ![Mosaico de estado de inscrição de cogestão](media/co-management-dashboard/1358980-enrollment-status.png)
 
 
-### <a name="enrollment-errors"></a>Erros de inscrição
-
-*Aplica-se a versão 1810 e posterior*
-
-Uma tabela que mostra a contagem de erros de inscrição de dispositivos.  
-
-
 ### <a name="workload-transition"></a>Transição da carga de trabalho
 
 *Aplica-se a todas as versões*
@@ -135,6 +129,42 @@ A lista de cargas de trabalho varia consoante a versão do Configuration Manager
 Coloque o cursor sobre uma seção de gráfico para ver o número de dispositivos a transição para a carga de trabalho. 
 
 ![Gráfico de barras de transição de carga de trabalho](media/co-management-dashboard/Workload-Transition.PNG)
+
+
+### <a name="enrollment-errors"></a>Erros de inscrição
+
+*Aplica-se a versão 1810 e posterior*
+
+Esta tabela é uma lista de erros de inscrição de dispositivos. Estes erros podem vir do componente MDM no Windows, o núcleo do sistema operacional do Windows ou o cliente do Configuration Manager. 
+
+Existem centenas de possíveis erros. A tabela seguinte lista os erros mais comuns.
+<!-- SCCMDocs issue 1064, BUG 3158555 -->
+
+| Erro | Descrição |
+|---------|---------|
+| 2147549183 (0x8000FFFF) | Não foi configurada a inscrição MDM ainda no Azure AD, ou a inscrição do URL não é esperado.<br><br>[Ativar a inscrição automática do Windows 10](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment) |
+| 2149056536 (0x80180018)<br>MENROLL_E_USERLICENSE | É de licença de usuário no registro de bloqueio de um Estado inválido<br><br>[Atribuir licenças aos utilizadores](https://docs.microsoft.com/intune/licenses-assign) |
+| 2149056555 (0x8018002B)<br>MENROLL_E_MDM_NOT_CONFIGURED | Ao tentar automaticamente se inscreverem no Intune, mas a configuração do Azure AD não está totalmente aplicada. Este problema deve ser transitório, como as repetições de dispositivo após um curto período de tempo. |
+| 2149056554 (0x‭8018002A‬)<br>&nbsp; | O utilizador cancelou a operação<br><br>Se a inscrição MDM requer autenticação multifator e o utilizador ainda não tiver iniciado sessão com um segundo fator suportado, o Windows apresenta uma notificação de alerta para o utilizador para se inscrever. Se o utilizador não responder a notificação de alerta, este erro ocorre. Este problema deve ser transitório, como o Configuration Manager irá repetir e pedir ao utilizador. Os utilizadores devem utilizar a autenticação multifator quando iniciam sessão no Windows. Também educá-las esperassem esse comportamento e se lhe for pedido, execute as ações. | 
+| 2149056533 (0x80180015)<br>MENROLL_E_NOTSUPPORTED | Gestão de dispositivos móveis em geral não suportado | 
+| 2149056514 (0x80180002)<br>MENROLL_E_DEVICE_AUTHENTICATION_ERROR | Falha ao autenticar o utilizador do servidor<br><br> Não existe nenhum token do Azure AD para o utilizador. Certifique-se de que o usuário possa autenticar para o Azure AD. |
+| 2147942450 (0x‭80070032‬)<br>&nbsp; | Inscrição automática MDM só é suportada no Windows RS3 e posteriores.<br><br>Certifique-se de que o dispositivo cumpra a [os requisitos mínimos](/sccm/comanage/overview#windows-10) para a cogestão. |
+| 3400073293 | Resposta de conta de realm de usuário da ADAL desconhecida<br><br>Verifique a configuração do Azure AD e certifique-se de que os utilizadores podem autenticar com êxito. | 
+| 3399548929 | Tem de utilizador iniciar sessão<br><br>Este problema deve ser transitório. Isso ocorre quando o utilizador rapidamente termina antes da tarefa de inscrição acontece. | 
+| 3400073236 | Falha no pedido de token de segurança da ADAL.<br><br>Verifique a configuração do Azure AD e certifique-se de que os utilizadores podem autenticar com êxito. |
+| 2149122477 | Problema HTTP genérico |
+| 3400073247 | A autenticação ADAL integrada do Windows só é suportada no flow federado<br><br>[Planear a sua implementação híbrida do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) | 
+| 3399942148 | O servidor ou proxy não foi encontrado.<br><br>Este problema deve ser transitório, quando o cliente não consegue comunicar com a nuvem. Se persistir, certifique-se de que o cliente tiver conectividade consistente para o Azure. | 
+| 2149056532 | Plataforma específica ou a versão não é suportada<br><br>Certifique-se de que o dispositivo cumpra a [os requisitos mínimos](/sccm/comanage/overview#windows-10) para a cogestão. |
+| 2147943568 | Elemento não encontrado<br><br>Este problema deve ser transitório. Se persistir, contacte Support da Microsoft. |
+| 2192179208 | Recursos de memória insuficiente estão disponíveis para processar este comando.<br><br>Este problema deve ser transitório, ele deve resolvido de forma automática quando o cliente tenta novamente. |
+| 3399614467 | Falha na concessão de autorização da ADAL para esta asserção<br><br>Verifique a configuração do Azure AD e certifique-se de que os utilizadores podem autenticar com êxito. |
+| 2149056517 | Falha genérica do servidor de gestão, como o erro de acesso de DB<br><br>Este problema deve ser transitório. Se persistir, contacte Support da Microsoft. |
+| 2149134055 | Nome de WinHTTP não resolvido<br><br>O cliente não é possível resolver o nome do serviço. Verifique a configuração de DNS. | 
+| 2149134050 | tempo limite da Internet<br><br>Este problema deve ser transitório, quando o cliente não consegue comunicar com a nuvem. Se persistir, certifique-se de que o cliente tiver conectividade consistente para o Azure. | 
+
+
+Para obter mais informações, consulte [valores de erro de registo do MDM](https://docs.microsoft.com/windows/desktop/mdmreg/mdm-registration-constants).
 
 
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: be503ec9-5324-4f7c-bcf5-77204328e99c
-ms.openlocfilehash: 4ded99c2084f274d519680e78fdc54825b3857cb
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bcd70b708208e2c49a1a7b6fff12d0a1cf5f16f0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419517"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132940"
 ---
 # <a name="change-your-mdm-authority-to-intune-standalone"></a>Alterar a sua autoridade MDM para o Intune autónomo
 

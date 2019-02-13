@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas relacionados com o Gestor de conversão de pacotes
+title: Resolução de Problemas do Gestor de Conversão de Pacotes
 titleSuffix: Configuration Manager
 description: Saiba como resolver problemas com o Package Conversion Manager no Configuration Manager.
 ms.date: 08/24/2018
@@ -10,14 +10,15 @@ ms.assetid: cb616925-bb94-4b7c-a867-b3d95aef4d5e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fdcd31ec5a2fc5fbba12145115b46b2fbe8d4edd
-ms.sourcegitcommit: 759098de944b8f7d5eedfc2bae2cb9a6ba15276f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e586990d049119c3cb00a61c56a1b84763104309
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43297774"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137903"
 ---
-# <a name="troubleshoot-package-conversion-manager"></a>Resolver problemas relacionados com o Gestor de conversão de pacotes
+# <a name="troubleshoot-package-conversion-manager"></a>Resolução de Problemas do Gestor de Conversão de Pacotes
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -37,7 +38,7 @@ Se o fornecedor de SMS não está a funcionar corretamente, a consola do Configu
 
 ## <a name="package-readiness"></a>Preparação do pacote
 
-Antes de converter um pacote a uma aplicação, analisar o pacote utilizando o Gestor de conversão de pacotes **Analyze** função. Após a análise, adicione a **preparação** coluna na **pacotes** nó da consola do Configuration Manager. A lista de pacotes apresentará um dos seguintes Estados de preparação do pacote analisado:
+Antes de converter um pacote a uma aplicação, analisar o pacote utilizando o Gestor de conversão de pacotes **Analyze** função. Após a análise, adicione a **preparação** coluna na **pacotes** nó da consola do Configuration Manager. A lista de pacotes apresentará um dos seguintes Estados de preparação do pacote analisado:
 
  - **Automática**: O pacote pode ser diretamente convertido utilizando o **converter** função.      
 
@@ -56,7 +57,7 @@ Painel de detalhes dos **pacotes** nó na consola do Configuration Manager mostr
 
 ## <a name="log-files"></a>Ficheiros de registo
 
-### <a name="enable-logging"></a>Ativar o registo
+### <a name="enable-logging"></a>Ativar registo
 
 Quando ativar o registo de Gestor de conversão de pacotes, regista todas as suas ações, exceções e erros. 
 

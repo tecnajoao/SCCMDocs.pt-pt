@@ -10,12 +10,13 @@ ms.assetid: 76c90f64-d729-456b-8304-01852cd66fb6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 160713fe480b0a47c2ad57376c4a1dccdbfb00b1
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1048b24dba0658610471d37f12f75fd1d06b8d03
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418956"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56123884"
 ---
 # <a name="endpoint-protection"></a>Endpoint Protection
 

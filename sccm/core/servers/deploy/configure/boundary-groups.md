@@ -10,12 +10,13 @@ ms.assetid: 5db2926f-f03e-49c7-b44b-e89b1a5a6779
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e9b2eaaf3581bdb951b23541c96532c5b049aac1
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a1062cd5983c3eb0d1353b6387b7d9ee507df3b4
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456367"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132644"
 ---
 # <a name="configure-boundary-groups-for-configuration-manager"></a>Configurar grupos de limites para o Configuration Manager
 

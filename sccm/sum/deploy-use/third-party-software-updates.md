@@ -10,12 +10,13 @@ ms.assetid: 946b0f74-0794-4e8f-a6af-9737d877179b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 32aced9e14f98008dfd769564c553370d067896e
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e361760d9d7a2b21f42dc7b9504d653b584fca0a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53423104"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132443"
 ---
 # <a name="enable-third-party-updates"></a>Ativar as atualizações de terceiros 
 
@@ -108,7 +109,7 @@ Ative atualizações de terceiros nos clientes nas definições do cliente. A de
      ![Atualizações de terceiros Adicionar catálogo personalizado](media/third-party-updates-custom-catalog.png)
 1. Sobre o **gerais** , especifique os seguintes itens: 
     - **URL de transferência**: Um endereço HTTPS válido do catálogo personalizado.
-    - **Publicador**: O nome da organização que publica o catálogo. 
+    - **Publisher**: O nome da organização que publica o catálogo. 
     - **Nome**: O nome do catálogo, para apresentar na consola do Configuration Manager. 
     - **Descrição**: Uma descrição do catálogo. 
     - **URL de suporte** (opcional): Um endereço HTTPS válido de um Web site para obter ajuda com o catálogo. 

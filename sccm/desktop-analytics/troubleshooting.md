@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec629085e290367ec3c6b99dc10733e793405019
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6bebf4065a4db1c45ee7eaa0a5b04b8d1533f29f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073613"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121546"
 ---
 # <a name="troubleshooting-desktop-analytics"></a>Resolução de problemas de análise de área de trabalho
 

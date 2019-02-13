@@ -10,12 +10,13 @@ ms.assetid: 61a19d95-83ff-4ad8-9a67-f304d2ba54f2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: de83706e92150a654967ec5cf38c5b18508d4e2b
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 04b67b324927f4918ff5c0835896cb0d63a9e48c
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416916"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56126662"
 ---
 # <a name="ios-hybrid-enrollment-using-apple-configurator-with-configuration-manager"></a>inscrição do iOS híbrida com o Apple Configurator com o Configuration Manager
 

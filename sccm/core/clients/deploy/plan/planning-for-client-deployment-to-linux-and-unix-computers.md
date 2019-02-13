@@ -10,12 +10,13 @@ ms.assetid: 44153689-70e8-42ad-9ae8-17ae35f6a2e3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d9d9fd940c21e0fc8d20c86c51cb3443f21a9339
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 60811ad0556be4d59caab346d20fbb2c40024206
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419453"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56128243"
 ---
 # <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Planear a implementação do cliente para computadores Linux e UNIX no System Center Configuration Manager
 
@@ -228,7 +229,7 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 ##  <a name="BKMK_NoSHA-256"></a> Sobre o Linux e UNIX sistemas operativos que fazer não, como suporte SHA-256  
  Os seguintes Linux e UNIX sistemas operativos que são suportados como clientes do Configuration Manager foram lançados com versões do OpenSSL que não suportam SHA-256:  
 
--   Versões do Solaris 10 (x86)  
+-   Solaris Version 10 (SPARC/x86)  
 
 
  Para gerir estes sistemas operativos com o Configuration Manager, tem de instalar o cliente do Configuration Manager para Linux e UNIX com um comutador de linha de comandos que direciona o cliente para ignorar a validação de SHA-256. Os clientes do Configuration Manager executados nestas versões do sistema operativo funcionam num modo menos seguro que os clientes que suportam SHA-256. Este modo menos seguro de funcionamento tem o seguinte comportamento:  

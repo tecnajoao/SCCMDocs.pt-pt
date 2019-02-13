@@ -10,12 +10,13 @@ ms.assetid: f3bf1737-827d-48fa-8bb1-f48fe71afe0c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9c58e12d906606acc0015d38e543616570d61520
-ms.sourcegitcommit: 759098de944b8f7d5eedfc2bae2cb9a6ba15276f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 50ec232c9f5b007ef7a139cbe7894c333b6eed63
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43297790"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56137886"
 ---
 # <a name="how-to-analyze-and-convert-packages-with-package-conversion-manager"></a>Como analisar e converter pacotes com o Gestor de conversão de pacotes
 
@@ -89,7 +90,7 @@ Antes de poder converter um pacote, analisá-lo primeiro. Consoante os resultado
 
     1. Selecione **Editar método de deteção**.  
 
-    2. Selecione **adicionar**.  
+    2. Selecione **Adicionar**.  
 
     3. Na caixa de diálogo de regra de deteção, especifique um **tipo de definição**.  
 
@@ -99,7 +100,7 @@ Antes de poder converter um pacote, analisá-lo primeiro. Consoante os resultado
 
     6. Selecione **OK**. Verifique se o **método de deteção** coluna exibe um ícone para confirmar se um método de deteção foi especificado corretamente.  
 
-7. Selecione **seguinte**.  
+7. Selecione **Seguinte**.  
 
 8. Sobre o **seleção de requisitos** , reveja os tipos de implementação do novo aplicativo. Selecione um tipo de implementação e reveja os requisitos para esse tipo de implementação.  
 
@@ -108,7 +109,7 @@ Antes de poder converter um pacote, analisá-lo primeiro. Consoante os resultado
 
 9. Adicione requisitos para um tipo de implementação selecionado, se necessário.  
 
-10. Selecione **seguinte**.  
+10. Selecione **Seguinte**.  
 
 11. Conclua o Assistente para criar a aplicação.  
 

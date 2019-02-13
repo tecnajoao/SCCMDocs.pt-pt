@@ -10,12 +10,13 @@ ms.assetid: 770da7bd-02dd-474a-9604-93ff1ea0c1e4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 21fed8dbba8cc5c8e96218459288b57364fe350e
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ebc2b995c763aa54e1d47ee38ab2d250554f5a29
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586375"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56136029"
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-configuration-manager"></a>Proteger dados através de eliminação remota, bloqueio ou utilizando o Gestor de configuração de reposição do código de acesso
 

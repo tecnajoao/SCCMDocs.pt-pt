@@ -1,5 +1,5 @@
 ---
-title: Criar aplicativos do Windows
+title: Criar aplicações Windows
 titleSuffix: Configuration Manager
 description: Saiba mais informações sobre a criação e implantação de aplicativos do Windows no Configuration Manager.
 ms.date: 07/30/2018
@@ -10,12 +10,13 @@ ms.assetid: 9181c84e-d74f-44ea-9bb9-f7805eb465fc
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 38732081ce27fde764f7d47a565ce1211cef1f54
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1fa26147539abc611b86791f6dd9a4be0bc89c59
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383567"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56156479"
 ---
 # <a name="create-windows-applications-in-configuration-manager"></a>Criar aplicativos do Windows no Configuration Manager
 

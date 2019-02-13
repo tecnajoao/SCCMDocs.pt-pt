@@ -10,12 +10,13 @@ ms.assetid: 594eb284-0d93-4c5d-9ae6-f0f71203682a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cce48cad13eaa37221e0ee9dca3b1923bb902bc4
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 64ad8cf66266bd13195925e3de48fc5179714ad0
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53416236"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56125634"
 ---
 # <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Como visualizar diagnósticos e dados de utilização para o System Center Configuration Manager
 
@@ -25,7 +26,7 @@ Pode ver os dados de diagnóstico e utilização da sua hierarquia do System Cen
 
 Utilize o seguinte comando SQL para ver os conteúdos desta tabela e mostra exatamente os dados que são enviados. (Também pode exportar estes dados para um arquivo de texto.):  
 
--   **SELECIONE \* de TEL_TelemetryResults**  
+-   **SELECT \* FROM TEL_TelemetryResults**  
 
 > [!NOTE]  
 >  Antes de instalar a versão 1602, a tabela que armazena dados de telemetria é **TelemetryResults**.  

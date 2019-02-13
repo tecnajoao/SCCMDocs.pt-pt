@@ -1,5 +1,5 @@
 ---
-title: Transições de Estados de validação de exemplo para o Asset Intelligence
+title: Transições de estado de validação de exemplo para o Asset Intelligence
 titleSuffix: Configuration Manager
 description: Veja exemplos de transições de estado de validação do Asset Intelligence no System Center Configuration Manager.
 ms.date: 2/22/2017
@@ -10,18 +10,19 @@ ms.assetid: 6230a6e5-a1f6-459b-84f1-07fbde0e70f0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cd4d2075e7980361d341a6ed71ff151ada997060
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87f247d380d91a43fedbb78a701d3be89c0e6efa
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32338147"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56122020"
 ---
-# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de Estados de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
+# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de estado de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Estados de validação do Asset Intelligence no System Center Configuration Manager não são estáticos e podem ser alterado de ações administrativas para afetar os dados que são armazenados no catálogo do Asset Intelligence. Este tópico fornece exemplos de validação possíveis transições de estado.
+Estados de validação do Asset Intelligence no System Center Configuration Manager não são estáticos e podem ser alterado de ações de administrativas para afetar os dados que são armazenados no catálogo do Asset Intelligence. Este tópico fornece exemplos de validação de possíveis transições de estado.
 
 ##  <a name="BKMK_UncategorizedIsCategorized"></a> O item de catálogo não categorizado foi categorizado pelo utilizador administrativo  
 
@@ -69,10 +70,10 @@ Estados de validação do Asset Intelligence no System Center Configuration Mana
 |**Não categorizado**|Um título de software inventariado introduzido na base de dados do Asset Intelligence que não foi categorizado por um utilizador administrativo ou pelo System Center Online.|  
 |**Definido pelo Utilizador**|Categorizou o item não categorizado.|  
 |**Definido pelo Utilizador** para **Pendente**|Submete o item definido pelo utilizador para o System Center Online para categorização.|  
-|**Pendente** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente. Pode utilizar a ação **Resolver Conflito** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|**Atualizável** para **Validado**|Utilize a ação **Resolver Conflito** e selecione as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Pendente** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente. Pode utilizar a ação **Resolver Conflito** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para mais informações sobre como resolver conflitos, consulte [Resolve software details conflicts](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Atualizável** para **Validado**|Utilize a ação **Resolver Conflito** e selecione as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior. Para mais informações sobre como resolver conflitos, consulte [Resolve software details conflicts](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 |ou||  
-|**Atualizável** para **Definido pelo Utilizador**|Utilize a ação **Resolver Conflito** e selecione para utilizar o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Atualizável** para **Definido pelo Utilizador**|Utilize a ação **Resolver Conflito** e selecione para utilizar o valor definido pelo utilizador anterior. Para mais informações sobre como resolver conflitos, consulte [Resolve software details conflicts](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 
 > [!NOTE]  
 >  Uma vez que as informações de categorização obtidas a partir do System Center Online estão armazenadas na base de dados e não podem ser eliminadas, pode reverter mais tarde para a categorização do System Center Online.  

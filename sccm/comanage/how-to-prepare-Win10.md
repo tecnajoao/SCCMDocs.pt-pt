@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: fcb34d46cdbe197021d2dea752f77ce3bb42af5d
-ms.sourcegitcommit: 38f56f1d5803370f4262931c2dc4a532bfcf0594
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fbe26eee8b01c581776b1c134e1fe59cf4293e1a
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905604"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120814"
 ---
 # <a name="how-to-prepare-internet-based-devices-for-co-management"></a>Como preparar os dispositivos baseados na internet para a cogestão
 

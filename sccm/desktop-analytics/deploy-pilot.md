@@ -11,12 +11,13 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a1f1d02a7a2dc71ddc34912e281b27dc3eff9ed
-ms.sourcegitcommit: ad25a7bdd983c5a0e4c95bffdc61c9a1ebcbb765
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 797b8ab61f5be2fd851e735c475ed610ed7d3cfe
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073373"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56119816"
 ---
 # <a name="how-to-deploy-to-pilot-with-desktop-analytics"></a>Como implementar o piloto com a análise de ambiente de trabalho
 

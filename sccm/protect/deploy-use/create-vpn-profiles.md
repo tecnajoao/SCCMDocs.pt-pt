@@ -10,12 +10,13 @@ ms.assetid: f338e4db-73b5-45ff-92f4-1b89a8ded989
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bb5814860389de28294c44f367920a2da9b72fbe
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8f00b3aef75d2200d991f99e514f83636f7b16bb
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419432"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121816"
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Como criar perfis VPN no System Center Configuration Manager
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 4c90befe-9c4e-4c27-a947-625887e15052
-ms.openlocfilehash: b03d97fc0246806a40d3b6bf56c4c80a0264503b
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a3723595091e57a7ad2267a4da325e7c134c7bf1
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251195"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124043"
 ---
 # <a name="co-management-workloads"></a>Cargas de trabalho de cogestão
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: 6f0201d7-5714-4ba0-b2bf-d1acd0203e9a
-ms.openlocfilehash: 79cf4c2ec217a245bb5c4abbad40aad7188e0ac0
-ms.sourcegitcommit: 3772ece83823714b2aae46ec20523cc094701760
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7ede0049847eda2b87731f4cfbce0bda8984f158
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51681440"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120253"
 ---
 # <a name="change-the-mdm-authority-for-specific-users-mixed-mdm-authority"></a>Alterar a autoridade MDM para utilizadores específicos (autoridade MDM mista) 
 
@@ -153,7 +154,7 @@ Para mudar a autoridade de gestão para estes dispositivos MDM, pode utilizar o 
 
 ### <a name="cmdlet-switch-mdmdeviceauthority"></a>Cmdlet *MdmDeviceAuthority de comutador*
 
-#### <a name="synopsis"></a>SINOPSE
+#### <a name="synopsis"></a>SYNOPSIS
 O cmdlet muda a autoridade de gestão de dispositivos do MDM sem afinidade do utilizador (por exemplo, dispositivos inscritos em massa). O cmdlet alterna entre o Intune e Configuration Manager autoridades de gestão. Ele muda para os dispositivos especificados com base na respetivas autoridades de gestão quando executar o cmdlet.
 
 ### <a name="syntax"></a>SINTAXE
@@ -183,7 +184,7 @@ Seguem-se os valores possíveis para LoggingLevel:
   - Crítico
   - Erro
   - Informações
-  - Desativar
+  - Desativado
   - Verboso
   - Aviso
  

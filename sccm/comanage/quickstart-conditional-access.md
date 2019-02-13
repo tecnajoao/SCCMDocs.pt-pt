@@ -10,12 +10,13 @@ ms.assetid: 4cf640b3-610c-4c3c-b966-c62e9f5654ff
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0f4cb468e7412167acd6d0242b49c8b0bf72ecae
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2d5e5c7d6075697431f8c537366dc16164fedd1f
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54251186"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56120821"
 ---
 # <a name="conditional-access-with-co-management"></a>Acesso condicional com o cogestão
 

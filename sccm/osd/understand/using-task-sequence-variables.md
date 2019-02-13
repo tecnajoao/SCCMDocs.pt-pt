@@ -10,12 +10,13 @@ ms.assetid: bc7de742-9e5c-4a70-945c-df4153a61cc3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 18305b26937c87cbdb4d5726bded571699416793
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8ebea21b735e6b93d73bf6ff5eb842243ef42d
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756306"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56121867"
 ---
 # <a name="how-to-use-task-sequence-variables-in-configuration-manager"></a>Como utilizar variáveis de sequência de tarefas no Configuration Manager
 
@@ -36,7 +37,7 @@ ms.locfileid: "42756306"
  Existem vários tipos de variáveis:  
  - [Incorporado](#bkmk_built-in)  
  - [ação](#bkmk_action)  
- - [Personalizado](#bkmk_custom)  
+ - [Personalizar](#bkmk_custom)  
  - [só de leitura](#bkmk_read-only)  
  - [Matriz](#bkmk_array)  
 
@@ -268,7 +269,7 @@ ms.locfileid: "42756306"
 
 O arquivo de resposta de configuração de Windows que fornecer pode ter incorporadas as variáveis de sequência de tarefas. Use o formulário `%varname%`, onde *varname* é o nome da variável. O **configuração do Windows e ConfigMgr** passo substitui a cadeia de caracteres do nome da variável para o valor da variável real. Estas variáveis de sequência de tarefas incorporadas não podem ser utilizados em campos apenas numéricos num ficheiro de resposta Unattend. XML.
 
-Para obter mais informações, consulte [configuração do Windows e ConfigMgr](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
+Para mais informações, consulte [Setup Windows and ConfigMgr](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
 
 
 

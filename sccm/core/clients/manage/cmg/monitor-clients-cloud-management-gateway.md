@@ -10,12 +10,13 @@ ms.assetid: 15f72f80-9850-40ce-9c3a-443ba04b6a03
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4ef27c67b9b17f41fbe71d57fdea9552b7dff9f7
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6b52a97432dd85987dd98f11b0a048b1f730db84
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601046"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56140682"
 ---
 # <a name="monitor-cloud-management-gateway-in-configuration-manager"></a>Monitorizar gateway de gestão da nuvem no Configuration Manager
 

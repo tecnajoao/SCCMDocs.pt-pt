@@ -10,12 +10,13 @@ ms.assetid: 1b931c9d-ffae-4d8e-baa7-c330a152674f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 424ab2a1ca7ed81ccdb5c0607edd74ec8ccb7484
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4d759ada36184ac8a6d1ac59c94c96cdaf234d56
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458315"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56139379"
 ---
 # <a name="accessibility-features-in-support-center"></a>Funcionalidades de acessibilidade no Centro de suporte
 
@@ -43,26 +44,26 @@ Também pode utilizar um teclado para executar tarefas comuns no Support Center,
 |Tarefa  |Atalho de teclado  |
 |---------|---------|
 |Opções de configuração de aplicativos abertas |**F4**|
-|Saída     |**ALT** + **F4**|
+|Sair     |**Alt** + **F4**|
 |Carregar ou atualizar detalhes do cliente<br>(no Centro de suporte **detalhes do cliente** separador)|**F5**|
 |Carregar a vista de política selecionada<br>(no Centro de suporte **política de cliente** separador)|**F5**|
 |Atualizar uma política<br>(no Centro de suporte **política de cliente** separador, depois de selecionar uma política)|**F5** |
-|Copiar como MOF<br>(no Centro de suporte **política de cliente** separador, depois de selecionar uma política; também disponível para eventos WMI)|**CTRL** + **Shift** + **C** |
-|Copiar uma política como MOF de cliente local<br>(no Centro de suporte **política de cliente** separador, depois de selecionar uma política)|**CTRL** + **Shift** + **X** |
-|Política de pedido<br>(no Centro de suporte **política de cliente** separador)|**CTRL** + **R** |
-|Avaliar política<br>(no Centro de suporte **política de cliente** separador)|**CTRL** + **E** |
+|Copiar como MOF<br>(no Centro de suporte **política de cliente** separador, depois de selecionar uma política; também disponível para eventos WMI)|**Ctrl** + **Shift** + **C** |
+|Copiar uma política como MOF de cliente local<br>(no Centro de suporte **política de cliente** separador, depois de selecionar uma política)|**Ctrl** + **Shift** + **X** |
+|Política de pedido<br>(no Centro de suporte **política de cliente** separador)|**Ctrl** + **R** |
+|Avaliar política<br>(no Centro de suporte **política de cliente** separador)|**Ctrl** + **E** |
 |Vista de conteúdo de carregar ou atualizar<br>(no Centro de suporte **conteúdo** separador)|**F5** |
 |Carregar inventário<br>(no Centro de suporte **inventário** separador)|**F5** |
 |Iniciar a resolução de problemas<br>(no Centro de suporte **resolução de problemas** separador)|**F5** |
-|Abrir pacote de dados<br>(no Support Center Viewer **home page** separador)|**CTRL** + **s** |
-|Ficheiros de registo abertos<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**CTRL** + **s** |
-|Abrir ficheiros de registo na vista atual<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**CTRL** + **Shift** + **s** |
-|Abrir ficheiros de registo numa nova janela do Log Viewer<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**CTRL** + **N** |
-|Fechar todos os ficheiros de registo<br>(no Centro de suporte **Logs** separador e, no **Log Viewer** janela)|**CTRL** + **W** |
-|Procurar nos ficheiros de registo| - **CTRL** + **F**: Abre o **encontrar** caixa de diálogo para introduzir a cadeia de procura<br> - **F3**: Encontre a correspondência seguinte<br> - **SHIFT** + **F3**: Encontre a correspondência anterior|
-|Procurar um código de erro<br>(no **Logs** separador e, no **Log Viewer** janela)|**CTRL** + **L** |
-|Copiar de um ficheiro de registo| - **CTRL** + **C**: Copia o texto do ficheiro de registo<br> - **CTRL** + **Shift** + **C**: Copia a entrada de registo sem formatação|
-|Filtro rápido utilizando o texto do ficheiro de registo<br>(no **Logs** separador e, no **Log Viewer** janela)|**CTRL** + **Shift** + **C** |
+|Abrir pacote de dados<br>(no Support Center Viewer **home page** separador)|**Ctrl** + **O** |
+|Ficheiros de registo abertos<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**Ctrl** + **O** |
+|Abrir ficheiros de registo na vista atual<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**Ctrl** + **Shift** + **O** |
+|Abrir ficheiros de registo numa nova janela do Log Viewer<br>(no Centro de suporte **registos** separador e na janela do Log Viewer)|**Ctrl** + **N** |
+|Fechar todos os ficheiros de registo<br>(no Centro de suporte **Logs** separador e, no **Log Viewer** janela)|**Ctrl** + **W** |
+|Procurar nos ficheiros de registo| - **Ctrl** + **F**: Abre o **encontrar** caixa de diálogo para introduzir a cadeia de procura<br> - **F3**: Encontre a correspondência seguinte<br> - **Shift** + **F3**: Encontre a correspondência anterior|
+|Procurar um código de erro<br>(no **Logs** separador e, no **Log Viewer** janela)|**Ctrl** + **L** |
+|Copiar de um ficheiro de registo| - **Ctrl** + **C**: Copia o texto do ficheiro de registo<br> - **Ctrl** + **Shift** + **C**: Copia a entrada de registo sem formatação|
+|Filtro rápido utilizando o texto do ficheiro de registo<br>(no **Logs** separador e, no **Log Viewer** janela)|**Ctrl** + **Shift** + **C** |
 |Anotar um ficheiro de registo<br>(no **Logs** separador e, no **Log Viewer** janela)|**CTRL** + **Shift** + **N** <sup> [observe 1](#bkmk_note1)</sup>|
 |Abrir a ajuda|**F1**|
 

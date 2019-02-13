@@ -10,12 +10,13 @@ ms.assetid: f053fa73-c553-4522-a6b9-f885f23fe57c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 41dd6ad6f8a0292fdb16a0d727665b17e038f87b
-ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ba73d215b9a672f4843c2f1e4a63dfc6bd13ea74
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52820046"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56132889"
 ---
 # <a name="package-conversion-manager"></a>Gestor de conversão de pacotes
 
@@ -31,7 +32,7 @@ A partir da versão 1806, o Gestor de conversão de pacotes ajuda-o a converter 
 
 Uma aplicação do Configuration Manager contém arquivos e programas que implementar em dispositivos cliente. No entanto, ao contrário dos pacotes de legado e programas, um aplicativo fornece funcionalidades adicionais de centrada no utilizador. Por exemplo, uma aplicação pode conter tipos de implementação para uma instalação local de um pacote de software, um pacote de aplicação virtual ou uma versão da aplicação para dispositivos móveis.
 
-Para obter mais informações, consulte os artigos seguintes: 
+Para obter mais informações, veja os artigos seguintes: 
 - [Introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management)  
 - [Pacotes e programas](/sccm/apps/deploy-use/packages-and-programs)  
 
@@ -42,7 +43,7 @@ Esta versão integrado do Gestor de conversão de pacotes funciona em pacotes no
 
 
 
-## <a name="planning"></a>Planejamento
+## <a name="planning"></a>Planeamento
 
 Antes de começar a converter pacotes em aplicações, primeiro é desenvolva um plano. O processo seguinte é um plano de exemplo:
 

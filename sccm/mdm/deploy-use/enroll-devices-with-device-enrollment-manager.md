@@ -10,12 +10,13 @@ ms.assetid: 2905f26e-7859-497d-b995-5ff48261efa2
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cc1be1d602c3f9f8e65e0523d64c5b6a8e579c90
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 15ccbb201b7db02f51ccec322e5a320e143d8da3
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53415557"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56141396"
 ---
 # <a name="enroll-devices-with-device-enrollment-manager-with-configuration-manager"></a>Inscrever dispositivos com o Gestor de inscrição de dispositivos com o Configuration Manager
 
