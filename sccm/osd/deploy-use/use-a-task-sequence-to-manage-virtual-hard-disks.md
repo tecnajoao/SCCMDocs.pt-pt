@@ -10,12 +10,13 @@ ms.assetid: 0212b023-804a-4f84-b880-7a59cdb49c67
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 675d4a4c91e9401eb05c0a72bb83af00aab0336c
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e998710be94a9c4063a156d25bc98b4f2f7c4a35
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53419041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56135733"
 ---
 # <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utilizar uma sequência de tarefas para gerir discos rígidos virtuais no System Center Configuration Manager
 
@@ -172,8 +173,8 @@ No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHD
    > [!TIP]
    >  O tempo de execução do processo de criação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
    > 
-   > - **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-   >   -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de criação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   > - **CreateTSMedia.log**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   >   -   **DeployToVHD.log**: O assistente escreve informações neste registo enquanto executa o processo de criação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
    > 
    >   Além disso, quando a instalação do sistema operativo for iniciada, poderá abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
 
@@ -264,8 +265,8 @@ No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHD
    > [!TIP]
    >  O tempo de execução do processo de modificação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles(x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
    > 
-   > - **Createtsmedia**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
-   >   -   **Deploytovhd**: O assistente escreve informações neste registo enquanto executa o processo de modificação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   > - **CreateTSMedia.log**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+   >   -   **DeployToVHD.log**: O assistente escreve informações neste registo enquanto executa o processo de modificação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
    > 
    >   Além disso, pode abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts log é em x: \windows\temp\smstslog\smsts.log antes do disco rígido se formatado e no c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
 
