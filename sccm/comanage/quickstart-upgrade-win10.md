@@ -10,12 +10,13 @@ ms.assetid: 561eb5b6-f90c-485a-91c2-e45bb0ce7877
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ca0e395c3f85dc7cff0be36b234a978b34206df0
-ms.sourcegitcommit: a3cec96a771eed69e58a29917d1a3fe1a5fb2e73
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0815a974f3b1f29f664a2948eed33de24c6ecff3
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54250983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56124609"
 ---
 # <a name="upgrade-windows-10-for-co-management"></a>Atualizar o Windows 10 para a cogestão
 
