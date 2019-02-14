@@ -10,12 +10,13 @@ ms.assetid: 55ae86a7-f0ab-4c09-b4da-89cd0e7fa0e0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d046a5fcd6602c82eda631c9d9b7d47db2470888
-ms.sourcegitcommit: 48098f9fb2f447672bf36d50c9f58a3d26acb9ed
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c65c85c6ec340fe595efa3bfd403e3c8d1d6a017
+ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53418429"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56134678"
 ---
 # <a name="configuring-reporting-in-system-center-configuration-manager"></a>Configurar relatórios no System Center Configuration Manager
 
@@ -97,7 +98,7 @@ Antes de poder criar, modificar e executar relatórios na consola do System Cent
     > [!NOTE]  
     >  Para mais informações sobre a configuração de sistemas de sites, consulte [Add site system roles for System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
 
-    -   **Novo sistema de sites**: No separador Home Page , no grupo **Criar** , clique em **Criar Servidor do Sistema de Sites**. É aberto o **Assistente para Criar Servidor do Sistema de Sites** .  
+    -   **Novo sistema de sites**: No separador **Home Page** , no grupo **Criar** , clique em **Criar Servidor do Sistema de Sites**. É aberto o **Assistente para Criar Servidor do Sistema de Sites** .  
 
     -   **Sistema de sites existente**: Clique no servidor no qual pretende instalar a função de sistema de sites de ponto do reporting services. Quando clica num servidor, é apresentada no painel de resultados uma lista das funções de sistema de sites que já estão instaladas no servidor.  
 
