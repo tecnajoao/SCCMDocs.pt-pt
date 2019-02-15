@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236be523cc81ef7e4f040773650e618b014c44de
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: a5c6cee6422d3fc8777f54bd42716748410c9323
+ms.sourcegitcommit: ceec0e20bf801071f2a05233f984cf17acc3fd29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56140512"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56265075"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -525,7 +525,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |SMS_Cloud_<br>ProxyConnector.log|Regista detalhes sobre como configurar ligações entre o serviço de gateway de gestão na cloud e a ligação de gateway de gestão de cloud ponto.|Servidor do sistema de sites|
 |CMGContentService.log<sup>1</sup>|<!--SCCMDocs-pr issue #2822-->A partir da versão 1806, quando ativa uma CMG para também servir conteúdo a partir de armazenamento do Azure, este registo regista os detalhes desse serviço.|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
 
-<sup>1</sup> são ficheiros de registo do Configuration Manager local na cloud a sincronização de Gestor do serviço de armazenamento do Azure em cinco minutos. O gateway de gestão da nuvem envia registos ao armazenamento do Azure em cinco minutos. Portanto, o atraso máximo é de 10 minutos. Comutadores verbosos afetam registos locais e remotos. Os nomes de arquivo real incluem o identificador de instância de nome e a função de serviço. Por exemplo, CMG -*ServiceName*-*RoleInstanceID*-CMGSetup.log
+<sup>1</sup> são ficheiros de registo do Configuration Manager local que a nuvem sincronizações de Gestor do serviço de armazenamento do Azure em cinco minutos. O gateway de gestão da nuvem envia registos ao armazenamento do Azure em cinco minutos. Portanto, o atraso máximo é de 10 minutos. Comutadores verbosos afetam registos locais e remotos. Os nomes de arquivo real incluem o identificador de instância de nome e a função de serviço. Por exemplo, CMG -*ServiceName*-*RoleInstanceID*-CMGSetup.log
 
 - Para resolver problemas de implementações, utilize **Cloudmgr** e **CMGSetup.log**
 - Para o estado de funcionamento do serviço de resolução de problemas, utilize **CMGService.log** e **sms_cloud_proxyconnector**.

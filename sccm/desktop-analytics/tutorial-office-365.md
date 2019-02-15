@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13fbca736cd8e48c729fcfc3ee74e664d8d70b68
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: eb4170bddfbad34807c6fb82131fa09dc7c6b09f
+ms.sourcegitcommit: ceec0e20bf801071f2a05233f984cf17acc3fd29
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56124602"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56265026"
 ---
 # <a name="tutorial-deploy-office-365-to-pilot"></a>Tutorial: Implementar o Office 365 para piloto 
 
@@ -83,6 +83,8 @@ Antes de começar este tutorial, certifique-se de que tem os seguintes pré-requ
     - `https://nexusrules.officeapps.live.com`  
     - `https://nexus.officeapps.live.com`  
     - `https://office.pipe.aria.microsoft.com`  
+    - `https://graph.windows.net` (na apenas a função de servidor do Configuration Manager)
+    - `https://fef.bmsub01.manage-beta.microsoft.com` (na apenas a função de servidor do Configuration Manager)
 
     Para obter mais informações, consulte [como ativar a partilha para a área de trabalho de análise de dados](/sccm/desktop-analytics/enable-data-sharing#endpoints).  
 
