@@ -11,12 +11,12 @@ ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: 6f0201d7-5714-4ba0-b2bf-d1acd0203e9a
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ede0049847eda2b87731f4cfbce0bda8984f158
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: b7f2875852b49ab8af9b1f34c4747f12a6620896
+ms.sourcegitcommit: fd16fc2b681608fd6def5bad2cedffbcd1f2423a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56120253"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56405680"
 ---
 # <a name="change-the-mdm-authority-for-specific-users-mixed-mdm-authority"></a>Alterar a autoridade MDM para utilizadores específicos (autoridade MDM mista) 
 
@@ -140,17 +140,7 @@ Depois de verificar que o Intune autónomo esteja funcionando como esperado, com
 
 ## <a name="migrate-devices-without-user-affinity"></a>Migrar dispositivos sem afinidade do utilizador
 
-Dispositivos inscritos através do Gestor de inscrição de dispositivos e dispositivos sem [afinidade de utilizador](/sccm/mdm/deploy-use/user-affinity-for-hybrid-managed-devices) não são migradas automaticamente para a nova autoridade MDM. Pode utilizar o *comutador MdmDeviceAuthority* cmdlet do PowerShell para alternar entre o Intune e Configuration Manager autoridades de gestão nos seguintes cenários: 
-
--   Cenário 1: Utilize o *comutador MdmDeviceAuthority* cmdlet para migrar dispositivos selecionados e validar que podem ser geridos com o Intune no Azure. Em seguida, quando estiver pronto, [alterar a autoridade de MDM para o Intune para o inquilino](migrate-change-mdm-authority.md) para concluir a migração para os dispositivos.  
-
--   Cenário 2: Quando estiver pronto para alterar a autoridade de MDM para o Intune para o inquilino, execute as ações seguintes para migrar os seus dispositivos sem afinidade do utilizador:  
-
-    - Utilize o cmdlet para alterar a autoridade MDM para os seus dispositivos sem afinidade do utilizador antes de [alterar a autoridade de MDM para o Intune para o inquilino](migrate-change-mdm-authority.md).     
-
-    - Contacte o suporte para que os dispositivos sem afinidade do utilizador switched depois de alterar a autoridade de MDM para o Intune para o inquilino.  
-
-Para mudar a autoridade de gestão para estes dispositivos MDM, pode utilizar o *comutador MdmDeviceAuthority* cmdlet para alternar entre autoridades de gestão do Intune e Configuration Manager. 
+Para migrar o formulário de dispositivos individuais do Configuration Manager para o Intune que foram inscritos sem afinidade do utilizador, utilize o cmdlet do PowerShell de comutador MdmDeviceAuthority.  Depois de migrar dispositivos selecionados através do cmdlet, validar no Intune no Azure que a migração ocorreu como esperado para os dispositivos selecionados. Em seguida, quando estiver pronto, altere a autoridade MDM para o Intune para o inquilino concluir a migração para todos os restantes dispositivos que o Configuration Manager como a sua autoridade MDM.
 
 ### <a name="cmdlet-switch-mdmdeviceauthority"></a>Cmdlet *MdmDeviceAuthority de comutador*
 

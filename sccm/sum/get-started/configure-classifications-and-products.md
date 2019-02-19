@@ -5,18 +5,18 @@ description: Siga estes passos para configurar classificações de atualização
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d66d34cc6199176ed81329b7fa92c65d329d1f1
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: f1d984598288434aa1e81c6bd2c51a315edfa551
+ms.sourcegitcommit: fd16fc2b681608fd6def5bad2cedffbcd1f2423a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56129260"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56405697"
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos para sincronizar  
 
@@ -41,14 +41,14 @@ ms.locfileid: "56129260"
     > [!NOTE]  
     >  Cada atualização de software é definida com uma classificação de atualização que ajuda a organizar os diferentes tipos de atualizações. Durante o processo de sincronização, serão sincronizados os metadados de atualizações de software para as classificações especificadas. O Configuration Manager fornece a capacidade de sincronizar atualizações de software com as seguintes classificações de atualização:  
     >   
-    > - **Atualizações críticas**: Especifica uma atualização amplamente lançada para um problema específico que corrige um erro crítico não relacionado com segurança.  
-    > - **Atualizações de definições**: Especifica uma atualização para vírus ou outros ficheiros de definição.  
-    > - **Pacotes de funcionalidades**: Especifica as novas funcionalidades do produto que são distribuídas fora de uma versão de produto e que normalmente estão incluídas na próxima versão completa do produto.  
-    > - **Atualizações de segurança**: Especifica uma atualização amplamente lançada para um problema específico do produto, relacionadas com segurança.  
-    > - **Service Packs**: Especifica um conjunto cumulativo de correções que são aplicadas a uma aplicação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações de software e assim sucessivamente.  
+    > - **Atualizações críticas**: Especifica uma correção amplamente lançada para um problema específico que corrige um erro crítico não relacionado com segurança.  
+    > - **Atualizações de definições**: Especifica uma atualização amplamente lançada e frequentes de software que contém as adições à base de dados de definição de um produto.  
+    > - **Pacotes de funcionalidades**: Especifica a nova funcionalidade de produto que primeiro são distribuídas fora de uma versão de produto e que normalmente estão incluídas na próxima versão completa do produto.  
+    > - **Atualizações de segurança**: Especifica uma correção amplamente lançada para uma vulnerabilidade específica do produto, relacionadas com segurança.  
+    > - **Service Packs**: Especifica um conjunto de todas as correções, atualizações de segurança, atualizações críticas e atualizações que são aplicadas a um produto testado e cumulativo. Além disso, os pacotes de serviço podem contêm correções adicionais para problemas detetados internamente desde o lançamento do produto.  
     > - **Ferramentas**: Especifica um utilitário ou funcionalidade que ajuda a efetuar uma ou mais tarefas.  
-    > - **Rollups de atualizações**: Especifica um conjunto cumulativo de correções que são agrupadas para facilitar a implementação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um rollup de atualizações resolve geralmente uma área específica, tal como segurança ou um componente de produto.  
-    > - **Atualizações**: Especifica uma atualização para uma aplicação ou ficheiro que está atualmente instalado.  
+    > - **Rollups de atualizações**: Especifica um conjunto de testada e cumulativo de correções, atualizações de segurança, atualizações críticas e atualizações que são agrupadas para facilitar a implementação. Um pacote cumulativo de atualizações resolve geralmente uma área específica, por exemplo, um componente de produto ou de segurança.  
+    > - **Atualizações**: Especifica uma correção amplamente lançada para um problema específico. Uma atualização corrige um erro não crítico não relacionado com segurança.  
     > - **Atualizar**: Especifica uma atualização para funcionalidades do Windows 10. Seus sites e pontos de atualização de software tem de executar um mínimo de WSUS 4.0 com o [correção 3095113](https://support.microsoft.com/kb/3095113) para obter o **atualizar** classificação.    
     >       
 

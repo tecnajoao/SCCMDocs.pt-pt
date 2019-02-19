@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305a30b80ccc23cd08207c98eeed82c38b3271e7
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 7a6040fd6b429eb94187026b8b6a98ea1386d5c6
+ms.sourcegitcommit: fd16fc2b681608fd6def5bad2cedffbcd1f2423a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56142515"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56405646"
 ---
 # <a name="about-the-service-connection-point-in-configuration-manager"></a>Acerca do ponto de ligação de serviço no Configuration Manager
 
@@ -118,6 +118,8 @@ Para ativar a operação, o computador que aloja o ponto de ligação de serviç
 - `download.microsoft.com`  
 
 - `https://go.microsoft.com/fwlink/?LinkID=619849`  
+
+- `dl.delivery.mp.microsoft.com`  
 
 #### <a name="azure-services"></a>Serviços do Azure
 
