@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4641f1597e8e53f75ad43f3d848a816b86630a5f
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 6d9b65629e000814f80876747e1148d450c2080b
+ms.sourcegitcommit: fd16fc2b681608fd6def5bad2cedffbcd1f2423a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56137376"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56405663"
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -122,7 +122,6 @@ As funções de três segurança utilizadas para executar scripts não são cria
 |---|---|---|
 |Coleção|Executar Script|Sim|
 |Site|Leitura|Sim|
-|Scripts SMS|Criar|Sim|
 |Scripts SMS|Leitura|Sim|
 
 
