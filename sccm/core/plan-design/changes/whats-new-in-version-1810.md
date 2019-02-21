@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 01/25/2019
+ms.date: 02/19/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f29dabe9c29ad69278ac52253a81a0172643f84
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 51eff86edac04409d0633191b45adca47db39f85
+ms.sourcegitcommit: e18853c214c95e4d21b2f032aba6d17c21e97027
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56142532"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443992"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -258,7 +258,10 @@ Por predefinição, esta opção está **não** para manter consistente com o co
 
 <!--For more information, see []().-->
 
+### <a name="improvement-to-software-updates-maintenance"></a>Manutenção de atualizações de melhoria para o software
+<!--2839349--> Agora executam as tarefas de limpeza do WSUS em sites secundários. Limpeza do WSUS para atualizações expiradas é executada e as atualizações substituídas, serão recusadas no WSUS para sites secundários.
 
+Para obter mais informações, consulte [o comportamento de limpeza WSUS a partir da versão 1810](/sccm/sum/deploy-use/software-updates-maintenance#wsus-cleanup-behavior-starting-in-version-1810)
 
 ## <a name="bkmk_report"></a>Relatórios
 
