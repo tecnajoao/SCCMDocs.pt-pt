@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba364ce222ae5e07cc1a0e9d25eb3ae525f2cbbf
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 2f19fee37ab817670bd754d6da1ad1ebe9ccb452
+ms.sourcegitcommit: 369db96ee84299b5ab6d74b177e6366b3017fc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56142396"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589939"
 ---
 # <a name="endpoint-protection-client-frequently-asked-questions"></a>Perguntas mais frequentes de cliente do Endpoint Protection
 
@@ -51,16 +51,7 @@ Este artigo destina-se a utilizadores de computador cujo administrador de TI imp
 
  O Windows Defender ou o Endpoint Protection oferece três formas de ajudar a impedir que software malicioso infete o seu computador:  
 
--   **Utilizar a proteção em tempo real** - proteção em tempo real permite que o Windows Defender monitorize sempre a seu computador e o alerte quando software maligno, incluindo potencialmente vírus, spyware ou outro software indesejável, tentar instalar Se ou executar no seu computador. Em seguida, o Windows Defender suspende o software e permite que o utilizador siga a recomendação sobre o software ou execute uma ação alternativa.  
-
-    |**Opção de proteção em tempo real** |**finalidade** |
-
-    |-|-|  
-    | Analisar todas as transferências | Esta opção monitoriza ficheiros e programas que são transferidos, incluindo ficheiros que são automaticamente transferidos através do Windows Internet Explorer e o Microsoft Outlook® Express, como ActiveX® controla e programas de instalação de software. Estes ficheiros podem ser transferidos, instalados ou executados pelo próprio browser. O software maligno, incluindo vírus, spyware e outro software potencialmente indesejável, pode ser incluído com estes ficheiros e instalado sem o conhecimento do utilizador.<br /><br /> Com a opção de proteção em tempo real, o Windows Defender monitoriza sempre o seu computador e verifica a existência de quaisquer programas ou ficheiros maliciosos que possa ter transferido. Esta funcionalidade de monitorização significa que o Windows Defender não tem de abrandar a procura ou experiência de email, exigindo uma verificação de quaisquer ficheiros ou programas possa querer transferir. |  
-    | Monitorizar a atividade de programas e ficheiros no seu computador | Esta opção monitoriza quando os ficheiros e programas começam a ser executado no seu computador e, em seguida, alerta-o sobre quaisquer ações que executem e as ações executadas nos mesmos. Isto é importante porque o software malicioso pode utilizar vulnerabilidades em programas que tenha instalado para executar o software malicioso ou indesejável sem o conhecimento do utilizador. Por exemplo, o spyware pode ser executado automaticamente em segundo plano quando inicia um programa que utiliza com frequência. O Windows Defender monitoriza os seus programas e alerta se detetar atividade suspeita. |  
-    | Ativar monitorização de comportamento | Esta opção monitoriza coleções de comportamento de padrões suspeitos que poderão não ser detetados pelos métodos tradicionais de deteção de antivírus. |  
-
-    | Ativar o sistema de inspeção de rede | Esta opção ajuda a proteger o computador contra explorações de "dia zero" de vulnerabilidades conhecidas, diminuindo o período de tempo entre o momento em que uma vulnerabilidade é detetada e uma atualização é aplicada. |  
+-   **Utilizar a proteção em tempo real** - proteção em tempo real permite que o Windows Defender monitorize sempre a seu computador e o alerte quando software maligno, incluindo potencialmente vírus, spyware ou outro software indesejável, tentar instalar Se ou executar no seu computador. Em seguida, o Windows Defender suspende o software e permite que o utilizador siga a recomendação sobre o software ou execute uma ação alternativa.
 
 -   **Opções de análise** -pode utilizar o Windows Defender para analisar quanto a potenciais ameaças, tais como vírus, spyware e outro software malicioso que poderão colocar o seu computador em risco. Também pode utilizá-las para agendar análises regulares e para remover software malicioso detetado durante uma análise.  
 
@@ -216,7 +207,7 @@ Para remover todos os itens potencialmente prejudiciais ou indesejáveis que o W
 |Analisar todas as transferências|Esta opção monitoriza ficheiros e programas que sejam transferidos, incluindo ficheiros que são automaticamente transferidos através do Windows Internet Explorer e do Microsoft Outlook® Express, tal como controlos ActiveX® e programas de instalação de software. Estes ficheiros podem ser transferidos, instalados ou executados pelo próprio browser. O software maligno, incluindo vírus, spyware e outro software potencialmente indesejável, pode ser incluído com estes ficheiros e instalado sem o conhecimento do utilizador.<br /><br /> Com a opção de proteção em tempo real, o Windows Defender monitoriza sempre o seu computador e verifica a existência de quaisquer programas ou ficheiros maliciosos que possa ter transferido. Esta funcionalidade de monitorização significa que o Windows Defender não tem de abrandar a sua experiência de navegação ou e-mail, exigindo uma verificação de quaisquer ficheiros ou programas que possa querer transferir.|  
 |Monitorizar a atividade dos ficheiros e programas no computador|Esta opção monitoriza quando os ficheiros e programas começam a ser executado no seu computador e, em seguida, alerta-o sobre quaisquer ações que executem e as ações executadas nos mesmos. Isto é importante porque o software malicioso pode utilizar vulnerabilidades em programas que tenha instalado para executar o software malicioso ou indesejável sem o conhecimento do utilizador. Por exemplo, o spyware pode ser executado automaticamente em segundo plano quando inicia um programa que utiliza com frequência. O Windows Defender monitoriza os seus programas e alerta o utilizador se detetar atividade suspeita.|  
 |Ativar a monitorização de comportamento|Esta opção monitoriza coleções de comportamento em termos de padrões suspeitos que poderão não ser detetados pelos métodos tradicionais de deteção de antivírus.|  
-|Ativar o Sistema de Inspeção de Rede|Esta opção ajuda a proteger o computador contra â €œzero dayâ€ as explorações de vulnerabilidades conhecidas, diminuindo o período de tempo entre o momento em que uma vulnerabilidade é detetada e uma atualização é aplicada.|  
+|Ativar o Sistema de Inspeção de Rede|Esta opção ajuda a proteger o computador contra explorações de dia zero de vulnerabilidades conhecidas, diminuindo o período de tempo entre o momento em que uma vulnerabilidade é detetada e uma atualização é aplicada.|  
 
 ### <a name="to-turn-off-real-time-protection"></a>Para desativar a proteção em tempo real  
 

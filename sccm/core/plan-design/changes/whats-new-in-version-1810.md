@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51eff86edac04409d0633191b45adca47db39f85
-ms.sourcegitcommit: e18853c214c95e4d21b2f032aba6d17c21e97027
+ms.openlocfilehash: 703b8be554f0a7ed1601703d381e4ed7c317af77
+ms.sourcegitcommit: 369db96ee84299b5ab6d74b177e6366b3017fc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443992"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589871"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -366,9 +366,7 @@ O desempenho seguintes e resolução de problemas de melhorias de aplicam a CMPi
 
 Além das novas funcionalidades, esta versão também inclui alterações adicionais, como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do Configuration Manager, versão 1810](https://support.microsoft.com/help/4482169).
 
-<!--
-For more information on changes to the Windows PowerShell cmdlets for Configuration Manager, see [PowerShell 1810 Release Notes](https://docs.microsoft.com/powershell/sccm/1810_release_notes?view=sccm-ps).
---> 
+Para obter mais informações sobre as alterações aos cmdlets do Windows PowerShell para o Configuration Manager, consulte [notas de versão do PowerShell versão 1810](https://docs.microsoft.com/powershell/sccm/1810-release-notes?view=sccm-ps).
 
 O update rollup seguintes (4486457) está disponível na consola a partir de 25 de Janeiro de 2019: [Update rollup para o ramo atual do Configuration Manager, versão 1810](https://support.microsoft.com/help/4486457).
 

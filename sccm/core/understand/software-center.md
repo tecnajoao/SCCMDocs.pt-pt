@@ -5,18 +5,18 @@ description: Saiba mais sobre os recursos e funcionalidades do Centro de Softwar
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 07/30/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.assetid: 9e68de6e-2b33-442b-b674-a382728d9529
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da01c741107d4eb4a707f7f0d8ada5d82706f292
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: eacd1d1be2564b718423b9d0db8d24b60aac1adb
+ms.sourcegitcommit: 369db96ee84299b5ab6d74b177e6366b3017fc54
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119896"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589922"
 ---
 # <a name="software-center-user-guide"></a>Manual do utilizador do Centro de Software
 
@@ -45,7 +45,7 @@ Clique nas **aplicativos** separador para localizar e instalar aplicações que 
 - **Todos os**: Mostra todas as aplicações que é possível instalar
 - **Necessário**: O administrador de TI impõe esses aplicativos. Se desinstalar um desses aplicativos, o Centro de Software irá reinstalá-lo.
 - **Filtros**: O administrador de TI pode criar categorias de aplicativos. Se estiver disponível, clique na lista pendente para filtrar a vista para apenas para as aplicações numa categoria específica. Selecione **todos os** para mostrar todas as aplicações.
-- **Ordenar por**: Reorganizar a lista de aplicações. Por predefinição, esta lista ordena por **mais recente**.
+- **Ordenar por**: Reorganizar a lista de aplicações. Por predefinição, esta lista ordena por **mais recente**. Aplicações recentemente disponíveis são listadas com uma **New** etiqueta que seja visível durante sete dias.
 - **Pesquisa**: Ainda não é possível localizar o que está procurando? Introduza palavras-chave na caixa de pesquisa para encontrá-lo!
 -  **Alterne a exibição**: Clique nos ícones para mudar o modo de exibição entre a vista de lista e o mosaico da vista. Por predefinição, a lista de aplicativos mostra como mosaicos do gráficos. 
     - Vista de mosaico: O administrador de TI pode personalizar os ícones. Veja a seguir cada mosaico mostra o nome da aplicação, publicador e versão. 
