@@ -11,12 +11,12 @@ author: aczechowski
 manager: dougeby
 ms.author: aaroncz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16487bc59a7e067aac5554213e2be750729078f
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 411811c4047cd781d0edcd5cc345ff82acc80f91
+ms.sourcegitcommit: 0a23cde6112cbb5987f433bffcf6f223b994ba72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56120151"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56667448"
 ---
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilizar atualizações de Software do Configuration Manager para fornecer atualizações de definições
 
@@ -49,10 +49,10 @@ ms.locfileid: "56120151"
 
 6. Certifique-se de que a caixa de verificação  **Ativar a implementação após a execução desta regra** está selecionada e, em seguida, clique em **Seguinte**.
 
-7. Na página **Definições de Implementação** do assistente, na lista **Nível de detalhe** , selecione **Mínimo**e clique em **Seguinte**.
+7. Sobre o **definições de implementação** página do assistente, na **nível de detalhe** lista, selecione **apenas mensagens de erro**e, em seguida, clique em **seguinte**.
 
    > [!NOTE]
-   >  Partir do **nível de detalhe** lista, selecione **mínimo** (Configuration Manager sem Service Pack) ou **apenas mensagens de erro** (Configuration Manager). Isto irá reduzir o número de mensagens de estado devolvidas pela implementação da definição. Esta configuração ajuda a reduzir a utilização de processamento da CPU nos servidores do Configuration Manager.
+   >  Selecionando **apenas mensagens de erro** reduzirá o número de mensagens de estado devolvidas pela implementação da definição. Esta configuração ajuda a reduzir a utilização de processamento da CPU nos servidores do Configuration Manager.
 
 8. Na lista **Filtros de propriedades** , selecione a caixa de verificação **Classificação da Atualização** .
 
@@ -91,18 +91,20 @@ ms.locfileid: "56120151"
 
 20. Na página **Alertas** do assistente, não é necessário configurar alertas. Endpoint Protection no Configuration Manager gera alertas que poderão ser necessárias. Clique em **Seguinte**.
 
-21. Na página **Definições de Transferência** do assistente, selecione o comportamento de transferência de atualizações de software necessário e, em seguida, clique em **Seguinte**.
-
-22. Na página **Pacote de Implementação** do assistente, selecione um pacote de implementação existente ou crie um novo pacote de implementação para incluir os ficheiros de atualização de software associados à regra.
+21. Na página **Pacote de Implementação** do assistente, selecione um pacote de implementação existente ou crie um novo pacote de implementação para incluir os ficheiros de atualização de software associados à regra.
 
     > [!NOTE]
     >  Considere colocar as atualizações de definições num pacote que não contenha outras atualizações de software. Esta estratégia mantém o tamanho do pacote de atualizações de definições mais pequeno, o que lhe permite replicar para pontos de distribuição mais rapidamente.
 
-23. Na página **Pontos de Distribuição** do assistente, selecione um ou mais pontos de distribuição para os quais o conteúdo deste pacote será copiado e, em seguida, clique em **Seguinte**.
+22. Se criar um novo pacote na **pontos de distribuição** as páginas dos assistente, selecione um ou mais pontos de distribuição para que o conteúdo do pacote será copiado e, em seguida, clique em **próxima**.
 
-24. Na página **Localização de Transferência** do assistente, selecione **Transferir as atualizações de software a partir da Internet**e clique em **Seguinte**.
+23. Na página **Localização de Transferência** do assistente, selecione **Transferir as atualizações de software a partir da Internet**e clique em **Seguinte**.
 
-25. Na página **Seleção de Idioma** do assistente, selecione cada versão de idioma das atualizações a transferir e clique em **Seguinte**.
+24. Na página **Seleção de Idioma** do assistente, selecione cada versão de idioma das atualizações a transferir e clique em **Seguinte**.
+
+25. Na página **Definições de Transferência** do assistente, selecione o comportamento de transferência de atualizações de software necessário e, em seguida, clique em **Seguinte**.
+
+26. Sobre o **resumo** página do assistente, reveja as definições e, em seguida, clique em **próxima**.
 
 26. Conclua o Assistente de Criação de Regra de Implementação Automática.
 

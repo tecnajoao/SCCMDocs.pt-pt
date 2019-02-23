@@ -2,7 +2,7 @@
 title: Notas de versão
 titleSuffix: Configuration Manager
 description: Saiba mais sobre problemas urgentes que ainda não estão corrigidos no produto ou abordados num artigo da base de dados de conhecimento Support da Microsoft.
-ms.date: 12/21/2018
+ms.date: 02/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ba088be689808139a977073dd5b111d1fa46b7b
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: bc19092f1272611ea3e05d708bf89bda1a4ba3b9
+ms.sourcegitcommit: 0a23cde6112cbb5987f433bffcf6f223b994ba72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56121561"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56667465"
 ---
 # <a name="release-notes-for-configuration-manager"></a>Notas de versão para o Configuration Manager
 
@@ -84,7 +84,16 @@ Mova a função de ponto de ligação de serviço para outro servidor.
 
 
 
-<!-- ## Operating system deployment  -->
+## <a name="os-deployment"></a>Implementação de SO
+
+### <a name="after-passive-site-server-is-promoted-the-default-boot-image-packages-still-have-package-source-on-the-previous-active-server"></a>Depois do servidor do site passivo é promovido, os pacotes de imagem de arranque predefinido ainda tem origem do pacote no servidor do Active Directory anterior
+<!--3453224, SCCMDocs-pr issue 3097-->
+*Aplica-se a: 1810 de versão do Configuration Manager*
+
+Se tiver um servidor de site em modo passivo (servidor B), quando promover para ativo, a localização de conteúdo para imagens de arranque predefinidas continua a fazer referência servidor anteriormente ativo (servidor A). Se o servidor A tem uma falha de hardware, não é possível atualizar ou alterar imagens de arranque predefinidas.
+
+#### <a name="workaround"></a>Solução
+Nenhum
 
 
 
