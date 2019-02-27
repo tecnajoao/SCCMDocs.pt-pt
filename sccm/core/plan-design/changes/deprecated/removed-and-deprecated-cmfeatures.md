@@ -2,7 +2,7 @@
 title: Funcionalidades preteridas
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades que já não suporta o Configuration Manager.
-ms.date: 01/30/2019
+ms.date: 02/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a207399f5baa1b00be954ef4d0eb432939ed261
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 40469e8173303eb7ad46ef8e716529c37ec6e76d
+ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56127308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56838791"
 ---
 # <a name="removed-and-deprecated-features-for-configuration-manager"></a>Funcionalidades removidas e preteridas para o Configuration Manager
 
@@ -32,6 +32,7 @@ Estas informações estão sujeitas a alterações em versões futuras. Não pod
 
 |Funcionalidade|Preterição anunciada pela primeira vez|Suporte&nbsp;removido|  
 |-----------|---|--------------|  
+|A implementação para a partilha de conteúdo do Azure foi alterada. Utilize um gateway de gestão de conteúdo habilitado na cloud. Não será possível criar um ponto de distribuição de nuvem tradicional no futuro.|Fevereiro de 2019|A primeira versão lançada após 1 de Novembro de 2019|
 |Implementação de serviço clássico para o Azure para o gateway de gestão da nuvem e de ponto de distribuição de nuvem. Para obter mais informações, consulte [planear CMG](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager).|Novembro de 2018|A primeira versão lançada após 1 de Julho de 2019| 
 |O System Center Endpoint Protection para Mac e Linux<br>Para obter mais informações, consulte [final de mensagem de blogue de suporte](https://go.microsoft.com/fwlink/?linkid=870182).|Outubro de 2018|31 de Dezembro de 2018|
 |Acesso condicional no local<br>Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).|30 de Janeiro de 2019|1 de Setembro de 2019|

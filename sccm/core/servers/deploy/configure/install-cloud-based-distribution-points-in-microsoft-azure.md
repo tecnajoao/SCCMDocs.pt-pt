@@ -2,7 +2,7 @@
 title: Instalar pontos de distribuição de nuvem
 titleSuffix: Configuration Manager
 description: Utilize estes passos para configurar um ponto de distribuição de nuvem no Configuration Manager.
-ms.date: 11/27/2018
+ms.date: 02/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,16 +11,22 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef6ace569a73700c2250cd5a45301df387e54c33
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: e840e951e7519214a609f2b865adbd38287d0c0f
+ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56127172"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56838842"
 ---
 # <a name="install-a-cloud-distribution-point-for-configuration-manager"></a>Instalar um ponto de distribuição de nuvem para o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
+
+> [!Important]  
+> A implementação para a partilha de conteúdo do Azure foi alterada. Utilizar um gateway de gestão de conteúdo habilitado na nuvem ao ativar a opção para **permitir CMG para funcionar como um ponto de distribuição de nuvem e servir conteúdo a partir de armazenamento do Azure**. Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
+> 
+> Não será possível criar um ponto de distribuição de nuvem tradicional no futuro. Para obter mais informações, consulte [funcionalidades removidas e preteridas](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). 
+
 
 Este artigo detalha os passos para instalar um ponto de distribuição de nuvem do Configuration Manager no Microsoft Azure. Ele inclui as secções seguintes:
 - [Antes de começar](#bkmk_before) 

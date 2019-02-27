@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 02/19/2019
+ms.date: 02/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703b8be554f0a7ed1601703d381e4ed7c317af77
-ms.sourcegitcommit: 369db96ee84299b5ab6d74b177e6366b3017fc54
+ms.openlocfilehash: bc4fb762e39680dfb9a9894bc19e929b8ff3d7ed
+ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589871"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56838825"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -176,9 +176,10 @@ Para obter mais informações, consulte [dashboard de cogestão](/sccm/comanage/
 ## <a name="bkmk_app"></a> Gestão de aplicações
 
 ### <a name="convert-applications-to-msix"></a>Converter aplicações para MSIX
-<!--1359029--> A partir da versão 1806, o Configuration Manager suporta a implementação do novo formato de pacote (.msix) de aplicação com o Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
+<!--3607729, fka 1359029-->
+ ***[Atualizado] *** a partir da versão 1806, o Configuration Manager suporta a implementação do novo formato de pacote (.msix) de aplicação com o Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
 
-<!--For more information, see [Create Windows applications](/sccm/apps/get-started/creating-windows-applications#bkmk_general).  this might move to a new section for msix-->
+Para obter mais informações, consulte [aplicativos Windows criar](/sccm/apps/get-started/creating-windows-applications#bkmk_msix).  
 
 
 ### <a name="repair-applications"></a>Aplicativos de reparação
@@ -207,11 +208,11 @@ Um perfil de PowerShell é um script que é executada quando o PowerShell é ini
 ## <a name="bkmk_osd"></a> Implementação do SO
 
 ### <a name="task-sequence-support-of-windows-autopilot-for-existing-devices"></a>Suporte de sequência de tarefas do Windows Autopilot para dispositivos existentes
-<!--1358333-->
+<!--3607717, fka 1358333-->
 
-[Windows Autopilot para dispositivos existentes](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/New-Windows-Autopilot-capabilities-and-expanded-partner-support/ba-p/260430), está agora disponível com o Windows 10, versão 1809 ou posterior. Esta nova funcionalidade permite-lhe criar uma nova imagem e aprovisionar um dispositivo Windows 7 para [modo de controlada pelo usuário do Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/user-driven) utilizando uma sequência de tarefas do Configuration Manager única e nativo. 
+***[Atualizado]***  [Windows Autopilot para dispositivos existentes](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/New-Windows-Autopilot-capabilities-and-expanded-partner-support/ba-p/260430) está agora disponível com o Windows 10, versão 1809 ou posterior. Esta nova funcionalidade permite-lhe criar uma nova imagem e aprovisionar um dispositivo Windows 7 para [modo de controlada pelo usuário do Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/user-driven) utilizando uma sequência de tarefas do Configuration Manager única e nativo. 
 
-<!--For more information, see []().--> 
+Para obter mais informações, consulte [Windows Autopilot para dispositivos existentes](/sccm/osd/deploy-use/windows-autopilot-for-existing-devices).
 
 
 ### <a name="specify-the-drive-for-offline-os-image-servicing"></a>Especifique a unidade para a manutenção da imagem de SO offline  

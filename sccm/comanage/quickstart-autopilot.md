@@ -2,7 +2,7 @@
 title: Windows Autopilot com cogestão
 titleSuffix: Configuration Manager
 description: Utilize o Windows Autopilot com cogestão no Configuration Manager para simplificar o conjunto de cópia de segurança de novos dispositivos Windows 10.
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c9867b7ea59b435bd1fd344dd0bf4aa67a2be21
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 28710b925444d681a161eff184b845a1cdd430b1
+ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56132687"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56838757"
 ---
 # <a name="windows-autopilot-with-co-management"></a>Windows Autopilot com cogestão
 
@@ -94,5 +94,9 @@ Crie satisfação na sua organização através da criação de uma melhor exper
 
 ## <a name="configure"></a>Configurar
 
-Para obter mais informações, consulte [Windows inscrever dispositivos no Intune com o Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+Para obter mais informações, veja os artigos seguintes:
+
+[Utilizar o Intune para criar perfis do Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot)
+
+[Windows Autopilot para dispositivos existentes](/sccm/osd/deploy-use/windows-autopilot-for-existing-devices) sequência de tarefas
 
