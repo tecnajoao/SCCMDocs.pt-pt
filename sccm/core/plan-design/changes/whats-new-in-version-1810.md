@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4fb762e39680dfb9a9894bc19e929b8ff3d7ed
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: ab1bf6cd9c27abe75e95b6e8074791acc73d108f
+ms.sourcegitcommit: 223549003829fce7c6dc63959ee71e8b88542417
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56838825"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56951822"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -379,6 +379,8 @@ As seguintes correções adicionais estão disponíveis para resolver problemas 
 | ID | Título | Date | In-console |
 |---------|---------|---------|---------|
 | [4487960](https://support.microsoft.com/help/4487960) | Certificado de conector do Microsoft Intune não renovar no Configuration Manager | 18 de Janeiro de 2019 | Sim |
+| [4490434](https://support.microsoft.com/help/4490434) | Duplicar a deteção de utilizadores, as colunas são criadas no Configuration Manager | 22 de Fevereiro de 2019 | Sim |
+| [4490575](https://support.microsoft.com/help/4490575) | Instalações de atualização param de responder ou nunca mostram no Configuration Manager, versão 1810 de conclusão | 22 de Fevereiro de 2019 | Sim |
 
 
 ## <a name="next-steps"></a>Passos seguintes

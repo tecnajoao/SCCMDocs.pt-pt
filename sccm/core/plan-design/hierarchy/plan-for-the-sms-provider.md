@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6eeb74e3e8e83dd0082f45583bd2eb5dbe1df4e
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: aec16c4b55afd8c4baf7486794e07f29fa84aebf
+ms.sourcegitcommit: 223549003829fce7c6dc63959ee71e8b88542417
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56131613"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56951839"
 ---
 # <a name="plan-for-the-sms-provider"></a>Planear o Fornecedor de SMS 
 
@@ -51,7 +51,7 @@ O fornecedor de SMS ajuda a impor a segurança do Configuration Manager. Devolve
 
  Para suportar o fornecedor de SMS, o servidor de destino tem de cumprir os seguintes pré-requisitos:  
 
--   Num domínio que tenha uma relação de confiança bilateral com o servidor de site e os sistemas de sites da base de dados  
+-   No mesmo domínio que o servidor do site e os sistemas de sites da base de dados  
 
 -   Não pode ter uma função de sistema de sites de um site diferente  
 

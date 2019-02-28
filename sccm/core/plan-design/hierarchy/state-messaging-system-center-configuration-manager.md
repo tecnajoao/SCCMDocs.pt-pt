@@ -1,7 +1,7 @@
 ---
-title: Mensagens de estado no Configuration Manager
+title: Mensagens de estado
 titleSuffix: Configuration Manager
-description: Descrições de mensagens de estado nas versões suportadas do System Center Configuration Manager.
+description: Descrições de mensagens de estado nas versões suportadas do Configuration Manager.
 ms.date: 02/26/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -11,25 +11,24 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca97919e201db09e6b01ec968e73374f441c47cd
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: 9e3a30211b95e483b30caf1507b74a7737d156bb
+ms.sourcegitcommit: 223549003829fce7c6dc63959ee71e8b88542417
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56839059"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56951873"
 ---
-# <a name="state-messages-in-system-center-configuration-manager"></a>Mensagens de estado no System Center Configuration Manager 
+# <a name="state-messages-in-configuration-manager"></a>Mensagens de estado no Configuration Manager 
 
-*Aplica-se a: Todas as versões do System Center Configuration Manager com suporte.*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Mensagens de estado de contenham informações concisas sobre condições no cliente do Configuration Manager 2012. O estado do sistema de mensagens é utilizado por componentes específicos do Configuration Manager, como atualizações de software, gestão de configuração pretendida e proteção de acesso à rede.
+Mensagens de estado de contenham informações concisas sobre condições no cliente do Configuration Manager. O estado do sistema de mensagens é utilizado por componentes específicos do Configuration Manager, tais como atualizações de software e as definições de configuração.
 
-Clientes do Configuration Manager enviam mensagens de estado para o ponto de estado de contingência ou ponto de gestão de sistemas de site para reportar o estado atual de operações de cliente do Configuration Manager. Relatórios podem ser criados e utilizados para ver mensagens de estado enviadas por clientes do Configuration Manager.
+Clientes do Configuration Manager enviam mensagens de estado para o ponto de estado de contingência ou ponto de gestão de sistemas de site para reportar o estado atual de operações. Pode criar relatórios para ver mensagens de estado enviadas por clientes do Configuration Manager.
 
-Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado é identificada pelo tipo de tópico da mensagem de estado. Os tipos de tópico de mensagens de estado listados na tabela seguinte podem ser usados para definir a funcionalidade do Configuration Manager que uma mensagem de estado se relaciona com.
+Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado é identificada pelo tipo de tópico da mensagem de estado. Os tipos de tópico de mensagens de estado apresentados neste artigo podem ser usados para definir a funcionalidade do Configuration Manager que uma mensagem de estado se relaciona com.
 
-> [!NOTE}
->
+> [!NOTE]  
 > Um valor de ID de mensagem de estado de zero (0) normalmente indica o tipo de tópico está num Estado desconhecido.
 
 ## <a name="300-statetopictypesumassignmentcompliance"></a>300 STATE_TOPICTYPE_SUM_ASSIGNMENT_COMPLIANCE
@@ -154,7 +153,7 @@ Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado 
 |   301 |Falha de implementação de cliente desconhecida |          
 |   302 |Falha ao criar o serviço ccmsetup  |         
 |   303 |Falha ao eliminar o serviço ccmsetup |          
-|   304 |Não é possível instalar sobre o sistema operativo embedded com o arquivo com base em escrever filtro (FBWF) ativado na unidade do sistema |          
+|   304 |Não é possível instalar sobre o sistema operativo embedded com filtro de escrita baseados em ficheiros (FBWF) ativado na unidade do sistema |          
 |   305 |Modo de segurança nativo não é válido no Windows 2000  |         
 |   306 |Falha ao iniciar o processo de transferência do ccmsetup  |         
 |   307 |Linha de comandos ccmsetup inválidos |        
@@ -175,9 +174,9 @@ Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado 
 |   322 |Pasta de origem não está disponível                  |          
 |   323 |Appv não suportado                    |          
 |   324 |Versão de Site incorreta                    |          
-|   325 |Erro de correspondência do hash Prerequsite                 |          
+|   325 |Erro de correspondência do hash de pré-requisitos                |          
 |   326 |Anulação de registo do MDM falhou             |          
-|   327 |Detetado o registo do MDM             |          
+|   327 |Registo do MDM detetado             |          
 |   328 |Intune detetado                   |          
 |   329 |Rede com tráfego limitado não permitida            |          
 |   400 |Implementação de cliente concluída com êxito |  
@@ -205,7 +204,7 @@ Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado 
 |:-------------|:------|
 |   100 | Estado de inscrição         |
 |   101 | Inscrição agendada          |
-|   102 | Inscrição cancelada          |
+|   102 | Inscrição foi cancelada           |
 |   105 | Inscrição iniciada            |
 |   106 | Inscrição foi concluída com êxito, mas não está aprovisionada   
 |   107 | Inscrição foi concluída com êxito e está aprovisionada   
@@ -314,42 +313,15 @@ Cada funcionalidade do Configuration Manager que utiliza as mensagens de estado 
 |   1   |Cliente não está pronto para o modo nativo  |
 |   2   |Cliente pronto para o modo nativo       |
 
-## <a name="1200-statetopictypeamtclientdatasynchronize"></a>1200 STATE_TOPICTYPE_AMT_CLIENT_DATA_SYNCHRONIZE
-
-AMT é não suportada no System Center Configuration Manager 2012.
-
-|     ID de mensagem de estado     |  Descrição da mensagem de estado |
-|:-------------|:------|
-|   1   | Fabrico de dados        |
-
-## <a name="1201-statetopictypeamtupdatemachineproperty"></a>1201 STATE_TOPICTYPE_AMT_UPDATE_MACHINE_PROPERTY
-
-AMT é não suportada no System Center Configuration Manager 2012.
-
-|     ID de mensagem de estado     |  Descrição da mensagem de estado |
-|:-------------|:------|
-|   1   |Início do aprovisionamento          |
-|   2   | Concluir aprovisionamento        |
-|   3   |Anular o aprovisionamento completo         |
-|   4   |Anular o aprovisionamento parcial          |
-|   5   |Suprimir a limpeza automática          |
-|   6   |Conclusão da manutenção   |
-|   7   |Manutenção Kerb concluir      |
-|   8   |Aprovisionar Miscdatafill   |
-
 
 ## <a name="1300-statetopictypeclienthealth"></a>1300 STATE_TOPICTYPE_CLIENT_HEALTH
 
 |     ID de mensagem de estado     |  Descrição da mensagem de estado |
 |:-------------|:------|
 |   1   |   Êxito|    
-|   2   |   Não teve êxito |   
+|   2   |   Não teve êxito |    
 
 ## <a name="1401-statetopictypestatereport"></a>1401 STATE_TOPICTYPE_STATE_REPORT
-
-    No State IDs.
-
-## <a name="1500-state-topictype-cal-track-ut"></a>1500 Topictype Cal Track Ut de estado
 
     No State IDs.
 
@@ -370,7 +342,7 @@ AMT é não suportada no System Center Configuration Manager 2012.
 |     ID de mensagem de estado     |  Descrição da mensagem de estado |
 |:-------------|:------|
 |   1   |Conjunto de afinidade de utilizador        |
-|   2   |Useraffinity removido         |
+|   2   |Afinidade de utilizador removida        |
 
 ## <a name="1700-statetopictypeappciscan"></a>1700 STATE_TOPICTYPE_APP_CI_SCAN
 
@@ -400,8 +372,8 @@ AMT é não suportada no System Center Configuration Manager 2012.
 |   2009    |Item de configuração no conteúdo de progresso transferido             |
 |   2010    |Item de configuração em curso a atualização pendente             |
 |   2011    |Restabelecimento de ligação do Item de configuração em curso a aguardar utilizador         |
-|   2012    |Item de configuração em curso a aguardar a fim de sessão do utilizador            |
-|   2013    |Item de configuração em curso a aguardar início de sessão do utilizador             |
+|   2012    |Item de configuração em curso a aguardar a fim de sessão de utilizador              |
+|   2013    |Item de configuração em curso a aguardar início de sessão de utilizador               |
 |   2014    |Instalar o Item de configuração em curso a aguardar            |
 |   2015    |Item de configuração em curso a aguardar entre tentativas              |
 |   2016    |Item de configuração em curso a aguardar presmode               |
@@ -451,7 +423,7 @@ AMT é não suportada no System Center Configuration Manager 2012.
 
     No State IDs.
 
-## <a name="1901-state-topictype-ep-am-health"></a>O estado de funcionamento do Topictype Ep Am de estado de 1901
+## <a name="1901-statetopictypeepamhealth"></a>1901 State_Topictype_Ep_Am_Health
 
     No State IDs.
 
@@ -473,7 +445,7 @@ AMT é não suportada no System Center Configuration Manager 2012.
 |   4   |Falhada de instalação do Endpoint Protection     |
 |   5   |Reinício de proteção de ponto final pendente  |
 |   6   |Proteção de ponto final não suportada       |
-|   7   |Proteção de ponto final comanaged       |
+|   7   |Proteção de ponto final gerenciada conjuntamente      |
 
 ## <a name="2002-statetopictypeepclientpolicyapplication"></a>2002 STATE_TOPICTYPE_EP_CLIENT_POLICYAPPLICATION
 
@@ -487,7 +459,7 @@ AMT é não suportada no System Center Configuration Manager 2012.
 
 |     ID de mensagem de estado     |  Descrição da mensagem de estado |
 |:-------------|:------|
-|   0   |  Desconhecido            |
+|   0   |  Desconhecido           |
 |   1   |  Active            |
 |   2   |  Inativo          |
 
@@ -796,5 +768,5 @@ AMT é não suportada no System Center Configuration Manager 2012.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição do Estado do sistema de mensagens no System Center Configuration Manager](https://support.microsoft.com/help/4459394/description-of-state-messaging-in-system-center-configuration-manager)
-- [Documento técnico do gerenciamento de atualizações de software para o System Center Configuration Manager](https://www.microsoft.com/download/details.aspx?id=44578)
+- [Descrição do Estado do sistema de mensagens no Configuration Manager](https://support.microsoft.com/help/4459394/description-of-state-messaging-in-system-center-configuration-manager)
+- [Documento técnico sobre o gerenciamento de atualizações de software, para o Configuration Manager](https://www.microsoft.com/download/details.aspx?id=44578)
