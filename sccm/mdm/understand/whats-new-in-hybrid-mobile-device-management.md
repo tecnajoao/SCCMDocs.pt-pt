@@ -2,7 +2,7 @@
 title: Novidades sobre a MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d65f6493ca3d067e31b6602c711ab1fbf9408a1
-ms.sourcegitcommit: e7e5ca04601270ea7af90183123d5db1d42784da
+ms.openlocfilehash: f5c55b48da8e3be356cb91979a8e478a6ac2e43a
+ms.sourcegitcommit: 0bf253085adeca0d9ea62d76497eb5ebf5ce89da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422243"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57012501"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -51,6 +51,22 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 ## <a name="february-2019"></a>Fevereiro de 2019
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="create-new-intune-tenants-in-azure-portal"></a>Criar novos inquilinos do Intune no portal do Azure
+<!--3754067--> A capacidade de criar um novo inquilino MDM híbrida foi removida como do 1902 de atualização de Intune. Crie todos os novos inquilinos do Intune no portal do Azure. Como um lembrete [hybrid MDM foi preterido](/sccm/mdm/understand/hybrid-mobile-device-management). Os clientes atuais de MDM híbrida deverá migrar para o Intune autónomo logo que possível.
+
+Para obter mais informações, consulte [a mensagem de blogue de suporte do Intune](https://aka.ms/hybrid_notification).
+
+
+#### <a name="intune-uses-google-play-protect-apis-on-android-devices"></a>O Intune utiliza o Google Play proteger APIs em dispositivos Android 
+<!--2577355--> Alguns administradores enfrentam um cenário BYOD onde os utilizadores podem raiz ou jailbreak o celular. Este comportamento, embora às vezes, não mal-bem-intencionado, resulta numa omissão de muitas das políticas do Intune que estão definidas para proteger os dados da organização nos dispositivos do utilizador final. Assim, o Intune fornece deteção de raiz e jailbreak para dispositivos inscritos e não inscritos. 
+
+Com esta versão, o Intune agora utiliza Google Play proteger APIs para adicionar à nossa verificações existentes para a deteção de raiz para dispositivos não inscritos. Embora a Google não compartilha a totalidade das verificações de deteção de raiz que ocorrem, esperamos que essas APIs para detetar os utilizadores que têm Root seus dispositivos por qualquer motivo de personalização do dispositivo para a capacidade de obter as atualizações de SO mais recente nos dispositivos mais antigos. Estes utilizadores, em seguida, podem ser impedidos de aceder a dados empresariais ou suas contas empresariais poderão ser eliminadas a partir das suas aplicações de política ativada. 
+
+
+#### <a name="new-app-categories-screen-in-the-company-portal-app-for-windows-10"></a>Novos **categorias de aplicações** ecrã na aplicação Portal da empresa para Windows 10
+<!--3834780--> Para melhorar a experiência de navegação e a seleção de aplicação no Portal da empresa para Windows 10, agora inclui uma nova tela chamada **categorias de aplicações**. Os utilizadores agora ver as aplicações ordenadas em categorias, como **em destaque**, **educação**, e **produtividade**. Esta alteração apareça em versões do Portal da empresa 10.3.3451.0 e mais tarde. Para ver o novo ecrã, consulte [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new). Para obter mais informações sobre as aplicações no Portal da empresa, consulte [instalar e partilhar aplicações no seu dispositivo](https://docs.microsoft.com/intune-user-help/install-apps-cpapp-windows).  
+
 
 #### <a name="macos-users-are-prompted-to-update-their-password"></a>utilizadores do macOS-lhe pedidos para atualizar a palavra-passe 
 <!--1873216--> Em dispositivos macOS, os utilizadores finais são-lhe pedidos para atualizar a palavra-passe. Este pedido acontece sempre que um utilizador executa uma tarefa que exige autenticação, como iniciar sessão no dispositivo. Utilizadores também lhe for pedidos para atualizar a palavra-passe quando fazer nada que requer privilégios administrativos, como pedir acesso de keychain.  

@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d5fd0b1d7ec9c262c1f33dd55e452e30008e68
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 727a449b956868c5dec88b4df5b8a66ac400abdc
+ms.sourcegitcommit: 0bf253085adeca0d9ea62d76497eb5ebf5ce89da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56130984"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57012450"
 ---
 # <a name="manage-drivers-in-system-center-configuration-manager"></a>Gerir controladores no System Center Configuration Manager
 
@@ -30,7 +30,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 ##  <a name="BKMK_ManagingDriverPackages"></a> Pacotes de controladores  
  Pode agrupar controladores de dispositivo semelhantes em pacotes para simplificar as implementações do sistema operativo. Por exemplo, poderá optar por criar um pacote de controlador para cada fabricante de computadores na sua rede. Pode criar um pacote de controlador enquanto importa controladores para o catálogo de controladores diretamente no nó **Pacotes de Controladores** . Depois de criar o pacote de controladores, tem de ser distribuído para pontos de distribuição do qual Configuration Manager computadores cliente podem instalar os controladores conforme forem necessários. Tenha em consideração o seguinte:  
 
-- Quando cria um pacote de controladores, a localização de origem do pacote deve apontar para uma partilha de rede vazia que não seja utilizada por outro pacote de controladores, e o Fornecedor de SMS deve ter permissões de Leitura e Escrita para essa localização.  
+- Quando cria um pacote de controladores, a localização de origem do pacote tem de apontar para uma partilha de rede vazia que não seja utilizada por outro pacote de controlador e o fornecedor de SMS tem de ter permissões de controlo total a essa localização.  
 
 - Quando adiciona controladores de dispositivo a um pacote de controladores, o Configuration Manager copia o controlador de dispositivo para a localização de origem do pacote de controlador. Só pode adicionar controladores de dispositivos que tenham sido importados e que estão ativados no catálogo de controladores.  
 
@@ -64,7 +64,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 6. Na caixa **Caminho** , especifique uma pasta de origem vazia para o pacote de controladores. Introduza o caminho para a pasta de origem no formato UNC (Universal Naming Convention). Cada pacote de controladores terá de utilizar uma pasta exclusiva.  
 
    > [!IMPORTANT]  
-   >  A conta do servidor do site tem de ter permissões de **Leitura** e **Escrita** para a pasta de origem especificada.  
+   >  A conta de servidor do site tem de ter **controlo total** permissões para a pasta de origem especificada.  
 
    O novo pacote de controladores não contém quaisquer controladores. O passo seguinte consiste em adicionar controladores ao pacote.  
 

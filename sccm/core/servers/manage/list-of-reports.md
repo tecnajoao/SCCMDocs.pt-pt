@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb208bdb360f726a59585d567c239074717acf66
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 35aff235d537efd738f29a0794f1fdb51a1fbb74
+ms.sourcegitcommit: 0bf253085adeca0d9ea62d76497eb5ebf5ce89da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56120015"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57012518"
 ---
 # <a name="list-of-reports-in-configuration-manager"></a>Lista de relatórios no Configuration Manager
 
@@ -414,7 +414,7 @@ O relatório de um seguinte está listado no **Hardware - segurança** categoria
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
-|**Detalhes de Estados de firmware em dispositivos**|Apresenta os detalhes de Estados de UEFI, SecureBoot e TPM|  
+|**Detalhes de Estados de firmware em dispositivos**|Apresenta os detalhes de Estados de UEFI, SecureBoot e TPM. **Nota**: Este relatório não está na versão 1810.<!--SCCMDocs issue #1189-->|  
 
 
 
