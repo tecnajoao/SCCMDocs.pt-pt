@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c6cee6422d3fc8777f54bd42716748410c9323
-ms.sourcegitcommit: ceec0e20bf801071f2a05233f984cf17acc3fd29
+ms.openlocfilehash: b3edf45c5b4eb62d5bfdd795f104c40da1ee1526
+ms.sourcegitcommit: 56ec6933cf7bfc93842f55835ad336ee3a1c6ab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56265075"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57211708"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -576,6 +576,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |PrestageContent.log|Regista os detalhes sobre a utilização de ExtractContent.exe ferramenta num ponto de distribuição remoto, pré-configurado. Esta ferramenta extrai o conteúdo exportado para um ficheiro.|Função do sistema de sites|  
 |SMSdpmon.log|Regista detalhes sobre as tarefas agendadas que estão configuradas num ponto de distribuição de monitoramento de integridade do ponto de distribuição.|Função do sistema de sites|  
 |smsdpprov.log|Regista os detalhes sobre a extração de ficheiros comprimidos recebidos de um site primário. Este registo é gerado pelo provedor de WMI do ponto de distribuição remoto.|Computador de ponto de distribuição que não foi colocalizado com o servidor do site|  
+|smsdpusage.log|Regista detalhes sobre o que é executada e recolhe dados de distribuição smsdpusage.exe ponto de relatório de resumo de utilização.|Função do sistema de sites|  
 
 ###  <a name="BKMK_DiscoveryLog"></a> Deteção  
 A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a deteção.  

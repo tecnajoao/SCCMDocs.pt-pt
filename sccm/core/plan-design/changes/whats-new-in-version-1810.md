@@ -11,28 +11,28 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1bf6cd9c27abe75e95b6e8074791acc73d108f
-ms.sourcegitcommit: 223549003829fce7c6dc63959ee71e8b88542417
+ms.openlocfilehash: fdd3239509a4f8bd8682acef52f4f3683b33a059
+ms.sourcegitcommit: 56ec6933cf7bfc93842f55835ad336ee3a1c6ab5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56951822"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57211640"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Atualize 1810 para o ramo atual do Configuration Manager está disponível como uma atualização na consola. Aplica esta atualização de sites que executam a versão 1710, 1802 ou 1806. <!-- baseline only statement: When installing a new site, it's also available as a baseline version.-->
+Atualize 1810 para o ramo atual do Configuration Manager está disponível como uma atualização na consola. Aplica esta atualização de sites que executam a versão 1710, 1802 ou 1806. <!-- baseline only statement: When installing a new site, it's also available as a baseline version.--> Este artigo resume as alterações e novos recursos no Configuration Manager, versão 1810.  
 
 Reveja sempre a lista de verificação mais recente para instalar esta atualização. Para obter mais informações, consulte [lista de verificação para a instalação de atualização 1810](/sccm/core/servers/manage/checklist-for-installing-update-1810). Depois de atualizar um site, reveja também os [lista de verificação de pós-atualização](/sccm/core/servers/manage/checklist-for-installing-update-1810#post-update-checklist).
+
+Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.
 
 > [!Note]  
 > Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
 
-> [!Important]  
-> Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.
-
-Este artigo resume as alterações e novos recursos no Configuration Manager, versão 1810.  
+> [!Tip]  
+> Para ser notificado quando esta página é atualizada, copie e cole o URL seguinte no seu feed de leitor de RSS: `https://docs.microsoft.com/api/search/rss?search=%22what%27s+new+in+version+1810+-+Configuration+Manager%22&locale=en-us`
 
 
 
