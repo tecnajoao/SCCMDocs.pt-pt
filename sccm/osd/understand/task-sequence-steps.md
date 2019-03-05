@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6a1b9b970ecf928825e526e88c9d9792faeded6
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: 95fb105d10fc7afbb94328dd7905ef075daa447b
+ms.sourcegitcommit: 33a006204f7f5f9b9acd1f3e84c4bc207362d00a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56838927"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57305784"
 ---
 # <a name="task-sequence-steps-in-configuration-manager"></a>Passos de sequência de tarefas no Configuration Manager
 
@@ -997,6 +997,8 @@ Utilize as seguintes variáveis de sequência de tarefas com este passo:
 > Se o cliente não conseguir obter a lista de pontos de gestão dos serviços de localização, utilize o **SMSTSMPListRequestTimeoutEnabled** e **SMSTSMPListRequestTimeout** variáveis. Estas variáveis especificam quantos milissegundos uma sequência de tarefas aguarda antes de tentar novamente instalar uma aplicação ou software da atualização. Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables).  
 
 Para adicionar este passo no editor de sequência de tarefas, selecione **Add**, selecione **Software**e selecione **instalar atualizações de Software**. 
+
+Para obter mais recomendações e um diagrama de fluxograma técnica para este passo, consulte [instalar atualizações de Software](/sccm/osd/understand/install-software-updates).
 
 
 ### <a name="properties"></a>Propriedades  

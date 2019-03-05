@@ -1,8 +1,8 @@
 ---
-title: 'Gerir controladores '
+title: Gerir controladores
 titleSuffix: Configuration Manager
 description: Utilizar o catálogo de controladores do Configuration Manager para importar controladores de dispositivo, controladores de grupo em pacotes e distribuir estes pacotes em pontos de distribuição.
-ms.date: 01/27/2017
+ms.date: 03/02/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -11,263 +11,285 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727a449b956868c5dec88b4df5b8a66ac400abdc
-ms.sourcegitcommit: 0bf253085adeca0d9ea62d76497eb5ebf5ce89da
+ms.openlocfilehash: be3cc24721674e9da276e7a65af03a5b4a266eed
+ms.sourcegitcommit: 33a006204f7f5f9b9acd1f3e84c4bc207362d00a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012450"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57305699"
 ---
-# <a name="manage-drivers-in-system-center-configuration-manager"></a>Gerir controladores no System Center Configuration Manager
+# <a name="manage-drivers-in-configuration-manager"></a>Gerir controladores no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager fornece um catálogo de controladores que pode utilizar para gerir os controladores de dispositivo do Windows no seu ambiente do Configuration Manager. Pode utilizar o catálogo de controladores para importar controladores de dispositivo para o Configuration Manager, ao agrupá-los em pacotes e distribuir estes pacotes em pontos de distribuição em que pode acessá-los quando implementar um sistema operativo. Os controladores de dispositivos podem ser utilizados quando instala o sistema operativo completo no computador de destino e quando instala o Windows PE com uma imagem de arranque. Os controladores do dispositivo do Windows são compostos por um ficheiro INF (Ficheiro de Informações de Configuração) e pelos ficheiros adicionais necessários para suportar o dispositivo. Quando um sistema operativo é implementado, o Configuration Manager obtém as informações de plataforma de hardware e para o dispositivo de seu arquivo INF. Utilize o seguinte para gerir controladores no ambiente do Configuration Manager.
+O Configuration Manager fornece um catálogo de controladores que pode utilizar para gerir os controladores de dispositivo do Windows no seu ambiente do Configuration Manager. Utilize o catálogo de controladores para importar controladores de dispositivo para o Configuration Manager, ao agrupá-los em pacotes e distribuir estes pacotes em pontos de distribuição. Controladores de dispositivo podem ser utilizados quando instala o sistema operacional completo no computador de destino e quando usa o Windows PE numa imagem de arranque. Controladores de dispositivo do Windows é composto por um arquivo de informações (. INF) de instalação e arquivos adicionais que são necessários para suportar o dispositivo. Quando implementa um sistema operacional, o Configuration Manager obtém as informações de plataforma de hardware e para o dispositivo de seu arquivo INF. 
 
-##  <a name="BKMK_DriverCategories"></a> Categorias de controladores de dispositivos  
- Quando importa controladores de dispositivos, pode atribuir os controladores de dispositivos a uma categoria. As categorias de controladores de dispositivos ajudam a agrupar o controladores de dispositivos de utilização semelhante no catálogo de controladores. Por exemplo, é possível atribuir todos os controladores de dispositivos do adaptador de rede a uma categoria específica. Em seguida, quando criar uma sequência de tarefas que inclua o passo [Aplicar Controladores Automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) , pode indicar uma categoria específica de controladores de dispositivo. Configuration Manager, em seguida, analisa o hardware e seleciona os controladores adequados dessa categoria para preparar o sistema para a configuração da Windows utilizar.  
 
-##  <a name="BKMK_ManagingDriverPackages"></a> Pacotes de controladores  
- Pode agrupar controladores de dispositivo semelhantes em pacotes para simplificar as implementações do sistema operativo. Por exemplo, poderá optar por criar um pacote de controlador para cada fabricante de computadores na sua rede. Pode criar um pacote de controlador enquanto importa controladores para o catálogo de controladores diretamente no nó **Pacotes de Controladores** . Depois de criar o pacote de controladores, tem de ser distribuído para pontos de distribuição do qual Configuration Manager computadores cliente podem instalar os controladores conforme forem necessários. Tenha em consideração o seguinte:  
 
-- Quando cria um pacote de controladores, a localização de origem do pacote tem de apontar para uma partilha de rede vazia que não seja utilizada por outro pacote de controlador e o fornecedor de SMS tem de ter permissões de controlo total a essa localização.  
+## <a name="BKMK_DriverCategories"></a> Categorias de controladores
 
-- Quando adiciona controladores de dispositivo a um pacote de controladores, o Configuration Manager copia o controlador de dispositivo para a localização de origem do pacote de controlador. Só pode adicionar controladores de dispositivos que tenham sido importados e que estão ativados no catálogo de controladores.  
+Quando importa controladores de dispositivos, pode atribuir os controladores de dispositivos a uma categoria. As categorias de controladores de dispositivos ajudam a agrupar o controladores de dispositivos de utilização semelhante no catálogo de controladores. Por exemplo, defina todos os controladores de dispositivo do adaptador de rede a uma categoria específica. Em seguida, quando criar uma sequência de tarefas que inclui a [aplicar controladores automaticamente](/sccm/osd/understand/task-sequence-steps#BKMK_AutoApplyDrivers) passo, especificar uma categoria de controladores de dispositivo. Configuration Manager, em seguida, analisa o hardware e seleciona os controladores adequados dessa categoria para preparar o sistema para a configuração da Windows utilizar.  
 
-- Para copiar um subconjunto de controladores de dispositivo de um pacote de controlador existente, crie um novo pacote de controlador, adicione o subconjunto de controladores de dispositivo ao novo pacote e distribua o novo pacote por um ponto de distribuição.  
 
-  Utilize as secções seguintes para criar e gerir pacotes de controladores.  
 
-###  <a name="CreatingDriverPackages"></a> Criar um pacote de controlador  
- Utilize o procedimento seguinte para criar um novo pacote de controladores.  
+## <a name="BKMK_ManagingDriverPackages"></a> Pacotes de controladores
 
-> [!IMPORTANT]  
->  Para criar um pacote de controladores, terá de ter uma pasta de rede vazia que não seja utilizada por outro pacote de controladores. Na maioria dos casos, terá de criar uma nova pasta antes de iniciar este procedimento.  
+Agrupe controladores de dispositivo semelhantes em pacotes para simplificar as implementações de sistema operacional. Por exemplo, crie um pacote de controladores para cada fabricante de computador na sua rede. Pode criar um pacote de controladores quando importa controladores para o catálogo de controladores diretamente no **pacotes de controladores** nó. Depois de criar um pacote de controladores, distribuí-la aos pontos de distribuição. Em seguida, os computadores de cliente do Configuration Manager podem instalar os controladores conforme necessário. 
 
-> [!NOTE]  
->  Quando utiliza sequências de tarefas para instalar controladores, crie pacotes de controladores que contenham menos de 500 controladores de dispositivo.  
+Considere os seguintes pontos:  
 
- Utilize o procedimento seguinte para criar um pacote de controladores.  
+- Quando cria um pacote de controladores, a localização de origem do pacote tem de apontar para uma partilha de rede vazia que não seja utilizada por outro pacote de controladores. O fornecedor de SMS tem de ter **controlo total** permissões para essa localização.  
 
-#### <a name="to-create-a-driver-package"></a>Para criar um pacote de controladores  
+- Quando adiciona controladores de dispositivo a um pacote de controladores, o Configuration Manager copia-o para a localização de origem do pacote. Pode adicionar um driver apenas controladores de dispositivo que importar o pacote e que estão ativados no catálogo de controladores.  
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+- Pode copiar um subconjunto de controladores de dispositivo de um pacote de controlador existente. Primeiro, crie um novo pacote de controladores. Em seguida, adicione o subconjunto de controladores de dispositivo para o novo pacote e, em seguida, distribua o novo pacote para um ponto de distribuição.  
 
-2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de Controladores**.  
+- Quando utiliza sequências de tarefas para instalar controladores, crie pacotes de controladores que contenham menos de 500 controladores de dispositivo.
 
-3. No separador **Home page** , no grupo **Criar** , clique em **Criar Pacote de Controladores**.  
 
-4. Na caixa **Nome** , especifique um nome descritivo para o pacote de controladores.  
-
-5. Na caixa **Comentário** , introduza uma descrição opcional para o pacote de controladores. Certifique-se de que a descrição fornece informações sobre o conteúdo ou objetivo do pacote de controladores.  
-
-6. Na caixa **Caminho** , especifique uma pasta de origem vazia para o pacote de controladores. Introduza o caminho para a pasta de origem no formato UNC (Universal Naming Convention). Cada pacote de controladores terá de utilizar uma pasta exclusiva.  
-
-   > [!IMPORTANT]  
-   >  A conta de servidor do site tem de ter **controlo total** permissões para a pasta de origem especificada.  
-
-   O novo pacote de controladores não contém quaisquer controladores. O passo seguinte consiste em adicionar controladores ao pacote.  
-
-   Se o nó **Pacotes de Controladores** contiver diversos pacotes, poderá adicionar pastas ao mesmo para separar os pacotes em grupos lógicos.  
-
-###  <a name="BKMK_PackageActions"></a> Ações adicionais para pacotes de controladores  
- Pode realizar ações adicionais para gerir os pacotes de controladores quando seleciona um ou mais pacotes de controladores no nó **Pacotes de Controladores** . Estas ações incluem o seguinte:  
-
-|Action|Descrição|  
-|------------|-----------------|  
-|**Criar Ficheiro de Conteúdo Pré-configurado**|Cria ficheiros que podem ser utilizados para importar manualmente o conteúdo e os metadados associados. Utilize conteúdo pré-configurado quando tiver reduzida largura de banda de rede entre o servidor de site e os pontos de distribuição em que o pacote de controladores se encontra armazenado.|  
-|**Eliminar**|Remove o pacote de controladores do nó **Pacotes de Controladores** .|  
-|**Distribuir Conteúdo**|Distribui o pacote de controladores aos pontos de distribuição, grupos de pontos de distribuição e grupos de pontos de distribuição associados a coleções.|  
-|**Gerir Contas de Acesso**|Adiciona, modifica ou remove as contas de acesso do pacote de controladores.<br /><br /> Para obter mais informações sobre as contas de acesso de pacotes, consulte [contas utilizadas no Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
-|**Moverr**|Move o pacote de controladores para outra pasta do nó **Pacotes de Controladores** .|  
-|**Atualizar Pontos de Distribuição**|Atualiza o pacote de controladores de dispositivo em todos os pontos de distribuição em que o pacote se encontra armazenado. Esta ação copia apenas o conteúdo que foi alterado desde a última vez em que foi distribuído.|  
-|**Propriedades**|Abre a caixa de diálogo **Propriedades** , onde pode consultar e alterar o conteúdo e as propriedades do controlador de dispositivo. Por exemplo, poderá mudar o nome e a descrição do controlador de dispositivo, ativá-lo ou especificar em que plataformas poderá ser executado.|  
-
-##  <a name="BKMK_DeviceDrivers"></a> Controladores de dispositivo  
- Pode instalar controladores de dispositivo em computadores de destino sem os incluir na imagem do sistema operativo que está a ser implementada. O Configuration Manager fornece um catálogo de controladores que contém referências a todos os controladores de dispositivo que importar para o Configuration Manager. O catálogo de controladores está localizado na **biblioteca de Software** área de trabalho e é composta por dois nós: **Drivers** e **pacotes de controladores**. O nó **Controladores** lista todos os controladores que importou para o catálogo de controladores. Utilize este nó para saber os detalhes de cada controlador importado, modificar os controladores num pacote de controlador ou imagem de arranque, ativar ou desativar um controlador, etc.  
-
-###  <a name="BKMK_ImportDrivers"></a> Importar controladores de dispositivo para o catálogo de controladores  
- Tem de importar os controladores de dispositivos para o catálogo de controladores antes de os poder utilizar para implementar um sistema operativo. Para melhor gerir os controladores de dispositivos, importe apenas aqueles que tenciona instalar como parte da implementação do sistema operativo. Porém, pode também armazenar várias versões dos controladores de dispositivos no catálogo de dispositivos para facilitar a atualização dos controladores de dispositivos existentes quando forem efetuadas alterações nos requisitos do dispositivo de hardware da rede.  
-
- Como parte do processo de importação para o controlador de dispositivo, o Configuration Manager lê o fornecedor, classe, versão, assinatura, hardware suportado e informações de plataforma que está associadas ao dispositivo suportado. Por predefinição, o controlador é denominado de acordo com o primeiro dispositivo de hardware que suporta. No entanto, poderá posteriormente mudar o nome do controlador de dispositivo. A lista de plataformas suportadas baseia-se nas informações do ficheiro INF do controlador. Uma vez que a exatidão destas informações poderá variar, verifique manualmente se o controlador de dispositivo é suportado após a sua importação para o catálogo de controladores.  
-
- Depois de importar controladores de dispositivo para o catálogo, poderá adicionar os controladores de dispositivo a pacotes de controladores ou a pacotes de imagens de arranque.  
+### <a name="BKMK_CreatingDriverPackages"></a> Criar um pacote de controlador  
 
 > [!IMPORTANT]  
->  Não pode importar controladores de dispositivo diretamente para uma subpasta do nó **Controladores** . Para importar um controlador de dispositivo para uma subpasta, importe-o primeiro para o nó **Controladores** e, em seguida, mova-o para a subpasta.  
+> Para criar um pacote de controladores, tem de ter uma pasta de rede vazia que não seja utilizada por outro pacote de controladores. Na maioria dos casos, crie uma nova pasta antes de iniciar este procedimento.  
 
- Utilize o procedimento seguinte para importar controladores de dispositivo do Windows.  
+1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **sistemas operativos**e, em seguida, selecione a **pacotes de controladores** nó.  
 
-#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Para importar controladores de dispositivo do Windows para o catálogo de controladores  
+2. Sobre o **home page** separador do Friso, no **criar** grupo, selecione **criar pacote de controladores**.  
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+3. Especifique um descritivo **nome** para o pacote de controladores.  
 
-2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
+4. Introduza um opcional **comentário** para o pacote de controladores. Utilize esta descrição para fornecer informações sobre o conteúdo ou o objetivo do pacote de controladores.  
 
-3. No separador **Home page** , no grupo **Criar** , clique em **Importar Controlador** para iniciar o **Assistente para Importar Novo Controlador**.  
-
-4. Na página **Localizar Controlador** , especifique as seguintes opções e clique em **Seguinte**:  
-
-   -   **Importar todos os controladores no seguinte caminho de rede (UNC)**: Para importar todos os controladores de dispositivo contidos numa pasta específica, especifique o caminho de rede para a pasta de driver de dispositivo. Por exemplo,  **\\\\servername\folder**.  
-
-       > [!NOTE]  
-       >  O processo para importar todos os controladores pode demorar algum tempo se existirem muitas pastas e muitos ficheiros de controlador (.inf).  
-
-   -   **Importar um controlador específico**: Para importar um controlador específico a partir de uma pasta, especifique o caminho de rede (UNC) para o controlador de dispositivo do Windows. INF ou em massa armazenamento ficheiro Txtsetup OEM do controlador.  
-
-   -   **Especificar a opção para duplicar controladores**: Selecione como pretende que o Configuration Manager para gerir categorias de controladores quando for importada uma unidade de dispositivo duplicado.  
+5. Na caixa **Caminho** , especifique uma pasta de origem vazia para o pacote de controladores. Cada pacote de controladores terá de utilizar uma pasta exclusiva. Este caminho é necessário como uma localização de rede.  
 
    > [!IMPORTANT]  
-   >  Quando importa controladores, o servidor do site tem de ter permissão de **Leitura** na pasta ou a importação falhará.  
+   > A conta de servidor do site tem de ter **controlo total** permissões para a pasta de origem especificada.  
 
-5. Na página **Detalhes do Controlador** , especifique as seguintes opções e clique em **Seguinte**:  
+O novo pacote de controladores não contém quaisquer controladores. O passo seguinte adiciona controladores ao pacote.  
 
-   -   **Ocultar controladores que não estão numa classe de armazenamento ou de rede (para imagens de arranque)**: Utilize esta definição para apresentar apenas controladores de rede e de armazenamento e ocultar outros controladores que normalmente não são necessários para imagens de arranque, como um controlador de vídeo ou controlador do modem.  
+Se o nó **Pacotes de Controladores** contiver diversos pacotes, poderá adicionar pastas ao mesmo para separar os pacotes em grupos lógicos.  
 
-   -   **Ocultar controladores que não estejam assinados digitalmente**: Utilize esta definição para ocultar controladores que não estejam assinados digitalmente.  
 
-   -   Na lista de controladores, selecione os que pretende importar para o catálogo de controladores.  
+### <a name="BKMK_PackageActions"></a> Ações adicionais para pacotes de controladores  
 
-   -   **Ativar estes controladores e permitir que os computadores instalem**: Selecione esta definição para permitir que os computadores instalem os controladores de dispositivo. Por predefinição, esta caixa de verificação está selecionada.  
+Pode realizar ações adicionais para gerir pacotes de controladores quando seleciona um ou mais pacotes de controladores a **pacotes de controladores** nó. 
 
-       > [!IMPORTANT]  
-       >  Se um controlador de dispositivo estiver a causar um problema ou quiser suspender a instalação de um controlador de dispositivo, pode desativar o controlador de dispositivo ao desmarcar a caixa de verificação **Ativar estes controladores e permitir que os computadores os instalem** . Também pode desativar controladores após estes terem sido importados.  
 
-   -   Para atribuir os controladores de dispositivo a uma categoria administrativa para efeitos de filtragem, tal como "Computadores de Secretária" ou "Portáteis", clique em **Categorias** e selecione uma categoria existente ou crie uma nova. Também pode utilizar a atribuição de categorias para configurar que controladores de dispositivo serão aplicados à implementação pelo passo [Aplicar Controladores Automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) da sequência de tarefas.  
+#### <a name="create-prestage-content-file"></a>Criar Ficheiro de Conteúdo Pré-configurado
+Cria ficheiros que pode utilizar para importar manualmente o conteúdo e metadados associados. Utilize conteúdo pré-configurado quando tiver reduzida largura de banda de rede entre o servidor de site e os pontos de distribuição em que o pacote de controladores se encontra armazenado.
 
-6. Na página **Adicionar Controlador a Pacotes** , escolha se pretende adicionar os controladores a um pacote e clique em **Seguinte**. Considere o seguinte procedimento para adicionar os controladores a um pacote:  
+#### <a name="delete"></a>Eliminar
+Remove o pacote de controladores do nó **Pacotes de Controladores**.
 
-   -   Selecione os pacotes de controladores utilizados para distribuir os controladores de dispositivo.  
+#### <a name="distribute-content"></a>Distribuir Conteúdo
+Distribui o pacote de controladores aos pontos de distribuição, grupos de pontos de distribuição e grupos de pontos de distribuição associados a coleções.
 
-        Opcionalmente, clique em **Novo Pacote** para criar um novo pacote de controladores. Ao criar um novo pacote de controladores, terá de fornecer uma partilha de rede que não se encontre em utilização por outros pacotes de controladores.  
+#### <a name="manage-access-accounts"></a>Gerir Contas de Acesso
+Adiciona, modifica ou remove as contas de acesso do pacote de controladores.
 
-   -   Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim**, na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
+Para obter mais informações sobre as contas de acesso de pacotes, consulte [contas utilizadas no Configuration Manager](/sccm/core/plan-design/hierarchy/accounts).
 
-7. Na página **Adicionar Controlador a Imagens de Arranque** , escolha se pretende adicionar os controladores de dispositivo a imagens de arranque existentes e clique em **Seguinte**. Se selecionar uma imagem de arranque, considere o seguinte:  
+#### <a name="move"></a>Mover
+Move o pacote de controladores para outra pasta do nó **Pacotes de Controladores**.
 
-   > [!NOTE]  
-   >  Como melhor prática, adicione apenas armazenamento em massa e controladores de dispositivos de rede às imagens de arranque em cenários de implementação do sistema operativo.  
+#### <a name="update-distribution-points"></a>Atualizar Pontos de Distribuição
+Atualiza o pacote de controladores de dispositivo em todos os pontos de distribuição em que o pacote se encontra armazenado. Esta ação copia apenas o conteúdo que foi alterado desde a última vez em que foi distribuído.
 
-   - Clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
+#### <a name="properties"></a>Propriedades
+Abre o **propriedades** caixa de diálogo. Rever e alterar o conteúdo e propriedades do controlador. Por exemplo, altere o nome e descrição do controlador, ativar ou desativá-la e especificar em que plataformas pode executar. 
 
-   - O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não correspondem à arquitetura das imagens de arranque que selecionou. Se não corresponderem, clique em **OK** e volte à página **Detalhes do Controlador** para desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
+<!--3607716, fka 1358270--> A partir da versão 1810, pacotes de controladores têm campos de metadados para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar. Sobre o **gerais** separador, selecione um valor existente listas suspensas ou introduza uma cadeia de caracteres para criar uma nova entrada. 
 
-     > [!NOTE]
-     > - A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
-     >   -   Se um controlador suportar ambas as arquiteturas, pode importá-lo para qualquer imagem de arranque.  
+Na **pacotes de controladores** nó, estes campos apresentam na lista como a **fabricante de Driver** e **modelo de Driver** colunas. Eles também podem ser usados como critérios de pesquisa. 
 
-   - O Configuration Manager avisa-o se adicionar controladores de dispositivo que não sejam controladores de armazenamento ou de rede a uma imagem de arranque porque na maioria dos casos, não são necessários para a imagem de arranque. Clique em **Sim** para adicionar os controladores à imagem de arranque ou em **Não** para voltar atrás e modificar a seleção de controlador.  
 
-   - O Configuration Manager avisa-o se um ou mais controladores selecionados não estiverem assinados digitalmente de forma correta. Clique em **Sim** para continuar e clique em **Não** para voltar atrás e fazer alterações à seleção de controlador.  
 
-8. Conclua o assistente.  
+## <a name="BKMK_DeviceDrivers"></a> Controladores de dispositivo
 
-###  <a name="BKMK_ModifyDriverPackage"></a> Gerir controladores de dispositivo num pacote de controlador  
- Utilize os procedimentos seguintes para modificar pacotes de controladores e imagens de arranque. Para adicionar ou remover controladores de dispositivo, localize-os no nó **Controladores** e edite os pacotes ou as imagens de arranque a que os controladores selecionados estão associados.  
+Pode instalar controladores em computadores de destino sem os incluir na imagem do sistema operacional que está implementada. O Configuration Manager fornece um catálogo de controladores que contém referências a todos os controladores que importar para o Configuration Manager. O catálogo de controladores está localizado na **biblioteca de Software** área de trabalho e é composta por dois nós: **Drivers** e **pacotes de controladores**. O **Drivers** nó apresenta uma lista de todos os controladores que importar para o catálogo de controladores.  
 
-#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>Para modificar os controladores de dispositivo num pacote de controlador  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+### <a name="BKMK_ImportDrivers"></a> Importar controladores de dispositivo para o catálogo de controladores  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
+Antes de poder utilizar um driver ao implementar um sistema operacional, importe-o para o catálogo de controladores. Para melhor gerenciá-los, importar apenas os controladores que pretende instalar como parte das suas implementações do sistema operacional. Store várias versões de controladores no catálogo para fornecer uma forma fácil de atualizar os controladores existentes quando são alteram de requisitos de hardware de dispositivos na sua rede.  
 
-3.  No nó **Controladores** , selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+Como parte do processo de importação para o controlador de dispositivo, o Gerenciador de configuração lê as seguintes propriedades sobre o controlador:
+- Fornecedor
+- Classe
+- Versão
+- assinatura
+- Hardware suportado
+- Informações de plataforma suportada
 
-4.  No separador **Home page** , no grupo **Controlador** , clique em **Editar**e em **Pacotes de Controladores**.  
+Por predefinição, o controlador é denominado após o primeiro dispositivo de hardware que suporta. Pode renomear o controlador de dispositivo mais tarde. A lista de plataformas suportadas baseia-se nas informações do ficheiro INF do controlador. Uma vez que a exatidão destas informações pode variar, verifique manualmente se o driver é suportado depois de importar para o catálogo.  
 
-5.  Para adicionar um controlador de dispositivo, selecione a caixa de verificação dos pacotes de controladores aos quais pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação dos pacotes de controladores de que pretende remover o controlador de dispositivo.  
+Depois de importar controladores de dispositivo para o catálogo, adicioná-los para pacotes de controladores ou pacotes de imagens de arranque.  
 
-     Se estiver a adicionar controladores de dispositivo associados a pacotes de controladores, pode, opcionalmente, criar um novo pacote ao clicar em **Novo Pacote**, o que abre a caixa de diálogo **Novo Pacote de Controladores** .  
+> [!IMPORTANT]  
+> Não é possível importar controladores de dispositivo diretamente para uma subpasta dos **Drivers** nó. Para importar um controlador de dispositivo para uma subpasta, importe-o primeiro para o nó **Controladores** e, em seguida, mova-o para a subpasta.  
 
-6.  Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** . Antes de os controladores estarem disponíveis, tem de atualizar o pacote de controlador nos pontos de distribuição.  
 
-     Clique em **OK**.  
+#### <a name="process-to-import-windows-device-drivers-into-the-driver-catalog"></a>Processo para importar controladores de dispositivo do Windows para o catálogo de controladores  
 
-###  <a name="BKMK_ManageDriversBootImage"></a> Gerir controladores de dispositivo numa imagem de arranque  
- Pode adicionar controladores do dispositivo do Windows que tenham sido importados para o catálogo de controladores a imagens de arranque. Para adicionar controladores de dispositivos a uma imagem de arranque, utilize as seguintes diretrizes:  
+1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **sistemas operativos**e selecione o **Drivers** nó.  
 
-- Adicione apenas controladores de dispositivos de armazenamento em massa e de adaptador de rede a imagens de arranque, pois normalmente não são necessários outros tipos de controladores. Os controladores que não são obrigatórios aumentam desnecessariamente o tamanho da imagem de arranque.  
+2. No **home page** separador do Friso, no **Create** grupo, selecione **importar controlador** para iniciar o **Assistente para importar novo controlador**.  
 
-- Adicione apenas controladores de dispositivos para Windows 10 a uma imagem de arranque, uma vez que a versão necessária do Windows PE se baseia no Windows 10.  
+3. Sobre o **localizar controlador** página, especifique as seguintes opções:  
 
-- Certifique-se de que utiliza o controlador de dispositivo correto para a arquitetura da imagem de arranque.  Não adicione um controlador de dispositivo de x86 a uma imagem de arranque de x64.  
+    - **Importar todos os controladores no seguinte caminho de rede (UNC)**: Para importar todos os controladores de dispositivo numa pasta específica, especifique o caminho de rede. Por exemplo: `\\servername\share\folder`.  
 
-  Utilize o seguinte procedimento para adicionar ou remover controladores de dispositivo numa imagem de arranque.  
+        > [!NOTE]  
+        > Se existirem muitos subpastas e muitos ficheiros INF de controlador, este processo pode demorar tempo.  
 
-#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Para modificar os controladores de dispositivo associados a uma imagem de arranque  
+    - **Importar um controlador específico**: Para importar um controlador específico a partir de uma pasta, especifique o caminho de rede para o ficheiro de INF do controlador de dispositivo Windows.  
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    - **Especificar a opção para duplicar controladores**: Selecione como pretende que o Configuration Manager para gerir categorias de controladores ao importar um controlador de dispositivo duplicados  
+        - **Importar o controlador e anexar uma nova categoria às categorias existentes**  
+        - **Importar o controlador e manter as categorias existentes**  
+        - **Importar o controlador e substituir as categorias existentes**  
+        - **Não importar o controlador**  
 
-2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
+    > [!IMPORTANT]  
+    > Quando importa controladores, o servidor do site tem de ter permissão de **Leitura** na pasta ou a importação falhará.  
 
-3. No nó **Controladores**, selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+4. Sobre o **detalhes do controlador** página, especifique as seguintes opções:  
 
-4. No separador **Home page** , no grupo **Controlador** , clique em **Editar**e em **Imagens de arranque**.  
+    - **Ocultar controladores que não estão numa classe de armazenamento ou de rede (para imagens de arranque)**: Utilize esta definição para apresentar apenas controladores de armazenamento e rede. Esta opção oculta outros controladores que normalmente não são necessários para imagens de arranque, como um controlador de vídeo ou controlador do modem.  
 
-5. Para adicionar um controlador de dispositivo, selecione a caixa de verificação da imagem de arranque à qual pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação da imagem de arranque de que pretende remover o controlador de dispositivo.  
+    - **Ocultar controladores que não estejam assinados digitalmente**: A Microsoft recomenda utilizar apenas os controladores que são assinados digitalmente  
 
-6. Se não quiser atualizar os pontos de distribuição em que a imagem de arranque está armazenada, desmarque a caixa de verificação **Atualizar pontos de distribuição após concluir** . Por predefinição, os pontos de distribuição são atualizados quando a imagem de arranque é atualizada.  
+    - Na lista de controladores, selecione os que pretende importar para o catálogo de controladores.  
 
-    Clique em **OK** e considere o seguinte:  
+    - **Ativar estes controladores e permitir que os computadores instalem**: Selecione esta definição para permitir que os computadores instalem os controladores de dispositivo. Por predefinição, esta opção encontra-se ativada.  
 
-   - Clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
+        > [!IMPORTANT]  
+        > Se um driver de dispositivo está a causar um problema ou pretender suspender a instalação de um driver de dispositivo, desativá-lo durante a importação. Também pode desativar controladores após importá-los.  
 
-   - O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não correspondem à arquitetura das imagens de arranque que selecionou. Se não corresponderem, clique em **OK** e volte à página **Detalhes do Controlador** para desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
+    - Para atribuir os controladores de dispositivo a uma categoria administrativa para filtragem fins, como "Computadores de secretária" ou "Portáteis", selecione **categorias**. Em seguida, escolha uma categoria existente ou criar uma nova categoria. Utilizar categorias de controle que drivers de dispositivo são aplicados pela [aplicar controladores automaticamente](/sccm/osd/understand/task-sequence-steps#BKMK_AutoApplyDrivers) passo de sequência de tarefas.  
 
-     > [!NOTE]
-     > - A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
-     >   -   Se um controlador suportar ambas as arquiteturas, pode importá-lo para qualquer imagem de arranque.  
+5. Sobre o **Adicionar controlador a pacotes** página, escolha se pretende adicionar os controladores a um pacote.  
 
-   - O Configuration Manager avisa-o se adicionar controladores de dispositivo que não sejam controladores de armazenamento ou de rede a uma imagem de arranque porque na maioria dos casos, não são necessários para a imagem de arranque. Clique em **Sim** para adicionar os controladores à imagem de arranque ou em **Não** para voltar atrás e modificar a seleção de controlador.  
+    - Selecione os pacotes de controladores utilizados para distribuir os controladores de dispositivo.  
 
-   - O Configuration Manager avisa-o se um ou mais controladores selecionados não estiverem assinados digitalmente de forma correta. Clique em **Sim** para continuar e clique em **Não** para voltar atrás e fazer alterações à seleção de controlador.  
+        Se necessário, selecione **novo pacote** para criar um novo pacote de controladores. Quando cria um novo pacote de controladores, fornece uma partilha de rede que não está em utilização por outros pacotes de controladores.  
 
-7. Clique em **OK**.  
+    - Se o pacote já tiver sido distribuído para pontos de distribuição, selecione **Sim** na caixa de diálogo para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo até que eles estão distribuídos para pontos de distribuição. Se selecionou **não**, execute o **atualizar ponto de distribuição** ação antes de utilizar a imagem de arranque. Se o pacote de controlador nunca tiver sido distribuído, tem de utilizar o **distribuir conteúdo** ação no **pacotes de controladores** nó.  
 
-###  <a name="BKMK_DriverActions"></a> Ações adicionais para controladores de dispositivo  
- Pode realizar ações adicionais para gerir os controladores de dispositivo quando seleciona um ou mais controladores de dispositivo no nó **Controladores** . Estas ações incluem o seguinte:  
+6. Sobre o **Adicionar controlador a imagens de arranque** página, selecione se pretende adicionar os controladores de dispositivo a imagens de arranque existentes.  
 
-|Action|Descrição|  
-|------------|-----------------|  
-|**Categorizar**|Elimina, gere ou define uma categoria administrativa para os controladores de dispositivo selecionados.|  
-|**Eliminar**|Remove o controlador de dispositivo do nó **Controladores** e remove também o controlador dos pontos de distribuição associados.|  
-|**Desativar**|Proíbe a instalação do controlador de dispositivo. Pode desativar temporariamente controladores de dispositivo para que os computadores de cliente do Configuration Manager e sequências de tarefas não é possível instalá-los quando estiver a implementar sistemas operativos. **Nota:**  A ação de Desativação apenas impede que os controladores instalem com o passo de sequência de tarefas aplicar controladores automaticamente.|  
-|**Ativar**|Permite que os computadores de cliente do Configuration Manager e sequências de tarefas instale o controlador de dispositivo quando o sistema operativo é implementado.|  
-|**Moverr**|Move o controlador de dispositivo para outra pasta do nó **Controladores** .|  
-|**Propriedades**|Abre a caixa de diálogo **Propriedades** , onde pode consultar e alterar as propriedades do controlador de dispositivo. Por exemplo, poderá mudar o nome e a descrição do controlador de dispositivo, ativá-lo ou especificar em que plataformas poderá ser executado.|  
+    > [!NOTE]  
+    > Adicione apenas controladores de armazenamento e de rede às imagens de arranque.  
 
-##  <a name="BKMK_TSDrivers"></a> Utilizar sequências de tarefas para instalar controladores de dispositivo  
- Utilize sequências de tarefas para automatizar a forma como o sistema operativo é implementado. Cada passo da sequência de tarefas pode executar uma ação específica, como por exemplo, instalar um controlador de dispositivo. Pode utilizar estes dois passos da sequência de tarefas para instalar controladores de dispositivos durante a implementação de sistemas operativos:  
+    - Selecione **Sim** na caixa de diálogo para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo até que eles estão distribuídos para pontos de distribuição. Se selecionou **não**, execute o **atualizar ponto de distribuição** ação antes de utilizar a imagem de arranque. Se o pacote de controlador nunca tiver sido distribuído, tem de utilizar o **distribuir conteúdo** ação no **pacotes de controladores** nó.  
 
-- [Aplicar controladores automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers): Este passo permite-lhe fazer corresponder e instalar controladores de dispositivo como parte da implementação do sistema operativo automaticamente. Pode configurar o passo da sequência de tarefas para instalar apenas o controlador mais compatível com cada dispositivo de hardware detetado ou especificar que o passo da sequência de tarefas instale todos os controladores compatíveis com cada dispositivo de hardware detetado, deixando então que a Configuração do Windows escolha o controlador mais adequado. Além disso, pode especificar uma categoria de controladores de dispositivos para limitar os controladores que estão disponíveis neste passo.  
+    - O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não corresponde à arquitetura das imagens de arranque que selecionou. Se não coincidirem, selecione **OK**. Volte para o **detalhes do controlador** de páginas e desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
 
-- [Aplicar pacote de controlador](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage): Este passo permite-lhe disponibilizar todos os controladores de dispositivo num pacote de controladores específico para a configuração do Windows. Nos pacotes de controladores especificados, a Configuração do Windows procura os controladores de dispositivos necessários. Quando cria suportes de dados autónomos, tem de utilizar este passo para instalar controladores de dispositivo.  
+        > [!NOTE]  
+        > - A arquitetura baseia-se na arquitetura reportada no INF do fabricante.  
+        > - Se um controlador oferece suporte a ambas as arquiteturas, em seguida, pode importá-lo em qualquer imagem de arranque.  
 
-  Quando utiliza estes passos da sequência de tarefas, também pode especificar a forma como os controladores de dispositivos são instalados no computador em que implementa o sistema operativo. Para obter mais informações, consulte [gerir sequências de tarefas para automatizar tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
+    - O Configuration Manager avisa-o se adicionar controladores de dispositivo que não são controladores de armazenamento ou de rede para uma imagem de arranque. Na maioria dos casos, não são necessários para a imagem de arranque. Selecione **Sim** para adicionar os controladores à imagem de arranque, ou **não** para voltar atrás e modificar a sua seleção de controlador.  
 
-##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Utilizar sequências de tarefas para instalar controladores de dispositivo em computadores  
- Utilize o procedimento seguinte para instalar controladores de dispositivo como parte da implementação do sistema operativo.  
+    - O Configuration Manager avisa-o se um ou mais dos controladores selecionados não estão a ser assinados digitalmente de forma correta. Selecione **Sim** para continuar e selecione **não** para voltar atrás e fazer alterações à seleção de controlador.  
 
-#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Utilizar uma sequência de tarefas para instalar controladores de dispositivo  
+7. Conclua o assistente.  
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+### <a name="BKMK_ModifyDriverPackage"></a> Gerir controladores de dispositivo num pacote de controlador  
 
-3. No nó **Sequências de Tarefas** , selecione a sequência de tarefas que pretende modificar para instalar o controlador de dispositivo e clique em **Editar**.  
+Utilize os procedimentos seguintes para modificar pacotes de controladores e imagens de arranque. Para adicionar ou remover um driver, primeiro localizá-la na **Drivers** nó. Em seguida, edite os pacotes ou imagens de arranque à qual o controlador selecionado está associado.  
 
-4. Vá para a localização onde quer adicionar os passos **Controlador** , clique em **Adicionar**e selecione **Controladores**.  
+1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **sistemas operativos**e, em seguida, selecione a **Drivers** nó.  
 
-5. Adicione o passo **Aplicar Controladores Automaticamente** se quiser que a sequência de tarefas instale todos os dispositivos de controlador ou as categorias específicas indicadas. Especifique as opções do passo no separador **Propriedades** e outras condições para o mesmo no separador **Opções** .  
+2. Selecione os controladores de dispositivo que pretende adicionar a um pacote de controladores.  
 
-    Adicione o passo **Aplicar Pacote de Controlador** se pretender que a sequência de tarefas instale apenas os controladores de dispositivo do pacote especificado. Especifique as opções do passo no separador **Propriedades** e outras condições para o mesmo no separador **Opções** .  
+3. Na **home page** separador do Friso, no **Driver** grupo, selecione **editar**e, em seguida, selecione **pacotes de controladores**.  
 
-   > [!IMPORTANT]  
-   >  Pode selecionar **Desativar este passo** no separador **Opções** para desativar o passo para resolver problemas da sequência de tarefas.  
+4. Para adicionar um controlador de dispositivo, selecione a caixa de verificação dos pacotes de controladores aos quais pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação dos pacotes de controladores de que pretende remover o controlador de dispositivo.  
 
-6. Clique em **OK** para guardar a sequência de tarefas.  
+    Se estiver a adicionar controladores de dispositivo associados a pacotes de controladores, opcionalmente, pode criar um novo pacote. Selecione **novo pacote**, que abre o **novo pacote de controladores** caixa de diálogo.  
 
-   Para obter mais informações sobre como criar uma sequência de tarefas para instalar um sistema operativo, consulte [criar uma sequência de tarefas para instalar um sistema operativo](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
+5. Se o pacote já tiver sido distribuído para pontos de distribuição, selecione **Sim** na caixa de diálogo para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo até que eles estão distribuídos para pontos de distribuição. Se selecionou **não**, execute o **atualizar ponto de distribuição** ação antes de utilizar a imagem de arranque. Se o pacote de controlador nunca tiver sido distribuído, tem de utilizar o **distribuir conteúdo** ação no **pacotes de controladores** nó. Antes de os controladores estarem disponíveis, tem de atualizar o pacote de controlador nos pontos de distribuição.  
 
-##  <a name="BKMK_DriverReports"></a> Relatórios de gestão de controladores  
- Na categoria de relatórios **Gestão do Controlador** , pode utilizar vários relatórios para determinar as informações gerais sobre os controladores de dispositivos no catálogo de controladores. Para obter mais informações sobre relatórios, consulte [relatórios](../../core/servers/manage/reporting.md).
+    Selecione **OK** quando terminar.  
+
+
+### <a name="BKMK_ManageDriversBootImage"></a> Gerir controladores de dispositivo numa imagem de arranque  
+
+É possível adicionar a controladores de dispositivo do Windows que foram importados para o catálogo de imagens de arranque. Para adicionar controladores de dispositivos a uma imagem de arranque, utilize as seguintes diretrizes:  
+
+- Adicione apenas controladores de armazenamento e de rede a imagens de arranque. Outros tipos de controladores não são normalmente necessários no Windows PE. Controladores que não são necessários desnecessariamente aumentam o tamanho da imagem de arranque.  
+
+- Adicione apenas controladores de dispositivos para Windows 10 para uma imagem de arranque. A versão necessária do Windows PE baseia-se no Windows 10.  
+
+- Certifique-se de que utiliza o driver de dispositivo correto para a arquitetura da imagem de arranque. Não adicione um x86 driver de dispositivo a um x64 imagem de arranque.  
+
+#### <a name="process-to-modify-the-device-drivers-associated-with-a-boot-image"></a>Processo para modificar os controladores de dispositivo associados a uma imagem de arranque  
+
+1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **sistemas operativos**e, em seguida, selecione a **Drivers** nó.  
+
+2. Selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+
+3. Na **home page** separador do Friso, no **Driver** grupo, selecione **editar**e, em seguida, selecione **imagens de arranque**.  
+
+4. Para adicionar um controlador de dispositivo, selecione a caixa de verificação da imagem de arranque à qual pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação da imagem de arranque de que pretende remover o controlador de dispositivo.  
+
+5. Se não pretender atualizar os pontos de distribuição em que a imagem de arranque é armazenada, desmarque a **atualizar pontos de distribuição após concluir** caixa de verificação. Por predefinição, os pontos de distribuição são atualizados quando a imagem de arranque é atualizada.  
+
+    - Selecione **Sim** na caixa de diálogo para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo até que eles estão distribuídos para pontos de distribuição. Se selecionou **não**, execute o **atualizar ponto de distribuição** ação antes de utilizar a imagem de arranque. Se o pacote de controlador nunca tiver sido distribuído, tem de utilizar o **distribuir conteúdo** ação no **pacotes de controladores** nó.  
+
+    - O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não corresponde à arquitetura das imagens de arranque que selecionou. Se não coincidirem, selecione **OK**. Volte para o **detalhes do controlador** página e desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
+
+        > [!NOTE]
+        > - A arquitetura baseia-se na arquitetura reportada no INF do fabricante.  
+        > - Se um controlador suportar ambas as arquiteturas, pode importá-lo para qualquer imagem de arranque.  
+
+    - O Configuration Manager avisa-o se adicionar controladores de dispositivo que não são controladores de armazenamento ou de rede para uma imagem de arranque. Na maioria dos casos, não são necessários para a imagem de arranque. Selecione **Sim** para adicionar os controladores à imagem de arranque ou **não** para voltar atrás e modificar a sua seleção de controlador.  
+
+    - O Configuration Manager avisa-o se um ou mais dos controladores selecionados não estão a ser assinados digitalmente de forma correta. Selecione **Sim** para continuar ou selecione **não** para voltar atrás e fazer alterações à seleção de controlador.  
+
+
+### <a name="BKMK_DriverActions"></a> Ações adicionais para controladores de dispositivo  
+
+Pode realizar ações adicionais para gerir controladores, quando selecioná-los no **Drivers** nó.  
+
+#### <a name="categorize"></a>Categorizar
+Limpa, gere ou define uma categoria administrativa para os controladores selecionados.
+
+#### <a name="delete"></a>Eliminar
+Remove o controlador dos **Drivers** nó e também remove o controlador de distribuição associados pontos.
+
+#### <a name="disable"></a>Desativar
+Proíbe o driver de que está a ser instalado. Esta ação desativa temporariamente o driver. A sequência de tarefas não é possível instalar um driver desativado ao implementar um sistema operacional. 
+
+> [!Note]  
+> Esta ação só impede que os controladores instalem com o **aplicar controladores automaticamente** passo de sequência de tarefas.
+
+#### <a name="enable"></a>Ativar
+Permite que os computadores de cliente do Configuration Manager e sequências de tarefas instale o controlador de dispositivo quando implantar o sistema operacional.
+
+#### <a name="move"></a>Mover
+Move o controlador de dispositivo para outra pasta do nó **Controladores**.
+
+#### <a name="properties"></a>Propriedades
+Abre o **propriedades** caixa de diálogo. Rever e alterar as propriedades do controlador. Por exemplo, alterar o nome e descrição, ativar ou desativá-la e especificar as plataformas que pode ser executada no.
+
+
+
+## <a name="BKMK_TSDrivers"></a> Utilizar sequências de tarefas para instalar controladores  
+
+Utilize sequências de tarefas para automatizar a forma como o sistema operativo é implementado. Cada passo na sequência de tarefas pode fazer uma ação específica, como instalar um driver. Pode utilizar os seguintes passos de sequência de tarefas duas para instalar controladores de dispositivo ao implementar um sistema operacional:  
+
+- [Aplicar controladores automaticamente](/sccm/osd/understand/task-sequence-steps#BKMK_AutoApplyDrivers): Este passo permite-lhe fazer corresponder e instalar controladores de dispositivo como parte da implementação do sistema operativo automaticamente. Pode configurar o passo de sequência de tarefas para instalar apenas os controladores com melhor compatibilidade para cada dispositivo de hardware detetado. Em alternativa, especificar que o passo instala todos os controladores compatíveis para cada dispositivo de hardware detetado e, em seguida, deixe o programa de configuração do Windows escolha o melhor controlador. Também pode especificar uma categoria de controlador para limitar os controladores que estão disponíveis para este passo.  
+
+- [Aplicar pacote de controlador](/sccm/osd/understand/task-sequence-steps#BKMK_ApplyDriverPackage): Este passo permite-lhe disponibilizar todos os controladores de dispositivo num pacote de controladores específico para a configuração do Windows. Nos pacotes de controladores especificados, a Configuração do Windows procura os controladores de dispositivos necessários. Quando cria suportes de dados autónomos, tem de utilizar este passo para instalar controladores de dispositivo.  
+
+Quando utiliza estes passos de sequência de tarefas, também pode especificar como os drivers são instalados no computador em que implantar o sistema operacional. Para obter mais informações, consulte [gerir sequências de tarefas para automatizar tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks).  
+
+
+
+## <a name="BKMK_DriverReports"></a> Relatórios de controladores  
+
+Na categoria de relatórios **Gestão do Controlador** , pode utilizar vários relatórios para determinar as informações gerais sobre os controladores de dispositivos no catálogo de controladores. Para obter mais informações sobre relatórios, consulte [relatórios](/sccm/core/servers/manage/reporting).
+
