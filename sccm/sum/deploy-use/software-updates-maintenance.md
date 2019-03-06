@@ -3,7 +3,7 @@ title: Manutenção das atualizações de software
 titleSuffix: Configuration Manager
 description: Para a manutenção de atualizações no Configuration Manager, pode agendar a tarefa de limpeza do WSUS ou pode executá-lo manualmente.
 author: mestew
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
@@ -11,12 +11,12 @@ ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 manager: dougeby
 ms.author: mstewart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a872d48437b14bfec5b2b3da3a51be5c11cdfba3
-ms.sourcegitcommit: e18853c214c95e4d21b2f032aba6d17c21e97027
+ms.openlocfilehash: ff0f69a0e43c2d52aec9df262bf8d48587edb94c
+ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443941"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57426860"
 ---
 # <a name="software-updates-maintenance"></a>Manutenção das atualizações de software
 
@@ -52,7 +52,7 @@ Antes de 1806 de versão do Configuration Manager, a opção de limpeza do WSUS 
 - Uma limpeza para itens de configuração de atualização de software na base de dados do Configuration Manager ocorre a cada sete dias e remove desnecessárias atualizações a partir da consola.
   - Este limpeza não remover atualizações expiradas da consola do Configuration Manager se serem atualmente implementadas.
 
-Manutenção adicional ainda é necessária na base de dados do WSUS nível superior e todas as outras WSUS bases de dados no ambiente. Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://blogs.technet.microsoft.com/configurationmgr/2016/01/26/the-complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maintenance/) postagem de blog.
+Manutenção adicional ainda é necessária na base de dados do WSUS nível superior e todas as outras WSUS bases de dados no ambiente. Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://support.microsoft.com/help/4490644/complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maint/) postagem de blog.
 
 ## <a name="wsus-cleanup-behavior-starting-in-version-1806"></a>Comportamento de limpeza WSUS a partir da versão 1806
 
@@ -75,7 +75,7 @@ Toda a manutenção de WSUS tem de ser executada manualmente nas bases de dados 
 - Computadores não entrar em contato com o servidor
 - Ficheiros de atualização desnecessários
 
-  Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://blogs.technet.microsoft.com/configurationmgr/2016/01/26/the-complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maintenance/) postagem de blog.
+  Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://support.microsoft.com/help/4490644/complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maint/) postagem de blog.
 
 ## <a name="wsus-cleanup-behavior-starting-in-version-1810"></a>Comportamento de limpeza WSUS a partir da versão 1810
 
@@ -97,7 +97,7 @@ O seguinte procedimento **Assistente de limpeza do WSUS Server** opções não s
 - Computadores não entrar em contato com o servidor
 - Ficheiros de atualização desnecessários
 
-  Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://blogs.technet.microsoft.com/configurationmgr/2016/01/26/the-complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maintenance/) postagem de blog.
+  Para obter mais informações e instruções, consulte [o guia completo para manutenção Microsoft WSUS e do Configuration Manager SUP](https://support.microsoft.com/help/4490644/complete-guide-to-microsoft-wsus-and-configuration-manager-sup-maint/) postagem de blog.
 
 ## <a name="updates-cleanup-log-entries"></a>Entradas de registo de limpeza de atualizações
 

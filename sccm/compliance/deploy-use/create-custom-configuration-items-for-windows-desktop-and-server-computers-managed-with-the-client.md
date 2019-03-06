@@ -1,8 +1,8 @@
 ---
-title: 'Criar itens de configuração para a computadores geridos pelo cliente do Windows '
+title: Criar itens de configuração personalizada
 titleSuffix: Configuration Manager
-description: Gerir as definições para computadores Windows e de servidores com um item de configuração personalizado do Windows Desktops e servidores.
-ms.date: 11/18/2016
+description: Gerir as definições para servidores e computadores do Windows com um item de configuração personalizada para servidores e áreas de trabalho do Windows
+ms.date: 03/04/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-compliance
 ms.topic: conceptual
@@ -11,344 +11,368 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba02c1c3558cc7c0f7280e9517d7b67ee8e46eec
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 4253fdd94985a8a9adbc9e782f8397c2f76f5f2c
+ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56130382"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57426894"
 ---
-# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração personalizados para computadores de secretária e de servidor do Windows geridos com o cliente do System Center Configuration Manager
+# <a name="create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Criar itens de configuração personalizada para os computadores de secretária e servidor do Windows geridos com o cliente do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Utilizar o System Center Configuration Manager **áreas de trabalho do Windows e de servidores personalizados** item de configuração para gerir as definições para computadores Windows e servidores que são geridos pelo cliente do Configuration Manager.  
+Utilize o Gestor de configuração **áreas de trabalho do Windows e de servidores personalizados** item de configuração para gerir as definições para computadores Windows e servidores que são geridos pelo cliente do Configuration Manager.  
 
-## <a name="start-the-create-configuration-item-wizard"></a>Iniciar o Assistente de item de configuração de criar
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **itens de configuração**.  
 
-3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
+## <a name="start-the-wizard"></a>Iniciar o Assistente
 
-4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
+1. Na consola do Configuration Manager, vá para o **ativos e compatibilidade** área de trabalho, expanda **definições de compatibilidade**e selecione o **itens de configuração** nó.  
 
-5.  Em **Especifique o tipo de item de configuração que pretende criar**, selecione **Servidores e Computadores de Secretária Windows (personalizado)**.  
+2. Sobre o **home page** separador do Friso, no **criar** grupo, selecione **Criar Item de configuração**.  
+
+3. Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
+
+4. Em **Especifique o tipo de item de configuração que pretende criar**, selecione **Servidores e Computadores de Secretária Windows (personalizado)**.  
 
     > [!TIP]  
-    >  Se pretender fornecer as definições do método de deteção que verificam a existência de uma aplicação, selecione **Este ficheiro de configuração contém as definições da aplicação**.  
+    > Se pretender fornecer as definições do método de deteção que verificam a existência de uma aplicação, selecione **Este ficheiro de configuração contém as definições da aplicação**.  
 
-6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
+5. Para ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager, selecione **categorias** para criar e atribuir categorias.  
 
-## <a name="provide-detection-method-information"></a>Fornecer informações do método de deteção  
- Utilize este procedimento para fornecer informações do método de deteção para o item de configuração.  
+
+
+## <a name="detection-methods"></a>Métodos de deteção  
+
+Utilize este procedimento para fornecer informações do método de deteção para o item de configuração.  
 
 > [!NOTE]  
->  Aplica-se apenas se tiver selecionado **Este item de configuração contém as definições da aplicação** na página **Geral** do assistente.  
+> Essas informações se aplicam apenas se selecionar **este item de configuração contém as definições da aplicação** sobre o **geral** página do assistente.  
 
- Um método de deteção no Configuration Manager contém as regras que são utilizadas para detetar se uma aplicação é instalada num computador. Esta deteção ocorre antes de o item de configuração ser avaliado relativamente à compatibilidade. Para detetar se uma aplicação está instalada, pode detetar a presença de um ficheiro do Windows Installer para a aplicação, utilizar um script personalizado ou selecionar **Assumir sempre que a aplicação está instalada** para avaliar o item de configuração relativamente à compatibilidade, independentemente se a aplicação está instalada.  
+Um método de deteção no Configuration Manager contém as regras que são utilizadas para detetar se uma aplicação é instalada num computador. Esta deteção ocorre antes do cliente avalia a conformidade do item de configuração. Para detetar se uma aplicação está instalada, pode detetar a presença de um ficheiro do Windows Installer para a aplicação, utilizar um script personalizado ou selecionar **Assumir sempre que a aplicação está instalada** para avaliar o item de configuração relativamente à compatibilidade, independentemente se a aplicação está instalada.  
 
- Utilize estes procedimentos para configurar métodos de deteção no System Center Configuration Manager.  
 
-### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Para detetar uma instalação de aplicações utilizando o ficheiro do Windows Installer  
+### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Para detetar uma instalação de aplicações através do ficheiro de instalador do Windows  
 
-1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Utilizar deteção do Windows Installer**.  
+1. Na **métodos de deteção** página do **criar Assistente de Item de configuração**, selecione a opção para **detecção do instalador do Windows de utilização**.  
 
-2.  Clique em **Abrir**, navegue até ao ficheiro do Windows Installer (.msi) que pretende detetar e, em seguida, clique em **Abrir**.  
+2. Selecione **aberto**, procure o ficheiro do Windows Installer (MSI) que pretende detetar e, em seguida, selecione **aberto**.  
 
-3.  A caixa **Versão** é preenchida automaticamente com o número de versão do ficheiro do Windows Installer que selecionou. Pode introduzir um novo número de versão nesta caixa, se o valor apresentado estiver incorreto.  
+3. O **versão** campo é preenchido automaticamente com o número de versão de ficheiro do Windows Installer. Se o valor apresentado estiver incorreto, introduza um novo número de versão aqui.  
 
-4.  Selecione a caixa de verificação **Esta aplicação está instalada para um ou mais utilizadores** se pretender detetar cada perfil de utilizador no computador.  
+4. Se pretender detetar cada perfil de utilizador no computador, selecione **esta aplicação é instalada para um ou mais utilizadores**.  
+
 
 ### <a name="to-detect-a-specific-application-and-deployment-type"></a>Para detetar uma aplicação e um tipo de implementação específicos  
 
-1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Detetar uma aplicação e um tipo de implementação específicos** e, em seguida, clique em **Selecionar**.  
+1. Na **métodos de deteção** página do **criar Assistente de Item de configuração**, selecione para **detetar um tipo específico de aplicação e implementação**. Escolha **Selecionar**.   
 
-2.  Na caixa de diálogo **Especificar Aplicação**, selecione a aplicação e um tipo de implementação associados que pretende detetar.  
+2. Na caixa de diálogo **Especificar Aplicação**, selecione a aplicação e um tipo de implementação associados que pretende detetar.  
+
 
 ### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>Para detetar uma instalação de aplicações utilizando um script personalizado  
 
-1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Utilize um script personalizado para detetar esta aplicação**.  
+1. Na **métodos de deteção** página do **criar Assistente de Item de configuração**, selecione a opção para **utilizar um script personalizado para detetar esta aplicação**.  
 
-2.  Na lista, selecione a linguagem do script que pretende abrir. Pode escolher um dos seguintes scripts:  
+2. Na lista, selecione o idioma do script. Escolha entre os seguintes formatos:  
 
-    -   **VBScript**  
+    - **VBScript**  
 
-    -   **JScript**  
+    - **JScript**  
 
-    -   **PowerShell**  
+    - **PowerShell**  
 
-3.  Clique em **Abrir**, navegue até ao script que pretende utilizar e, em seguida, clique em **Abrir**.  
+        > [!Note]  
+        > A partir da versão 1810, quando um script do Windows PowerShell é executado como um método de deteção, o cliente do Configuration Manager que chama o PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. <!--3607762-->  
+
+3. Selecione **aberto**, navegue para o script que pretende utilizar e, em seguida, selecione **aberto**.  
+
+
+
+##  <a name="specify-supported-platforms"></a>Especificar plataformas suportadas  
+
+Sobre o **plataformas suportadas** página do **criar Assistente de Item de configuração**, selecione as versões do Windows nas quais pretende que a configuração ser avaliado relativamente à compatibilidade do item ou escolha  **Selecionar tudo**. 
+
+Também pode **especificar a versão do Windows manualmente**. Selecione **adicionar** e especifique o número de compilação de cada parte do Windows. 
+
+
 
 ##  <a name="configure-settings"></a>Configurar definições  
- Utilize este procedimento para configurar as definições no item de configuração.  
 
- As definições representam as condições empresariais ou técnicas utilizadas para avaliar a compatibilidade nos dispositivos cliente. Pode configurar uma nova definição ou navegar para uma definição existente num computador de referência.  
+Utilize este procedimento para configurar as definições no item de configuração.  
 
-1. Na página **Definições** do **Assistente de Criação de Item de Configuração**, clique em **Novo**.  
+As definições representam as condições empresariais ou técnicas utilizadas para avaliar a compatibilidade nos dispositivos cliente. Pode configurar uma nova definição ou navegar para uma definição existente num computador de referência.  
+
+1. Na **definições** página do **criar Assistente de Item de configuração**, selecione **New**.  
 
 2. No separador **Geral** da caixa de diálogo **Criar Definição**, forneça as seguintes informações:  
 
-   - **Nome:** Introduza um nome exclusivo para a definição. Pode utilizar até 256 carateres.  
+    - **Nome**: Introduza um nome exclusivo para a definição. Pode utilizar até 256 carateres.  
 
-   - **Descrição:** Introduza uma descrição para a definição. Pode utilizar até 256 carateres.  
+    - **Descrição**: Introduza uma descrição para a definição. Pode utilizar até 256 carateres.  
 
-   - **Tipo de definição:** Na lista, escolha e configure um dos seguintes tipos de definição a utilizar para esta definição:  
+    - **Tipo de definição**: Na lista, escolha e configure um dos seguintes tipos de definição a utilizar para esta definição:  
+        - [Consulta do Active Directory](#bkmk_adquery)
+        - [Assemblagem](#bkmk_assembly)
+        - [Sistema de ficheiros](#bkmk_file)
+        - [Metabase do IIS](#bkmk_iis)
+        - [Chave de registo](#bkmk_regkey)
+        - [Valor de registo](#bkmk_regval)
+        - [Script](#bkmk_script)
+        - [Consulta SQL](#bkmk_sql)
+        - [Consulta WQL](#bkmk_wql)
+        - [Consulta XPath](#bkmk_xpath)
 
-     - **Consulta do Active Directory**  
+    - **Tipo de dados**: Escolha o formato no qual a condição devolve os dados antes de ser utilizada para avaliar a definição. O **tipo de dados** não é apresentada uma lista de todos os tipos de definição.  
 
-        **Prefixo LDAP** - Especifique um prefixo válido para a consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente. Pode utilizar **LDAP://** ou **GC://** para fazer uma pesquisa de catálogo global.  
+        > [!Tip]  
+        > O **flutuante** tipo de dados suporta apenas três dígitos depois da casa decimal.  
 
-        **Nome Único (DN)** - Especifique o nome único do objeto dos Serviços de Domínio do Active Directory avaliado relativamente à compatibilidade em computadores cliente.  
+3. Configure detalhes adicionais sobre esta definição na lista **Tipo de definição**. Os itens que pode configurar variam consoante o tipo de definição que selecionou.  
 
-        Por exemplo, se pretender avaliar um valor relacionado com um utilizador com o nome João Silva no domínio corp.contoso.com, introduza o seguinte:  
+4. Selecione **OK** para guardar a definição e fechar o **Criar definição** caixa de diálogo.  
 
-       - **Filtro de pesquisa** - Especifique um filtro de LDAP opcional para refinar os resultados da consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente.  
 
-          Para devolver todos os resultados da consulta, introduza **(objectclass=\*)**.  
+### <a name="bkmk_adquery"></a> Consulta do Active Directory
 
-       - **Âmbito da procura** - Especifique o âmbito da procura nos Serviços de Domínio do Active Directory. Pode escolher entre:  
+- **Prefixo LDAP**: Especifique um prefixo válido para a consulta de serviços de domínio do Active Directory para avaliar a compatibilidade em computadores cliente. Para fazer uma pesquisa de catálogo global, utilize `LDAP://` ou `GC://`.  
 
-         -   **Base** - Consulta apenas o objeto especificado.  
+- **Nome único (DN)**: Especifique o nome único do objeto serviços de domínio do Active Directory que é avaliado relativamente à compatibilidade em computadores cliente.  
 
-         -   **Um nível** -esta opção não é utilizada nesta versão do Configuration Manager.  
+- **Filtro de pesquisa**: Especifique um filtro LDAP opcional para refinar os resultados da consulta do Active Directory Domain Services para avaliar a compatibilidade em computadores cliente. Para devolver todos os resultados da consulta, introduza `(objectclass=*)`.  
 
-         -   **Subárvore** - Consulta o objeto especificado e a respetiva subárvore completa no diretório.  
+- **Âmbito da procura**: Especifique o âmbito da procura nos serviços de domínio do Active Directory  
 
-       - **Propriedade** - Especifique a propriedade do objeto dos Serviços de Domínio do Active Directory utilizada para avaliar a compatibilidade em computadores cliente.  
+    - **Base**: Consulta apenas o objeto especificado  
 
-          Por exemplo, se pretender consultar a propriedade do Active Directory **badPwdCount**, a qual armazena o número de vezes que um utilizador introduz incorretamente uma palavra-passe, introduza **badPwdCount** neste campo.  
+    - **Um nível**: Esta opção não é utilizada nesta versão do Configuration Manager  
 
-       - **Consulta** - Apresenta a consulta construída a partir das entradas em **Prefixo LDAP**, **Nome único (DN)**, **Filtro de pesquisa** (se especificado) e **Propriedade**, utilizados para avaliar a compatibilidade em computadores cliente.  
+    - **Subárvore**: Consulta o objeto especificado e a respetiva subárvore completa no diretório  
 
-         Para mais informações sobre a construção de consultas LDAP, consulte a documentação do Windows Server.  
+- **Propriedade**: Especifique a propriedade do objeto serviços de domínio do Active Directory que é utilizada para avaliar a compatibilidade em computadores cliente.  
 
-     - **Assemblagem**  
+    Por exemplo, se pretender consultar a propriedade do Active Directory que armazena o número de vezes que um utilizador introduz incorretamente uma palavra-passe, introduza `badPwdCount` neste campo.  
 
-        Configure as seguintes opções para este tipo de definição:  
+- **consulta**: Apresenta a consulta construída a partir das entradas em **prefixo LDAP**, **nome único (DN)**, **filtro de pesquisa** (se especificada), e **propriedade**.  
 
-       - **Nome da assemblagem:** Especifica o nome do objeto de assemblagem que pretende procurar. O nome não pode ser igual ao de outros objetos de assemblagem do mesmo tipo e tem de estar registado na Global Assembly Cache. O nome da assemblagem pode ter até 256 carateres.  
 
-         Uma assemblagem é um fragmento de código que pode ser partilhado entre aplicações. As assemblagens podem ter a extensão de nome de ficheiro .dll ou .exe. A Global Assembly Cache é uma pasta denominada *%systemroot%\Assembly* nos computadores cliente onde são armazenadas todas as assemblagens partilhadas.  
+### <a name="bkmk_assembly"></a> Assemblagem
 
-     - **Sistema de ficheiros**  
+Uma assemblagem é um fragmento de código que pode ser partilhado entre aplicações. As assemblagens podem ter a extensão de nome de ficheiro .dll ou .exe. A global assembly cache é a pasta `%SystemRoot%\Assembly` nos computadores cliente. Esta cache é onde o Windows armazena todos os assemblies compartilhados.  
 
-       - **Tipo** – Na lista, selecione se pretende procurar um **Ficheiro** ou uma **Pasta**.  
+- **Nome da assemblagem:** Especifica o nome do objeto de assemblagem que pretende procurar. O nome não pode ser o mesmo que outros objetos de assemblagem do mesmo tipo. Em primeiro lugar registrá-la no cache de assemblies global. O nome da assemblagem pode ter até 256 carateres.  
 
-       - **Caminho** – Especifique o caminho da pasta ou do ficheiro especificado nos computadores cliente. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no caminho.  
 
-         > [!NOTE]  
-         >  Se utilizar a variável de ambiente *%USERPROFILE%* nas caixas **Caminho** ou **Nome de ficheiro ou pasta**, são procurados todos os perfis de utilizador no computador cliente, o que pode resultar em várias instâncias do ficheiro ou pasta encontradas.  
-         >   
-         >  Se as definições de compatibilidade não tiverem acesso ao caminho especificado, é gerado um erro de deteção. Além disso, se o ficheiro que está a procurar estiver atualmente em utilização, é gerado um erro de deteção.  
+### <a name="bkmk_file"></a> Sistema de ficheiros
 
-       - **Nome do ficheiro ou da pasta** – Especifique o nome do objeto de ficheiro ou pasta a procurar. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no nome da pasta ou ficheiro. Também pode utilizar os carateres universais * e ? no nome de ficheiro.  
+- **Tipo de**: Na lista, selecione se pretende procurar um **arquivo** ou uma **pasta**.  
 
-         > [!NOTE]  
-         >  Se especifica um nome de ficheiro ou pasta e utiliza carateres universais, esta combinação poderá produzir um elevado número de resultados e pode resultar numa utilização de recursos elevados no computador cliente e tráfego de rede elevado quando reportar os resultados para o Configuration Manager.  
+- **Caminho**: Especifique o caminho da pasta ou do ficheiro especificado nos computadores cliente. Pode especificar variáveis de ambiente de sistema e o `%USERPROFILE%` variável de ambiente no caminho.  
 
-       - **Incluir subpastas** – ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
+    > [!NOTE]  
+    > Se utilizar o `%USERPROFILE%` variável de ambiente no **caminho** ou **nome da pasta ou ficheiro** caixas, o cliente do Configuration Manager procura todos os perfis de utilizador no computador cliente. Esse comportamento pode resultar na mesma localização de várias instâncias do ficheiro ou pasta.  
+    >   
+    > Se as definições de compatibilidade não tem acesso ao caminho especificado, é gerado um erro de deteção. Além disso, se o ficheiro que está a procurar estiver atualmente em utilização, é gerado um erro de deteção.  
 
-       - **Este ficheiro ou pasta está associado a uma aplicação de 64 bits** - Se estiver ativada, apenas as localizações de ficheiros de 64 bits (como *%ProgramFiles%*) serão verificadas nos computadores de 64 bits. Se esta opção não estiver ativada, ambas as localizações de 32 bits (como *%ProgramFiles(x86)%*) e 64 bits serão verificadas.  
+    > [!Tip]  
+    > Selecione **procurar** para configurar a definição de valores num computador de referência.   
 
-         > [!NOTE]  
-         >  Se o mesmo ficheiro ou pasta existir em ambas as localizações no mesmo computador de 64 bits, são detetados múltiplos ficheiros pela condição global.  
+- **Nome de ficheiro ou pasta**: Especifique o nome do objeto de ficheiro ou pasta para procurar. Pode especificar variáveis de ambiente de sistema e o `%USERPROFILE%` variável de ambiente no nome do ficheiro ou pasta. Também pode utilizar os carateres universais `*` e `?` no nome do ficheiro.  
 
-         O tipo de definição **Sistema de ficheiros** não suporta a especificação de um caminho UNC de partilha de rede na caixa **Caminho**.  
+    > [!NOTE]  
+    > Se especifica um nome de ficheiro ou pasta e utiliza carateres universais, esta combinação poderá produzir um elevado número de resultados. Pode também resultar na utilização intensiva de recursos no computador cliente e tráfego de rede elevado quando reportar os resultados para o Configuration Manager.  
 
-     - **Metabase do IIS**  
+- **Incluir subpastas**: Também procure em todas as subpastas do caminho especificado.  
 
-       -   **Caminho da metabase** - Especifique um caminho válido para a Metabase dos Serviços de Informação Internet (IIS).  
+- **Este ficheiro ou pasta está associada a uma aplicação de 64 bits**: Se estiver ativada, apenas pesquisar localizações de ficheiros de 64 bits, tais como `%ProgramFiles%` nos computadores de 64 bits. Se esta opção não está ativada, pesquise localizações de 64 bits e localizações de 32 bits, como `%ProgramFiles(x86)%`.  
 
-       -   **ID da Propriedade** - especifique a propriedade numérica da definição da Metabase do IIS.  
+    > [!NOTE]  
+    > Se o mesmo ficheiro ou pasta existir em ambas as localizações no mesmo computador de 64 bits, são detetados múltiplos ficheiros pela condição global.  
 
-     - **Chave de registo**  
+    O **sistema de ficheiros** tipo de definição não suporta a especificação de um caminho UNC para uma partilha de rede na **caminho** caixa.  
 
-       -   **Hive** – Na lista, selecione o ramo de registo onde pretende procurar.  
 
-       -   **Chave** – Especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
+### <a name="bkmk_iis"></a> Metabase do IIS
 
-       -   **Esta chave de registo está associada a uma aplicação de 64 bits** – Especifica se a procura deve ser feita nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
+- **Caminho da metabase**: Especifique um caminho válido para a metabase do serviços de informação Internet (IIS). Por exemplo, `/LM/W3SVC/`.  
 
-           > [!NOTE]  
-           >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
+- **ID de propriedade**: Especifique a propriedade numérica da definição de metabase do IIS.  
 
-     - **Valor de registo**  
 
-       - **Hive** – Na lista, selecione o ramo de registo onde pretende procurar.  
+### <a name="bkmk_regkey"></a> Chave de registo
 
-       - **Chave** – especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
+- **Hive**: Selecione o ramo de registo que pretende procurar
 
-       - **Valor** – Especifique o valor que deve estar incluído na chave de registo especificada.  
+    > [!Tip]  
+    > Selecione **procurar** para configurar a definição de valores num computador de referência. Para procurar uma chave de registo num computador remoto, ative o **registo remoto** serviço no computador remoto.  
 
-       - **Esta chave de registo está associada a uma aplicação de 64 bits** – Especifica se a procura deve ser feita nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
+- **chave**: Especifique o nome de chave de registo que pretende procurar. Utilize o formato `key\subkey`.  
 
-         > [!NOTE]  
-         >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
+- **Esta chave de registo está associada uma aplicação de 64 bits**: Pesquisar chaves de registo de 64 bits, além de chaves de registo de 32 bits em clientes que executem uma versão de 64 bits do Windows.  
 
-         Também pode clicar em **Procurar** para navegar para uma localização de registo no computador ou num computador remoto. Para procurar um computador remoto, tem de ter direitos de administrador no computador remoto e o computador remoto tem de executar o serviço de registo remoto.  
+    > [!NOTE]  
+    > Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
 
-     - **Script**  
 
-       -   **Script de deteção** – Clique em **Adicionar** para introduzir ou navegue para o script que pretende utilizar. Pode utilizar scripts do Windows PowerShell, VBScript ou Microsoft JScript.  
+### <a name="bkmk_regval"></a> Valor de registo
 
-       -   **Executar scripts ao utilizar as credenciais do utilizador com sessão iniciada** – Se ativar esta opção, o script é executado nos computadores cliente que utilizam as credenciais dos utilizadores com sessão iniciada.  
+- **Hive**: Selecione o ramo do registo para pesquisar.  
 
-           > [!NOTE]  
-           >  O valor devolvido pelo script é utilizado para avaliar a compatibilidade da condição global. Por exemplo, quando utilizar VBScript, poderá utilizar o comando **WScript.Echo Result** para devolver o valor da variável *Result* à condição global.  
+    > [!Tip]  
+    > Selecione **procurar** para configurar a definição de valores num computador de referência. Para navegar para um valor de registo num computador remoto, ativar a **registo remoto** serviço no computador remoto. Também precisa de permissões de administrador para aceder ao computador remoto.  
 
-     - **Consulta SQL**  
+- **chave**: Especifique o nome de chave de registo para procurar. Utilize o formato `key\subkey`.  
 
-       -   **Instância do SQL Server** – escolha se pretende que a consulta SQL seja executada na instância predefinida, em todas as instâncias ou na instância de base de dados com o nome especificado.  
+- **Valor**: Especifique o valor que deve ser incluído na chave de registo especificada.  
 
-           > [!NOTE]  
-           >  O nome da instância deve referir-se a uma instância local do SQL Server. Para fazer referência a uma instância do SQL Server em cluster, deverá utilizar uma definição de script.  
+- **Esta chave de registo está associada uma aplicação de 64 bits**: Pesquise as chaves de registo de 64 bits, além de chaves de registo de 32 bits em clientes que executem uma versão de 64 bits do Windows.  
 
-       -   **Base de dados** – Especifique o nome da base de dados do Microsoft SQL Server relativamente à qual pretende executar a consulta SQL.  
+    > [!NOTE]  
+    > Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
 
-       -   **Coluna** – Especifique o nome da coluna devolvido pela instrução Transact-SQL utilizada para avaliar a compatibilidade da condição global.  
 
-       -   **Instrução Transact-SQL** – Especifique a consulta SQL completa que pretende utilizar para a condição global. Também pode clicar em **Abrir** para abrir uma consulta SQL existente.  
+### <a name="bkmk_script"></a> script
 
-           > [!IMPORTANT]  
-           >  As definições da Consulta SQL não suportam os comandos SQL que modificam a base de dados. Apenas pode utilizar comandos SQL que leem as informações da base de dados.  
+O valor devolvido pelo script é utilizado para avaliar a compatibilidade da condição global. Por exemplo, quando utilizar VBScript, poderá utilizar o comando **WScript.Echo Result** para devolver o valor da variável *Result* à condição global.  
 
-     - **Consulta WQL**  
+- **Script de deteção**: Selecione **Adicionar Script**e introduzir ou navegue para um script. Este script é utilizado para encontrar o valor. Pode utilizar scripts do Windows PowerShell, VBScript ou Microsoft JScript.  
 
-       -   **Espaço de nomes** - Especifique o espaço de nomes Windows Management Instrumentation (WMI) utilizado para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente. O valor predefinido é Root\cimv2.  
+- **Script de remediação (opcional)**: Selecione **Adicionar Script**e introduzir ou navegue para um script. Este script é utilizado para remediar os valores de definição em não conformidade. Pode utilizar scripts do Windows PowerShell, VBScript ou Microsoft JScript.  
 
-       -   **Classe** - Especifica a classe WMI utilizada para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente.  
+- **Executar scripts ao utilizar o com sessão iniciada nas credenciais de utilizador**: Se ativar esta opção, o script é executado em computadores cliente que utilizam as credenciais do utilizador com sessão iniciada.  
 
-       -   **Propriedade** - Especifica a propriedade WMI utilizada para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente.  
+> [!Note]  
+> A partir da versão 1810, quando utilizar o Windows PowerShell como um script de deteção ou a remediação, o cliente do Configuration Manager que chama PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. <!--3607762-->  
 
-       -   **Cláusula WHERE da consulta WQL** - pode utilizar o item **Cláusula WHERE da consulta WQL** para especificar uma cláusula WHERE a aplicar ao espaço de nomes, à classe e à propriedade especificados nos computadores cliente.  
 
-     - **Consulta XPath**  
+### <a name="bkmk_sql"></a> Consulta SQL
 
-       - **Caminho** - Especifique o caminho para o ficheiro .xml em computadores cliente utilizado para avaliar a compatibilidade. O Configuration Manager suporta a utilização de todas as variáveis de ambiente de sistema do Windows e o *% USERPROFILE %* variável de utilizador no nome do caminho.  
+- **Instância do SQL Server**: Escolha se pretende que a consulta SQL seja executada na instância predefinida, todas as instâncias ou um nome de instância de base de dados especificada.  
 
-       - **Nome do ficheiro XML** - Especifique o nome de ficheiro que contém a consulta XML utilizada para avaliar a compatibilidade em computadores cliente.  
+    > [!NOTE]  
+    > O nome da instância deve referir-se a uma instância local do SQL Server. Para fazer referência a uma instância do SQL Server em cluster, deverá utilizar uma definição de script.  
 
-       - **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
+- **Base de dados**: Especifique o nome da base de dados Microsoft SQL Server relativamente à qual pretende executar a consulta SQL.  
 
-       - **Este ficheiro está associado uma aplicação de 64 bits** -escolha se o sistema de 64 bits localização de ficheiros (*% windir %* \System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %* \Syswow64) nos clientes do Configuration Manager que executem uma versão de 64 bits do Windows.  
+- **Coluna**: Especifique o nome da coluna devolvido pela instrução Transact-SQL que é utilizada para avaliar a compatibilidade da condição global.  
 
-       - **Consulta XPath** - Especifique uma consulta da linguagem XPath completa e válida utilizada para avaliar a compatibilidade em computadores cliente.  
+- **Instrução Transact-SQL**: Especifique a consulta SQL completa que pretende utilizar para a condição global. Para utilizar uma consulta SQL existente, selecione **aberto**.  
 
-       - **Espaços de Nomes** - Abre a caixa de diálogo **Espaços de Nomes XML** para identificar espaços de nomes e prefixos a utilizar durante a consulta XPath.  
+    > [!IMPORTANT]  
+    > Definições da consulta de SQL não suportam os comandos SQL que modificam a base de dados. Apenas pode utilizar comandos SQL que leem as informações da base de dados.  
 
-         Se tentou detetar um ficheiro .xml encriptado, as definições de compatibilidade localizam o ficheiro, mas a consulta XPath não produz resultados e não é gerado nenhum erro.  
 
-         Se a consulta XPath não for válida, a definição é avaliada como não compatível em computadores cliente.  
+### <a name="bkmk_wql"></a> Consulta WQL
 
-   - **Tipo de dados:** Na lista, escolha o formato no qual a condição devolve os dados antes de ser utilizada para avaliar a definição. A lista **Tipo de dados** não é apresentada para todos os tipos de definição.  
+- **Namespace**: Especifique o espaço de nomes WMI que é avaliado relativamente à compatibilidade em computadores cliente. O valor predefinido é `root\cimv2`.  
 
-     > [!NOTE]  
-     >  O tipo de dados **Vírgula flutuante** suporta apenas três dígitos depois da casa decimal.  
+- **classe**: Especifique o destino de classe do WMI no espaço de nomes acima.  
 
-3. Configure detalhes adicionais sobre esta definição na lista **Tipo de definição**. Os itens que pode configurar variam consoante o tipo de definição selecionado.  
+- **Propriedade**: Especifique o destino propriedade WMI na classe acima.  
 
-   > [!NOTE]  
-   >  Quando criar definições do tipo **Sistema de ficheiros**, **Chave de registo** e **Valor de registo**, pode clicar em **Procurar** para configurar a definição a partir de valores num computador de referência. Para procurar uma chave ou valor de registo num computador remoto, o computador remoto tem de ter o serviço Registo Remoto ativado.  
+- **Cláusula WHERE da consulta WQL**: Especifica uma cláusula Qualificável para reduzir os resultados. Por exemplo, para consultar apenas o serviço DHCP na classe Win32_Service, a cláusula WHERE pode ser `Name = 'DHCP' and StartMode = 'Auto'`.   
 
-4. Clique em **OK** para guardar a definição e fechar a caixa de diálogo **Criar Definição**.  
+
+### <a name="bkmk_xpath"></a> Consulta XPath
+
+- **Caminho**: Especifique o caminho do ficheiro. XML em computadores cliente que é utilizado para avaliar a compatibilidade. O Configuration Manager suporta a utilização de todas as variáveis de ambiente de sistema do Windows e o `%USERPROFILE%` variável de utilizador no nome do caminho.  
+
+- **Nome do ficheiro XML**: Especifique o nome de ficheiro que contém a consulta XML no caminho acima.  
+
+- **Incluir subpastas**: Ative esta opção Procurar todas as subpastas do caminho especificado.  
+
+- **Este ficheiro está associado uma aplicação de 64 bits**: Procurar a localização do ficheiro de sistema de 64 bits `%Windir%\System32` , além da localização do ficheiro de sistema de 32 bits `%Windir%\Syswow64` nos clientes do Configuration Manager que executem uma versão de 64 bits do Windows.  
+
+- **Consulta XPath**: Especifique uma consulta linguagem XPath completa válida.  
+
+- **Namespaces**: Identifique os espaços de nomes e prefixos a utilizar durante a consulta XPath.  
+
+Se tentou detetar um ficheiro. XML encriptado, as definições de compatibilidade encontrar o ficheiro, mas a consulta XPath não produz resultados. O cliente do Configuration Manager não gera um erro.  
+
+Se a consulta XPath não é válida, a definição é avaliada como não compatível em computadores cliente.  
+
+
 
 ##  <a name="configure-compliance-rules"></a>Configurar regras de compatibilidade  
- Utilize o procedimento seguinte para configurar regras de compatibilidade para o item de configuração.  
 
- As regras de compatibilidade especificam as condições que definem a compatibilidade de um item de configuração. Antes de poder ser avaliada a compatibilidade de uma definição, tem de ter, pelo menos, uma regra de compatibilidade. O WMI, o registo e as definições de script permitem remediar os valores considerados não compatíveis. Pode criar novas regras ou navegar para uma definição existente em qualquer item de configuração para selecionar regras no mesmo.  
+As regras de compatibilidade especificam as condições que definem a compatibilidade de um item de configuração. Antes de poder ser avaliada a compatibilidade de uma definição, tem de ter, pelo menos, uma regra de compatibilidade. O WMI, o registo e as definições de script permitem remediar os valores considerados não compatíveis. Pode criar novas regras ou navegar para uma definição existente em qualquer item de configuração para selecionar regras no mesmo.  
+
 
 ### <a name="to-create-a-compliance-rule"></a>Para criar uma regra de compatibilidade  
 
-1.  Na página **Regras de Compatibilidade** do **Assistente de Criação de Item de configuração**, clique em **Novo**.  
+1. Na **regras de conformidade** página do **criar Assistente de Item de configuração**, selecione **New**.  
 
-2.  Na caixa de diálogo **Criar Regra**, forneça as seguintes informações:  
+2. Na caixa de diálogo **Criar Regra**, forneça as seguintes informações:  
 
-    -   **Nome:** Introduza um nome para a regra de compatibilidade.  
+    - **Nome**: Introduza um nome para a regra de compatibilidade.  
 
-    -   **Descrição:** Introduza uma descrição para a regra de compatibilidade.  
+    - **Descrição**: Introduza uma descrição para a regra de compatibilidade.  
 
-    -   **Definição selecionada:** Clique em **navegue** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
+    - **Definição selecionada**: Selecione **navegue** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição que pretende definir uma regra ou selecione **nova definição**. Quando tiver terminado, escolha **selecione**.  
 
-        > [!NOTE]  
-        >  Também pode clicar em **Propriedades** para ver informações sobre a definição atualmente selecionada.  
+        > [!Tip]  
+        > Para ver informações sobre a definição atualmente selecionada, selecione **propriedades**.  
 
-    -   **Tipo de regra:** Selecione o tipo de regra de compatibilidade que pretende utilizar:  
+    - **Tipo de regra**: Selecione o tipo de regra de compatibilidade que pretende utilizar:  
 
-        -   **Valor** Crie uma regra que compara o valor devolvido pelo item de configuração com um valor que especificar.  
+        - **Valor**: Crie uma regra que compara o valor devolvido pelo item de configuração em relação a um valor que especificar. Para obter mais informações sobre as definições adicionais, consulte [valor regras](#bkmk_value).  
 
-        -   **Existencial** Crie uma regra que avalie a definição consoante se existe num dispositivo cliente ou o número de vezes que pode ser encontrada.  
+        - **Existencial**: Crie uma regra que avalie a definição consoante se existe num dispositivo cliente ou o número de vezes que pode ser encontrada. Para obter mais informações sobre as definições adicionais, consulte [regras Existencial](#bkmk_exist).  
 
-    -   Num tipo de regra de **Valor**, especifique as seguintes informações:  
+3. Selecione **OK** para fechar a **criar regra** caixa de diálogo.  
 
-        -   **A definição deve cumprir a seguinte regra** – Selecione um operador e um valor que é avaliado quanto à compatibilidade com a definição selecionada. Pode utilizar os seguintes operadores:  
 
-            |Operador|Mais informações|  
-            |--------------|----------------------|  
-            |É igual a|Não existem informações adicionais|  
-            |Não é igual a|Não existem informações adicionais|  
-            |Maior que|Não existem informações adicionais|  
-            |Menor que|Não existem informações adicionais|  
-            |Entre|Não existem informações adicionais|  
-            |Maior que ou igual a|Não existem informações adicionais|  
-            |Menor que ou igual a|Não existem informações adicionais|  
-            |Um de|Na caixa de texto, especifique uma entrada em cada linha.|  
-            |Nenhum de|Na caixa de texto, especifique uma entrada em cada linha.|  
 
-        -   **Remediar regras incompatíveis quando suportado** – selecione esta opção se pretender que o Configuration Manager retifique automaticamente as regras incompatíveis. O Configuration Manager pode remediar automaticamente os seguintes tipos de regra:  
 
-            -   **Valor de registo** – O valor de registo é remediado se não for compatível e criado se não existir.  
+### <a name="bkmk_value"></a> Regras de valor  
 
-            -   **Script** (executando automaticamente um script de remediação).  
+- **Propriedade**: A propriedade do objeto a verificar varia consoante a definição selecionada. As propriedades disponíveis variam consoante o tipo de definição. 
 
-            -   **Consulta WQL**  
+- **A definição deve estar em conformidade com o seguinte...** : As permissões ou regras disponíveis variam consoante o tipo de definição.
 
-            > [!IMPORTANT]  
-            >  Só pode remediar regras incompatíveis quando o operador de regra estiver definido como **É igual a**.  
+- **Remediar regras incompatíveis quando suportado**: Selecione esta opção para o Configuration Manager retifique automaticamente as regras não conformes. O Configuration Manager suporta esta ação com os seguintes tipos de regra:  
 
-        -   **Reportar incompatibilidade se a instância desta definição não for encontrada** – O item de configuração reporta a incompatibilidade se esta definição não for encontrada em computadores cliente.  
+    - **Valor de registo**: Se não for compatível, o cliente define o valor de registo. Se não existir, o cliente cria o valor.  
 
-        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
+    - **script**: O cliente utiliza o script de remediação que especificou com a definição.  
 
-            -   **Nenhum** computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha.  
+    - **Consulta WQL**  
 
-            -   **Informações** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **informações**.  
+    > [!IMPORTANT]  
+    > Só pode remediar regras incompatíveis quando o operador de regra estiver definido como **É igual a**.  
 
-            -   **Aviso** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **aviso**.  
+- **Reportar incompatibilidade se a instância desta definição não for encontrada**: Se esta definição não for encontrada nos computadores cliente, ative esta opção para o item de configuração comunicar não conformidade.  
 
-            -   **Crítico** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **críticos**.  
+- **Gravidade de incompatibilidade para relatórios**: Especifique o nível de gravidade reportado nos relatórios do Configuration Manager se esta regra de compatibilidade falhar. Os seguintes níveis de gravidade estão disponíveis:  
+    - **Nenhum**  
+    - **Informações**  
+    - **Aviso**  
+    - **Crítico**  
+    - **Crítico com evento**: Computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **crítico**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
-            -   **Crítico com evento** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
-        -   Para um tipo de regra **Existencial**, especifique as seguintes informações:  
+### <a name="bkmk_exist"></a> Existencial regras 
 
-            > [!NOTE]  
-            >  As opções apresentadas podem variar consoante o tipo de definição para o qual está a configurar uma regra.  
+> [!NOTE]  
+> As opções apresentadas podem variar consoante o tipo de definição que estiver a configurar uma regra.  
 
-            -   **A definição deve existir nos dispositivos cliente**  
+- **A definição deve existir nos dispositivos cliente**  
 
-            -   **A definição não deve existir nos dispositivos cliente**  
+- **A definição não deve existir nos dispositivos cliente**  
 
-            -   **A definição ocorre o seguinte número de vezes:**  
+- **A definição ocorre o seguinte número de vezes:**  
 
-        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
+- **Gravidade de incompatibilidade para relatórios**: Especifique o nível de gravidade reportado nos relatórios do Configuration Manager se esta regra de compatibilidade falhar. Os seguintes níveis de gravidade estão disponíveis:  
+    - **Nenhum**  
+    - **Informações**  
+    - **Aviso**  
+    - **Crítico**  
+    - **Crítico com evento**: Computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **crítico**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
-            -   **Nenhum** computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha.  
 
-            -   **Informações** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **informações**.  
 
-            -   **Aviso** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **aviso**.  
+## <a name="next-steps"></a>Passos seguintes
 
-            -   **Crítico** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **críticos**.  
-
-            -   **Crítico com evento** computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
-
-3.  Clique em **OK** para fechar a caixa de diálogo **Criar Regra**.  
-
-##  <a name="specify-supported-platforms"></a>Especificar plataformas suportadas  
- As plataformas suportadas são os sistemas operativos em que um item de configuração é avaliado relativamente à compatibilidade.  
-
-Na página **Plataformas Suportadas** do **Assistente de Criação de Item de configuração**, na lista, selecione as versões do Windows nas quais pretende que o item de configuração seja avaliado relativamente à compatibilidade ou clique em **Selecionar tudo**.  
-
-## <a name="complete-the-wizard"></a>Concluir o assistente  
- Na página **Resumo** do assistente, reveja as ações que serão executadas e conclua o assistente. O novo item de configuração é apresentado no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  
+[Criar linhas de base de configuração](/sccm/compliance/deploy-use/create-configuration-baselines)

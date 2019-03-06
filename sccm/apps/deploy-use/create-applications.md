@@ -2,7 +2,7 @@
 title: Criar aplicações
 titleSuffix: Configuration Manager
 description: Crie aplicações com requisitos para instalar software, métodos de deteção e tipos de implementação.
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -11,18 +11,18 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7f896f2ad719572c5adb4e0f24cfc1cf7d1c4d6
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 236ae6e9efafcfe24f064fb643a43524eee3718d
+ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56126764"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57426945"
 ---
 # <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Uma aplicação do Configuration Manager define os metadados sobre a aplicação. Um aplicativo tem um ou mais tipos de implementação. Estes tipos de implementação incluem os ficheiros de instalação e informações que são necessárias para instalar software nos dispositivos. Um tipo de implementação também possui regras, como os requisitos e métodos de deteção. Estas regras especificam quando e como o cliente instala o software.  
+Uma aplicação do Configuration Manager define os metadados sobre a aplicação. Um aplicativo tem um ou mais tipos de implementação. Estes tipos de implementação incluem os ficheiros de instalação e informações que são necessárias para instalar software nos dispositivos. Um tipo de implementação também possui regras, como métodos de deteção e requisitos. Estas regras especificam quando e como o cliente instala o software.  
 
 Crie aplicações com os seguintes métodos:  
 
@@ -319,6 +319,9 @@ Continue para a próxima seção sobre como utilizar um script personalizado com
 1.  Sobre o **método de deteção** página, selecione a **utilizar um script personalizado para detetar a presença deste tipo de implementação** caixa. Em seguida, clique em **editar**.  
 
 2.  Na **Editor de scripts** caixa de diálogo, clique nas **tipo de Script** na lista pendente. Selecione uma das seguintes linguagens de script para detetar o tipo de implementação: PowerShell, VBScript ou JScript.  
+
+    > [!Note]  
+    > A partir da versão 1810, quando um script do Windows PowerShell é executado como um método de deteção de aplicação, o cliente do Configuration Manager que chama PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. <!--3607762-->  
 
 3.  Na **conteúdo do Script** , introduza o script que pretende utilizar ou cole o conteúdo de um script existente. Escolher **aberto** para navegar para um script existente já guardado. Clique em **clara** para remover o texto no campo de conteúdo de Script. Se necessário, ative a opção para **executar o script como um processo de 32 bits em clientes de 64 bits**.  
 

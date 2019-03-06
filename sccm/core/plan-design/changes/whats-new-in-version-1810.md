@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 03/02/2019
+ms.date: 03/04/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8a3c6c73d30d7d5e8e825cd20baa334214dceb
-ms.sourcegitcommit: 33a006204f7f5f9b9acd1f3e84c4bc207362d00a
+ms.openlocfilehash: 4e22dd04f7ac6e77b3f7b1683d1368e7f171f224
+ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57305801"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57426911"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -195,14 +195,16 @@ Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy
 
 
 ### <a name="detection-methods-dont-load-windows-powershell-profiles"></a>Métodos de deteção não carregam perfis do Windows PowerShell
-<!--1359239--> Pode utilizar scripts do Windows PowerShell para métodos de Deteção em aplicativos e configurações nos itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
+<!--3607762, fka 1359239-->
+ ***[ATUALIZADO] *** Pode utilizar scripts do Windows PowerShell para métodos de Deteção em aplicativos e configurações nos itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
 
 Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. Pode criar um perfil de PowerShell para personalizar o seu ambiente e para adicionar elementos específicos da sessão para cada sessão do PowerShell que começar. 
 
 > [!Note]  
 > Esta alteração no comportamento não se aplica a [Scripts](/sccm/apps/deploy-use/create-deploy-scripts) ou [CMPivot](/sccm/core/servers/manage/cmpivot). Esses dois recursos já utilizam este parâmetro de PowerShell.    
 
-<!--For more information, see []().-->
+Para obter mais informações, consulte [criem aplicativos](/sccm/apps/deploy-use/create-applications) e [criar itens de configuração personalizada](/sccm/compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client).
+
 
 
 ## <a name="bkmk_osd"></a> Implementação do SO
