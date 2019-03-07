@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e22dd04f7ac6e77b3f7b1683d1368e7f171f224
-ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
+ms.openlocfilehash: 9d2ab324038e833da7bc080286c820b3df8d06fa
+ms.sourcegitcommit: f3dd8405018fe1043434386be15c16752c1a4a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57426911"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57558172"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -122,27 +122,20 @@ Para obter mais informações, consulte [notificações do cliente](/sccm/core/c
 
 
 ### <a name="improvements-to-collection-evaluation"></a>Melhorias à avaliação de coleção
-<!--1358981--> As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
- 
+<!--3607726, fka 1358981-->
+ ***[ATUALIZADO] *** As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
+
 - Anteriormente, quando tiver configurado uma agenda numa coleção com base na consulta, o site continuaria a avaliar a consulta quer ou não tiver ativado a definição de coleção para **agendar uma atualização completa para esta coleção**. Para desabilitar totalmente a agenda, era necessário que alterar a agenda para **None**. Agora o site limpa a agenda quando desativar esta definição. Para especificar uma agenda para avaliação de coleção, ative a opção para **agendar uma atualização completa para esta coleção**.  
 
 - Não é possível desativar a avaliação de coleções incorporadas, como **todos os sistemas**, mas agora pode configurar a agenda. Este comportamento permite-lhe personalizar esta ação ao mesmo tempo que cumpra os requisitos de negócio. 
 
-<!--For more information, see [How to create collections](/sccm/core/clients/manage/collections/create-collections).-->
+Para obter mais informações, consulte [como criar coleções](/sccm/core/clients/manage/collections/create-collections#bkmk_create).
 
 
 ### <a name="improvement-to-client-installation"></a>Melhoria para instalação do cliente
 <!--1358840--> Ao instalar o cliente do Configuration Manager, o processo de ccmsetup entra em contacto com o ponto de gestão para localizar os conteúdos necessários. Anteriormente o ponto de gestão nesse processo devolve apenas os pontos de distribuição no grupo de limite atual do cliente. Se nenhum conteúdo estiver disponível, o processo de configuração é retrocede para transferir o conteúdo do ponto de gestão. Não existe nenhuma opção para reverter para pontos de distribuição em outros grupos de limites que podem ter o conteúdo necessário. Agora o ponto de gestão devolve pontos de distribuição com base na configuração do grupo de limites. 
 
 Para obter mais informações, consulte [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_ccmsetup).
-
-
-### <a name="improvements-to-internet-based-client-setup"></a>Melhorias à configuração de clientes baseada na internet
-<!--1359181-->
-<!--move this under co-management?-->  
-Esta versão ainda mais simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
-
-<!--For more information, see [Prepare Windows 10 devices for co-management](https://docs.microsoft.com/en-us/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).-->
 
 
 
@@ -166,6 +159,13 @@ Esta versão ainda mais simplifica o processo de configuração de cliente do Co
 ![Captura de ecrã do dashboard de cogestão com os mosaicos de quatro principais](media/1358980-comgmt-dashboard.png)
 
 Para obter mais informações, consulte [dashboard de cogestão](/sccm/comanage/how-to-monitor#co-management-dashboard).
+
+
+### <a name="improvements-to-internet-based-client-setup"></a>Melhorias à configuração de clientes baseada na internet
+<!--3607731, fka 1359181-->
+ ***[ATUALIZADO] *** Ainda mais esta versão simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
+
+Para obter mais informações, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-Win10#install-the-configuration-manager-client).
 
 
 

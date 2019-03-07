@@ -2,7 +2,7 @@
 title: Instalar o cliente com o Azure AD
 titleSuffix: Configuration Manager
 description: Instale e atribua o cliente do Configuration Manager em dispositivos Windows 10 com o Azure Active Directory para autenticação
-ms.date: 03/28/2018
+ms.date: 03/05/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -11,16 +11,20 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3815ff3252b4f58412be84dc16813caa2ebfc6e
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: b45c5938e9c1980802055bd73d5fd7e71122fc2a
+ms.sourcegitcommit: f3dd8405018fe1043434386be15c16752c1a4a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56132702"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57558121"
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação
 
 Para instalar o cliente do Configuration Manager em dispositivos Windows 10 com a autenticação do Azure AD, integre o Configuration Manager com o Azure Active Directory (Azure AD). Os clientes podem estar na intranet comunique diretamente com um ponto de gestão que suporte HTTPS ou qualquer ponto de gestão num site ativada para HTTP avançada. Eles também podem ser baseados na internet comunicam através de CMG ou com um ponto de gestão baseado na Internet. Este processo utiliza o Azure AD para autenticar clientes para o site do Configuration Manager. O Azure AD substitui a necessidade de configurar e utilizar certificados de autenticação de cliente.
+
+Configurar o Azure AD pode ser mais fácil para alguns clientes do que a configuração de uma infraestrutura de chaves públicas para autenticação baseada em certificado. Existem recursos que exigem que integre o site para o Azure AD, mas não requerem necessariamente os clientes ser associado ao AD do Azure.<!-- SCCMDocs issue 1259 --> Para obter mais informações, veja os artigos seguintes:
+- [Plano para o Azure Active Directory](/sccm/core/plan-design/security/plan-for-security#bkmk_planazuread)
+- [Utilizar o Azure AD para a cogestão](/sccm/comanage/quickstart-hybrid-aad)
 
 
 
@@ -92,6 +96,8 @@ As propriedades CCMHOSTNAME e /mp, especifique um dos seguintes, consoante o cen
 - Ponto de gestão baseado na Internet propriedade SMSMP o Especifica o local ou o ponto de gestão baseado na internet.
 
 Este exemplo utiliza um gateway de gestão na cloud. Ele substitui os valores de exemplo para cada propriedade: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver`
+
+A partir da versão 1810, o site publica adicionais do Azure informações de AD para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a instalação do cliente num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.<!--3607731-->
 
 Para automatizar a instalação de cliente com a identidade do Azure AD através do Microsoft Intune, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-win10#install-the-configuration-manager-client).
 

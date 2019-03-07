@@ -1,8 +1,8 @@
 ---
-title: Windows Autopilot para dispositivos existentes
+title: Windows Autopilot para os dispositivos existentes
 titleSuffix: Configuration Manager
 description: Utilizar uma sequência de tarefas do Configuration Manager para a recriação de imagem e aprovisionar um dispositivo com Windows 7 para o modo de controlada pelo usuário do Windows Autopilot
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -11,14 +11,14 @@ ms.assetid: 2e96f847-5b5a-4da9-8e8f-6aa488838508
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 53a9ac779a9a89e010334970c2045e71380a7801
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: 6878e36e5bf20774f6eef1ee855dda2f95dabfb4
+ms.sourcegitcommit: f3dd8405018fe1043434386be15c16752c1a4a3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56839052"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57558012"
 ---
-# <a name="windows-autopilot-for-existing-devices"></a>Windows Autopilot para dispositivos existentes
+# <a name="windows-autopilot-for-existing-devices"></a>Windows Autopilot para os dispositivos existentes
 <!--3607717, fka 1358333-->
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -31,9 +31,12 @@ ms.locfileid: "56839052"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Adquira a mídia de instalação para Windows 10 versão 1809 ou posterior. Em seguida, crie uma imagem de SO do Configuration Manager. Para obter mais informações, consulte [imagens do sistema operacional de gerir](/sccm/osd/get-started/manage-operating-system-images).
+- Adquira a mídia de instalação para Windows 10 versão 1809 ou posterior. Em seguida, crie uma imagem de SO do Configuration Manager. Para obter mais informações, consulte [imagens do sistema operacional de gerir](/sccm/osd/get-started/manage-operating-system-images).
 
-No Microsoft Intune, crie perfis para o Windows Autopilot. Para obter mais informações, consulte [Windows inscrever dispositivos no Intune com o Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+- No Microsoft Intune, crie perfis para o Windows Autopilot. Para obter mais informações, consulte [Windows inscrever dispositivos no Intune com o Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+
+- Um dispositivo ainda não estiver registado no serviço do Windows Autopilot. Se o dispositivo já está registado, o perfil atribuído tem precedência. O Autopilot para o perfil de dispositivos existente só se aplica se que o perfil online exceder o tempo limite.
+
 
 
 ## <a name="create-the-configuration-file"></a>Criar o ficheiro de configuração
