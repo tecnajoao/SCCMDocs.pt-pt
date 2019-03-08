@@ -2,7 +2,7 @@
 title: Pré-requisitos do site
 titleSuffix: Configuration Manager
 description: Saiba como configurar um computador Windows como um servidor de sistema de sites do Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b1a5a5e27108debe4f9f055da889d5b7a031ece
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 4187be7bf25bd88a5ba1432eaeb4cb5a44945551
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56128454"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562139"
 ---
 # <a name="site-and-site-system-prerequisites-for-configuration-manager"></a>Site e pré-requisitos de sistema de sites do Configuration Manager
 
@@ -52,6 +52,8 @@ Os seguintes requisitos de aplicam a todos os servidores de sistema de sites:
   Se tiver de alterar qualquer um desses itens, remova primeiro a função de sistema de sites do computador. Em seguida, reinstale a função após concluir a alteração. Para que as alterações que afetam o servidor do site, primeiro de desinstalar o site. Em seguida, reinstale o site após concluir a alteração.  
 
 - Funções de sistema de sites não são suportadas numa instância de um cluster do Windows Server. A única exceção é o servidor de base de dados do site. Para obter mais informações, consulte [utilizar um cluster do SQL Server para a base de dados do site do Configuration Manager](/sccm/core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database).  
+
+    A partir da versão 1810, o processo de configuração do Configuration Manager já não bloqueia a instalação da função de servidor de site num computador com a função do Windows para o Clustering de ativação pós-falha. SQL Always On requer esta função, por isso, anteriormente não foi possível colocar a base de dados no servidor do site. Com esta alteração, pode criar um site de elevada disponibilidade com menos servidores com o SQL Always On e um servidor de site em modo passivo. Para obter mais informações, consulte [opções de elevada disponibilidade](/sccm/core/servers/deploy/configure/high-availability-options). <!--3607761, fka 1359132-->  
 
 - Não é suportada para alterar o tipo de arranque ou "Iniciar sessão como" definições para qualquer serviço do Configuration Manager. Se o fizer, poderá que serviços importantes deixem de funcionar corretamente.  
 
@@ -337,15 +339,17 @@ Para obter mais informações, consulte [instalar e configurar pontos de distrib
 
 #### <a name="windows-server-roles-and-features"></a>Funcionalidades e funções do Windows Server  
 
--   .NET framework 3.5 (ou posterior)  
+- .NET framework 3.5 (ou posterior)  
 
--   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7, 4.7.1 ou 4.7.2:  
+- .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7, 4.7.1 ou 4.7.2:  
 
      Quando esta função do sistema de site é instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor num Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até depois do servidor ser reiniciado e a conclusão da instalação.  
 
-    -   Ativação HTTP (e as opções selecionadas automaticamente)  
+    - Ativação HTTP (e as opções selecionadas automaticamente)  
 
-    -   ASP.NET 4.5  
+    - ASP.NET 4.5  
+
+    - Serviços do Windows Communication Foundation (WCF)<!-- SCCMDocs issue #1168 -->  
 
 #### <a name="iis-configuration"></a>Configuração do IIS  
 

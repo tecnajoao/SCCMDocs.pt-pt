@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78acd5880bfdada80fca33ea4147fc36b28c495e
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 322ca2cb3f1df6a71fb7ceaf15017d7bd45db4c7
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56126758"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562079"
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o Configuration Manager
 
@@ -134,4 +134,4 @@ A lista seguinte fornece detalhes sobre como uma imagem de arranque é seleciona
 
 3. Na lista de sequências de tarefas que localizou no passo 2, o Configuration Manager procura uma imagem de arranque que corresponda à arquitetura do cliente que está a tentar efetuar o arranque. Se uma imagem de arranque for encontrada com a mesma arquitetura, essa imagem de arranque é utilizada.  
 
-4. Se uma imagem de arranque não for encontrada com a mesma arquitetura, o Configuration Manager procura uma imagem de arranque que é compatível com a arquitetura do cliente. Ele procura na lista de sequências de tarefas que localizou no passo 2. Por exemplo, um cliente de 64 bits é compatível com imagens de arranque de 32 bits e 64 bits. Um cliente de 32 bits é compatível com apenas as imagens de arranque de 32 bits. Um cliente UEFI é compatível com apenas as imagens de arranque de 64 bits.  
+4. Se uma imagem de arranque não for encontrada com a mesma arquitetura, o Configuration Manager procura uma imagem de arranque que é compatível com a arquitetura do cliente. Ele procura na lista de sequências de tarefas que localizou no passo 2. Por exemplo, um cliente de BIOS/MBR de 64 bits é compatível com imagens de arranque de 32 bits e 64 bits. Um cliente de BIOS/MBR de 32 bits é compatível com imagens de arranque apenas de 32 bits. Os clientes UEFI apenas são compatíveis com correspondência de arquitetura. Um cliente UEFI de 64 bits é compatível com imagens de arranque apenas de 64 bits e um cliente UEFI de 32 bits é compatível com apenas as imagens de arranque de 32 bits.

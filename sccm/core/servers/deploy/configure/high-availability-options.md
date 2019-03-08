@@ -2,7 +2,7 @@
 title: Elevada disponibilidade
 titleSuffix: Configuration Manager
 description: Saiba como implementar o Configuration Manager, utilizando as opções que mantêm um elevado nível de serviço disponíveis.
-ms.date: 07/30/2018
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b69fac83283963e49b01c733fb8fa3000702cfb
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 424b841360efbebef96ba5980c4ea7a45995ea0a
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56132171"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562147"
 ---
 # <a name="high-availability-options-for-configuration-manager"></a>Opções de elevada disponibilidade para o Configuration Manager
 
@@ -214,6 +214,8 @@ Diversos sistemas de sites não suportam várias instâncias num site ou na hier
 > Esta secção aplica-se apenas às versões do Configuration Manager 1802 e versões anteriores. A partir da versão 1806, o Configuration Manager fornece uma opção de elevada disponibilidade para o servidor do site. Para obter mais informações, consulte [elevada disponibilidade do servidor do Site](/sccm/core/servers/deploy/configure/site-server-high-availability).  
 
 O Configuration Manager não suporta a instalação do servidor do site para cada site num cluster do Windows Server ou cluster NLB.  
+
+A partir da versão 1810, o processo de configuração do Configuration Manager já não bloqueia a instalação da função de servidor de site num computador com a função do Windows para o Clustering de ativação pós-falha. SQL Always On requer esta função, por isso, anteriormente não foi possível colocar a base de dados no servidor do site. Com esta alteração, pode criar um site de elevada disponibilidade com menos servidores com o SQL Always On e um servidor de site em modo passivo. <!--3607761, fka 1359132-->  
 
 As seguintes informações podem ajudar a preparar quando um servidor de sites falha ou não está operacional:  
 

@@ -2,7 +2,7 @@
 title: Centro de Suporte
 titleSuffix: Configuration Manager
 description: Resolver problemas de clientes do Configuration Manager com o Centro de suporte.
-ms.date: 01/30/2019
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942f60ea15ad83f5debdf8dd3d53e72770744c6
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 367c293794eea86ef8b7b7fb0e331ce0602b325e
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56122870"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562045"
 ---
 # <a name="support-center-for-configuration-manager"></a>Centro de suporte para o Configuration Manager
 
@@ -77,6 +77,9 @@ Depois de instalá-lo, localize os seguintes itens no menu Iniciar no **Microsof
 
 
 ## <a name="known-issues"></a>Problemas conhecidos 
+
+#### <a name="you-cant-install-the-latest-version-if-an-older-version-is-already-installed"></a>Não é possível instalar a versão mais recente, se já estiver instalada uma versão mais antiga
+<!--SCCMDocs-pr issue #3090--> Se já tiver uma versão mais antiga do Support Center instalado, o instalador de 1810 versão falha. Este problema é devido à forma como os ficheiros têm versões entre a versão original e a versão mais recente. Para contornar este problema, desinstale primeiro a versão mais antiga do Support Center. Em seguida, instale a versão mais recente do Configuration Manager versão 1810.
 
 #### <a name="remote-connections-must-include-computer-name-or-domain-as-part-of-the-user-name"></a>Ligações remotas têm de incluir o nome de computador ou o domínio como parte do nome do utilizador
 Se ligar a um cliente remoto a partir do Centro de suporte, tem de fornecer o nome da máquina ou o nome de domínio da conta de utilizador ao estabelecer a ligação. Se usar um nome de computador ou o nome de domínio (por exemplo, `.\administrator`), a ligação tiver êxito, mas o Support Center não recolhe dados do cliente. 

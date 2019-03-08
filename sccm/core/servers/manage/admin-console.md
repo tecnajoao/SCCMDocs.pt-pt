@@ -2,7 +2,7 @@
 title: Consola do Configuration Manager
 titleSuffix: Configuration Manager
 description: Saiba mais sobre como navegar através da consola do Configuration Manager.
-ms.date: 2/20/2019
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30db8b061f41e8a9255b5a308df6a98ef8c0d81b
-ms.sourcegitcommit: 369db96ee84299b5ab6d74b177e6366b3017fc54
+ms.openlocfilehash: 0f9c06f40af1134055d4038fd23954b3f4c59682
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589905"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562113"
 ---
 # <a name="using-the-configuration-manager-console"></a>Utilizando a consola do Configuration Manager
 
@@ -160,6 +160,15 @@ A partir da versão 1806, as colunas seguintes estão disponíveis no **disposit
     > Visualização requer que o usuário atualmente conectado [deteção de utilizadores](/sccm/core/servers/deploy/configure/configure-discovery-methods#bkmk_config-adud) e [afinidade dispositivo / utilizador](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).  
 
 Para obter mais informações sobre como mostrar uma coluna não predefinido, consulte [colunas](#columns).
+
+#### <a name="improvement-to-device-search-performance"></a>Melhoria para o desempenho de pesquisa do dispositivo
+<!-- 3614690 --> A partir da versão 1806, ao pesquisar numa coleção de dispositivos, não faz a pesquisa a palavra-chave em relação a todas as propriedades do objeto. Quando não específico sobre o que procurar, este procura entre as seguintes quatro propriedades:
+- Nome
+- Utilizadores primários
+- Sessão iniciada no utilizador
+- Nome de utilizador do último início de sessão
+
+Este comportamento melhora significativamente o tempo que demora para procurar por nome, especialmente num ambiente grande. As pesquisas personalizadas por critérios específicos não são afetadas por esta alteração. 
 
 
 ### <a name="monitoring-workspace"></a>Área de trabalho monitorização

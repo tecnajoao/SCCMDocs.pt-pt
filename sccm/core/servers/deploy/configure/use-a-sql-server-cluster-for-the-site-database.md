@@ -1,8 +1,8 @@
 ---
 title: Cluster do SQL Server
 titleSuffix: Configuration Manager
-description: Utilize um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. Inclui informações sobre as opções suportadas.
-ms.date: 2/28/2017
+description: Utilizar um cluster do SQL Server para alojar a base de dados do site do Configuration Manager
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,89 +11,108 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f01367c76383454ded14390fc0583c874d32d60e
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: cdbe1d7c3fb28a16c6ba55d073adba3781b12f58
+ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56141743"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57562062"
 ---
-# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utilizar um cluster do SQL Server para a base de dados do site do System Center Configuration Manager
+# <a name="use-a-sql-server-cluster-for-the-site-database"></a>Utilizar um cluster do SQL Server para a base de dados do site
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-
- Pode utilizar um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. A base de dados do site é a única função do sistema de sites suportada num cluster de Servidores.  
+Pode utilizar um cluster do SQL Server para alojar a base de dados do site do Configuration Manager. Um cluster fornece suporte de ativação pós-falha e melhora a fiabilidade da base de dados do site. No entanto, ela não fornece processamento adicional ou balanceamento de carga benefícios. Pode ocorrer degradação do desempenho, porque o servidor do site tem de localizar o nó ativo do cluster do SQL Server antes de ligar à base de dados do site.  
 
 > [!IMPORTANT]  
->  Configuração concluída com êxito de clusters do SQL Server se baseia em documentação e procedimentos fornecidos na biblioteca de documentação do SQL Server.  
+> Configuração concluída com êxito de clusters do SQL Server se baseia em documentação e procedimentos fornecidos na biblioteca de documentação do SQL Server.  
 
- Um cluster pode fornecer suporte de ativação pós-falha e melhorar a fiabilidade da base de dados do site. No entanto, não fornece processamento adicional nem benefícios de balanceamento de carga. Na verdade, degradação do desempenho pode ocorrer, porque o servidor do site tem de localizar o nó ativo do cluster do SQL Server antes de ligar à base de dados do site.  
 
- Antes de instalar o Configuration Manager, tem de preparar o cluster do SQL Server para suportar o Configuration Manager. (Consulte os pré-requisitos mais à frente nesta secção).  
+Antes de instalar o Configuration Manager, prepare o cluster do SQL Server para suportar o Configuration Manager. Para obter mais informações, consulte [preparar uma instância do SQL Server em cluster](#bkmk_prepare).
 
- Durante a configuração do Configuration Manager, o escritor do serviço de cópia de sombra de volumes do Windows é instalado em cada nó de computador físico do cluster do Microsoft Windows Server. Isto suporta o **servidor do Site de cópia de segurança** tarefa de manutenção.  
+Durante a configuração do Configuration Manager, o escritor do serviço de cópia de sombra de volumes do Windows é instalado em cada nó de computador físico do cluster do Microsoft Windows Server. Este serviço suporta o **servidor do Site de cópia de segurança** tarefa de manutenção.  
 
- Após a instalação do site, o Configuration Manager verifica a existência de alterações para o nó de cluster por hora. O Configuration Manager gerencia automaticamente quaisquer alterações encontradas que afetem as instalações de componentes do Configuration Manager (como uma ativação pós-falha de nó ou a adição de um novo nó ao cluster do SQL Server).  
+Após a instalação do site, o Configuration Manager verifica a existência de alterações para o nó de cluster por hora. O Configuration Manager gerencia automaticamente quaisquer alterações que encontram-se que afetam suas instalações de componentes. Por exemplo, uma ativação pós-falha de nó ou a adição de um novo nó ao cluster do SQL Server.  
 
-## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Opções suportadas para utilizar um cluster de ativação pós-falha do SQL Server
+
+
+## <a name="supported-options"></a>Opções suportadas
 
 As opções seguintes são suportadas para clusters de ativação pós-falha do SQL Server utilizados como a base de dados do site:
 
--   Um cluster de instância única  
+- Um cluster de instância única  
 
--   Configuração de várias instâncias  
+- Configurações de várias instâncias  
 
--   Vários nós ativos  
+- Vários nós ativos  
 
--   Uma determinada ou uma instância predefinida  
+- Uma determinada ou uma instância predefinida  
+
+
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Tenha em atenção os seguintes pré-requisitos:  
 
--   A base de dados do site tem de ser remota em relação ao servidor do site. (O cluster não pode incluir o servidor do sistema de sites.)  
+- A base de dados do site tem de ser remota em relação ao servidor do site. O cluster não pode incluir o servidor de sistema de sites.  
 
--   Tem de adicionar a conta de computador do servidor do site para o grupo de administradores locais de cada servidor no cluster.  
+    > [!Note]  
+    > A partir da versão 1810, o processo de configuração do Configuration Manager já não bloqueia a instalação da função de servidor de site num computador com a função do Windows para o Clustering de ativação pós-falha. Anteriormente não foi possível colocar a base de dados no servidor do site. Com esta alteração, pode criar um site de elevada disponibilidade com menos servidores através de um cluster SQL e um servidor de site em modo passivo. Para obter mais informações, consulte [opções de elevada disponibilidade](/sccm/core/servers/deploy/configure/high-availability-options). <!--3607761, fka 1359132-->  
 
--   Para suportar a autenticação Kerberos, o **TCP/IP** protocolo de comunicação de rede tem de estar ativado para a ligação de rede de cada nó de cluster do SQL Server. O protocolo**Pipes nomeados** não é necessário, mas pode ser utilizado para resolver problemas de autenticação Kerberos. As definições de protocolo de rede são configuradas no **Gestor de configuração do SQL Server**, em **configuração de rede do SQL Server**.  
+- Adicione a conta de computador do servidor do site local **administradores** grupo de cada servidor no cluster.  
 
--   Se utilizar uma PKI, consulte requisitos de certificado PKI para o Configuration Manager para requisitos de certificado específicos quando utilizar um cluster do SQL Server para a base de dados do site.  
+- Para suportar a autenticação Kerberos, ative o **TCP/IP** protocolo de comunicação para a ligação de rede de cada nó de cluster do SQL Server de rede. O **pipes nomeados** protocolo não é necessário, mas pode ser utilizado para resolver problemas de autenticação Kerberos. As definições de protocolo de rede são configuradas no **Gestor de configuração do SQL Server**, em **configuração de rede do SQL Server**.  
+
+- Se utilizar uma infraestrutura de chaves públicas (PKI), consulte [requisitos de certificado PKI](/sccm/core/plan-design/network/pki-certificate-requirements). Existem requisitos de certificado específicos quando utilizar um cluster do SQL Server para a base de dados do site.  
+
+
+
+## <a name="limitations"></a>Limitações
 
 Considere as seguintes limitações:  
 
--   **Instalação e configuração:**  
 
-    -   Os sites secundários não podem utilizar um cluster do SQL Server.  
+### <a name="installation-and-configuration"></a>Instalação e configuração
 
-    -   A opção para especificar localizações de ficheiros não predefinidas para a base de dados do site não se encontra disponível quando especificar um cluster do SQL Server.  
+- Os sites secundários não é possível utilizar um cluster do SQL Server.  
 
--   **Fornecedor de SMS:**  
+- Quando especificar um cluster do SQL Server, a opção para especificar localizações de ficheiros não predefinidas para a base de dados do site não está disponível.  
 
-    -   Não é suportada para instalar uma instância do fornecedor de SMS num cluster do SQL Server ou num computador que é executado como um nó em cluster do SQL Server.  
 
--   **Opções de replicação de dados:**  
+### <a name="sms-provider"></a>Fornecedor de SMS
 
-    -   Se pretender utilizar **vistas distribuídas**, não é possível utilizar um cluster do SQL Server para alojar a base de dados do site.  
+Não é possível instalar uma instância do fornecedor de SMS num cluster do SQL Server. Também não é suportada num computador que é executado como um nó em cluster do SQL Server.  
 
--   **Cópia de segurança e recuperação:**  
 
-    -   O Configuration Manager não suporta a cópia de segurança do Data Protection Manager (DPM) para um cluster do SQL Server que utilize uma instância nomeada. No entanto, ele, suportam a cópia de segurança do DPM num cluster do SQL Server que utiliza a instância predefinida do SQL Server.  
+### <a name="data-replication-options"></a>Opções de replicação de dados
 
-## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Preparar uma instância do SQL Server em cluster para a base de dados do site  
+Se usar **vistas distribuídas**, não é possível utilizar um cluster do SQL Server para alojar a base de dados do site.  
 
-Seguem-se as tarefas principais para concluir a fim de preparar a sua base de dados do site:
 
--   Crie o cluster virtual do SQL Server para alojar a base de dados do site num ambiente de cluster do Windows Server existente. Para obter passos específicos para instalar e configurar um cluster do SQL Server, consulte a documentação específica da sua versão do SQL Server. Por exemplo, se estiver a utilizar o SQL Server 2008 R2, consulte [instalando um Cluster de ativação pós-falha do SQL Server 2008 R2](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
+### <a name="backup-and-recovery"></a>Cópia de segurança e recuperação
 
--   Em cada computador no cluster do SQL Server, pode colocar um ficheiro na pasta raiz de cada unidade onde não pretenda do Configuration Manager para instalar componentes do site. O arquivo deve ser nomeado **no_sms_on_drive**. Por predefinição, o Configuration Manager instala alguns componentes em cada nó físico, para suportar operações, tais como cópia de segurança.  
+O Configuration Manager não suporta a cópia de segurança do Data Protection Manager (DPM) para um cluster de SQL Server que utiliza uma instância nomeada. Ele oferece suporte a cópia de segurança do DPM num cluster do SQL Server que utiliza a instância predefinida do SQL Server.  
 
--   Adicione a conta de computador do servidor do site ao grupo **Administradores Locais** do computador de cada nó do cluster do Windows Server.  
 
--   Na instância virtual do SQL Server, atribua a **sysadmin** função do SQL Server para a conta de utilizador que irá executar a configuração do Configuration Manager.  
+
+## <a name="bkmk_prepare"></a> Preparar uma instância do SQL Server em cluster  
+
+Aqui estão as principais tarefas para preparar a sua base de dados do site:
+
+- Crie o cluster virtual do SQL Server para alojar a base de dados do site num ambiente de cluster do Windows Server existente. Para obter passos específicos para instalar e configurar um cluster do SQL Server, consulte a documentação específica da sua versão do SQL Server. Para obter mais informações, consulte [criar um novo Cluster de ativação pós-falha do SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/install/create-a-new-sql-server-failover-cluster-setup?view=sql-server-2017).  
+
+- Em cada computador no cluster do SQL Server, coloca um ficheiro na pasta raiz de cada unidade onde não pretende que o Configuration Manager para instalar componentes do site. Dê o nome `NO_SMS_ON_DRIVE.SMS` ao ficheiro. Por predefinição, o Configuration Manager instala alguns componentes em cada nó físico, para suportar operações, tais como cópia de segurança.  
+
+- Adicione a conta de computador do servidor do site local **administradores** grupo de cada computador de nó de cluster do Windows Server.  
+
+- Na instância virtual do SQL Server, atribua a **sysadmin** função do SQL Server para a conta de utilizador que executa a configuração do Configuration Manager.  
+
 
 ### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Para instalar um novo site utilizando um SQL Server em cluster  
- Para instalar um site que utiliza uma base de dados do site em cluster, execute a configuração do Configuration Manager seguindo o processo normal para instalar um site, com a seguinte alteração:  
 
--   Na página **Informações da Base de Dados** , especifique o nome da instância virtual do cluster do SQL Server que irá alojar a base de dados do site. A instância virtual substitui o nome do computador que executa o SQL Server.  
+Para instalar um site que utiliza uma base de dados do site em cluster, execute a configuração do Configuration Manager seguindo o processo normal para instalar um site, com a seguinte alteração:  
+
+- Na página **Informações da Base de Dados** , especifique o nome da instância virtual do cluster do SQL Server que irá alojar a base de dados do site. A instância virtual substitui o nome do computador que executa o SQL Server.  
 
     > [!IMPORTANT]  
-    >  Quando introduzir o nome da instância virtual do cluster do SQL Server, não introduza o nome do Windows Server virtual criado pelo cluster do Windows Server. Se utilizar o nome virtual do Windows Server, a base de dados do site é instalado no disco rígido local do nó de cluster do Windows Server Active Directory. Isto impede a ativação pós-falha bem sucedida se esse nó falhar.  
+    > Ao introduzir o nome da instância virtual do cluster do SQL Server, não introduza o nome do Windows Server virtual criado pelo cluster do Windows Server. Se utilizar o nome virtual do Windows Server, a base de dados do site é instalado no disco rígido local do nó de cluster do Windows Server Active Directory. Isto impede a ativação pós-falha bem sucedida se esse nó falhar.  
