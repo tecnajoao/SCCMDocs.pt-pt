@@ -1,8 +1,8 @@
 ---
 title: A pasta CD.Latest
 titleSuffix: Configuration Manager
-description: Saiba mais sobre o novo processo de atualização que disponibiliza atualizações do produto a partir da consola do Configuration Manager.
-ms.date: 03/28/2018
+description: Saiba mais sobre o processo que disponibiliza atualizações do produto a partir da consola do Configuration Manager.
+ms.date: 03/07/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,54 +11,68 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef94f51ad85f5d816a5de253a63a639111b4383a
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 70612d3f60802892aa99bbc4fc006b9385cb8756
+ms.sourcegitcommit: af8693048e6706ffda72572374f56e0bc7dfce2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56134338"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57737327"
 ---
-# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>A pasta CD.Latest do System Center Configuration Manager
+# <a name="the-cdlatest-folder-for-configuration-manager"></a>O CD. Pasta mais recente do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager apresenta um novo processo de atualização que disponibiliza atualizações do produto a partir da consola do Configuration Manager. Para suportar este novo método de atualização do Configuration Manager, uma nova pasta é criada com o nome **CD. Mais recente** que contém uma cópia dos ficheiros de instalação do Configuration Manager para a versão atualizada do seu site.  
+O Configuration Manager possui um processo para fornecer atualizações para o produto a partir da consola do Configuration Manager. Para suportar este novo método de atualização do Configuration Manager, uma nova pasta é criada com o nome **CD. Mais recente**. Esta pasta contém uma cópia dos ficheiros de instalação do Configuration Manager para a versão atualizada do seu site.  
 
-O CD. Pasta mais recente contém uma pasta denominada **Redist** que contém os ficheiros redistribuíveis que o programa de configuração transfere e utiliza. Estes ficheiros correspondem à versão dos ficheiros do Configuration Manager localizados na pasta CD.Latest. Ao executar o programa de configuração a partir da pasta CD.Latest, tem de utilizar ficheiros que correspondem a essa versão do programa de configuração. Para tal, pode indicar ao programa de configuração para transferir ficheiros novos e atuais da Microsoft, ou indicar ao programa de configuração para utilizar os ficheiros da pasta Redist incluída na pasta CD.Latest.
+O CD. Pasta mais recente contém uma pasta denominada **Redist**, que contém os ficheiros redistribuíveis que o programa de configuração transfere e utiliza. Estes ficheiros correspondem à versão dos ficheiros do Configuration Manager localizados na pasta CD.Latest. Ao executar o programa de configuração a partir da pasta CD.Latest, tem de utilizar ficheiros que correspondem a essa versão do programa de configuração. Pode direta configuração para transferir ficheiros novos e atuais da Microsoft, ou configuração direta para utilizar os ficheiros da pasta Redist incluída no CD. Pasta mais recente.
 
-No entanto, o suporte de dados de linha de base, como a versão de linha de base 1802 que lançado em Março de 2018, não inclui uma pasta Redist. Não será possível criar a pasta de Redist até que instale uma atualização na consola. Entretanto, utilize a pasta Redist que foi utilizado quando instalar sites a partir da mídia de linha de base.  
+Suporte de dados de linha de base não inclui um **Redist** pasta. O site não cria uma pasta Redist até que instale uma atualização na consola. Entretanto, utilize a pasta Redist que foi utilizado quando instalar sites a partir da mídia de linha de base.  
 
-> [!TIP]
-> Certifique-se de que os ficheiros redistribuíveis que utilizar estão atualizados. Se não tiver transferido ficheiros redistribuíveis recentemente, planeie permitir que o programa de configuração para fazê-lo da Microsoft.   
+> [!TIP]  
+> Certificar-se de que os ficheiros redistribuíveis que utilizar estão atualizados. Se ainda não acabou de baixar arquivos redistribuíveis, planeie permitir que a configuração para fazê-lo da Microsoft.   
 
- Seguem-se alguns cenários que criam ou atualizam a pasta CD.Latest num site de administração central ou servidor de site primário:  
+Os seguintes cenários de criar ou atualizar o CD. Pasta mais recente num servidor de site primário ou site de administração central:  
 
--   Instalar uma atualização ou correção a partir da consola do Configuration Manager: A pasta é criada ou atualizada na pasta de instalação do Configuration Manager.  
+- Quando instala uma atualização ou correção a partir da consola do Configuration Manager, o site cria ou atualiza a pasta na pasta de instalação do Configuration Manager.  
 
--   Execute a tarefa de cópia de segurança do Configuration Manager incorporados: A pasta é criada ou atualizada na localização de pasta designada de cópia de segurança.  
+- Quando executar a tarefa de cópia de segurança do Configuration Manager incorporados, o site cria ou atualiza a pasta na localização de pasta designada de cópia de segurança.  
 
--  O CD. Pasta mais recente é criada quando instala um site novo com o suporte de dados de linha de base (como a versão 1802).
+- Quando instala um site novo com o suporte de dados de linha de base, o site cria o CD. Pasta mais recente.
 
-Os ficheiros de origem da pasta CD.Latest são suportadas para o seguinte:  
 
-1.  **Cópia de segurança e recuperação:** Para recuperar um site, tem de utilizar os ficheiros de origem a partir de um CD. Pasta mais recente que corresponda ao seu site. Quando executa uma cópia de segurança do site utilizando a tarefa de cópia de segurança incorporada do site, o CD. Pasta mais recente é incluída como parte da cópia de segurança.
+## <a name="supported-scenarios"></a>Cenários suportados
 
-    -   **Quando reinstala um site como parte de uma recuperação de site,** instala o site a partir da pasta CD.Latest incluída na sua cópia de segurança. Esta ação instala o site utilizando as versões de ficheiro que correspondem à sua cópia de segurança do site e à base de dados do site.  Se não tiver acesso o CD correto. Versão mais recente da pasta, pode obter um CD. Pasta mais recente com as versões de ficheiro correto ao instalar um site num ambiente de laboratório e, em seguida, atualizar esse site para corresponder à versão que pretende recuperar.
+Os ficheiros de origem do CD. Pasta mais recentes são suportados para os seguintes cenários:  
 
-        > [!IMPORTANT]  
-        >  Se não tiver a pasta CD.Latest correta e o respetivo conteúdo disponível, não é possível recuperar um site e tem de ser reinstalado.  
+### <a name="backup-and-recovery"></a>Cópia de segurança e recuperação
+Para recuperar um site, utilize os ficheiros de origem a partir de um CD. Pasta mais recente que corresponda ao seu site. Quando executa uma cópia de segurança do site utilizando a tarefa de cópia de segurança incorporada do site, o CD. Pasta mais recente é incluída como parte da cópia de segurança.
 
-    -   Se não tiver uma pasta CD.Latest, mas tiver um site primário subordinado ou um site de administração central em funcionamento, pode utilizar esse site como referência para uma recuperação do site.  
+- Quando reinstala um site como parte de uma recuperação de site, instala o site a partir do CD. Pasta mais recente incluída na sua cópia de segurança. Esta ação instala o site utilizando as versões de ficheiro que correspondem à sua cópia de segurança do site e base de dados do site.  
 
-2.  **Para instalar um site primário subordinado:** Quando deseja instalar um novo site primário subordinado abaixo de um site de administração central que tem instalado uma ou mais atualizações na consola, tem de utilizar o programa de configuração e os ficheiros de origem a partir do CD. Pasta mais recente a partir do site de administração central. Quando a Configuração é executada a partir de uma cópia da pasta CD.Latest a partir do site de administração central, utiliza ficheiros de origem de instalação que correspondem à versão do site de administração central. Para mais informações consulte [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+    - Se não tiver acesso o CD correto. Versão mais recente da pasta, obter o CD. Pasta mais recente com as versões de ficheiro correto, instalando um site num ambiente de laboratório. Em seguida, atualize esse site para corresponder à versão que pretende recuperar.  
 
-3.  **Para expandir um site primário autónomo:** Quando expande um site primário autónomo, instalando um novo site de administração central, tem de utilizar o programa de configuração e os ficheiros de origem a partir do CD. Pasta mais recente do site primário para instalar o novo site de administração central. Quando executa a partir de uma cópia da pasta CD.Latest a partir do site primário, utiliza ficheiros de origem de instalação que correspondem à versão do site primário. Para obter mais informações, consulte [Expandir um site primário autónomo](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand)) no tópico [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md)
+    - Se não tiver o CD correto. Pasta mais recente e o respetivo conteúdo disponível, é possível recuperar um site. Nesta circunstância, terá de reinstalar o site.  
 
-> [!IMPORTANT]  
->  Os ficheiros de origem CD.Latest atualizados não são suportados para:  
->   
->  -   Instalar um novo site para uma nova hierarquia  
->  -   Atualizar um site do Microsoft System Center 2012 Configuration Manager para o System Center Configuration Manager
->  -   Instalar o cliente do Configuration Manager
->  -   Instalar a consola administrativa do Configuration Manager
+- Se não tiver um CD. Pasta mais recente, mas é necessário um site primário do trabalho subordinado ou um site de administração central, pode utilizar esse site como site de referência para uma recuperação de site.  
+
+### <a name="install-a-child-primary-site"></a>Instalar um site primário subordinado
+Quando deseja instalar um novo site primário subordinado abaixo de um site de administração central que tem instalado uma ou mais atualizações na consola, utilizar a configuração e os ficheiros de origem a partir do CD. Pasta mais recente a partir do site de administração central. Este processo utiliza ficheiros de origem de instalação que correspondem à versão do site de administração central. Para obter mais informações, consulte [utilizar o Assistente de configuração para instalar sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
+
+### <a name="expand-a-stand-alone-primary-site"></a>Expandir um site primário autónomo
+Quando expande um site primário autónomo, instalando um novo site de administração central, utilize a configuração e os ficheiros de origem a partir do CD. Pasta mais recente do site primário. Este processo utiliza ficheiros de origem de instalação que correspondem à versão do site primário. Para obter mais informações, consulte [expandir um site primário autónomo](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_expand).
+
+### <a name="install-a-secondary-site"></a>Instalar um site secundário
+<!-- SCCMDocs-pr issue #3164 --> Quando deseja instalar um novo site secundário abaixo de um site primário que tenha instalado uma ou mais atualizações na consola, utilize os ficheiros de origem a partir do CD. Pasta mais recente do site primário. 
+
+Para obter mais informações, consulte [instala um site secundário](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_secondary). 
+
+
+## <a name="unsupported-scenarios"></a>Cenários não suportados
+
+O CD atualizado. Ficheiros de origem mais recentes não são suportados para:  
+   
+- Instalar um novo site para uma nova hierarquia  
+- Atualizar um site do Microsoft System Center 2012 Configuration Manager para System Center Configuration Manager, ramo atual
+- Instalar clientes do Configuration Manager
+- Instalar consolas do Configuration Manager
 

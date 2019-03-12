@@ -1,8 +1,8 @@
 ---
-title: Tutorial&#58; caminho de cogestão 1
+title: Tutorial&#58; ativar a cogestão de clientes existentes do Configuration Manager
 titleSuffix: Configuration Manager
 description: Configure cogestão com o Microsoft Intune quando gere dispositivos Windows 10 com o Configuration Manager.
-ms.date: 01/14/2019
+ms.date: 03/08/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: tutorial
@@ -11,12 +11,12 @@ author: brenduns
 ms.author: brenduns
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aecb2c33c874717f1da979f1316d1b46b785071
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: af526f531ed81de105aea9d6c5d7f2ea81e8f104
+ms.sourcegitcommit: af8693048e6706ffda72572374f56e0bc7dfce2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56123995"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57737286"
 ---
 # <a name="tutorial-enable-co-management-for-existing-configuration-manager-clients"></a>Tutorial: Ativar a cogestão para os clientes existentes do Configuration Manager
 Com a cogestão, pode manter os seus processos bem estabelecidos para utilizar o Configuration Manager para gerenciar PCs em sua organização. Ao mesmo tempo, está investindo na cloud através da utilização do Intune para segurança e provisionamento modernos.  
@@ -25,8 +25,10 @@ Neste tutorial, vai configurar cogestão dos seus dispositivos Windows 10 que j�
 
 Utilize este tutorial quando:  
 
-- Tem do Active Directory no local que pode ligar ao Azure Active Directory (Azure AD) numa configuração híbrida do Azure AD
-- Tem clientes existentes do Configuration Manager que pretende anexar de cloud
+- Tem do Active Directory no local que pode ligar ao Azure Active Directory (Azure AD) numa configuração híbrida do Azure AD. 
+
+  Se não é possível implementar uma versão híbrida do Azure Active Directory (AD) que associa o ambiente AD com o Azure AD, recomendamos que siga o nosso tutorial de complementar [ativar a cogestão para dispositivos Windows 10 novos baseado na internet](/sccm/comanage/tutorial-co-manage-new-devices). 
+- Tem clientes existentes do Configuration Manager que pretende anexar de cloud.
 
 
 **Neste tutorial, irá:**  
