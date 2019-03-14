@@ -22,7 +22,7 @@ ms.locfileid: "56132528"
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [How to configure client settings in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md)   
+Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [Como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md)   
 
 ## <a name="to-configure-software-inventory"></a>Para configurar o inventário de software  
 
@@ -40,7 +40,7 @@ Este procedimento configura as predefinições de cliente para inventário de so
 
 5. Configure as definições de cliente de que necessita. O [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção a [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) artigo tem uma lista das definições de cliente.  
 
-   Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+   Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
    > [!TIP]
    >   O código de erro 80041006 na inventoryprovider.log significa que o provedor WMI é a memória esgotada. Ou seja, foi atingido o limite de quota de memória de um fornecedor e o fornecedor de inventário não é possível continuar.
