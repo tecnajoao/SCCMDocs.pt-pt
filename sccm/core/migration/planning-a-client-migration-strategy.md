@@ -22,7 +22,7 @@ ms.locfileid: "56132564"
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Para migrar clientes da hierarquia de origem para uma hierarquia de destino do System Center Configuration Manager, terá de efetuar duas tarefas. Tem de migrar os objetos que estão associados ao cliente e, em seguida, tem de reinstalar ou reatribuir os clientes da hierarquia de origem à hierarquia de destino. Deve migrar primeiro os objetos para que estejam disponíveis quando os clientes forem migrados. Os objetos associados ao cliente são migrados utilizando tarefas de migração. Para obter informações sobre como migrar os objetos que estão associados ao cliente, consulte [Planning a migration job strategy in System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
+Para migrar clientes da hierarquia de origem para uma hierarquia de destino do System Center Configuration Manager, terá de efetuar duas tarefas. Tem de migrar os objetos que estão associados ao cliente e, em seguida, tem de reinstalar ou reatribuir os clientes da hierarquia de origem à hierarquia de destino. Deve migrar primeiro os objetos para que estejam disponíveis quando os clientes forem migrados. Os objetos associados ao cliente são migrados utilizando tarefas de migração. Para obter informações sobre como migrar os objetos que estão associados ao cliente, consulte [Planear uma estratégia de tarefa de migração no System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
 
  Utilize as secções seguintes como auxílio para planear a migração dos clientes para a hierarquia de destino.  
 

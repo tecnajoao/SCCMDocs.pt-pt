@@ -61,7 +61,7 @@ Utilizar o conector do Exchange Server no System Center Configuration Manager pa
 
   A função de segurança **Administrador de Operações** inclui as permissões necessárias para gerir dispositivos móveis utilizando o conector do Exchange Server.  
 
-  Para mais informações sobre como configurar permissões de segurança, consulte [Configure role-based administration for System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+  Para mais informações sobre como configurar permissões de segurança, consulte [Configurar a administração baseada em funções para o Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
 ## <a name="installing-and-configuring-an-exchange-server-connector"></a>Instalar e Configurar um Conector do Exchange Server  
  Utilize o seguinte procedimento para instalar e configurar um conector do Exchange Server para gerir dispositivos móveis. O Configuration Manager suporta apenas um conector numa organização do Exchange. Depois de concluir estes passos, pode monitorizar os dispositivos móveis encontrados e geridos pelo conector quando visualizar as coleções que apresentem dispositivos móveis e utilizando os relatórios de dispositivos móveis.  

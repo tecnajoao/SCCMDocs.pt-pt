@@ -58,7 +58,7 @@ Este tópico contém informações de privacidade para atualizações de softwar
 
      Quando instala o WSUS no ponto de atualização de software, pode optar por utilizar o Web site predefinido do IIS existente ou por criar um Web site do WSUS personalizado. Crie um Web site personalizado para o WSUS para que o IIS aloje os serviços WSUS num Web site virtual dedicado em vez de partilhar o mesmo web site que é utilizada por outras aplicações ou os outros sistemas de sites do Configuration Manager.  
 
-     Para mais informações, consulte [Configure WSUS to use a custom web site](plan-for-software-updates.md#BKMK_CustomWebSite).  
+     Para mais informações, consulte [Configurar o WSUS para utilizar um Web site personalizado](plan-for-software-updates.md#BKMK_CustomWebSite).  
 
 ##  <a name="BKMK_Privacy_HardwareInventory"></a> Informações de privacidade para atualizações de software  
  As atualizações de software analisam os computadores cliente para determinar que atualizações de software são necessárias e, em seguida, devolvem as informações à base de dados do site. Durante o processo de atualizações de software do Configuration Manager pode transmitir informações entre clientes e servidores que identificam as contas de computador e o início de sessão.  
