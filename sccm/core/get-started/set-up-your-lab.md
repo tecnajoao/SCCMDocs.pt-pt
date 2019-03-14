@@ -352,7 +352,7 @@ Antes de iniciar a instalação, inicie o  [Prerequisite Checker](/sccm/core/ser
 
 2.  Descomprima o suporte de dados de transferência para a localização predefinida.  
 
-3.  Siga o procedimento de instalação listado em [Install a site using the System Center Configuration Manager Setup Wizard](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). De acordo com esse procedimento, deve introduzir o seguinte:  
+3.  Siga o procedimento de instalação listado em [Utilize o Assistente de configuração para instalar sites do Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). De acordo com esse procedimento, deve introduzir o seguinte:  
 
     |Passo no procedimento de instalação do site|Seleção|  
     |-----------------------------------------|---------------|  
