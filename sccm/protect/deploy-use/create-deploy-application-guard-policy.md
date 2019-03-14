@@ -19,8 +19,8 @@ ms.lasthandoff: 02/12/2019
 ms.locfileid: "56132426"
 ---
 # <a name="create-and-deploy-windows-defender-application-guard-policy"></a>Criar e implementar a política do Windows Defender Application Guard 
-*Aplica-se a: System Center Configuration Manager (ramo atual)* 
- <!-- 1351960 --> pode criar e implementar [do Windows Defender Application Guard](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview) políticas ao utilizar a proteção de ponto final do Configuration Manager . Estas políticas ajudam a proteger os seus utilizadores ao abrir sites não confiáveis no contentor isolado seguro que não está acessível por outras partes do sistema operativo.
+*Aplica-se a: System Center Configuration Manager (ramo atual)*
+<!-- 1351960 --> pode criar e implementar [do Windows Defender Application Guard](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview) políticas ao utilizar a proteção de ponto final do Configuration Manager . Estas políticas ajudam a proteger os seus utilizadores ao abrir sites não confiáveis no contentor isolado seguro que não está acessível por outras partes do sistema operativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
