@@ -38,7 +38,7 @@ Para utilizar a assistência remota ou ambiente de trabalho remoto, tem de ser i
 
    Pode alterar o nome da empresa apresentado na caixa de diálogo **Controlo Remoto do ConfigMgr** ao configurar um valor para **Nome da organização apresentada no Centro de Software** nas definições de cliente do **Agente do Computador** .  
 
-   Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+   Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [Como gerenciar clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
 #### <a name="enable-keyboard-translation"></a>Ativar a tradução de teclado
 

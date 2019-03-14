@@ -46,4 +46,4 @@ Para desativar uma classe de inventário de hardware específico em que a maiori
 
 7.  Configurar outro [definições de cliente de inventário de hardware](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) que necessita.  
 
-Os dispositivos cliente serão configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+Os dispositivos cliente serão configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
