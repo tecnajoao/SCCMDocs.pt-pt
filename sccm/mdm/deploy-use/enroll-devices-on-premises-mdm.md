@@ -26,7 +26,7 @@ Para gerir computadores e dispositivos com gestão de dispositivos móveis no lo
 
 - **Inscrição de utilizadores** - Neste método, os utilizadores iniciam o processo de inscrição nos respetivos dispositivos. Para a inscrição de utilizador seja concluída com êxito, o dispositivo tem de ter um certificado de raiz fidedigna instalado no mesmo e o utilizador tem de ser aprovisionado para inscrição pelo Configuration Manager.  Para inscrever o dispositivo, o utilizador fornece simplesmente as credenciais de trabalho e o dispositivo é inscrito para ser gerido.  
 
-   Para obter mais informações, consulte [How users enroll devices with On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
+   Para obter mais informações, consulte [Como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
 - **Inscrição em massa** - Neste método, o utilizador do dispositivo não tem de iniciar a inscrição. Em vez disso, um pacote de inscrição em massa criada no Configuration Manager e é, em seguida, colocado no dispositivo e aberto. Quando aberto, o pacote fornece as informações necessárias para inscrever o dispositivo.  
 

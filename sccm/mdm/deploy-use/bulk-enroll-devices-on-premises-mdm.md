@@ -54,7 +54,7 @@ As tarefas seguintes explicam como inscrever em massa computadores e dispositivo
 
  Como parte da preparação do sistema para no\-local gestão de dispositivos móveis, exportar um certificado de raiz que pode utilizar num perfil de certificado do pacote de inscrição. Para obter instruções sobre como obter o certificado de raiz fidedigna, consulte [exportar o certificado com a mesma raiz como o certificado de servidor web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
- Utilize o certificado de raiz exportado para criar um perfil de certificado. Para obter instruções, consulte [How to create certificate profiles in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+ Utilize o certificado de raiz exportado para criar um perfil de certificado. Para obter instruções, consulte [Como criar perfis de certificado no System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
 ##  <a name="CreateWifi"></a> Criar um perfil Wi-Fi  
  O outro componente do pacote utilizado para a inscrição em massa é um perfil Wi-Fi. Alguns dispositivos podem não ter a conectividade de rede necessária para suportar a inscrição até que as definições de rede sejam aprovisionadas. Incluir um perfil Wi-Fi no pacote de inscrição fornece um meio para estabelecer a conectividade de rede para o dispositivo.  

@@ -22,7 +22,7 @@ ms.locfileid: "56137563"
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Gestão de dispositivos móveis no local do System Center Configuration Manager, os utilizadores podem inscrever dispositivos se eles tem recebidos permissão de inscrição (através de definições de cliente atualizadas) e respetivos dispositivos tiverem o certificado de raiz necessário instalado para ter comunicações fidedignas com os servidores que alojam as funções do sistema de sites necessárias. Para obter mais informações sobre como configurar a inscrição, consulte [Set up device enrollment for On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
+Gestão de dispositivos móveis no local do System Center Configuration Manager, os utilizadores podem inscrever dispositivos se eles tem recebidos permissão de inscrição (através de definições de cliente atualizadas) e respetivos dispositivos tiverem o certificado de raiz necessário instalado para ter comunicações fidedignas com os servidores que alojam as funções do sistema de sites necessárias. Para obter mais informações sobre como configurar a inscrição, consulte [Configurar a inscrição de dispositivos para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
 
 > [!NOTE]  
 >  O current branch do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos com os seguintes sistemas operativos:  

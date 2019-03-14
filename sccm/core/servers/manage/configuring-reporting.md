@@ -96,7 +96,7 @@ Antes de poder criar, modificar e executar relatórios na consola do System Cent
 3.  Adicione a função de sistema de sites de ponto do Reporting Services a um servidor de sistema de sites novo ou existente utilizando o passo associado:  
 
     > [!NOTE]  
-    >  Para mais informações sobre a configuração de sistemas de sites, consulte [Add site system roles for System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
+    >  Para mais informações sobre a configuração de sistemas de sites, consulte [Adicionar funções do sistema de sites para o System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
 
     -   **Novo sistema de sites**: No separador **Home Page** , no grupo **Criar** , clique em **Criar Servidor do Sistema de Sites**. É aberto o **Assistente para Criar Servidor do Sistema de Sites** .  
 
