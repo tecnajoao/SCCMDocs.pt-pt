@@ -2,7 +2,7 @@
 title: Planear o Fornecedor de SMS
 titleSuffix: Configuration Manager
 description: Saiba mais sobre a função de sistema de sites do fornecedor de SMS no Configuration Manager.
-ms.date: 11/27/2018
+ms.date: 03/12/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aec16c4b55afd8c4baf7486794e07f29fa84aebf
-ms.sourcegitcommit: 223549003829fce7c6dc63959ee71e8b88542417
+ms.openlocfilehash: aba8479d6a2aecb3c73dad6acce6ab8237ff2576
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56951839"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881882"
 ---
 # <a name="plan-for-the-sms-provider"></a>Planear o Fornecedor de SMS 
 
@@ -40,10 +40,12 @@ Os utilizadores administrativos do Configuration Manager utilizam um fornecedor 
 
 O fornecedor de SMS ajuda a impor a segurança do Configuration Manager. Devolve apenas as informações que o utilizador da consola estiver autorizado a ver.  
 
+A partir da versão 1810, o fornecedor de SMS agora fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site. Para obter mais informações, consulte [serviço de administração](#bkmk_admin-service). 
+
 > [!IMPORTANT]  
 >  Quando cada instância do fornecedor de SMS para um site estiver offline, as consolas do Configuration Manager não consegue ligar ao site.  
 
- Para obter mais informações sobre como gerir o fornecedor de SMS, consulte [gerir o fornecedor de SMS](/sccm/core/servers/manage/modify-your-infrastructure#BKMK_ManageSMSprovider).  
+Para obter mais informações sobre como gerir o fornecedor de SMS, consulte [gerir o fornecedor de SMS](/sccm/core/servers/manage/modify-your-infrastructure#BKMK_ManageSMSprovider).  
 
 
 
@@ -246,3 +248,53 @@ Quando gerir implementações do sistema operacional, o Windows ADK permite ao f
 
 
 A instalação do Windows ADK pode precisar de até 650 MB de espaço livre em disco em cada computador que instala o Fornecedor de SMS. Este requisito de espaço de disco elevados é necessário para o Configuration Manager para instalar as imagens de arranque do Windows PE.  
+
+
+
+## <a name="bkmk_admin-service"></a> Serviço de administração
+<!--3607711, fka 1321523-->
+
+> [!Note]  
+> Nesta versão do Configuration Manager, a API do fornecedor de SMS é uma funcionalidade de pré-lançamento. Para ativá-la, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
+
+A partir da versão 1810, o fornecedor de SMS fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
+
+`https://servername/AdminService/wmi/<ClassName>` 
+
+Por exemplo, `https://servername/AdminService/wmi/SMS_Site`
+
+Façam chamadas diretas para este serviço com o cmdlet do Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+
+Também pode utilizar para aceder a dados do site do Power BI com a opção de conector de OData. 
+
+> [!Tip]  
+> Pode utilizar este cmdlet numa sequência de tarefas. Esta permite ação acessar informações a partir do site sem a necessidade de um serviço da web personalizado para fazer a interface com o fornecedor WMI. 
+
+O serviço de administração registra sua atividade para o **adminservice.log** ficheiro.
+
+
+### <a name="enable-the-administration-service-through-the-cmg"></a>Ativar o serviço de administração através do CMG
+
+O **fornecedor de SMS** aparece como uma função com uma opção para permitir a comunicação através do gateway de gestão da cloud (CMG). A utilização atual para esta definição é ativar aprovações de aplicação através de e-mail a partir de um dispositivo remoto. Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy-use/app-approval).
+
+#### <a name="prerequisites"></a>Pré-requisitos
+- O servidor que aloja o fornecedor de SMS requer o .NET 4.5.2 ou posterior.  
+
+- Ative o fornecedor de SMS a utilizar um certificado. Utilize uma das seguintes opções:  
+
+    - Ativar [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http) (recomendado)  
+
+        > [!Note]  
+        > Quando o site cria um certificado para o fornecedor de SMS, ele não ser considerado fidedigno pelo navegador da web no cliente. Com base nas suas definições de segurança, aceder ao fornecedor de REST, poderá ver um aviso de segurança.  
+
+    - Manualmente vincular um certificado PKI com base para a porta 443 no IIS no servidor que aloja a função de fornecedor de SMS  
+
+#### <a name="process-to-enable-the-api-through-the-cmg"></a>Processo para ativar a API através do CMG
+1. Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração do Site**e selecione o **servidores e funções de sistema de sites** nó.  
+
+2. Selecione o servidor com o **fornecedor de SMS** função.  
+
+3. No painel de detalhes, selecione o **fornecedor de SMS** função e selecione **propriedades** no Friso, no **função de Site** separador.  
+
+4. Selecione a opção para **permitir que o Configuration Manager tráfego de gateway de gestão na cloud para o serviço de administração**.  
+

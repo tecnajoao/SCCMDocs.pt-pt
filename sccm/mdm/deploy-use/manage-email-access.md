@@ -2,7 +2,7 @@
 title: Gerir o acesso ao e-mail
 titleSuffix: Configuration Manager
 description: Saiba como utilizar o acesso condicional do Configuration Manager para gerir o acesso ao e-mail do Exchange.
-ms.date: 03/05/2017
+ms.date: 03/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f976b63b4580b5df9c6e609ff6b361538860c41c
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 76326a1e0bcb3d9362db5eccfc08459bb4448206
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56137648"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881780"
 ---
 # <a name="manage-email-access-in-configuration-manager"></a>Gerir o acesso ao e-mail no Configuration Manager
 
@@ -146,7 +146,7 @@ Pode exportar os conteúdos do relatório e utilizar a coluna **Endereço de E-m
 
 O direcionamento de políticas de acesso condicional para diferentes coleções ou grupos de utilizadores depende dos tipos de políticas. Estes grupos contêm os utilizadores que serão direcionados ou que estarão excluídos da política. Quando um utilizador é direcionado por uma política, cada dispositivo que utiliza tem de estar em conformidade para poder aceder ao e-mail.  
 
-- **Para a política do Exchange Online**: a grupos de utilizadores de segurança do Azure Active Directory. Pode configurar estes grupos no **centro de administração do Office 365**ou no **portal de contas do Intune**.  
+- **Para a política do Exchange Online**: a grupos de utilizadores de segurança do Azure Active Directory. Pode configurar estes grupos no **Centro de administração do Microsoft 365**, ou o **portal de contas do Intune**.  
 
 - **Para a política do Exchange no local**: para coleções de utilizadores do Configuration Manager. Pode configurá-los na área de trabalho **Ativos e Compatibilidade** .  
 

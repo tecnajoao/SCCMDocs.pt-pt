@@ -11,25 +11,26 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d9b65629e000814f80876747e1148d450c2080b
-ms.sourcegitcommit: fd16fc2b681608fd6def5bad2cedffbcd1f2423a
+ms.openlocfilehash: 2cb23303801c8d7db173f52587508ce3b0561152
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56405663"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881848"
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-<!--1236459--> System Center Configuration Manager tem uma capacidade integrada para executar scripts do Powershell. PowerShell tem a vantagem de criar sofisticadas, scripts automatizados que estão compreendidos e partilhados com uma maior Comunidade. Os scripts simplificam a criação de ferramentas personalizadas para administrar o software e permitem que realizar tarefas mundanas rapidamente, permitindo-lhe obter o grande trabalho mais fácil e mais consistente.  
+<!--1236459-->
+System Center Configuration Manager tem uma capacidade integrada para executar scripts do Powershell. PowerShell tem a vantagem de criar sofisticadas, scripts automatizados que estão compreendidos e partilhados com uma maior Comunidade. Os scripts simplificam a criação de ferramentas personalizadas para administrar o software e permitem que realizar tarefas mundanas rapidamente, permitindo-lhe obter o grande trabalho mais fácil e mais consistente.  
 
 > [!TIP]  
 > Esse recurso foi introduzido pela primeira vez na versão 1706 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
 
 
 > [!Note]  
-> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para mais informações, consulte [Enable optional features from updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
 Com esta integração no System Center Configuration Manager, pode utilizar o *executar Scripts* funcionalidade para efetue os seguintes procedimentos:
@@ -53,8 +54,8 @@ Com esta integração no System Center Configuration Manager, pode utilizar o *e
 - A execução de scripts - sua conta tem de ter **executar Script** permissões para **coleções**.
 
 Para obter mais informações sobre funções de segurança do Configuration Manager:</br>
-[Âmbitos de segurança para executar scripts](#BKMK_Scopes)</br>
-[Funções de segurança para executar scripts](#BKMK_ScriptRoles)</br>
+[Âmbitos de segurança para executar scripts](#security-scopes)</br>
+[Funções de segurança para executar scripts](#bkmk_ScriptRoles)</br>
 [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration).
 
 ## <a name="limitations"></a>Limitações
@@ -71,7 +72,7 @@ Executar Scripts atualmente suporta:
 
 ## <a name="run-script-authors-and-approvers"></a>Execução de Script de autores e aprovadores
 
-Executar utiliza Scripts o conceito de *autores de script* e *script aprovadores* como funções separadas para implementação e execução de um script. Ter as funções de autor e aprovador separadas permite a uma verificação de processo importante para a ferramenta poderosa que está a executar Scripts. Existe um adicionais *concorrentes do script* função que permite a execução de scripts, mas não a criação ou a aprovação de scripts. Ver [criar funções de segurança para os scripts](#BKMK_ScriptRoles).
+Executar utiliza Scripts o conceito de *autores de script* e *script aprovadores* como funções separadas para implementação e execução de um script. Ter as funções de autor e aprovador separadas permite a uma verificação de processo importante para a ferramenta poderosa que está a executar Scripts. Existe um adicionais *concorrentes do script* função que permite a execução de scripts, mas não a criação ou a aprovação de scripts. Ver [criar funções de segurança para os scripts](#bkmk_ScriptRoles).
 
 ### <a name="scripts-roles-control"></a>Controlo de funções de scripts
 
@@ -283,7 +284,8 @@ Depois de ter iniciado a execução de um script numa coleção de dispositivos,
     -  Para o Configuration Manager versão 1802 do cliente e acima, obtenha a formatação do JSON.
         - Por exemplo, poderá obter resultados que dizem o texto numa versão de cliente e de "TEXT" (a saída fica entre aspas duplas) em outra versão, que será colocado num gráfico como duas categorias diferentes.
         - Se precisar de contornar este comportamento, considere executar script em relação a duas coleções diferentes. Uma com a pré-1802 os clientes e outro com 1802 e superior. Em alternativa, pode converter um objeto de enumeração para um valor de cadeia de caracteres em scripts para que eles corretamente são apresentados no JSON de formatação. 
-- Converta um objeto de enumeração para um valor de cadeia de caracteres em scripts para que eles corretamente são apresentados no JSON de formatação. <!--508377--> ![Converter o objeto de enumeração para um valor de sting](./media/run-scripts/enum-tostring-JSON.png)
+- Converta um objeto de enumeração para um valor de cadeia de caracteres em scripts para que eles corretamente são apresentados no JSON de formatação. <!--508377-->
+   ![Converter o objeto de enumeração para um valor de sting](./media/run-scripts/enum-tostring-JSON.png)
 
 
 

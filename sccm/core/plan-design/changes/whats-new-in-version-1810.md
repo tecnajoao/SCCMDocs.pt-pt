@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2ab324038e833da7bc080286c820b3df8d06fa
-ms.sourcegitcommit: f3dd8405018fe1043434386be15c16752c1a4a3c
+ms.openlocfilehash: bca001b5f066447115beeba23eaf0a4a63efe3ad
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57558172"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881865"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -54,13 +54,15 @@ Version 1810 drops support for the following products:
 ## <a name="bkmk_infra"></a> Infraestrutura do site
 
 ### <a name="support-for-windows-server-2019"></a>Suporte para o Windows Server de 2019
-<!--1359195--> O Configuration Manager suporta agora 2019 do Windows Server e no Windows Server, versão 1809, como sistemas de sites. 
+<!--1359195-->
+O Configuration Manager suporta agora 2019 do Windows Server e no Windows Server, versão 1809, como sistemas de sites. 
 
 Para obter mais informações, consulte [sistemas operativos suportados para servidores do sistema de sites](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).
 
 
 ### <a name="hierarchy-support-for-site-server-high-availability"></a>Suporte de hierarquia para disponibilidade elevada do servidor de site
-<!--1358224--> Sites de administração central e sites primários subordinados agora podem ter um servidor de sites adicionais em modo passivo. 
+<!--1358224-->
+Sites de administração central e sites primários subordinados agora podem ter um servidor de sites adicionais em modo passivo. 
 
 <!--For more information, see [Site server high availability](/sccm/core/servers/deploy/configure/site-server-high-availability).-->
 
@@ -81,7 +83,8 @@ Ao instalar ou atualizar para versão 1810, configuração do Configuration Mana
 
 
 ### <a name="new-permission-for-client-notification-actions"></a>Nova permissão para ações de notificação do cliente
-<!--SCCMDocs-pr issue #2972--> Ações de notificação do cliente agora exigem a **notificar recursos** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
+<!--SCCMDocs-pr issue #2972-->
+Ações de notificação do cliente agora exigem a **notificar recursos** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
 - Administrador total  
 - Administrador de infraestrutura  
 
@@ -94,7 +97,8 @@ Para obter mais informações, consulte [notificações do cliente](/sccm/core/c
 ## <a name="bkmk_content"></a>Gestão de conteúdo
 
 ### <a name="new-boundary-group-options"></a>Novas opções de grupo de limites
-<!--1358749--> Grupos de limites agora incluem as seguintes definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente:
+<!--1358749-->
+Grupos de limites agora incluem as seguintes definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente:
 
 - **Prefira pontos de distribuição através de protocolos de mesmo nível com a mesma sub-rede**: Por predefinição, o ponto de gestão, atribui prioridades aos origens da cache ponto a ponto na parte superior da lista de localizações de conteúdo. Esta definição reverte essa prioridade para clientes que estejam na mesma sub-rede que a origem de cache ponto a ponto.  
 
@@ -104,7 +108,8 @@ Para obter mais informações, consulte [opções de grupos de limites para as t
 
 
 ### <a name="management-insights-rule-for-peer-cache-source-client-version"></a>Regra de informações de gestão para a versão de cliente de origem de cache ponto a ponto
-<!-- 1358008 --> O **informações de gestão** nó tem uma nova regra para identificar os clientes que servem como uma origem de cache ponto a ponto, mas ainda não tiver atualizado a partir de uma versão de cliente de pré-1806. É a nova regra **atualizar origens de cache ponto a ponto para a versão mais recente do cliente do Configuration Manager**, e faz parte da nova **manutenção pró-ativa** grupo de regras. Pré-1806 clientes não podem servir como uma origem de cache ponto a ponto para clientes que executam a versão 1806 ou posterior. Selecione **agir** para abrir uma vista de dispositivo que apresenta a lista de clientes. 
+<!-- 1358008 -->
+O **informações de gestão** nó tem uma nova regra para identificar os clientes que servem como uma origem de cache ponto a ponto, mas ainda não tiver atualizado a partir de uma versão de cliente de pré-1806. É a nova regra **atualizar origens de cache ponto a ponto para a versão mais recente do cliente do Configuration Manager**, e faz parte da nova **manutenção pró-ativa** grupo de regras. Pré-1806 clientes não podem servir como uma origem de cache ponto a ponto para clientes que executam a versão 1806 ou posterior. Selecione **agir** para abrir uma vista de dispositivo que apresenta a lista de clientes. 
 
 Para obter mais informações, consulte [informações de gestão](/sccm/core/servers/manage/management-insights).
 
@@ -113,17 +118,19 @@ Para obter mais informações, consulte [informações de gestão](/sccm/core/se
 ## <a name="bkmk_client"></a> Gestão de clientes
 
 ### <a name="new-client-notification-action-to-wake-up-device"></a>Nova ação de notificação de cliente para reativar o dispositivo
-<!--1317364--> Agora pode reativar os clientes a partir da consola do Configuration Manager, mesmo que o cliente não está na mesma sub-rede que o servidor do site. Se precisar de fazer a manutenção ou consulta de dispositivos, não está limitado pelos clientes remotos que estão em modo de suspensão. O servidor de site utiliza o canal de notificação de cliente para identificar a outro cliente está ativo na mesma sub-rede remota. O cliente ativo, em seguida, envia uma reativação no pedido de LAN (Pacote mágico).
+<!--1317364-->
+Agora pode reativar os clientes a partir da consola do Configuration Manager, mesmo que o cliente não está na mesma sub-rede que o servidor do site. Se precisar de fazer a manutenção ou consulta de dispositivos, não está limitado pelos clientes remotos que estão em modo de suspensão. O servidor de site utiliza o canal de notificação de cliente para identificar a outro cliente está ativo na mesma sub-rede remota. O cliente ativo, em seguida, envia uma reativação no pedido de LAN (Pacote mágico).
 
 ### <a name="new-option-to-perform-client-notification-from-devices-node"></a>Nova opção para efetuar a notificação do cliente a partir do nó dispositivos
-<!--1317364--> Até 1810, o **notificação do cliente** opção só estava disponível a partir do nó de coleção de dispositivos ou quando visualizado a associação de uma coleção de dispositivos. Agora, é possível efetuar uma **notificação do cliente** da **dispositivos** nó diretamente. Já não é um requisito para estar dentro de uma vista de associação de coleção. 
+<!--1317364-->
+Até 1810, o **notificação do cliente** opção só estava disponível a partir do nó de coleção de dispositivos ou quando visualizado a associação de uma coleção de dispositivos. Agora, é possível efetuar uma **notificação do cliente** da **dispositivos** nó diretamente. Já não é um requisito para estar dentro de uma vista de associação de coleção. 
 
 Para obter mais informações, consulte [notificações do cliente](/sccm/core/clients/manage/client-notification).
 
 
 ### <a name="improvements-to-collection-evaluation"></a>Melhorias à avaliação de coleção
 <!--3607726, fka 1358981-->
- ***[ATUALIZADO] *** As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
+***[ATUALIZADO]***  As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
 
 - Anteriormente, quando tiver configurado uma agenda numa coleção com base na consulta, o site continuaria a avaliar a consulta quer ou não tiver ativado a definição de coleção para **agendar uma atualização completa para esta coleção**. Para desabilitar totalmente a agenda, era necessário que alterar a agenda para **None**. Agora o site limpa a agenda quando desativar esta definição. Para especificar uma agenda para avaliação de coleção, ative a opção para **agendar uma atualização completa para esta coleção**.  
 
@@ -133,7 +140,8 @@ Para obter mais informações, consulte [como criar coleções](/sccm/core/clien
 
 
 ### <a name="improvement-to-client-installation"></a>Melhoria para instalação do cliente
-<!--1358840--> Ao instalar o cliente do Configuration Manager, o processo de ccmsetup entra em contacto com o ponto de gestão para localizar os conteúdos necessários. Anteriormente o ponto de gestão nesse processo devolve apenas os pontos de distribuição no grupo de limite atual do cliente. Se nenhum conteúdo estiver disponível, o processo de configuração é retrocede para transferir o conteúdo do ponto de gestão. Não existe nenhuma opção para reverter para pontos de distribuição em outros grupos de limites que podem ter o conteúdo necessário. Agora o ponto de gestão devolve pontos de distribuição com base na configuração do grupo de limites. 
+<!--1358840-->
+Ao instalar o cliente do Configuration Manager, o processo de ccmsetup entra em contacto com o ponto de gestão para localizar os conteúdos necessários. Anteriormente o ponto de gestão nesse processo devolve apenas os pontos de distribuição no grupo de limite atual do cliente. Se nenhum conteúdo estiver disponível, o processo de configuração é retrocede para transferir o conteúdo do ponto de gestão. Não existe nenhuma opção para reverter para pontos de distribuição em outros grupos de limites que podem ter o conteúdo necessário. Agora o ponto de gestão devolve pontos de distribuição com base na configuração do grupo de limites. 
 
 Para obter mais informações, consulte [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_ccmsetup).
 
@@ -142,13 +150,15 @@ Para obter mais informações, consulte [configurar grupos de limites](/sccm/cor
 ## <a name="bkmk_comgmt"></a> Cogestão
 
 ### <a name="required-app-compliance-policy-for-co-managed-devices"></a>Necessária a política de conformidade de aplicações para dispositivos cogeridos
-<!--1358196--> Defina as regras de política de conformidade no Configuration Manager para as aplicações necessárias. Esta avaliação de aplicação faz parte do Estado de conformidade geral enviado para o Microsoft Intune para dispositivos cogeridos.
+<!--1358196-->
+Defina as regras de política de conformidade no Configuration Manager para as aplicações necessárias. Esta avaliação de aplicação faz parte do Estado de conformidade geral enviado para o Microsoft Intune para dispositivos cogeridos.
 
 <!--For more information, see [Co-management for Windows 10 devices](/sccm/core/clients/manage/co-management-overview).-->
 
 
 ### <a name="improvement-to-co-management-dashboard"></a>Melhoria para o dashboard de cogestão
-<!--1358980--> O dashboard de cogestão foi melhorado com as seguintes informações mais detalhadas:  
+<!--1358980-->
+O dashboard de cogestão foi melhorado com as seguintes informações mais detalhadas:  
 
 - O **estado de inscrição de cogestão** mosaico inclui Estados adicionais
 
@@ -163,7 +173,7 @@ Para obter mais informações, consulte [dashboard de cogestão](/sccm/comanage/
 
 ### <a name="improvements-to-internet-based-client-setup"></a>Melhorias à configuração de clientes baseada na internet
 <!--3607731, fka 1359181-->
- ***[ATUALIZADO] *** Ainda mais esta versão simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
+***[ATUALIZADO]***  Ainda mais esta versão simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
 
 Para obter mais informações, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-Win10#install-the-configuration-manager-client).
 
@@ -177,26 +187,28 @@ Para obter mais informações, consulte [como preparar os dispositivos baseados 
 
 ### <a name="convert-applications-to-msix"></a>Converter aplicações para MSIX
 <!--3607729, fka 1359029-->
- ***[Atualizado] *** a partir da versão 1806, o Configuration Manager suporta a implementação do novo formato de pacote (.msix) de aplicação com o Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
+***[Atualizado]***  a partir da versão 1806, o Configuration Manager suporta a implementação do novo formato de pacote (.msix) de aplicação com o Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
 
 Para obter mais informações, consulte [aplicativos Windows criar](/sccm/apps/get-started/creating-windows-applications#bkmk_msix).  
 
 
 ### <a name="repair-applications"></a>Aplicativos de reparação
-<!--1357866--> Especifique uma linha de comando de reparo para tipos de implementação do Windows Installer e o instalador de Script. Em seguida, se habilitar a opção na implementação, um novo botão está disponível no Centro de Software para **reparação** o aplicativo. Quando configura uma aplicação com um programa de reparação, os usuários possam iniciar o comando do Centro de Software. 
+<!--1357866-->
+Especifique uma linha de comando de reparo para tipos de implementação do Windows Installer e o instalador de Script. Em seguida, se habilitar a opção na implementação, um novo botão está disponível no Centro de Software para **reparação** o aplicativo. Quando configura uma aplicação com um programa de reparação, os usuários possam iniciar o comando do Centro de Software. 
 
 Para obter mais informações, consulte [criem aplicativos](/sccm/apps/deploy-use/create-applications#bkmk_dt-content) e [implementar aplicações](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-settings).
 
 
 ### <a name="approve-application-requests-via-email"></a>Aprovar pedidos de aplicações através de e-mail
-<!--1321550--> Configure notificações por e-mail para pedidos de aprovação de aplicações. Quando um utilizador solicita uma aplicação, receberá uma mensagem de e-mail. Clique em ligações no e-mail para aprovar ou negar o pedido, sem a necessidade de consola do Configuration Manager.
+<!--1321550-->
+Configure notificações por e-mail para pedidos de aprovação de aplicações. Quando um utilizador solicita uma aplicação, receberá uma mensagem de e-mail. Clique em ligações no e-mail para aprovar ou negar o pedido, sem a necessidade de consola do Configuration Manager.
 
 Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy-use/app-approval).
 
 
 ### <a name="detection-methods-dont-load-windows-powershell-profiles"></a>Métodos de deteção não carregam perfis do Windows PowerShell
 <!--3607762, fka 1359239-->
- ***[ATUALIZADO] *** Pode utilizar scripts do Windows PowerShell para métodos de Deteção em aplicativos e configurações nos itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
+***[ATUALIZADO]***  Pode utilizar scripts do Windows PowerShell para métodos de Deteção em aplicativos e configurações nos itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
 
 Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. Pode criar um perfil de PowerShell para personalizar o seu ambiente e para adicionar elementos específicos da sessão para cada sessão do PowerShell que começar. 
 
@@ -218,26 +230,29 @@ Para obter mais informações, consulte [Windows Autopilot para dispositivos exi
 
 
 ### <a name="specify-the-drive-for-offline-os-image-servicing"></a>Especifique a unidade para a manutenção da imagem de SO offline  
-<!--1358924--> Agora, especifique a unidade que o Configuration Manager utiliza ao adicionar as atualizações de software para imagens do sistema operacional e pacotes de atualização do sistema operacional. Este processo pode consumir uma grande quantidade de espaço em disco com ficheiros temporários, para que esta opção dá-lhe flexibilidade para selecionar a unidade a utilizar. 
+<!--1358924-->
+Agora, especifique a unidade que o Configuration Manager utiliza ao adicionar as atualizações de software para imagens do sistema operacional e pacotes de atualização do sistema operacional. Este processo pode consumir uma grande quantidade de espaço em disco com ficheiros temporários, para que esta opção dá-lhe flexibilidade para selecionar a unidade a utilizar. 
 
 Para obter mais informações, consulte [imagens do sistema operacional gerenciar](/sccm/osd/get-started/manage-operating-system-images#bkmk_servicing-drive) ou [pacotes de atualização de SO gerir](/sccm/osd/get-started/manage-operating-system-upgrade-packages#bkmk_servicing-drive).
 
 
 ### <a name="task-sequence-support-for-boundary-groups"></a>Suporte de sequência de tarefas para grupos de limites
-<!--1359025--> Quando um dispositivo é executada uma sequência de tarefas e precisa de adquirir o conteúdo, ele usa agora comportamentos de grupo de limites semelhantes para o cliente do Configuration Manager.   
+<!--1359025-->
+Quando um dispositivo é executada uma sequência de tarefas e precisa de adquirir o conteúdo, ele usa agora comportamentos de grupo de limites semelhantes para o cliente do Configuration Manager.   
 
 Para obter mais informações, consulte [grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_bgr-osd).
 
 
 ### <a name="improvements-to-driver-maintenance"></a>Melhoramentos à manutenção do controlador
 <!--3607716, fka 1358270-->
- ***[ATUALIZADO] *** Pacotes de controladores agora têm campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
+***[ATUALIZADO]***  Pacotes de controladores agora têm campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
 
 Para obter mais informações, consulte [gerir controladores](/sccm/osd/get-started/manage-drivers).
 
 
 ### <a name="new-task-sequence-variable-for-last-action-name"></a>Nova variável de sequência de tarefas para o último nome de ação
-<!--SCCMDocs-pr issue #2964--> Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
+<!--SCCMDocs-pr issue #2964-->
+Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
 
 Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables#SMSTSLastActionName).
 
@@ -250,13 +265,15 @@ Para obter mais informações, consulte [variáveis de sequência de tarefas](/s
 ## <a name="bkmk_sum"></a>Atualizações de software
 
 ### <a name="phased-deployment-of-software-updates"></a>Implementação faseada de atualizações de software
-<!--1358146--> Crie implementações faseadas para atualizações de software. As implementações faseadas permitem-lhe organizar uma implementação coordenada e sequenciada de software com base em critérios personalizáveis e grupos.
+<!--1358146-->
+Crie implementações faseadas para atualizações de software. As implementações faseadas permitem-lhe organizar uma implementação coordenada e sequenciada de software com base em critérios personalizáveis e grupos.
 
 Para obter mais informações, consulte [criar implementações faseadas](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/sum/toc.json&bc=/sccm/sum/breadcrumb/toc.json).
 
 
 ### <a name="improvement-to-maintenance-windows-for-software-updates"></a>Melhoria para janelas de manutenção para atualizações de software
-<!--vso2839307--> A seguinte definição de cliente está no **atualizações de Software** grupo para controlar o comportamento de instalação de atualizações de software de janelas de manutenção: 
+<!--vso2839307-->
+A seguinte definição de cliente está no **atualizações de Software** grupo para controlar o comportamento de instalação de atualizações de software de janelas de manutenção: 
 
 **Ativar a instalação de atualizações na janela de manutenção de "Todas as implementações" quando a janela de manutenção "Atualização de Software" está disponível**
 
@@ -265,14 +282,16 @@ Por predefinição, esta opção está **não** para manter consistente com o co
 <!--For more information, see []().-->
 
 ### <a name="improvement-to-software-updates-maintenance"></a>Manutenção de atualizações de melhoria para o software
-<!--2839349--> Agora executam as tarefas de limpeza do WSUS em sites secundários. Limpeza do WSUS para atualizações expiradas é executada e as atualizações substituídas, serão recusadas no WSUS para sites secundários.
+<!--2839349-->
+Agora executam as tarefas de limpeza do WSUS em sites secundários. Limpeza do WSUS para atualizações expiradas é executada e as atualizações substituídas, serão recusadas no WSUS para sites secundários.
 
 Para obter mais informações, consulte [o comportamento de limpeza WSUS a partir da versão 1810](/sccm/sum/deploy-use/software-updates-maintenance#wsus-cleanup-behavior-starting-in-version-1810)
 
 ## <a name="bkmk_report"></a>Relatórios
 
 ### <a name="improvement-to-lifecycle-dashboard"></a>Melhoria para o dashboard do ciclo de vida
-<!--1358702--> O dashboard de ciclo de vida do produto agora inclui informações sobre **System Center 2012 Configuration Manager e versões posteriores**. 
+<!--1358702-->
+O dashboard de ciclo de vida do produto agora inclui informações sobre **System Center 2012 Configuration Manager e versões posteriores**. 
 
 Também há um novo relatório **ciclo de vida 05A - dashboard de ciclo de vida do produto**. Ele inclui informações semelhantes, como o dashboard na consola.
 
@@ -299,13 +318,15 @@ Para obter mais informações, consulte [armazém de dados](/sccm/core/servers/m
 ## <a name="bkmk_admin"></a> Consola do Configuration Manager
 
 ### <a name="configuration-manager-administrator-authentication"></a>Autenticação de administrador do Configuration Manager
-<!--1357013--> Agora pode especificar o nível mínimo de autenticação para os administradores aceder a sites do Configuration Manager. Esta funcionalidade aplica os administradores para iniciar sessão no Windows com o nível necessário. Para configurar esta definição, localize a **autenticação** separador **definições de hierarquia**. 
+<!--1357013-->
+Agora pode especificar o nível mínimo de autenticação para os administradores aceder a sites do Configuration Manager. Esta funcionalidade aplica os administradores para iniciar sessão no Windows com o nível necessário. Para configurar esta definição, localize a **autenticação** separador **definições de hierarquia**. 
 
 Para obter mais informações, consulte [planear o fornecedor de SMS](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider#bkmk_auth).
 
 
 ### <a name="support-center"></a>Centro de Suporte
-<!--1357489--> Utilize o Centro de suporte para resolução de problemas e em tempo real registo de cliente visualizando ou capturar o estado de um computador de cliente do Configuration Manager para análise posterior. Centro de suporte é uma ferramenta única para combinar administrador muitas ferramentas de resolução de problemas. Localizar o instalador do Support Center no servidor do site no **cd.latest\SMSSETUP\Tools\SupportCenter** pasta.
+<!--1357489-->
+Utilize o Centro de suporte para resolução de problemas e em tempo real registo de cliente visualizando ou capturar o estado de um computador de cliente do Configuration Manager para análise posterior. Centro de suporte é uma ferramenta única para combinar administrador muitas ferramentas de resolução de problemas. Localizar o instalador do Support Center no servidor do site no **cd.latest\SMSSETUP\Tools\SupportCenter** pasta.
 
 Para obter mais informações, consulte [Support Center](/sccm/core/support/support-center).
 
@@ -329,7 +350,8 @@ Para obter mais informações, consulte [informações de gestão](/sccm/core/se
 
 
 ### <a name="improvements-to-cmpivot"></a>Melhorias à CMPivot
-<!--1359068--> CMPivot inclui os seguintes aprimoramentos:
+<!--1359068-->
+CMPivot inclui os seguintes aprimoramentos:
 
 - Guarde **favorito** consultas  
 
@@ -341,7 +363,8 @@ Para obter mais informações sobre o desempenho adicional e resolução de prob
 
 
 ### <a name="bkmk_scripts"></a> Melhorias aos scripts
-<!--1358239--> Agora pode ver a saída do script detalhadas no formato JSON não processado ou não estruturado. Essa formatação torna a saída mais fácil de ler e analisar. 
+<!--1358239-->
+Agora pode ver a saída do script detalhadas no formato JSON não processado ou não estruturado. Essa formatação torna a saída mais fácil de ler e analisar. 
 
 O desempenho seguintes e resolução de problemas de melhorias de aplicam a CMPivot e scripts:
 
@@ -357,14 +380,20 @@ O desempenho seguintes e resolução de problemas de melhorias de aplicam a CMPi
 
 
 ### <a name="sms-provider-api"></a>API do fornecedor de SMS
-<!--1321523--> O fornecedor de SMS agora fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS. O **fornecedor de SMS** aparece como uma função com uma opção para permitir a comunicação através do gateway de gestão na cloud. A utilização atual para esta definição é ativar aprovações de aplicação através de e-mail a partir de um dispositivo remoto. Para obter mais informações, consulte [aprovar pedidos de aplicações através de e-mail](#approve-application-requests-via-email).
+<!--3607711, fka 1321523-->
+***[ATUALIZADO]***  o fornecedor de SMS agora fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
+
+O **fornecedor de SMS** aparece como uma função com uma opção para permitir a comunicação através do gateway de gestão na cloud. A utilização atual para esta definição é ativar aprovações de aplicação através de e-mail a partir de um dispositivo remoto. 
+
+Para obter mais informações, consulte [planear o fornecedor de SMS](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider#bkmk_admin-service).
 
 
 
 ## <a name="bkmk_opmdm"></a> MDM no local
 
 ### <a name="an-intune-connection-is-no-longer-required-for-new-on-premises-mdm-deployments"></a>Uma ligação do Intune já não é necessária para novas implementações de MDM no local
-<!--1359124--> O pré-requisito MDM no local para configurar uma subscrição do Microsoft Intune já não é necessário para novas implementações. Sua organização ainda requer licenças do Intune para utilizar esta funcionalidade. Atualmente não é possível remover a ligação do Intune a partir de implementações de MDM no local existentes. Para obter mais informações, consulte a [mensagem de blogue de suporte do Intune](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Move-from-Hybrid-Mobile-Device-Management-to-Intune-on-Azure/ba-p/280150).
+<!--1359124-->
+O pré-requisito MDM no local para configurar uma subscrição do Microsoft Intune já não é necessário para novas implementações. Sua organização ainda requer licenças do Intune para utilizar esta funcionalidade. Atualmente não é possível remover a ligação do Intune a partir de implementações de MDM no local existentes. Para obter mais informações, consulte a [mensagem de blogue de suporte do Intune](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Move-from-Hybrid-Mobile-Device-Management-to-Intune-on-Azure/ba-p/280150).
 
 
 

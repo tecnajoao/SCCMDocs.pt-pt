@@ -11,25 +11,26 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a66ba04defcea48db143487cc08bc5dc330cf2c
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: 44d19c9d2ba7daa029bb46eeb386771de70a2e8f
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56838910"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881899"
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plano para o gateway de gestão de nuvem no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
  
-<!--1101764--> O gateway de gestão da cloud (CMG) fornece uma forma simples de gerir clientes do Configuration Manager na internet. Ao implementar o CMG como um serviço em nuvem no Microsoft Azure, pode gerir clientes tradicionais que se movem na internet sem infraestrutura adicional. Também não precisa expor a sua infraestrutura no local para a internet. 
+<!--1101764-->
+O gateway de gestão da cloud (CMG) fornece uma forma simples de gerir clientes do Configuration Manager na internet. Ao implementar o CMG como um serviço em nuvem no Microsoft Azure, pode gerir clientes tradicionais que se movem na internet sem infraestrutura adicional. Também não precisa expor a sua infraestrutura no local para a internet. 
 
 > [!Tip]  
 > Esse recurso foi introduzido pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
 
 
 > [!Note]  
-> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para mais informações, consulte [Enable optional features from updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
 Depois de estabelecer os pré-requisitos, criar CMG inclui os seguintes três passos na consola do Configuration Manager:
@@ -99,7 +100,8 @@ Implantação e operação do CMG inclui os seguintes componentes:
 
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-<!-- 1324735 --> A partir da versão 1802, pode criar o CMG com um **do Azure Resource Manager deployment**. [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) é uma plataforma moderna para o gerenciamento de todos os recursos de solução como uma única entidade, chamada um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Quando implementa o CMG com o Azure Resource Manager, o site utiliza o Azure Active Directory (Azure AD) para autenticar e criar os recursos da cloud necessários. Esta implementação reestruturação não exige o certificado de gestão clássico do Azure.  
+<!-- 1324735 -->
+A partir da versão 1802, pode criar o CMG com um **do Azure Resource Manager deployment**. [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) é uma plataforma moderna para o gerenciamento de todos os recursos de solução como uma única entidade, chamada um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Quando implementa o CMG com o Azure Resource Manager, o site utiliza o Azure Active Directory (Azure AD) para autenticar e criar os recursos da cloud necessários. Esta implementação reestruturação não exige o certificado de gestão clássico do Azure.  
 
 > [!Note]  
 > Esta capacidade não ative o suporte para fornecedores de serviços de Cloud do Azure (CSP). A implementação do CMG com o Azure Resource Manager continua a utilizar o serviço de cloud clássica, o que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). 
@@ -297,9 +299,9 @@ As seguintes recomendações podem ajudar a melhorar o desempenho do CMG:
 
 - Se possível, configure o CMG, CMG ponto de ligação e o servidor de site do Configuration Manager na mesma região da rede para reduzir a latência.  
 
-- Atualmente, a ligação entre o cliente de Configuration Manager e o CMG não está com suporte para a região.  
+- A ligação entre o cliente de Configuration Manager e o CMG não está com suporte para a região. Comunicação de cliente é amplamente não afetado pela latência / geográfica separação. Não é necessário implementar vários CMG para fins de proximidade geo. Implementar o CMG no site de nível superior na sua hierarquia e adicionar instâncias para aumentar a escala.
 
-- Para elevada disponibilidade do serviço, crie, pelo menos, dois serviços CMG e dois pontos de ligação CMG por site.  
+- Para elevada disponibilidade do serviço, crie um CMG com, pelo menos, duas instâncias CMG e dois pontos de ligação CMG por site.  
 
 - Dimensione o CMG para suportar mais clientes ao adicionar mais instâncias VM. O Balanceador de carga do Azure controla as ligações de cliente ao serviço.  
 

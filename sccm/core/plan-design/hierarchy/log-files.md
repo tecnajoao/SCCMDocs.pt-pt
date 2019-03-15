@@ -2,7 +2,7 @@
 title: Ficheiros de registo para resolução de problemas
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas com sistemas de sites e clientes do Configuration Manager.
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3edf45c5b4eb62d5bfdd795f104c40da1ee1526
-ms.sourcegitcommit: 56ec6933cf7bfc93842f55835ad336ee3a1c6ab5
+ms.openlocfilehash: f14953b7c2008f6d0e9e5715a8096126e56b0b7e
+ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57211708"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57881967"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -164,6 +164,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |ClientLocation.log|Regista tarefas relacionadas com a atribuição do site do cliente.|  
 |CMHttpsReadiness.log|Regista os resultados da execução a ferramenta de avaliação de preparação do HTTPS do Configuration Manager. Essa ferramenta verifica se os computadores têm um certificado de autenticação de cliente de infraestrutura de chaves públicas (PKI) que pode ser utilizado com o Configuration Manager.|  
 |CmRcService.log|Regista informações para o serviço de controlo remoto.|  
+|CoManagementHandler.log|Utilize para resolver problemas de cogestão no cliente.|
 |ContentTransferManager.log|Agenda o serviço de transferência inteligente em segundo plano (BITS) ou o bloco de mensagem servidor (SMB) para transferir ou aceder aos pacotes.|  
 |DataTransferService.log|Regista todas as comunicações BITS para acesso a políticas ou pacotes.|  
 |EndpointProtectionAgent|Regista informações sobre a instalação do cliente System Center Endpoint Protection e a aplicação da política antimalware a esse cliente.|  
@@ -282,6 +283,7 @@ O ficheiro de registo sms_dm no servidor do sistema de site também regista a co
 |--------------|-----------------|----------------------------|  
 |adctrl.log|Regista a atividade de processamento de registo.|Servidor do site|  
 |ADForestDisc.log|Regista ações da Deteção de Florestas do Active Directory.|Servidor do site|  
+|adminservice.log|REST API do serviço de ações de registos para a administração de fornecedor de SMS|Computador com o Fornecedor de SMS|
 |ADService.log|Regista detalhes sobre grupos de segurança e a criação de contas no Active Directory.|Servidor do site|  
 |adsgdis.log|Regista ações da Deteção de Grupos do Active Directory.|Servidor do site|  
 |adsysdis.log|Regista ações da Deteção de Sistemas do Active Directory.|Servidor do site|  
@@ -406,6 +408,7 @@ O ficheiro de registo sms_dm no servidor do sistema de site também regista a co
 |mpfdm.log|Regista as ações do componente do ponto de gestão que move ficheiros de cliente para a pasta A RECEBER correspondente no servidor do site.|Servidor do sistema de sites|  
 |mpMSI.log|Regista detalhes sobre a gestão de ponto de instalação.|Servidor do site|  
 |MPSetup.log|Regista o processo do wrapper de instalação do ponto de gestão.|Servidor do site|  
+|UserService.log|Regista pedidos de utilizador a partir do Centro de Software, obter/instalação de aplicativos disponíveis para o utilizador do servidor.|Servidor do sistema de sites|
 
 ###  <a name="BKMK_SUPLog"></a> Ficheiros de registo do ponto de atualização de software  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de atualização de software.  
