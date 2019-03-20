@@ -2,7 +2,7 @@
 title: Create a lab in Azure (Criar um laboratório no Azure)
 titleSuffix: Configuration Manager
 description: Automatizar a criação de um laboratório de pré-visualização técnica do Configuration Manager utilizando modelos do Azure
-ms.date: 01/22/2019
+ms.date: 03/18/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02f3df4b8c090df960f1052a25c1f6cc8ef45395
-ms.sourcegitcommit: ef2960bd91655c741450774e512dd0a9be610625
+ms.openlocfilehash: 25283e513e256e8ce779df7b71ac6f6c17f1e370
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56838774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196828"
 ---
 # <a name="create-a-configuration-manager-technical-preview-lab-in-azure"></a>Criar um laboratório de pré-visualização técnica do Configuration Manager no Azure
 
@@ -33,7 +33,7 @@ Para obter mais informações sobre o ramo atual do Configuration Manager, consu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este processo requer uma subscrição do Azure na qual pode criar os seguintes objetos: 
-- Quatro máquinas de virtuais de Standard_D2s_v3
+- Três máquinas de virtuais de Standard_D2s_v3
 - Conta de armazenamento Standard_LRS
 
 > [!Tip]  
@@ -86,7 +86,7 @@ Para ligar às VMs, obtenha primeiro no portal do Azure os endereços IP públic
 
 ## <a name="azure-vm-info"></a>Informações VM do Azure
 
-Todos os quatro VMs têm as seguintes especificações:
+As três VMs têm as seguintes especificações:
 - Standard_D2s_v3, que tem dois núcleos de CPU e 8 GB de memória  
 - Windows Server 2016 Datacenter edition
 - 150 GB de espaço em disco
@@ -127,14 +127,4 @@ Controlador de domínio do Active Directory
 - Compressão de diferencial remota (RDC) 
 - Serviço de informação Internet (IIS)
 - Serviço de transferência inteligente em segundo plano (BITS)
-
-
-### `<prefix>Other`
-
-Esta VM pode ser utilizado como um cliente, ou para hospedar outras funções de site.
-
-#### <a name="windows-features-and-roles"></a>Funcionalidades e funções do Windows
-- .NET
-- Compressão de diferencial remota (RDC) 
-
 

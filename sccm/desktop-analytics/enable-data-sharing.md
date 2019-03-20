@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5213c96ee434d9d87ea7728701945ac46c0a62a0
-ms.sourcegitcommit: ceec0e20bf801071f2a05233f984cf17acc3fd29
+ms.openlocfilehash: f1a6ab6fca6650bde69179b71576d1df2e201b92
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56264985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196743"
 ---
 # <a name="enable-data-sharing-for-desktop-analytics"></a>Ativar a partilha para a área de trabalho de análise de dados 
 
@@ -76,8 +76,8 @@ Para ativar a partilha de dados, configure o servidor de proxy à lista de permi
 | `https://nexusrules.officeapps.live.com` | Utilizado para pedir os eventos de dinâmica de dados de diagnóstico de clientes do Office. Estes dados são útil para fins de desagregação e diagnóstico no portal do Analytics de ambiente de trabalho |
 | `https://nexus.officeapps.live.com` | Utilizada pelos clientes do Office para enviar eventos de dados de diagnóstico a partir do Office 14, 15 do Office e versões do Office 16 anteriores ao 16.0.8702. É utilizado para recolher a utilização e fiabilidade sinaliza eventos para análise de ambiente de trabalho. |
 | `https://office.pipe.aria.microsoft.com` | Utilizada pelos clientes do Office para enviar eventos de dados de diagnóstico a partir de aplicações do Office universal/modernos e versões de Win32 Office 16 posterior 16.0.8702. É utilizado para recolher a utilização e fiabilidade sinaliza eventos para análise de ambiente de trabalho. |
-| `https://graph.windows.net` | Utilizadas pelo Configuration Manager para obter automaticamente as definições, como CommercialId ao anexar a hierarquia para análise de ambiente de trabalho. |
-| `https://fef.bmsub01.manage-beta.microsoft.com` | Utilizado pelo Configuration Manager para associações de coleção de dispositivos, planos de implantação e estado de preparação do dispositivo com a análise de ambiente de trabalho de sincronização. |
+| `https://graph.windows.net` | Usada para recuperar automaticamente as definições, como CommercialId ao anexar a hierarquia para análise de ambiente de trabalho (no apenas a função de servidor do Configuration Manager). |
+| `https://fef.msua06.manage.microsoft.com` | Utilizado para associações de coleção de dispositivos de sincronização, planos de implantação e estado de preparação do dispositivo com a análise de ambiente de trabalho (no apenas a função de servidor do Configuration Manager). |
 
 
 ### <a name="ssl-inspection"></a>Inspeção do SSL

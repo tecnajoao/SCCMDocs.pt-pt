@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba8479d6a2aecb3c73dad6acce6ab8237ff2576
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: 6ff872817805c85665bde7219ca26de0bf8d78ef
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58197117"
 ---
 # <a name="plan-for-the-sms-provider"></a>Planear o Fornecedor de SMS 
 
@@ -259,19 +259,18 @@ A instalação do Windows ADK pode precisar de até 650 MB de espaço livre em d
 
 A partir da versão 1810, o fornecedor de SMS fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
 
-`https://servername/AdminService/wmi/<ClassName>` 
+O **serviço de administração** é o formato de URL `https://<servername>/AdminService/wmi/<ClassName>` onde `<servername>` é o servidor onde está instalado o fornecedor de SMS e `<ClassName>` é um nome de classe de WMI do Configuration Manager válido.
 
 Por exemplo, `https://servername/AdminService/wmi/SMS_Site`
 
 Façam chamadas diretas para este serviço com o cmdlet do Windows PowerShell [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
-Também pode utilizar para aceder a dados do site do Power BI com a opção de conector de OData. 
-
 > [!Tip]  
 > Pode utilizar este cmdlet numa sequência de tarefas. Esta permite ação acessar informações a partir do site sem a necessidade de um serviço da web personalizado para fazer a interface com o fornecedor WMI. 
 
-O serviço de administração registra sua atividade para o **adminservice.log** ficheiro.
+Também pode utilizar para aceder a dados do site do Power BI com a opção de conector de OData. 
 
+O serviço de administração registra sua atividade para o **adminservice.log** ficheiro.
 
 ### <a name="enable-the-administration-service-through-the-cmg"></a>Ativar o serviço de administração através do CMG
 

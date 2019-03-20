@@ -1,5 +1,5 @@
 ---
-title: Gerir o acesso aos serviços do O365
+title: Gerir o acesso aos serviços do Office 365
 titleSuffix: Configuration Manager
 description: Saiba como configurar o acesso condicional para serviços do Office 365 para PCs geridos pelo System Center Configuration Manager.
 ms.date: 03/21/2019
@@ -11,14 +11,14 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a28863b2e30566b07890d57e927703d77247f6
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: 434801b170ed5efcbbafa046a3ac1e94a615ed3d
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881712"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196777"
 ---
-# <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
+# <a name="manage-access-to-office-365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do Office 365 para PC geridos pelo System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -63,7 +63,7 @@ Para obter informações sobre como configurar o acesso condicional para disposi
 
 ### <a name="prerequisites"></a>Pré-requisitos  
 
-- Sincronização de ADFS e uma subscrição do O365. A subscrição do O365 serve para configurar o Exchange Online e o SharePoint Online.  
+- Sincronização de ADFS e uma subscrição do Office 365. A subscrição do Office 365 é para configurar o Exchange Online e SharePoint Online.  
 
 - Uma Subscrição do Microsoft Intune. A Subscrição do Microsoft Intune deve ser configurada na Consola do Gestor de Configuração. A subscrição do Intune é utilizada para retransmitir o estado de conformidade do dispositivo ao Azure Active Directory e para licenciamento de utilizadores.  
 

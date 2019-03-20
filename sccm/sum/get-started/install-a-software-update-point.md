@@ -5,18 +5,18 @@ description: Sites primários requerem um ponto de atualização de software num
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 05/30/2017
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51b8245de3c446657e328456f81bd40ebf71261
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 35a91b39b222707fb97fc122766c69188c2014a9
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56141862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196845"
 ---
 # <a name="install-and-configure-a-software-update-point"></a>Instalar e configurar um ponto de atualização de software  
 
@@ -34,7 +34,7 @@ ms.locfileid: "56141862"
 > [!IMPORTANT]  
 >  Não é suportada para instalar a função de sistema de sites de ponto de atualização de software num servidor que foi configurado e utilizado como um servidor WSUS autónomo ou com uma atualização de software ponto para gerir diretamente os clientes WSUS. Servidores do WSUS existentes apenas são suportados como origens de sincronização a montante para o ponto de atualização de software ativo. Consulte [sincronizar a partir de uma localização de origem de dados a montante](#BKMK_wsussync)
 
- Pode adicionar a função do sistema de sites do ponto de atualização de software a um servidor de sistema de sites existente ou pode criar uma nova. Sobre o **seleção da função do sistema** página do **criar Assistente de servidor de sistema de sites** ou <strong>Site System Assistente para adicionar funções, dependendo se adicionar a função de sistema de sites a um servidor de sites novo ou existente , selecione * * ponto de atualização de Software</strong>e, em seguida, configure as definições de ponto de atualização de software no assistente. As definições são diferentes consoante a versão do Configuration Manager que utilizar. Para obter mais informações sobre como instalar funções do sistema de sites, consulte [instalar funções do sistema de sites](../../core/servers/deploy/configure/install-site-system-roles.md).  
+ Pode adicionar a função do sistema de sites do ponto de atualização de software a um servidor de sistema de sites existente ou pode criar uma nova. Sobre o **seleção da função do sistema** página do **criar Assistente de servidor de sistema de sites** ou **Adicionar Assistente de funções de sistema de sites**, dependendo se adicionar a função de sistema de sites para um novo ou servidor de site existente, selecione **ponto de atualização de Software**e, em seguida, configure as definições de ponto de atualização de software no assistente. As definições são diferentes consoante a versão do Configuration Manager que utilizar. Para obter mais informações sobre como instalar funções do sistema de sites, consulte [instalar funções do sistema de sites](../../core/servers/deploy/configure/install-site-system-roles.md).  
 
  Utilize as secções seguintes para obter informações sobre as definições do ponto de atualização de software num site.  
 

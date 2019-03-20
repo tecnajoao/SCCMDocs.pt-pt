@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76326a1e0bcb3d9362db5eccfc08459bb4448206
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: 2ee4ed8f102507b4d62a1ccbfe1cc38240e85df9
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881780"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196862"
 ---
 # <a name="manage-email-access-in-configuration-manager"></a>Gerir o acesso ao e-mail no Configuration Manager
 
@@ -79,7 +79,7 @@ Pode restringir o acesso ao **Outlook Web Access (OWA)** no Exchange Online quan
 
 Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e Android não são suportadas. Devem ser bloqueadas através de regras de afirmações do ADFS:  
 
-- Configure regras de afirmações do ADFS para bloquear protocolos de autenticação não moderna. São fornecidas instruções detalhadas no cenário 3 para [bloquear todos os acessos ao O365 exceto aplicações baseadas no browser](https://technet.microsoft.com/library/dn592182.aspx).  
+- Configure regras de afirmações do ADFS para bloquear protocolos de autenticação não moderna. São fornecidas instruções detalhadas no cenário 3 para [bloquear todo o acesso ao Office 365, exceto aplicações baseadas no browser](https://technet.microsoft.com/library/dn592182.aspx).  
 
 #### <a name="for-pcs"></a>Para PCs
 

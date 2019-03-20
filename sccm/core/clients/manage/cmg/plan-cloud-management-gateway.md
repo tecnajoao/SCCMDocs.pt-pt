@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d19c9d2ba7daa029bb46eeb386771de70a2e8f
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: f50bb18edf782d5012e90db0b4b21a2309ad4f0b
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196896"
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plano para o gateway de gestão de nuvem no Configuration Manager
 
@@ -170,7 +170,7 @@ Da mesma forma, como os clientes baseados em Paris se movem para a internet, com
 
 - **Outros certificados** podem ser necessários, dependendo de seu modelo de autenticação e a versão de SO de cliente. Para obter mais informações, consulte [certificados CMG](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-    - A partir da versão 1802, tem de configurar todos os habilitados para CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#bkmk_mphttps).  
+    - Na versão 1802, tem de configurar todos os habilitados para CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#bkmk_mphttps).  
 
     - A partir da versão 1806, quando o site a utilizar a opção de **sistemas de sites de certificados gerados pelo utilize o Gestor de configuração para HTTP**, o ponto de gestão pode ser HTTP. Para obter mais informações, consulte [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http).  
 

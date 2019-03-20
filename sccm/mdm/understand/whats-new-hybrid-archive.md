@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420026065caf619f51a5ebf84d7ae2f61a2248e1
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: 73eda37c9432750d94ef0b770348fc3d3250800c
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58197083"
 ---
 # <a name="past-hybrid-features-with-system-center-configuration-manager-and-microsoft-intune"></a>Nos últimos híbrida apresenta com o System Center Configuration Manager e o Microsoft Intune
 
@@ -223,12 +223,12 @@ As seguintes funcionalidades de híbrida adicionais também estão incluídas na
   A aplicação Portal da Empresa para Android utiliza os Serviços do Google Play para comunicar com o serviço Microsoft Intune. Uma vez que os Serviços do Google Play ainda não estão disponíveis na China, pode demorar até 8 horas a concluir a realização de qualquer uma das seguintes tarefas.
 
   | Consola de administração do Configuration Manager | Aplicação Portal da Empresa do Intune para Android | Site do Portal da Empresa do Intune |
-  |----|----|----|      
-  | Extinguir/limpar (remover todos os dados)   | Remover um dispositivo remoto | Remover dispositivo (local e remoto) |
-  | Extinguir/limpar (remoção de dados da empresa)   | Repor dispositivo | Repor dispositivo|
+  |----|----|----|
+  | Extinguir/limpar (remover todos os dados)| Remover um dispositivo remoto | Remover dispositivo (local e remoto) |
+  | Extinguir/limpar (remoção de dados da empresa)| Repor dispositivo | Repor dispositivo|
   | Implementações de aplicações novas ou atualizadas | Instalar aplicações de linha de negócio disponíveis | Repor código de acesso do dispositivo|
-  | Bloqueio remoto | | |
-  | Repor código de acesso | | |        
+  | Bloqueio remoto| | |
+  | Repor código de acesso | | |
 
 
 ## <a name="november-2016"></a>Novembro de 2016

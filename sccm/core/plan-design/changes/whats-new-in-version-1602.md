@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac08431c76653711eacb62aed4100c2fab0db50
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 7b0c162e7d1fcc38b388d0b39cc6811bc9e86973
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56122513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196811"
 ---
 # <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>O que&#39;s novo na versão 1602 do System Center Configuration Manager
 
@@ -120,7 +120,7 @@ Encontrará destas aplicações na **aplicativos** nó da consola do Configurati
 ### <a name="conditional-access-for-pcs-managed-by-system-center-configuration-manager"></a>Acesso condicional para PCs geridos pelo System Center Configuration Manager  
  Anteriormente a esta versão, para configurar o acesso condicional para um PC, o PC ou tinha de estar inscritos no Intune ou tinha que ser um PC associado a um domínio. Começando com a atualização 1602, o acesso condicional para PCs geridos pelo System Center Configuration manager é suportado. Para os computadores que são geridos pelo System Center Configuration Manager, pode restringir o acesso ao Exchange Online e SharePoint Online apenas a dispositivos que estão em conformidade com as políticas de conformidade que definir.  
 
- Para obter detalhes, consulte [gerir o acesso aos serviços do O365 para PCs geridos pelo System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+ Para obter detalhes, consulte [gerir o acesso aos serviços do Office 365 para PC geridos pelo System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
 ### <a name="restricting-access-based-on-the-health-of-devices"></a>Restringir o acesso com base no estado de funcionamento de dispositivos  
  Agora pode restringir o acesso ao e-mail e aos serviços do Office 365 com base no estado de funcionamento de dispositivos, conforme comunicado pelo serviço de atestado de estado de funcionamento. Além disso, os dispositivos geridos pelo Intune são incluídos nos relatórios de estado de funcionamento do dispositivo.  

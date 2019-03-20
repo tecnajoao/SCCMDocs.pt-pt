@@ -2,7 +2,7 @@
 title: Notificação de cliente
 titleSuffix: Configuration Manager
 description: Gerir clientes ao tomar medidas imediatas partir da consola central do Configuration Manager.
-ms.date: 03/06/2019
+ms.date: 03/19/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a643924cbaef928f9db4011f634ae96171ab7914
-ms.sourcegitcommit: 544f335cfd1bfd0a1d4973439780e9f5e9ee8bed
+ms.openlocfilehash: 39135a1fa548c83e0ba9c7d2a98cf1e925217280
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57562096"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58197032"
 ---
 # <a name="client-notification-in-configuration-manager"></a>Notificação do cliente no Configuration Manager
 
@@ -79,7 +79,8 @@ Essas ações estão sob o **notificação do cliente** menu, no Friso do grupo 
 Na versão 1806 ou anterior, o **notificação do cliente** opção só está disponível a partir do nó de coleção de dispositivos ou quando visualizado a associação de uma coleção de dispositivos. A partir da versão 1810, pode iniciar uma **notificação do cliente** diretamente a partir do **dispositivos** nó. Já não é um requisito para estar dentro de uma vista de associação de coleção. <!--SCCMDocs-pr issue 2972-->
 
 #### <a name="permissions"></a>Permissões
-<!--SCCMDocs-pr issue #2972--> A partir da versão 1810, ações de notificação do cliente agora exigem que o **notificar recursos** permissão no objeto de coleção. Esta permissão aplica-se a todas as ações sob a **notificação do cliente** menu. 
+<!--SCCMDocs-pr issue #2972-->
+A partir da versão 1810, ações de notificação do cliente agora exigem que o **notificar recursos** permissão no objeto de coleção. Esta permissão aplica-se a todas as ações sob a **notificação do cliente** menu. 
 
 As seguintes funções incorporadas têm esta permissão, por predefinição:
 - Administrador total  
@@ -135,7 +136,7 @@ Acione os clientes do Windows 10 para verificar e enviar o respetivo estado de f
 
 ### <a name="check-conditional-access-compliance"></a>Verificação de conformidade de acesso condicional
 
-Clientes de Acionador para verificar a compatibilidade com o acesso condicional. Para obter mais informações, consulte [gerir o acesso aos serviços do O365 para PCs](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm).  
+Clientes de Acionador para verificar a compatibilidade com o acesso condicional. Para obter mais informações, consulte [gerir o acesso aos serviços do Office 365 para PC](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm).  
 
 
 ### <a name="wake-up"></a>Reativar

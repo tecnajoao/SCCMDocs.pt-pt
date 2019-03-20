@@ -2,7 +2,7 @@
 title: Políticas de conformidade do dispositivo
 titleSuffix: Configuration Manager
 description: Saiba como gerir políticas de conformidade no Configuration Manager para tornar os dispositivos em conformidade com acesso condicional políticas.
-ms.date: 07/12/2018
+ms.date: 03/19/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2544d2b61c3d92555d0bc1abc908003f1c982bab
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 4e225b7ab54a1061387d1c8ee369641f68bd7889
+ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56136522"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58196879"
 ---
 # <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Políticas de conformidade no System Center Configuration Manager
 
@@ -26,7 +26,7 @@ Políticas de conformidade no Configuration Manager definem as regras e definiç
 
 
 > [!IMPORTANT]  
->  Este artigo descreve as políticas de conformidade para dispositivos geridos pelo Microsoft Intune. As políticas de conformidade para dispositivos geridos pelo cliente do Configuration Manager é descrito em [gerir o acesso aos serviços do O365 para dispositivos geridos pelo Configuration Manager](/sccm/protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm).  
+>  Este artigo descreve as políticas de conformidade para dispositivos geridos pelo Microsoft Intune. As políticas de conformidade para dispositivos geridos pelo cliente do Configuration Manager é descrito em [gerir o acesso aos serviços do Office 365 para dispositivos geridos pelo Configuration Manager](/sccm/protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm).  
 
  Estas regras incluem requisitos, como:  
 
@@ -71,7 +71,8 @@ Políticas de conformidade no Configuration Manager definem as regras e definiç
 
 
 ## <a name="devices-without-any-assigned-compliance-policy"></a>Dispositivos sem qualquer política de conformidade atribuída
-<!--2520152--> A partir de Julho de 2018, configure se todos os dispositivos que não tenham nenhuma política de conformidade atribuída serão considerados em conformidade ou não conformes. Por predefinição, os dispositivos sem política de conformidade atribuída são considerados conformes. Utilize os seguintes passos para alterar esta definição no portal do Azure:
+<!--2520152-->
+A partir de Julho de 2018, configure se todos os dispositivos que não tenham nenhuma política de conformidade atribuída serão considerados em conformidade ou não conformes. Por predefinição, os dispositivos sem política de conformidade atribuída são considerados conformes. Utilize os seguintes passos para alterar esta definição no portal do Azure:
 
 1. Inicie sessão para o [no portal do Azure](https://aka.ms/intuneportal).  
 
