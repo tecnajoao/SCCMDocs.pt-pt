@@ -2,7 +2,7 @@
 title: Gerir o Windows como um serviço
 titleSuffix: Configuration Manager
 description: Ver o estado do Windows como um serviço (WaaS) com o Configuration Manager, criar planos de manutenção para formar anéis de implementação e ver alertas quando os clientes do Windows 10 estiverem ao fim de suporte.
-ms.date: 10/02/2017
+ms.date: 03/15/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51c5d7f1bb6500eddfaf7e1a3a19e25bc7cafa63
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 614ccc06a3fef5cca54c7eb1c32952e8531aedfa
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56137597"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269069"
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gerir o Windows como um serviço com o System Center Configuration Manager
 
@@ -64,7 +64,7 @@ ms.locfileid: "56137597"
 
 -   **Criar plano do serviço de mosaico**: Fornece uma forma rápida de criar um plano de manutenção. Especifique o nome, coleção (mostra apenas os 10 principais coleções por tamanho, a mais pequena primeiro), o pacote de implementação (mostra apenas os 10 principais pacotes por mais recentemente modificação) e o estado de preparação. Os valores predefinidos são utilizados para as outras definições. Clique em **Definições Avançadas** para iniciar o assistente Criar Plano de Manutenção, onde poderá configurar todas as definições do plano de manutenção.  
 
--   **Mosaico expirado**: Apresenta a percentagem de dispositivos que estão numa compilação do Windows 10 que passou o respetivo final de vida. O Configuration Manager determina a percentagem dos metadados que o ponto de ligação de serviço transfere e compara-os aos dados de deteção. Uma compilação que passou o respetivo final de vida já não está a receber atualizações cumulativas mensais, que incluem atualizações de segurança. Os computadores nesta categoria devem ser atualizados para a próxima versão de compilação. O Configuration Manager Arredonda por excesso para o número inteiro seguinte. Por exemplo, se tiver 10 000 computadores e apenas um numa compilação expirada, o mosaico apresenta 1%.  
+-   **Mosaico expirado**: Apresenta a percentagem de dispositivos que estão numa compilação do Windows 10 que passou o respetivo final de vida. O Configuration Manager determina a percentagem dos metadados que o ponto de ligação de serviço transfere e compara-os aos dados de deteção. Uma compilação que passou o respetivo final de vida já não está a receber atualizações cumulativas mensais, que incluem atualizações de segurança. Os computadores nesta categoria devem ser atualizados para a próxima versão de compilação. O Configuration Manager Arredonda por excesso para o número inteiro seguinte. Por exemplo, se tiver de 10.000 computadores e apenas um de uma compilação expirada, o mosaico apresenta 1%.  
 
 -   **Mosaico expirar em breve**: Apresenta a percentagem de computadores que estão numa compilação que está perto do final de vida (dentro de, aproximadamente, quatro meses), semelhante a **expirado** mosaico. O Configuration Manager Arredonda por excesso para o número inteiro seguinte.  
 
@@ -144,10 +144,16 @@ ms.locfileid: "56137597"
    -   **Quantos dias depois de a Microsoft ter publicado uma nova atualização gostaria de aguardar antes de implementar no seu ambiente**: Se a data atual for posterior à data de lançamento mais o número de dias que configurar para esta definição, o Configuration Manager avalia se pretende incluir uma atualização na implementação.
 
 
-7. Na página de atualizações, configure os critérios de pesquisa para filtrar as atualizações que são adicionadas ao plano de serviço. Apenas as atualizações que cumprem os critérios especificados são adicionadas à implementação associada.   
+7. Na página de atualizações, configure os critérios de pesquisa para filtrar as atualizações que são adicionadas ao plano de serviço. Apenas as atualizações que cumprem os critérios especificados são adicionadas à implementação associada. Estão disponíveis os seguintes filtros de propriedade: <!--3098809, 3113836, 3204570 -->
 
-    > [!Important]    
-    > Recomendamos que como parte de seus critérios de pesquisa, que defina os **necessários** campo com um valor de **> = 1**. Usar este critério garante que as atualizações aplicáveis apenas adicionadas ao plano de serviço.
+   - **Arquitectura de** (começando na versão 1810)
+   - **Idioma**
+   - **Categoria do produto** (começando na versão 1810)
+   - **Necessário**
+      > [!Important]    
+      > Recomendamos que como parte de seus critérios de pesquisa, que defina os **necessários** campo com um valor de **> = 1**. Usar este critério garante que as atualizações aplicáveis apenas adicionadas ao plano de serviço.
+   - **Substituído** (começando na versão 1810)
+   - **Título**
 
     Clique em **Pré-visualizar** para ver as atualizações que cumprem os critérios especificados.  
 

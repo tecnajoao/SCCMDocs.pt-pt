@@ -3,7 +3,7 @@ title: Manutenção das atualizações de software
 titleSuffix: Configuration Manager
 description: Para a manutenção de atualizações no Configuration Manager, pode agendar a tarefa de limpeza do WSUS ou pode executá-lo manualmente.
 author: mestew
-ms.date: 03/05/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
@@ -11,12 +11,12 @@ ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 manager: dougeby
 ms.author: mstewart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0f69a0e43c2d52aec9df262bf8d48587edb94c
-ms.sourcegitcommit: 4ab85212268e76d3fd22f00e6c74edaa5abde60c
+ms.openlocfilehash: c0391202054a80ea34180e73d107f5c2991aebe2
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57426860"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269073"
 ---
 # <a name="software-updates-maintenance"></a>Manutenção das atualizações de software
 
@@ -56,7 +56,8 @@ Manutenção adicional ainda é necessária na base de dados do WSUS nível supe
 
 ## <a name="wsus-cleanup-behavior-starting-in-version-1806"></a>Comportamento de limpeza WSUS a partir da versão 1806
 
-A opção de limpeza WSUS a partir da versão 1806, ocorre após cada sincronização e faz os seguintes itens de limpeza: <!--1357898 -->
+A opção de limpeza WSUS a partir da versão 1806, ocorre após cada sincronização e faz os seguintes itens de limpeza:
+<!--1357898 -->
 
 - O **expirado atualizações** opção para servidores WSUS nas ACs e sites primários.
   - Servidores do WSUS para sites secundários, não executar a limpeza do WSUS para atualizações expiradas.
@@ -79,7 +80,8 @@ Toda a manutenção de WSUS tem de ser executada manualmente nas bases de dados 
 
 ## <a name="wsus-cleanup-behavior-starting-in-version-1810"></a>Comportamento de limpeza WSUS a partir da versão 1810
 
-A opção de limpeza WSUS a partir da versão 1810, ocorre após cada sincronização e faz os seguintes itens de limpeza: <!--2839349-->
+Iniciar versão 1810, pode especificar regras de substituições de actualizações de funcionalidade separadamente da funcionalidade não actualizações nas propriedades do componente de ponto de actualização de Software. A opção de limpeza WSUS ocorre depois de todas as sincronizações e não os seguintes itens de limpeza:
+<!--2839349,3098809, 2977644-->
 
 - O **expirado atualizações** opção para servidores WSUS nos sites primários e secundários do ACS,.
 - O Configuration Manager cria uma lista de atualizações substituídas da sua base de dados. A lista baseia-se do comportamento de substituição nas propriedades do componente de ponto de atualização de Software.

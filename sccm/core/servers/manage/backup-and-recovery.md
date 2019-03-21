@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e876e34929479654240ff220c3cad91043da0f83
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 7fb6a87f965db0a329a4f64918b0efcd5732ea0b
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56123142"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269137"
 ---
 # <a name="back-up-a-configuration-manager-site"></a>Efetuar uma Cópia de Segurança de um Site do Gestor de Configuração
 
@@ -67,6 +67,8 @@ Para simplificar o processo de cópia de segurança, pode criar uma **Afterbacku
 Pode fazer backup de um site de administração central e site primário. Os sites secundários ou servidores de sistema de sites não tem tarefas de cópia de segurança.
 
 Quando o serviço de cópia de segurança do Configuration Manager é executado, segue as instruções definidas no ficheiro de controlo de cópia de segurança: `<ConfigMgrInstallationFolder>\Inboxes\Smsbkup.box\Smsbkup.ctl`. É possível modificar o ficheiro de controlo da cópia de segurança para alterar o comportamento do serviço de cópia de segurança.  
+> [!NOTE]
+> Modificações do **Smsbkup.ctl** serão aplicadas depois de reiniciar o serviço SMS_SITE_VSS_WRITER no servidor do Site.
 
 As informações de estado da cópia de segurança do site são escritas no ficheiro **Smsbkup.log** . Este ficheiro é criado na pasta de destino que especificar nas propriedades da tarefa de manutenção do servidor do Site de cópia de segurança.  
 
@@ -105,14 +107,14 @@ As informações de estado da cópia de segurança do site são escritas no fich
 
 -   Verifique o carimbo de hora nos ficheiros na pasta de destino de cópia de segurança que a tarefa de criar. Certifique-se de que o período de tempo de atualizações para a hora quando a tarefa pela última vez foi agendada para ser executada.  
 
--   Vá para o **estado do componente** nó da **monitorização** área de trabalho. Consulte as mensagens de estado para **SMS_SITE_BACKUP**. Quando a cópia de segurança do site for concluída com êxito, verá o ID da mensagem **5035**. Esta mensagem indica que a cópia de segurança do site foi concluída sem erros.  
+-   Vá para o **estado do componente** nó da **monitorização** área de trabalho. Reveja as mensagens de estado de **SMS_SITE_BACKUP**. Quando a cópia de segurança do site for concluída com êxito, verá o ID da mensagem **5035**. Esta mensagem indica que a cópia de segurança do site foi concluída sem erros.  
 
 -   Ao configurar a tarefa de cópia de segurança para criar um alerta quando ocorre uma falha, procure os alertas de falhas de cópia de segurança no **alertas** nó da **monitorização** área de trabalho.  
 
 -   Abra o Explorador do Windows no servidor do site e navegue para `<ConfigMgrInstallationFolder>\Logs`. Revisão **smsbkup** avisos e erros. Quando a cópia de segurança do site é concluída com êxito, o log mostra `Backup completed` com o ID de mensagem `STATMSG: ID=5035`.  
 
     > [!TIP]  
-    >  Quando a tarefa de manutenção cópia de segurança falhar, reinicie a tarefa de cópia de segurança, interromper e reiniciar o **SMS_SITE_BACKUP** serviço do Windows.  
+    >  Quando a tarefa de manutenção de cópia de segurança falha, reiniciar a tarefa de cópia de segurança parando e reiniciando o **SMS_SITE_BACKUP** serviço do Windows.  
 
 
 
@@ -134,7 +136,7 @@ Depois de backup com êxito o site, a tarefa de cópia de segurança automaticam
 
 O ficheiro Afterbackup bat permite arquivar o instantâneo da cópia de segurança no final de cada operação de cópia de segurança. Pode executar automaticamente outras tarefas de pós-cópia de segurança que não fazem parte da tarefa de manutenção do servidor do Site de cópia de segurança. O ficheiro AfterBackup.bat integra o arquivo e as operações de cópia de segurança, assegurando que cada novo instantâneo de cópia de segurança é arquivado.
 
-Se o ficheiro Afterbackup bat não estiver presente, a tarefa de cópia de segurança ignora-o sem efeito sobre a operação de cópia de segurança. Para verificar se a tarefa de cópia de segurança executou com êxito este script, vá para o **estado do componente** nó a **monitorização** área de trabalho e reveja as mensagens de estado para **SMS_SITE_BACKUP**. Quando a tarefa ser iniciada com êxito o ficheiro de comandos Afterbackup, consulte o ID da mensagem **5040**.  
+Se o ficheiro Afterbackup bat não estiver presente, a tarefa de cópia de segurança ignora-o sem efeito sobre a operação de cópia de segurança. Para verificar que a tarefa de cópia de segurança executou com êxito este script, vá para o **estado do componente** nó a **monitorização** área de trabalho e rever o estado de mensagens para **SMS_SITE_BACKUP**. Quando a tarefa ser iniciada com êxito o ficheiro de comandos Afterbackup, consulte o ID da mensagem **5040**.  
 
 > [!TIP]  
 >  Para arquivar os seus ficheiros de cópia de segurança de servidor de site com Afterbackup, tem de utilizar uma ferramenta de comando de cópia do arquivo em lotes. Uma dessas ferramentas é [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) no Windows Server. Por exemplo, crie o ficheiro Afterbackup bat com o seguinte comando: `Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`  

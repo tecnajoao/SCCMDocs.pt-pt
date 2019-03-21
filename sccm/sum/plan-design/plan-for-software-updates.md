@@ -5,18 +5,18 @@ description: Um plano para a infraestrutura de ponto de atualização de softwar
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 07/30/2018
+ms.date: 03/15/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 730d99764f8ae8f8ce1b76bfd13411988c3a2e23
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 55cb5154e9be3b8920c0309138835fb728ac7d21
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56138549"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269119"
 ---
 # <a name="plan-for-software-updates-in-configuration-manager"></a>Planear atualizações de software no Configuration Manager
 
@@ -143,7 +143,7 @@ Quando o Configuration Manager recebe qualquer um dos seguintes códigos de erro
 
 2149842970, 2147954429, 2149859352, 2149859362, 2149859338, 2149859344, 2147954430, 2147747475, 2149842974, 2149859342, 2149859372, 2149859341, 2149904388, 2149859371, 2149859367, 2149859366, 2149859364, 2149859363, 2149859361, 2149859360, 2149859359, 2149859358, 2149859357, 2149859356, 2149859354, 2149859353, 2149859350, 2149859349, 2149859340, 2149859339, 2149859332, 2149859333, 2149859334, 2149859337, 2149859336, 2149859335
 
-Para procurar o significado de um código de erro, converter o código de erro decimal para hexadecimal e procure o valor hexadecimal de um site, tais como o [Windows Update Agent - Wiki de códigos de erro](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx). Por exemplo, o código de erro decimal 2149842970 é 8024001A hexadecimal, o que significa que não foi definido WU_E_POLICY_NOT_SET um valor de política.  
+Para procurar o significado de um código de erro, converter o código de erro decimal para hexadecimal e procure o valor hexadecimal de um site, tais como o [Windows Update Agent - Wiki de códigos de erro](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx). Por exemplo, o código de erro decimal 2149842970 é 8024001A hexadecimal, o que significa WU_E_POLICY_NOT_SET um valor de política não foi definido.  
 
 
 ###  <a name="BKMK_ManuallySwitchSUPs"></a> Mudar manualmente clientes para um novo ponto de atualização de software
@@ -455,8 +455,8 @@ Considere os seguintes cenários em que poderá ser necessário implementar uma 
 -   Se atualizar um software de substituição não foi aprovada para implementação no seu ambiente de produção.  
 
     > [!NOTE]  
-    > Antes do Configuration Manager versão 1806, quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, ele não define a atualização **recusada** no WSUS. Os clientes continuam a verificar a existência de uma atualização expirada até que a atualização será recusada manualmente ou através de um script personalizado.  Depois de 1806 de versão do Configuration Manager, Configuration Manager também será recusar as atualizações substituídas no WSUS. Para obter mais informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).
-
+    > - Antes do Configuration Manager versão 1806, quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, ele não define a atualização **recusada** no WSUS. Os clientes continuam a verificar a existência de uma atualização expirada até que a atualização será recusada manualmente ou através de um script personalizado.  Depois de 1806 de versão do Configuration Manager, Configuration Manager também será recusar as atualizações substituídas no WSUS. Para obter mais informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).
+    > - Partir 1810 de versão do Gestor de configuração, pode especificar o comportamento de regras de substituições de **funcionalidade de actualizações** separadamente do **não funcionalidade actualizações**.
 
 ###  <a name="BKMK_UpdateLanguages"></a> Idiomas  
 

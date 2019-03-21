@@ -2,21 +2,21 @@
 title: Instalar e configurar um ponto de atualização de software
 titleSuffix: Configuration Manager
 description: Sites primários requerem um ponto de atualização de software num site de administração central para a avaliação de compatibilidade de atualizações de software e para implementar o software de atualizações para os clientes.
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35a91b39b222707fb97fc122766c69188c2014a9
-ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
+ms.openlocfilehash: 286fb75eb16636ac129bc634e443d6bbfac3d44a
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58196845"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269023"
 ---
 # <a name="install-and-configure-a-software-update-point"></a>Instalar e configurar um ponto de atualização de software  
 
@@ -115,7 +115,7 @@ ms.locfileid: "58196845"
 >  Se optar por não ativar a sincronização de atualizações de software com base num agendamento, poderá sincronizar manualmente as atualizações de software a partir do nó **Todas as Atualizações de Software** ou **Grupos de Atualização de Software** na área de trabalho Biblioteca de Software. Para obter mais informações, consulte [sincronizar as atualizações de software](synchronize-software-updates.md).  
 
 ## <a name="supersedence-rules"></a>Regras de substituição  
- Configure as definições de substituição na página **Regras de Substituição** do assistente ou no separador **Regras de Substituição** das Propriedades do Componente do Ponto de Atualização de Software. Apenas pode configurar as regras de substituição no site de nível superior.  
+ Configure as definições de substituição na página **Regras de Substituição** do assistente ou no separador **Regras de Substituição** das Propriedades do Componente do Ponto de Atualização de Software. Apenas pode configurar as regras de substituição no site de nível superior. Partir 1810 de versão do Gestor de configuração, pode especificar o comportamento de regras de substituições de **funcionalidade de actualizações** separadamente do **não funcionalidade actualizações**. <!--3098809, 2977644-->
 
  Esta página permite especificar que as atualizações de software substituídas expiram de imediato, o que evitará que sejam incluídas nas novas implementações e instrui as implementações existentes para informar que as atualizações de software substituídas contêm uma ou mais atualizações de software expiradas. Em alternativa, pode especificar um prazo para que as atualizações de software substituídas expirem, permitindo-lhe continuar a implementá-las. Para obter mais informações, veja [Regras de substituição](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
 

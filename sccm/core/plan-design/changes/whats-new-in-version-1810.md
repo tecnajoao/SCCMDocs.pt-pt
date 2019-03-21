@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 03/06/2019
+ms.date: 03/15/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca001b5f066447115beeba23eaf0a4a63efe3ad
-ms.sourcegitcommit: ec4411fe30770f90128cf6cbd181047db90040cb
+ms.openlocfilehash: 73169fa1b64aefc1b7a486a67c7f4daf167667a8
+ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57881865"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58269105"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -29,7 +29,7 @@ Reveja sempre a lista de verificação mais recente para instalar esta atualiza�
 Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.
 
 > [!Note]  
-> Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
+> Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são anotadas com o ***[actualizado]*** tag. Esta nota será removida quando o conteúdo é finalizado.  
 
 > [!Tip]  
 > Para ser notificado quando esta página é atualizada, copie e cole o URL seguinte no seu feed de leitor de RSS: `https://docs.microsoft.com/api/search/rss?search=%22what%27s+new+in+version+1810+-+Configuration+Manager%22&locale=en-us`
@@ -84,7 +84,7 @@ Ao instalar ou atualizar para versão 1810, configuração do Configuration Mana
 
 ### <a name="new-permission-for-client-notification-actions"></a>Nova permissão para ações de notificação do cliente
 <!--SCCMDocs-pr issue #2972-->
-Ações de notificação do cliente agora exigem a **notificar recursos** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
+Acções de notificação do cliente requerem agora a **recurso notificar** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
 - Administrador total  
 - Administrador de infraestrutura  
 
@@ -130,7 +130,7 @@ Para obter mais informações, consulte [notificações do cliente](/sccm/core/c
 
 ### <a name="improvements-to-collection-evaluation"></a>Melhorias à avaliação de coleção
 <!--3607726, fka 1358981-->
-***[ATUALIZADO]***  As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
+***[ACTUALIZADO]***  As seguintes alterações no comportamento de avaliação de colecção podem melhorar o desempenho do site:  
 
 - Anteriormente, quando tiver configurado uma agenda numa coleção com base na consulta, o site continuaria a avaliar a consulta quer ou não tiver ativado a definição de coleção para **agendar uma atualização completa para esta coleção**. Para desabilitar totalmente a agenda, era necessário que alterar a agenda para **None**. Agora o site limpa a agenda quando desativar esta definição. Para especificar uma agenda para avaliação de coleção, ative a opção para **agendar uma atualização completa para esta coleção**.  
 
@@ -173,7 +173,7 @@ Para obter mais informações, consulte [dashboard de cogestão](/sccm/comanage/
 
 ### <a name="improvements-to-internet-based-client-setup"></a>Melhorias à configuração de clientes baseada na internet
 <!--3607731, fka 1359181-->
-***[ATUALIZADO]***  Ainda mais esta versão simplifica o processo de configuração de cliente do Configuration Manager para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
+***[ACTUALIZADO]***  Ainda mais esta edição simplifica o processo de configuração de cliente do Gestor de configuração para clientes na internet. O site publica informações adicionais do Azure Active Directory (Azure AD) para o gateway de gestão da cloud (CMG). Um cliente do Azure AD associado obtém essas informações de CMG, durante o processo de ccmsetup, utilizar o mesmo inquilino ao qual está associado. Este comportamento ainda mais simplifica a inscrição de dispositivos para a cogestão num ambiente com mais do que um inquilino do Azure AD. Agora, as propriedades de ccmsetup necessárias apenas duas são **CCMHOSTNAME** e **SMSSiteCode**.
 
 Para obter mais informações, consulte [como preparar os dispositivos baseados na internet para a cogestão](/sccm/comanage/how-to-prepare-Win10#install-the-configuration-manager-client).
 
@@ -187,7 +187,7 @@ Para obter mais informações, consulte [como preparar os dispositivos baseados 
 
 ### <a name="convert-applications-to-msix"></a>Converter aplicações para MSIX
 <!--3607729, fka 1359029-->
-***[Atualizado]***  a partir da versão 1806, o Configuration Manager suporta a implementação do novo formato de pacote (.msix) de aplicação com o Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
+***[Actualizado]***  Iniciar na versão 1806, Gestor de configuração suporta a implementação do novo formato de pacote (.msix) de aplicação do Windows 10. Agora, pode converter seus aplicativos existentes do Windows Installer (MSI) para o formato MSIX.
 
 Para obter mais informações, consulte [aplicativos Windows criar](/sccm/apps/get-started/creating-windows-applications#bkmk_msix).  
 
@@ -208,7 +208,7 @@ Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy
 
 ### <a name="detection-methods-dont-load-windows-powershell-profiles"></a>Métodos de deteção não carregam perfis do Windows PowerShell
 <!--3607762, fka 1359239-->
-***[ATUALIZADO]***  Pode utilizar scripts do Windows PowerShell para métodos de Deteção em aplicativos e configurações nos itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
+***[ACTUALIZADO]***  Pode utilizar scripts do Windows PowerShell para métodos de detecção de aplicações e definições de itens de configuração. Quando estes scripts são executados nos clientes, o cliente do Configuration Manager chama agora PowerShell com o `-NoProfile` parâmetro. Esta opção inicia PowerShell sem perfis. 
 
 Um perfil de PowerShell é um script que é executada quando o PowerShell é iniciado. Pode criar um perfil de PowerShell para personalizar o seu ambiente e para adicionar elementos específicos da sessão para cada sessão do PowerShell que começar. 
 
@@ -224,7 +224,7 @@ Para obter mais informações, consulte [criem aplicativos](/sccm/apps/deploy-us
 ### <a name="task-sequence-support-of-windows-autopilot-for-existing-devices"></a>Suporte de sequência de tarefas do Windows Autopilot para dispositivos existentes
 <!--3607717, fka 1358333-->
 
-***[Atualizado]***  [Windows Autopilot para dispositivos existentes](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/New-Windows-Autopilot-capabilities-and-expanded-partner-support/ba-p/260430) está agora disponível com o Windows 10, versão 1809 ou posterior. Esta nova funcionalidade permite-lhe criar uma nova imagem e aprovisionar um dispositivo Windows 7 para [modo de controlada pelo usuário do Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/user-driven) utilizando uma sequência de tarefas do Configuration Manager única e nativo. 
+***[Actualizado]***  [Windows Autopilot para dispositivos existentes](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/New-Windows-Autopilot-capabilities-and-expanded-partner-support/ba-p/260430) está agora disponível com 10 do Windows, versão 1809 ou posterior. Esta nova funcionalidade permite-lhe criar uma nova imagem e aprovisionar um dispositivo Windows 7 para [modo de controlada pelo usuário do Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/user-driven) utilizando uma sequência de tarefas do Configuration Manager única e nativo. 
 
 Para obter mais informações, consulte [Windows Autopilot para dispositivos existentes](/sccm/osd/deploy-use/windows-autopilot-for-existing-devices).
 
@@ -245,14 +245,20 @@ Para obter mais informações, consulte [grupos de limites](/sccm/core/servers/d
 
 ### <a name="improvements-to-driver-maintenance"></a>Melhoramentos à manutenção do controlador
 <!--3607716, fka 1358270-->
-***[ATUALIZADO]***  Pacotes de controladores agora têm campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
+***[ACTUALIZADO]***  Pacotes de controladores agora tem campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
 
 Para obter mais informações, consulte [gerir controladores](/sccm/osd/get-started/manage-drivers).
 
+### <a name="improvements-to-windows-10-servicing-plan-filters"></a>Melhoramentos do Windows 10 manutenção planear filtros
+
+<!--3098809, 3113836, 3204570 -->
+***[Actualizado]***  Foram adicionados filtros adicionais para Windows 10 planos de manutenção. Agora pode filtrar por **arquitectura**, **categoria do produto**, e se a actualização for **Superseded**.
+
+Para obter mais informações, consulte [plano de manutenção do Windows 10](/sccm/osd/deploy-use/manage-windows-as-a-service#BKMK_ServicingPlan).
 
 ### <a name="new-task-sequence-variable-for-last-action-name"></a>Nova variável de sequência de tarefas para o último nome de ação
 <!--SCCMDocs-pr issue #2964-->
-Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
+Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável de **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
 
 Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables#SMSTSLastActionName).
 
@@ -286,6 +292,13 @@ Por predefinição, esta opção está **não** para manter consistente com o co
 Agora executam as tarefas de limpeza do WSUS em sites secundários. Limpeza do WSUS para atualizações expiradas é executada e as atualizações substituídas, serão recusadas no WSUS para sites secundários.
 
 Para obter mais informações, consulte [o comportamento de limpeza WSUS a partir da versão 1810](/sccm/sum/deploy-use/software-updates-maintenance#wsus-cleanup-behavior-starting-in-version-1810)
+
+### <a name="improvement-to-software-update-supersedence-rules"></a>Melhoria de regras de substituições da actualização de software
+<!--3098809, 2977644-->
+
+***[Actualizado]***  Pode agora especificar regras de substituições de actualizações de funcionalidade separadamente da funcionalidade não actualizações. Isto significa que as actualizações não serão removidas do Gestor de configuração antes de ter concluído a servir os clientes de Windows 10.
+
+Para mais informações, consulte [Supersedence rules](/sccm/sum/get-started/install-a-software-update-point#supersedence-rules).
 
 ## <a name="bkmk_report"></a>Relatórios
 
@@ -381,7 +394,7 @@ O desempenho seguintes e resolução de problemas de melhorias de aplicam a CMPi
 
 ### <a name="sms-provider-api"></a>API do fornecedor de SMS
 <!--3607711, fka 1321523-->
-***[ATUALIZADO]***  o fornecedor de SMS agora fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
+***[ACTUALIZADO]***  o fornecedor de SMS fornece agora só de leitura acesso à interoperabilidade de API para WMI através de HTTPS, denominado o **o serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
 
 O **fornecedor de SMS** aparece como uma função com uma opção para permitir a comunicação através do gateway de gestão na cloud. A utilização atual para esta definição é ativar aprovações de aplicação através de e-mail a partir de um dispositivo remoto. 
 
@@ -410,7 +423,7 @@ O update rollup seguintes (4486457) está disponível na consola a partir de 25 
 
 As seguintes correções adicionais estão disponíveis para resolver problemas específicos:
 
-| ID | Título | Date | In-console |
+| ID | Título | Data | In-console |
 |---------|---------|---------|---------|
 | [4487960](https://support.microsoft.com/help/4487960) | Certificado de conector do Microsoft Intune não renovar no Configuration Manager | 18 de Janeiro de 2019 | Sim |
 | [4490434](https://support.microsoft.com/help/4490434) | Duplicar a deteção de utilizadores, as colunas são criadas no Configuration Manager | 22 de Fevereiro de 2019 | Sim |
