@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8e346aaabb03296f19a1eaf40d79c0f9f241cce
-ms.sourcegitcommit: f38ef9afb0c608c0153230ff819e5f5e0fb1520c
+ms.openlocfilehash: b8102e426e4737efdd5ca77de2824c1465b382ec
+ms.sourcegitcommit: 5f17355f954b9d9e10325c0e9854a9d582dec777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58197015"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58329503"
 ---
 # <a name="tutorial-deploy-office-365-to-pilot"></a>Tutorial: Implementar o Office 365 para piloto 
 
@@ -97,7 +97,7 @@ Antes de começar este tutorial, certifique-se de que tem os seguintes pré-requ
 
 Utilize este procedimento para iniciar sessão no ambiente de trabalho de análise e configurá-lo na sua subscrição. Este procedimento é um processo de uso individual para configurar a análise de ambiente de trabalho para a sua organização.  
 
-1. Abra o [do portal da análise de ambiente de trabalho](https://aka.ms/m365aprod) na gestão de dispositivos do Microsoft 365 como um utilizador com **administrador de empresa** permissões. Selecione **iniciar**.  
+1. Abra o portal da análise de ambiente de trabalho na gestão de dispositivos do Microsoft 365 como um utilizador com **administrador de empresa** permissões. Selecione **iniciar**.  
 
 2. Sobre o **aceitar o contrato de serviço** página, verifique o contrato de serviço e selecione **Accept**.  
 
@@ -134,7 +134,7 @@ Utilize este procedimento para iniciar sessão no ambiente de trabalho de análi
 
 ### <a name="create-an-app-in-azure-ad-for-configuration-manager"></a>Criar uma aplicação no Azure AD para o Configuration Manager  
 
-1. Na [portal do Azure](http://portal.azure.com), aceda à **Azure Active Directory**e selecione **registos das aplicações**. Em seguida, selecione **novo registo de aplicação**.  
+1. Na [portal do Azure](https://portal.azure.com), aceda à **Azure Active Directory**e selecione **registos das aplicações**. Em seguida, selecione **novo registo de aplicação**.  
 
 2. Na **criar** painel, configure as seguintes definições:  
 

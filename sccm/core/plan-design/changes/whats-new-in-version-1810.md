@@ -2,7 +2,7 @@
 title: Novidades na versão 1810
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1810 do Configuration Manager current branch.
-ms.date: 03/15/2019
+ms.date: 03/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73169fa1b64aefc1b7a486a67c7f4daf167667a8
-ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
+ms.openlocfilehash: 5e0b1e9404eb332a562b6d48db0f55e8726a09c8
+ms.sourcegitcommit: 5f17355f954b9d9e10325c0e9854a9d582dec777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58269105"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58329622"
 ---
 # <a name="whats-new-in-version-1810-of-configuration-manager-current-branch"></a>O que há de novo na versão 1810 do Configuration Manager current branch
 
@@ -29,7 +29,7 @@ Reveja sempre a lista de verificação mais recente para instalar esta atualiza�
 Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.
 
 > [!Note]  
-> Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são anotadas com o ***[actualizado]*** tag. Esta nota será removida quando o conteúdo é finalizado.  
+> Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
 
 > [!Tip]  
 > Para ser notificado quando esta página é atualizada, copie e cole o URL seguinte no seu feed de leitor de RSS: `https://docs.microsoft.com/api/search/rss?search=%22what%27s+new+in+version+1810+-+Configuration+Manager%22&locale=en-us`
@@ -61,10 +61,10 @@ Para obter mais informações, consulte [sistemas operativos suportados para ser
 
 
 ### <a name="hierarchy-support-for-site-server-high-availability"></a>Suporte de hierarquia para disponibilidade elevada do servidor de site
-<!--1358224-->
-Sites de administração central e sites primários subordinados agora podem ter um servidor de sites adicionais em modo passivo. 
+<!--3607755, fka 1358224-->
+***[Atualizado]***  Sites de administração central e sites primários subordinados agora podem ter um servidor de sites adicionais em modo passivo. 
 
-<!--For more information, see [Site server high availability](/sccm/core/servers/deploy/configure/site-server-high-availability).-->
+Para obter mais informações, consulte [elevada disponibilidade do servidor do Site](/sccm/core/servers/deploy/configure/site-server-high-availability).
 
 
 ### <a name="improvements-to-setup-prerequisites"></a>Melhorias para configurar os pré-requisitos
@@ -84,7 +84,7 @@ Ao instalar ou atualizar para versão 1810, configuração do Configuration Mana
 
 ### <a name="new-permission-for-client-notification-actions"></a>Nova permissão para ações de notificação do cliente
 <!--SCCMDocs-pr issue #2972-->
-Acções de notificação do cliente requerem agora a **recurso notificar** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
+Ações de notificação do cliente agora exigem a **notificar recursos** permissão na classe SMS_Collection. As seguintes funções incorporadas têm esta permissão, por predefinição:
 - Administrador total  
 - Administrador de infraestrutura  
 
@@ -130,7 +130,7 @@ Para obter mais informações, consulte [notificações do cliente](/sccm/core/c
 
 ### <a name="improvements-to-collection-evaluation"></a>Melhorias à avaliação de coleção
 <!--3607726, fka 1358981-->
-***[ACTUALIZADO]***  As seguintes alterações no comportamento de avaliação de colecção podem melhorar o desempenho do site:  
+***[ACTUALIZADO]***  As seguintes alterações no comportamento de avaliação de coleção podem melhorar o desempenho do site:  
 
 - Anteriormente, quando tiver configurado uma agenda numa coleção com base na consulta, o site continuaria a avaliar a consulta quer ou não tiver ativado a definição de coleção para **agendar uma atualização completa para esta coleção**. Para desabilitar totalmente a agenda, era necessário que alterar a agenda para **None**. Agora o site limpa a agenda quando desativar esta definição. Para especificar uma agenda para avaliação de coleção, ative a opção para **agendar uma atualização completa para esta coleção**.  
 
@@ -245,20 +245,20 @@ Para obter mais informações, consulte [grupos de limites](/sccm/core/servers/d
 
 ### <a name="improvements-to-driver-maintenance"></a>Melhoramentos à manutenção do controlador
 <!--3607716, fka 1358270-->
-***[ACTUALIZADO]***  Pacotes de controladores agora tem campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
+***[ATUALIZADO]***  Pacotes de controladores agora têm campos de metadados adicionais para **fabricante** e **modelo**. Utilize estes campos para os pacotes de controladores de etiqueta com informações para auxiliar na manutenção geral ou para identificar controladores antigos e duplicados, que pode eliminar.
 
 Para obter mais informações, consulte [gerir controladores](/sccm/osd/get-started/manage-drivers).
 
 ### <a name="improvements-to-windows-10-servicing-plan-filters"></a>Melhoramentos do Windows 10 manutenção planear filtros
 
 <!--3098809, 3113836, 3204570 -->
-***[Actualizado]***  Foram adicionados filtros adicionais para Windows 10 planos de manutenção. Agora pode filtrar por **arquitectura**, **categoria do produto**, e se a actualização for **Superseded**.
+***[Atualizado]***  Filtros adicionais foram adicionados a planos de manutenção do Windows 10. Agora pode filtrar por **arquitectura**, **categoria do produto**, e se a actualização for **Superseded**.
 
 Para obter mais informações, consulte [plano de manutenção do Windows 10](/sccm/osd/deploy-use/manage-windows-as-a-service#BKMK_ServicingPlan).
 
 ### <a name="new-task-sequence-variable-for-last-action-name"></a>Nova variável de sequência de tarefas para o último nome de ação
 <!--SCCMDocs-pr issue #2964-->
-Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável de **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
+Juntamente com a tarefa sequência variável _SMSTSLastActionRetCode, a sequência de tarefas também define uma nova variável **_SMSTSLastActionName**. Ele também registra este valor para o ficheiro smsts log. Esta nova variável é útil quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
 
 Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables#SMSTSLastActionName).
 
@@ -279,13 +279,14 @@ Para obter mais informações, consulte [criar implementações faseadas](/sccm/
 
 ### <a name="improvement-to-maintenance-windows-for-software-updates"></a>Melhoria para janelas de manutenção para atualizações de software
 <!--vso2839307-->
-A seguinte definição de cliente está no **atualizações de Software** grupo para controlar o comportamento de instalação de atualizações de software de janelas de manutenção: 
+***[Atualizado]***  a seguinte definição de cliente está no **atualizações de Software** grupo para controlar o comportamento de instalação de atualizações de software de janelas de manutenção: 
 
 **Ativar a instalação de atualizações na janela de manutenção de "Todas as implementações" quando a janela de manutenção "Atualização de Software" está disponível**
 
 Por predefinição, esta opção está **não** para manter consistente com o comportamento existente. Altere-o para **Sim** para permitir aos clientes utilizar outras janelas de manutenção disponíveis para instalar atualizações de software.
 
-<!--For more information, see []().-->
+Para obter mais informações, consulte [definições de cliente de atualizações de Software](/sccm/core/clients/deploy/about-client-settings#bkmk_SUMMaint).
+
 
 ### <a name="improvement-to-software-updates-maintenance"></a>Manutenção de atualizações de melhoria para o software
 <!--2839349-->
@@ -296,7 +297,7 @@ Para obter mais informações, consulte [o comportamento de limpeza WSUS a parti
 ### <a name="improvement-to-software-update-supersedence-rules"></a>Melhoria de regras de substituições da actualização de software
 <!--3098809, 2977644-->
 
-***[Actualizado]***  Pode agora especificar regras de substituições de actualizações de funcionalidade separadamente da funcionalidade não actualizações. Isto significa que as actualizações não serão removidas do Gestor de configuração antes de ter concluído a servir os clientes de Windows 10.
+***[Atualizado]***  Pode agora especificar regras de substituição para atualizações de funcionalidades separadamente a partir de atualizações de funcionalidade não. Isto significa que as actualizações não serão removidas do Gestor de configuração antes de ter concluído a servir os clientes de Windows 10.
 
 Para mais informações, consulte [Supersedence rules](/sccm/sum/get-started/install-a-software-update-point#supersedence-rules).
 
@@ -394,7 +395,7 @@ O desempenho seguintes e resolução de problemas de melhorias de aplicam a CMPi
 
 ### <a name="sms-provider-api"></a>API do fornecedor de SMS
 <!--3607711, fka 1321523-->
-***[ACTUALIZADO]***  o fornecedor de SMS fornece agora só de leitura acesso à interoperabilidade de API para WMI através de HTTPS, denominado o **o serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
+***[ATUALIZADO]***  o fornecedor de SMS agora fornece acesso de interoperabilidade de API só de leitura ao WMI através de HTTPS, chamado de **serviço de administração**. Esta API de REST pode servir-se no lugar de um serviço da web personalizado para aceder às informações do site.
 
 O **fornecedor de SMS** aparece como uma função com uma opção para permitir a comunicação através do gateway de gestão na cloud. A utilização atual para esta definição é ativar aprovações de aplicação através de e-mail a partir de um dispositivo remoto. 
 

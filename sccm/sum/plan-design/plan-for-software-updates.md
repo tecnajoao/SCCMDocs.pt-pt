@@ -2,21 +2,21 @@
 title: Planear atualizações de software
 titleSuffix: Configuration Manager
 description: Um plano para a infraestrutura de ponto de atualização de software é essencial antes de utilizar as atualizações de software num ambiente de produção do Configuration Manager.
-author: aczechowski
-ms.author: aaroncz
+author: mestew
+ms.author: mstewart
 manager: dougeby
-ms.date: 03/15/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55cb5154e9be3b8920c0309138835fb728ac7d21
-ms.sourcegitcommit: d71e558db2da124357b840332e2da671b3810507
+ms.openlocfilehash: a4100bca2f1cd1f770c2e739ec229dc020d5d8d8
+ms.sourcegitcommit: 5f17355f954b9d9e10325c0e9854a9d582dec777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58269119"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58329588"
 ---
 # <a name="plan-for-software-updates-in-configuration-manager"></a>Planear atualizações de software no Configuration Manager
 
@@ -143,7 +143,7 @@ Quando o Configuration Manager recebe qualquer um dos seguintes códigos de erro
 
 2149842970, 2147954429, 2149859352, 2149859362, 2149859338, 2149859344, 2147954430, 2147747475, 2149842974, 2149859342, 2149859372, 2149859341, 2149904388, 2149859371, 2149859367, 2149859366, 2149859364, 2149859363, 2149859361, 2149859360, 2149859359, 2149859358, 2149859357, 2149859356, 2149859354, 2149859353, 2149859350, 2149859349, 2149859340, 2149859339, 2149859332, 2149859333, 2149859334, 2149859337, 2149859336, 2149859335
 
-Para procurar o significado de um código de erro, converter o código de erro decimal para hexadecimal e procure o valor hexadecimal de um site, tais como o [Windows Update Agent - Wiki de códigos de erro](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx). Por exemplo, o código de erro decimal 2149842970 é 8024001A hexadecimal, o que significa WU_E_POLICY_NOT_SET um valor de política não foi definido.  
+Para procurar o significado de um código de erro, converter o código de erro decimal para hexadecimal e procure o valor hexadecimal de um site, tais como o [Windows Update Agent - Wiki de códigos de erro](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx). Por exemplo, o código de erro decimal 2149842970 é 8024001A hexadecimal, o que significa que não foi definido WU_E_POLICY_NOT_SET um valor de política.  
 
 
 ###  <a name="BKMK_ManuallySwitchSUPs"></a> Mudar manualmente clientes para um novo ponto de atualização de software
@@ -488,8 +488,11 @@ Configure as definições de detalhes do resumo apenas no site de nível superio
 
 ##  <a name="BKMK_MaintenanceWindow"></a> Planear uma janela de manutenção de atualizações de software  
 
-Adicione uma janela de manutenção dedicada para a instalação de atualizações de software. Esta ação permite-lhe configurar uma janela de manutenção geral e uma janela de manutenção diferente para atualizações de software. Quando configurar uma janela de manutenção geral e a janela de manutenção de atualizações de software, os clientes instalam atualizações de software apenas durante a janela de manutenção de atualizações de software. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
+Adicione uma janela de manutenção dedicada para a instalação de atualizações de software. Esta ação permite-lhe configurar uma janela de manutenção geral e uma janela de manutenção diferente para atualizações de software. Quando configurar uma janela de manutenção geral e a janela de manutenção de atualizações de software, os clientes instalam atualizações de software apenas durante a janela de manutenção de atualizações de software. 
 
+A partir do Configuration Manager versão 1810, pode alterar este comportamento e permitir que as atualizações de software instalar durante uma janela de manutenção geral. Para obter mais informações sobre esta definição de cliente, consulte [definições de cliente de atualizações de Software](/sccm/core/clients/deploy/about-client-settings#bkmk_SUMMaint).
+
+Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 
 ##  <a name="BKMK_RestartOptions"></a> Opções de reinício para clientes do Windows 10 após a instalação de atualizações de software

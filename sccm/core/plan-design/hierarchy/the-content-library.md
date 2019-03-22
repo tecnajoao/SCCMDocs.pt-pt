@@ -2,7 +2,7 @@
 title: A biblioteca de conteúdos
 titleSuffix: Configuration Manager
 description: Saiba mais sobre a biblioteca de conteúdos do Configuration Manager utiliza para reduzir o tamanho geral do conteúdo distribuído.
-ms.date: 09/19/2018
+ms.date: 03/20/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0453f181133b69dcf3fe83032da0eace84718cf3
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 9b082e28fde0b1ae53a00b9d3236764d03b474ed
+ms.sourcegitcommit: 5f17355f954b9d9e10325c0e9854a9d582dec777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56129277"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58329520"
 ---
 # <a name="the-content-library-in-configuration-manager"></a>A biblioteca de conteúdos no Configuration Manager
 
@@ -75,7 +75,8 @@ Utilize as seguintes opções para gerir a biblioteca de conteúdos no site de a
 
 
 ## <a name="bkmk_remote"></a> Configurar uma biblioteca de conteúdos remota para o servidor do site  
-<!--1357525--> A partir da versão 1806, para configurar [elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability) ou para libertar espaço no disco rígido no seu administração central ou servidores de site primário, reposicionar a biblioteca de conteúdos para outra localização de armazenamento. Mova a biblioteca de conteúdos para outra unidade no servidor do site, um servidor separado ou discos tolerante a falhas na rede de armazenamento (SAN). Uma SAN é recomendada, porque está altamente disponível e fornece armazenamento elástico que aumenta ou diminui ao longo do tempo para atender às suas necessidades em constante mudança conteúdas. Para obter mais informações, consulte [opções de elevada disponibilidade](/sccm/protect/understand/high-availability-options).
+<!--1357525-->
+A partir da versão 1806, para configurar [elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability) ou para libertar espaço no disco rígido no seu administração central ou servidores de site primário, reposicionar a biblioteca de conteúdos para outra localização de armazenamento. Mova a biblioteca de conteúdos para outra unidade no servidor do site, um servidor separado ou discos tolerante a falhas na rede de armazenamento (SAN). Uma SAN é recomendada, porque está altamente disponível e fornece armazenamento elástico que aumenta ou diminui ao longo do tempo para atender às suas necessidades em constante mudança conteúdas. Para obter mais informações, consulte [opções de elevada disponibilidade](/sccm/protect/understand/high-availability-options).
 
 Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability). 
 
@@ -90,7 +91,7 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 
 ### <a name="prerequisites"></a>Pré-requisitos  
 
-- A conta de computador do servidor de site precisa **ler** e **escrever** permissões para o caminho de rede à qual esteja a mover a biblioteca de conteúdos. Não estão instalados componentes no sistema remoto.  
+- A conta de computador do servidor de site precisa **controlo total** permissões para o caminho de rede à qual esteja a mover a biblioteca de conteúdos. Esta permissão aplica-se para a partilha e o sistema de ficheiros. Não estão instalados componentes no sistema remoto.
 
 - O servidor do site não pode ter a função de ponto de distribuição. O ponto de distribuição também utiliza a biblioteca de conteúdos e esta função não suporta uma biblioteca de conteúdos remota. Depois de mover a biblioteca de conteúdos, não é possível adicionar a função de ponto de distribuição para o servidor do site.  
 
@@ -115,6 +116,9 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 
    - Embora **em curso**, o **mover progresso (%)** valor apresenta a percentagem concluída.  
 
+        > [!Note]  
+        > Se tiver uma grande biblioteca de conteúdos, poderá ver `0%` progresso na consola durante algum tempo. Por exemplo, com uma biblioteca de 1 TB, ele tem de copiar 10 GB antes de ele mostra `1%`. Revisão **distmgr**, que mostra o número de bytes copiados e de ficheiros. A partir da versão 1810, o ficheiro de registo também mostra um tempo estimado restante.
+
    - Se houver um Estado de erro, o estado é apresentado o erro. Erros comuns incluem **acesso negado** ou **disco cheio**.  
 
    - Quando terminar apresenta **Complete**.  
@@ -124,6 +128,10 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 Para obter mais informações sobre este processo, consulte [fluxograma - gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart).
 
 O site realmente *cópias* os ficheiros de biblioteca de conteúdos para o local remoto. Este processo não elimina os ficheiros de biblioteca de conteúdos disponíveis na localização original do servidor do site. Para libertar espaço, um administrador tem de eliminar manualmente esses arquivos originais.
+
+Se a biblioteca de conteúdos original se estende por duas unidades, ele é intercalado com uma única pasta no novo destino. 
+
+A partir da versão 1810, durante o processo de cópia, o site interrompe a **Despooler** e **Gestor de distribuição** componentes. Esta ação torna-se de que o conteúdo não está adicionado à biblioteca enquanto estiver se movendo. Seja como for, agende esta alteração durante a manutenção de sistema.
 
 Se precisar de mover a biblioteca de conteúdos de volta ao servidor do site, repita este processo, mas que introduza uma unidade local e o caminho para o **nova localização**. Tem de incluir um nome de pasta que já existe na unidade, por exemplo, `D:\SCCMContentLib`. Quando o conteúdo original continua a existir, o processo move rapidamente a configuração para a localização local no servidor do site. 
 

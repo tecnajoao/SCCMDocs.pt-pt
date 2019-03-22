@@ -2,7 +2,7 @@
 title: Definições do cliente
 titleSuffix: Configuration Manager
 description: Saiba mais sobre o padrão e definições personalizadas para controlar os comportamentos de cliente
-ms.date: 08/31/2018
+ms.date: 03/21/2019
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9a06e9f0607161b87422d29ede028da0e8aea8c
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 472cf012805700e1ec2de2f3c83a0ef63e10183b
+ms.sourcegitcommit: 5f17355f954b9d9e10325c0e9854a9d582dec777
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56140903"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58329605"
 ---
 # <a name="about-client-settings-in-configuration-manager"></a>Acerca das definições de cliente no Configuration Manager
 
@@ -294,7 +294,8 @@ Para obter mais informações sobre como utilizar janelas de manutenção, veja 
 
 ## <a name="delivery-optimization"></a>Otimização da entrega
 
-<!-- 1324696 --> Utilizar grupos de limites do Configuration Manager para definir e regular a distribuição de conteúdo em sua rede empresarial e em escritórios remotos. [Otimização da entrega do Windows](https://docs.microsoft.com/windows/deployment/update/waas-delivery-optimization) é uma tecnologia baseada na cloud, o ponto-a-ponto para partilhar conteúdo entre os dispositivos Windows 10. A partir da versão 1802, configure a otimização de entrega a utilizar os grupos de limites, quando partilha de conteúdo entre elementos de rede.
+<!-- 1324696 -->
+Utilizar grupos de limites do Configuration Manager para definir e regular a distribuição de conteúdo em sua rede empresarial e em escritórios remotos. [Otimização da entrega do Windows](https://docs.microsoft.com/windows/deployment/update/waas-delivery-optimization) é uma tecnologia baseada na cloud, o ponto-a-ponto para partilhar conteúdo entre os dispositivos Windows 10. A partir da versão 1802, configure a otimização de entrega a utilizar os grupos de limites, quando partilha de conteúdo entre elementos de rede.
 
  > [!Note]
  > Otimização da entrega só está disponível em clientes Windows 10
@@ -722,7 +723,7 @@ Selecione **agenda** para ajustar a frequência que os clientes executam o ciclo
 
 
 
-##  <a name="software-updates"></a>Atualizações de software  
+## <a name="software-updates"></a>Atualizações de software  
 
 ### <a name="enable-software-updates-on-clients"></a>Ativar atualizações de software nos clientes
 
@@ -774,6 +775,10 @@ Esta definição configura a porta local para o serviço de escuta HTTP baixar c
 ### <a name="enable-management-of-the-office-365-client-agent"></a>Ativar a gestão do agente de cliente do Office 365
 
 Quando define esta opção como **Sim**, permite que a configuração das definições de instalação do Office 365. Ele também permite a transferir ficheiros a partir de redes de entrega de conteúdos (CDNs) do Office e implantar os arquivos como uma aplicação no Configuration Manager. Para obter mais informações, consulte [gerir o Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
+
+### <a name="bkmk_SUMMaint"></a> Ativar a instalação de atualizações de software na janela de manutenção de "Todas as implementações" quando a janela de manutenção "Atualização de Software" está disponível
+
+Quando define esta opção como **Sim** e o cliente tenha, pelo menos, uma janela de manutenção de "Atualização de Software" definida, as atualizações de software serão instalado durante uma janela de manutenção de "Todas as implementações". Por predefinição, esta definição encontra-se definida como **Não**. Esta definição de cliente foi adicionado no Configuration Manager versão 1810. <!--2839307-->
 
 ### <a name="enable-third-party-software-updates"></a>Ativar as atualizações de software de terceiros 
 
