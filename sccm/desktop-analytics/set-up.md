@@ -12,12 +12,12 @@ ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd3a9efcbc76647ae39eb1a104b401b112d15fb
-ms.sourcegitcommit: 874d78f08714a509f61c52b154387268f5b73242
+ms.openlocfilehash: 7b20637cea4e02f390ae845ff9d421e5011120ab
+ms.sourcegitcommit: 4441b3035222cfaf7442416873ed824ac7d852c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119842"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58356330"
 ---
 # <a name="how-to-set-up-desktop-analytics"></a>Como configurar a análise de ambiente de trabalho 
 
@@ -30,7 +30,7 @@ Utilize este procedimento para iniciar sessão no ambiente de trabalho de análi
 
 ## <a name="initial-onboarding"></a>Integração inicial
 
-1. Abra o [do portal da análise de ambiente de trabalho](https://aka.ms/m365aprod) na gestão de dispositivos do Microsoft 365 como um utilizador com **administrador de empresa** permissões. Selecione **iniciar**.  
+1. Abra o portal da análise de ambiente de trabalho na gestão de dispositivos do Microsoft 365 como um utilizador com **administrador de empresa** permissões. Selecione **iniciar**.  
 
 2. Sobre o **aceitar o contrato de serviço** página, verifique o contrato de serviço e selecione **Accept**.  
 
